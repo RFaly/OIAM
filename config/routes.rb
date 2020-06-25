@@ -45,4 +45,32 @@ Some setup you must do manually if you haven't yet:
 
 ===============================================================================
 
+
+        new_client_session GET    /clients/sign_in(.:format)       clients/sessions#new
+    destroy_client_session DELETE /clients/sign_out(.:format)      clients/sessions#destroy
+       new_client_password GET    /clients/password/new(.:format)  devise/passwords#new
+      edit_client_password GET    /clients/password/edit(.:format) devise/passwords#edit
+cancel_client_registration GET    /clients/cancel(.:format)        clients/registrations#cancel
+   new_client_registration GET    /clients/sign_up(.:format)       clients/registrations#new
+  edit_client_registration GET    /clients/edit(.:format)          clients/registrations#edit
+
+
+         new_cadre_session GET    /cadres/sign_in(.:format)        cadres/sessions#new
+     destroy_cadre_session DELETE /cadres/sign_out(.:format)       cadres/sessions#destroy
+        new_cadre_password GET    /cadres/password/new(.:format)   devise/passwords#new
+       edit_cadre_password GET    /cadres/password/edit(.:format)  devise/passwords#edit
+ cancel_cadre_registration GET    /cadres/cancel(.:format)         cadres/registrations#cancel
+    new_cadre_registration GET    /cadres/sign_up(.:format)        cadres/registrations#new
+   edit_cadre_registration GET    /cadres/edit(.:format)           cadres/registrations#edit
+
+
+         new_admin_session GET    /admins/sign_in(.:format)        admins/sessions#new
+     destroy_admin_session DELETE /admins/sign_out(.:format)       admins/sessions#destroy
+        new_admin_password GET    /admins/password/new(.:format)   devise/passwords#new
+       edit_admin_password GET    /admins/password/edit(.:format)  devise/passwords#edit
+ cancel_admin_registration GET    /admins/cancel(.:format)         admins/registrations#cancel
+    new_admin_registration GET    /admins/sign_up(.:format)        admins/registrations#new
+   edit_admin_registration GET    /admins/edit(.:format)           admins/registrations#edit
+
+
 =end
