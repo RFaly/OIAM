@@ -5,14 +5,23 @@ Rails.application.routes.draw do
 
 	#~~~~~~~~~~~~~~~~~~~~ Client ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	get '/recruteur', to: 'client#main', as: 'main_recruiter'
-	devise_for :clients, path: 'clients'
+	devise_for :clients, path: 'clients', controllers: {
+    sessions: 'clients/sessions'
+    registrations: 'clients/registrations'
+  }
 
 	#~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	get '/cadre', to: 'cadre#main', as: 'main_cadre'
-	devise_for :cadres, path: 'cadres'
+	devise_for :cadres, path: 'cadres', controllers: {
+    sessions: 'cadres/sessions'
+    registrations: 'cadres/registrations'
+  }
 
 	#~~~~~~~~~~~~~~~~~~~~ Admin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	devise_for :admins, path: 'admins'
+	devise_for :admins, path: 'admins', controllers: {
+  	sessions: 'admins/sessions'
+  	registrations: 'admins/registrations'
+  }
 
 end
 
