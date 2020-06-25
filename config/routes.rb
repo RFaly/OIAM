@@ -17,11 +17,6 @@ Rails.application.routes.draw do
 end
 
 
-
-# rails generate devise:controllers clients
-# rails generate devise:controllers admins
-
-
 =begin
 
 ===============================================================================
