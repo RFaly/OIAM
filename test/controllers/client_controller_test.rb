@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class RecruiterControllerTest < ActionDispatch::IntegrationTest
+class ClientControllerTest < ActionDispatch::IntegrationTest
   test "should get main" do
-    get recruiter_main_url
+    get client_main_url
     assert_response :success
   end
 

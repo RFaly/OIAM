@@ -11,6 +11,17 @@
 
   <body>
     
+    <!-- ~~~~~~~~~~~~~~ Alert devise ito ~~~~~~~~~~~~~~ -->
+    <div>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    </div>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
     <br>
     <br>
     <br>
@@ -23,5 +34,17 @@
     <br>
 
     <%= yield %>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
   </body>
 </html>
