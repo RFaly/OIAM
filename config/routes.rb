@@ -4,22 +4,22 @@ Rails.application.routes.draw do
 	get '/wellcome', to: 'static_page#allHome', as: 'wellcome'
 
 	#~~~~~~~~~~~~~~~~~~~~ Client ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	get '/recruteur', to: 'client#main', as: 'main_recruiter'
+	get '/recruteur', to: 'recruteurs#main', as: 'main_recruiter'
 	devise_for :clients, path: 'clients', controllers: {
-    sessions: 'clients/sessions'
+    sessions: 'clients/sessions',
     registrations: 'clients/registrations'
   }
 
 	#~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	get '/cadre', to: 'cadre#main', as: 'main_cadre'
+	get '/cadre', to: 'candidates#main', as: 'main_cadre'
 	devise_for :cadres, path: 'cadres', controllers: {
-    sessions: 'cadres/sessions'
+    sessions: 'cadres/sessions',
     registrations: 'cadres/registrations'
   }
 
 	#~~~~~~~~~~~~~~~~~~~~ Admin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :admins, path: 'admins', controllers: {
-  	sessions: 'admins/sessions'
+  	sessions: 'admins/sessions',
   	registrations: 'admins/registrations'
   }
 
@@ -36,6 +36,8 @@ Some setup you must do manually if you haven't yet:
   For example:
 
     Rails.application.routes.draw do
+  get 'candidates/main'
+  get 'recruteurs/main'
       devise_for :users, controllers: {
         sessions: 'users/sessions'
       }
