@@ -1,0 +1,2 @@
+module CadreHelper
+end
