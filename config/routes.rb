@@ -11,11 +11,26 @@ Rails.application.routes.draw do
   }
 
 	#~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	get '/cadre', to: 'candidates#main', as: 'main_cadre'
 	devise_for :cadres, path: 'cadres', controllers: {
     sessions: 'cadres/sessions',
     registrations: 'cadres/registrations'
   }
+	get '/cadre', to: 'candidates#main', as: 'main_cadre'
+
+  # list menu dans le dashbord candidat
+  get '/cadre/mon_profil', to: 'candidates#my_profil', as: 'my_profil'
+  get '/cadre/mon_profil/offres', to: 'candidates#searchJob', as: 'searchJob'
+  get '/cadre/mon_profil/offres-favorites', to: 'candidates#favoriteJob', as: 'favoriteJob'
+  get '/cadre/mon_profil/suivi-recrutement', to: 'candidates#recrutmentMonitoring', as: 'recrutment_monitoring'
+
+  # les 3 test a faire
+  get '/cadre/potential-test', to: 'candidates#testpotential', as: 'testpotential'
+  get '/cadre/skills-test', to: 'candidates#testskills', as: 'testskills'
+  get '/cadre/fit-test', to: 'candidates#testfit', as: 'testfit'
+
+  # tokony post ito
+  get '/cadre/resultat-test', to: 'candidates#resultatsTest', as: 'resultatsTest'
+
 
 	#~~~~~~~~~~~~~~~~~~~~ Admin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :admins, path: 'admins', controllers: {
