@@ -4,24 +4,76 @@
 	</div>
 
 	<div class="col-sm-9">
-		<h2>Bienvenue sur One In A Million</h2>
+		<div>
+			<h2>Bienvenue sur One In A Million</h2>
+			<p>Il est temps de passer notre test  en 3 phases : </p>
+			<p>POTENTIAL  : test général de recrutement prédictif (50mn) <br>
+			SKILLS : test technique sur un métier prédéfini (15mn) <br>
+			FIT : entretien humain avec un expet OIAM (30mn) <br></p>
+			<p>Chaque étape est éliminatoire, ou donne lieu à une seconde étape, en fonction du résultat.</p>
+			<p>L’ensemble du test (3 étapes) doit être fait en 48 heures.</p>
+			<p>Si vous n’êtes pas retenu au test, ou que vous souhaitez améliorer votre résultat, vous avez la possibilité de réserver un coaching sur-mésure.</p>
+			<p>Votre score donne lieu à la délivrance d’un certificat OIAM.
+			(possibilité de partager son score sur les réseaux)</p>
+			<%= link_to "COMMENCER", testpotential_path %>
+		</div>
 
-		<p>Il est temps de passer notre test  en 3 phases : </p>
 
-		<p>POTENTIAL  : test général de recrutement prédictif (50mn) <br>
-		SKILLS : test technique sur un métier prédéfini (15mn) <br>
-		FIT : entretien humain avec un expet OIAM (30mn) <br></p>
+		<hr>
+		<b>après test réussi</b>
+		<hr>
 
-		<p>Chaque étape est éliminatoire, ou donne lieu à une seconde étape, en fonction du résultat.</p>
+		<div>
+			<form>
+				<div class="form-group">
+					<label for="question1">Que faites-vous actuellement et que recherchez-vous comme type de poste ?</label><br>
+					<textarea class="form-control" rows="3" id="question1"></textarea>
+				</div>
 
-		<p>L’ensemble du test (3 étapes) doit être fait en 48 heures.</p>
+				<div class="form-group">
+					<label>
+						Où souhaitez-vous travailler et acceptez-vous les déplacements ?
+					</label><br>
+					<textarea class="form-control" rows="3"></textarea>
+				</div>
 
-		<p>Si vous n’êtes pas retenu au test, ou que vous souhaitez améliorer votre résultat, vous avez la possibilité de réserver un coaching sur-mésure.</p>
+				<div class="form-group">
+					<label>
+						Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?
+					</label><br>
+					<textarea class="form-control" rows="3"></textarea>
+				</div>
 
-		<p>Votre score donne lieu à la délivrance d’un certificat OIAM.
-		(possibilité de partager son score sur les réseaux)</p>
+				<div class="form-group">
+					<label>
+						Quel est le minimum salarial en dessous duquel il n’est pas nécessaire de vous contacter ?
+					</label><br>
+					<textarea class="form-control" rows="3"></textarea>
+				</div>
 
-		<%= link_to "COMMENCER", testpotential_path %>
+				<div class="form-group">
+					<label>
+						Parlez-nous de vous ?
+					</label><br>
+					<textarea class="form-control" rows="3"></textarea>
+				</div>
+
+				<div class="form-group">
+					<select>
+						<option>STATUS</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					Photo de profil
+				</div>
+
+				<div class="form-group">
+					<input type="submit" name="" value="APERÇU">
+				</div>
+			</form>
+			
+		</div>
 
 	</div>
 </div>

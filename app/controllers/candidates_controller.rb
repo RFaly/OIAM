@@ -1,5 +1,4 @@
 class CandidatesController < ApplicationController
-	
   def main
   end
 
@@ -26,7 +25,6 @@ class CandidatesController < ApplicationController
 
 # Resultat test
   def resultatsTest
-    
   end
 
 
