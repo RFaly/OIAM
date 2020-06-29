@@ -64,4 +64,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ my gem ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 gem 'devise'
 gem 'table_print'
-gem 'rails-i18n', '~> 6.0.0'
+gem 'rails-i18n', '~> 5.1'
