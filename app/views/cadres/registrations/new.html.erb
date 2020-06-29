@@ -1,29 +1,56 @@
-<h2>Sign up CANDIDAT</h2>
+<h2>INSCRIPTION</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "cadres/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :last_name,"Votre nom" %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "Votre nom" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :first_name,"Votre prénom" %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "Votre prénom" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :adresse,"Votre adresse" %><br />
+    <%= f.text_field :adresse, autofocus: true, autocomplete: "Votre adresse" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :situation,"Votre situation" %><br />
+    <%= f.text_field :situation, autofocus: true, autocomplete: "Votre situation" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telephone,"Votre téléphone" %><br />
+    <%= f.text_field :telephone, autofocus: true, autocomplete: "Votre téléphone" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email,"Votre email" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "Votre email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password,"Votre mot de passe" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> caractères minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation,"Confirmer votre mot de passe" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "S'INSCRIRE" %>
   </div>
+
 <% end %>
 
 <%= render "cadres/shared/links" %>
+
