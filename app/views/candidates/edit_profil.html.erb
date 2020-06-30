@@ -1,0 +1,53 @@
+<div class="row">
+	<div class="col-sm-3">
+		<%= render partial: "candidates/left_link_bar" %>
+	</div>
+
+	<div class="col-sm-9">
+		<hr>
+			<b>après test réussi</b>
+		<hr>
+
+		<div>
+			<%= form_for @cadre , url: confirmedProfil_path do |f| %>
+				<div class="form-group">
+					<%= f.label :question1, "Que faites-vous actuellement et que recherchez-vous comme type de poste ?", class:"ggag" %>
+					<%= f.text_area :question1, rows:3, class:"form-control" %>
+				</div>
+
+				<div class="form-group">
+					<%= f.label :question2, "Où souhaitez-vous travailler et acceptez-vous les déplacements ?" %>
+					<%= f.text_area :question2, rows:3, class:"form-control" %>
+				</div>
+
+				<div class="form-group">
+					<%= f.label :question3, "Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?" %>
+					<%= f.text_area :question3, rows:3, class:"form-control" %>
+				</div>
+
+				<div class="form-group">
+					<%= f.label :question4, "Quel est le minimum salarial en dessous duquel il n’est pas nécessaire de vous contacter ?" %>
+					<%= f.text_area :question4, rows:3, class:"form-control" %>
+				</div>
+
+				<div class="form-group">
+					<%= f.label :question5, "Parlez-nous de vous ?" %>
+					<%= f.text_area :question5, rows:3, class:"form-control" %>
+				</div>
+
+				<div class="form-group">
+					<%= f.select(:status, ['EN RECHERCHE ACTIVE',' ',' '], {}, { :class => 'form-control' }) %>
+				</div>
+
+				<div class="form-group">
+					<%= f.label :image, "Photo de profil" %>
+					<%= f.file_field :image %>
+				</div>
+
+				<div class="form-group">
+					<%= f.submit("APERÇU") %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

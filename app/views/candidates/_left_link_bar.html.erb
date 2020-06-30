@@ -1,6 +1,15 @@
+<style type="text/css">
+	.photo_ako{
+		width: 150px;
+	}
+</style>
+
 <div>
+	<% unless @cadre.image.nil? %>
+		<li><%= image_tag(@cadre.image, alt: 'photo de profil', class:'photo_ako')%></li>
+	<% end %>
 	<li><%= link_to "MON PROFIL", my_profil_path %></li>
-	<li><%= link_to "MES TESTS", "#" %></li>
+	<li><%= link_to "MES TESTS", my_tests_path %></li>
 	<li><%= link_to "RECHERCHE D’OFFRES", searchJob_path %></li>
 	<li><%= link_to "MES OFFRES FAVORITES", favoriteJob_path %></li>
 	<li><%= link_to "MON SUIVI RECRUTEMENT", recrutment_monitoring_path %></li>

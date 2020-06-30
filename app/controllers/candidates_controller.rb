@@ -7,6 +7,20 @@ class CandidatesController < ApplicationController
 # dashbord
   def my_profil #miaraka ny profil sy test
     @cadre = current_cadre
+    if @cadre.potential_test.nil? || @cadre.skils_test.nil? || @cadre.fit_test.nil?
+      redirect_to my_tests_path
+    elsif @cadre.question1.nil? || @cadre.question2.nil? || @cadre.question3.nil? || @cadre.question4.nil? || @cadre.question5.nil?
+      redirect_to edit_profil_path
+    end
+  end
+
+
+  def my_tests
+    @cadre = current_cadre
+  end
+
+  def edit_profil
+    @cadre = current_cadre
   end
 
   def confirmedProfil
@@ -21,6 +35,7 @@ class CandidatesController < ApplicationController
       @cadre.image = uploader.url
       @cadre.update(post_params)
       @cadre.save
+      redirect_to my_profil_path
     end
 
   end
@@ -54,7 +69,7 @@ class CandidatesController < ApplicationController
 end
 
 =begin
-  <%= image_tag(@cadre.image, alt: 'Image')%>
+  
 
 
 

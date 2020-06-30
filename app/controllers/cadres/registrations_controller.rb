@@ -56,7 +56,7 @@ class Cadres::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up.
   def after_sign_up_path_for(resource)
     # super(resource)
-    my_profil_path
+    my_tests_path
   end
 
   # The path used after sign up for inactive accounts.

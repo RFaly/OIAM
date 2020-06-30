@@ -15,11 +15,14 @@ Rails.application.routes.draw do
     sessions: 'cadres/sessions',
     registrations: 'cadres/registrations'
   }
+
 	get '/cadre', to: 'candidates#main', as: 'main_cadre'
-  
+
   # list menu dans le dashbord candidat
   get '/cadre/mon_profil', to: 'candidates#my_profil', as: 'my_profil'
-
+  get '/cadre/mon_profil/edit', to: 'candidates#edit_profil', as: 'edit_profil'
+  get '/cadre/mes_tests', to: 'candidates#my_tests', as: 'my_tests'
+  
   patch '/cadre/confirmed-profil', to: 'candidates#confirmedProfil', as: 'confirmedProfil'
 
   get '/cadre/mon_profil/offres', to: 'candidates#searchJob', as: 'searchJob'

@@ -1,71 +1,63 @@
-<div class="row">
 
+<div class="row">
 	<div class="col-sm-3">
 		<%= render partial: "candidates/left_link_bar" %>
 	</div>
 
 	<div class="col-sm-9">
-		<div>
-			<h2>Bienvenue sur One In A Million</h2>
-			<p>Il est temps de passer notre test  en 3 phases : </p>
-			<p>POTENTIAL  : test général de recrutement prédictif (50mn) <br>
-			SKILLS : test technique sur un métier prédéfini (15mn) <br>
-			FIT : entretien humain avec un expet OIAM (30mn) <br></p>
-			<p>Chaque étape est éliminatoire, ou donne lieu à une seconde étape, en fonction du résultat.</p>
-			<p>L’ensemble du test (3 étapes) doit être fait en 48 heures.</p>
-			<p>Si vous n’êtes pas retenu au test, ou que vous souhaitez améliorer votre résultat, vous avez la possibilité de réserver un coaching sur-mésure.</p>
-			<p>Votre score donne lieu à la délivrance d’un certificat OIAM.
-			(possibilité de partager son score sur les réseaux)</p>
-			<%= link_to "COMMENCER", testpotential_path %>
-		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<%= image_tag(@cadre.image, alt: 'photo de profil', class:'photo_ako')%> <br>
+				<p>
+				<%= @cadre.last_name %> <%= @cadre.first_name %> <br>
 
+				Score du test : <br>
+				<ul>
+					<li><%= @cadre.potential_test %></li>
+					<li><%= @cadre.skils_test %></li>
+					<li><%= @cadre.fit_test %></li>
+				</ul>
 
-		<hr>
-			<b>après test réussi</b>
-		<hr>
-
-		<div>
-			<%= form_for @cadre , url: confirmedProfil_path do |f| %>
-				<div class="form-group">
-					<%= f.label :question1, "Que faites-vous actuellement et que recherchez-vous comme type de poste ?", class:"ggag" %>
-					<%= f.text_area :question1, rows:3, class:"form-control" %>
+				<div>
+					Type de post: <br>
+					<strong>Manager marketing</strong>
 				</div>
 
-				<div class="form-group">
-					<%= f.label :question2, "Où souhaitez-vous travailler et acceptez-vous les déplacements ?" %>
-					<%= f.text_area :question2, rows:3, class:"form-control" %>
+				<div>
+					Dispo: <br>
+					<strong>Maintenant</strong>
 				</div>
 
-
-				<div class="form-group">
-					<%= f.label :question3, "Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?" %>
-					<%= f.text_area :question3, rows:3, class:"form-control" %>
+				<div>
+					Mobilité: <br>
+					<strong>Ile de France</strong>
 				</div>
 
-				<div class="form-group">
-					<%= f.label :question4, "Quel est le minimum salarial en dessous duquel il n’est pas nécessaire de vous contacter ?" %>
-					<%= f.text_area :question4, rows:3, class:"form-control" %>
+				<div>
+					Salaire: <%= @cadre.question4 %>
 				</div>
 
-				<div class="form-group">
-					<%= f.label :question5, "Parlez-nous de vous ?" %>
-					<%= f.text_area :question5, rows:3, class:"form-control" %>
-				</div>
+				</p>
+			</div>
 
-				<div class="form-group">
-					<%= f.select(:status, ['EN RECHERCHE ACTIVE',' ',' '], {}, { :class => 'form-control' }) %>
-				</div>
+			<div class="col-sm-9">
 
-				<div class="form-group">
-					<%= f.label :image, "Photo de profil" %>
-					<%= f.file_field :image %>
-				</div>
+				<h2>Que faites-vous actuellement et que recherchez-vous comme type de poste ?</h2>
+				<p><%= @cadre.question1 %></p>
 
-				<div class="form-group">
-					<%= f.submit("APERÇU") %>
-				</div>
-			<% end %>
+				<h2>Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h2>
+				<p><%= @cadre.question2 %></p>
+
+				<h2>Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?</h2>
+				<p><%= @cadre.question3 %></p>
+
+				<h2>Quel est le minimum salarial en dessous duquel il n’est pas nécessaire de vous contacter ?</h2>
+				<p><%= @cadre.question4 %></p>
+
+				<h2>Parlez-nous de vous ?</h2>
+				<p><%= @cadre.question5 %></p>
+
+			</div>
 		</div>
 	</div>
 </div>
-
