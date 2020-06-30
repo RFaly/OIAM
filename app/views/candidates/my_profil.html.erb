@@ -1,4 +1,5 @@
 <div class="row">
+
 	<div class="col-sm-3">
 		<%= render partial: "candidates/left_link_bar" %>
 	</div>
@@ -20,60 +21,51 @@
 
 
 		<hr>
-		<b>après test réussi</b>
+			<b>après test réussi</b>
 		<hr>
 
 		<div>
-			<form>
+			<%= form_for @cadre , url: confirmedProfil_path do |f| %>
 				<div class="form-group">
-					<label for="question1">Que faites-vous actuellement et que recherchez-vous comme type de poste ?</label><br>
-					<textarea class="form-control" rows="3" id="question1"></textarea>
+					<%= f.label :question1, "Que faites-vous actuellement et que recherchez-vous comme type de poste ?", class:"ggag" %>
+					<%= f.text_area :question1, rows:3, class:"form-control" %>
 				</div>
 
 				<div class="form-group">
-					<label>
-						Où souhaitez-vous travailler et acceptez-vous les déplacements ?
-					</label><br>
-					<textarea class="form-control" rows="3"></textarea>
+					<%= f.label :question2, "Où souhaitez-vous travailler et acceptez-vous les déplacements ?" %>
+					<%= f.text_area :question2, rows:3, class:"form-control" %>
+				</div>
+
+
+				<div class="form-group">
+					<%= f.label :question3, "Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?" %>
+					<%= f.text_area :question3, rows:3, class:"form-control" %>
 				</div>
 
 				<div class="form-group">
-					<label>
-						Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?
-					</label><br>
-					<textarea class="form-control" rows="3"></textarea>
+					<%= f.label :question4, "Quel est le minimum salarial en dessous duquel il n’est pas nécessaire de vous contacter ?" %>
+					<%= f.text_area :question4, rows:3, class:"form-control" %>
 				</div>
 
 				<div class="form-group">
-					<label>
-						Quel est le minimum salarial en dessous duquel il n’est pas nécessaire de vous contacter ?
-					</label><br>
-					<textarea class="form-control" rows="3"></textarea>
+					<%= f.label :question5, "Parlez-nous de vous ?" %>
+					<%= f.text_area :question5, rows:3, class:"form-control" %>
 				</div>
 
 				<div class="form-group">
-					<label>
-						Parlez-nous de vous ?
-					</label><br>
-					<textarea class="form-control" rows="3"></textarea>
+					<%= f.select(:status, ['EN RECHERCHE ACTIVE',' ',' '], {}, { :class => 'form-control' }) %>
 				</div>
 
 				<div class="form-group">
-					<select>
-						<option>STATUS</option>
-					</select>
+					<%= f.label :image, "Photo de profil" %>
+					<%= f.file_field :image %>
 				</div>
 
 				<div class="form-group">
-					Photo de profil
+					<%= f.submit("APERÇU") %>
 				</div>
-
-				<div class="form-group">
-					<input type="submit" name="" value="APERÇU">
-				</div>
-			</form>
-			
+			<% end %>
 		</div>
-
 	</div>
 </div>
+

@@ -16,9 +16,12 @@ Rails.application.routes.draw do
     registrations: 'cadres/registrations'
   }
 	get '/cadre', to: 'candidates#main', as: 'main_cadre'
-
+  
   # list menu dans le dashbord candidat
   get '/cadre/mon_profil', to: 'candidates#my_profil', as: 'my_profil'
+
+  patch '/cadre/confirmed-profil', to: 'candidates#confirmedProfil', as: 'confirmedProfil'
+
   get '/cadre/mon_profil/offres', to: 'candidates#searchJob', as: 'searchJob'
   get '/cadre/mon_profil/offres-favorites', to: 'candidates#favoriteJob', as: 'favoriteJob'
   get '/cadre/mon_profil/suivi-recrutement', to: 'candidates#recrutmentMonitoring', as: 'recrutment_monitoring'
