@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Oiam</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -28,7 +29,7 @@
         <br>
         <br>
         
-    <!-- ~~~~~~~~~~~~~~ Alert devise ito ~~~~~~~~~~~~~~ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~ Alert devise ito ~~~~~~~~~~~~~~~~~~~ -->
     <div>
         <% if notice %>
           <p class="alert alert-success"><%= notice %></p>
@@ -38,8 +39,6 @@
         <% end %>
     </div>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
-    
 
     <%= yield %>
 
