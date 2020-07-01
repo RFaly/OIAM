@@ -5,7 +5,7 @@ class CandidatesController < ApplicationController
   end
 
 # dashbord
-  def my_profil #miaraka ny profil sy test
+  def my_profil # miaraka ny profil sy test
     @cadre = current_cadre
     if @cadre.potential_test.nil? || @cadre.skils_test.nil? || @cadre.fit_test.nil?
       redirect_to my_tests_path
@@ -41,12 +41,15 @@ class CandidatesController < ApplicationController
   end
 
 	def searchJob
+    @cadre = current_cadre
 	end
 
 	def favoriteJob
+    @cadre = current_cadre
 	end
 
 	def recrutmentMonitoring
+    @cadre = current_cadre
 	end
 
 # 3 test de recrutement
