@@ -6,6 +6,9 @@ class CreateEntreprises < ActiveRecord::Migration[5.2]
       t.string :siret
       t.string :site
       t.text :description
+      t.belongs_to :client
+
+      t.timestamps
     end
   end
 end

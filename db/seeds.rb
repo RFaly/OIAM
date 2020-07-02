@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+=begin
+
+Entreprise.create(name: "Gogole", adresse: "Traduction", siret: "0234023978409237",
+ site: "www.google.com", description: "milay wa io eeeeee!!", client_id: Client.first.id)
+
+
+
+=end
+
+
