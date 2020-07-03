@@ -3,14 +3,21 @@ Rails.application.routes.draw do
   root to: 'static_page#home'
 	get '/wellcome', to: 'static_page#allHome', as: 'wellcome'
 
-	#~~~~~~~~~~~~~~~~~~~~ Client ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	get '/recruteur', to: 'recruteurs#main', as: 'main_recruiter'
+	#~~~~~~~~~~~~~~~~~~~~~~~~ Client ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :clients, path: 'clients', controllers: {
     sessions: 'clients/sessions',
     registrations: 'clients/registrations'
   }
+	get '/recruteur', to: 'recruteurs#main', as: 'main_recruiter'
+# list menu dans le dashbord client
+  get '/recruteur/mon_profil', to: 'recruteurs#my_profil', as: 'client_my_profil'
+  get '/recruteur/mes-offre-d-emploi', to: 'recruteurs#my_job_offers', as: 'my_job_offers'
+  get '/recruteur/mes-candidats-favoris', to: 'recruteurs#favorite_candidates', as: 'favorite_candidates'
+  get '/recruteur/mon-suivi-recrutement', to: 'recruteurs#my_recruitment_follow', as: 'my_recruitment_follow'
+  get '/recruteur/mes-factures', to: 'recruteurs#my_bills', as: 'my_bills'
+  get '/recruteur/mes-notifications', to: 'recruteurs#notifications', as: 'client_notifications'
 
-	#~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :cadres, path: 'cadres', controllers: {
     sessions: 'cadres/sessions',
     registrations: 'cadres/registrations'
@@ -38,7 +45,7 @@ Rails.application.routes.draw do
   get '/cadre/resultat-test', to: 'candidates#resultatsTest', as: 'resultatsTest'
 
 
-	#~~~~~~~~~~~~~~~~~~~~ Admin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	#~~~~~~~~~~~~~~~~~~~~~~~~ Admin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :admins, path: 'admins', controllers: {
   	sessions: 'admins/sessions',
   	registrations: 'admins/registrations'
@@ -48,24 +55,6 @@ end
 
 
 =begin
-
-===============================================================================
-
-Some setup you must do manually if you haven't yet:
-
-  Ensure you have overridden routes for generated controllers in your routes.rb.
-  For example:
-
-    Rails.application.routes.draw do
-  get 'candidates/main'
-  get 'recruteurs/main'
-      devise_for :users, controllers: {
-        sessions: 'users/sessions'
-      }
-    end
-
-===============================================================================
-
 
         new_client_session GET    /clients/sign_in(.:format)       clients/sessions#new
     destroy_client_session DELETE /clients/sign_out(.:format)      clients/sessions#destroy
@@ -92,6 +81,5 @@ cancel_client_registration GET    /clients/cancel(.:format)        clients/regis
  cancel_admin_registration GET    /admins/cancel(.:format)         admins/registrations#cancel
     new_admin_registration GET    /admins/sign_up(.:format)        admins/registrations#new
    edit_admin_registration GET    /admins/edit(.:format)           admins/registrations#edit
-
 
 =end

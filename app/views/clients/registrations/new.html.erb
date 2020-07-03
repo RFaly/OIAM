@@ -1,29 +1,117 @@
-<h2>Sign up CLIENT</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "clients/shared/error_messages", resource: resource %>
+  
+  <style type="text/css">
+    li {
+      list-style: lower-norwegian;
+    }
+  </style>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <ol>
+    <li>Détails Entreprise</li>
+    <li>Détails Recruteur</li>
+    <li>Création de compte</li>
+    <li>Signature du contrat</li>
+  </ol>
+ 
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  <fieldset>
+    <legend>Détails Entreprise</legend>
+
+    <div class="form-group">
+      <label for="entreprise_name">NOM ENTREPRISE</label><br>
+      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_name" type="text" name="entreprise_name" id="entreprise_name">
+    </div>
+
+    <div class="form-group">
+      <label for="entreprise_adresse">ADRESSE</label><br>
+      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_adresse" type="text" name="entreprise_adresse" id="entreprise_adresse">
+    </div>
+
+    <div class="form-group">
+      <label for="entreprise_siret">SIRET</label><br>
+      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_siret" type="text" name="entreprise_siret" id="entreprise_siret">
+    </div>
+
+    <div class="form-group">
+      <label for="entreprise_site">SITE INTERNET</label><br>
+      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_site" type="text" name="entreprise_site" id="entreprise_site">
+    </div>
+
+    <div class="form-group">
+      <label for="entreprise_description">DESCRIPTION DE VOTRE ACTIVITÉ</label><br>
+      <textarea class="form-control" required="required" autocomplete="entreprise_description" type="text" name="entreprise_description" id="entreprise_description" autofocus="autofocus" rows="3"></textarea>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Détails Recruteur</legend>
+
+    <div class="form-group">
+      <%= f.label :last_name,"NOM" %><br />
+      <%= f.text_field :last_name, autofocus: true, class:"form-control", autocomplete: "last_name", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :first_name,"PRÉNOM" %><br />
+      <%= f.text_field :first_name, autofocus: true, class:"form-control", autocomplete: "first_name", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :fonction,"FONCTION" %><br />
+      <%= f.text_field :fonction, autofocus: true, class:"form-control", autocomplete: "fonction", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :mail,"MAIL" %><br />
+      <%= f.email_field :mail, autofocus: true, class:"form-control", autocomplete: "mail", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :telephone,"TELEPHONE" %><br />
+      <%= f.text_field :telephone, autofocus: true, class:"form-control", autocomplete: "telephone", required: true %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Création de compte</legend>
+    <div class="form-group">
+      <%= f.label :email,"IDENTIFIANT" %><br />
+      <%= f.email_field :email, autofocus: true, class:"form-control", autocomplete: "email", required: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password,"MOT DE PASSE" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, class:"form-control", autocomplete: "new-password", required: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation,"CONFIRMATION DU MOT DE PASSE" %><br />
+      <%= f.password_field :password_confirmation, class:"form-control", autocomplete: "new-password", required: true %>
+    </div>
+  </fieldset>
+
+
+  <fieldset>
+    <legend>Signature du contrat</legend>
+    <div>
+      <p>Vous vous apprêtez à devenir client de One In A Million.<br>Nous vous remercions de lire attentivement nos conditions générales de vente.</p>
+      <p>Conditions générales de vente</p>
+      <img src="https://fakeimg.pl/871x552/ff0000,128/000,255">
+      <br>
+    </div>
+    <div class="form-group">
+      <input id="cgu" type="checkbox" class="form-check-input" required="required"><label for="cgu" class="form-check-label">En cochant cette case, je reconnais avoir pris connaissance d’annulation et de responsabilités (telles qu’indiquées dans le programme).</label>
+    </div>
+  </fieldset>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "VALIDER" %>
   </div>
+
 <% end %>
 
 <%= render "clients/shared/links" %>
