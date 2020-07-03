@@ -3,8 +3,8 @@
 class Clients::RegistrationsController < Devise::RegistrationsController
   include Accessible
   skip_before_action :check_user, except: [:new, :create]
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -12,9 +12,30 @@ class Clients::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    errorsList = []
+    if params[:entreprise_name].empty?
+      errorsList.push("Champ NOM ENTREPRISE obligatoire")
+    end
+    if params[:entreprise_adresse].empty?
+      errorsList.push("Champ ADRESSE obligatoire")
+    end
+    if params[:entreprise_siret].empty?
+      errorsList.push("Champ SIRET obligatoire")
+    end
+    if params[:entreprise_site].empty?
+      errorsList.push("Champ SITE INTERNET obligatoire.")
+    end
+    if params[:entreprise_description].empty?
+      errorsList.push("Champ DESCRIPTION DE VOTRE ACTIVITÉ obligatoire")
+    end
+    if errorsList.empty?
+      super
+      Entreprise.create(name: params[:entreprise_name], adresse: params[:entreprise_adresse], siret: params[:entreprise_siret], site: params[:entreprise_site], description: params[:entreprise_description], client: current_client)
+    else
+      redirect_to new_client_registration_path, alert: errorsList
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -40,17 +61,17 @@ class Clients::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :adresse, :situation, :telephone, :email, :password, :password_confirmation])
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :adresse, :situation, :telephone, :email, :password, :password_confirmation])
+  end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
@@ -62,3 +83,47 @@ class Clients::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 end
+
+
+
+=begin
+
+
+<ActionController::Parameters {"utf8"=>"✓", 
+"authenticity_token"=>"FOlzXPrxeh2h/g7t/gYtMXEHoa6+E4tyS7VQwsxsfg+8jeo4gLYS9uXshMVK7E7+IqSUXp352Gkx0BFkfcp5Dw==", 
+
+"entreprise_name"=>"Addidas", 
+"entreprise_adresse"=>"ANy eee", 
+"entreprise_siret"=>"79423079452304502", 
+"entreprise_site"=>"www.addidas.com", 
+"entreprise_description"=>"loerp",
+
+
+
+
+"client"=><ActionController::Parameters {"last_name"=>"Adona", 
+"first_name"=>"Be", 
+"fonction"=>"Recruteur", 
+"mail"=>"jokolo@gmail.com", 
+"telephone"=>"09927304823847284628", 
+"email"=>"mlkjmlkj@gmail.com", 
+"password"=>"mlkjmlkj@gmail.com", 
+"password_confirmation"=>"mlkjmlkj@gmail.com"} permitted: false>, "commit"=>"VALIDER", 
+"controller"=>"clients/registrations", 
+"action"=>"create"} permitted: false>
+
+
+
+
+
+
+
+
+
+
+Entreprise.create( id: nil, name: nil, adresse: nil, siret: nil, site: nil, description: nil, client_id: nil)
+
+
+
+
+=end

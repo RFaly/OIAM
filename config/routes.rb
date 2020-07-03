@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   root to: 'static_page#home'
 	get '/wellcome', to: 'static_page#allHome', as: 'wellcome'
 
-	#~~~~~~~~~~~~~~~~~~~~ Client ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	#~~~~~~~~~~~~~~~~~~~~~~~~ Client ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :clients, path: 'clients', controllers: {
     sessions: 'clients/sessions',
     registrations: 'clients/registrations'
   }
 	get '/recruteur', to: 'recruteurs#main', as: 'main_recruiter'
 
-	#~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :cadres, path: 'cadres', controllers: {
     sessions: 'cadres/sessions',
     registrations: 'cadres/registrations'
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   get '/cadre/resultat-test', to: 'candidates#resultatsTest', as: 'resultatsTest'
 
 
-	#~~~~~~~~~~~~~~~~~~~~ Admin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	#~~~~~~~~~~~~~~~~~~~~~~~~ Admin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :admins, path: 'admins', controllers: {
   	sessions: 'admins/sessions',
   	registrations: 'admins/registrations'
