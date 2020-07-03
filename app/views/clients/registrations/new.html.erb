@@ -115,3 +115,9 @@
 <% end %>
 
 <%= render "clients/shared/links" %>
+
+<script type="text/javascript">
+  $('#client_mail').on('input', function() {
+    $('#client_email').val($(this).val())
+  })
+</script>
