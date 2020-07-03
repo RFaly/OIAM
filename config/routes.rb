@@ -9,6 +9,13 @@ Rails.application.routes.draw do
     registrations: 'clients/registrations'
   }
 	get '/recruteur', to: 'recruteurs#main', as: 'main_recruiter'
+# list menu dans le dashbord client
+  get '/recruteur/mon_profil', to: 'recruteurs#my_profil', as: 'client_my_profil'
+  get '/recruteur/mes-offre-d-emploi', to: 'recruteurs#my_job_offers', as: 'my_job_offers'
+  get '/recruteur/mes-candidats-favoris', to: 'recruteurs#favorite_candidates', as: 'favorite_candidates'
+  get '/recruteur/mon-suivi-recrutement', to: 'recruteurs#my_recruitment_follow', as: 'my_recruitment_follow'
+  get '/recruteur/mes-factures', to: 'recruteurs#my_bills', as: 'my_bills'
+  get '/recruteur/mes-notifications', to: 'recruteurs#notifications', as: 'client_notifications'
 
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :cadres, path: 'cadres', controllers: {
@@ -74,6 +81,5 @@ cancel_client_registration GET    /clients/cancel(.:format)        clients/regis
  cancel_admin_registration GET    /admins/cancel(.:format)         admins/registrations#cancel
     new_admin_registration GET    /admins/sign_up(.:format)        admins/registrations#new
    edit_admin_registration GET    /admins/edit(.:format)           admins/registrations#edit
-
 
 =end
