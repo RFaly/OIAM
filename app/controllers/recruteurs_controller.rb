@@ -2,11 +2,6 @@ class RecruteursController < ApplicationController
   def main
   end
 
-#page methodologie
-  def methodology
-  	
-  end
-
 #Mon profil
   def my_profil
 		

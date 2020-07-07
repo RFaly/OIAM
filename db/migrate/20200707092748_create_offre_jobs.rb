@@ -16,6 +16,7 @@ class CreateOffreJobs < ActiveRecord::Migration[5.2]
       t.text :question4
       t.text :question5
       t.string :image
+      t.belongs_to :client, index:true
 
       t.timestamps
     end

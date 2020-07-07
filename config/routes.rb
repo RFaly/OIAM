@@ -2,6 +2,17 @@ Rails.application.routes.draw do
 	#~~~~~~~~~~~~~~~~~~~~ Accueil ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   root to: 'static_page#home'
 	get '/wellcome', to: 'static_page#allHome', as: 'wellcome'
+  get '/méthodologie', to: 'static_page#methodology', as: 'methodology'
+  get '/equipe', to: 'static_page#equipe', as: 'equipe'
+  get '/portfolio', to: 'static_page#portfolio', as: 'portfolio'
+  get '/contact', to: 'static_page#contact', as: 'contact'
+
+
+  
+
+
+
+
 
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Client ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :clients, path: 'clients', controllers: {
@@ -9,7 +20,6 @@ Rails.application.routes.draw do
     registrations: 'clients/registrations'
   }
 	get '/recruteur', to: 'recruteurs#main', as: 'main_recruiter'
-  get '/recruteur/méthodologie', to: 'recruteurs#methodology', as: 'methodology'
 
 # list menu dans le dashbord client
   get '/recruteur/mon_profil', to: 'recruteurs#my_profil', as: 'client_my_profil'
