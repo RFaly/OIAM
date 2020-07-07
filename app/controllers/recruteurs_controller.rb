@@ -2,6 +2,11 @@ class RecruteursController < ApplicationController
   def main
   end
 
+#page methodologie
+  def methodology
+  	
+  end
+
 #Mon profil
   def my_profil
 		
@@ -31,6 +36,7 @@ class RecruteursController < ApplicationController
 	def notifications
 		
 	end
+
 
 #Messages
 	# def method_name

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     registrations: 'clients/registrations'
   }
 	get '/recruteur', to: 'recruteurs#main', as: 'main_recruiter'
+  get '/recruteur/méthodologie', to: 'recruteurs#methodology', as: 'methodology'
+
 # list menu dans le dashbord client
   get '/recruteur/mon_profil', to: 'recruteurs#my_profil', as: 'client_my_profil'
   get '/recruteur/mes-offre-d-emploi', to: 'recruteurs#my_job_offers', as: 'my_job_offers'
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
   get '/recruteur/mon-suivi-recrutement', to: 'recruteurs#my_recruitment_follow', as: 'my_recruitment_follow'
   get '/recruteur/mes-factures', to: 'recruteurs#my_bills', as: 'my_bills'
   get '/recruteur/mes-notifications', to: 'recruteurs#notifications', as: 'client_notifications'
+
 
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :cadres, path: 'cadres', controllers: {
