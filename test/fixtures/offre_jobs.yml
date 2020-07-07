@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  localisation: MyString
+  intitule_pote: MyString
+  descriptif_mission: MyText
+  rattachement_hierarchique: MyString
+  remuneration: 1.5
+  remuneration_anne: 1.5
+  contrat_cdi: false
+  type_deplacement: MyString
+  date_prise_de_poste: MyString
+  question1: MyText
+  question2: MyText
+  question3: MyText
+  question4: MyText
+  question5: MyText
+  img_logo: MyString
+
+two:
+  localisation: MyString
+  intitule_pote: MyString
+  descriptif_mission: MyText
+  rattachement_hierarchique: MyString
+  remuneration: 1.5
+  remuneration_anne: 1.5
+  contrat_cdi: false
+  type_deplacement: MyString
+  date_prise_de_poste: MyString
+  question1: MyText
+  question2: MyText
+  question3: MyText
+  question4: MyText
+  question5: MyText
+  img_logo: MyString

@@ -4,36 +4,40 @@ class RecruteursController < ApplicationController
 
 #Mon profil
   def my_profil
-		
   end
 
 #Mes offres d’emploi
 	def my_job_offers
+	end
 
+	def newJob
+		@offre = OffreJob.new
+	end
+
+	def createJob
+		puts "#"*43
+		puts params.inspect
+		puts "#"*43
 	end
 
 #Mes candidats favoris
 	def favorite_candidates
-
 	end
 
 #Mon suivi recrutement
 	def my_recruitment_follow
-
 	end
 
 #Mes factures
 	def my_bills
-
 	end
 
 #Mes notifications
 	def notifications
-		
 	end
+
 
 #Messages
 	# def method_name
-		
 	# end
 end
