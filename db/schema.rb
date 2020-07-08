@@ -85,7 +85,9 @@ ActiveRecord::Schema.define(version: 2020_07_07_092748) do
   end
 
   create_table "offre_jobs", force: :cascade do |t|
-    t.string "localisation"
+    t.string "country"
+    t.string "region"
+    t.string "department"
     t.string "intitule_pote"
     t.text "descriptif_mission"
     t.string "rattachement"
