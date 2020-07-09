@@ -1,148 +1,149 @@
+<div class="row">
+	<div class="col-sm-3">
+		<%= render partial: "recruteurs/left_link_bar" %>
+	</div>
 
-<ol>
-	<li>Détails du poste</li>
-	<li>Contexte de l'offre</li>
-	<li>Publication</li>
-</ol>
+	<div class="col-sm-9">
+		<ol>
+			<li>Détails du poste</li>
+			<li>Contexte de l'offre</li>
+			<li>Publication</li>
+		</ol>
+		<%= form_for @offre , url: createJob_path do |f| %>
+			<hr>
+			<fieldset>
+				<legend>Détails du poste</legend>
 
-<%= form_for @offre , url: createJob_path do |f| %>
+				<label>LOCALISATION</label>
 
-<hr>
+				<div class="form-group">
+					<%= f.select :country, options_for_select([["France", "France"]]),{}, class:'custom-select', required:true, id:'paysInput', title:'Pays' %>
+				</div>
 
-	<fieldset>
+				<div class="form-group">
+					<%= f.select :region, options_for_select([]),{}, class:'custom-select', disabled:false, required:true, id:'regionInput', title:'Région' %>
+				</div>
 
-		<legend>Détails du poste</legend>
+				<div class="form-group">
+					<%= f.select :department, options_for_select([]),{}, class:'custom-select', disabled:false, required:true, id:'departmentInput', title:'Département' %>
+				</div>
 
-		<label>LOCALISATION</label>
+				<div class="form-group">
+					<%= f.label :intitule_pote, "INTITULÉ DU POSTE" %>
+					<%= f.text_field :intitule_pote, required:true, class:"form-control" %>
+				</div>
 
-		<div class="form-group">
-			<%= f.select :country, options_for_select([["Pays",""],["France", "France"]]),{}, class:'custom-select', id:'paysInput' %>
-		</div>
+				<div class="form-group">
+					<%= f.label :descriptif_mission, "DESCRIPTIF DES MISSIONS" %>
+					<%= f.text_area :descriptif_mission, required:true, rows:3, class:"form-control" %>
+				</div>
 
-		<div class="form-group">
-			<%= f.select :region, options_for_select([["Région",""]]),{}, class:'custom-select', disabled:true, id:'regionInput' %>
-		</div>
+				<div class="form-group">
+					<%= f.label :rattachement, "RATTACHEMENT HIÉRARCHIQUE" %>
+					<%= f.text_field :rattachement, required:true, class:"form-control" %>
+				</div>
 
-		<div class="form-group">
-			<%= f.select :department, options_for_select([["Département",""]]),{}, class:'custom-select', disabled:true, id:'departmentInput' %>
-		</div>
+				<div class="form-group">
+					<%= f.label :remuneration, "RÉMUNÉRATION PROPOSÉE FIXE (K€ BRUTS ANNUELS)" %>
+					<br>
+					<span class="font-weight-bold blue-text ml-2 mt-1">min: 60</span>
+					<%= f.range_field :remuneration, min:60, max:350, required:true, class:"form-control", id:"remuneration"%>
+					<br>
+					<span class="font-weight-bold blue-text ml-2 mt-1">max: 350</span>
+					<br>
+					<span>current_value: <b id="inputRange">100</b></span>
+				</div>
 
-		<div class="form-group">
-			<%= f.label :intitule_pote, "INTITULÉ DU POSTE" %>
-			<%= f.text_field :intitule_pote, class:"form-control" %>
-		</div>
+				<div class="form-group">
+					<%= f.label :remuneration_anne, "RÉMUNÉRATION PROPOSÉE VARIABLE(K€ BRUTS ANNUELS)" %>
+					<%= f.number_field :remuneration_anne, required:true, class:"form-control" %>
+				</div>
 
-		<div class="form-group">
-			<%= f.label :descriptif_mission, "DESCRIPTIF DES MISSIONS" %>
-			<%= f.text_area :descriptif_mission, rows:3, class:"form-control" %>
-		</div>
+				<div class="form-group">
+					<input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi">
+					<label for="offre_job_contrat_cdi">Contrat CDI</label>
+				</div>
 
-		<div class="form-group">
-			<%= f.label :rattachement, "RATTACHEMENT HIÉRARCHIQUE" %>
-			<%= f.text_field :rattachement, class:"form-control" %>
-		</div>
+				<div class="form-group">
+					<%= f.label :type_deplacement, "LE POSTE IMPLIQUE-T-IL DES DÉPLACEMENTS?" %>
+					<%= f.select :type_deplacement, options_for_select([["Régionaux","Régionaux"],["Internationaux", "Internationaux"]]), {}, required:true, class:'custom-select' %>
+				</div>
 
-		<div class="form-group">
-			<%= f.label :remuneration, "RÉMUNÉRATION PROPOSÉE FIXE (K€ BRUTS ANNUELS)" %>
-			<br>
-			<span class="font-weight-bold blue-text ml-2 mt-1">min: 60</span>
-			<%= f.range_field :remuneration, min:60, max:350, class:"form-control", id:"remuneration"%>
-			<br>
-			<span class="font-weight-bold blue-text ml-2 mt-1">max: 350</span>
-			<br>
-			<span>current_value: <b id="inputRange">100</b></span>
-		</div>
+				<div class="form-group">
+					<%= f.label :type_deplacement, "DATE DE PRISE DE POSTE (date piker)" %> <br>
+					<%= f.date_field :date_poste, required:true, min: Date.today %>
+				</div>
 
-		<div class="form-group">
-			<%= f.label :remuneration_anne, "RÉMUNÉRATION PROPOSÉE VARIABLE(K€ BRUTS ANNUELS)" %>
-			<%= f.number_field :remuneration_anne, class:"form-control" %>
-		</div>
+				<span class="btn btn-primary">SUIVANT</span>
 
-		<div class="form-group">
-			<%= f.check_box :contrat_cdi, {}, "true", "false" %>
-			<%= f.label :contrat_cdi, "Contrat CDI" %>
-		</div>
+			</fieldset>
 
-		<div class="form-group">
-			<%= f.label :type_deplacement, "LE POSTE IMPLIQUE-T-IL DES DÉPLACEMENTS?" %>
-			<%= f.select :type_deplacement, options_for_select([["Régionaux","Régionaux"],["Internationaux", "Internationaux"]]),{}, class:'custom-select' %>
-		</div>
+			<hr>
 
-		<div class="form-group">
-			<%= f.label :type_deplacement, "DATE DE PRISE DE POSTE (date piker)" %> <br>
-			<%= f.date_field :date_poste, min: Date.today %>
-		</div>
+			<fieldset>
+				<legend>Contexte de l'offre</legend>
 
-	</fieldset>
+				<div class="form-group">
+					<%= f.label :question1, "QUELLE POURRAIT-ÊTRE LA RÉMUNÉRATION MAXIMALE POUR LE CANDIDAT IDÉAL ?", class:"ggag" %>
+					<%= f.text_field :question1, required:true, class:"form-control" %>
+				</div>
 
-<hr>
+				<div class="form-group">
+					<%= f.label :question2, "QUE POUVEZ-VOUS DIRE AUX CANDIDATS POUR LEUR DONNER L’ENVIE DE TRAVAILLER CHEZ VOUS ?", class:"ggag" %>
+					<%= f.text_area :question2, required:true, rows:3, class:"form-control" %>
+				</div>
 
-	<fieldset>
-		<legend>Contexte de l'offre</legend>
+				<div class="form-group">
+					<%= f.label :question3, "QUEL SERA VOTRE PROCESSUS DE RECRUTEMENT ?", class:"ggag" %>
+					<%= f.text_area :question3, required:true, rows:3, class:"form-control" %>
+				</div>
 
-		<div class="form-group">
-			<%= f.label :question1, "QUELLE POURRAIT-ÊTRE LA RÉMUNÉRATION MAXIMALE POUR LE CANDIDAT IDÉAL ?", class:"ggag" %>
-			<%= f.text_area :question1, rows:3, class:"form-control" %>
-		</div>
+				<div class="form-group">
+					<span>POURRIEZ-VOUS SUPPORTER UN PRÉAVIS SUR CE POSTE ?</span>
+					<div class="form-check">
+						<%= f.radio_button :question4, 'OUI', :checked => true, class:"form-check-input" %> 
+						<%= label :question4, 'OUI', required:true, class:"form-check-label", for:"offre_job_question4_oui" %>
+					</div>
+					<div class="form-check">
+						<%= f.radio_button :question4, 'NON', class:"form-check-input" %>
+						<%= label :question4, 'NON', required:true, class:"form-check-label", for:"offre_job_question4_non" %>
+					</div>
+				</div>
 
-		<div class="form-group">
-			<%= f.label :question2, "QUE POUVEZ-VOUS DIRE AUX CANDIDATS POUR LEUR DONNER L’ENVIE DE TRAVAILLER CHEZ VOUS ?", class:"ggag" %>
-			<%= f.text_area :question2, rows:3, class:"form-control" %>
-		</div>
+				<div class="form-group">
+					<%= f.label :question5, "PRÉSENTER LE CONTEXTE D’OUVERTURE DE CE POSTE.", class:"ggag" %>
+					<%= f.text_area :question5, required:true, rows:3, class:"form-control" %>
+				</div>
 
-		<div class="form-group">
-			<%= f.label :question3, "QUEL SERA VOTRE PROCESSUS DE RECRUTEMENT ?", class:"ggag" %>
-			<%= f.text_area :question3, rows:3, class:"form-control" %>
-		</div>
+				<div class="form-group">
+					<img id="addImage" src="#" alt="logo entreprise" width="350">
+					<%= f.label :image, "Logo entreprise:" %>
+					<%= f.file_field :image %>
+					<!-- Télécharger une image -->
+				</div>
 
-		<div class="form-group">
-			<span>POURRIEZ-VOUS SUPPORTER UN PRÉAVIS SUR CE POSTE ?</span>
-			<div class="form-check">
-				<%= f.radio_button :question4, 'OUI', :checked => true, class:"form-check-input" %> 
-				<%= label :question4, 'OUI', class:"form-check-label", for:"offre_job_question4_oui" %>
-			</div>
-			<div class="form-check">
-				<%= f.radio_button :question4, 'NON', class:"form-check-input" %>
-				<%= label :question4, 'NON', class:"form-check-label", for:"offre_job_question4_non" %>
-			</div>
-		</div>
+				<div class="form-group">
+					<%= f.submit("APERCU AVANT PUBLICATION") %>
+				</div>
+				<!-- *Ces détails seront visibles par les candidats. -->
+			</fieldset>
 
-		<div class="form-group">
-			<%= f.label :question5, "PRÉSENTER LE CONTEXTE D’OUVERTURE DE CE POSTE.", class:"ggag" %>
-			<%= f.text_area :question5, rows:3, class:"form-control" %>
-		</div>
+			<hr>
 
-		<div class="form-group">
-			<%= f.label :image, "Logo entreprise:" %>
-			<%= f.file_field :image %>
-			<img id="addImage" src="#" alt="logo entreprise" width="350">
-			<!-- Télécharger une image -->
-		</div>
+			<fieldset>
+				<legend>Publication</legend>
+				<!-- - apercu photo a1 et a2  -->
+				<h3>Votre offre d’emploi a bien été publiée.</h3>
+				<img src="" alt="image checked">
+				<p>Vous disposez désormais de 15 jours pour sélectionner 5 candidats recommandés par notre algorithme ou en recherchant directement dans notre base de données.</p>
+				<span>Vous pouvez sauvegarder les profils avec l’icône </span> <br>
+				<a href="" class="btn btn-primary">VOIR NOTRE SÉlECTION </a> <br><br>
+				<a href="" class="btn btn-primary">RECHERCHE CANDIDATS</a>
+			</fieldset>
 
-		<div class="form-group">
-			<%= f.submit("APERCU AVANT PUBLICATION") %>
-		</div>
-		<!-- *Ces détails seront visibles par les candidats. -->
-	</fieldset>
-
-<hr>
-
-	<fieldset>
-		<legend>Publication</legend>
-
-		<!-- - apercu photo a1 et a2  -->
-
-		<h3>Votre offre d’emploi a bien été publiée.</h3>
-		<img src="" alt="image checked">
-		<p>Vous disposez désormais de 15 jours pour sélectionner 5 candidats recommandés par notre algorithme ou en recherchant directement dans notre base de données.</p>
-		<span>Vous pouvez sauvegarder les profils avec l’icône </span>
-		<a href="">VOIR NOTRE SÉlECTION </a>
-		<a href="">RECHERCHE CANDIDATS</a>
-
-	</fieldset>
-
-<% end %>
-
-*Ces détails seront visibles par les candidats.
+			<% end %>
+			*Ces détails seront visibles par les candidats.
+	</div>
+</div>
 
 <%= javascript_include_tag "event_input_offre_job" %>

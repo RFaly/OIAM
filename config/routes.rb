@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   get '/recruteur/nouvelle-offre', to: 'recruteurs#newJob', as: 'newJob'
   post '/recruteur/publier-offre', to: 'recruteurs#createJob', as: 'createJob'
-
+  get '/recruteur/publier/:id/offre', to: 'recruteurs#showNewJob', as: 'showNewJob'
 
 
 

@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2020_07_07_092748) do
     t.string "fonction"
     t.string "mail"
     t.string "telephone"
+    t.string "image"
     t.index ["email"], name: "index_clients_on_email", unique: true
     t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
   end
@@ -93,7 +94,7 @@ ActiveRecord::Schema.define(version: 2020_07_07_092748) do
     t.string "rattachement"
     t.float "remuneration"
     t.float "remuneration_anne"
-    t.boolean "contrat_cdi"
+    t.boolean "contrat_cdi", default: false
     t.string "type_deplacement"
     t.string "date_poste"
     t.text "question1"

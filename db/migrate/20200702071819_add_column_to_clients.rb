@@ -5,5 +5,6 @@ class AddColumnToClients < ActiveRecord::Migration[5.2]
     add_column :clients, :fonction, :string
     add_column :clients, :mail, :string
     add_column :clients, :telephone, :string
+    add_column :clients, :image, :string
   end
 end
