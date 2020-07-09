@@ -10,6 +10,7 @@ class RecruteursController < ApplicationController
 
 #Mes offres d’emploi
 	def my_job_offers
+		@offres = current_client.offre_jobs
 	end
 
 	def newJob
@@ -23,11 +24,12 @@ class RecruteursController < ApplicationController
     if params[:offre_job][:image].nil? && current_client.image.nil?
     	flash[:alert] = "Image non trouvé"
 			render :newJob
-    elsif !params[:offre_job][:image].nil? && @offre.save      
-      uploader.store!(params[:offre_job][:image])
-      @offre.image = uploader.url
-      @offre.save
-      redirect_to showNewJob_path(@offre)
+    elsif !params[:offre_job][:image].nil? && @offre.save
+    	uploader.store!(params[:offre_job][:image])
+    	@offre.image = uploader.url
+    	@offre.save
+
+    	redirect_to showNewJob_path(@offre)
 		else
 			flash[:alert] = @offre.errors.details
 			render :newJob
@@ -53,7 +55,6 @@ class RecruteursController < ApplicationController
 #Mes notifications
 	def notifications
 	end
-
 
 #Messages
 	# def method_name

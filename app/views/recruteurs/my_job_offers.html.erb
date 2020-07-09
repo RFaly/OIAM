@@ -4,14 +4,22 @@
 	</div>
 
 	<div class="col-sm-9">
-		<h1>Mes offres d’emploi</h1>
-		<p>Vous n'avez pas publié d'offre d'emploi pour le moment.</p>
 		<%= link_to "PUBLIER UNE OFFRE", newJob_path %>
+		<!-- <h1>Mes offres d’emploi</h1> -->
+		<% if @offres.empty? %>
+			<p>Vous n'avez pas publié d'offre d'emploi pour le moment.</p>
+			<%= link_to "PUBLIER UNE OFFRE", newJob_path %>
+		<% else %>
+			<table class="table table-hover">
+			  <tbody>
+				<% @offres.each do |offre| %>
+				    <tr>
+				    	<td><%= offre.intitule_pote %></td>
+				    	<td><a href="#">VOIR L'OFFRE</a></td>
+				    </tr>
+				<% end %>
+			  </tbody>
+			</table>
+		<% end %>
 	</div>
-
-page - MES OFFRES D'EMPLOI {
-	lister tous: 
-	Marketing Manager <a href="">VOIR L'OFFRE</a>
-}
-
 </div>
