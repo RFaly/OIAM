@@ -21,76 +21,78 @@
     <legend>Détails Entreprise</legend>
 
     <div class="form-group">
-      <label for="entreprise_name">NOM ENTREPRISE</label><br>
-      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_name" type="text" name="entreprise_name" id="entreprise_name">
+      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_name" type="text" name="entreprise_name" id="entreprise_name" placeholder="Entreprise">
     </div>
 
     <div class="form-group">
-      <label for="entreprise_adresse">ADRESSE</label><br>
-      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_adresse" type="text" name="entreprise_adresse" id="entreprise_adresse">
+      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_adresse" type="text" name="entreprise_adresse" id="entreprise_adresse" placeholder="Adresse">
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <input autofocus="autofocus" class="form-control" required="required" autocomplete="postal_code" type="text" name="postal_code" id="postal_code" placeholder="Code Postal">
+      </div>
+      <div class="col-sm-6 form-group">
+        <input autofocus="autofocus" class="form-control" required="required" autocomplete="city" type="text" name="city" id="city" placeholder="Ville">
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="entreprise_siret">SIRET</label><br>
-      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_siret" type="text" name="entreprise_siret" id="entreprise_siret">
+      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_siret" type="text" name="entreprise_siret" id="entreprise_siret" placeholder="Siret">
     </div>
 
     <div class="form-group">
-      <label for="entreprise_site">SITE INTERNET</label><br>
-      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_site" type="text" name="entreprise_site" id="entreprise_site">
+      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_site" type="text" name="entreprise_site" id="entreprise_site" placeholder="Site Internet">
     </div>
 
     <div class="form-group">
-      <label for="entreprise_description">DESCRIPTION DE VOTRE ACTIVITÉ</label><br>
-      <textarea class="form-control" required="required" autocomplete="entreprise_description" type="text" name="entreprise_description" id="entreprise_description" autofocus="autofocus" rows="3"></textarea>
+      <textarea class="form-control" required="required" autocomplete="entreprise_description" type="text" name="entreprise_description" id="entreprise_description" autofocus="autofocus" rows="3" placeholder="Description de votre activité"></textarea>
     </div>
+
+    <div class="form-group">
+      <input autofocus="autofocus" class="form-control" required="required" autocomplete="code_naf" type="text" name="code_naf" id="code_naf" placeholder="Code Naf">
+    </div>
+
   </fieldset>
 
   <fieldset>
     <legend>Détails Recruteur</legend>
 
     <div class="form-group">
-      <%= f.label :last_name,"NOM" %><br />
-      <%= f.text_field :last_name, autofocus: true, class:"form-control", autocomplete: "last_name", required: true %>
+      
+      <%= f.text_field :last_name, autofocus: true, class:"form-control", autocomplete: "last_name", required: true, placeholder: 'Nom' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :first_name,"PRÉNOM" %><br />
-      <%= f.text_field :first_name, autofocus: true, class:"form-control", autocomplete: "first_name", required: true %>
+      <%= f.text_field :first_name, autofocus: true, class:"form-control", autocomplete: "first_name", required: true, placeholder: 'Prénom' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :fonction,"FONCTION" %><br />
-      <%= f.text_field :fonction, autofocus: true, class:"form-control", autocomplete: "fonction", required: true %>
+      <%= f.text_field :fonction, autofocus: true, class:"form-control", autocomplete: "fonction", required: true, placeholder: 'Fonction' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :mail,"MAIL" %><br />
-      <%= f.email_field :mail, autofocus: true, class:"form-control", autocomplete: "mail", required: true %>
+      <%= f.email_field :mail, autofocus: true, class:"form-control", autocomplete: "mail", required: true, placeholder: 'Mail' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :telephone,"TELEPHONE" %><br />
-      <%= f.text_field :telephone, autofocus: true, class:"form-control", autocomplete: "telephone", required: true %>
+      <%= f.text_field :telephone, autofocus: true, class:"form-control", autocomplete: "telephone", required: true, placeholder: 'Téléphone' %>
     </div>
   </fieldset>
 
   <fieldset>
     <legend>Création de compte</legend>
     <div class="form-group">
-      <%= f.label :email,"IDENTIFIANT" %><br />
-      <%= f.email_field :email, autofocus: true, class:"form-control", autocomplete: "email", required: true %>
+      <%= f.email_field :email, autofocus: true, class:"form-control", autocomplete: "email", required: true, placeholder: 'Identifiant' %>
     </div>
     <div class="form-group">
-      <%= f.label :password,"MOT DE PASSE" %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password, class:"form-control", autocomplete: "new-password", required: true %>
+      <%= f.password_field :password, class:"form-control", autocomplete: "new-password", required: true, placeholder: 'Mot de passe' %>
     </div>
     <div class="form-group">
-      <%= f.label :password_confirmation,"CONFIRMATION DU MOT DE PASSE" %><br />
-      <%= f.password_field :password_confirmation, class:"form-control", autocomplete: "new-password", required: true %>
+      <%= f.password_field :password_confirmation, class:"form-control", autocomplete: "new-password", required: true, placeholder: 'Confirmation du mot de passe' %>
     </div>
   </fieldset>
 
@@ -116,8 +118,6 @@
 
 <%= render "clients/shared/links" %>
 
-<script type="text/javascript">
-  $('#client_mail').on('input', function() {
-    $('#client_email').val($(this).val())
-  })
-</script>
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/data.json"></script>
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/show_city.js"></script>

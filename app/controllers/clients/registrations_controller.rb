@@ -29,9 +29,18 @@ class Clients::RegistrationsController < Devise::RegistrationsController
     if params[:entreprise_description].empty?
       errorsList.push("Champ DESCRIPTION DE VOTRE ACTIVITÉ obligatoire")
     end
+    if params[:postal_code].empty?
+      errorsList.push("Champ code postal obligatoire")
+    end
+    if params[:city].nil? || params[:city].empty?
+      errorsList.push("Champ ville obligatoire")
+    end
+    if params[:code_naf].empty?
+      errorsList.push("Champ code Naf obligatoire")
+    end
     if errorsList.empty?
       super
-      Entreprise.create(name: params[:entreprise_name], adresse: params[:entreprise_adresse], siret: params[:entreprise_siret], site: params[:entreprise_site], description: params[:entreprise_description], client: current_client)
+      Entreprise.create(code_naf: params[:code_naf], name: params[:entreprise_name], adresse: params[:entreprise_adresse], siret: params[:entreprise_siret], site: params[:entreprise_site], description: params[:entreprise_description], postal_code: params[:postal_code], city: params[:city], client: current_client)
     else
       redirect_to new_client_registration_path, alert: errorsList
     end

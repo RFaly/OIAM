@@ -4,6 +4,9 @@ class CreateEntreprises < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :adresse
       t.string :siret
+      t.string :city
+      t.string :postal_code
+      t.string :code_naf
       t.string :site
       t.text :description
       t.belongs_to :client

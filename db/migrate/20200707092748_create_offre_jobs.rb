@@ -1,13 +1,15 @@
 class CreateOffreJobs < ActiveRecord::Migration[5.2]
   def change
     create_table :offre_jobs do |t|
-      t.string :localisation
+      t.string :country
+      t.string :region
+      t.string :department
       t.string :intitule_pote
       t.text :descriptif_mission
       t.string :rattachement #_hierarchique
       t.float :remuneration
       t.float :remuneration_anne
-      t.boolean :contrat_cdi
+      t.boolean :contrat_cdi, default: :false
       t.string :type_deplacement
       t.string :date_poste #_prise_de
       t.text :question1
