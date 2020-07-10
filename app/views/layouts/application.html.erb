@@ -34,9 +34,39 @@
             <li class="nav-item">
                 <%= link_to "CONTACT", contact_path, class: 'nav-link' %>
             </li>
+
+            <% if client_signed_in? %>
+                <li class="nav-item">
+                    <% unless current_client.image.nil? %>
+                        <%= image_tag(current_client.image, alt: 'photo de profil', class:'photo_ako')%>
+                    <% else %>
+                        <%= link_to "MON PROFIL", client_my_profil_path, class:'nav-link' %>
+                    <% end %>
+                </li>
+            <% elsif cadre_signed_in? %>
+                <li class="nav-item">
+                    <% unless current_cadre.image.nil? %>
+                        <%= image_tag(current_cadre.image, alt: 'photo de profil', class:'photo_ako')%>
+                    <% else %>
+                        <%= link_to "MON PROFIL", my_profil_path, class:'nav-link' %>
+                    <% end %>
+                </li>
+            <% else %>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SE CONNECTER</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <%= link_to "CADRE", new_cadre_session_path, class:'dropdown-item' %>
+                        <%= link_to "RECRUTEUR", new_client_session_path, class:'dropdown-item' %>
+                    </div>
+                </li>
+            <% end %>
+
+
+
         </ul>
     </div>
 </nav>
+
 
 <div class="container">
 
