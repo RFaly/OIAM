@@ -38,7 +38,7 @@
     </div>
 
     <div class="form-group">
-      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_siret" type="text" name="entreprise_siret" id="entreprise_siret" placeholder="Siret">
+      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_siret" type="text" name="entreprise_siret" id="entreprise_siret" placeholder="Numéro de siret">
     </div>
 
     <div class="form-group">
@@ -50,9 +50,12 @@
     </div>
 
     <div class="form-group">
-      <input autofocus="autofocus" class="form-control" required="required" autocomplete="code_naf" type="text" name="code_naf" id="code_naf" placeholder="Code Naf">
+      <input autofocus="autofocus" class="form-control" required="required" autocomplete="code_naf" type="text" name="code_naf" id="code_naf" placeholder="Code NAF">
     </div>
 
+    <span class="btn btn-primary">
+      SUIVANT
+    </span>
   </fieldset>
 
   <fieldset>
@@ -78,22 +81,32 @@
     <div class="form-group">
       <%= f.text_field :telephone, autofocus: true, class:"form-control", autocomplete: "telephone", required: true, placeholder: 'Téléphone' %>
     </div>
+
+    <span class="btn btn-primary">
+      SUIVANT
+    </span>
+
   </fieldset>
 
   <fieldset>
     <legend>Création de compte</legend>
     <div class="form-group">
-      <%= f.email_field :email, autofocus: true, class:"form-control", autocomplete: "email", required: true, placeholder: 'Identifiant' %>
+      <%= f.email_field :email, autofocus: true, class:"form-control", autocomplete: "email", required: true, placeholder: 'IDENTIFIANT' %>
     </div>
     <div class="form-group">
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password, class:"form-control", autocomplete: "new-password", required: true, placeholder: 'Mot de passe' %>
+      <%= f.password_field :password, class:"form-control", autocomplete: "new-password", required: true, placeholder: 'MOT DE PASSE' %>
     </div>
     <div class="form-group">
-      <%= f.password_field :password_confirmation, class:"form-control", autocomplete: "new-password", required: true, placeholder: 'Confirmation du mot de passe' %>
+      <%= f.password_field :password_confirmation, class:"form-control", autocomplete: "new-password", required: true, placeholder: 'CONFIRMATION DU MOT DE PASSE' %>
     </div>
+
+    <span class="btn btn-primary">
+      SUIVANT
+    </span>
+
   </fieldset>
 
 
@@ -111,12 +124,10 @@
   </fieldset>
 
   <div class="actions">
-    <%= f.submit "VALIDER" %>
+    <%= f.submit "VALIDER", class:'btn btn-primary' %>
   </div>
 
 <% end %>
-
-<%= render "clients/shared/links" %>
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/data.json"></script>
 
