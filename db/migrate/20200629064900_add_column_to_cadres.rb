@@ -4,6 +4,9 @@ class AddColumnToCadres < ActiveRecord::Migration[5.2]
     add_column :cadres, :first_name, :string
     add_column :cadres, :last_name, :string
     add_column :cadres, :adresse, :string
+    add_column :cadres, :postal_code, :string
+    add_column :cadres, :city, :string
+    add_column :cadres, :mail, :string
     add_column :cadres, :status, :string
     add_column :cadres, :situation, :string
     add_column :cadres, :telephone, :string
