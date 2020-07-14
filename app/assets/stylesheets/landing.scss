@@ -1,0 +1,47 @@
+// Place all the styles related to the landing controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'config';
+@import 'mobile';
+
+.box-1-logo {
+  width: 70%;
+  img {
+    width: 100%;
+  }
+}
+.box-1-content {
+  width: 80%;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: $ffsentence;
+  font-size: 16px;
+}
+.box-1 {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.box-1-btn {
+  justify-self: start;
+  align-self: flex-end;
+  margin-right: 10%;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: $ffbtn;
+  background-color: $secondary_text_color_button;
+  padding: 1em 2em;
+  color: white;
+  &:hover {
+    box-shadow: 1px 1px 10px 1px rgb(230, 225, 225);
+    background-color: rgba(255, 255, 255, 0.8);
+    color: $secondary_text_color_button;
+  }
+}
+.box {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
