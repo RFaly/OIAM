@@ -1,59 +1,14 @@
-
-<h1>ONE in a million</h1>
-
-<p>
-	LA PLATEFORME DE RECRUTEMENT SÉLECTIVE<br> DES MEILLEURS CADRES DU MARCHÉ
-</p>
-
-<p>
-	<%= link_to "ENTRER DANS LE SITE", wellcome_path %>
-</p>
-
-
-<hr>
-
-	<b>LIEN ILAINA OVAINA TOERANA</b>
-<hr>
-
-<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<h2>CLIENT</h2>
-
-<ul>
-	<li><%= link_to "Se déconnecter", destroy_client_session_path, method:"delete" %></li>
-	<li><%= link_to "Se connecter", new_client_session_path %></li>
-	<li><%= link_to "Mot de passe oublier", new_client_password_path %></li>
-	<li><%= link_to "Modifier mot de passe", edit_client_password_path %></li>
-	<li><%= link_to "Supprimer mon compte ", cancel_client_registration_path %></li>
-	<li><%= link_to "Crée un compte", new_client_registration_path %></li>
-	<li><%= link_to "Modifier mon compte", edit_client_registration_path %></li>
-</ul>
-
-<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<hr>
-<h2>Candidat ou cadre</h2>
-
-<ul>
-	<li><%= link_to "Se déconnecter", destroy_cadre_session_path, method:"delete" %></li>
-	<li><%= link_to "Se connecter", new_cadre_session_path %></li>
-	<li><%= link_to "Mot de passe oublier", new_cadre_password_path %></li>
-	<li><%= link_to "Modifier mot de passe", edit_cadre_password_path %></li>
-	<li><%= link_to "Supprimer mon compte ", cancel_cadre_registration_path %></li>
-	<li><%= link_to "Crée un compte", new_cadre_registration_path %></li>
-	<li><%= link_to "Modifier mon compte", edit_cadre_registration_path %></li>
-</ul>
-
-<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<hr>
-<h2>ADMIN</h2>
-
-<ul>
-	<li><%= link_to "Se déconnecter", destroy_admin_session_path, method:"delete" %></li>
-	<li><%= link_to "Se connecter", new_admin_session_path %></li>
-	<li><%= link_to "Mot de passe oublier", new_admin_password_path %></li>
-	<li><%= link_to "Modifier mot de passe", edit_admin_password_path %></li>
-	<li><%= link_to "Supprimer mon compte ", cancel_admin_registration_path %></li>
-	<li><%= link_to "Crée un compte", new_admin_registration_path %></li>
-	<li><%= link_to "Modifier mon compte", edit_admin_registration_path %></li>
-</ul>
-
-<hr>
+<div class="box">
+  <div class="box-1">
+    <div class="box-1-logo">
+      <%=image_tag 'OIAM_Logo.png', alt:'landing-photo'%>
+    </div>
+    <p class="box-1-content">
+      LA PLATEFORME DE RECRUTEMENT Sélective des meilleurs cadres du marché.
+    </p>
+    <div class="box-1-btn">ENTRER DANS LE SITE</div>
+  </div>
+  <div class="box-2">
+    <%=image_tag 'picture_photo_0ae4b3.jpg', alt:'landing-photo'%>
+  </div>
+</div>
