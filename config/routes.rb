@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get '/home', to: 'landing#index', as: 'landing'
 	#~~~~~~~~~~~~~~~~~~~~ Accueil ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   root to: 'static_page#home'
 	get '/wellcome', to: 'static_page#allHome', as: 'wellcome'

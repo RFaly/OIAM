@@ -33,6 +33,7 @@
   font-family: $ffbtn;
   background-color: $secondary_text_color_button;
   padding: 1em 2em;
+  text-decoration: none;
   color: white;
   &:hover {
     box-shadow: 1px 1px 10px 1px rgb(230, 225, 225);
