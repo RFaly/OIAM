@@ -124,13 +124,14 @@
   }
   .navbar-content {
     display: flex;
-    justify-content: space-between;
-    width: 70%;
+    justify-content: space-around;
+    width: 80%;
     align-self: center;
   }
   .navbar-ul {
     display: flex;
     justify-content: space-between;
+    margin-bottom: inherit;
     .navbar-item li:hover {
       background-color: transparent;
       color: $main_theme_color;
@@ -140,7 +141,7 @@
     text-align: center;
     background-color: $secondary_text_color_button;
     color: white;
-    width: 150px;
+    width: 170px;
     &:hover {
       background-color: rgba(255, 255, 255, 0.61);
       box-shadow: $box-shadow;
@@ -175,10 +176,13 @@
   // navbar
   /////////////////////
   .navbar-content {
+    justify-content: space-between;
     width: 66%;
+    align-items: flex-end;
   }
   .navbar-ul {
     width: 70%;
+    margin-bottom: inherit;
   }
   .dropup-content1 {
     right: 4%;

@@ -111,13 +111,14 @@
   }
   .navbar-content {
     display: flex;
-    justify-content: space-between;
-    width: 70%;
+    justify-content: space-around;
+    width: 80%;
     align-self: center;
   }
   .navbar-ul {
     display: flex;
     justify-content: space-between;
+    margin-bottom: inherit;
   }
   .navbar-ul .navbar-item li:hover {
     background-color: transparent;
@@ -127,7 +128,7 @@
     text-align: center;
     background-color: #e3d7bf;
     color: white;
-    width: 150px;
+    width: 170px;
   }
   .dropup-btn1:hover {
     background-color: rgba(255, 255, 255, 0.61);
@@ -159,10 +160,13 @@
 
 @media screen and (min-width: 1200px) {
   .navbar-content {
+    justify-content: space-between;
     width: 66%;
+    align-items: flex-end;
   }
   .navbar-ul {
     width: 70%;
+    margin-bottom: inherit;
   }
   .dropup-content1 {
     right: 4%;
@@ -214,7 +218,7 @@
 }
 
 .navbar-content .dropup1 .dropup-btn1 {
-  padding: 10px;
+  padding: 10px 8px;
   cursor: pointer;
 }
 
