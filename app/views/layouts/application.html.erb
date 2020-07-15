@@ -2,10 +2,14 @@
 <html>
   <head>
     <title>Oiam</title>
-    <%= csrf_meta_tags %> <%= csp_meta_tag %> <%=
-    stylesheet_link_tag'application', media: 'all', 'data-turbolinks-track':
-    'reload' %> <%=javascript_include_tag 'application',
-    'data-turbolinks-track': 'reload' %>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Qwigley&display=swap" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <!------------------------------ bootstrap css ------------------------------>
     <link
       rel="stylesheet"
@@ -53,5 +57,6 @@
       crossorigin="anonymous"
     ></script>
     <!------------------------------ bootstrap script ------------------------------>
+
   </body>
 </html>
