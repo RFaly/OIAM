@@ -1,0 +1,2 @@
+class CadreInfo < ApplicationRecord
+end

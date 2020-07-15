@@ -1,19 +1,39 @@
 class CandidatesController < ApplicationController
-  before_action :authenticate_cadre!, except: :main
-  before_action :init_current_cadre, except: :main
+  before_action :authenticate_cadre!, only: [:my_profil, :searchJob, :favoriteJob, :recrutmentMonitoring]
+  before_action :validate_cadre, only: [:my_tests, :testpotential, :testskills, :testfit, :resultatsTest]
 
   def main
   end
 
-# dashbord
-  def my_profil # miaraka ny profil sy test
-    # if @cadre.potential_test.nil? || @cadre.skils_test.nil? || @cadre.fit_test.nil?
-    #   redirect_to my_tests_path
-    # elsif @cadre.question1.nil? || @cadre.question2.nil? || @cadre.question3.nil? || @cadre.question4.nil? || @cadre.question5.nil?
-    #   redirect_to edit_profil_path
-    # end
+  def tmp_sign_up
+    unless cookies.encrypted[:oiam_cadre].nil?
+      flash[:notice] = "Vous pouvez continuer votre test!"
+      redirect_to my_tests_path
+    end
+    @cadreInfo = CadreInfo.new
   end
 
+  def tmp_create_sign_up
+    @cadreInfo = CadreInfo.new(post_params_tmp)
+    if @cadreInfo.save
+      cookies.encrypted[:oiam_cadre] = {
+        value: @cadreInfo.id,
+        expires: Time.now + 172800
+      }
+      redirect_to my_tests_path
+    else
+      render :tmp_sign_up
+    end
+  end
+
+# test: <%= cookies.encrypted[:oiam_cadre].nil? %>
+# cookies.encrypted[:oiam_cadre]
+# a = JSON.generate({name:'google'})
+# JSON.parse(a)
+
+# dashbord
+  def my_profil
+  end
 
   def my_tests
   end
@@ -46,8 +66,10 @@ class CandidatesController < ApplicationController
 # 3 test de recrutement
   def testpotential
   end
+
   def testskills
   end
+
   def testfit
   end
 
@@ -56,14 +78,28 @@ class CandidatesController < ApplicationController
   end
 
   private
- 
-  def post_params
-    params.require(:cadre).permit(:question1,:question2,:question3,:question4,:question5)
+
+  def validate_cadre
+    if cookies.encrypted[:oiam_cadre].nil?
+      flash[:alert] = "Vous devez vous s'inscrire pour faire les tests!"
+      redirect_to tmp_sign_up_path
+    else
+      @cadre = CadreInfo.find(cookies.encrypted[:oiam_cadre])
+      if @cadre.nil?
+        flash[:alert] = "Vous devez vous s'inscrire pour faire les tests!"
+        redirect_to tmp_sign_up_path
+      end
+    end
   end
 
-  def init_current_cadre
-    @cadre = current_cadre
+  def post_params_tmp
+    params.require(:cadre_info).permit(:first_name,:adresse,:postal_code,:city,:situation,:telephone,:mail)
   end
+ 
+  def post_params
+    params.require(:cadre_info).permit(:question1,:question2,:question3,:question4,:question5)
+  end
+
 end
 
 =begin

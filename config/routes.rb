@@ -38,7 +38,9 @@ Rails.application.routes.draw do
   }
 
 	get '/cadre', to: 'candidates#main', as: 'main_cadre'
-
+  get '/cadre/inscription', to: 'candidates#tmp_sign_up', as: 'tmp_sign_up'
+  post '/cadre/go-inscription', to: 'candidates#tmp_create_sign_up', as: 'tmp_create_sign_up'
+  
   # list menu dans le dashbord candidat
   get '/cadre/mon_profil', to: 'candidates#my_profil', as: 'my_profil'
   get '/cadre/mon_profil/edit', to: 'candidates#edit_profil', as: 'edit_profil'
