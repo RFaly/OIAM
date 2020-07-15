@@ -14,6 +14,7 @@ class CreateCadreInfos < ActiveRecord::Migration[5.2]
       t.integer :potential_test
       t.integer :skils_test
       t.boolean :fit_test
+      t.boolean :empty, default: :true
       t.text :avis_recruteur
       t.text :question1
       t.text :question2

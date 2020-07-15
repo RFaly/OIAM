@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_084607) do
+ActiveRecord::Schema.define(version: 2020_07_14_062155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,14 +41,17 @@ ActiveRecord::Schema.define(version: 2020_07_15_084607) do
     t.integer "potential_test"
     t.integer "skils_test"
     t.boolean "fit_test"
+    t.boolean "empty", default: true
     t.text "avis_recruteur"
     t.text "question1"
     t.text "question2"
     t.text "question3"
     t.text "question4"
     t.text "question5"
+    t.bigint "cadre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cadre_id"], name: "index_cadre_infos_on_cadre_id"
   end
 
   create_table "cadres", force: :cascade do |t|
@@ -59,8 +62,6 @@ ActiveRecord::Schema.define(version: 2020_07_15_084607) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "cadre_info_id"
-    t.index ["cadre_info_id"], name: "index_cadres_on_cadre_info_id"
     t.index ["email"], name: "index_cadres_on_email", unique: true
     t.index ["reset_password_token"], name: "index_cadres_on_reset_password_token", unique: true
   end

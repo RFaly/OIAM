@@ -14,6 +14,7 @@ class Cadres::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    @cadreInfo.update(cadre:current_cadre)
     cookies.delete :oiam_cadre
   end
 
@@ -69,13 +70,13 @@ class Cadres::RegistrationsController < Devise::RegistrationsController
     if cookies.encrypted[:oiam_cadre].nil?
       redirect_to tmp_sign_up_path
     else
-      @cadre = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
-      if @cadre.nil?
+      @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+      if @cadreInfo.nil?
         cookies.delete :oiam_cadre
         flash[:alert] = "Vous devez vous s'inscrire pour faire les tests!"
         redirect_to tmp_sign_up_path
       else
-        @email = @cadre.mail
+        @email = @cadreInfo.mail
       end
     end
   end
