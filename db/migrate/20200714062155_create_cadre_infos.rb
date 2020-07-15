@@ -20,7 +20,8 @@ class CreateCadreInfos < ActiveRecord::Migration[5.2]
       t.text :question3
       t.text :question4
       t.text :question5
-
+      t.belongs_to :cadre
+      
       t.timestamps
     end
   end

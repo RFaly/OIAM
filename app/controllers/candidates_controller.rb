@@ -39,14 +39,16 @@ class CandidatesController < ApplicationController
   end
 
   def edit_profil
+    @cadre = CadreInfo.find(cookies.encrypted[:oiam_cadre])
   end
 
   def confirmedProfil
+    @cadre = CadreInfo.find(cookies.encrypted[:oiam_cadre])
     uploader = ImageUploader.new
-    if params[:cadre][:image].nil? && @cadre.image.nil?
+    if params[:cadre_info][:image].nil? && @cadre.image.nil?
       redirect_to edit_profil_path, alert: "Image non trouvé"
-    elsif !params[:cadre][:image].nil?
-      uploader.store!(params[:cadre][:image])
+    elsif !params[:cadre_info][:image].nil?
+      uploader.store!(params[:cadre_info][:image])
       @cadre.image = uploader.url
       @cadre.save
     end
@@ -84,8 +86,9 @@ class CandidatesController < ApplicationController
       flash[:alert] = "Vous devez vous s'inscrire pour faire les tests!"
       redirect_to tmp_sign_up_path
     else
-      @cadre = CadreInfo.find(cookies.encrypted[:oiam_cadre])
+      @cadre = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
       if @cadre.nil?
+        cookies.delete :oiam_cadre
         flash[:alert] = "Vous devez vous s'inscrire pour faire les tests!"
         redirect_to tmp_sign_up_path
       end
