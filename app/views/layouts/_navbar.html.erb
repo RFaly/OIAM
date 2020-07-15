@@ -1,0 +1,81 @@
+<div class="navdiv">
+  <nav class="navb">
+    <div class="navbar-logo">
+      <a href="<%=root_path %>">
+        <%=image_tag 'OIAM_DIAMOND.png',alt:'logo'%>
+      </a>
+    </div>
+    <div class="btn-btn open">
+      <span class="btn-btn-burger"> </span>
+    </div>
+    <div class="navbar-content">
+      <ul class="navbar-ul">
+        <a href="<%=root_path %>" class="navbar-item">
+          <li>ACCUEIL</li>
+        </a>
+        <a href="<%=equipe_path%>" class="navbar-item">
+          <li>Équipe</li>
+        </a>
+        <a href="<%=methodology_path%>" class="navbar-item">
+          <li>Méthodologie</li>
+        </a>
+        <a href="<%=portfolio_path%>" class="navbar-item">
+          <li>PORTFOLIO</li>
+        </a>
+        <a href="<%=contact_path%>" class="navbar-item">
+          <li>CONTACT</li>
+        </a>
+      </ul>
+
+      <div class="dropup1">
+        <% if client_signed_in? %> <% unless current_client.image.nil? %>
+        <%=image_tag(current_client.image, alt: 'photo de
+        profil',id:'photo-profil')%> <% else %>
+        <a href="<%= client_my_profil_path %>">
+          <div class="dropup-btn1" data-toggle="dropdown">Mon profil</div>
+        </a>
+        <% end %>
+
+        <div class="dropup-content1">
+          <a href="<%= new_cadre_session_path%></a>">
+            <div class="dropup-item1">Mopn profil</div>
+          </a>
+          <a href="<%=new_client_session_path%>">
+            <div class="dropup-item1">Se déconnecter</div>
+          </a>
+        </div>
+        <% elsif cadre_signed_in? %> <% unless current_cadre.image.nil?%> <%=
+        image_tag(current_cadre.image, alt: 'photo de
+        profil',id:'photo_profil')%> <% else %>
+        <a href="<%= my_profil_path %>">
+          <div class="dropup-btn1" data-toggle="dropdown">Mon profil</div>
+        </a>
+        <% end %>
+        <div class="dropup-content1">
+          <a href="<%= new_cadre_session_path%></a>">
+            <div class="dropup-item1">Mon profil</div>
+          </a>
+          <a href="<%=new_client_session_path%>">
+            <div class="dropup-item1">Se déconnecter</div>
+          </a>
+        </div>
+
+        <% else %>
+        <div class="dropup-btn1" data-toggle="dropdown">Se connecter</div>
+
+        <div class="dropup-content1">
+          <a href="<%= new_cadre_session_path%></a>">
+            <div class="dropup-item1">cadre</div>
+          </a>
+          <a href="<%=new_client_session_path%>">
+            <div class="dropup-item1">Recruteur</div>
+          </a>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+  <div class="logo-g">
+    <%= image_tag 'OIAM_Logo.png', alt:'logo général' %>
+  </div>
+</div>

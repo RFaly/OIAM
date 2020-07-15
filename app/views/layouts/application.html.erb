@@ -3,12 +3,18 @@
   <head>
     <title>Oiam</title>
 
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Qwigley&display=swap" rel="stylesheet">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %> <%= csp_meta_tag %>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Qwigley&display=swap"
+      rel="stylesheet"
+    />
+    <%= stylesheet_link_tag 'application', media: 'all','data-turbolinks-track':
+    'reload' %> <%= javascript_include_tag'application',
+    'data-turbolinks-track': 'reload' %>
 
     <!------------------------------ bootstrap css ------------------------------>
     <link
@@ -18,14 +24,10 @@
       crossorigin="anonymous"
     />
     <!------------------------------ bootstrap css ------------------------------>
-    <style type="text/css">
-      #photo_ako {
-        width: 40px;
-      }
-    </style>
   </head>
 
   <body>
+    <%= render "layouts/navbar" %>
     <!-- <div class="container"> -->
     <!-- ~~~~~~~~~~~~~~~~~~~ Alert devise ito ~~~~~~~~~~~~~~~~~~~ -->
     <div>
@@ -41,7 +43,7 @@
 
     <!------------------------------ bootstrap script ------------------------------>
     <!-- JS, Popper.js, and jQuery -->
-    <script
+    <!-- <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"
@@ -55,8 +57,7 @@
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
     <!------------------------------ bootstrap script ------------------------------>
-
   </body>
 </html>

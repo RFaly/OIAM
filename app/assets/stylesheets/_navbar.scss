@@ -1,0 +1,51 @@
+// Navbar css
+@import 'config';
+.navbar-content {
+  text-transform: uppercase;
+  font-family: $ffbtn;
+  font-weight: 500;
+  .navbar-item {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    li {
+      padding: 10px;
+      width: 100%;
+    }
+  }
+  .dropup1 {
+    .dropup-btn1 {
+      padding: 10px;
+      cursor: pointer;
+    }
+    .dropup-item1 {
+      padding: 10px;
+    }
+    .dropup-content1 {
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+    #photo-profil {
+      width: 50px;
+    }
+  }
+}
+.navbar-logo {
+  width: 72px;
+  height: 76px;
+  img {
+    width: 100%;
+  }
+}
+nav {
+  padding-top: 20px;
+}
+.logo-g {
+  margin: 0 auto;
+  padding: 30px;
+  img {
+    width: 100%;
+  }
+}
