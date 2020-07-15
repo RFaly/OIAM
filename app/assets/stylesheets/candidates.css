@@ -1,1 +1,236 @@
-/* No CSS */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+*, *::before, *::after{
+	box-sizing: border-box;
+}
+
+html{
+	font-size: 20px;
+}
+
+body{
+	font-family: 'Questrial', sans-serif;
+	line-height: 1.2;
+	margin: 0;
+}
+
+.main{
+	text-align: justify;
+	margin-bottom: 50px;
+}
+.main span{
+	color: #B68E27;
+	font-size: 25px;
+}
+.etape{
+	text-align: none;
+	margin-bottom: 80px;
+}
+
+/* .etape h2{
+	display: inline;
+} */
+
+/* p{
+	display: block;
+} */
+
+.etape p{
+	text-align: justify;
+}
+
+.etape h2{
+	font-size: 18px;
+}
+
+.etape b{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	font-family: 'Qwigley', cursive;
+	font-size: 80px;
+	font-weight: lighter;
+	color: #B68E27;
+}
+
+
+.btn-inscrire{
+	display: block;
+	margin: auto;
+	background-color: #E3D7BF;
+	text-decoration: none;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	width: 186px;
+	height: 60px;
+	padding: 20px;
+}
+
+.btn-inscrire:hover{
+	text-decoration: none;
+	color: #fff;
+}
+
+.description{
+	padding: 25px;
+}
+
+.goLeft{
+	margin-left: 20px;
+}
+
+
+.go b{
+	margin-left: -15px;
+}
+/* @media only screen and (min-width: 1024px)  {
+
+
+	html{
+		font-size: 20px;
+	}
+
+	body{
+		font-family: 'Questrial', sans-serif;
+		line-height: 1.2;
+		margin: 0;
+	}
+
+	.etape h2{
+		display: inline;
+	}
+
+	.etape b {
+		font-size: 75px;
+		width: 15px;
+	}
+
+	.etape{
+		display: block;
+		width: 92%;
+		margin-right: auto;
+	}
+
+	.right{
+		width: 370px;
+		margin-left: auto;
+	}
+
+
+	.etape::after{
+		content: "";
+		position: relative;
+		height: 0;
+		width: 1000px;
+		top: 960px;
+		left: auto;
+		border: 1px solid rgba(51, 51, 51, 0.54);
+		transform: rotate(90deg);
+	}
+
+	.left{
+		width: 368px;
+		margin-right: auto;
+	}
+}
+
+@media only screen and (min-width: 1200px){
+	html{
+		font-size: 20px;
+	}
+
+	body{
+		font-family: 'Questrial', sans-serif;
+		line-height: 1.2;
+		margin: 0;
+	}
+	.etape h2{
+		display: block;
+	}
+	.etape{
+		display: inline-block;
+		width: 92%;
+		margin: auto;
+		margin-bottom: 200px;
+	}
+
+	.etape::after{
+		content: "";
+		position: absolute;
+		height: 0;
+		width: 1000px;
+		top: 960px;
+		left: auto;
+		bottom: auto;
+		border: 1px solid rgba(51, 51, 51, 0.54);
+		transform: rotate(90deg);
+	}
+
+	.etape b{
+		position: relative;
+		top: 45px;
+		right: 55px;
+	}
+	.right{
+		width: 420px;
+		margin-bottom: 2px;
+		margin-left: auto 20px;
+	}
+
+	.left{
+		width: 420px;
+		margin-left: 40px;
+	}
+
+
+
+
+} */
