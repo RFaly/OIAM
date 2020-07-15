@@ -35,6 +35,12 @@
   .dropup1 {
     padding-bottom: 10px;
   }
+  .accueilg-btn1 .cadre-btn a {
+    padding: 10px 55px;
+  }
+  .accueilg-btn1 .recruteur-btn a {
+    padding: 10px 30px;
+  }
 }
 
 @media screen and (min-width: 540px) {
@@ -94,7 +100,7 @@
 @media screen and (min-width: 900px) {
   .logo-g {
     display: block;
-    width: 50%;
+    width: 45%;
   }
   .navb {
     padding: 5px 0;
@@ -106,7 +112,7 @@
   .navbar-content {
     display: flex;
     justify-content: space-between;
-    width: 75%;
+    width: 70%;
     align-self: center;
   }
   .navbar-ul {
@@ -125,7 +131,7 @@
   }
   .dropup-btn1:hover {
     background-color: rgba(255, 255, 255, 0.61);
-    box-shadow: 1px 1px 10px 1px #c0b5b5;
+    box-shadow: 1px 1px 10px 1px rgba(221, 216, 216, 0.63);
     color: #e3d7bf;
   }
   .dropup-content1 {
@@ -136,10 +142,18 @@
     right: 4%;
     top: 68px;
     text-align: center;
-    z-index: 2;
+    z-index: 20;
   }
   .btn-btn {
     display: none;
+  }
+  .navdiv {
+    padding-bottom: 70px;
+  }
+  .bg-inside {
+    background: url("BANNIERE.png");
+    background-position: center;
+    background-size: cover;
   }
 }
 
@@ -156,6 +170,177 @@
   .logo-g {
     width: 40%;
   }
+  .navdiv {
+    padding-bottom: 100px;
+  }
+  .bg-inside {
+    background: url("BANNIERE.png");
+    background-position: center;
+    background-size: cover;
+  }
+  .bg-accueil {
+    z-index: -1;
+    top: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: url("BANNIERE.png");
+    background-position: center;
+    background-size: cover;
+  }
+  .accueilg-btn1 .cadre-btn a {
+    padding: 20px 65px;
+  }
+  .accueilg-btn1 .recruteur-btn a {
+    padding: 20px 50px;
+  }
+}
+
+.navbar-content {
+  text-transform: uppercase;
+  font-family: Raleway, sans-serif;
+  font-weight: 500;
+}
+
+.navbar-content .navbar-item {
+  list-style: none;
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-content .navbar-item li {
+  padding: 10px;
+  width: 100%;
+}
+
+.navbar-content .dropup1 .dropup-btn1 {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.navbar-content .dropup1 .dropup-item1 {
+  padding: 10px;
+}
+
+.navbar-content .dropup1 .dropup-content1 a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-content .dropup1 #photo-profil {
+  width: 50px;
+}
+
+.navbar-logo {
+  width: 72px;
+  height: 76px;
+}
+
+.navbar-logo img {
+  width: 100%;
+}
+
+nav {
+  padding-top: 20px;
+}
+
+.logo-g {
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.logo-g img {
+  width: 100%;
+}
+
+.btn-btn {
+  top: 26px;
+  right: 20px;
+  z-index: 2;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  align-self: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.btn-btn-burger {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  height: 5px;
+  background: grey;
+}
+
+.btn-btn-burger::before {
+  content: ' ';
+  position: absolute;
+  top: -10px;
+  width: 100%;
+  height: 5px;
+  background: grey;
+}
+
+.btn-btn-burger::after {
+  content: ' ';
+  position: absolute;
+  top: 10px;
+  width: 70%;
+  height: 5px;
+  background: grey;
+}
+
+.btn-btn .open {
+  transform: rotate(720deg);
+  transition: all 500ms ease-in-out;
+  background: transparent;
+}
+
+.btn-btn-burger.open::before {
+  width: 125%;
+  transition: all 500ms ease-in-out;
+  transform: rotate(45deg) translate(4px, 10px);
+}
+
+.btn-btn-burger.open::after {
+  width: 125%;
+  transition: all 500ms ease-in-out;
+  transform: rotate(-45deg) translate(4px, -10px);
+}
+
+.accueilg-btn1 {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.accueilg-btn1 .cadre-btn {
+  padding: 10px;
+}
+
+.accueilg-btn1 .recruteur-btn {
+  padding: 10px;
+}
+
+.accueilg-btn1 a {
+  color: white;
+  font-family: Raleway, sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  background-color: #e3d7bf;
+}
+
+.accueilg-btn1 a:hover {
+  text-decoration: none;
+  color: #e3d7bf;
+  background-color: white;
+  box-shadow: 1px 1px 10px 1px rgba(221, 216, 216, 0.63);
+}
+
+.accueilg-content {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .box-1-logo {

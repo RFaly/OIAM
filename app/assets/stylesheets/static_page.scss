@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'config';
 @import 'mobile';
-
+@import 'navbar';
+@import 'burger';
+@import 'accueilg';
 .box-1-logo {
   width: 70%;
   img {

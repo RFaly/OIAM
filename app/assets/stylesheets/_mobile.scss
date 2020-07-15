@@ -39,6 +39,19 @@
   .dropup1 {
     padding-bottom: 10px;
   }
+  // Page d'accueil général
+  .accueilg-btn1 {
+    .cadre-btn {
+      a {
+        padding: 10px 55px;
+      }
+    }
+    .recruteur-btn {
+      a {
+        padding: 10px 30px;
+      }
+    }
+  }
 }
 @media screen and (min-width: 540px) {
   .logo-g {
@@ -100,7 +113,7 @@
   ////////////////////////
   .logo-g {
     display: block;
-    width: 50%;
+    width: 45%;
   }
   .navb {
     padding: 5px 0;
@@ -112,7 +125,7 @@
   .navbar-content {
     display: flex;
     justify-content: space-between;
-    width: 75%;
+    width: 70%;
     align-self: center;
   }
   .navbar-ul {
@@ -130,7 +143,7 @@
     width: 150px;
     &:hover {
       background-color: rgba(255, 255, 255, 0.61);
-      box-shadow: 1px 1px 10px 1px rgb(192, 181, 181);
+      box-shadow: $box-shadow;
       color: $secondary_text_color_button;
     }
   }
@@ -143,10 +156,19 @@
     right: 4%;
     top: 68px;
     text-align: center;
-    z-index: 2;
+    z-index: 20;
   }
   .btn-btn {
     display: none;
+  }
+  // navbar background
+  .navdiv {
+    padding-bottom: 70px;
+  }
+  .bg-inside {
+    background: url('BANNIERE.png');
+    background-position: center;
+    background-size: cover;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -163,5 +185,38 @@
   }
   .logo-g {
     width: 40%;
+  }
+  // navbar background all
+  .navdiv {
+    padding-bottom: 100px;
+  }
+  .bg-inside {
+    background: url('BANNIERE.png');
+    background-position: center;
+    background-size: cover;
+  }
+  // nabar bg accueil
+  .bg-accueil {
+    z-index: -1;
+    top: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: url('BANNIERE.png');
+    background-position: center;
+    background-size: cover;
+  }
+  // page d'accueil général
+  .accueilg-btn1 {
+    .cadre-btn {
+      a {
+        padding: 20px 65px;
+      }
+    }
+    .recruteur-btn {
+      a {
+        padding: 20px 50px;
+      }
+    }
   }
 }
