@@ -1,12 +1,14 @@
 class CandidatesController < ApplicationController
-  before_action :authenticate_cadre!, only: [:my_profil, :searchJob, :favoriteJob, :recrutmentMonitoring]
+  before_action :authenticate_cadre!, only: [:confirmedProfil,:edit_profil, :my_profil, :searchJob, :favoriteJob, :recrutmentMonitoring]
   before_action :validate_cadre, only: [:my_tests, :testpotential, :testskills, :testfit, :resultatsTest]
+  before_action :current_info_cadre, only: [:my_profil, :edit_profil, :confirmedProfil]
 
   def main
   end
 
   def tmp_sign_up
     unless cookies.encrypted[:oiam_cadre].nil?
+      # @cadre = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
       flash[:notice] = "Vous pouvez continuer votre test!"
       redirect_to my_tests_path
     end
@@ -33,6 +35,7 @@ class CandidatesController < ApplicationController
 
 # dashbord
   def my_profil
+    validate_info_cadre
   end
 
   def my_tests
@@ -43,24 +46,28 @@ class CandidatesController < ApplicationController
 
   def confirmedProfil
     uploader = ImageUploader.new
-    if params[:cadre][:image].nil? && @cadre.image.nil?
+    if params[:cadre_info][:image].nil? && @cadre.image.nil?
       redirect_to edit_profil_path, alert: "Image non trouvé"
-    elsif !params[:cadre][:image].nil?
-      uploader.store!(params[:cadre][:image])
+    elsif !params[:cadre_info][:image].nil?
+      uploader.store!(params[:cadre_info][:image])
       @cadre.image = uploader.url
       @cadre.save
     end
     @cadre.update(post_params)
+    @cadre.update(empty:false)
     redirect_to my_profil_path
   end
 
 	def searchJob
+    validate_info_cadre
 	end
 
 	def favoriteJob
+    validate_info_cadre
 	end
 
 	def recrutmentMonitoring
+    validate_info_cadre
 	end
 
 # 3 test de recrutement
@@ -80,14 +87,17 @@ class CandidatesController < ApplicationController
   private
 
   def validate_cadre
-    if cookies.encrypted[:oiam_cadre].nil?
-      flash[:alert] = "Vous devez vous s'inscrire pour faire les tests!"
-      redirect_to tmp_sign_up_path
-    else
-      @cadre = CadreInfo.find(cookies.encrypted[:oiam_cadre])
-      if @cadre.nil?
+    unless current_cadre
+      if cookies.encrypted[:oiam_cadre].nil?
         flash[:alert] = "Vous devez vous s'inscrire pour faire les tests!"
         redirect_to tmp_sign_up_path
+      else
+        @cadre = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+        if @cadre.nil?
+          cookies.delete :oiam_cadre
+          flash[:alert] = "Vous devez vous s'inscrire pour faire les tests!"
+          redirect_to tmp_sign_up_path
+        end
       end
     end
   end
@@ -100,6 +110,16 @@ class CandidatesController < ApplicationController
     params.require(:cadre_info).permit(:question1,:question2,:question3,:question4,:question5)
   end
 
+  def current_info_cadre
+    @cadre = current_cadre.cadre_info
+  end
+
+  def validate_info_cadre
+    if current_cadre.cadre_info.empty
+      flash[:notice] = "Veuillez remplir votre profil"
+      redirect_to edit_profil_path
+    end
+  end
 end
 
 =begin

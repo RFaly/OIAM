@@ -41,14 +41,17 @@ ActiveRecord::Schema.define(version: 2020_07_14_062155) do
     t.integer "potential_test"
     t.integer "skils_test"
     t.boolean "fit_test"
+    t.boolean "empty", default: true
     t.text "avis_recruteur"
     t.text "question1"
     t.text "question2"
     t.text "question3"
     t.text "question4"
     t.text "question5"
+    t.bigint "cadre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cadre_id"], name: "index_cadre_infos_on_cadre_id"
   end
 
   create_table "cadres", force: :cascade do |t|
