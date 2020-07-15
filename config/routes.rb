@@ -27,18 +27,18 @@ Rails.application.routes.draw do
   post '/recruteur/publier-offre', to: 'recruteurs#createJob', as: 'createJob'
   get '/recruteur/publier/:id/offre', to: 'recruteurs#showNewJob', as: 'showNewJob'
 
-
-
-
-
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	devise_for :cadres, path: 'cadres', controllers: {
+	devise_for :cadres, path: 'cadre', controllers: {
     sessions: 'cadres/sessions',
     registrations: 'cadres/registrations'
+  }, path_names: {
+    sign_in: 'se-connecter', sign_out: 'se-deconneter', cancel: 'supprimer',
+    password: 'mot-de-passe', confirmation: 'verification',
+    registration: 'inscription', edit: 'editer', sign_up: 'cree-compte'
   }
 
 	get '/cadre', to: 'candidates#main', as: 'main_cadre'
-  get '/cadre/inscription', to: 'candidates#tmp_sign_up', as: 'tmp_sign_up'
+  get '/cadre/inscription-candidat', to: 'candidates#tmp_sign_up', as: 'tmp_sign_up'
   post '/cadre/go-inscription', to: 'candidates#tmp_create_sign_up', as: 'tmp_create_sign_up'
   
   # list menu dans le dashbord candidat
