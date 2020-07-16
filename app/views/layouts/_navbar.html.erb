@@ -28,14 +28,9 @@
       </ul>
 
       <div class="dropup1">
-        <% if client_signed_in? %> <% unless current_client.image.nil? %>
-        <%=image_tag(current_client.image, alt: 'photo de
-        profil',id:'photo-profil')%> <% else %>
-        <a href="<%= client_my_profil_path %>">
-          <div class="dropup-btn1" data-toggle="dropdown">Mon profil</div>
-        </a>
-        <% end %>
-
+        <% if client_signed_in? %> 
+          <a href="<%= client_my_profil_path %>">
+          <div class="dropup-btn1" data-toggle="dropdown">Mon profil</div></a>
         <div class="dropup-content1">
           <a href="<%= new_cadre_session_path%></a>">
             <div class="dropup-item1">Mopn profil</div>
@@ -44,13 +39,11 @@
             <div class="dropup-item1">Se déconnecter</div>
           </a>
         </div>
-        <% elsif cadre_signed_in? %> <% unless current_cadre.image.nil?%> <%=
-        image_tag(current_cadre.image, alt: 'photo de
-        profil',id:'photo_profil')%> <% else %>
-        <a href="<%= my_profil_path %>">
-          <div class="dropup-btn1" data-toggle="dropdown">Mon profil</div>
-        </a>
-        <% end %>
+
+        <% elsif cadre_signed_in? %>
+          <a href="<%= my_profil_path %>">
+          <div class="dropup-btn1" data-toggle="dropdown">Mon profil</div></a>
+          
         <div class="dropup-content1">
           <a href="<%= new_cadre_session_path%></a>">
             <div class="dropup-item1">Mon profil</div>
@@ -72,6 +65,7 @@
           </a>
         </div>
         <% end %>
+
       </div>
     </div>
   </nav>
