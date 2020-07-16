@@ -45,17 +45,57 @@ class CandidatesController < ApplicationController
   end
 
   def confirmedProfil
+    errorMessage = ""
+    
+    is_error = params[:cadre_info][:question1].empty? || params[:cadre_info][:question2].empty? || params[:cadre_info][:question3].empty? || params[:cadre_info][:question4].empty? || params[:cadre_info][:question5].empty? || params[:cadre_info][:status].empty?
+    if is_error
+      errorMessage += " [ Tous les champs sont obligatoire ] "
+    end
+
+    fileCv = FileUploader.new
+    if params[:cadre_info][:cv].nil? && @cadre.cv.nil?
+      errorMessage += " [ Importer votre CV ] "
+    elsif !params[:cadre_info][:cv].nil?
+      is_cv = true
+      begin
+        fileCv.store!(params[:cadre_info][:cv])
+      rescue StandardError => e
+        is_cv = false
+        errorMessage += " [ CV: #{e.message} ] "
+      end
+      if is_cv
+        @cadre.cv = fileCv.url
+        @cadre.save
+      end
+    end
+
     uploader = ImageUploader.new
     if params[:cadre_info][:image].nil? && @cadre.image.nil?
-      redirect_to edit_profil_path, alert: "Image non trouvé"
+      errorMessage += " [ Importer votre photo de profil ] "
     elsif !params[:cadre_info][:image].nil?
-      uploader.store!(params[:cadre_info][:image])
-      @cadre.image = uploader.url
-      @cadre.save
+      is_img = true
+      begin
+        uploader.store!(params[:cadre_info][:image])
+      rescue StandardError => e
+        is_img = false
+        errorMessage += " [ Photo: #{e.message} ] "
+      end
+      if is_img
+        @cadre.image = uploader.url
+        @cadre.save
+      end
     end
-    @cadre.update(post_params)
-    @cadre.update(empty:false)
-    redirect_to my_profil_path
+    
+    if errorMessage.empty?
+      @cadre.update(post_params)
+      @cadre.update(empty:false)
+      redirect_to my_profil_path
+    else
+      flash[:alert] = "#{errorMessage}"
+      render :edit_profil
+      return
+    end
+
   end
 
 	def searchJob

@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_07_14_062155) do
 
   create_table "cadre_infos", force: :cascade do |t|
     t.string "image"
+    t.string "cv"
     t.string "first_name"
     t.string "last_name"
     t.string "adresse"
