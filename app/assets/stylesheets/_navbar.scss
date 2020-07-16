@@ -2,8 +2,7 @@
 @import 'config';
 .navbar-content {
   text-transform: uppercase;
-  font-family: $ffbtn;
-  font-weight: 500;
+  font: $ffbtn;
   .navbar-item {
     list-style: none;
     text-decoration: none;
@@ -15,6 +14,7 @@
   }
   .dropup1 {
     .dropup-btn1 {
+      width: 175px;
       padding: 10px 8px;
       cursor: pointer;
     }
