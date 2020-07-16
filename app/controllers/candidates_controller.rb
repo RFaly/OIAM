@@ -46,16 +46,18 @@ class CandidatesController < ApplicationController
 
   def confirmedProfil
     uploader = ImageUploader.new
-    if params[:cadre_info][:image].nil? && @cadre.image.nil?
-      redirect_to edit_profil_path, alert: "Image non trouvé"
-    elsif !params[:cadre_info][:image].nil?
-      uploader.store!(params[:cadre_info][:image])
-      @cadre.image = uploader.url
-      @cadre.save
-    end
-    @cadre.update(post_params)
-    @cadre.update(empty:false)
-    redirect_to my_profil_path
+    file = FileUploader.new
+    file.store!(params[:cadre_info][:cv])
+    # if params[:cadre_info][:image].nil? && @cadre.image.nil?
+    #   redirect_to edit_profil_path, alert: "Image non trouvé"
+    # elsif !params[:cadre_info][:image].nil?
+    #   uploader.store!(params[:cadre_info][:image])
+    #   @cadre.image = uploader.url
+    #   @cadre.save
+    # end
+    # @cadre.update(post_params)
+    # @cadre.update(empty:false)
+    # redirect_to my_profil_path
   end
 
 	def searchJob
