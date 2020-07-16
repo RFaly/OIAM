@@ -1,14 +1,8 @@
 @import 'config';
 .accueilg-btn1 {
-  padding: 20px;
+  margin-top: 70px;
   display: flex;
   justify-content: center;
-  .cadre-btn {
-    padding: 10px;
-  }
-  .recruteur-btn {
-    padding: 10px;
-  }
   a {
     color: white;
     font-family: $ffbtn;
@@ -24,6 +18,19 @@
   }
 }
 .accueilg-content {
-  width: 80%;
-  margin: 0 auto;
+  width: 90%;
+  margin-bottom: 64px;
+  h2 {
+    font: $ffbtn;
+    color: $main_theme_color;
+    margin: 15px 0;
+  }
+  p {
+    font: $ffsentence;
+    text-align: justify;
+  }
+  .cc-accueuil {
+    text-align: center;
+    margin: 40px 0;
+  }
 }

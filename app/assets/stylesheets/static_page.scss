@@ -16,8 +16,7 @@
   width: 80%;
   text-align: center;
   text-transform: uppercase;
-  font-family: $ffsentence;
-  font-size: 16px;
+  font: $ffsentence;
 }
 .box-1 {
   height: 100vh;
@@ -30,9 +29,7 @@
   justify-self: start;
   align-self: flex-end;
   margin-right: 10%;
-  font-size: 16px;
-  font-weight: 600;
-  font-family: $ffbtn;
+  font: $ffbtn;
   background-color: $secondary_text_color_button;
   padding: 1em 2em;
   text-decoration: none;
