@@ -28,43 +28,50 @@
       </ul>
 
       <div class="dropup1">
-        <% if client_signed_in? %> 
-          <a href="<%= client_my_profil_path %>">
-          <div class="dropup-btn1" data-toggle="dropdown">Mon profil</div></a>
-        <div class="dropup-content1">
-          <a href="<%= new_cadre_session_path%></a>">
-            <div class="dropup-item1">Mopn profil</div>
-          </a>
-          <a href="<%=new_client_session_path%>">
-            <div class="dropup-item1">Se déconnecter</div>
-          </a>
-        </div>
 
-        <% elsif cadre_signed_in? %>
-          <a href="<%= my_profil_path %>">
-          <div class="dropup-btn1" data-toggle="dropdown">Mon profil</div></a>
-          
-        <div class="dropup-content1">
-          <a href="<%= new_cadre_session_path%></a>">
-            <div class="dropup-item1">Mon profil</div>
-          </a>
-          <a href="<%=new_client_session_path%>">
-            <div class="dropup-item1">Se déconnecter</div>
-          </a>
-        </div>
-
-        <% else %>
-        <div class="dropup-btn1" data-toggle="dropdown">Se connecter</div>
-
-        <div class="dropup-content1">
-          <a href="<%= new_cadre_session_path%></a>">
-            <div class="dropup-item1">cadre</div>
-          </a>
-          <a href="<%=new_client_session_path%>">
-            <div class="dropup-item1">Recruteur</div>
-          </a>
-        </div>
-        <% end %>
+<% if client_signed_in? %>
+  <div class="dropup-btn1" data-toggle="dropdown">
+    Mon profil
+  </div>
+  <div class="dropup-content1">
+    <a href="<%= client_my_profil_path%>">
+      <div class="dropup-item1">Mon profil</div>
+    </a>
+    <%= link_to destroy_client_session_path, method:"delete" do %>
+      <div class="dropup-item1">Se déconnecter</div>
+    <% end %>
+  </div>
+<% elsif cadre_signed_in? %>
+  <div class="dropup-btn1" data-toggle="dropdown">
+    Mon profil
+  </div>
+  <div class="dropup-content1">
+    <a href="<%= my_profil_path %>">
+      <div class="dropup-item1">Mon profil</div>
+    </a>
+    <%= link_to destroy_cadre_session_path, method:"delete" do %>
+      <div class="dropup-item1">Se déconnecter</div>
+    <% end %>
+  </div>
+<% elsif !cookies.encrypted[:oiam_cadre].nil? %>
+  <a href="<%= my_tests_path %>">
+    <div class="dropup-btn1">
+      Mon profil
+    </div>
+  </a>
+<% else %>
+  <div class="dropup-btn1" data-toggle="dropdown">
+    Se connecter
+  </div>
+  <div class="dropup-content1">
+    <a href="<%= tmp_sign_up_path%>">
+      <div class="dropup-item1">cadre</div>
+    </a>
+    <a href="<%= new_client_registration_path %>">
+      <div class="dropup-item1">Recruteur</div>
+    </a>
+  </div>
+<% end %>
 
       </div>
     </div>
