@@ -14,14 +14,18 @@
   }
   .dropup1 {
     .dropup-btn1 {
-      width: 175px;
       padding: 10px 8px;
       cursor: pointer;
     }
     .dropup-item1 {
       padding: 10px;
+      &:hover,
+      &:active {
+        background-color: white;
+      }
     }
     .dropup-content1 {
+      display: none;
       a {
         text-decoration: none;
         color: black;

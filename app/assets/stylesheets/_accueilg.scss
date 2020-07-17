@@ -17,8 +17,9 @@
     }
   }
 }
-.accueilg-content {
-  width: 90%;
+.accueilg-content1 {
+  width: 85%;
+  box-sizing: border-box;
   margin-bottom: 64px;
   h2 {
     font: $ffbtn;
@@ -29,7 +30,7 @@
     font: $ffsentence;
     text-align: justify;
   }
-  .cc-accueuil {
+  .cc-accueuil1 {
     text-align: center;
     margin: 40px 0;
   }

@@ -1,6 +1,6 @@
 @import 'config';
 
-@media screen and (max-width: 540px) {
+@media screen and (max-device-width: 480px) {
   .logo-g {
     display: none;
   }
@@ -14,6 +14,7 @@
   ////////////////////////////
   .navbar-content {
     display: none;
+    font-size: 33px;
   }
   .navb {
     padding: 5px 50px;
@@ -22,6 +23,7 @@
   .dropup-btn1 {
     text-align: center;
     background-color: white;
+    width: 180px;
     color: $secondary_text_color_button;
     &:hover {
       background-color: rgba(255, 255, 255, 0.432);
@@ -29,8 +31,7 @@
   }
   .dropup-content1 {
     border: 2px white solid;
-    display: none;
-    .dropup-item1:hover {
+    .dropup-item1:active {
       background-color: white;
       color: $secondary_text_color_button;
     }
@@ -41,44 +42,45 @@
   // Page d'accueil général
   //////////////////////////////////////////
   .accueilg-btn1 {
-    .cadre-btn {
+    .cadre-btn1 {
       margin: 0 0.5em;
       a {
         padding: 10px 30px;
       }
     }
-    .recruteur-btn {
+    .recruteur-btn1 {
       margin: 0 0.5em;
       a {
         padding: 10px 15px;
       }
     }
   }
-  .picto {
+  .picto1 {
     display: none;
   }
-  .accueilg-content {
+  .accueilg-content1 {
     margin: 0 auto;
-    .ac-item {
+    .ac-item2 {
       margin: 50px 0;
     }
   }
+  // footer
+  //////////////////////////
+  .footer-bottom {
+    align-content: space-between;
+    flex-direction: column;
+  }
 }
 
-@media screen and (min-width: 540px) {
+@media screen and (min-device-width: 480px) {
   .logo-g {
     display: none;
   }
   .box-1 {
-    width: 50%;
+    width: 100%;
   }
   .box-2 {
-    display: block;
-    width: 50%;
-    img {
-      width: 100%;
-      height: 100vh;
-    }
+    display: none;
   }
   // navbar's elements
   ///////////////////////////////////////////
@@ -94,6 +96,7 @@
     color: $secondary_text_color_button;
   }
   .dropup-btn1 {
+    width: 180px;
     text-align: center;
     background-color: white;
     color: $secondary_text_color_button;
@@ -103,75 +106,113 @@
   }
   .dropup-content1 {
     border: 2px white solid;
-    display: none;
-    .dropup-item1:hover {
+    .dropup-item1:active {
       background-color: white;
       color: $secondary_text_color_button;
     }
   }
+  .dropup1 {
+    margin-bottom: 10px;
+  }
   // Page d'accueil général
   ////////////////////////////////////////////////////
   .accueilg-btn1 {
-    .cadre-btn {
+    .cadre-btn1 {
       margin: 0 2em;
       a {
         padding: 10px 55px;
       }
     }
-    .recruteur-btn {
+    .recruteur-btn1 {
       margin: 0 2em;
       a {
         padding: 10px 30px;
       }
     }
   }
-  .picto {
+  .picto1 {
     display: none;
   }
-  .accueilg-content {
+  .accueilg-content1 {
     margin: 0 auto;
-    .ac-item {
+    .ac-item2 {
       margin: 60px 0;
+    }
+  }
+  // footer
+  ////////////////////////////////////////
+  .footer-bottom {
+    justify-content: space-between;
+    .footer-c {
+      width: 60%;
     }
   }
 }
 
 @media screen and (min-width: 768px) {
-  // .navbar-content
+  // accueil g
   //////////////////////////////////////
   .logo-g {
     display: none;
   }
-  .dropup-content1 {
-    display: none;
-  }
-  .picto {
-    align-self: flex-end;
+  .picto1 {
+    align-self: center;
     display: block;
     width: 90px;
     img {
       width: 100%;
     }
   }
-  .first-btn {
+  // navbar
+  /////////////////////////////
+  .navb {
+    padding: 5px 50px;
+    background-color: $secondary_text_color_button;
+  }
+  .navbar-content {
+    display: none;
+  }
+  .dropup-btn1 {
+    text-align: center;
+    background-color: white;
+    width: 180px;
+  }
+  // accueil général
+  .first-btn1 {
     margin-top: 50px;
   }
-  .accueilg-content {
+  .accueilg-content1 {
     margin: 0 auto;
-    .ac-item {
+    .ac-item2 {
       display: flex;
       justify-content: space-between;
-      .accueilg-item {
+      .accueilg-item1 {
         width: 70%;
       }
     }
-    .ac-item1 {
+    .ac-item21 {
       flex-direction: row-reverse;
     }
   }
+  // footer
+  .footer-c {
+    width: 80%;
+  }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 992px) {
+  // landing page
+  .box-1 {
+    width: 50%;
+  }
+  .box-2 {
+    display: block;
+    width: 50%;
+    img {
+      width: 100%;
+      height: 100vh;
+    }
+  }
   // navbar
   ////////////////////////
   .logo-g {
@@ -200,10 +241,14 @@
       color: $main_theme_color;
     }
   }
+  .dropup1 {
+    margin: 0;
+  }
   .dropup-btn1 {
     text-align: center;
     background-color: $secondary_text_color_button;
     color: white;
+    width: 175px;
     &:hover {
       background-color: rgba(255, 255, 255, 0.61);
       box-shadow: $box-shadow;
@@ -215,7 +260,7 @@
     position: absolute;
     background-color: $secondary_element_color;
     padding: 10px;
-    width: 195px;
+    width: 235px;
     right: 3%;
     top: 68px;
     text-align: center;
@@ -241,27 +286,33 @@
     top: 0;
     position: absolute;
     width: 100vw;
-    height: 100vh;
+    height: 600px;
     background: url('BANNIERE.png');
     background-position: center;
     background-size: cover;
   }
   .accueilg-btn1 {
-    .cadre-btn,
-    .recruteur-btn {
+    .cadre-btn1,
+    .recruteur-btn1 {
       margin: 0 2em;
     }
   }
-  .first-btn {
+  .first-btn1 {
     position: absolute;
     width: 100%;
-    top: 57vh;
+    top: 288px;
   }
-  .accueilg-content {
+  .accueilg-content1 {
     margin: 0 auto;
-    margin-top: 200px;
-    .ac-item {
+    margin-top: 310px;
+    .ac-item2 {
       margin: 90px 0;
+    }
+  }
+  // footer
+  .social {
+    a {
+      margin-left: 5px;
     }
   }
 }
@@ -276,8 +327,10 @@
   }
   .navbar-ul {
     width: 70%;
+    align-self: center;
     margin-bottom: inherit;
   }
+
   .dropup-content1 {
     right: 5.4%;
   }
@@ -296,34 +349,34 @@
   }
   // nabar bg accueil
   ///////////////////////////////////////////////
-  .bg-accueil {
+  .bg-accueil1 {
     z-index: -1;
     top: 0;
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 600px;
     background: url('BANNIERE.png');
     background-position: center;
     background-size: cover;
   }
   // page d'accueil général
   .accueilg-btn1 {
-    .cadre-btn {
+    .cadre-btn1 {
       margin: 0 2em;
       a {
         padding: 10px 65px;
       }
     }
-    .recruteur-btn {
+    .recruteur-btn1 {
       margin: 0 2em;
       a {
         padding: 10px 50px;
       }
     }
   }
-  .first-btn {
+  .first-btn1 {
     position: absolute;
     width: 100%;
-    top: 57vh;
+    top: 288px;
   }
 }

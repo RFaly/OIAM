@@ -1,0 +1,50 @@
+@import 'config';
+.footer-oiam {
+  width: 85%;
+
+  margin: 30px auto;
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  hr {
+    background: black;
+    height: 2px;
+    opacity: 0.8;
+  }
+  .footer-btn {
+    display: flex;
+    justify-content: flex-end;
+    font-family: $ffbtn;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    a {
+      //   width: 350px;
+      padding: 15px;
+      background-color: $secondary_text_color_button;
+      color: white;
+    }
+  }
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    .footer-c,
+    .copyright {
+      font-family: $ffbtn;
+      font-size: 12px;
+      a {
+        margin-right: 10px;
+        color: black;
+      }
+    }
+    .social {
+      text-align: center;
+      img {
+        width: 20px;
+      }
+    }
+  }
+}

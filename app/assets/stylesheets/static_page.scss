@@ -6,6 +6,8 @@
 @import 'navbar';
 @import 'burger';
 @import 'accueilg';
+@import 'footer';
+
 .box-1-logo {
   width: 70%;
   img {
@@ -38,6 +40,7 @@
     box-shadow: 1px 1px 10px 1px rgb(230, 225, 225);
     background-color: rgba(255, 255, 255, 0.8);
     color: $secondary_text_color_button;
+    text-decoration: none;
   }
 }
 .box {
