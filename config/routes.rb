@@ -11,7 +11,12 @@ Rails.application.routes.draw do
 	devise_for :clients, path: 'clients', controllers: {
     sessions: 'clients/sessions',
     registrations: 'clients/registrations'
+  }, path_names: {
+    sign_in: 'se-connecter', sign_out: 'se-deconneter', cancel: 'supprimer',
+    password: 'mot-de-passe', confirmation: 'verification',
+    registration: 'inscription', edit: 'editer', sign_up: 'cree-compte'
   }
+
 	get '/recruteur', to: 'recruteurs#main', as: 'main_recruiter'
 
 # list menu dans le dashbord client
@@ -22,11 +27,18 @@ Rails.application.routes.draw do
   get '/recruteur/mes-factures', to: 'recruteurs#my_bills', as: 'my_bills'
   get '/recruteur/mes-notifications', to: 'recruteurs#notifications', as: 'client_notifications'
 
-
   get '/recruteur/nouvelle-offre', to: 'recruteurs#newJob', as: 'newJob'
   post '/recruteur/publier-offre', to: 'recruteurs#createJob', as: 'createJob'
-  get '/recruteur/publier/:id/offre', to: 'recruteurs#showNewJob', as: 'showNewJob'
 
+  get '/recruteur/edit/:id/offre', to: 'recruteurs#editJob', as: 'editJob'
+  patch '/recruteur/edit-offre', to: 'recruteurs#updateJob', as: 'updateJob'
+
+  get '/recruteur/mes/:id/offre', to: 'recruteurs#showNewJob', as: 'showNewJob'
+  patch '/recruteur/publier/:id/-offre', to: 'recruteurs#publish', as: 'publish'
+
+  get '/recruteur/offre/:id/notre-selection', to: 'recruteurs#our_selection', as: 'our_selection'
+  get '/recruteur/offre/:id/recherche-candidat', to: 'recruteurs#search_candidate', as: 'search_candidate'  
+  
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :cadres, path: 'cadre', controllers: {
     sessions: 'cadres/sessions',

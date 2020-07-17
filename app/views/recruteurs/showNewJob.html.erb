@@ -10,12 +10,15 @@
 		<%= render partial: "recruteurs/left_link_bar" %>
 	</div>
 
-	<div class="col-sm-9">
-		<ol>
-			<li>Détails du poste</li>
-			<li>Contexte de l'offre</li>
-			<li>Publication</li>
-		</ol>
+	<div class="col-sm-9" id="publish-ajax-hid">
+		<% unless @offre.is_publish %>
+			<ol>
+				<li>Détails du poste</li>
+				<li>Contexte de l'offre</li>
+				<li>Publication</li>
+			</ol>
+		<% end %>
+
 		<div class="row">
 			<div class="col-sm-3">
 				<% unless @offre.image.nil? %>
@@ -84,9 +87,40 @@
 		</div>
 
 		<div>
-			<a href="#" class="btn btn-primary">MODIFIER</a>
-			<a href="#" class="btn btn-primary">PUBLIER</a>
-		</div>
+			<%= link_to "MODIFIER", editJob_path(@offre.id), class:'btn btn-primary' %>
 
+			<% unless @offre.is_publish %>
+				<%= link_to publish_path(@offre.id), method: :patch, class: 'link-delete btn btn-primary', :remote => true do %>PUBLIER<% end %>
+			<% else %>
+				<%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id), class:'btn btn-primary' %>
+				<%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id), class:'btn btn-primary' %>
+			<% end %>
+		</div>
 	</div>
+
+	<div class="col-sm-9" style="display: none;" id="publish-ajax">
+		<ol>
+			<li>Détails du poste</li>
+			<li>Contexte de l'offre</li>
+			<li>Publication</li>
+		</ol>
+		<!-- - apercu photo a1 et a2  -->
+		<h3>Votre offre d’emploi a bien été publiée.</h3>
+		<img src="" alt="image checked">
+		<p>Vous disposez désormais de 15 jours pour sélectionner 5 candidats recommandés par notre algorithme ou en recherchant directement dans notre base de données.</p>
+		<span>Vous pouvez sauvegarder les profils avec l’icône </span> <br>
+		<%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id), class:'btn btn-primary' %> <br><br>
+		<%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id), class:'btn btn-primary' %>
+	</div>
+
 </div>
+
+<script type="text/javascript">
+	$('.link-delete').bind('ajax:beforeSend', function() {
+		$('#publish-ajax-hid').hide();
+	});
+
+	$('.link-delete').bind('ajax:complete', function() {
+		$('#publish-ajax').show();
+	});
+</script>

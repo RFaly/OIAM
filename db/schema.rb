@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 2020_07_14_062155) do
     t.float "remuneration"
     t.float "remuneration_anne"
     t.boolean "contrat_cdi", default: false
+    t.boolean "is_publish", default: false
     t.string "type_deplacement"
     t.string "date_poste"
     t.text "question1"

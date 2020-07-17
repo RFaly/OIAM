@@ -28,7 +28,6 @@ class RecruteursController < ApplicationController
     	uploader.store!(params[:offre_job][:image])
     	@offre.image = uploader.url
     	@offre.save
-
     	redirect_to showNewJob_path(@offre)
 		else
 			flash[:alert] = @offre.errors.details
@@ -36,10 +35,35 @@ class RecruteursController < ApplicationController
 		end
 	end
 
+
+# alksdjmfkflsdjmlfkqjmlf
+	def editJob
+		@offre = OffreJob.find(params[:id])
+	end
+
+	def updateJob
+		@offre = OffreJob.find(params[:id])
+	end
+# alksdjmfkflsdjmlfkqjmlf
+
+
+
 	def showNewJob
 		@offre = OffreJob.find(params[:id])
 	end
 
+	def publish
+		@offre = OffreJob.find(params[:id])
+		@offre.update(is_publish:true)
+	end
+
+	def our_selection
+		
+	end
+
+	def  search_candidate
+
+	end
 #Mes candidats favoris
 	def favorite_candidates
 	end

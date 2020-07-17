@@ -10,6 +10,7 @@ class CreateOffreJobs < ActiveRecord::Migration[5.2]
       t.float :remuneration
       t.float :remuneration_anne
       t.boolean :contrat_cdi, default: :false
+      t.boolean :is_publish, default: :false
       t.string :type_deplacement
       t.string :date_poste #_prise_de
       t.text :question1

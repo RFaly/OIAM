@@ -15,7 +15,9 @@
 				<% @offres.each do |offre| %>
 				    <tr>
 				    	<td><%= offre.intitule_pote %></td>
-				    	<td><a href="#">VOIR L'OFFRE</a></td>
+				    	<td>
+							<%= link_to "VOIR L'OFFRE", showNewJob_path(offre.id), class: 'btn btn-primary' %>
+						</td>
 				    </tr>
 				<% end %>
 			  </tbody>
