@@ -87,7 +87,6 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
-
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -102,21 +101,17 @@ nav,
 section {
   display: block;
 }
-
 body {
   line-height: 1;
 }
-
 ol,
 ul {
   list-style: none;
 }
-
 blockquote,
 q {
   quotes: none;
 }
-
 blockquote:before,
 blockquote:after,
 q:before,
@@ -124,12 +119,10 @@ q:after {
   content: '';
   content: none;
 }
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
 *,
 *::before,
 *::after {
@@ -150,11 +143,9 @@ body {
   text-align: justify;
   margin-bottom: 50px;
 }
-
 .main span {
   color: #b68e27;
 }
-
 .etape {
   text-align: none;
   margin-bottom: 80px;
@@ -163,9 +154,11 @@ body {
 /* .etape h2{
 	display: inline;
 } */
+
 /* p{
 	display: block;
 } */
+
 .etape p {
   text-align: justify;
 }
@@ -214,7 +207,6 @@ body {
 .go b {
   margin-left: -15px;
 }
-
 /* @media only screen and (min-width: 1024px)  {
 	html{
 		font-size: 20px;
