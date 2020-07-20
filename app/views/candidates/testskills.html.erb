@@ -1,46 +1,48 @@
+<%= stylesheet_link_tag "test_skills" %>
+<div class="cadre">
+	<div class="content">
+			<div class="numero goRight trait gold potential">1</div>
+			<div class="numero goRight trait1 gold skills">2</div>
+			<div class="numero fit gold">3</div>
+	</div>
 
-<ul>
-	<li>1 Potential</li>
-	<li>2 Skills</li>
-	<li>3 Fit</li>
-</ul>
+	<h1>2ème partie : SKILLS <%= image_tag "skills.png", style: 'height: 60px;width: 60px;' %></h1>
 
-<h1>2ème partie : SKILLS</h1>
+	<p class="notice">Bienvenue sur le test One In A Million</p>
 
-<p>Bienvenue sur le test One In A Million</p>
+	<p class="notice">Prenez quelques minutes pour lire attentivement ce qui suit.</p>
 
-<p>Prenez quelques minutes pour lire attentivement ce qui suit.</p>
+	<p>Ce  test  est  réservé  aux candidats se destinant à  l’exercice de profession de niveau Top Management.</p>
+	<p>Notre test évalue vos compétences techniques pour les métiers suivants :</p>
+<div id="directeur-marketing">
+	<button type="button" name="button" class="directeur-marketing">DIRECTEUR MARKETING<%= image_tag "dropdown.png" %></button>
+</div>
+	</p>
 
-<p>Ce  test  est  réservé  aux candidats se destinant à  l’exercice de profession de niveau Top Management.</p>
+	<h2>CONSIGNES</h2>
 
-<p>Notre test évalue vos compétences techniques pour les métiers suivants :<br>
-	<select name="nameJob">
-		<option>DIRECTION MARKETING</option>
-	</select>
-</p>
+	<p>Notre test est entièrement sécurisé, et chronométré. Il dure environ 15 minutes. Veillez à disposer au moins de ce laps de temps, et à ne pas être interrompu. <br>
+	En effet,  si le test est inachevé, cela  comptera  comme un essai réalisé, et vous devrez attendre 6 mois avant de le représenter.</p>
 
-<h2>CONSIGNES</h2>
+	<p>En acceptant de participer à ce test, vous acceptez également de vous soumettre à  des contrôles de sécurité par webcam, réalisés de façon aléatoire. Les fichiers seront conservés durant une durée de 48h et sont uniquement réalisés durant la durée du test.</p>
 
-<p>Notre test est entièrement sécurisé, et chronométré. Il dure environ 15 minutes. Veillez à disposer au moins de ce laps de temps, et à ne pas être interrompu. <br>
-En effet,  si le test est inachevé, cela  comptera  comme un essai réalisé, et vous devrez attendre 6 mois avant de le représenter.</p>
+	<p>Vous ne pourrez pas revenir en arrière après une réponse. En outre, une réponse incorrecte pourra donner lieu à un score négatif.</p>
 
-<p>En acceptant de participer à ce test, vous acceptez également de vous soumettre à  des contrôles de sécurité par webcam, réalisés de façon aléatoire. Les fichiers seront conservés durant une durée de 48h et sont uniquement réalisés durant la durée du test.</p>
+	<h2>DEROULEMENT DU TEST</h2>
 
-<p>Vous ne pourrez pas revenir en arrière après une réponse. En outre, une réponse incorrecte pourra donner lieu à un score négatif.</p>
+	<p>“ SKILLS ” est  la  seconde  phase  de  votre  sélection  chez  One In A Million. <br>
+	 Cette phase représente un coefficient déterminant de votre entrée chez One In A Million, et votre score sera affiché sur votre profil si vous intégrez notre plateforme.
+	</p>
 
-<h2>DEROULEMENT DU TEST</h2>
+	<p>Le test One In A Million peut être présenté un maximum de 2 fois au cous d’une vie.</p>
 
-<p>“ SKILLS ” est  la  seconde  phase  de  votre  sélection  chez  One In A Million. <br>
- Cette phase représente un coefficient déterminant de votre entrée chez One In A Million, et votre score sera affiché sur votre profil si vous intégrez notre plateforme.
-</p>
+	<p>En souhaitant de tout coeur de pouvoir vous rencontrer de l’autre coté de la force,<br>Le staff One In A Million</p>
 
-<p>Le test One In A Million peut être présenté un maximum de 2 fois au cous d’une vie.</p>
+	<%= link_to "PASSER LE TEST", testfit_path, class:'pass-test'%>
 
-<p>En souhaitant de tout coeur de pouvoir vous rencontrer de l’autre coté de la force,<br>Le staff One In A Million</p>
+	<br>
 
-<button>PASSER LE TEST</button>
+</div>
 
-<br>
-
-<%= link_to "Go to test 3", testfit_path %> <br>
-<%= link_to "Go to resulta test 1", resultatsTest_path %>
+	<%# <%= link_to "Go to test 3", testfit_path %> <br> %>
+	<%# <%= link_to "Go to resulta test 1", resultatsTest_path %>
