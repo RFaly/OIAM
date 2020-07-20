@@ -5,6 +5,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( candidates.css )
 Rails.application.config.assets.precompile += %w( tmp_sign_up.css )
 Rails.application.config.assets.precompile += %w( my_test.css )
+Rails.application.config.assets.precompile += %w( potential_test.css )
 
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path
