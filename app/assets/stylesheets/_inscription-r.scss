@@ -55,6 +55,7 @@
 }
 .details-r-condition {
   p {
+    font: $ffsentence;
     text-align: center;
   }
   .condition-content {
@@ -84,10 +85,11 @@
     }
   }
   .condition-check {
-    width: 70%;
+    width: 66%;
     margin: 20px auto;
     label {
       margin-left: 10px;
+      font: $ffsentence;
     }
   }
 }
@@ -109,5 +111,36 @@
       background-color: $main_theme_color;
       color: white;
     }
+  }
+}
+.travel-parcours {
+  margin: 0 auto;
+  .circle {
+    background-color: $secondary_element_color;
+    width: 35px;
+    height: 35px;
+    padding-top: 8px;
+    text-align: center;
+    font: 600 16px roboto, sans-serif;
+    border-radius: 50%;
+    color: white;
+  }
+  .line {
+    content: ' ';
+    align-self: center;
+    height: 2px;
+    background-color: $secondary_element_color;
+  }
+  .travel-image {
+    display: flex;
+  }
+  ol {
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  .color-bg {
+    background-color: $main_theme_color;
   }
 }

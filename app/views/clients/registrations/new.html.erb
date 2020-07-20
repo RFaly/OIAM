@@ -1,11 +1,30 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %> <%= render "clients/shared/error_messages", resource: resource %>
 <div class="inscription-r">
-  <ol>
-    <li>Détails Entreprise</li>
-    <li>Détails Recruteur</li>
-    <li>Création de compte</li>
-    <li>Signature du contrat</li>
-  </ol>
+  <div class="travel-parcours">
+    <div class="travel-image">
+      <div class="circle color-bg">
+        1
+      </div>
+      <div class="line"></div>
+      <div class="circle">
+        2
+      </div>
+      <div class="line"></div>
+      <div class="circle">
+        3
+      </div>
+      <div class="line"></div>
+      <div class="circle">
+        4
+      </div>
+    </div>
+    <ol>
+      <li>Détails Entreprise</li>
+      <li>Détails Recruteur</li>
+      <li>Création de compte</li>
+      <li>Signature du contrat</li>
+    </ol>
+  </div>
 
   <div class="details-r">
     <input autofocus="autofocus" class="dr-item" required="required" autocomplete="entreprise_name" type="text" name="entreprise_name" id="entreprise_name" placeholder="Entreprise" />

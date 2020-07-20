@@ -107,6 +107,17 @@
       width: 100%;
     }
   }
+  .travel-parcours {
+    width: 400px;
+    .line {
+      width: 80px;
+    }
+    ol {
+      width: 400px;
+      font: $ffbtn;
+      font-size: 12px;
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -170,6 +181,19 @@
   //     width: 48%;
   //   }
   // }
+
+  // inscription recruteur
+  .travel-parcours {
+    width: 680px;
+    .line {
+      width: 180px;
+    }
+    ol {
+      width: 750px;
+      font-size: 15px;
+      margin-left: -20px;
+    }
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -327,7 +351,7 @@
       left: 50%;
       content: ' ';
       width: 1px;
-      height: 850px;
+      height: 800px;
       background-color: black;
     }
     .ar-item {
@@ -351,6 +375,13 @@
     .dr-item-postal {
       width: 30%;
       margin-right: 2.5%;
+    }
+  }
+  .travel-parcours {
+    width: 680px;
+    ol {
+      width: 780px;
+      margin-left: -40px;
     }
   }
 }
@@ -422,5 +453,8 @@
     .dr-item-postal {
       margin-right: 2.8%;
     }
+  }
+  .travel-parcours {
+    width: 700px;
   }
 }
