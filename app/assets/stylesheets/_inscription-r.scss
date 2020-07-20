@@ -1,0 +1,113 @@
+@import 'config';
+
+.inscription-r {
+  width: 90%;
+  height: auto;
+  margin: 20px auto;
+  ol {
+    margin-bottom: 80px;
+  }
+}
+.details-r {
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  .dr-item {
+    // width: 100%;
+    margin: 20px 0;
+    border-radius: 0;
+    border: none;
+    padding: 10px;
+    background-color: $secondary_element_color;
+    text-align: center;
+    font: $ffsentence;
+    &:focus {
+      border: 1px solid $main_theme_color;
+      box-shadow: 1px 1px 5px 1px $main_theme_color;
+    }
+  }
+  .dr-item-fad {
+    opacity: 0.5;
+    &:focus {
+      border: none;
+      box-shadow: none;
+    }
+  }
+  .details-btn {
+    width: 150px;
+    margin: 30px auto;
+    font: $ffbtn;
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid $main_theme_color;
+    color: $main_theme_color;
+    padding: 10px 0;
+    &:hover,
+    &:active {
+      color: white;
+      background-color: $main_theme_color;
+    }
+  }
+  .dr-textarea {
+    padding-top: 40px;
+    opacity: 0.5;
+  }
+}
+.details-r-condition {
+  p {
+    text-align: center;
+  }
+  .condition-content {
+    width: 70%;
+    max-height: 400px;
+    overflow-x: auto;
+    margin: 20px auto;
+    text-align: justify;
+    background-color: $secondary_element_color;
+    padding: 40px;
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+    .dc-1 {
+      margin: 20px 0;
+      font: $ffsentence;
+      font-size: 10px;
+      ol {
+        margin: 10px;
+        list-style: decimal;
+      }
+      h4 {
+        font: $ffbtn;
+        margin: 10px 0;
+      }
+    }
+  }
+  .condition-check {
+    width: 70%;
+    margin: 20px auto;
+    label {
+      margin-left: 10px;
+    }
+  }
+}
+.dr-btn {
+  width: 150px;
+  margin: 70px auto;
+  .dr-btn-btn {
+    cursor: pointer;
+    font: $ffbtn;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 30px;
+    border-radius: unset;
+    border: 2px solid $main_theme_color;
+    background-color: white;
+    color: $main_theme_color;
+    &:hover,
+    &:active {
+      background-color: $main_theme_color;
+      color: white;
+    }
+  }
+}
