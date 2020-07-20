@@ -1,0 +1,39 @@
+@import 'config';
+
+.accueil-recruteur {
+  width: 90%;
+  margin: 150px auto;
+  h2 {
+    font: $ffbtn;
+    font-size: 24px;
+    margin: 70px 0 20px 0;
+    span {
+      font: 500 80px Qwigley, sans-serif;
+      color: $main_theme_color;
+      margin-right: 10px;
+    }
+  }
+  p {
+    font: $ffsentence;
+    margin-top: 10px;
+  }
+  .accueil-r-btn {
+    width: 40%;
+    margin: 70px auto;
+    text-align: center;
+    a {
+      background-color: $secondary_text_color_button;
+      padding: 10px 20px;
+      font: $ffbtn;
+      text-transform: uppercase;
+      color: white;
+      &:hover,
+      &:active {
+        text-decoration: none;
+        background-color: white;
+        box-shadow: $box-shadow;
+        color: $secondary_text_color_button;
+      }
+    }
+  }
+}

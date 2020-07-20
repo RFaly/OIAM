@@ -13,6 +13,7 @@
     background: black;
     height: 2px;
     opacity: 0.8;
+    margin: 15px 0;
   }
   .footer-btn {
     display: flex;
@@ -24,8 +25,8 @@
     a {
       //   width: 350px;
       padding: 15px;
-      background-color: $secondary_text_color_button;
-      color: white;
+      border: 2px solid black;
+      color: black;
     }
   }
   .footer-bottom {

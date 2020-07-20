@@ -1,0 +1,42 @@
+.accueil-recruteur {
+  width: 90%;
+  margin: 150px auto;
+}
+
+.accueil-recruteur h2 {
+  font: 500 20px Raleway, sans-serif;
+  font-size: 24px;
+  margin: 70px 0 20px 0;
+}
+
+.accueil-recruteur h2 span {
+  font: 500 80px Qwigley, sans-serif;
+  color: #d6b36a;
+  margin-right: 10px;
+}
+
+.accueil-recruteur p {
+  font: 18px Questrial, sans-serif;
+  margin-top: 10px;
+}
+
+.accueil-recruteur .accueil-r-btn {
+  width: 40%;
+  margin: 70px auto;
+  text-align: center;
+}
+
+.accueil-recruteur .accueil-r-btn a {
+  background-color: #e3d7bf;
+  padding: 10px 20px;
+  font: 500 20px Raleway, sans-serif;
+  text-transform: uppercase;
+  color: white;
+}
+
+.accueil-recruteur .accueil-r-btn a:hover, .accueil-recruteur .accueil-r-btn a:active {
+  text-decoration: none;
+  background-color: white;
+  box-shadow: 1px 1px 10px 1px rgba(227, 215, 191, 0.63);
+  color: #e3d7bf;
+}

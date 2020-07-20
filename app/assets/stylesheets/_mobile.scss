@@ -1,78 +1,6 @@
 @import 'config';
 
-@media screen and (max-device-width: 480px) {
-  .logo-g {
-    display: none;
-  }
-  .box-1 {
-    width: 100%;
-  }
-  .box-2 {
-    display: none;
-  }
-  // navbar
-  ////////////////////////////
-  .navbar-content {
-    display: none;
-    font-size: 33px;
-  }
-  .navb {
-    padding: 5px 50px;
-    background-color: $secondary_text_color_button;
-  }
-  .dropup-btn1 {
-    text-align: center;
-    background-color: white;
-    width: 180px;
-    color: $secondary_text_color_button;
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.432);
-    }
-  }
-  .dropup-content1 {
-    border: 2px white solid;
-    .dropup-item1:active {
-      background-color: white;
-      color: $secondary_text_color_button;
-    }
-  }
-  .dropup1 {
-    padding-bottom: 10px;
-  }
-  // Page d'accueil général
-  //////////////////////////////////////////
-  .accueilg-btn1 {
-    .cadre-btn1 {
-      margin: 0 0.5em;
-      a {
-        padding: 10px 30px;
-      }
-    }
-    .recruteur-btn1 {
-      margin: 0 0.5em;
-      a {
-        padding: 10px 15px;
-      }
-    }
-  }
-  .picto1 {
-    display: none;
-  }
-  .accueilg-content1 {
-    margin: 0 auto;
-    .ac-item2 {
-      margin: 50px 0;
-    }
-  }
-  // footer
-  //////////////////////////
-  .footer-bottom {
-    align-content: space-between;
-    flex-direction: column;
-  }
-}
-
-@media screen and (min-device-width: 480px) {
+@media screen and (min-width: 320px) {
   .logo-g {
     display: none;
   }
@@ -90,11 +18,17 @@
   }
   .navbar-content {
     display: none;
+    li {
+      margin: 30px 0;
+    }
   }
-  .navbar-item li:hover {
+  .navbar-item:hover,
+  .navbar-item:active {
     background-color: white;
     color: $secondary_text_color_button;
   }
+  //////
+
   .dropup-btn1 {
     width: 180px;
     text-align: center;
@@ -116,15 +50,17 @@
   }
   // Page d'accueil général
   ////////////////////////////////////////////////////
+
   .accueilg-btn1 {
+    margin-bottom: 30px;
     .cadre-btn1 {
-      margin: 0 2em;
+      margin: 0 1em;
       a {
         padding: 10px 55px;
       }
     }
     .recruteur-btn1 {
-      margin: 0 2em;
+      margin: 0 1em;
       a {
         padding: 10px 30px;
       }
@@ -142,11 +78,18 @@
   // footer
   ////////////////////////////////////////
   .footer-bottom {
-    justify-content: space-between;
-    .footer-c {
-      width: 60%;
+    justify-content: center;
+    flex-direction: column;
+    align-content: space-between;
+    // .footer-c {
+    //   width: 100%;
+    // }
+    div {
+      margin-bottom: 10px;
     }
   }
+  // contact
+  ////////////////////////////////////
 }
 
 @media screen and (min-width: 768px) {
@@ -171,6 +114,9 @@
   }
   .navbar-content {
     display: none;
+    li {
+      margin: 30px 0;
+    }
   }
   .dropup-btn1 {
     text-align: center;
@@ -195,9 +141,18 @@
     }
   }
   // footer
-  .footer-c {
-    width: 80%;
-  }
+
+  // contact
+  ////////////////////////////////////
+  // .contact-us {
+  //   .contact-change {
+  //     display: flex;
+  //     justify-content: space-between;
+  //   }
+  //   .contact-item {
+  //     width: 48%;
+  //   }
+  // }
 }
 
 @media screen and (min-width: 992px) {
@@ -231,16 +186,24 @@
     justify-content: space-around;
     width: 80%;
     align-self: center;
+    align-items: center;
   }
   .navbar-ul {
     display: flex;
     justify-content: space-between;
     margin-bottom: inherit;
-    .navbar-item li:hover {
+    .navbar-item:hover {
       background-color: transparent;
       color: $main_theme_color;
     }
   }
+  .navbar-logo {
+    width: 5%;
+    img {
+      margin-left: 60%;
+    }
+  }
+  ///
   .dropup1 {
     margin: 0;
   }
@@ -292,6 +255,7 @@
     background-size: cover;
   }
   .accueilg-btn1 {
+    margin-bottom: 70px;
     .cadre-btn1,
     .recruteur-btn1 {
       margin: 0 2em;
@@ -310,10 +274,37 @@
     }
   }
   // footer
+  .footer-bottom {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    .footer-c {
+      width: 65%;
+    }
+  }
   .social {
     a {
       margin-left: 5px;
     }
+  }
+
+  // contact
+  ////////////////////////////////////
+  .contact-us {
+    .contact-change {
+      display: flex;
+      justify-content: space-between;
+    }
+    .contact-item {
+      width: 48%;
+    }
+  }
+  // accueil recruteur
+  //////////////////@exten
+  .accueil-recruteur {
+    content: '';
+    width: 10px;
+    height: 400px;
   }
 }
 
@@ -322,12 +313,11 @@
   /////////////////////
   .navbar-content {
     justify-content: space-between;
-    width: 66%;
-    align-items: flex-end;
+    width: 70%;
+    align-items: center;
   }
   .navbar-ul {
     width: 70%;
-    align-self: center;
     margin-bottom: inherit;
   }
 

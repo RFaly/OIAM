@@ -10,21 +10,17 @@
     </div>
     <div class="navbar-content">
       <ul class="navbar-ul">
-        <a href="<%=root_path %>" class="navbar-item">
-          <li>ACCUEIL</li>
-        </a>
-        <a href="<%=equipe_path%>" class="navbar-item">
-          <li>Équipe</li>
-        </a>
-        <a href="<%=methodology_path%>" class="navbar-item">
-          <li>Méthodologie</li>
-        </a>
-        <a href="<%=portfolio_path%>" class="navbar-item">
-          <li>PORTFOLIO</li>
-        </a>
-        <a href="<%=contact_path%>" class="navbar-item">
-          <li>CONTACT</li>
-        </a>
+        <li class="act"><a href="<%=root_path %>" class="navbar-item">Accueil</a></li>
+
+        <li><a href="<%=equipe_path%>" class="navbar-item">Équipe</a></li>
+
+        <li>
+          <a href="<%=methodology_path%>" class="navbar-item">Méthodologie</a>
+        </li>
+
+        <li><a href="<%=portfolio_path%>" class="navbar-item">Portfolio</a></li>
+
+        <li><a href="<%=contact_path%>" class="navbar-item">contact</a></li>
       </ul>
 
       <div class="dropup1">
@@ -78,3 +74,39 @@
     <%= image_tag 'OIAM_Logo.png', alt:'logo général' %>
   </div>
 </div>
+<!-- //*********************************// -->
+<!-- javascript navbar  -->
+<script type="text/javascript">
+  $(document).ready(function () {
+    var path = window.location.pathname.split('/').pop();
+    console.log(`${path}`);
+
+    let target = $('nav a[href="/' + path + '"]');
+    target.addClass('act');
+
+    let check = true;
+    $('.btn-btn').click(function () {
+      if (check === true) {
+        $('.btn-btn-burger').addClass('open');
+        $('.navbar-content').fadeIn(800);
+        check = false;
+      } else {
+        $('.btn-btn-burger').removeClass('open');
+        $('.navbar-content').fadeOut(500);
+        check = true;
+      }
+    });
+    let check1 = true;
+    $(' .dropup-btn1').click(function () {
+      if (check1) {
+        $('.dropup-content1').fadeIn(800);
+        check1 = false;
+      } else {
+        $('.dropup-content1').fadeOut(500);
+        check1 = true;
+      }
+    });
+  });
+</script>
+<!-- javascript navbar  -->
+<!-- /////////////////////////////////////  -->
