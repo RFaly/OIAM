@@ -1,6 +1,3 @@
-$('.dropup1').focusOut(function () {
-  $('.navbar-content').removeClass('open');
-});
 $(document).ready(function () {
   var path = window.location.pathname.split('/').pop();
   console.log(`${path}`);
