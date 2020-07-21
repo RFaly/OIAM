@@ -13,7 +13,7 @@ var listOptionRegion = ""
 var listOptionDepartment = ""
 for (var i = 0; i < franceData.length; i++) {
 	listOptionRegion += '<option data-index="'+i+'" value="'+franceData[i].region+'">'+franceData[i].region+'</option>';			
-	let departments = franceData[i].departement
+	var departments = franceData[i].departement
 	for (var j = departments.length - 1; j >= 0; j--) {
 		listOptionDepartment += '<option data-index="'+i+'" value="'+departments[j]+'">'+departments[j]+'</option>';
 	}
