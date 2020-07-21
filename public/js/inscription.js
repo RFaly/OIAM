@@ -13,7 +13,6 @@ $('.input-error').hide();
 // details entreprise validation
 $('#entreprise_name').focusout(function () {
   check_name($(this), $('#entreprise-name-error'), error1);
-  alert(error1);
 });
 $('#entreprise_adresse').focusout(function () {
   check_nil($(this), $('#entreprise-adress-error'), error2);
