@@ -1,0 +1,375 @@
+@media screen and (min-width: 320px) {
+  .logo-g {
+    display: none;
+  }
+  .box-1 {
+    width: 100%;
+  }
+  .box-2 {
+    display: none;
+  }
+  .navb {
+    padding: 5px 50px;
+    background-color: #e3d7bf;
+  }
+  .navbar-content {
+    display: none;
+  }
+  .navbar-content li {
+    margin: 30px 0;
+  }
+  .navbar-item:hover,
+  .navbar-item:active {
+    background-color: white;
+    color: #e3d7bf;
+  }
+  .dropup-btn1 {
+    width: 180px;
+    text-align: center;
+    background-color: white;
+    color: #e3d7bf;
+  }
+  .dropup-btn1:hover {
+    background-color: rgba(255, 255, 255, 0.432);
+  }
+  .dropup-content1 {
+    border: 2px white solid;
+  }
+  .dropup-content1 .dropup-item1:active {
+    background-color: white;
+    color: #e3d7bf;
+  }
+  .dropup1 {
+    margin-bottom: 10px;
+  }
+  .accueilg-btn1 {
+    margin-bottom: 30px;
+  }
+  .accueilg-btn1 .cadre-btn1 {
+    margin: 0 1em;
+  }
+  .accueilg-btn1 .cadre-btn1 a {
+    padding: 10px 55px;
+  }
+  .accueilg-btn1 .recruteur-btn1 {
+    margin: 0 1em;
+  }
+  .accueilg-btn1 .recruteur-btn1 a {
+    padding: 10px 30px;
+  }
+  .picto1 {
+    display: none;
+  }
+  .accueilg-content1 {
+    margin: 0 auto;
+  }
+  .accueilg-content1 .ac-item2 {
+    margin: 60px 0;
+  }
+  .footer-bottom {
+    justify-content: center;
+    flex-direction: column;
+    align-content: space-between;
+  }
+  .footer-bottom div {
+    margin-bottom: 10px;
+  }
+  .accueil-recruteur .ar-item p {
+    text-align: justify;
+  }
+  .details-r .dr-item {
+    width: 100%;
+  }
+  .travel-parcours {
+    width: 400px;
+  }
+  .travel-parcours .line {
+    width: 80px;
+  }
+  .travel-parcours ol {
+    width: 400px;
+    font: 500 20px Raleway, sans-serif;
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .logo-g {
+    display: none;
+  }
+  .picto1 {
+    align-self: center;
+    display: block;
+    width: 90px;
+  }
+  .picto1 img {
+    width: 100%;
+  }
+  .navb {
+    padding: 5px 50px;
+    background-color: #e3d7bf;
+  }
+  .navbar-content {
+    display: none;
+  }
+  .navbar-content li {
+    margin: 30px 0;
+  }
+  .dropup-btn1 {
+    text-align: center;
+    background-color: white;
+    width: 180px;
+  }
+  .first-btn1 {
+    margin-top: 50px;
+  }
+  .accueilg-content1 {
+    margin: 0 auto;
+  }
+  .accueilg-content1 .ac-item2 {
+    display: flex;
+    justify-content: space-between;
+  }
+  .accueilg-content1 .ac-item2 .accueilg-item1 {
+    width: 70%;
+  }
+  .accueilg-content1 .ac-item21 {
+    flex-direction: row-reverse;
+  }
+  .travel-parcours {
+    width: 680px;
+  }
+  .travel-parcours .line {
+    width: 180px;
+  }
+  .travel-parcours ol {
+    width: 750px;
+    font-size: 14px;
+    margin-left: -20px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .box-1 {
+    width: 50%;
+  }
+  .box-2 {
+    display: block;
+    width: 50%;
+  }
+  .box-2 img {
+    width: 100%;
+    height: 99.6vh;
+  }
+  .logo-g {
+    display: block;
+    width: 45%;
+  }
+  .navb {
+    padding: 5px 0;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .navbar-content {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    align-self: center;
+    align-items: center;
+  }
+  .navbar-ul {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: inherit;
+  }
+  .navbar-ul .navbar-item:hover {
+    background-color: transparent;
+    color: #d6b36a;
+  }
+  .navbar-logo {
+    width: 5%;
+  }
+  .navbar-logo img {
+    margin-left: 60%;
+  }
+  .dropup1 {
+    margin: 0;
+  }
+  .dropup-btn1 {
+    text-align: center;
+    background-color: #e3d7bf;
+    color: white;
+    width: 175px;
+  }
+  .dropup-btn1:hover {
+    background-color: rgba(255, 255, 255, 0.61);
+    box-shadow: 1px 1px 10px 1px rgba(227, 215, 191, 0.63);
+    color: #e3d7bf;
+  }
+  .dropup-content1 {
+    position: absolute;
+    background-color: #f0f2f4;
+    padding: 10px;
+    width: 235px;
+    right: 3%;
+    top: 68px;
+    text-align: center;
+    z-index: 20;
+  }
+  .btn-btn {
+    display: none;
+  }
+  .navdiv {
+    padding-bottom: 70px;
+  }
+  .bg-inside {
+    background: url("BANNIERE.png");
+    background-position: center;
+    background-size: cover;
+  }
+  .bg-accueil {
+    z-index: -1;
+    top: 0;
+    position: absolute;
+    width: 100vw;
+    height: 600px;
+    background: url("BANNIERE.png");
+    background-position: center;
+    background-size: cover;
+  }
+  .accueilg-btn1 {
+    margin-bottom: 70px;
+  }
+  .accueilg-btn1 .cadre-btn1,
+  .accueilg-btn1 .recruteur-btn1 {
+    margin: 0 2em;
+  }
+  .first-btn1 {
+    position: absolute;
+    width: 100%;
+    top: 288px;
+  }
+  .accueilg-content1 {
+    margin: 0 auto;
+    margin-top: 310px;
+  }
+  .accueilg-content1 .ac-item2 {
+    margin: 90px 0;
+  }
+  .footer-bottom {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .footer-bottom .footer-c {
+    width: 65%;
+  }
+  .social a {
+    margin-left: 5px;
+  }
+  .contact-us .contact-change {
+    display: flex;
+    justify-content: space-between;
+  }
+  .contact-us .contact-item {
+    width: 48%;
+  }
+  .accueil-recruteur {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .accueil-recruteur .ar-vertical-line {
+    position: absolute;
+    left: 50%;
+    content: ' ';
+    width: 1px;
+    height: 800px;
+    background-color: black;
+  }
+  .accueil-recruteur .ar-item {
+    width: 48%;
+  }
+  .accueil-recruteur .ar-item2 {
+    align-self: flex-start;
+  }
+  .accueil-recruteur .ar-item2 p,
+  .accueil-recruteur .ar-item2 h2 {
+    text-align: right;
+  }
+  .details-r .dr-item-fad {
+    width: 66%;
+  }
+  .details-r .dr-item-postal {
+    width: 30%;
+    margin-right: 2.5%;
+  }
+  .travel-parcours {
+    width: 680px;
+  }
+  .travel-parcours ol {
+    width: 780px;
+    margin-left: -38px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar-content {
+    justify-content: space-between;
+    width: 70%;
+    align-items: center;
+  }
+  .navbar-ul {
+    width: 70%;
+    margin-bottom: inherit;
+  }
+  .dropup-content1 {
+    right: 5.4%;
+  }
+  .logo-g {
+    width: 40%;
+  }
+  .navdiv {
+    padding-bottom: 100px;
+  }
+  .bg-inside {
+    background: url("BANNIERE.png");
+    background-position: center;
+    background-size: cover;
+  }
+  .bg-accueil1 {
+    z-index: -1;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 600px;
+    background: url("BANNIERE.png");
+    background-position: center;
+    background-size: cover;
+  }
+  .accueilg-btn1 .cadre-btn1 {
+    margin: 0 2em;
+  }
+  .accueilg-btn1 .cadre-btn1 a {
+    padding: 10px 65px;
+  }
+  .accueilg-btn1 .recruteur-btn1 {
+    margin: 0 2em;
+  }
+  .accueilg-btn1 .recruteur-btn1 a {
+    padding: 10px 50px;
+  }
+  .first-btn1 {
+    position: absolute;
+    width: 100%;
+    top: 288px;
+  }
+  .details-r .dr-item-postal {
+    margin-right: 2.8%;
+  }
+  .travel-parcours {
+    width: 700px;
+  }
+}

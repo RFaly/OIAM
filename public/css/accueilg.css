@@ -1,0 +1,42 @@
+.accueilg-btn1 {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.accueilg-btn1 a {
+  color: white;
+  font-family: 500 20px Raleway, sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  background-color: #e3d7bf;
+}
+
+.accueilg-btn1 a:hover {
+  text-decoration: none;
+  color: #e3d7bf;
+  background-color: white;
+  box-shadow: 1px 1px 10px 1px rgba(227, 215, 191, 0.63);
+}
+
+.accueilg-content1 {
+  width: 85%;
+  box-sizing: border-box;
+  margin-bottom: 64px;
+}
+
+.accueilg-content1 h2 {
+  font: 500 20px Raleway, sans-serif;
+  color: #d6b36a;
+  margin: 15px 0;
+}
+
+.accueilg-content1 p {
+  font: 16px Questrial, sans-serif;
+  text-align: justify;
+}
+
+.accueilg-content1 .cc-accueuil1 {
+  text-align: center;
+  margin: 40px 0;
+}
