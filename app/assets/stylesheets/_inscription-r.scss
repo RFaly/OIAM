@@ -1,5 +1,4 @@
 @import 'config';
-
 .inscription-r {
   width: 90%;
   height: auto;
@@ -9,11 +8,11 @@
   }
 }
 .details-r {
+  display: none;
   width: 50%;
   margin: 0 auto;
   margin-bottom: 50px;
   .dr-item {
-    // width: 100%;
     margin: 20px 0;
     border-radius: 0;
     border: none;
@@ -22,7 +21,9 @@
     text-align: center;
     font: $ffsentence;
     &:focus {
-      border: 1px solid $main_theme_color;
+      border-radius: none;
+      border: inherit;
+      border: 2px solid $main_theme_color;
       box-shadow: 1px 1px 5px 1px $main_theme_color;
     }
   }
@@ -54,6 +55,7 @@
   }
 }
 .details-r-condition {
+  display: none;
   p {
     font: $ffsentence;
     text-align: center;
@@ -73,7 +75,7 @@
     .dc-1 {
       margin: 20px 0;
       font: $ffsentence;
-      font-size: 10px;
+      font-size: 12px;
       ol {
         margin: 10px;
         list-style: decimal;
@@ -113,6 +115,7 @@
     }
   }
 }
+// line de parcours
 .travel-parcours {
   margin: 0 auto;
   .circle {
@@ -143,4 +146,12 @@
   .color-bg {
     background-color: $main_theme_color;
   }
+}
+.details-r.open {
+  display: block;
+}
+.input-error {
+  color: #ff0000;
+  font: $ffbtn;
+  font-size: 14px;
 }
