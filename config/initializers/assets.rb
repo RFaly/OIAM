@@ -20,4 +20,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
-Rails.application.config.assets.precompile += %w( event_input_offre_job.js  navbar.js event_input_fil.js)
+Rails.application.config.assets.precompile += %w( event_input_offre_job.js  inscription.js event_input_fil.js)
