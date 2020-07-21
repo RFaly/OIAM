@@ -1,21 +1,24 @@
-<div>
-	<h2><b>1</b>INSCRIVEZ-VOUS GRATUITEMENT</h2>
-	<p>Remplir notre formulaire d’inscription  et déposer votre offre d’emploi.</p>
-	<p>Un expert d’OIAM vous contactera afin d’optimiser la rédaction de votre annonce.</p>
+<div class="accueil-recruteur">
+  <div class="ar-vertical-line"></div>
+  <div class="ar-item">
+    <h2><span>1.</span>INSCRIVEZ-VOUS GRATUITEMENT</h2>
+    <p>Remplir notre formulaire d’inscription et déposer votre offre d’emploi.</p>
+    <p>Un expert d’OIAM vous contactera afin d’optimiser la rédaction de votre annonce.</p>
+  </div>
+
+  <div class="ar-item ar-item2">
+    <h2><span>2.</span>CHOISISSEZ VOS CANDIDATS</h2>
+    <p>Vous avez 15 jours pour sélectionner 5 candidats favoris.</p>
+    <p>L’algorithme de One In A Million vous présente les profils les plus pertinents.</p>
+  </div>
+
+  <div class="ar-item">
+    <h2><span>3.</span>RECRUTEZ ET PAYEZ SEULEMENT VOS CONTACTS</h2>
+    <p>Vous réalisez votre propre process de recrutement.</p>
+    <p>Une fois terminé, réglez les horaires de 15% de la rénumération annuelle brute de votre candidat retenu.</p>
+  </div>
+  <div class="accueil-r-btn">
+    <%= link_to "S'INSCRIRE", new_client_registration_path %>
+  </div>
 </div>
-
-<div>
-	<h2><b>2</b>CHOISISSEZ VOS CANDIDATS</h2>
-	<p>Vous avez 15 jours pour sélectionner 5 candidats favoris.</p>
-	<p>L’algorithme de One In A Million vous présente les profils les plus pertinents.</p>
-</div>
-
-<div>
-	<h2><b>3</b>RECRUTEZ ET PAYEZ SEULEMENT VOS CONTACTS</h2>
-	<p>Vous réalisez votre propre process de recrutement.</p>
-	<p>Une fois terminé, réglez les horaires de 15% de la rénumération annuelle brute de votre candidat retenu.<p>
-</div>
-
-<%= link_to "S'INSCRIRE", new_client_registration_path %>
-
 <%= render partial: "/contact_us" %>

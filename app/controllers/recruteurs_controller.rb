@@ -6,6 +6,47 @@ class RecruteursController < ApplicationController
 
 #Mon profil
   def my_profil
+  	@client = current_client
+  	@entreprise = @client.entreprise
+  end
+
+  def my_profil_edit
+  	@client = current_client
+		@entreprise = @client.entreprise
+  end
+
+  def update_my_profil
+  	errorMessage = ""
+  	uploader = ImageUploader.new
+  	@client = current_client
+		@entreprise = @client.entreprise
+		@client.update(params.require(:client).permit(:first_name,:last_name,:fonction,:mail,:telephone))
+		@entreprise.update(name: params[:entreprise_name],adresse: params[:entreprise_adresse],siret: params[:entreprise_siret],city: params[:city],postal_code: params[:postal_code],code_naf: params[:code_naf],site: params[:entreprise_site],description: params[:entreprise_description])
+
+    if params[:client][:image].nil? && current_client.image.nil?
+    	errorMessage += " [ Ajouter votre logo ] "
+    elsif !params[:client][:image].nil?
+    	is_cv = true
+      begin
+        uploader.store!(params[:client][:image])
+      rescue StandardError => e
+        is_cv = false
+        errorMessage += " [ #{e.message} ] "
+      end
+      if is_cv
+        @client.image = uploader.url
+    		@client.save
+      end
+    end
+
+		unless errorMessage.empty?
+			flash[:alert] = errorMessage
+			render :my_profil_edit
+			return
+		else
+			flash[:notice] = "modification sauvegarder"
+			redirect_to client_my_profil_path
+		end
   end
 
 #Mes offres d’emploi
@@ -28,7 +69,6 @@ class RecruteursController < ApplicationController
     	uploader.store!(params[:offre_job][:image])
     	@offre.image = uploader.url
     	@offre.save
-
     	redirect_to showNewJob_path(@offre)
 		else
 			flash[:alert] = @offre.errors.details
@@ -36,10 +76,35 @@ class RecruteursController < ApplicationController
 		end
 	end
 
+
+# alksdjmfkflsdjmlfkqjmlf
+	def editJob
+		@offre = OffreJob.find(params[:id])
+	end
+
+	def updateJob
+		@offre = OffreJob.find(params[:id])
+	end
+# alksdjmfkflsdjmlfkqjmlf
+
+
+
 	def showNewJob
 		@offre = OffreJob.find(params[:id])
 	end
 
+	def publish
+		@offre = OffreJob.find(params[:id])
+		@offre.update(is_publish:true)
+	end
+
+	def our_selection
+		
+	end
+
+	def  search_candidate
+
+	end
 #Mes candidats favoris
 	def favorite_candidates
 	end

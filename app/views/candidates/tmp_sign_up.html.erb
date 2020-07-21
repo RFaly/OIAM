@@ -1,0 +1,21 @@
+<%= stylesheet_link_tag "tmp_sign_up" %>
+<h2 class="inscription">INSCRIPTION</h2>
+<%= form_for @cadreInfo, class:"test" ,url: tmp_create_sign_up_path do |f| %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "NOM", required: true, placeholder:"NOM", class:"champs" %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "PRÉNOM", required: true, placeholder:"PRÉNOM", class:"champs" %>
+    <%= f.text_field :adresse, autofocus: true, autocomplete: "ADRESSE", required: true, placeholder:"ADRESSE", class:"champs" %>
+    <div class="fandeany">
+      <%= f.text_field :postal_code, autofocus: true, autocomplete: "ADRESSE", required: true, placeholder:"CODE POSTAL", class:"champs ville",id:"postal_code" %>
+      <%= f.text_field :city, autofocus: true, autocomplete: "VILLE", required: true, placeholder:"VILLE", class:"champs ville",id:"city" %>
+
+    </div>
+    <%= f.text_field :situation, autofocus: true, autocomplete: "SITUATION", required: true, placeholder:"SITUATION", class:"champs" %>
+    <%= f.text_field :telephone, autofocus: true, autocomplete: "TÉLÉPHONE", required: true, placeholder:"TÉLÉPHONE", class:"champs" %>
+    <%= f.email_field :mail, autofocus: true, autocomplete: "MAIL", required: true, placeholder:"MAIL", class:"champs" %>
+    <%= f.submit "S'INSCRIRE", class:"btnInscrire" %>
+<% end %>
+
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/data.json"></script>
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/show_city.js"></script>

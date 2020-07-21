@@ -3,18 +3,20 @@
 class Cadres::RegistrationsController < Devise::RegistrationsController
   include Accessible
   skip_before_action :check_user, except: [:new, :create]
-  before_action :configure_sign_up_params, only: [:create]
-  before_action :configure_account_update_params, only: [:update]
-
+  # before_action :configure_sign_up_params, only: [:create]
+  # before_action :configure_account_update_params, only: [:update]
+  before_action :validate_cadre, only: [:new, :create]
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    super
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    @cadreInfo.update(cadre:current_cadre)
+    cookies.delete :oiam_cadre
+  end
 
   # GET /resource/edit
   # def edit
@@ -43,25 +45,40 @@ class Cadres::RegistrationsController < Devise::RegistrationsController
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:mail, :city, :postal_code, :first_name, :last_name, :adresse, :situation, :telephone, :email, :password, :password_confirmation])
-  end
+  # def configure_sign_up_params
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:mail, :city, :postal_code, :first_name, :last_name, :adresse, :situation, :telephone, :email, :password, :password_confirmation])
+  # end
 
 
   # If you have extra params to permit, append them to the sanitizer.
-  def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:mail, :city, :postal_code, :first_name, :last_name, :adresse, :situation, :telephone, :email, :password, :password_confirmation])
-  end
+  # def configure_account_update_params
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:mail, :city, :postal_code, :first_name, :last_name, :adresse, :situation, :telephone, :email, :password, :password_confirmation])
+  # end
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
     # super(resource)
-    my_tests_path
+    edit_profil_path
   end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def validate_cadre
+    if cookies.encrypted[:oiam_cadre].nil?
+      redirect_to tmp_sign_up_path
+    else
+      @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+      if @cadreInfo.nil?
+        cookies.delete :oiam_cadre
+        flash[:alert] = "Vous devez vous s'inscrire pour faire les tests!"
+        redirect_to tmp_sign_up_path
+      else
+        @email = @cadreInfo.mail
+      end
+    end
+  end
 
 end

@@ -1,0 +1,81 @@
+<div class="navdiv">
+  <nav class="navb">
+    <div class="navbar-logo">
+      <a href="<%=root_path %>">
+        <%=image_tag 'OIAM_DIAMOND.png',alt:'logo'%>
+      </a>
+    </div>
+    <div class="btn-btn open">
+      <span class="btn-btn-burger"> </span>
+    </div>
+    <div class="navbar-content">
+      <ul class="navbar-ul">
+        <li class="act"><a href="<%=root_path %>" class="navbar-item">Accueil</a></li>
+
+        <li><a href="<%=equipe_path%>" class="navbar-item">Équipe</a></li>
+
+        <li>
+          <a href="<%=methodology_path%>" class="navbar-item">Méthodologie</a>
+        </li>
+
+        <li><a href="<%=portfolio_path%>" class="navbar-item">Portfolio</a></li>
+
+        <li><a href="<%=contact_path%>" class="navbar-item">contact</a></li>
+      </ul>
+
+      <div class="dropup1">
+        <% if client_signed_in? %>
+        <div class="dropup-btn1" data-toggle="dropdown">
+          Mon profil
+        </div>
+        <div class="dropup-content1">
+          <a href="<%= client_my_profil_path %>">
+            <div class="dropup-item1">Mon profil</div>
+          </a>
+          <%= link_to destroy_client_session_path, method:"delete" do %>
+          <div class="dropup-item1">Se déconnecter</div>
+          <% end %>
+        </div>
+        <% elsif cadre_signed_in? %>
+        <div class="dropup-btn1" data-toggle="dropdown">
+          Mon profil
+        </div>
+        <div class="dropup-content1">
+          <a href="<%= my_profil_path %>">
+            <div class="dropup-item1">Mon profil</div>
+          </a>
+          <%= link_to destroy_cadre_session_path, method:"delete" do %>
+          <div class="dropup-item1">Se déconnecter</div>
+          <% end %>
+        </div>
+        <% elsif !cookies.encrypted[:oiam_cadre].nil? %>
+        <a href="<%= my_tests_path %>">
+          <div class="dropup-btn1">
+            Mon profil
+          </div>
+        </a>
+        <% else %>
+        <div class="dropup-btn1" data-toggle="dropdown">
+          Se connecter
+        </div>
+        <div class="dropup-content1">
+          <a href="<%= new_cadre_session_path %>">
+            <div class="dropup-item1">cadre</div>
+          </a>
+          <a href="<%= new_client_session_path %>">
+            <div class="dropup-item1">Recruteur</div>
+          </a>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+  <div class="logo-g">
+    <%= image_tag 'OIAM_Logo.png', alt:'logo général' %>
+  </div>
+</div>
+<!-- //*********************************// -->
+<!-- javascript navbar  -->
+<script type="text/javascript" src="/js/navbar.js"></script>
+<!-- javascript navbar  -->
+<!-- /////////////////////////////////////  -->

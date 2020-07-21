@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 	#~~~~~~~~~~~~~~~~~~~~ Accueil ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  root to: 'static_page#home'
-	get '/wellcome', to: 'static_page#allHome', as: 'wellcome'
+  root to: 'special_page#home'
+	get '/wellcome', to: 'special_page#allHome', as: 'wellcome'
   get '/méthodologie', to: 'static_page#methodology', as: 'methodology'
   get '/equipe', to: 'static_page#equipe', as: 'equipe'
   get '/portfolio', to: 'static_page#portfolio', as: 'portfolio'
@@ -11,34 +11,52 @@ Rails.application.routes.draw do
 	devise_for :clients, path: 'clients', controllers: {
     sessions: 'clients/sessions',
     registrations: 'clients/registrations'
+  }, path_names: {
+    sign_in: 'se-connecter', sign_out: 'se-deconneter', cancel: 'supprimer',
+    password: 'mot-de-passe', confirmation: 'verification',
+    registration: 'inscription', edit: 'editer', sign_up: 'cree-compte'
   }
+
 	get '/recruteur', to: 'recruteurs#main', as: 'main_recruiter'
 
 # list menu dans le dashbord client
   get '/recruteur/mon_profil', to: 'recruteurs#my_profil', as: 'client_my_profil'
+  get '/recruteur/mon_profil/edit', to: 'recruteurs#my_profil_edit', as: 'my_profil_edit'
+  patch '/recruteur/mon_profil/save', to: 'recruteurs#update_my_profil', as: 'update_my_profil'
+
+
   get '/recruteur/mes-offre-d-emploi', to: 'recruteurs#my_job_offers', as: 'my_job_offers'
   get '/recruteur/mes-candidats-favoris', to: 'recruteurs#favorite_candidates', as: 'favorite_candidates'
   get '/recruteur/mon-suivi-recrutement', to: 'recruteurs#my_recruitment_follow', as: 'my_recruitment_follow'
   get '/recruteur/mes-factures', to: 'recruteurs#my_bills', as: 'my_bills'
   get '/recruteur/mes-notifications', to: 'recruteurs#notifications', as: 'client_notifications'
 
-
   get '/recruteur/nouvelle-offre', to: 'recruteurs#newJob', as: 'newJob'
   post '/recruteur/publier-offre', to: 'recruteurs#createJob', as: 'createJob'
-  get '/recruteur/publier/:id/offre', to: 'recruteurs#showNewJob', as: 'showNewJob'
 
+  get '/recruteur/edit/:id/offre', to: 'recruteurs#editJob', as: 'editJob'
+  patch '/recruteur/edit-offre', to: 'recruteurs#updateJob', as: 'updateJob'
 
+  get '/recruteur/mes/:id/offre', to: 'recruteurs#showNewJob', as: 'showNewJob'
+  patch '/recruteur/publier/:id/-offre', to: 'recruteurs#publish', as: 'publish'
 
-
-
+  get '/recruteur/offre/:id/notre-selection', to: 'recruteurs#our_selection', as: 'our_selection'
+  get '/recruteur/offre/:id/recherche-candidat', to: 'recruteurs#search_candidate', as: 'search_candidate'  
+  
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	devise_for :cadres, path: 'cadres', controllers: {
+	devise_for :cadres, path: 'cadre', controllers: {
     sessions: 'cadres/sessions',
     registrations: 'cadres/registrations'
+  }, path_names: {
+    sign_in: 'se-connecter', sign_out: 'se-deconneter', cancel: 'supprimer',
+    password: 'mot-de-passe', confirmation: 'verification',
+    registration: 'inscription', edit: 'editer', sign_up: 'cree-compte'
   }
 
 	get '/cadre', to: 'candidates#main', as: 'main_cadre'
-
+  get '/cadre/inscription-candidat', to: 'candidates#tmp_sign_up', as: 'tmp_sign_up'
+  post '/cadre/go-inscription', to: 'candidates#tmp_create_sign_up', as: 'tmp_create_sign_up'
+  
   # list menu dans le dashbord candidat
   get '/cadre/mon_profil', to: 'candidates#my_profil', as: 'my_profil'
   get '/cadre/mon_profil/edit', to: 'candidates#edit_profil', as: 'edit_profil'

@@ -1,134 +1,144 @@
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "clients/shared/error_messages", resource: resource %>
-  
-  <style type="text/css">
-    li {
-      list-style: lower-norwegian;
-    }
-  </style>
-
-  <ol>
-    <li>Détails Entreprise</li>
-    <li>Détails Recruteur</li>
-    <li>Création de compte</li>
-    <li>Signature du contrat</li>
-  </ol>
- 
-
-
-  <fieldset>
-    <legend>Détails Entreprise</legend>
-
-    <div class="form-group">
-      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_name" type="text" name="entreprise_name" id="entreprise_name" placeholder="Entreprise">
-    </div>
-
-    <div class="form-group">
-      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_adresse" type="text" name="entreprise_adresse" id="entreprise_adresse" placeholder="Adresse">
-    </div>
-
-    <div class="row">
-      <div class="col-sm-6 form-group">
-        <input autofocus="autofocus" class="form-control" required="required" autocomplete="postal_code" type="text" name="postal_code" id="postal_code" placeholder="Code Postal">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %> <%= render "clients/shared/error_messages", resource: resource %>
+<div class="inscription-r">
+  <div class="travel-parcours">
+    <div class="travel-image">
+      <div class="circle color-bg">
+        1
       </div>
-      <div class="col-sm-6 form-group">
-        <input autofocus="autofocus" class="form-control" required="required" autocomplete="city" type="text" name="city" id="city" placeholder="Ville">
+      <div class="line ir-l1"></div>
+      <div class="circle ir-c1">
+        2
+      </div>
+      <div class="line ir-l2"></div>
+      <div class="circle ir-c2">
+        3
+      </div>
+      <div class="line ir-l3"></div>
+      <div class="circle ir-c3">
+        4
       </div>
     </div>
-
-    <div class="form-group">
-      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_siret" type="text" name="entreprise_siret" id="entreprise_siret" placeholder="Numéro de siret">
-    </div>
-
-    <div class="form-group">
-      <input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_site" type="text" name="entreprise_site" id="entreprise_site" placeholder="Site Internet">
-    </div>
-
-    <div class="form-group">
-      <textarea class="form-control" required="required" autocomplete="entreprise_description" type="text" name="entreprise_description" id="entreprise_description" autofocus="autofocus" rows="3" placeholder="Description de votre activité"></textarea>
-    </div>
-
-    <div class="form-group">
-      <input autofocus="autofocus" class="form-control" required="required" autocomplete="code_naf" type="text" name="code_naf" id="code_naf" placeholder="Code NAF">
-    </div>
-
-    <span class="btn btn-primary">
-      SUIVANT
-    </span>
-  </fieldset>
-
-  <fieldset>
-    <legend>Détails Recruteur</legend>
-
-    <div class="form-group">
-      
-      <%= f.text_field :last_name, autofocus: true, class:"form-control", autocomplete: "last_name", required: true, placeholder: 'Nom' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.text_field :first_name, autofocus: true, class:"form-control", autocomplete: "first_name", required: true, placeholder: 'Prénom' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.text_field :fonction, autofocus: true, class:"form-control", autocomplete: "fonction", required: true, placeholder: 'Fonction' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.email_field :mail, autofocus: true, class:"form-control", autocomplete: "mail", required: true, placeholder: 'Mail' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.text_field :telephone, autofocus: true, class:"form-control", autocomplete: "telephone", required: true, placeholder: 'Téléphone' %>
-    </div>
-
-    <span class="btn btn-primary">
-      SUIVANT
-    </span>
-
-  </fieldset>
-
-  <fieldset>
-    <legend>Création de compte</legend>
-    <div class="form-group">
-      <%= f.email_field :email, autofocus: true, class:"form-control", autocomplete: "email", required: true, placeholder: 'IDENTIFIANT' %>
-    </div>
-    <div class="form-group">
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, class:"form-control", autocomplete: "new-password", required: true, placeholder: 'MOT DE PASSE' %>
-    </div>
-    <div class="form-group">
-      <%= f.password_field :password_confirmation, class:"form-control", autocomplete: "new-password", required: true, placeholder: 'CONFIRMATION DU MOT DE PASSE' %>
-    </div>
-
-    <span class="btn btn-primary">
-      SUIVANT
-    </span>
-
-  </fieldset>
-
-
-  <fieldset>
-    <legend>Signature du contrat</legend>
-    <div>
-      <p>Vous vous apprêtez à devenir client de One In A Million.<br>Nous vous remercions de lire attentivement nos conditions générales de vente.</p>
-      <p>Conditions générales de vente</p>
-      <img src="https://fakeimg.pl/871x552/ff0000,128/000,255">
-      <br>
-    </div>
-    <div class="form-group">
-      <input id="cgu" type="checkbox" class="form-check-input" required="required"><label for="cgu" class="form-check-label">En cochant cette case, je reconnais avoir pris connaissance d’annulation et de responsabilités (telles qu’indiquées dans le programme).</label>
-    </div>
-  </fieldset>
-
-  <div class="actions">
-    <%= f.submit "VALIDER", class:'btn btn-primary' %>
+    <ol>
+      <li>Détails Entreprise</li>
+      <li>Détails Recruteur</li>
+      <li>Création de compte</li>
+      <li>Signature du contrat</li>
+    </ol>
   </div>
 
-<% end %>
+  <div class="details-r dr-1 open">
+    <input autofocus="autofocus" class="dr-item" required="required" autocomplete="entreprise_name" type="text" name="entreprise_name" id="entreprise_name" placeholder="Entreprise" />
+    <span class="input-error" id="entreprise-name-error"></span>
 
+    <span class="input-error" id="entreprise-adress-error"></span>
+    <input autofocus="autofocus" class="dr-item" required="required" autocomplete="entreprise_adresse" type="text" name="entreprise_adresse" id="entreprise_adresse" placeholder="Adresse" />
+
+    <input autofocus="autofocus" class="dr-item dr-item-postal" required="required" autocomplete="postal_code" type="text" name="postal_code" id="postal_code" placeholder="Code Postal" />
+    <input autofocus="autofocus" class="dr-item dr-item-fad" required="required" autocomplete="city" type="text" name="city" id="city" placeholder="Ville" readonly />
+    <span class="input-error" id="entreprise-postal-error"></span>
+
+    <input autofocus="autofocus" class="dr-item" required="required" autocomplete="entreprise_siret" type="text" name="entreprise_siret" id="entreprise_siret" placeholder="Numéro de siret" />
+    <span class="input-error" id="entreprise-siret-error"></span>
+
+    <input autofocus="autofocus" class="dr-item" required="required" autocomplete="entreprise_site" type="text" name="entreprise_site" id="entreprise_site" placeholder="Site Internet" />
+    <span class="input-error" id="entreprise-site-error"></span>
+    <textarea required="required" class="dr-item dr-textarea" autocomplete="entreprise_description" type="text" name="entreprise_description" id="entreprise_description" autofocus="autofocus" placeholder="Description de votre activité"></textarea>
+
+    <input autofocus="autofocus" class="dr-item" required="required" autocomplete="code_naf" type="text" name="code_naf" id="code_naf" placeholder="Code NAF" />
+    <span class="input-error" id="code-naf-error"></span>
+    <div class="details-btn dr-btn1">
+      SUIVANT
+    </div>
+    <span class="input-error" id="submit-error"></span>
+  </div>
+
+  <div class="details-r dr-2">
+    <%= f.text_field :last_name, autofocus: true, class:"dr-item",id:'recruteur-last-name', autocomplete: "last_name", required: true, placeholder: 'Nom' %>
+    <span class="input-error" id="recruteur-last-name-error"></span>
+    <%= f.text_field :first_name, autofocus: true, class:"dr-item",id:'recruteur-first-name', autocomplete: "first_name", required: true, placeholder: 'Prénom' %>
+    <span class="input-error" id="recruteur-first-name-error"></span>
+    <%= f.text_field :fonction,autofocus: true,class:"dr-item",id:'recruteur-fonction' , autocomplete: "fonction", required: true, placeholder: 'Fonction' %>
+    <span class="input-error" id="recruteur-fonction-error"></span>
+    <%= f.email_field :mail, autofocus: true, class:"dr-item",id:'recruteur-mail' , autocomplete: "mail", required: true, placeholder: 'Mail' %>
+    <span class="input-error" id="recruteur-mail-error"></span>
+    <%= f.text_field :telephone, autofocus: true, class:"dr-item",id:'recruteur-phone' ,autocomplete: "telephone", required: true,placeholder: 'Téléphone' %>
+    <span class="input-error" id="recruteur-phone-error"></span>
+
+    <div class="details-btn dr-btn2">
+      SUIVANT
+    </div>
+    <span class="input-error" id="submit-error2"></span>
+  </div>
+
+  <div class="details-r dr-3">
+    <%= f.email_field :email, autofocus: true, class:"dr-item",id:'email-r', autocomplete: "email", required: true, placeholder: 'IDENTIFIANT' %>
+    <span class="input-error" id="recruteur-phone-error"></span>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, class:"dr-item",id:'password-r', autocomplete: "new-password", required: true, placeholder: 'MOT DE PASSE' %>
+    <span class="input-error" id="recruteur-phone-error"></span>
+    <%= f.password_field :password_confirmation, class:"dr-item",id:'cpass-r', autocomplete: "new-password", required: true, placeholder: 'CONFIRMATION DU MOT DE PASSE' %>
+    <span class="input-error" id="recruteur-phone-error"></span>
+    <div class="details-btn dr-btn3">
+      SUIVANT
+    </div>
+  </div>
+
+  <div class="details-r-condition">
+    <p>
+      Vous vous apprêtez à devenir client de One In A Million. <br />
+      Nous vous remercions de lire attentivement nos conditions générales de vente.
+    </p>
+    <img src="https://fakeimg.pl/871x552/ff0000,128/000,255" /><br />
+    <div class="condition-content">
+      <div class="dc-1">
+        <h4>Lorem ipsum dolor sit amet.</h4>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum repudiandae itaque minima cum doloribus deserunt consequuntur animi ratione vitae atque maiores neque non alias excepturi natus similique, necessitatibus dolore commodi corrupti. Illo obcaecati architecto, minima sint debitis
+        dicta fuga ea error dolor ipsum laboriosam iste amet alias, officia ducimus fugiat?
+      </div>
+      <div class="dc-1">
+        <h4>Lorem ipsum dolor sit amet.</h4>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum repudiandae itaque minima cum doloribus deserunt consequuntur animi ratione vitae atque maiores neque non alias excepturi natus similique, necessitatibus dolore commodi corrupti. Illo obcaecati architecto, minima sint debitis
+        dicta fuga ea error dolor ipsum laboriosam iste amet alias, officia ducimus fugiat?
+      </div>
+      <div class="dc-1">
+        <h4>Lorem ipsum dolor sit amet.</h4>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum repudiandae itaque minima cum doloribus deserunt consequuntur animi ratione vitae atque maiores neque non alias excepturi natus similique, necessitatibus dolore commodi corrupti. Illo obcaecati architecto, minima sint debitis
+        dicta fuga ea error dolor ipsum laboriosam iste amet alias, officia ducimus fugiat?
+      </div>
+      <div class="dc-1">
+        <h4>Lorem ipsum dolor sit amet.</h4>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum repudiandae itaque minima cum doloribus deserunt consequuntur animi ratione vitae atque maiores neque non alias excepturi natus similique, necessitatibus dolore commodi corrupti. Illo obcaecati architecto, minima sint debitis
+        dicta fuga ea error dolor ipsum laboriosam iste amet alias, officia ducimus fugiat?
+        <br />
+        <ol>
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, beatae! Corrupti, iure. Voluptatibus nihil doloremque sed deleniti, est esse incidunt pariatur aliquam culpa! Necessitatibus id qui iusto obcaecati, iste veritatis quod. Deleniti in recusandae consequuntur ratione dolores a
+            esse quasi vitae, nemo accusantium, possimus reiciendis provident corrupti voluptatibus dignissimos temporibus.
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, beatae! Corrupti, iure. Voluptatibus nihil doloremque sed deleniti, est esse incidunt pariatur aliquam culpa! Necessitatibus id qui iusto obcaecati, iste veritatis quod. Deleniti in recusandae consequuntur ratione dolores a
+            esse quasi vitae, nemo accusantium, possimus reiciendis provident corrupti voluptatibus dignissimos temporibus.
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="condition-check">
+      <input id="cgu" type="checkbox" class="form-check-input" required="required" /><label for="cgu" class="form-check-label">En cochant cette case, je reconnais avoir pris connaissance d’annulation et de responsabilités (telles qu’indiquées dans le programme).</label>
+    </div>
+    <div class="dr-btn">
+      <%= f.submit "VALIDER", class:'dr-btn-btn' %> <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- javascript city code  -->
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/data.json"></script>
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/show_city.js"></script>
+<!-- javascript city code  -->
+
+<!-- javascript inscription  -->
+<script type="text/javascript" src="/js/inscription.js"></script>
+<!-- javascript inscription  -->
