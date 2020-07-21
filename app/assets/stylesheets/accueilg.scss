@@ -1,0 +1,37 @@
+@import 'config';
+.accueilg-btn1 {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  a {
+    color: white;
+    font-family: $ffbtn;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: $secondary_text_color_button;
+    &:hover {
+      text-decoration: none;
+      color: $secondary_text_color_button;
+      background-color: white;
+      box-shadow: $box-shadow;
+    }
+  }
+}
+.accueilg-content1 {
+  width: 85%;
+  box-sizing: border-box;
+  margin-bottom: 64px;
+  h2 {
+    font: $ffbtn;
+    color: $main_theme_color;
+    margin: 15px 0;
+  }
+  p {
+    font: $ffsentence;
+    text-align: justify;
+  }
+  .cc-accueuil1 {
+    text-align: center;
+    margin: 40px 0;
+  }
+}

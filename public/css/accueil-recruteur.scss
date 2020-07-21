@@ -1,0 +1,66 @@
+@import 'config';
+
+.accueil-recruteur {
+  // display: flex;
+  // flex-direction: column;
+  // align-items: flex-end;
+  width: 90%;
+  height: auto;
+  margin: 50px auto;
+  h2 {
+    font: $ffbtn;
+    font-size: 21px;
+    margin-bottom: 20px;
+    span {
+      font: 80px Qwigley, sans-serif;
+      color: $main_theme_color;
+      margin-right: 10px;
+    }
+  }
+  p {
+    font: $ffsentence;
+    margin-top: 10px;
+  }
+  .accueil-r-btn {
+    width: 40%;
+    margin: 70px auto;
+    text-align: center;
+    a {
+      background-color: $secondary_text_color_button;
+      padding: 10px 30px;
+      font: $ffbtn;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: white;
+      &:hover,
+      &:active {
+        text-decoration: none;
+        background-color: white;
+        box-shadow: $box-shadow;
+        color: $secondary_text_color_button;
+      }
+    }
+  }
+  // .ar-vertical-line {
+  //   position: absolute;
+  //   left: 50%;
+  //   content: ' ';
+  //   width: 2px;
+  //   height: 850px;
+  //   background-color: black;
+  // }
+  .ar-item {
+    margin-bottom: 60px;
+    // width: 48%;
+    // p {
+    //   text-align: justify;
+    // }
+  }
+  // .ar-item2 {
+  //   align-self: flex-start;
+  //   p,
+  //   h2 {
+  //     text-align: right;
+  //   }
+  // }
+}
