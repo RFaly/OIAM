@@ -230,7 +230,12 @@ body{
 		line-height: 1.2;
 		margin: 0;
 	}
+<<<<<<< HEAD
 	
+=======
+
+  
+>>>>>>> a0e689c6cd931924f705606a0ab33d543439cbff
   .aside{
     width: 500px;
     margin-left: 200px;
@@ -252,5 +257,4 @@ body{
     left: 0;
     right: 0;
   }
-
 }

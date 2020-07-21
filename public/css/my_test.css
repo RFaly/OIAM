@@ -39,7 +39,8 @@ body{
 	width: 200px;
 	text-align: center;
 	margin-top: 82px;
-	margin-bottom: 100px;
+
+	margin-bottom: 200px;
 	border: 1px solid #D6B36A;
 	padding: 15px;
 	font-size: 16px;
@@ -49,5 +50,5 @@ body{
 .btn-commencer:hover{
 	background-color: #D6B36A;
 	text-decoration: none;
-	color: #ffff;
+	color: #D6B36A;
 }

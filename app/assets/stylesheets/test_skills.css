@@ -28,6 +28,16 @@ body{
   margin-top: 41px;
 }
 
+.skills-title{
+  position: relative;
+  text-align: center;
+  font-family: 'Questrial', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #B68E27;
+  margin: 25px 0;
+}
+
 .pass-test{
   margin-top: 150px;
 }
@@ -38,4 +48,8 @@ body{
 
 .cadre{
   height: 1500px;
+}
+
+.trait1::after{
+  background: #f0f2f4;
 }
