@@ -21,6 +21,10 @@ Rails.application.routes.draw do
 
 # list menu dans le dashbord client
   get '/recruteur/mon_profil', to: 'recruteurs#my_profil', as: 'client_my_profil'
+  get '/recruteur/mon_profil/edit', to: 'recruteurs#my_profil_edit', as: 'my_profil_edit'
+  patch '/recruteur/mon_profil/save', to: 'recruteurs#update_my_profil', as: 'update_my_profil'
+
+
   get '/recruteur/mes-offre-d-emploi', to: 'recruteurs#my_job_offers', as: 'my_job_offers'
   get '/recruteur/mes-candidats-favoris', to: 'recruteurs#favorite_candidates', as: 'favorite_candidates'
   get '/recruteur/mon-suivi-recrutement', to: 'recruteurs#my_recruitment_follow', as: 'my_recruitment_follow'
