@@ -1,0 +1,96 @@
+<div class="row">
+	<div class="col-sm-3">
+		<%= render partial: "recruteurs/left_link_bar" %>
+	</div>
+
+	<div class="col-sm-9">
+		<%= form_for @client , url: update_my_profil_path do |f| %>
+		<div class="row">
+			
+			<div class="col-sm-3">
+				<div class="form-group">
+					<% unless @client.image.nil? %>
+						<%= image_tag(@client.image, alt: 'photo logo', class:'photo_ako', id:'addImage', width:"250px")%>
+					<% else %>
+						<img id="addImage" src="https://via.placeholder.com/150/FF0000/FFFFFF?Text=Down.com" width="250px">
+					<% end %>
+					<%= f.label :image, "Logo entreprise:" %>
+					<%= f.file_field :image %>
+				</div>
+			</div>
+
+			<div class="col-sm-9">
+				<h1>MON PROFIL</h1>
+
+				<div class="row">
+				    <div class="col-sm-6 form-group">
+				      <%= f.text_field :first_name, autofocus: true, class:"form-control", autocomplete: "first_name", required: true, placeholder: 'Prénom' %>
+				    </div>
+				    <div class="col-sm-6 form-group">
+				      <%= f.text_field :last_name, autofocus: true, class:"form-control", autocomplete: "last_name", required: true, placeholder: 'Nom' %>
+				    </div>
+				</div>
+
+				<div class="form-group">
+				  <%= f.text_field :fonction, autofocus: true, class:"form-control", autocomplete: "fonction", required: true, placeholder: 'Fonction' %>
+				</div>
+
+				<div class="form-group">
+				  <%= f.email_field :mail, autofocus: true, class:"form-control", autocomplete: "mail", required: true, placeholder: 'Mail' %>
+				</div>
+
+				<div class="form-group">
+				  <%= f.text_field :telephone, autofocus: true, class:"form-control", autocomplete: "telephone", required: true, placeholder: 'Téléphone' %>
+				</div>
+
+			</div>
+		</div>
+
+
+		<div class="container">
+			<div class="form-group">
+				<center><input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_name" type="text" name="entreprise_name" value="<%= @entreprise.name %>" id="entreprise_name" placeholder="Entreprise"></center>
+		    </div>
+
+		    <div class="row">
+				<div class="col-sm-4 form-group">
+					<input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_adresse" type="text" name="entreprise_adresse" id="entreprise_adresse" value="<%= @entreprise.adresse %>" placeholder="Adresse">
+				</div>
+				<div class="col-sm-4 form-group">
+			        <input autofocus="autofocus" class="form-control" required="required" autocomplete="postal_code" type="text" name="postal_code" id="postal_code" value="<%= @entreprise.postal_code %>" placeholder="Code Postal">
+				</div>
+				<div class="col-sm-4 form-group">
+					<input autofocus="autofocus" class="form-control" required="required" autocomplete="city" type="text" name="city" id="city" value="<%= @entreprise.city %>" placeholder="Ville">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-6 form-group">
+					<input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_siret" type="text" name="entreprise_siret" id="entreprise_siret" value="<%= @entreprise.siret %>" placeholder="Numéro de siret">
+				</div>
+				<div class="col-sm-6 form-group">
+					<input autofocus="autofocus" class="form-control" required="required" autocomplete="entreprise_site" type="text" name="entreprise_site" id="entreprise_site" value="<%= @entreprise.site %>" placeholder="Site Internet">
+				</div>
+			</div>
+
+			<h5>Description</h5>
+		    <div class="form-group">
+		      <textarea class="form-control" required="required" autocomplete="entreprise_description" type="text" name="entreprise_description" id="entreprise_description" autofocus="autofocus" rows="3" placeholder="Description de votre activité"><%= @entreprise.description %></textarea>
+		    </div>
+
+		    <h5>Code NAF</h5>
+		    <div class="form-group">
+		      <input autofocus="autofocus" class="form-control" required="required" autocomplete="code_naf" type="text" name="code_naf" id="code_naf" value="<%= @entreprise.code_naf %>" placeholder="Code NAF">
+		    </div>
+		</div>
+
+		<div class="form-group">
+			<center><%= f.submit("SAUVEGARDER") %></center>
+		</div>
+
+		<% end %>
+	</div>
+</div>
+<%= render partial: "/contact_us" %>
+<%= javascript_include_tag "event_input_fil" %>
+

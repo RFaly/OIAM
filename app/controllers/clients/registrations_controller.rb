@@ -74,12 +74,12 @@ class Clients::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :adresse, :situation, :telephone, :email, :password, :password_confirmation])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:fonction, :mail, :first_name, :last_name, :adresse, :situation, :telephone, :email, :password, :password_confirmation])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :adresse, :situation, :telephone, :email, :password, :password_confirmation])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:fonction, :mail, :first_name, :last_name, :adresse, :situation, :telephone, :email, :password, :password_confirmation])
   end
 
   # The path used after sign up.
@@ -92,47 +92,3 @@ class Clients::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 end
-
-
-
-=begin
-
-
-<ActionController::Parameters {"utf8"=>"✓", 
-"authenticity_token"=>"FOlzXPrxeh2h/g7t/gYtMXEHoa6+E4tyS7VQwsxsfg+8jeo4gLYS9uXshMVK7E7+IqSUXp352Gkx0BFkfcp5Dw==", 
-
-"entreprise_name"=>"Addidas", 
-"entreprise_adresse"=>"ANy eee", 
-"entreprise_siret"=>"79423079452304502", 
-"entreprise_site"=>"www.addidas.com", 
-"entreprise_description"=>"loerp",
-
-
-
-
-"client"=><ActionController::Parameters {"last_name"=>"Adona", 
-"first_name"=>"Be", 
-"fonction"=>"Recruteur", 
-"mail"=>"jokolo@gmail.com", 
-"telephone"=>"09927304823847284628", 
-"email"=>"mlkjmlkj@gmail.com", 
-"password"=>"mlkjmlkj@gmail.com", 
-"password_confirmation"=>"mlkjmlkj@gmail.com"} permitted: false>, "commit"=>"VALIDER", 
-"controller"=>"clients/registrations", 
-"action"=>"create"} permitted: false>
-
-
-
-
-
-
-
-
-
-
-Entreprise.create( id: nil, name: nil, adresse: nil, siret: nil, site: nil, description: nil, client_id: nil)
-
-
-
-
-=end
