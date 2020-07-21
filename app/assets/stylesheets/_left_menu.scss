@@ -1,0 +1,22 @@
+@import 'config';
+
+.left_menu {
+  width: 300px;
+  text-align: center;
+  ul {
+    list-style: none;
+    li {
+      a {
+        text-decoration: none;
+        font: $ffbtn;
+        font-size: 16px;
+        color: black;
+        a:hover,
+        a:active {
+          text-decoration: none;
+          color: $main_theme_color;
+        }
+      }
+    }
+  }
+}

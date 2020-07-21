@@ -1,9 +1,7 @@
 $('.input-error').hide();
 // details entreprise validation
 $('#entreprise_name').focusout(function () {
-
   check_name($(this), $('#entreprise-name-error'));
-
 });
 $('#entreprise_adresse').focusout(function () {
   check_nil($(this), $('#entreprise-adress-error'));
@@ -123,7 +121,6 @@ function check_cpass(test, value) {
   }
 }
 function check_nil(test, value) {
-  var name = test.val().length;
   var name = test.val().length;
   if (name < 3) {
     value.html('(Remplissage obligatoire)');

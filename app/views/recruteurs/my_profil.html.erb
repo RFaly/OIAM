@@ -1,72 +1,68 @@
 <div class="row">
-	<div class="col-sm-3">
-		<%= render partial: "recruteurs/left_link_bar" %>
-	</div>
+  <div class="col-sm-3">
+    <%= render partial: "recruteurs/left_link_bar" %>
+  </div>
 
-	<div class="col-sm-9">
-		<div class="row">
-			<div class="col-sm-3">
-				<% unless @client.image.nil? %>
-					<%= image_tag(@client.image, alt: 'photo logo', class:'photo_ako', width:"250px" )%>
-				<% else %>
-					<img src="https://via.placeholder.com/150/FF0000/FFFFFF?Text=Down.com">
-				<% end %>
-			</div>
-			<div class="col-sm-9">
-				<h1>MON PROFIL</h1>
-				<h5><strong><%= @client.first_name %> <%= @client.last_name %></strong></h5>
-				<h5><%= @client.fonction %></h5>
-				<h5><%= @client.mail %></h5>
-				<h5><%= @client.telephone %></h5>
-			</div>
-		</div>
+  <div class="col-sm-9">
+    <div class="row">
+      <div class="col-sm-3">
+        <% unless @client.image.nil? %> <%= image_tag(@client.image, alt: 'photo logo', class:'photo_ako', width:"250px" )%> <% else %>
+        <img src="https://via.placeholder.com/150/FF0000/FFFFFF?Text=Down.com" />
+        <% end %>
+      </div>
+      <div class="col-sm-9">
+        <h1>MON PROFIL</h1>
+        <h5><strong><%= @client.first_name %> <%= @client.last_name %></strong></h5>
+        <h5><%= @client.fonction %></h5>
+        <h5><%= @client.mail %></h5>
+        <h5><%= @client.telephone %></h5>
+      </div>
+    </div>
 
-		<div class="container">
-			<div>
-				<center>
-					<h2><%= @entreprise.name %></h2>
-				</center>
-			</div>
-			<div class="row">
-				<div class="col-sm-4">
-					<h5>Adresse</h5>
-					<%= @entreprise.adresse %>
-				</div>
-				<div class="col-sm-4">
-					<h5>Code postal</h5>
-					<%= @entreprise.postal_code %>
-				</div>
-				<div class="col-sm-4">
-					<h5>Ville</h5>
-					<%= @entreprise.city %>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-6">
-					<h5>Numéro de siret</h5>
-					<%= @entreprise.siret %>
-				</div>
-				<div class="col-sm-6">
-					<h5>Site</h5>
-					<%= @entreprise.site %>
-				</div>
-			</div>
-			<h5>Description</h5>
-			<div>
-				<%= @entreprise.description %>
-			</div>
+    <div class="container">
+      <div>
+        <center>
+          <h2><%= @entreprise.name %></h2>
+        </center>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <h5>Adresse</h5>
+          <%= @entreprise.adresse %>
+        </div>
+        <div class="col-sm-4">
+          <h5>Code postal</h5>
+          <%= @entreprise.postal_code %>
+        </div>
+        <div class="col-sm-4">
+          <h5>Ville</h5>
+          <%= @entreprise.city %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <h5>Numéro de siret</h5>
+          <%= @entreprise.siret %>
+        </div>
+        <div class="col-sm-6">
+          <h5>Site</h5>
+          <%= @entreprise.site %>
+        </div>
+      </div>
+      <h5>Description</h5>
+      <div>
+        <%= @entreprise.description %>
+      </div>
 
-			<h5>Code NAF</h5>
-			<div>
-				<%= @entreprise.code_naf %>
-			</div>
-		</div>
-		<div>
-			<center>
-				<%= link_to "MODIFIER", my_profil_edit_path %>
-			</center>
-		</div>
-	</div>
+      <h5>Code NAF</h5>
+      <div>
+        <%= @entreprise.code_naf %>
+      </div>
+    </div>
+    <div>
+      <center>
+        <%= link_to "MODIFIER", my_profil_edit_path %>
+      </center>
+    </div>
+  </div>
 </div>
-
-<%= render partial: "/contact_us" %>
