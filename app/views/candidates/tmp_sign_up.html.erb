@@ -1,10 +1,10 @@
-<%= stylesheet_link_tag "tmp_sign_up" %>
+<link rel="stylesheet" type="text/css" href="/css/tmp_sign_up.css">
 <h2 class="inscription">INSCRIPTION</h2>
 <%= form_for @cadreInfo, class:"test" ,url: tmp_create_sign_up_path do |f| %>
     <%= f.text_field :last_name, autofocus: true, autocomplete: "NOM", required: true, placeholder:"NOM", class:"champs" %>
     <%= f.text_field :first_name, autofocus: true, autocomplete: "PRÉNOM", required: true, placeholder:"PRÉNOM", class:"champs" %>
     <%= f.text_field :adresse, autofocus: true, autocomplete: "ADRESSE", required: true, placeholder:"ADRESSE", class:"champs" %>
-    <div class="fandeany">
+    <div class="ville-adresse">
       <%= f.text_field :postal_code, autofocus: true, autocomplete: "ADRESSE", required: true, placeholder:"CODE POSTAL", class:"champs ville",id:"postal_code" %>
       <%= f.text_field :city, autofocus: true, autocomplete: "VILLE", required: true, placeholder:"VILLE", class:"champs ville",id:"city" %>
 

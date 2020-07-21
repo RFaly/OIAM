@@ -10,6 +10,9 @@
     padding: 10px 15px;
     width: 100%;
   }
+  .navbar-ul {
+    list-style: none;
+  }
   .navbar-ul a.act {
     color: $main_theme_color;
   }

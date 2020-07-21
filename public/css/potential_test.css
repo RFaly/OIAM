@@ -29,7 +29,10 @@ body{
 	text-align: justify;
 }
 
-.cadre h1{
+
+
+.potential-title{
+	position: relative;
 	text-align: center;
 	font-family: 'Questrial', sans-serif;
 	font-size: 20px;
@@ -38,6 +41,10 @@ body{
 	margin: 25px 0;
 }
 
+.img_preview{
+	position: absolute;
+	top:-15px;
+}
 .cadre h2{
 	font-family: 'Questrial', sans-serif;
 	font-size: 20px;
@@ -52,6 +59,7 @@ body{
 }
 
 .cadre ul{
+	list-style-type: none;
 	font-family: 'Questrial', sans-serif;
 	font-size: 20px;
 	color: #B68E27;
@@ -78,6 +86,7 @@ body{
 .step1 li{
 	display: inline;
 	border: 1px solid ;
+	border: 1px solid;
 	padding: 15px;
   text-align: center;
 	color: #000;
@@ -328,6 +337,10 @@ body{
 		height: 1500px;
 		padding: 26px 77px 90px 77px;
 		background-color: #E3D7BF;
+<<<<<<< HEAD
+=======
+		margin-top: 100px;
+>>>>>>> a0e689c6cd931924f705606a0ab33d543439cbff
 		margin-bottom: 80px;
 		text-align: justify;
 	}
