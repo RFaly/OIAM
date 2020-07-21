@@ -12,10 +12,6 @@ body{
 	margin: 0;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> a0e689c6cd931924f705606a0ab33d543439cbff
 .step{
   display: inline-block;
   width: 50px;
@@ -33,15 +29,10 @@ body{
 	text-align: justify;
 }
 
-.cadre h1{
-<<<<<<< HEAD
-=======
-	
-}
+
 
 .potential-title{
 	position: relative;
->>>>>>> a0e689c6cd931924f705606a0ab33d543439cbff
 	text-align: center;
 	font-family: 'Questrial', sans-serif;
 	font-size: 20px;
@@ -50,14 +41,10 @@ body{
 	margin: 25px 0;
 }
 
-<<<<<<< HEAD
-=======
 .img_preview{
 	position: absolute;
 	top:-15px;
 }
-
->>>>>>> a0e689c6cd931924f705606a0ab33d543439cbff
 .cadre h2{
 	font-family: 'Questrial', sans-serif;
 	font-size: 20px;
@@ -72,6 +59,7 @@ body{
 }
 
 .cadre ul{
+	list-style-type: none;
 	font-family: 'Questrial', sans-serif;
 	font-size: 20px;
 	color: #B68E27;
@@ -97,11 +85,8 @@ body{
 
 .step1 li{
 	display: inline;
-<<<<<<< HEAD
 	border: 1px solid ;
-=======
 	border: 1px solid;
->>>>>>> a0e689c6cd931924f705606a0ab33d543439cbff
 	padding: 15px;
   text-align: center;
 	color: #000;
@@ -136,10 +121,6 @@ body{
 	margin-bottom: 100px;
 	border: 1px solid #fff;
 	padding: 15px;
-<<<<<<< HEAD
-=======
-	padding-top: 25px;
->>>>>>> a0e689c6cd931924f705606a0ab33d543439cbff
 	font-size: 16px;
 	color: #fff;
 }
@@ -214,11 +195,6 @@ body{
 	font-family: 'Questrial', sans-serif;
 }
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> a0e689c6cd931924f705606a0ab33d543439cbff
 @media only screen and (min-width: 500px){
 	.numero {
 			display: inline-block;
