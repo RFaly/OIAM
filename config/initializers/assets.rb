@@ -8,6 +8,7 @@ Rails.application.config.assets.precompile += %w( my_test.css )
 Rails.application.config.assets.precompile += %w( potential_test.css )
 Rails.application.config.assets.precompile += %w( test_skills.css )
 Rails.application.config.assets.precompile += %w( test_fit.css )
+Rails.application.config.assets.precompile += %w( methodology.css )
 
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path
