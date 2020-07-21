@@ -72,6 +72,7 @@ test:
 # available as an environment variable. For example:
 #
 #   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
+#   
 #
 # You can use this database configuration with:
 #
@@ -80,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: oiam_production
-  username: oiam
-  password: <%= ENV['OIAM_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
