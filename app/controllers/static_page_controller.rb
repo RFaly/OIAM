@@ -1,7 +1,4 @@
 class StaticPageController < ApplicationController
-  def allHome
-  end
-
   def equipe
   end
 
