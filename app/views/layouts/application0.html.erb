@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Oiam</title>
-    
+
     <%= csrf_meta_tags %> <%= csp_meta_tag %>
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Qwigley&display=swap" rel="stylesheet" />
@@ -14,9 +14,7 @@
   </head>
 
   <body>
-    <div class="bg-inside">
-      <%= render "layouts/navbar" %>
-    </div>
+
     <!-- ~~~~~~~~~~~~~~~~~~~ Alert devise ito ~~~~~~~~~~~~~~~~~~~ -->
     <div>
       <% if notice %>
@@ -25,9 +23,9 @@
       <p class="alert alert-danger"><%= alert %></p>
       <% end %>
     </div>
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <%= yield %>
 
-    <%= render "layouts/footer" %>
+    <%= yield %> 
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
   </body>
 </html>
