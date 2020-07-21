@@ -11,6 +11,10 @@
   width: 100%;
 }
 
+.navbar-content .navbar-ul {
+  list-style: none;
+}
+
 .navbar-content .navbar-ul a.act {
   color: #d6b36a;
 }

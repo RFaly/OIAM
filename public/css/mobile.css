@@ -225,7 +225,7 @@
     padding-bottom: 70px;
   }
   .bg-inside {
-    background: url("BANNIERE.png");
+    background: url("/BANNIERE.png");
     background-position: center;
     background-size: cover;
   }
@@ -235,7 +235,7 @@
     position: absolute;
     width: 100vw;
     height: 600px;
-    background: url("BANNIERE.png");
+    background-image: url("../image/BANNIERE.png");
     background-position: center;
     background-size: cover;
   }
