@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: oiam_production
+  database: oiam_db
   username: oiam
   password: <%= ENV['OIAM_DATABASE_PASSWORD'] %>
