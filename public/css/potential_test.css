@@ -1,347 +1,342 @@
-*, *::before, *::after{
-	box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-html{
-	font-size: 16px;
+html {
+  font-size: 16px;
 }
 
-body{
-	font-family: 'Questrial', sans-serif;
-	line-height: 1.2;
-	margin: 0;
+body {
+  font-family: 'Questrial', sans-serif;
+  line-height: 1.2;
+  margin: 0;
 }
 
-.step{
+.step {
   display: inline-block;
   width: 50px;
-	margin-right: 20px;
+  margin-right: 20px;
 }
 
-.cadre{
-	display: block;
-	margin: auto;
-	width: auto;
-	height: auto;
-	padding: 26px 50px 90px 50px;
-	background-color: #E3D7BF;
-	margin-bottom: 87px;
-	text-align: justify;
+.cadre {
+  display: block;
+  margin: auto;
+  width: auto;
+  height: auto;
+  padding: 26px 50px 90px 50px;
+  background-color: #e3d7bf;
+  margin-bottom: 87px;
+  text-align: justify;
 }
 
-
-
-.potential-title{
-	position: relative;
-	text-align: center;
-	font-family: 'Questrial', sans-serif;
-	font-size: 20px;
-	font-weight: bold;
-	color: #B68E27;
-	margin: 25px 0;
-}
-
-.img_preview{
-	position: absolute;
-	top:-15px;
-}
-.cadre h2{
-	font-family: 'Questrial', sans-serif;
-	font-size: 20px;
-	font-weight: bold;
-	color: #B68E27;
-	margin-top: 60px;
-}
-
-.notice{
-	text-align: center;
-	line-height: 37px;
-}
-
-.cadre ul{
-	list-style-type: none;
-	font-family: 'Questrial', sans-serif;
-	font-size: 20px;
-	color: #B68E27;
-	text-align: center;
-	margin: 40px 0;
-}
-
-.step span{
-  background:#B68E27;
-  border-radius:50%;
-	padding: 5px;
-  width:160px;
-  height:160px;
-  border:2px solid #679403;
-}
-
-.step1{
-	display: block;
-	margin: auto;
-	height: 70px;
-	border: 1px solid #fff;
-}
-
-.step1 li{
-	display: inline;
-	border: 1px solid ;
-	border: 1px solid;
-	padding: 15px;
+.potential-title {
+  position: relative;
   text-align: center;
-	color: #000;
+  font-family: 'Questrial', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #b68e27;
+  margin: 25px 0;
+}
+
+.img_preview {
+  position: absolute;
+  top: -15px;
+}
+.cadre h2 {
+  font-family: 'Questrial', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #b68e27;
+  margin-top: 60px;
+}
+
+.notice {
+  text-align: center;
+  line-height: 37px;
+}
+
+.cadre ul {
+  list-style-type: none;
+  font-family: 'Questrial', sans-serif;
+  font-size: 20px;
+  color: #b68e27;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.step span {
+  background: #b68e27;
+  border-radius: 50%;
+  padding: 5px;
+  width: 160px;
+  height: 160px;
+  border: 2px solid #679403;
+}
+
+.step1 {
+  display: block;
+  margin: auto;
+  height: 70px;
+  border: 1px solid #fff;
+}
+
+.step1 li {
+  display: inline;
+  border: 1px solid;
+  border: 1px solid;
+  padding: 15px;
+  text-align: center;
+  color: #000;
 }
 
 .numero {
-		display: inline-block;
-		text-align: center;
-		width: 36px;
-		height: 36px;
-		background-color: #F0F2F4;
-		color: #fff;
-		border-radius: 30px;
-		padding: 8px 8px;
-		font-family: 'Roboto', sans-serif;
-		font-size: 18px;
+  display: inline-block;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  background-color: #f0f2f4;
+  color: #fff;
+  border-radius: 30px;
+  padding: 8px 8px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
 }
 
-.gold{
-	background: #D6B36A;
+.gold {
+  background: #d6b36a;
 }
 
-.goRight{
-	margin-right: 128px;
+.goRight {
+  margin-right: 128px;
 }
-.pass-test{
-	display: block;
-	margin: auto;
-	width: 200px;
-	text-align: center;
-	margin-top: 82px;
-	margin-bottom: 100px;
-	border: 1px solid #fff;
-	padding: 15px;
-	font-size: 16px;
-	color: #fff;
-}
-
-.pass-test:hover{
-	text-decoration: none;
-	color: #fff;
+.pass-test {
+  display: block;
+  margin: auto;
+  width: 200px;
+  text-align: center;
+  margin-top: 82px;
+  margin-bottom: 100px;
+  border: 1px solid #fff;
+  padding: 15px;
+  font-size: 16px;
+  color: #fff;
 }
 
-.content{
-	position: relative;
-	display: block;
-	margin: auto;
-	width: 506px;
-	margin-top: 22px;
-	margin-bottom: 53px;
-	padding: 0 62px 0;
-	height: 70px;
+.pass-test:hover {
+  text-decoration: none;
+  color: #fff;
 }
 
-.trait::after{
-	content: '';
-	position: absolute;
-	top: 15px;
-	left: 98px;
-	background: #F0F2F4;
-	width: 135px;
-	height: 5px;
-	text-align: center;
-	color: green;
+.content {
+  position: relative;
+  display: block;
+  margin: auto;
+  width: 506px;
+  margin-top: 22px;
+  margin-bottom: 53px;
+  padding: 0 62px 0;
+  height: 70px;
 }
 
-.trait1::after{
-	content: '';
-	position: absolute;
-	top: 15px;
-	right: 105px;
-	background: #F0F2F4;
-	width: 135px;
-	height: 5px;
-	text-align: center;
-	color: green;
+.trait::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 98px;
+  background: #f0f2f4;
+  width: 135px;
+  height: 5px;
+  text-align: center;
+  color: green;
 }
 
-.potential::before{
-	content: 'Potential';
-	position: absolute;
-	top: 43px;
-	left: 42px;
-	font-size: 18px;
-	color: #000;
-	font-family: 'Questrial', sans-serif;
+.trait1::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: 105px;
+  background: #f0f2f4;
+  width: 135px;
+  height: 5px;
+  text-align: center;
+  color: green;
 }
 
-.skills::before{
-	content: 'Skills';
-	position: absolute;
-	top: 43px;
-	left: 228px;
-	font-size: 18px;
-	color: #000;
-	font-family: 'Questrial', sans-serif;
+.potential::before {
+  content: 'Potential';
+  position: absolute;
+  top: 43px;
+  left: 42px;
+  font-size: 18px;
+  color: #000;
+  font-family: 'Questrial', sans-serif;
 }
 
-.fit::before{
-	content: 'Fit';
-	position: absolute;
-	top: 43px;
-	right: 80px;
-	font-size: 18px;
-	color: #000;
-	font-family: 'Questrial', sans-serif;
+.skills::before {
+  content: 'Skills';
+  position: absolute;
+  top: 43px;
+  left: 228px;
+  font-size: 18px;
+  color: #000;
+  font-family: 'Questrial', sans-serif;
 }
 
-@media only screen and (min-width: 500px){
-	.numero {
-			display: inline-block;
-			text-align: center;
-			width: 36px;
-			height: 36px;
-			background-color: #F0F2F4;
-			color: #fff;
-			border-radius: 30px;
-			padding: 8px 8px;
-			font-family: 'Roboto', sans-serif;
-			font-size: 18px;
-	}
+.fit::before {
+  content: 'Fit';
+  position: absolute;
+  top: 43px;
+  right: 80px;
+  font-size: 18px;
+  color: #000;
+  font-family: 'Questrial', sans-serif;
+}
 
-	.gold{
-		background: #D6B36A;
-	}
+@media only screen and (min-width: 500px) {
+  .numero {
+    display: inline-block;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    background-color: #f0f2f4;
+    color: #fff;
+    border-radius: 30px;
+    padding: 8px 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+  }
 
+  .gold {
+    background: #d6b36a;
+  }
 
+  .goRight {
+    margin-right: 128px;
+  }
 
-	.goRight{
-		margin-right: 128px;
-	}
+  .content {
+    position: relative;
+    display: block;
+    margin: auto;
+    width: 400px;
+    margin-top: 22px;
+    margin-bottom: 53px;
+    padding: 0;
+    height: 70px;
+  }
 
-	.content{
-		position: relative;
-		display: block;
-		margin: auto;
-		width: 400px;
-		margin-top: 22px;
-		margin-bottom: 53px;
-		padding: 0;
-		height: 70px;
-	}
+  .trait::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 36px;
+    background: #f0f2f4;
+    width: 135px;
+    height: 5px;
+    text-align: center;
+    color: green;
+  }
 
-	.trait::after{
-		content: '';
-		position: absolute;
-		top: 15px;
-		left: 36px;
-		background: #F0F2F4;
-		width: 135px;
-		height: 5px;
-		text-align: center;
-		color: green;
-	}
+  .trait1::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 62px;
+    background: #f0f2f4;
+    width: 135px;
+    height: 5px;
+    text-align: center;
+    color: green;
+  }
 
-	.trait1::after{
-		content: '';
-		position: absolute;
-		top: 15px;
-		right: 62px;
-		background: #F0F2F4;
-		width: 135px;
-		height: 5px;
-		text-align: center;
-		color: green;
-	}
+  .potential::before {
+    content: 'Potential';
+    position: absolute;
+    top: 43px;
+    left: -20px;
+    font-size: 18px;
+    color: #000;
+    font-family: 'Questrial', sans-serif;
+  }
 
-	.potential::before{
-		content: 'Potential';
-		position: absolute;
-		top: 43px;
-		left: -20px;
-		font-size: 18px;
-		color: #000;
-		font-family: 'Questrial', sans-serif;
-	}
+  .skills::before {
+    content: 'Skills';
+    position: absolute;
+    top: 43px;
+    left: 165px;
+    font-size: 18px;
+    color: #000;
+    font-family: 'Questrial', sans-serif;
+  }
 
-	.skills::before{
-		content: 'Skills';
-		position: absolute;
-		top: 43px;
-		left: 165px;
-		font-size: 18px;
-		color: #000;
-		font-family: 'Questrial', sans-serif;
-	}
-
-	.fit::before{
-		content: 'Fit';
-		position: absolute;
-		top: 43px;
-		right: 35px;
-		font-size: 18px;
-		color: #000;
-		font-family: 'Questrial', sans-serif;
-	}
+  .fit::before {
+    content: 'Fit';
+    position: absolute;
+    top: 43px;
+    right: 35px;
+    font-size: 18px;
+    color: #000;
+    font-family: 'Questrial', sans-serif;
+  }
 }
 @media only screen and (min-width: 620px) {
-	html{
-		font-size: 16px;
-	}
+  html {
+    font-size: 16px;
+  }
 
-	body{
-		font-family: 'Questrial', sans-serif;
-		line-height: 1.2;
-		margin: 0;
-	}
+  body {
+    font-family: 'Questrial', sans-serif;
+    line-height: 1.2;
+    margin: 0;
+  }
 
-	.step{
-	  display: inline-block;
-	  width: 50px;
-		margin-right: 20px;
-	}
+  .step {
+    display: inline-block;
+    width: 50px;
+    margin-right: 20px;
+  }
 
-	.cadre{
-		display: block;
-		margin: auto;
-		width: auto;
-		height: auto;
-		padding: 26px 60px 90px 60px;
-		background-color: #E3D7BF;
-		margin-bottom: 80px;
-		text-align: justify;
-	}
+  .cadre {
+    display: block;
+    margin: auto;
+    width: auto;
+    height: auto;
+    padding: 26px 60px 90px 60px;
+    background-color: #e3d7bf;
+    margin-bottom: 80px;
+    text-align: justify;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
-	html{
-		font-size: 16px;
-	}
+  html {
+    font-size: 16px;
+  }
 
-	body{
-		font-family: 'Questrial', sans-serif;
-		line-height: 1.2;
-		margin: 0;
-	}
+  body {
+    font-family: 'Questrial', sans-serif;
+    line-height: 1.2;
+    margin: 0;
+  }
 
-	.step{
-		display: inline-block;
-		width: 50px;
-		margin-right: 20px;
-	}
+  .step {
+    display: inline-block;
+    width: 50px;
+    margin-right: 20px;
+  }
 
-	.cadre{
-		display: block;
-		margin: auto;
-		width: 870px;
-		height: 1500px;
-		padding: 26px 77px 90px 77px;
-		background-color: #E3D7BF;
-<<<<<<< HEAD
-=======
-		margin-top: 100px;
->>>>>>> a0e689c6cd931924f705606a0ab33d543439cbff
-		margin-bottom: 80px;
-		text-align: justify;
-	}
+  .cadre {
+    display: block;
+    margin: auto;
+    width: 870px;
+    height: 1500px;
+    padding: 26px 77px 90px 77px;
+    background-color: #e3d7bf;
+    margin-top: 100px;
+    margin-bottom: 80px;
+    text-align: justify;
+  }
 }

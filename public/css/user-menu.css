@@ -1,0 +1,20 @@
+.left-menu-r {
+  width: 300px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.left-menu-r ul {
+  list-style: none;
+}
+
+.left-menu-r ul li {
+  margin: 30px 0;
+}
+
+.left-menu-r ul li a {
+  text-decoration: none;
+  color: black;
+  font: 500 20px Raleway, sans-serif;
+  font-size: 16px;
+}

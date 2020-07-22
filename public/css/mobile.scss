@@ -1,5 +1,10 @@
 @import 'config';
 
+* {
+  box-sizing: 0;
+  margin: 0;
+  padding: 0;
+}
 @media screen and (min-width: 320px) {
   .logo-g {
     display: none;
@@ -104,8 +109,12 @@
   ///////////////////////////////////////@extend
   .details-r {
     .dr-item {
+      margin: 20px 0;
       width: 100%;
     }
+  }
+  .inscription-r {
+    margin: 20px auto;
   }
   .travel-parcours {
     width: 400px;
@@ -194,7 +203,7 @@
     width: 50%;
     img {
       width: 100%;
-      height: 99.6vh;
+      height: 99.5vh;
     }
   }
   // navbar
@@ -267,7 +276,7 @@
     padding-bottom: 70px;
   }
   .bg-inside {
-    background: url('/image/BANNIERE.png');
+    background-image: url(/image/BANNIERE.png);
     background-position: center;
     background-size: cover;
   }
@@ -279,7 +288,7 @@
     position: absolute;
     width: 100vw;
     height: 600px;
-    background-image: url('/image/BANNIERE.png');
+    background-image: url(/image/BANNIERE.png);
     background-position: center;
     background-size: cover;
   }
@@ -362,7 +371,7 @@
     }
     .dr-item-postal {
       width: 30%;
-      margin-right: 2.5%;
+      margin-right: 3%;
     }
   }
   .travel-parcours {
@@ -371,6 +380,9 @@
       width: 780px;
       margin-left: -38px;
     }
+  }
+  .inscription-r {
+    margin: 50px auto;
   }
 }
 
@@ -399,7 +411,7 @@
     padding-bottom: 100px;
   }
   .bg-inside {
-    background: url('/image/BANNIERE.png');
+    background: url(/image/BANNIERE.png);
     background-position: center;
     background-size: cover;
   }
@@ -411,7 +423,7 @@
     position: absolute;
     width: 100%;
     height: 600px;
-    background: url('/image/BANNIERE.png');
+    background: url(/image/BANNIERE.png);
     background-position: center;
     background-size: cover;
   }
@@ -437,12 +449,15 @@
   }
   // inscription recruteur
   ///////////////////////////////////////@extend
-  .details-r {
-    .dr-item-postal {
-      margin-right: 2.8%;
-    }
-  }
+
   .travel-parcours {
     width: 700px;
+    ol {
+      width: 790px;
+      margin-left: -45px;
+    }
+  }
+  .inscription-r {
+    margin: 60px auto;
   }
 }
