@@ -213,6 +213,7 @@
     width: 45%;
   }
   .navb {
+    margin-top: 12px;
     padding: 5px 0;
     background-color: transparent;
     display: flex;
@@ -249,7 +250,7 @@
     text-align: center;
     background-color: $secondary_text_color_button;
     color: white;
-    width: 175px;
+    width: 200px;
     &:hover {
       background-color: rgba(255, 255, 255, 0.61);
       box-shadow: $box-shadow;
@@ -276,19 +277,19 @@
     padding-bottom: 70px;
   }
   .bg-inside {
-    background-image: url(/image/BANNIERE.png);
+    background: url(/image/BANNIERE.png);
     background-position: center;
     background-size: cover;
   }
   // navbar accueilg and accueil g
   ////////////////////////////////////////////////
-  .bg-accueil {
+  .bg-accueil1 {
     z-index: -1;
     top: 0;
     position: absolute;
-    width: 100vw;
+    width: 100%;
     height: 600px;
-    background-image: url(/image/BANNIERE.png);
+    background: url(/image/BANNIERE.png);
     background-position: center;
     background-size: cover;
   }
@@ -306,7 +307,7 @@
   }
   .accueilg-content1 {
     margin: 0 auto;
-    margin-top: 310px;
+    margin-top: 250px;
     .ac-item2 {
       margin: 90px 0;
     }

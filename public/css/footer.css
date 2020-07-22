@@ -19,6 +19,7 @@
 }
 
 .footer-oiam .footer-btn {
+  background: white;
   display: flex;
   justify-content: flex-end;
   font-family: 500 20px Raleway, sans-serif;
@@ -28,7 +29,7 @@
 }
 
 .footer-oiam .footer-btn a {
-  padding: 15px;
+  padding: 15px 60px;
   border: 2px solid black;
   color: black;
 }
