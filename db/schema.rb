@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_14_062155) do
+ActiveRecord::Schema.define(version: 2020_07_22_074517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +123,28 @@ ActiveRecord::Schema.define(version: 2020_07_14_062155) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_offre_jobs_on_client_id"
+  end
+
+  create_table "promise_to_hires", force: :cascade do |t|
+    t.string "birthday_cadre"
+    t.string "birthplace_cadre"
+    t.string "ns_sociale_cadre"
+    t.string "date_poste"
+    t.float "remuneration_fixe"
+    t.string "remuneration_fixe_date"
+    t.boolean "remuneration_variable"
+    t.string "remuneration_var_info"
+    t.float "price"
+    t.text "remuneration_avantage"
+    t.string "date_de_validite"
+    t.string "signature_entreprise"
+    t.string "signature_candidat"
+    t.bigint "client_id"
+    t.bigint "cadre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cadre_id"], name: "index_promise_to_hires_on_cadre_id"
+    t.index ["client_id"], name: "index_promise_to_hires_on_client_id"
   end
 
 end

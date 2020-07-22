@@ -1,3 +1,11 @@
+<%= form_for @offre , url: createJob_path do |f| %>
+	<div class="form-group">
+		<%= f.label :intitule_pote, "INTITULÉ DU POSTE" %>
+		<%= f.text_field :intitule_pote, required:true, class:"form-control" %>
+	</div>
+
+<% end %>
+
 DONNÉE CANDIDAT
 
  
