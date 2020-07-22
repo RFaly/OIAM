@@ -1,25 +1,56 @@
-<%= form_for @offre , url: createJob_path do |f| %>
-	<div class="form-group">
-		<%= f.label :intitule_pote, "INTITULÉ DU POSTE" %>
-		<%= f.text_field :intitule_pote, required:true, class:"form-control" %>
+<div class="row">
+	<div class="col-sm-3">
+		<%= render partial: "recruteurs/left_link_bar" %>
 	</div>
 
-<% end %>
+	<div class="col-sm-9">
+		<center>PROMESSE D'EMBAUCHE</center>
+		<%= form_for @promise , url: createJob_path do |f| %>
+		<div class="row">
+			<div class="col-sm-6">
+				<div><%= @client.image %></div>
+				<div><%= @job.intitule_pote %></div>
+				<div><%= @job.contrat_cdi %></div>
+			</div>
+			
+			<div class="col-sm-6">
+				<div><%= @cadre.first_name %></div>
+				<div><%= @cadre.last_name %></div>
+				<div>					
+					<%= f.text_field :birthday_cadre, disabled:true, value:'date de naissance' %>
+				</div>
+				<div>
+					Lieu de naissance
+				</div>
+				<div>
+					N° sécurité sociale
+				</div>
 
-DONNÉE CANDIDAT
+			</div>
+		</div>
+<!-- 
+birthday_cadre
+birthplace_cadre
+ns_sociale_cadre
+date_poste
+remuneration_fixe
+remuneration_fixe_date
+remuneration_variable
+remuneration_var_info
+price
+remuneration_avantage
+date_de_validite
+signature_entreprise
+signature_candidat -->
 
- 
-<%= @cadre.first_name %>
-<%= @cadre.last_name %>
 
-date de naissance
-Lieu de naissance
-N° sécurité sociale
+		<div class="form-group">
+			<%= f.label :birthplace_cadre, "INTITULÉ DU POSTE" %>
+			<%= f.text_field :birthplace_cadre, required:true, class:"form-control" %>
+		</div>
 
-DONNE récruteur
-<%= @client.image %>
-<%= @job.intitule_pote %>
-<%= @job.contrat_cdi %>
+
+
 
 
 <%= @job.date_poste %>
@@ -62,3 +93,9 @@ Signature électronique
 
 ENVOYER
 
+
+
+	<% end %>
+	</div>
+
+</div>

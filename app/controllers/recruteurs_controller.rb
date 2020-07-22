@@ -123,10 +123,11 @@ class RecruteursController < ApplicationController
 
 #Promesse d'embauche
 	def promise_to_hire
+		@promise = PromiseToHire.new
 		@client = Client.first
-		@cadre = Cadre.first
+		@cadre = Cadre.first.cadre_info
 		@job = OffreJob.first
-		
+
 	end
 
 	def save_promise_to_hire
