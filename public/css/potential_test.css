@@ -30,7 +30,6 @@ body {
   margin-bottom: 87px;
   text-align: justify;
 }
-
 .potential-title {
   position: relative;
   text-align: center;
@@ -39,9 +38,10 @@ body {
   font-weight: bold;
   color: #b68e27;
   margin: 25px 0;
+  left: 2px;
 }
 
-.img_preview {
+.image_tag {
   position: absolute;
   top: -15px;
 }
@@ -55,7 +55,7 @@ body {
 
 .notice {
   text-align: center;
-  line-height: 37px;
+  margin-bottom: 35px;
 }
 
 .cadre ul {
@@ -137,8 +137,9 @@ body {
   width: 506px;
   margin-top: 22px;
   margin-bottom: 53px;
-  padding: 0 62px 0;
+  padding: 15px 62px 0;
   height: 70px;
+  left: 20px;
 }
 
 .trait::after {
@@ -226,6 +227,7 @@ body {
     margin-bottom: 53px;
     padding: 0;
     height: 70px;
+    left: 20px;
   }
 
   .trait::after {

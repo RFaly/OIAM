@@ -27,6 +27,7 @@ body {
   height: auto;
   padding: 26px 50px 90px 50px;
   background-color: #e3d7bf;
+  margin-top: 100px;
   margin-bottom: 87px;
   text-align: justify;
 }
@@ -151,6 +152,67 @@ body {
   text-align: center;
   color: green;
 }
+.numero {
+  display: inline-block;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  background-color: #f0f2f4;
+  color: #fff;
+  border-radius: 30px;
+  padding: 8px 8px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
+.gold {
+  background: #d6b36a;
+}
+
+.goRight {
+  margin-right: 128px;
+}
+.pass-test {
+  display: block;
+  margin: auto;
+  width: 200px;
+  text-align: center;
+  margin-top: 82px;
+  margin-bottom: 100px;
+  border: 1px solid #fff;
+  padding: 15px;
+  padding-top: 23px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.pass-test:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.content {
+  position: relative;
+  display: block;
+  margin: auto;
+  width: 506px;
+  margin-top: 22px;
+  margin-bottom: 53px;
+  padding: 0 62px 0;
+  height: 70px;
+  left: 20px;
+}
+
+.trait::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 98px;
+  width: 135px;
+  height: 5px;
+  text-align: center;
+  color: green;
+}
 
 .trait1::after {
   content: '';
@@ -225,6 +287,7 @@ body {
     margin-bottom: 53px;
     padding: 0;
     height: 70px;
+    left: 20px;
   }
 
   .trait::after {
@@ -305,6 +368,7 @@ body {
     height: auto;
     padding: 26px 60px 90px 60px;
     background-color: #e3d7bf;
+    margin-top: 100px;
     margin-bottom: 80px;
     text-align: justify;
   }
@@ -361,17 +425,20 @@ h1 img {
   height: auto;
   padding: 26px 50px 90px 50px;
   background-color: #e3d7bf;
+  margin-top: 100px;
   margin-bottom: 87px;
   text-align: justify;
 }
 
 .cadres h1 {
+  position: relative;
   text-align: center;
   font-family: 'Questrial', sans-serif;
   font-size: 20px;
   font-weight: bold;
   color: #b68e27;
   margin: 25px 0;
+  left: 30px;
 }
 
 @media only screen and (min-width: 620px) {
@@ -398,6 +465,7 @@ h1 img {
     height: auto;
     padding: 26px 60px 90px 60px;
     background-color: #e3d7bf;
+    margin-top: 100px;
     margin-bottom: 80px;
     text-align: justify;
   }
@@ -427,6 +495,7 @@ h1 img {
     height: 800px;
     padding: 26px 77px 90px 77px;
     background-color: #e3d7bf;
+    margin-top: 100px;
     margin-bottom: 80px;
     text-align: justify;
   }
