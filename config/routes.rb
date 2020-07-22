@@ -44,6 +44,10 @@ Rails.application.routes.draw do
   get '/recruteur/offre/:id/notre-selection', to: 'recruteurs#our_selection', as: 'our_selection'
   get '/recruteur/offre/:id/recherche-candidat', to: 'recruteurs#search_candidate', as: 'search_candidate'  
   
+  #create a promesse d'aumbauche
+  get '/recruteur/:id/embaucher', to: 'recruteurs#promise_to_hire', as: 'promise_to_hire'
+  post '/recruteur/:id/contrat-embauche', to: 'recruteurs#save_promise_to_hire', as: 'save_promise_to_hire'
+
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :cadres, path: 'cadre', controllers: {
     sessions: 'cadres/sessions',

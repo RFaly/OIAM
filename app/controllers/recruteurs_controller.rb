@@ -1,5 +1,5 @@
 class RecruteursController < ApplicationController
-	before_action :authenticate_client!, except: :main
+	#before_action :authenticate_client!, except: :main
 
   def main
   end
@@ -119,6 +119,18 @@ class RecruteursController < ApplicationController
 
 #Mes notifications
 	def notifications
+	end
+
+#Promesse d'embauche
+	def promise_to_hire
+		@client = Client.first
+		@cadre = Cadre.first
+		@job = OffreJob.first
+		
+	end
+
+	def save_promise_to_hire
+		
 	end
 
 #Messages

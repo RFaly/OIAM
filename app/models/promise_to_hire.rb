@@ -1,0 +1,2 @@
+class PromiseToHire < ApplicationRecord
+end

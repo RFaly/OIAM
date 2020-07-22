@@ -1,0 +1,78 @@
+DONNÉE CANDIDAT
+
+ 
+<%= @cadre.first_name %>
+<%= @cadre.last_name %>
+
+date de naissance
+Lieu de naissance
+N° sécurité sociale
+
+DONNE récruteur
+<%= @client.image %>
+<%= @job.intitule_pote %>
+<%= @job.contrat_cdi %>
+
+
+<%= @job.date_poste %>
+
+Rémunération fixe: <%= @job.remuneration %>
+(k€ bruts mensuels)
+
+12mois
+13mois
+Personnalisé
+
+
+
+Rémunération variable === OUI (10%) ou NON 
+(k€ bruts annuels)
+<%= @job.remuneration_anne %>
+
+
+Précalcul honoraires OIAM
+ 11550€
+
+
+Avantages ou autre précision sur la rénumération {
+	Voiture de fonction 
+	Tickets restaurants valeur nominale 8€ 
+	prise en charge 50% 
+	Mutuelle
+	Intéressements + participation
+}
+
+Date de validité [input date]
+
+
+Signature électronique
+	entreprise
+
+Signature électronique
+	candidat
+
+
+ENVOYER
+
+
+
+birthday_cadre string
+birthplace_cadre string
+ns_sociale_cadre string
+
+date_poste string
+
+remuneration_fixe float
+remuneration_fixe_date string
+
+remuneration_variable boolean
+remuneration_var_info string
+
+price float
+
+remuneration_avantage text
+
+limite_date string
+date_de_validite string
+signature_entreprise string
+signature_candidat string
