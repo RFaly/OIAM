@@ -1,10 +1,17 @@
 $(document).ready(function () {
+  // check path
   var path = window.location.pathname.split('/').pop();
   console.log(`${path}`);
-
+  if (path === '') {
+    $('.navbar-controll').remove();
+    $('.footer-controll').remove();
+  }
+  if (path == 'welcome') {
+    $('.navbar-controll').removeClass('bg-inside');
+  }
   let target = $('nav a[href="/' + path + '"]');
   target.addClass('act');
-
+  // JS btn burger navbar
   let check = true;
   $('.btn-btn').click(function () {
     if (check === true) {

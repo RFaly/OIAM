@@ -1,92 +1,91 @@
-*, *::before, *::after{
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html{
+html {
   font-size: 16px;
 }
 
-body{
+body {
   font-family: 'Questrial', sans-serif;
   line-height: 1.2;
   margin: 0;
-  
 }
 
-.step{
+.step {
   display: inline-block;
   width: 50px;
   margin-right: 20px;
 }
 
-.cadre{
+.cadre {
   display: block;
   margin: auto;
   width: auto;
   height: auto;
   padding: 26px 50px 90px 50px;
-  background-color: #E3D7BF;
+  background-color: #e3d7bf;
   margin-bottom: 87px;
   text-align: justify;
 }
 
-
-
-.potential-title{
+.potential-title {
   position: relative;
   text-align: center;
   font-family: 'Questrial', sans-serif;
   font-size: 20px;
   font-weight: bold;
-  color: #B68E27;
+  color: #b68e27;
   margin: 25px 0;
 }
 
-.img_preview{
+.img_preview {
   position: absolute;
-  top:-15px;
+  top: -15px;
 }
-.cadre h2{
+.cadre h2 {
   font-family: 'Questrial', sans-serif;
   font-size: 20px;
   font-weight: bold;
-  color: #B68E27;
+  color: #b68e27;
   margin-top: 60px;
 }
 
-.notice{
+.notice {
   text-align: center;
   margin-bottom: 40px;
 }
 
-.cadre ul{
+.cadre ul {
   list-style-type: none;
   font-family: 'Questrial', sans-serif;
   font-size: 20px;
-  color: #B68E27;
+  color: #b68e27;
   text-align: center;
   margin: 40px 0;
 }
 
-.step span{
-  background:#B68E27;
-  border-radius:50%;
+.step span {
+  background: #b68e27;
+  border-radius: 50%;
   padding: 5px;
-  width:160px;
-  height:160px;
-  border:2px solid #679403;
+  width: 160px;
+  height: 160px;
+  border: 2px solid #679403;
 }
 
-.step1{
+.step1 {
   display: block;
   margin: auto;
   height: 70px;
   border: 1px solid #fff;
 }
 
-.step1 li{
+.step1 li {
   display: inline;
-  border: 1px solid ;
+  border: 1px solid;
   border: 1px solid;
   padding: 15px;
   text-align: center;
@@ -94,26 +93,26 @@ body{
 }
 
 .numero {
-    display: inline-block;
-    text-align: center;
-    width: 36px;
-    height: 36px;
-    background-color: #F0F2F4;
-    color: #fff;
-    border-radius: 30px;
-    padding: 8px 8px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
+  display: inline-block;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  background-color: #f0f2f4;
+  color: #fff;
+  border-radius: 30px;
+  padding: 8px 8px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
 }
 
-.gold{
-  background: #D6B36A;
+.gold {
+  background: #d6b36a;
 }
 
-.goRight{
+.goRight {
   margin-right: 128px;
 }
-.pass-test{
+.pass-test {
   display: block;
   margin: auto;
   width: 200px;
@@ -126,12 +125,12 @@ body{
   color: #fff;
 }
 
-.pass-test:hover{
+.pass-test:hover {
   text-decoration: none;
   color: #fff;
 }
 
-.content{
+.content {
   position: relative;
   display: block;
   margin: auto;
@@ -143,31 +142,31 @@ body{
   left: 20px;
 }
 
-.trait::after{
+.trait::after {
   content: '';
   position: absolute;
   top: 15px;
   left: 98px;
-  background: #F0F2F4;
+  background: #f0f2f4;
   width: 135px;
   height: 5px;
   text-align: center;
   color: green;
 }
 
-.trait1::after{
+.trait1::after {
   content: '';
   position: absolute;
   top: 15px;
   right: 105px;
-  background: #F0F2F4;
+  background: #f0f2f4;
   width: 135px;
   height: 5px;
   text-align: center;
   color: green;
 }
 
-.potential::before{
+.potential::before {
   content: 'Potential';
   position: absolute;
   top: 43px;
@@ -177,7 +176,7 @@ body{
   font-family: 'Questrial', sans-serif;
 }
 
-.skills::before{
+.skills::before {
   content: 'Skills';
   position: absolute;
   top: 43px;
@@ -187,7 +186,7 @@ body{
   font-family: 'Questrial', sans-serif;
 }
 
-.fit::before{
+.fit::before {
   content: 'Fit';
   position: absolute;
   top: 43px;
@@ -197,31 +196,29 @@ body{
   font-family: 'Questrial', sans-serif;
 }
 
-@media only screen and (min-width: 500px){
+@media only screen and (min-width: 500px) {
   .numero {
-      display: inline-block;
-      text-align: center;
-      width: 36px;
-      height: 36px;
-      background-color: #F0F2F4;
-      color: #fff;
-      border-radius: 30px;
-      padding: 8px 8px;
-      font-family: 'Roboto', sans-serif;
-      font-size: 18px;
+    display: inline-block;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    background-color: #f0f2f4;
+    color: #fff;
+    border-radius: 30px;
+    padding: 8px 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
   }
 
-  .gold{
-    background: #D6B36A;
+  .gold {
+    background: #d6b36a;
   }
 
-
-
-  .goRight{
+  .goRight {
     margin-right: 128px;
   }
 
-  .content{
+  .content {
     position: relative;
     display: block;
     margin: auto;
@@ -233,31 +230,31 @@ body{
     left: 20px;
   }
 
-  .trait::after{
+  .trait::after {
     content: '';
     position: absolute;
     top: 15px;
     left: 36px;
-    background: #F0F2F4;
+    background: #f0f2f4;
     width: 135px;
     height: 5px;
     text-align: center;
     color: green;
   }
 
-  .trait1::after{
+  .trait1::after {
     content: '';
     position: absolute;
     top: 15px;
     right: 62px;
-    background: #F0F2F4;
+    background: #f0f2f4;
     width: 135px;
     height: 5px;
     text-align: center;
     color: green;
   }
 
-  .potential::before{
+  .potential::before {
     content: 'Potential';
     position: absolute;
     top: 43px;
@@ -267,7 +264,7 @@ body{
     font-family: 'Questrial', sans-serif;
   }
 
-  .skills::before{
+  .skills::before {
     content: 'Skills';
     position: absolute;
     top: 43px;
@@ -277,7 +274,7 @@ body{
     font-family: 'Questrial', sans-serif;
   }
 
-  .fit::before{
+  .fit::before {
     content: 'Fit';
     position: absolute;
     top: 43px;
@@ -288,29 +285,29 @@ body{
   }
 }
 @media only screen and (min-width: 620px) {
-  html{
+  html {
     font-size: 16px;
   }
 
-  body{
+  body {
     font-family: 'Questrial', sans-serif;
     line-height: 1.2;
     margin: 0;
   }
 
-  .step{
+  .step {
     display: inline-block;
     width: 50px;
     margin-right: 20px;
   }
 
-  .cadre{
+  .cadre {
     display: block;
     margin: auto;
     width: auto;
     height: auto;
     padding: 26px 60px 90px 60px;
-    background-color: #E3D7BF;
+    background-color: #e3d7bf;
     margin-top: 100px;
     margin-bottom: 80px;
     text-align: justify;
@@ -318,76 +315,74 @@ body{
 }
 
 @media only screen and (min-width: 1024px) {
-  html{
+  html {
     font-size: 16px;
   }
 
-  body{
+  body {
     font-family: 'Questrial', sans-serif;
     line-height: 1.2;
     margin: 0;
   }
 
-  .step{
+  .step {
     display: inline-block;
     width: 50px;
     margin-right: 20px;
   }
 
-  .cadre{
+  .cadre {
     display: block;
     margin: auto;
     width: 870px;
     height: 1500px;
     padding: 26px 77px 90px 77px;
-    background-color: #E3D7BF;
+    background-color: #e3d7bf;
     margin-top: 100px;
     margin-bottom: 80px;
     text-align: justify;
   }
 }
 
-
-.trait::after{
-	background: #D6B36A;
+.trait::after {
+  background: #d6b36a;
 }
 
-.directeur-marketing{
+.directeur-marketing {
   display: block;
   margin: auto;
   width: 288px;
   height: 47px;
-  border: 2px solid #D6B36A;
+  border: 2px solid #d6b36a;
   background: none;
-  color: #D6B36A;
+  color: #d6b36a;
   padding-left: 25px;
   margin-top: 41px;
 }
 
-.skills-title{
+.skills-title {
   position: relative;
   text-align: center;
   font-family: 'Questrial', sans-serif;
   font-size: 20px;
   font-weight: bold;
-  color: #B68E27;
+  color: #b68e27;
   margin: 25px 0;
   left: 25px;
 }
 
-.pass-test{
+.pass-test {
   margin-top: 150px;
 }
 
-#directeur-marketing img{
+#directeur-marketing img {
   margin-left: 25px;
 }
 
-.cadre{
+.cadre {
   height: 1500px;
 }
 
-.trait1::after{
+.trait1::after {
   background: #f0f2f4;
 }
-

@@ -1,0 +1,113 @@
+.left-menu-r {
+  width: 300px;
+  position: relative;
+  padding: 70px 0;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 500ms ease-in-out;
+}
+
+.left-menu-r .left-menu-content {
+  list-style: none;
+}
+
+.left-menu-r .left-menu-content li {
+  margin: 42px 0;
+}
+
+.left-menu-r .left-menu-content li a {
+  text-decoration: none;
+  color: black;
+  font: 500 20px Raleway, sans-serif;
+  font-size: 16px;
+}
+
+.left-menu-r .left-menu-photo {
+  width: 110px;
+  margin: 0 auto;
+  height: 110px;
+}
+
+.left-menu-r .left-menu-photo img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.left-menu-r .left-menu-photo.open {
+  transition: all 500ms ease-in-out;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 9px;
+  left: 10px;
+}
+
+.left-menu-r .left-menu-content.open {
+  display: none;
+}
+
+.left-menu-r.open {
+  width: 120px;
+  transition: all 500ms ease-in-out;
+}
+
+.left-menu-r .btn-menu-r {
+  top: 13px;
+  right: 28px;
+  z-index: 2;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  align-self: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.left-menu-r .btn-menu-burger {
+  position: absolute;
+  width: 100%;
+  top: 12px;
+  right: 0px;
+  height: 5px;
+  background: #d6b36a;
+  transition: all 500ms ease-in-out;
+}
+
+.left-menu-r .btn-menu-burger::before {
+  content: ' ';
+  position: absolute;
+  top: -12px;
+  right: 0;
+  width: 100%;
+  height: 5px;
+  background: #d6b36a;
+}
+
+.left-menu-r .btn-menu-burger::after {
+  content: ' ';
+  position: absolute;
+  top: 12px;
+  right: 0;
+  width: 100%;
+  height: 5px;
+  background: #d6b36a;
+}
+
+.left-menu-r .btn-menu-r .open {
+  transform: rotate(720deg);
+  transition: all 500ms ease-in-out;
+  background: transparent;
+}
+
+.left-menu-r .btn-menu-burger.open::before {
+  width: 125%;
+  transition: all 500ms ease-in-out;
+  transform: rotate(45deg) translate(12px, 5px);
+}
+
+.left-menu-r .btn-menu-burger.open::after {
+  width: 125%;
+  transition: all 500ms ease-in-out;
+  transform: rotate(-45deg) translate(12px, -5px);
+}
