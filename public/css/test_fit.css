@@ -114,17 +114,16 @@ body{
 	margin-right: 128px;
 }
 .pass-test{
-	display: block;
-	margin: auto;
-	width: 200px;
-	text-align: center;
-	margin-top: 82px;
-	margin-bottom: 100px;
-	border: 1px solid #fff;
-	padding: 15px;
-	padding-top: 23px;
-	font-size: 16px;
-	color: #fff;
+  display: block;
+  margin: auto;
+  width: 200px;
+  text-align: center;
+  margin-top: 82px;
+  margin-bottom: 100px;
+  border: 1px solid #fff;
+  padding: 15px;
+  font-size: 16px;
+  color: #fff;
 }
 
 .pass-test:hover{
@@ -351,7 +350,7 @@ body{
 
 .pass-test{
   width: 350px;
-  height: 70px;
+  margin-top: 100px;
   font-size: 16px;
 }
 
