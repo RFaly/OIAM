@@ -27,7 +27,7 @@
     background-size: cover;
 }
 
-eq-box {
+.eq-box {
     display: flex;
     justify-content: center;
     align-items: center;
