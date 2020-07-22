@@ -15,6 +15,7 @@
   top: 10px;
   height: 5px;
   background: grey;
+  transition: all 500ms ease-in;
 }
 .btn-btn-burger::before {
   content: ' ';

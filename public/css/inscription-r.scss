@@ -20,8 +20,8 @@
     font: $ffsentence;
     &:focus {
       border-radius: none;
-      border: inherit;
-      border: 2px solid $main_theme_color;
+      outline: none;
+      outline: 2px solid $main_theme_color;
       box-shadow: 1px 1px 5px 1px $main_theme_color;
     }
   }
@@ -153,4 +153,8 @@
   color: #ff0000;
   font: $ffbtn;
   font-size: 14px;
+}
+.password-r,
+.cpass-r {
+  font: $ffbtn;
 }

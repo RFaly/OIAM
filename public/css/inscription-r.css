@@ -25,8 +25,8 @@
 
 .details-r .dr-item:focus {
   border-radius: none;
-  border: inherit;
-  border: 2px solid #d6b36a;
+  outline: none;
+  outline: 2px solid #d6b36a;
   box-shadow: 1px 1px 5px 1px #d6b36a;
 }
 
@@ -178,4 +178,9 @@
   color: #ff0000;
   font: 500 20px Raleway, sans-serif;
   font-size: 14px;
+}
+
+.password-r,
+.cpass-r {
+  font: 500 20px Raleway, sans-serif;
 }
