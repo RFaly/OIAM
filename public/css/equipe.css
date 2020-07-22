@@ -1,0 +1,93 @@
+.eq-cont {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #dfca9e;
+    overflow: hidden;
+    height: 100vw;
+    border-radius: 10px;
+   
+}
+ .eq-ttl {
+     color: #ffffff;
+     font-weight: bold;
+     font-family: 'Roboto', sans-serif;
+     text-transform: uppercase;
+     letter-spacing: 5px;
+     font-size: 30px;
+     margin-top: 10rem;
+ }
+
+.eq-main {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background: url('/image/background2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.eq-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    
+
+}
+
+.eq-eq {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 40rem;
+    grid-template-rows: 100px 100px;
+    grid-template-columns: 100px 100px;
+    padding: 17rem;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+
+
+.eq img {
+    width:500px;
+	height: 500px;
+    border-radius: 50%;
+    
+}
+
+.eq-box-eq {
+    margin-top: 50px;
+    width: 40rem;
+    height: 45rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    
+}
+
+.eq-all-des {
+    margin-top: 3rem;
+    line-height: 4rem;
+}
+
+.eq-name {
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.eq-des {
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.eq {
+    margin-bottom: 5rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 5px 4px 24px -5px rgba(0,0,0,0.87);
+}

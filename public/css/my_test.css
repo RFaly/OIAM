@@ -47,6 +47,18 @@ body{
 }
 
 .btn-commencer:hover{
+	background:#D6B36A;
 	text-decoration: none;
-	color: #D6B36A;
+	color: #fff;
+}
+
+.mains h2{
+	position: relative;
+}
+
+.oiam-diamond{
+	position: absolute;
+	top: -10px;
+	left: 390px;
+
 }
