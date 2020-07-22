@@ -10,6 +10,7 @@ body{
   font-family: 'Questrial', sans-serif;
   line-height: 1.2;
   margin: 0;
+  
 }
 
 .step{
@@ -55,7 +56,7 @@ body{
 
 .notice{
   text-align: center;
-  line-height: 37px;
+  margin-bottom: 40px;
 }
 
 .cadre ul{
@@ -139,6 +140,7 @@ body{
   margin-bottom: 53px;
   padding: 0 62px 0;
   height: 70px;
+  left: 20px;
 }
 
 .trait::after{
@@ -228,6 +230,7 @@ body{
     margin-bottom: 53px;
     padding: 0;
     height: 70px;
+    left: 20px;
   }
 
   .trait::after{
@@ -308,6 +311,7 @@ body{
     height: auto;
     padding: 26px 60px 90px 60px;
     background-color: #E3D7BF;
+    margin-top: 100px;
     margin-bottom: 80px;
     text-align: justify;
   }
@@ -337,10 +341,7 @@ body{
     height: 1500px;
     padding: 26px 77px 90px 77px;
     background-color: #E3D7BF;
-<<<<<<< HEAD
-=======
     margin-top: 100px;
->>>>>>> a0e689c6cd931924f705606a0ab33d543439cbff
     margin-bottom: 80px;
     text-align: justify;
   }
@@ -371,6 +372,7 @@ body{
   font-weight: bold;
   color: #B68E27;
   margin: 25px 0;
+  left: 25px;
 }
 
 .pass-test{
