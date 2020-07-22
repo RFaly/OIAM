@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 	#~~~~~~~~~~~~~~~~~~~~ Accueil ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   root to: 'static_page#home'
-  get '/wellcome', to: 'static_page#allHome', as: 'wellcome'
+  get '/welcome', to: 'static_page#allHome', as: 'welcome'
 
   get '/méthodologie', to: 'static_page#methodology', as: 'methodology'
   get '/equipe', to: 'static_page#equipe', as: 'equipe'

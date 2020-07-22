@@ -1,7 +1,6 @@
 .inscription-r {
   width: 90%;
   height: auto;
-  margin: 20px auto;
 }
 
 .inscription-r ol {
@@ -16,7 +15,6 @@
 }
 
 .details-r .dr-item {
-  margin: 20px 0;
   border-radius: 0;
   border: none;
   padding: 10px;
@@ -27,8 +25,8 @@
 
 .details-r .dr-item:focus {
   border-radius: none;
-  border: inherit;
-  border: 2px solid #d6b36a;
+  outline: none;
+  outline: 2px solid #d6b36a;
   box-shadow: 1px 1px 5px 1px #d6b36a;
 }
 
@@ -142,8 +140,9 @@
   background-color: #f0f2f4;
   width: 35px;
   height: 35px;
-  padding-top: 8px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font: 600 16px roboto, sans-serif;
   border-radius: 50%;
   color: white;
@@ -179,4 +178,9 @@
   color: #ff0000;
   font: 500 20px Raleway, sans-serif;
   font-size: 14px;
+}
+
+.password-r,
+.cpass-r {
+  font: 500 20px Raleway, sans-serif;
 }

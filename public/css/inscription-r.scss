@@ -2,7 +2,6 @@
 .inscription-r {
   width: 90%;
   height: auto;
-  margin: 20px auto;
   ol {
     margin-bottom: 80px;
   }
@@ -13,7 +12,6 @@
   margin: 0 auto;
   margin-bottom: 50px;
   .dr-item {
-    margin: 20px 0;
     border-radius: 0;
     border: none;
     padding: 10px;
@@ -22,8 +20,8 @@
     font: $ffsentence;
     &:focus {
       border-radius: none;
-      border: inherit;
-      border: 2px solid $main_theme_color;
+      outline: none;
+      outline: 2px solid $main_theme_color;
       box-shadow: 1px 1px 5px 1px $main_theme_color;
     }
   }
@@ -122,8 +120,9 @@
     background-color: $secondary_element_color;
     width: 35px;
     height: 35px;
-    padding-top: 8px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font: 600 16px roboto, sans-serif;
     border-radius: 50%;
     color: white;
@@ -154,4 +153,8 @@
   color: #ff0000;
   font: $ffbtn;
   font-size: 14px;
+}
+.password-r,
+.cpass-r {
+  font: $ffbtn;
 }

@@ -31,6 +31,8 @@ body{
 
 
 
+
+
 .potential-title{
 	position: relative;
 	text-align: center;
@@ -39,11 +41,14 @@ body{
 	font-weight: bold;
 	color: #B68E27;
 	margin: 25px 0;
+	left: 2px;
 }
 
-.img_preview{
+.image_tag{
 	position: absolute;
 	top:-15px;
+	left: 485px;
+
 }
 .cadre h2{
 	font-family: 'Questrial', sans-serif;
@@ -55,7 +60,7 @@ body{
 
 .notice{
 	text-align: center;
-	line-height: 37px;
+	margin-bottom: 35px;
 }
 
 .cadre ul{
@@ -137,8 +142,9 @@ body{
 	width: 506px;
 	margin-top: 22px;
 	margin-bottom: 53px;
-	padding: 0 62px 0;
+	padding: 15px 62px 0;
 	height: 70px;
+	left: 20px;
 }
 
 .trait::after{
@@ -228,6 +234,7 @@ body{
 		margin-bottom: 53px;
 		padding: 0;
 		height: 70px;
+		left: 20px;
 	}
 
 	.trait::after{
@@ -337,10 +344,7 @@ body{
 		height: 1500px;
 		padding: 26px 77px 90px 77px;
 		background-color: #E3D7BF;
-<<<<<<< HEAD
-=======
 		margin-top: 100px;
->>>>>>> a0e689c6cd931924f705606a0ab33d543439cbff
 		margin-bottom: 80px;
 		text-align: justify;
 	}

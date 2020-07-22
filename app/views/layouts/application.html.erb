@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <div class="bg-inside">
+    <div class="navbar-controll bg-inside">
       <%= render "layouts/navbar" %>
     </div>
     <!-- ~~~~~~~~~~~~~~~~~~~ Alert devise ito ~~~~~~~~~~~~~~~~~~~ -->
@@ -27,6 +27,9 @@
       <% end %>
     </div>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <%= yield %> <%= render "layouts/footer" %>
+    <%= yield %>
+    <div class="footer-controll">
+      <%= render "layouts/footer" %>
+    </div>
   </body>
 </html>

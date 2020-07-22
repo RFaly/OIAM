@@ -1,1 +1,48 @@
+html{
+  font-size: 16px;
+}
 
+body{
+  font-family: 'Questrial', sans-serif;
+  margin: 0;
+  text-align: justify;
+}
+
+
+img{
+  width: 60px;
+  height: auto;
+}
+
+.aside{
+  overflow: hidden;
+}
+.block-left{
+  display: block;
+  margin-left: 150px;
+}
+.block-left p{
+  position:relative;
+  text-align: justify;
+  width: 700px;
+  margin-left: 50px;
+
+}
+.aside{
+  margin: 15px;
+}
+
+.block-title{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #D6B36A;
+}
+
+.check-gold1{
+  position: absolute;
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin-left: -5px;
+}
