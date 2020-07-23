@@ -19,14 +19,13 @@ img{
 }
 .block-left{
   display: block;
-  margin-left: 150px;
+  margin-bottom: 50px;
 }
 .block-left p{
   position:relative;
   text-align: justify;
-  width: 700px;
+  width: 100%;
   margin-left: 50px;
-
 }
 .aside{
   margin: 15px;
@@ -37,6 +36,7 @@ img{
   font-weight: 600;
   font-size: 18px;
   color: #D6B36A;
+  margin-bottom: 50px;
 }
 
 .check-gold1{
@@ -45,4 +45,173 @@ img{
   width: 50px;
   height: 50px;
   margin-left: -5px;
+}
+
+.article{
+  clear: both;
+}
+
+.block-article-title{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #D6B36A;
+  margin-bottom: 20px;
+}
+
+.block-image{
+
+}
+
+.block-image{
+  display: block;
+  margin: auto;
+  width: 91px;
+  height: 100px;
+}
+
+.article-content-left{
+  margin-bottom: 50px;
+}
+
+.notice{
+  display: block;
+  margin: auto;
+}
+
+.block-cadre{
+  display: block;
+  margin: auto;
+  width: 300px;
+  height: 340px;
+  margin-bottom: 50px;
+  padding: 46px 24px 20px 24px;
+}
+
+
+.block-cadre h2{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #000;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cote-candidat{
+  background-color: #E3D7BF;
+}
+
+.cote-recruteur{
+  background-color: #D6B36A;
+}
+
+.methode-oiam{
+  display: block;
+  margin: auto;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #000;
+  text-align: center;
+  width: auto;
+
+}
+
+.notre-methode{
+  margin-top: 50px;
+}
+
+@media only screen and (min-width: 800px){
+  .block-left{
+    margin-top: 25px;
+    padding: 0 100px;
+  }
+
+  .article-content-left{
+    display: flex;
+  }
+
+  .block-right{
+    padding: 0 30px;
+    width: 750px;
+  }
+
+  .block-image{
+    flex: none;
+    float: right;
+  }
+  .goRight{
+    order: 1;
+  }
+  .goLeft{
+    float: left;
+    order: -1;
+  }
+
+  .notice{
+    display: flex;
+    width: 670px;
+  }
+  .methode-oiam{
+    width: 600px;
+    margin-bottom: 80px;
+  }
+}
+
+@media only screen and (min-width: 1024px){
+  .block-left{
+    margin-top: 50px;
+    padding: 0 180px;
+    width: 1000px;
+    float: right;
+  }
+
+  .block-right{
+    padding: 0 80px;
+    width: 670px;
+  }
+
+  .goRight{
+    order: 1;
+  }
+  .goLeft{
+    float: left;
+    order: -1;
+  }
+
+  .notre-methode{
+    margin-top: 50px;
+    padding: 0 80px;
+    margin-bottom: 100px;
+  }
+}
+
+
+@media only screen and (min-width: 1270px){
+  .block-left{
+    margin-top: 50px;
+    padding: 0 180px;
+    width: 1000px;
+    float: right;
+  }
+
+  .block-right{
+    padding: 0 120px;
+    width: 900px;
+  }
+
+  .goRight{
+    order: 1;
+  }
+  .goLeft{
+    float: left;
+    order: -1;
+  }
+
+  .notre-methode{
+    margin-top: 50px;
+    padding: 0 120px;
+  }
 }
