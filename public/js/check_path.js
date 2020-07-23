@@ -7,7 +7,7 @@ $(document).ready(function () {
     $('.footer-controll').remove();
   }
   //   remove backgroung of some page
-  if (path == 'welcome' || path == 'equipe') {
+  if (path == 'welcome' || path == 'equipe' || path == 'potential-test' || path == 'skills-test' || path == 'fit-test') {
     $('.navbar-controll').removeClass('bg-inside');
   }
   // check menu navbar

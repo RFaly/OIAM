@@ -17,6 +17,10 @@
     color: $main_theme_color;
   }
   .dropup1 {
+    a:hover,
+    a:active {
+      text-decoration: none;
+    }
     .dropup-btn1 {
       padding: 12px 10px;
       cursor: pointer;
