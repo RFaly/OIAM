@@ -120,6 +120,10 @@ class RecruteursController < ApplicationController
 	def notifications
 	end
 
+	def show_promise_to_hire
+		@promise = PromiseToHire.find_by_id(params[:id])
+	end
+
 #Promesse d'embauche
 	def promise_to_hire
 		@job = OffreJob.find_by_id(params[:id_offre_job])
@@ -162,6 +166,8 @@ class RecruteursController < ApplicationController
     	@promise.remuneration_var_info = remuneration_info
       @promise.signature_entreprise = uploader.url
       @promise.save
+      flash[:notice] = "Promesse d'embauche bien sauvegarder"
+      redirect_to show_promise_to_hire_path(@promise.id)
     else
 			@promise.errors.details[:signature_entreprise] = errorMessage
     	flash[:alert] = @promise.errors.details
@@ -204,6 +210,8 @@ class RecruteursController < ApplicationController
 				@promise.remuneration_var_info = remuneration_info
 			end
       @promise.save
+      flash[:notice] = "Mise à jour promesse d'embauche bien sauvegarder"
+      redirect_to show_promise_to_hire_path(@promise.id)
 		else
 			@promise.errors.details[:signature_entreprise] = errorMessage
     	flash[:alert] = @promise.errors.details

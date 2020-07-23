@@ -116,6 +116,10 @@
 	</table>
 
 	<div class="form-group">
-		<center><%= f.submit("ENVOYER") %></center>
+		<% if @promise.signature_entreprise.nil? %>
+			<center><%= f.submit("ENVOYER") %></center>
+		<% else %>
+			<center><%= f.submit("METTRE À JOUR") %></center>
+		<% end %>
 	</div>
 <% end %>

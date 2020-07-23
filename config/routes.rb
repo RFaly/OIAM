@@ -44,12 +44,13 @@ Rails.application.routes.draw do
   get '/recruteur/offre/:id/notre-selection', to: 'recruteurs#our_selection', as: 'our_selection'
   get '/recruteur/offre/:id/recherche-candidat', to: 'recruteurs#search_candidate', as: 'search_candidate'  
   
+  # show promesse d'embauche
+  get '/recruteur/offre-d-emploi/:id/contrat-d-embauche', to: 'recruteurs#show_promise_to_hire', as: 'show_promise_to_hire'
   #create a promesse d'embauche
-  get '/recruteur/:id_offre_job/:id_cadre/embaucher', to: 'recruteurs#promise_to_hire', as: 'promise_to_hire'
+  get '/recruteur/:id_offre_job/:id_cadre/embauche', to: 'recruteurs#promise_to_hire', as: 'promise_to_hire'
   post '/recruteur/:id_offre_job/:id_cadre/contrat-embauche', to: 'recruteurs#save_promise_to_hire', as: 'save_promise_to_hire'
-
   #edit a promesse d'embauche
-  get '/recruteur/:id/edit-embaucher', to: 'recruteurs#edit_promise_to_hire', as: 'edit_promise_to_hire'
+  get '/recruteur/:id/edit-embauche', to: 'recruteurs#edit_promise_to_hire', as: 'edit_promise_to_hire'
   patch '/recruteur/:id/edit-contrat-embauche', to: 'recruteurs#update_promise_to_hire', as: 'update_promise_to_hire'
 
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -84,7 +85,6 @@ Rails.application.routes.draw do
 
   # tokony post ito
   get '/cadre/resultat-test', to: 'candidates#resultatsTest', as: 'resultatsTest'
-
 
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Admin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :admins, path: 'admins', controllers: {
