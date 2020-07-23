@@ -5,8 +5,6 @@ class PromiseToHire < ApplicationRecord
 	validates :date_poste, presence: true
 	validates :remuneration_fixe, presence: true
 	validates :remuneration_fixe_date, presence: true
-	validates :remuneration_variable, presence: true
 	validates :remuneration_avantage, presence: true
 	validates :date_de_validite, presence: true
-
 end

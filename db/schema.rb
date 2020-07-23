@@ -139,12 +139,12 @@ ActiveRecord::Schema.define(version: 2020_07_22_074517) do
     t.string "date_de_validite"
     t.string "signature_entreprise"
     t.string "signature_candidat"
-    t.bigint "client_id"
+    t.bigint "offre_job_id"
     t.bigint "cadre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cadre_id"], name: "index_promise_to_hires_on_cadre_id"
-    t.index ["client_id"], name: "index_promise_to_hires_on_client_id"
+    t.index ["offre_job_id"], name: "index_promise_to_hires_on_offre_job_id"
   end
 
 end

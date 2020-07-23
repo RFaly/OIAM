@@ -135,35 +135,79 @@ class RecruteursController < ApplicationController
 		errorMessage = ""
 		@job = OffreJob.find_by_id(params[:id_offre_job])
 		@cadre = Cadre.find_by_id(params[:id_cadre])
-
 		@promise = PromiseToHire.new(params.require(:promise_to_hire).permit(:date_poste, :remuneration_fixe, :remuneration_fixe_date, :remuneration_variable, :remuneration_avantage, :date_de_validite))
-
 		@promise.offre_job = @job
 		@promise.cadre = @cadre
+		uploader = ImageUploader.new
 
-  	uploader = ImageUploader.new
-  	is_cv = true
-    begin
-      uploader.store!(params[:promise_to_hire][:signature_entreprise])
-    rescue StandardError => e
-      is_cv = false
-      errorMessage += " [ #{e.message} ] "
-    end
-    if is_cv
-      @promise.signature_entreprise = uploader.url
-    end
+		image_entreprise = params[:promise_to_hire][:signature_entreprise]
+	  is_cv = true
 
-		remuneration_info = params[:promise_to_hire][:remuneration_var_info]
-		if params[:promise_to_hire][:remuneration_variable] == "Oui" && remuneration_info.empty?
-			errorMessage += " [ Une erreur s'est produit lors de la vérification des données ] "
+		unless image_entreprise.nil?
+	    begin
+	      uploader.store!(image_entreprise)
+	    rescue StandardError => e
+	      is_cv = false
+	      errorMessage += " [ #{e.message} ] "
+	    end
+		else
+			errorMessage += " [ Importer votre signature en photo ] "
 		end
 
-		if @promise.save && errorMessage.empty?
-			@promise.update(remuneration_var_info: remuneration_info)
+    remuneration_info = params[:promise_to_hire][:remuneration_var_info]
+    remuneration_variable = params[:promise_to_hire][:remuneration_variable]
+    errorMessage += remuneration_variable_valid?(remuneration_variable,remuneration_info)
+
+    if is_cv && @promise.valid? && errorMessage.empty?
+    	@promise.remuneration_var_info = remuneration_info
+      @promise.signature_entreprise = uploader.url
+      @promise.save
+    else
+			@promise.errors.details[:signature_entreprise] = errorMessage
+    	flash[:alert] = @promise.errors.details
+    	redirect_to promise_to_hire_path(id_offre_job:params[:id_offre_job], id:params[:id])
+		end
+	end
+
+	def edit_promise_to_hire
+		@promise = PromiseToHire.find_by_id(params[:id])
+		@job = @promise.offre_job
+		@cadre = @promise.cadre.cadre_info
+	end
+
+	def update_promise_to_hire
+		@promise = PromiseToHire.find_by_id(params[:id])
+		my_parameters = params.require(:promise_to_hire).permit(:date_poste, :remuneration_fixe, :remuneration_fixe_date, :remuneration_variable, :remuneration_avantage, :date_de_validite)
+		uploader = ImageUploader.new
+		errorMessage = ""
+
+    remuneration_info = params[:promise_to_hire][:remuneration_var_info]
+    remuneration_variable = params[:promise_to_hire][:remuneration_variable]
+    errorMessage += remuneration_variable_valid?(remuneration_variable,remuneration_info)
+
+		image_entreprise = params[:promise_to_hire][:signature_entreprise]
+	  is_cv = true
+		unless image_entreprise.nil?
+	    begin
+	      uploader.store!(image_entreprise)
+	    rescue StandardError => e
+	      is_cv = false
+	      errorMessage += " [ #{e.message} ] "
+	    end
+			if is_cv
+				@promise.signature_entreprise = uploader.url
+			end
+		end
+		
+		if @promise.update(my_parameters) && is_cv && errorMessage.empty?
+			unless remuneration_info.nil? || remuneration_info.empty?
+				@promise.remuneration_var_info = remuneration_info
+			end
+      @promise.save
 		else
 			@promise.errors.details[:signature_entreprise] = errorMessage
     	flash[:alert] = @promise.errors.details
-			return render :promise_to_hire, id:params[:id]
+			redirect_to edit_promise_to_hire_path(@promise.id)
 		end
 
 	end
@@ -176,6 +220,14 @@ class RecruteursController < ApplicationController
 
 	def post_params
 		params.require(:offre_job).permit(:country,:region,:department,:intitule_pote,:descriptif_mission,:rattachement,:remuneration,:remuneration_anne,:contrat_cdi,:type_deplacement,:date_poste,:question1,:question2,:question3,:question4,:question5)
+	end
+
+	def remuneration_variable_valid?(remuneration_variable,remuneration_info)
+		if remuneration_variable == "true" && remuneration_info.empty?
+			return " [ Une erreur s'est produit lors de la vérification des données ] "
+		else
+			return ""
+		end
 	end
 
 end
