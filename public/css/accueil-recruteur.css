@@ -1,16 +1,14 @@
 .accueil-recruteur {
-  width: 90%;
   height: auto;
   margin: 50px auto;
+  margin-bottom: 30px;
 }
 
-.accueil-recruteur h2 {
-  font: 500 20px Raleway, sans-serif;
-  font-size: 21px;
+.accueil-recruteur .title-ar {
   margin-bottom: 20px;
 }
 
-.accueil-recruteur h2 span {
+.accueil-recruteur .title-ar span {
   font: 80px Qwigley, sans-serif;
   color: #d6b36a;
   margin-right: 10px;

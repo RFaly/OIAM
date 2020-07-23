@@ -19,16 +19,16 @@
 }
 
 .footer-oiam .footer-btn {
-  background: white;
   display: flex;
   justify-content: flex-end;
-  font-family: 500 20px Raleway, sans-serif;
+  font: 500 20px Raleway, sans-serif;
   font-size: 14px;
   text-transform: uppercase;
   margin-bottom: 5px;
 }
 
 .footer-oiam .footer-btn a {
+  background: white;
   padding: 15px 60px;
   border: 2px solid black;
   color: black;
@@ -41,7 +41,7 @@
 
 .footer-oiam .footer-bottom .footer-c,
 .footer-oiam .footer-bottom .copyright {
-  font-family: 500 20px Raleway, sans-serif;
+  font: 500 20px Raleway, sans-serif;
   font-size: 12px;
 }
 

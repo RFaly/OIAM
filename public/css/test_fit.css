@@ -127,8 +127,9 @@ body{
 }
 
 .pass-test:hover{
+	background: #fff;
 	text-decoration: none;
-	color: #fff;
+	color: #e3d7bf;
 }
 
 .content{

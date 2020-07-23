@@ -1,0 +1,66 @@
+@import 'config';
+
+.eq-all {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  .equip1,
+  .equip2 {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+.equipe-box {
+  height: auto;
+  margin: 0 auto;
+  padding-top: 70px;
+  background-color: $secondary_text_color_button;
+  .eq-title {
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font: $ffbtn;
+    font-size: 28px;
+  }
+  .eq-box-eq {
+    background-color: white;
+    box-shadow: $box-shadow;
+    .eq-image {
+      margin: -40% auto;
+      margin-bottom: 50px;
+      img {
+        border-radius: 50%;
+        width: 100%;
+      }
+    }
+    .eq-content {
+      text-align: center;
+      .eq-name {
+        font: $ffbtn;
+        font-size: 18px;
+        margin-bottom: 25px;
+      }
+      .eq-des {
+        font: $ffsentence;
+      }
+    }
+  }
+  .box-spec {
+    cursor: pointer;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    &:hover,
+    &:active {
+      box-shadow: 1px 1px 10px 1px $main_theme_color;
+      a {
+        color: $main_theme_color;
+      }
+    }
+  }
+}
