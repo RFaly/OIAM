@@ -122,22 +122,24 @@ class RecruteursController < ApplicationController
 
 #Promesse d'embauche
 	def promise_to_hire
+		@job = OffreJob.find_by_id(params[:id_offre_job])
+		@cadre = Cadre.find_by_id(params[:id_cadre])
+		if @job.nil? || @cadre.nil?
+			#errors
+		end
+		@cadre = @cadre.cadre_info
 		@promise = PromiseToHire.new
-		@client = Client.first
-		@cadre = Cadre.first.cadre_info
-		@job = OffreJob.first
 	end
 
 	def save_promise_to_hire
 		errorMessage = ""
-		@promise = PromiseToHire.new(params.require(:promise_to_hire).permit(:date_poste, :remuneration_fixe, :remuneration_fixe_date, :remuneration_variable, :remuneration_avantage, :date_de_validite))
-		
-		@job = OffreJob.first
-		
-		@promise.offre_job = @job
+		@job = OffreJob.find_by_id(params[:id_offre_job])
+		@cadre = Cadre.find_by_id(params[:id_cadre])
 
-		@cadre = Cadre.find_by_id(params[:id]).cadre_info
-		@promise.cadre = @cadre.cadre
+		@promise = PromiseToHire.new(params.require(:promise_to_hire).permit(:date_poste, :remuneration_fixe, :remuneration_fixe_date, :remuneration_variable, :remuneration_avantage, :date_de_validite))
+
+		@promise.offre_job = @job
+		@promise.cadre = @cadre
 
   	uploader = ImageUploader.new
   	is_cv = true
