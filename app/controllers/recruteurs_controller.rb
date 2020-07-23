@@ -41,8 +41,7 @@ class RecruteursController < ApplicationController
 
 		unless errorMessage.empty?
 			flash[:alert] = errorMessage
-			render :my_profil_edit
-			return
+			return render :my_profil_edit
 		else
 			flash[:notice] = "modification sauvegarder"
 			redirect_to client_my_profil_path
@@ -64,7 +63,7 @@ class RecruteursController < ApplicationController
 		uploader = ImageUploader.new
     if params[:offre_job][:image].nil? && current_client.image.nil?
     	flash[:alert] = "Image non trouvé"
-			render :newJob
+			return render :newJob
     elsif !params[:offre_job][:image].nil? && @offre.save
     	uploader.store!(params[:offre_job][:image])
     	@offre.image = uploader.url
@@ -72,7 +71,7 @@ class RecruteursController < ApplicationController
     	redirect_to showNewJob_path(@offre)
 		else
 			flash[:alert] = @offre.errors.details
-			render :newJob
+			return render :newJob
 		end
 	end
 
@@ -127,11 +126,44 @@ class RecruteursController < ApplicationController
 		@client = Client.first
 		@cadre = Cadre.first.cadre_info
 		@job = OffreJob.first
-
 	end
 
 	def save_promise_to_hire
+		errorMessage = ""
+		@promise = PromiseToHire.new(params.require(:promise_to_hire).permit(:date_poste, :remuneration_fixe, :remuneration_fixe_date, :remuneration_variable, :remuneration_avantage, :date_de_validite))
 		
+		@job = OffreJob.first
+		
+		@promise.offre_job = @job
+
+		@cadre = Cadre.find_by_id(params[:id]).cadre_info
+		@promise.cadre = @cadre.cadre
+
+  	uploader = ImageUploader.new
+  	is_cv = true
+    begin
+      uploader.store!(params[:promise_to_hire][:signature_entreprise])
+    rescue StandardError => e
+      is_cv = false
+      errorMessage += " [ #{e.message} ] "
+    end
+    if is_cv
+      @promise.signature_entreprise = uploader.url
+    end
+
+		remuneration_info = params[:promise_to_hire][:remuneration_var_info]
+		if params[:promise_to_hire][:remuneration_variable] == "Oui" && remuneration_info.empty?
+			errorMessage += " [ Une erreur s'est produit lors de la vérification des données ] "
+		end
+
+		if @promise.save && errorMessage.empty?
+			@promise.update(remuneration_var_info: remuneration_info)
+		else
+			@promise.errors.details[:signature_entreprise] = errorMessage
+    	flash[:alert] = @promise.errors.details
+			return render :promise_to_hire, id:params[:id]
+		end
+
 	end
 
 #Messages

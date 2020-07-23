@@ -1,5 +1,9 @@
 class OffreJob < ApplicationRecord
 	belongs_to :client
+
+	has_many :promise_to_hires
+  has_many :cadres, through: :promise_to_hires
+
 	validates :country, presence: true
 	validates :region, presence: true
 	validates :department, presence: true

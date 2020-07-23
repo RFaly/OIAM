@@ -14,7 +14,7 @@ class CreatePromiseToHires < ActiveRecord::Migration[5.2]
       t.string :date_de_validite
       t.string :signature_entreprise
       t.string :signature_candidat
-      t.belongs_to :client, index:true
+      t.belongs_to :offre_job, index:true
       t.belongs_to :cadre, index:true
 
       t.timestamps
