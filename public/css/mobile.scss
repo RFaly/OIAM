@@ -86,9 +86,6 @@
     justify-content: center;
     flex-direction: column;
     align-content: space-between;
-    // .footer-c {
-    //   width: 100%;
-    // }
     div {
       margin-bottom: 10px;
     }
@@ -129,6 +126,26 @@
       width: 400px;
       font: $ffbtn;
       font-size: 12px;
+    }
+  }
+  // equipe equipe responsive
+  .eq-all {
+    .equip1,
+    .equip2 {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .equipe-box {
+    width: 90%;
+    padding-bottom: 50px;
+    .eq-box-eq {
+      padding-bottom: 20px;
+      width: 200px;
+      margin-top: 120px;
+      .eq-image {
+        width: 150px;
+      }
     }
   }
 }
@@ -193,6 +210,25 @@
       width: 750px;
       font-size: 14px;
       margin-left: -20px;
+    }
+  }
+
+  // equipe equipe responsive
+  .eq-all {
+    .equip1,
+    .equip2 {
+      flex-direction: row;
+    }
+  }
+  .equipe-box {
+    width: 90%;
+    .eq-box-eq {
+      margin-top: 170px;
+      padding-bottom: 20px;
+      width: 250px;
+      .eq-image {
+        width: 180px;
+      }
     }
   }
 }
@@ -391,6 +427,24 @@
   .inscription-r {
     margin: 50px auto;
   }
+  // equipe equipe responsive
+  .eq-all {
+    .equip1,
+    .equip2 {
+      flex-direction: row;
+    }
+  }
+  .equipe-box {
+    padding-bottom: 70px;
+    width: 80%;
+    .eq-box-eq {
+      margin-top: 200px;
+      width: 300px;
+      .eq-image {
+        width: 250px;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -455,5 +509,10 @@
   }
   .inscription-r {
     margin: 60px auto;
+  }
+
+  // equipe equipe responsive
+  .equipe-box {
+    padding-bottom: 100px;
   }
 }
