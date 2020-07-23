@@ -35,19 +35,19 @@ body{
 
 .potential-title{
 	position: relative;
-	text-align: center;
-	font-family: 'Questrial', sans-serif;
-	font-size: 20px;
-	font-weight: bold;
-	color: #B68E27;
-	margin: 25px 0;
-	left: 2px;
+  text-align: center;
+  font-family: 'Questrial', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #b68e27;
+  margin: 25px 0;
+  left: 25px;
 }
 
 .image_tag{
 	position: absolute;
 	top:-15px;
-	left: 485px;
+	padding-left: 10px;
 
 }
 .cadre h2{
@@ -100,14 +100,14 @@ body{
 .numero {
 		display: inline-block;
 		text-align: center;
-		width: 36px;
-		height: 36px;
+		width: 35px;
+		height: 35px;
 		background-color: #F0F2F4;
 		color: #fff;
 		border-radius: 30px;
 		padding: 8px 8px;
 		font-family: 'Roboto', sans-serif;
-		font-size: 18px;
+		font-size: 16px;
 }
 
 .gold{
@@ -132,7 +132,8 @@ body{
 
 .pass-test:hover{
 	text-decoration: none;
-	color: #fff;
+	background: #fff;
+	color: #E3D7BF;
 }
 
 .content{
@@ -240,7 +241,7 @@ body{
 	.trait::after{
 		content: '';
 		position: absolute;
-		top: 15px;
+		top: 16px;
 		left: 36px;
 		background: #F0F2F4;
 		width: 135px;
@@ -252,7 +253,7 @@ body{
 	.trait1::after{
 		content: '';
 		position: absolute;
-		top: 15px;
+		top: 16px;
 		right: 62px;
 		background: #F0F2F4;
 		width: 135px;

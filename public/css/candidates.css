@@ -148,6 +148,7 @@ body {
 
 .main {
   text-align: justify;
+  margin-top: 100px;
   margin-bottom: 50px;
 }
 
@@ -196,11 +197,14 @@ body {
   width: 186px;
   height: 60px;
   padding: 20px;
+  margin-bottom: 200px;
 }
 
 .btn-inscrire:hover {
+  border: 1px solid #e3d7bf;
+  background: #fff;
   text-decoration: none;
-  color: #fff;
+  color: #e3d7bf;
 }
 
 .description {

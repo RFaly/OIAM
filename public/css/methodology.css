@@ -19,6 +19,7 @@ img{
 }
 .block-left{
   display: block;
+  width: auto;
   margin-bottom: 50px;
 }
 .block-left p{
@@ -153,6 +154,7 @@ img{
   .notice{
     display: flex;
     width: 670px;
+    margin-top: 50px;
   }
   .methode-oiam{
     width: 600px;
