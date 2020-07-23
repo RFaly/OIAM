@@ -1,0 +1,45 @@
+<div class="row">
+	<div class="col-sm-3">
+		<%= render partial: "recruteurs/left_link_bar" %>
+	</div>
+
+	<div class="col-sm-9">
+		<center>PROMESSE D'EMBAUCHE</center>
+		<%= render partial: "recruteurs/form_promise_to_hire", locals: {url_path: update_promise_to_hire_path(@promise.id)} %>
+	</div>
+
+</div>
+
+
+<script type="text/javascript" src="/js/contrat_dembauche.js"></script>
+<script type="text/javascript">
+	var fixe_date = <%= @promise.remuneration_fixe_date %>
+	switch (fixe_date) {
+	  case 12:
+	    $('#post_12').attr("checked", true);
+		hideInputPerso()
+	    break;
+	  case 13:
+		$('#post_13').attr("checked", true);
+		hideInputPerso()
+	    break;
+	  default:
+		$('#post_perso').attr("checked", true);
+		$('#input-perso')[0].value = fixe_date
+		showInputPerso()
+	}
+
+	var is_variable = <%= @promise.remuneration_variable %>
+	var plusInfo = <%= @promise.remuneration_var_info %>
+
+	if (is_variable) {
+		$('#post_oui').attr("checked", true);
+		showChoixInput()
+		$('#js-input-choix')[0].value = plusInfo
+	}else{
+		$('#post_nom').attr("checked", true);
+		hideChoixInput()
+	}
+</script>
+
+
