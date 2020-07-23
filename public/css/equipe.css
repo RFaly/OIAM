@@ -1,93 +1,89 @@
-.eq-cont {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    background-color: #dfca9e;
-    overflow: hidden;
-    height: 100vw;
-    border-radius: 10px;
-   
-}
- .eq-ttl {
-     color: #ffffff;
-     font-weight: bold;
-     font-family: 'Roboto', sans-serif;
-     text-transform: uppercase;
-     letter-spacing: 5px;
-     font-size: 30px;
-     margin-top: 10rem;
- }
-
-.eq-main {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    background: url('/image/background2.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+.bg-uniq {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  background: url(/image/background2.jpg) no-repeat center;
+  background-size: cover;
 }
 
-.eq-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5px;
-    margin-left: 30px;
-    margin-bottom: 20px;
-    
-
+.eq-all {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 1000px;
 }
 
-.eq-eq {
-    display: grid;
-    grid-auto-flow: column;
-    grid-gap: 40rem;
-    grid-template-rows: 100px 100px;
-    grid-template-columns: 100px 100px;
-    padding: 17rem;
-    /* align-items: center;
-    justify-content: center; */
+.eq-all .equip1,
+.eq-all .equip2 {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
 }
 
-
-
-.eq img {
-    width:500px;
-	height: 500px;
-    border-radius: 50%;
-    
+.equipe-box {
+  width: 80%;
+  margin: 20px auto;
+  padding-top: 70px;
+  background-color: #e3d7bf;
+  height: 100%;
 }
 
-.eq-box-eq {
-    margin-top: 50px;
-    width: 40rem;
-    height: 45rem;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-    
+.equipe-box .eq-title {
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  font: 500 20px Raleway, sans-serif;
+  font-size: 28px;
+  margin-bottom: 100px;
 }
 
-.eq-all-des {
-    margin-top: 3rem;
-    line-height: 4rem;
+.equipe-box .eq-box-eq {
+  width: 300px;
+  height: 300px;
+  background-color: white;
+  box-shadow: 1px 1px 10px 1px rgba(227, 215, 191, 0.63);
 }
 
-.eq-name {
-    font-size: 1.5rem;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
+.equipe-box .eq-box-eq .eq-image {
+  width: 250px;
+  height: 250px;
+  margin: -40% auto;
+  margin-bottom: 50px;
 }
 
-.eq-des {
-    font-size: 1.5rem;
-    font-family: 'Roboto', sans-serif;
+.equipe-box .eq-box-eq .eq-image img {
+  border-radius: 50%;
+  width: 100%;
 }
 
-.eq {
-    margin-bottom: 5rem;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 5px 4px 24px -5px rgba(0,0,0,0.87);
+.equipe-box .eq-box-eq .eq-content {
+  text-align: center;
+}
+
+.equipe-box .eq-box-eq .eq-content .eq-name {
+  font: 500 20px Raleway, sans-serif;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.equipe-box .eq-box-eq .eq-content .eq-des {
+  font: 16px Questrial, sans-serif;
+}
+
+.equipe-box .box-spec {
+  cursor: pointer;
+}
+
+.equipe-box .box-spec a {
+  text-decoration: none;
+  color: black;
+}
+
+.equipe-box .box-spec:hover, .equipe-box .box-spec:active {
+  box-shadow: 1px 1px 10px 1px #d6b36a;
+  color: #d6b36a;
 }

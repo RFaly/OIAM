@@ -25,8 +25,9 @@
   align-self: flex-end;
   margin-right: 10%;
   font: 500 20px Raleway, sans-serif;
+  font-size: 18px;
   background-color: #e3d7bf;
-  padding: 1em 2em;
+  padding: 15px 30px;
   text-decoration: none;
   color: white;
 }

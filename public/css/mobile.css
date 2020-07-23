@@ -80,6 +80,12 @@
   .footer-bottom div {
     margin-bottom: 10px;
   }
+  .accueil-recruteur {
+    width: 90%;
+  }
+  .accueil-recruteur .title-ar {
+    font: 500 20px Raleway, sans-serif;
+  }
   .accueil-recruteur .ar-item p {
     text-align: justify;
   }
@@ -176,8 +182,7 @@
     width: 45%;
   }
   .navb {
-    margin-top: 12px;
-    padding: 5px 0;
+    padding: 15px 0;
     background-color: transparent;
     display: flex;
     justify-content: space-around;
@@ -225,7 +230,7 @@
     padding: 10px;
     width: 235px;
     right: 3%;
-    top: 68px;
+    top: 83px;
     text-align: center;
     z-index: 20;
   }
@@ -236,8 +241,7 @@
     padding-bottom: 70px;
   }
   .bg-inside {
-    background: url(/image/BANNIERE.png);
-    background-position: center;
+    background: url(/image/BANNIERE.png) no-repeat center;
     background-size: cover;
   }
   .bg-accueil1 {
@@ -246,8 +250,7 @@
     position: absolute;
     width: 100%;
     height: 600px;
-    background: url(/image/BANNIERE.png);
-    background-position: center;
+    background: url(/image/BANNIERE.png) no-repeat center;
     background-size: cover;
   }
   .accueilg-btn1 {
@@ -260,14 +263,14 @@
   .first-btn1 {
     position: absolute;
     width: 100%;
-    top: 288px;
+    top: 320px;
   }
   .accueilg-content1 {
     margin: 0 auto;
-    margin-top: 250px;
+    margin-top: 180px;
   }
   .accueilg-content1 .ac-item2 {
-    margin: 90px 0;
+    margin: 110px 0;
   }
   .footer-bottom {
     flex-wrap: wrap;
@@ -288,9 +291,14 @@
     width: 48%;
   }
   .accueil-recruteur {
+    width: 95%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+  }
+  .accueil-recruteur .title-ar {
+    font: 500 20px Raleway, sans-serif;
+    font-size: 16px;
   }
   .accueil-recruteur .ar-vertical-line {
     position: absolute;
@@ -348,21 +356,6 @@
   .navdiv {
     padding-bottom: 100px;
   }
-  .bg-inside {
-    background: url(/image/BANNIERE.png);
-    background-position: center;
-    background-size: cover;
-  }
-  .bg-accueil1 {
-    z-index: -1;
-    top: 0;
-    position: absolute;
-    width: 100%;
-    height: 600px;
-    background: url(/image/BANNIERE.png);
-    background-position: center;
-    background-size: cover;
-  }
   .accueilg-btn1 .cadre-btn1 {
     margin: 0 2em;
   }
@@ -375,10 +368,8 @@
   .accueilg-btn1 .recruteur-btn1 a {
     padding: 10px 50px;
   }
-  .first-btn1 {
-    position: absolute;
-    width: 100%;
-    top: 288px;
+  .accueil-recruteur .title-ar {
+    font-size: 20px;
   }
   .travel-parcours {
     width: 700px;

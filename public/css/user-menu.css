@@ -22,6 +22,10 @@
   font-size: 16px;
 }
 
+.left-menu-r .left-menu-content .color-this {
+  color: #d6b36a;
+}
+
 .left-menu-r .left-menu-photo {
   width: 110px;
   margin: 0 auto;
@@ -67,7 +71,7 @@
 .left-menu-r .btn-menu-burger {
   position: absolute;
   width: 100%;
-  top: 12px;
+  top: 16px;
   right: 0px;
   height: 5px;
   background: #d6b36a;

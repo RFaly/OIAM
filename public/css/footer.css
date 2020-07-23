@@ -1,3 +1,7 @@
+.bg-footer {
+  background-color: white;
+  padding: 8px 0;
+}
 .footer-oiam {
   width: 85%;
   margin: 30px auto;
@@ -19,10 +23,9 @@
 }
 
 .footer-oiam .footer-btn {
-  background: white;
   display: flex;
   justify-content: flex-end;
-  font-family: 500 20px Raleway, sans-serif;
+  font: 500 20px Raleway, sans-serif;
   font-size: 14px;
   text-transform: uppercase;
   margin-bottom: 5px;
@@ -41,7 +44,7 @@
 
 .footer-oiam .footer-bottom .footer-c,
 .footer-oiam .footer-bottom .copyright {
-  font-family: 500 20px Raleway, sans-serif;
+  font: 500 20px Raleway, sans-serif;
   font-size: 12px;
 }
 

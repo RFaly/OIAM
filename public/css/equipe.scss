@@ -1,0 +1,78 @@
+@import 'config';
+.bg-uniq {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  background: url(/image/background2.jpg) no-repeat center;
+  background-size: cover;
+}
+.eq-all {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 1000px;
+  .equip1,
+  .equip2 {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.equipe-box {
+  width: 80%;
+  margin: 20px auto;
+  padding-top: 70px;
+  background-color: $secondary_text_color_button;
+  height: 100%;
+  .eq-title {
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font: $ffbtn;
+    font-size: 28px;
+    margin-bottom: 100px;
+  }
+  .eq-box-eq {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    box-shadow: $box-shadow;
+    .eq-image {
+      width: 250px;
+      height: 250px;
+      margin: -40% auto;
+      margin-bottom: 50px;
+      img {
+        border-radius: 50%;
+        width: 100%;
+      }
+    }
+    .eq-content {
+      text-align: center;
+      .eq-name {
+        font: $ffbtn;
+        font-size: 18px;
+        margin-bottom: 25px;
+      }
+      .eq-des {
+        font: $ffsentence;
+      }
+    }
+  }
+  .box-spec {
+    cursor: pointer;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    &:hover,
+    &:active {
+      box-shadow: 1px 1px 10px 1px $main_theme_color;
+      color: $main_theme_color;
+    }
+  }
+}
