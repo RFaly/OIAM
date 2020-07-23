@@ -10,6 +10,7 @@ body{
 	font-family: 'Questrial', sans-serif;
 	line-height: 1.2;
 	margin: 0;
+
 }
 
 .step{
@@ -28,6 +29,8 @@ body{
 	margin-bottom: 87px;
 	text-align: justify;
 }
+
+
 
 
 
@@ -345,7 +348,7 @@ body{
 		height: 1500px;
 		padding: 26px 77px 90px 77px;
 		background-color: #E3D7BF;
-		margin-top: 100px;
+		margin-top: 50px;
 		margin-bottom: 80px;
 		text-align: justify;
 	}
