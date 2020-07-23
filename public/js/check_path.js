@@ -14,5 +14,5 @@ $(document).ready(function () {
   $('nav a[href="/' + path + '"]').addClass('act');
   // check path menu recruteur
   $('.left-menu-r a[href="/recruteur/' + path + '"]').addClass('color-this');
-  $('.bg-uniq').css('height', $(document).height());
+  // $('.bg-uniq').css('height', $(document).height());
 });

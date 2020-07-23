@@ -1,7 +1,3 @@
-.bg-footer {
-  background-color: white;
-  padding: 8px 0;
-}
 .footer-oiam {
   width: 85%;
   margin: 30px auto;
@@ -32,6 +28,7 @@
 }
 
 .footer-oiam .footer-btn a {
+  background: white;
   padding: 15px 60px;
   border: 2px solid black;
   color: black;
