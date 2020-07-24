@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  birthday_cadre: MyString
+  birthplace_cadre: MyString
+  ns_sociale_cadre: MyString
+  date_poste: MyString
+  remuneration_fixe: 1.5
+  remuneration_fixe_date: MyString
+  remuneration_variable: false
+  remuneration_var_info: MyString
+  price: 1.5
+  remuneration_avantage: MyText
+  date_de_validite: MyString
+  signature_entreprise: MyString
+  signature_candidat: MyString
+
+two:
+  birthday_cadre: MyString
+  birthplace_cadre: MyString
+  ns_sociale_cadre: MyString
+  date_poste: MyString
+  remuneration_fixe: 1.5
+  remuneration_fixe_date: MyString
+  remuneration_variable: false
+  remuneration_var_info: MyString
+  price: 1.5
+  remuneration_avantage: MyText
+  date_de_validite: MyString
+  signature_entreprise: MyString
+  signature_candidat: MyString
