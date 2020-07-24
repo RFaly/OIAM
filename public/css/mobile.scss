@@ -139,6 +139,13 @@
       font-size: 12px;
     }
   }
+  .phone-number-add {
+    .before-number {
+      padding: 3px;
+      font-size: 14px;
+      top: 28px;
+    }
+  }
   // equipe equipe responsive
   .eq-all {
     .equip1,
@@ -157,6 +164,51 @@
       .eq-image {
         width: 150px;
       }
+    }
+  }
+  // menu left recruteur
+  .left-menu-r {
+    &.open {
+      width: 50px;
+    }
+  }
+  .btn-menu-r {
+    right: 7px;
+  }
+  .left-menu-photo.open {
+    opacity: 0;
+  }
+  // client profil
+  .cp-table-box {
+    td {
+      padding: 5px 0px;
+    }
+    .table-td {
+      flex-wrap: wrap;
+      justify-content: center;
+      .cp-infos-r {
+        width: 80%;
+      }
+      .cpr-r {
+        img {
+          left: 6%;
+        }
+      }
+    }
+    .cp-flex-t {
+      flex-direction: column;
+    }
+    .line-white {
+      display: none;
+    }
+    .cp-icon-text {
+      img {
+        left: 35px;
+      }
+    }
+    .cpe-description,
+    .cpe-naf {
+      text-align: center;
     }
   }
 }
@@ -223,6 +275,13 @@
       margin-left: -20px;
     }
   }
+  .phone-number-add {
+    .before-number {
+      font-size: 16px;
+      top: 25px;
+      padding: 6px;
+    }
+  }
 
   // equipe equipe responsive
   .eq-all {
@@ -240,6 +299,54 @@
       .eq-image {
         width: 180px;
       }
+    }
+  }
+  // menu left recruteur
+  .left-menu-r {
+    &.open {
+      width: 100px;
+    }
+  }
+  .btn-menu-r {
+    right: 6px;
+  }
+  .left-menu-photo.open {
+    opacity: 1;
+  }
+  // client profil
+  // client profil
+  .cp-table-box {
+    td {
+      padding: 5px 40px;
+    }
+    .table-td {
+      justify-content: flex-start;
+      padding-left: 30px;
+      .cp-infos-r {
+        width: 50%;
+      }
+      .cpr-r {
+        img {
+          left: 6%;
+        }
+      }
+    }
+    .cp-flex-t {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .line-white {
+      display: block;
+    }
+    .cp-icon-text {
+      img {
+        left: -30px;
+      }
+    }
+    .cpe-description,
+    .cpe-naf {
+      text-align: left;
     }
   }
 }
@@ -456,6 +563,51 @@
       }
     }
   }
+  // menu left recruteur
+  .left-menu-r {
+    &.open {
+      width: 120px;
+    }
+  }
+  .btn-menu-r {
+    right: 15px;
+  }
+  // client profil
+  .table-td {
+    .cpr-r {
+      img {
+        left: 20%;
+      }
+    }
+  }
+
+  // client profil
+  .cp-table-box {
+    td {
+      padding: 5px 60px;
+    }
+    .table-td {
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      padding-left: 50px;
+      .cp-infos-r {
+        width: 70%;
+      }
+      .cpr-r {
+        img {
+          left: 20%;
+        }
+      }
+    }
+    .cp-flex-t {
+      flex-wrap: no-wrap;
+    }
+    .cp-icon-text {
+      img {
+        left: -40px;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -525,5 +677,31 @@
   // equipe equipe responsive
   .equipe-box {
     padding-bottom: 100px;
+  }
+  // client profil
+  .table-td {
+    .cpr-r {
+      img {
+        left: 30%;
+      }
+    }
+  }
+
+  // client profil
+  .cp-table-box {
+    td {
+      padding: 5px 60px;
+    }
+    .table-td {
+      justify-content: space-between;
+      .cp-infos-r {
+        width: 72%;
+      }
+      .cpr-r {
+        img {
+          left: 25%;
+        }
+      }
+    }
   }
 }

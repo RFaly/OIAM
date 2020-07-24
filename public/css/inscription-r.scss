@@ -25,13 +25,6 @@
       box-shadow: 1px 1px 5px 1px $main_theme_color;
     }
   }
-  .dr-item-fad {
-    opacity: 0.5;
-    &:focus {
-      border: none;
-      box-shadow: none;
-    }
-  }
   .details-btn {
     width: 150px;
     margin: 30px auto;
@@ -47,9 +40,26 @@
       background-color: $main_theme_color;
     }
   }
+  #city {
+    opacity: 0.5;
+    &:focus,
+    &:active,
+    &:hover {
+      border: none;
+      outline: none;
+      box-shadow: none;
+    }
+  }
   .dr-textarea {
     padding-top: 40px;
     opacity: 0.5;
+    &:focus,
+    &:active,
+    &:hover {
+      border: none;
+      outline: none;
+      box-shadow: none;
+    }
   }
 }
 .details-r-condition {
@@ -157,4 +167,17 @@
 .password-r,
 .cpass-r {
   font: $ffbtn;
+}
+.phone-number-add {
+  position: relative;
+  .before-number {
+    box-shadow: $box-shadow;
+    background-color: #c4c4c4c4;
+    // padding: 6px;
+    color: rgba(white, 0.8);
+    font: $ffbtn;
+    font-size: 14px;
+    position: absolute;
+    left: 4px;
+  }
 }

@@ -6,8 +6,8 @@
     <span class="btn-menu-burger open"> </span>
   </div>
   <div class="left-menu-photo">
-    <% unless @client.image.nil? %> <%= image_tag(@client.image, alt: 'photo logo')%> <% else %>
-    <img src="/image/emma1.jpg" alt="logo entreprise" />
+    <% unless current_client.image.nil? %> <%= image_tag(current_client.image, alt: 'photo logo')%> <% else %>
+    <img src="/image/profie.png" alt="logo entreprise" />
     <% end %>
   </div>
   <ul class="left-menu-content">
@@ -21,4 +21,4 @@
   </ul>
 </div>
 <!-- appel js menu_recruteur.js  -->
-<script src="/js/menu_recruteur.js"></script>
+<script data-turbolinks-track="reload" src="/js/menu_recruteur.js"></script>

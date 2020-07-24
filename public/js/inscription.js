@@ -34,7 +34,7 @@ $(document).ready(function () {
     check_mail($(this), $('#recruteur-mail-error'));
   });
   $('#recruteur-phone').focusout(function () {
-    check_nil($(this), $('#recruteur-phone-error'));
+    check_phone($(this), $('#recruteur-phone-error'));
   });
 
   ////////////////////////////////////////////////////
@@ -53,7 +53,16 @@ $(document).ready(function () {
   /////////////////////////////////////////////////
   // submit 1 validation
   $('.dr-btn1').click(function () {
-    if ($('#entreprise_name').val().length > 1 && $('#entreprise_adresse').val().length > 1 && $('#postal_code').val().length > 1 && $('#entreprise_siret').val().length > 1 && $('#entreprise_site').val().length > 1 && $('#code_naf').val().length > 1) {
+    if (
+      $('#entreprise_name').val().length > 1 &&
+      $('#entreprise_adresse').val().length > 1 &&
+      $('#postal_code').val().length > 1 &&
+      $('#entreprise_siret').val().length > 1 &&
+      $('#entreprise_site').val().length > 1 &&
+      $('#code_naf').val().length > 1 &&
+      $('#entreprise_description').val() != "Aucune description d'entreprise correspondante!!" &&
+      $('#city').val() != 'Aucune ville correspondante!!'
+    ) {
       $('.ir-l1').addClass('color-bg');
       $('.ir-c1').addClass('color-bg');
       $('.dr-1').hide();
@@ -126,7 +135,7 @@ function check_nil(test, value) {
   var name = test.val().length;
   var name = test.val().length;
   if (name < 3) {
-    value.html('(Remplissage obligatoire)');
+    value.html('(Champ obligatoire)');
     value.show();
   } else {
     value.hide();
@@ -138,6 +147,16 @@ function check_mail(testee, value) {
     value.hide();
   } else {
     value.html('(Adresse email invalide)');
+    value.show();
+  }
+}
+
+function check_phone(testee, value) {
+  var checkspace = testee.val().split(' ').join('');
+  if (checkspace.length == 9) {
+    value.hide();
+  } else {
+    value.html('(Numero téléphone invalide)');
     value.show();
   }
 }
