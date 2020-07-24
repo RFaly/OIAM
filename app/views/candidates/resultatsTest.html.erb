@@ -1,37 +1,21 @@
-<div>
-	<ul>
-		<li>1 Potential</li>
-		<li>2 Skills</li>
-		<li>3 Fit</li>
-	</ul>
-
-
-	<h2>Chère Nom Candidat</h2>
-
-	<p>Félicitations ! Vous avez obtenu un score de  70% et êtes donc sélectionnée pour l’étape suivante.</p>
-
-	<p>Vous avez désormais 24 heures pour passer la 2ème partie du test :</p>
-
-	<h1>SKILLS</h1>
-
-	<%= link_to "ACCÉDER AU TEST", testskills_path %>
-</div>
-
-
-<hr>
-<hr>
-<hr>
-
-
-<div>
-	<h1>Félicitations et Bienvenue !</h1>
-
-	<p>Vous avez désormais terminé le test d’entrée One In A Million et nous avons le plaisir de vous annoncer que vous faites partie du top 10 des cadres du marché.</p>
-
-	<p>Remplissez dès maintenant votre profil et rejoignez notre communauté ! Découvrez des offres d’emploi sélectionnées spécialement pour vous, ainsi que nos événements dédiés aux cadres d’élite.</p>
-
-	<%= link_to "REMPLIR MON PROFIL", new_cadre_registration_path %>
+<link rel="stylesheet" type="text/css" href="/css/resultat_test.css">
+<div class="bg-uniq">
+	<div class="cadre">
+		<div class="content">
+			<div class="numero goRight trait gold potential">1</div>
+			<div class="numero goRight trait1 skills">2</div>
+			<div class="numero fit">3</div>
+		</div>
+		<h2 class="cadre-nom">Chère Mathilde,</h2>
 	
+		<p>Félicitations ! Vous avez obtenu un score de  <span>1005</span> et êtes donc sélectionnée pour l’étape suivante.</p>
+	
+		<p>Vous avez désormais 24 heures pour passer la 2ème partie du test :</p>
+	
+		<h1>SKILLS</h1>
+	
+		<%= link_to "ACCÉDER AU TEST", testskills_path, class:'pass-test' %>
+	</div>
 </div>
 
 

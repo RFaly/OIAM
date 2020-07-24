@@ -7,14 +7,12 @@
     <div class="ville-adresse">
       <%= f.text_field :postal_code, autofocus: true, autocomplete: "ADRESSE", required: true, placeholder:"CODE POSTAL", class:"champs ville",id:"postal_code" %>
       <%= f.text_field :city, autofocus: true, autocomplete: "VILLE", required: true, placeholder:"VILLE", class:"champs ville",id:"city" %>
-
     </div>
-    <%= f.text_field :situation, autofocus: true, autocomplete: "SITUATION", required: true, placeholder:"SITUATION", class:"champs" %>
+    <%= f.select :situation, options_for_select(["Recruteur","Cadre"]), {},autofocus: true, autocomplete: "SITUATION",required: true,class: "champs dropdown" %>
     <%= f.text_field :telephone, autofocus: true, autocomplete: "TÉLÉPHONE", required: true, placeholder:"TÉLÉPHONE", class:"champs" %>
     <%= f.email_field :mail, autofocus: true, autocomplete: "MAIL", required: true, placeholder:"MAIL", class:"champs" %>
     <%= f.submit "S'INSCRIRE", class:"btnInscrire" %>
 <% end %>
-
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/data.json"></script>
 
