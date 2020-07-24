@@ -1,4 +1,4 @@
-<!-- appel equipe.css  -->
+<!-- appel log-recru.css  -->
 <link rel="stylesheet" href="/css/log-recru.css" />
 <!-- body html login  -->
 <div class="log-page">
@@ -10,12 +10,12 @@
       
       <%= f.submit "SE CONNECTER", class:'log-button' %>
       <% if devise_mapping.rememberable? %>
-      <div class="log-rem">
-        <%= f.check_box :remember_me, class:'form-check-input' %>
-        <%= f.label :remember_me, 'Se souvenir de moi', class:'form-check-label' %>
+      <div class="log-rem custom-control custom-switch">
+        <%= f.check_box :remember_me, class:'custom-control-input', id:'switch1' %>
+        <%= f.label :remember_me, 'Se souvenir de moi', class:'custom-control-label', for:'switch1' %>
       </div>
     <% end %>
-      <p class="log-message">Pas encore de compte? <%= link_to "S'INSCRIRE", new_client_registration_path %></p>
+      <p class="log-message">Pas encore de compte? <%= link_to "S'inscrire", new_client_registration_path %></p>
     </form>
   <% end %>
   </div>

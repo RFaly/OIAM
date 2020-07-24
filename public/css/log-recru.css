@@ -1,3 +1,7 @@
+:root {
+    --main-bg-color: #d6b36a;
+}
+
 .log-page {
     width: 360px;
     padding: 8% 0 0;
@@ -12,7 +16,7 @@
 .form-log {
     position: relative;
     z-index: 1;
-    background: #FFFFFF;
+    background: #f0f2f4;
     max-width: 360px;
     margin: 0 auto 100px;
     padding: 50px;
@@ -59,8 +63,21 @@
     color: #d6b36a;
     text-decoration: none;
 }
- .log-rem {
+.log-rem {
     font-family: Questrial, sans-serif;
     text-align: center;
     margin: 20px;
+}
+
+.custom-control-label::before, .custom-file-label, .custom-select {
+    transition: var(--main-bg-color) .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition-property: var(--main-bg-color), border-color, box-shadow;
+    transition-duration: 0.15s, 0.15s, 0.15s;
+    transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
+    transition-delay: 0s, 0s, 0s;
+}
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: var(--main-bg-color) !important;
+    background-color: var(--main-bg-color) !important;
 }
