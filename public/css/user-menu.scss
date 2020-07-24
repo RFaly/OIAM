@@ -34,27 +34,24 @@
   }
   // open class
   .left-menu-photo.open {
-    // display: none;
     transition: all 500ms ease-in-out;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     position: absolute;
-    top: 9px;
+    top: 3px;
     left: 10px;
   }
   .left-menu-content.open {
     display: none;
   }
   &.open {
-    width: 120px;
     transition: all 500ms ease-in-out;
   }
   // ************************************************
   // menu burger
   // **********************************************
   .btn-menu-r {
-    top: 13px;
-    right: 28px;
+    top: 12px;
     z-index: 2;
     position: absolute;
     height: 30px;

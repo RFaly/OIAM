@@ -30,16 +30,31 @@ body{
 	text-align: justify;
 }
 
+p span{
+    color: #B68E27;
+    font-weight: bold;
+}
 
-.potential-title{
+
+.cadre-nom{
   position: relative;
   text-align: center;
   font-family: 'Questrial', sans-serif;
   font-size: 20px;
-  font-weight: bold;
-  color: #b68e27;
-  margin: 30px 0;
+  color: #000000;
   text-align: center;
+  margin-bottom: 100px;
+  top: 10px;
+}
+
+.cadre p{
+    margin-bottom: 50px;
+}
+
+h1{
+    font-size: 20px;
+    text-align: center;
+    color: #D6B36A;
 }
 
 .image_tag{
@@ -49,11 +64,13 @@ body{
 
 }
 .cadre h2{
-	font-family: 'Questrial', sans-serif;
-	font-size: 20px;
-	font-weight: bold;
-	color: #B68E27;
+    font-size: 18px;
+	color: #000000;
 	margin-top: 60px;
+}
+
+.cadre p{
+    text-align: center;
 }
 
 .notice{
@@ -340,7 +357,7 @@ body{
 		display: block;
 		margin: auto;
 		width: 870px;
-		height: 1500px;
+		height: 750px;
 		padding: 26px 77px 90px 77px;
 		background-color: #E3D7BF;
 		margin-bottom: 80px;

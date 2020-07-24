@@ -58,6 +58,7 @@ body {
 }
 
 .champs {
+  position: relative;
   display: block;
   text-align: center;
   padding: 8px;
@@ -67,6 +68,9 @@ body {
   height: 40px;
   background: #f0f2f4;
   border: 1px solid #f0f2f4;
+  -webkit-appearance: button; 
+      -moz-appearance: button; 
+      appearance: button;
 }
 
 .champs:focus{
@@ -116,3 +120,4 @@ body {
   margin: auto;
   width: 420px;
 }
+
