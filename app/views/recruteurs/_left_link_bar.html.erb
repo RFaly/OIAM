@@ -6,7 +6,7 @@
     <span class="btn-menu-burger open"> </span>
   </div>
   <div class="left-menu-photo">
-    <% unless @client.image.nil? %> <%= image_tag(@client.image, alt: 'photo logo')%> <% else %>
+    <% unless current_client.image.nil? %> <%= image_tag(current_client.image, alt: 'photo logo')%> <% else %>
     <img src="/image/profie.png" alt="logo entreprise" />
     <% end %>
   </div>
