@@ -5,7 +5,7 @@
 
 .cp-box {
   width: 100%;
-  padding-top: 50px;
+  padding-top: 15px;
   border-left: 1px solid #d6b36a;
 }
 
@@ -26,7 +26,6 @@
 }
 
 .cp-table-box td {
-  padding: 5px 60px;
   padding-top: 20px;
 }
 
@@ -48,7 +47,6 @@
 }
 
 .cp-table-box .cp-flex-t {
-  justify-content: space-between;
   text-align: center;
 }
 
@@ -61,7 +59,6 @@
 
 .cp-table-box .cp-icon-text img {
   position: absolute;
-  left: -30px;
 }
 
 .cp-table-box .cp-pprofil {
@@ -79,11 +76,9 @@
 
 .cp-table-box .table-td {
   padding: 10px;
-  padding-left: 60px;
 }
 
 .cp-table-box .table-td .cp-infos-r {
-  width: 80%;
   padding: 10px;
   text-align: center;
 }
@@ -108,7 +103,6 @@
 
 .cp-table-box .table-td .cp-infos-r .cpr-r img {
   position: absolute;
-  left: 30%;
 }
 
 .cp-table-box .cp-entreprise-name {

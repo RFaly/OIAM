@@ -52,13 +52,11 @@
 }
 
 .left-menu-r.open {
-  width: 120px;
   transition: all 500ms ease-in-out;
 }
 
 .left-menu-r .btn-menu-r {
-  top: 13px;
-  right: 28px;
+  top: 12px;
   z-index: 2;
   position: absolute;
   height: 30px;

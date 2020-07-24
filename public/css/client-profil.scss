@@ -6,7 +6,7 @@
 }
 .cp-box {
   width: 100%;
-  padding-top: 50px;
+  padding-top: 15px;
   border-left: 1px solid $main_theme_color;
 }
 .cp-table-box {
@@ -22,7 +22,7 @@
     border-collapse: collapse;
   }
   td {
-    padding: 5px 60px;
+    // padding: 5px 60px;
     padding-top: 20px;
   }
   h5 {
@@ -39,7 +39,7 @@
     display: flex;
   }
   .cp-flex-t {
-    justify-content: space-between;
+    // justify-content: space-between;
     text-align: center;
   }
 
@@ -50,7 +50,7 @@
     margin-bottom: 14px;
     img {
       position: absolute;
-      left: -30px;
+      // left: -30px;
     }
   }
   .cp-pprofil {
@@ -66,9 +66,9 @@
   }
   .table-td {
     padding: 10px;
-    padding-left: 60px;
+    // padding-left: 60px;
     .cp-infos-r {
-      width: 80%;
+      // width: 80%;
       padding: 10px;
       text-align: center;
       h5 {
@@ -86,7 +86,6 @@
         position: relative;
         img {
           position: absolute;
-          left: 30%;
         }
       }
     }
