@@ -46,8 +46,25 @@
   background-color: #d6b36a;
 }
 
+.details-r #city {
+  opacity: 0.5;
+}
+
+.details-r #city:focus, .details-r #city:active, .details-r #city:hover {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
 .details-r .dr-textarea {
   padding-top: 40px;
+  opacity: 0.5;
+}
+
+.details-r .dr-textarea:focus, .details-r .dr-textarea:active, .details-r .dr-textarea:hover {
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
 .details-r-condition {
