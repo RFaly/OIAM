@@ -76,9 +76,11 @@
   <div class="details-r dr-3">
     <%= f.email_field :email, autofocus: true, class:"dr-item",id:'email-r', autocomplete: "email", required: true, placeholder: 'IDENTIFIANT' %>
     <span class="input-error" id="email-r-error"></span>
-    <% if @minimum_password_length %>
+    <!-- <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <% end %> -->
+    <em>(Adresse email)</em>
+    <br />
     <%= f.password_field :password, class:"dr-item",id:'password-r', autocomplete: "new-password", required: true, placeholder: 'MOT DE PASSE' %>
     <span class="input-error" id="password-r-error"></span>
     <%= f.password_field :password_confirmation, class:"dr-item",id:'cpass-r', autocomplete: "new-password", required: true, placeholder: 'CONFIRMATION DU MOT DE PASSE' %>

@@ -126,7 +126,7 @@ function check_nil(test, value) {
   var name = test.val().length;
   var name = test.val().length;
   if (name < 3) {
-    value.html('(Remplissage obligatoire)');
+    value.html('(Champ obligatoire)');
     value.show();
   } else {
     value.hide();
