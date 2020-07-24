@@ -117,6 +117,11 @@
     font: 500 20px Raleway, sans-serif;
     font-size: 12px;
   }
+  .phone-number-add .before-number {
+    padding: 3px;
+    font-size: 14px;
+    top: 28px;
+  }
   .eq-all .equip1,
   .eq-all .equip2 {
     flex-direction: column;
@@ -189,6 +194,11 @@
     width: 750px;
     font-size: 14px;
     margin-left: -20px;
+  }
+  .phone-number-add .before-number {
+    font-size: 16px;
+    top: 25px;
+    padding: 6px;
   }
   .eq-all .equip1,
   .eq-all .equip2 {
