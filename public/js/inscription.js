@@ -152,15 +152,9 @@ function check_mail(testee, value) {
 }
 
 function check_phone(testee, value) {
-  var pattern1 = /0[1-9]\d{8}/;
   var checkspace = testee.val().split(' ').join('');
   if (checkspace.length == 9) {
-    if (pattern1.test('0033' + checkspace)) {
-      value.hide();
-    } else {
-      value.html('(Numero téléphone invalide)');
-      value.show();
-    }
+    value.hide();
   } else {
     value.html('(Numero téléphone invalide)');
     value.show();

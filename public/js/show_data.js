@@ -10,6 +10,9 @@ $(document).ready(function () {
   $('#code_naf').on('input', function () {
     $('#entreprise_description').val(verifyCodeNaf(this.value));
   });
+  $('#recruteur-phone').on('input', function () {
+    verifyPhone($(this).val());
+  });
 });
 
 function verifyCity(zip = '*') {
@@ -42,4 +45,13 @@ function verifyCodeNaf(code = '*') {
     }
   }
   return description;
+}
+function verifyPhone(phone) {
+  var pathern2 = /^[\d\s]+$/;
+  if (pathern2.test(phone)) {
+    $('#recruteur-phone-error').hide();
+  } else {
+    $('#recruteur-phone-error').html('(Veuillez saisir uniquement des chiffres ou des espaces)');
+    $('#recruteur-phone-error').show();
+  }
 }
