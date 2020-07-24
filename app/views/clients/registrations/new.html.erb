@@ -37,7 +37,7 @@
     <input autofocus="autofocus" class="dr-item" required="required" autocomplete="entreprise_adresse" type="text" name="entreprise_adresse" id="entreprise_adresse" placeholder="Adresse" />
 
     <input autofocus="autofocus" class="dr-item dr-item-postal" required="required" autocomplete="postal_code" type="text" name="postal_code" id="postal_code" placeholder="Code Postal" />
-    <input autofocus="autofocus" class="dr-item dr-item-fad" required="required" autocomplete="city" type="text" name="city" id="city" placeholder="Ville" readonly />
+    <input autofocus="autofocus" class="dr-item dr-item-fad" required="required" autocomplete="city" type="text" name="city" id="city" placeholder="Ville" disabled />
     <span class="input-error" id="entreprise-postal-error"></span>
 
     <input autofocus="autofocus" class="dr-item" required="required" autocomplete="entreprise_siret" type="text" name="entreprise_siret" id="entreprise_siret" placeholder="Numéro de siret" />
@@ -45,10 +45,10 @@
 
     <input autofocus="autofocus" class="dr-item" required="required" autocomplete="entreprise_site" type="text" name="entreprise_site" id="entreprise_site" placeholder="Site Internet" />
     <span class="input-error" id="entreprise-site-error"></span>
-    <textarea required="required" class="dr-item dr-textarea" autocomplete="entreprise_description" type="text" name="entreprise_description" id="entreprise_description" autofocus="autofocus" placeholder="Description de votre activité"></textarea>
-
     <input autofocus="autofocus" class="dr-item" required="required" autocomplete="code_naf" type="text" name="code_naf" id="code_naf" placeholder="Code NAF" />
     <span class="input-error" id="code-naf-error"></span>
+    <textarea required="required" class="dr-item dr-textarea" autocomplete="entreprise_description" type="text" name="entreprise_description" id="entreprise_description" autofocus="autofocus" placeholder="Description de votre activité" disabled></textarea>
+
     <div class="details-btn dr-btn1">
       SUIVANT
     </div>
@@ -64,7 +64,12 @@
     <span class="input-error" id="recruteur-fonction-error"></span>
     <%= f.email_field :mail, autofocus: true, class:"dr-item",id:'recruteur-mail' , autocomplete: "mail", required: true, placeholder: 'Mail' %>
     <span class="input-error" id="recruteur-mail-error"></span>
-    <%= f.text_field :telephone, autofocus: true, class:"dr-item",id:'recruteur-phone' ,autocomplete: "telephone", required: true,placeholder: 'Téléphone' %>
+    <div class="phone-number-add">
+      <%= f.text_field :telephone, autofocus: true, class:"dr-item",id:'recruteur-phone' ,autocomplete: "telephone", required: true,placeholder: 'Téléphone' , maxlength:"14"%>
+      <span class="before-number">
+        +33
+      </span>
+    </div>
     <span class="input-error" id="recruteur-phone-error"></span>
 
     <div class="details-btn dr-btn2">
@@ -140,8 +145,9 @@
 
 <!-- javascript city code  -->
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/data.json"></script>
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/code_naf.json"></script>
 
-<script data-turbolinks-track="reload" type="text/javascript" src="/js/show_city.js"></script>
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/show_data.js"></script>
 <!-- javascript city code  -->
 
 <!-- javascript inscription  -->

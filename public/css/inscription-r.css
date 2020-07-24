@@ -30,15 +30,6 @@
   box-shadow: 1px 1px 5px 1px #d6b36a;
 }
 
-.details-r .dr-item-fad {
-  opacity: 0.5;
-}
-
-.details-r .dr-item-fad:focus {
-  border: none;
-  box-shadow: none;
-}
-
 .details-r .details-btn {
   width: 150px;
   margin: 30px auto;
@@ -57,7 +48,6 @@
 
 .details-r .dr-textarea {
   padding-top: 40px;
-  opacity: 0.5;
 }
 
 .details-r-condition {
@@ -183,4 +173,18 @@
 .password-r,
 .cpass-r {
   font: 500 20px Raleway, sans-serif;
+}
+
+.phone-number-add {
+  position: relative;
+}
+
+.phone-number-add .before-number {
+  box-shadow: 1px 1px 10px 1px rgba(227, 215, 191, 0.63);
+  background-color: #c4c4c4c4;
+  color: rgba(255, 255, 255, 0.8);
+  font: 500 20px Raleway, sans-serif;
+  font-size: 14px;
+  position: absolute;
+  left: 4px;
 }
