@@ -6,7 +6,7 @@ class CreateAgendaClients < ActiveRecord::Migration[5.2]
       t.string :adresse
       t.string :recruteur
       t.string :alternative
-      t.boolean :is_accepted
+      t.boolean :is_accepted, default: :false
       t.belongs_to :offre_for_candidate, index:true
       
       t.timestamps

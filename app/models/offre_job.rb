@@ -7,6 +7,9 @@ class OffreJob < ApplicationRecord
   has_many :offre_for_candidates
   has_many :cadres, through: :offre_for_candidates
 
+  has_many :favotire_jobs
+  has_many :cadres, through: :favotire_jobs
+
 	validates :country, presence: true
 	validates :region, presence: true
 	validates :department, presence: true
