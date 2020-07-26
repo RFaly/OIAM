@@ -264,7 +264,22 @@ class RecruteursController < ApplicationController
         end
       end
     end
+  end
 
+  def getLastMessage
+# http://localhost:3000/recruteur/2/3/all-messages.json
+# current_client
+    @cadre = Cadre.find_by_id(params[:cadre_id])
+    @contact = ContactClientCadre.find_by_id(params[:contact_id])
+    if @contact.nil?
+      @messages = []
+    else
+      if @contact.client == current_client && @contact.cadre == @cadre
+        @messages = @contact.message_client_cadres.order(created_at: :ASC).last(50)
+      else
+        @messages = []
+      end
+    end
   end
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

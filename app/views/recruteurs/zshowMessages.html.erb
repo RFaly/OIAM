@@ -21,9 +21,9 @@
 <div class="boit-reception" id="js-add-new-message">
 <% @messages.each do |message| %>
 	<% if message.is_client %>
-		<div class="my-message">
+		<div class="my-message" data-index="<%= message.id %>">
 	<% else %>
-		<div class="her-message">
+		<div class="her-message" data-index="<%= message.id %>">
 	<% end %>
 		<%= message.content %>
 	</div>
@@ -33,7 +33,7 @@
 
 <hr>
 
-<%= form_tag(rzpostMessage_path, id:"form-promo-code",  remote: true) do %>
+<%= form_tag(rzpostMessage_path, id:"form-promo-code", 'data-path':getClientLastMessage_path(cadre_id:@cadre.id,contact_id:@contact.id),  remote: true) do %>
 	<input type="hidden" name="message_client_cadre[cadre_id]" value="<%=@cadre.id%>">
 	<input type="hidden" name="message_client_cadre[contact_id]" value="<%=@contact.id%>">
 	<div class="form-group">
@@ -44,5 +44,6 @@
 	</div>
 <% end %>
 
-
 </div>
+
+<script type="text/javascript" src="/js/synchrone_message.js"></script>

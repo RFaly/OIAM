@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-  before_action :authenticate_cadre!, only: [:confirmedProfil,:edit_profil, :my_profil, :searchJob, :favoriteJob, :recrutmentMonitoring]
+  before_action :authenticate_cadre!, only: [:confirmedProfil,:edit_profil, :my_profil, :searchJob, :favoriteJob, :recrutmentMonitoring, :getLastMessage]
   before_action :validate_cadre, only: [:my_tests, :testpotential, :testskills, :testfit, :resultatsTest]
   before_action :current_info_cadre, only: [:my_profil, :edit_profil, :confirmedProfil]
 
@@ -46,7 +46,7 @@ class CandidatesController < ApplicationController
 
   def confirmedProfil
     errorMessage = ""
-    
+
     is_error = params[:cadre_info][:question1].empty? || params[:cadre_info][:question2].empty? || params[:cadre_info][:question3].empty? || params[:cadre_info][:question4].empty? || params[:cadre_info][:question5].empty? || params[:cadre_info][:status].empty?
     if is_error
       errorMessage += " [ Tous les champs sont obligatoire ] "
@@ -171,7 +171,21 @@ class CandidatesController < ApplicationController
   end
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
+  def getLastMessage
+# http://localhost:3000/cadre/2/3/all-messages.json
+# current_cadre
+    @client = Client.find_by_id(params[:client_id])
+    @contact = ContactClientCadre.find_by_id(params[:contact_id])
+    if @contact.nil?
+      @messages = []
+    else
+      if @contact.client == @client && @contact.cadre == current_cadre
+        @messages = @contact.message_client_cadres.order(created_at: :ASC).last(50)
+      else
+        @messages = []
+      end
+    end
+  end
 
   private
 
