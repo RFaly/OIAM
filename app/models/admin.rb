@@ -1,9 +1,9 @@
 class Admin < ApplicationRecord
-	has_many :message_admin_clients
-  has_many :clients, through: :message_admin_clients
+	has_many :contact_admin_clients
+  has_many :clients, through: :contact_admin_clients
 
-  has_many :message_admin_cadres
-  has_many :cadres, through: :message_admin_cadres
+  has_many :contact_admin_cadres
+  has_many :cadres, through: :contact_admin_cadres
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

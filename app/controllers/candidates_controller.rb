@@ -124,6 +124,35 @@ class CandidatesController < ApplicationController
   def resultatsTest
   end
 
+#~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~~~~~
+  def zMessages
+    @clients = Client.all
+    @contactListes = current_cadre.clients
+  end
+
+  def zshowMessages
+    @client = Client.find_by_id(params[:id])
+    @mps = MessageClientCadre.where(client: @client, cadre:current_cadre)
+    
+    # if @mps.count == 0
+      @mps = MessageClientCadre.create(content:"hi", client: @client, cadre:current_cadre)
+    # end
+
+  end
+
+  def zpostMessage
+    
+  end
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
+
   private
 
   def validate_cadre
@@ -177,3 +206,4 @@ admin_signed_in?
 current_admin
 
 =end
+

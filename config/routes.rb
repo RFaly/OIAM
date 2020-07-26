@@ -92,6 +92,16 @@ Rails.application.routes.draw do
   	registrations: 'admins/registrations'
   }
 
+
+  #~~~~~~~~~~ LINK fo MESSAGE ~~~~~ TEST
+  
+  
+  
+  get '/cadre/messages', to: 'candidates#zMessages', as: 'zMessages'
+  get '/cadre/messages/:id', to: 'candidates#zshowMessages', as: 'zshowMessages'
+  post '/cadre/send-message', to: 'candidates#zpostMessage', as: 'zpostMessage'
+  
+
 end
 
 

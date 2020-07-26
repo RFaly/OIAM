@@ -1,0 +1,20 @@
+<h2>Liste de tous les client dans le site</h2>
+<% @clients.each do |client| %>
+	<div>
+		<a href="<%= zshowMessages_path(client.id) %>">
+		<%= client.first_name %> <%= client.last_name %>
+		</a>
+	</div>
+<% end %>
+
+<h2>Liste de mes contactes</h2>
+<% @contactListes.each do |mp| %>
+	<div>
+		<a href="<%= zshowMessages_path(client.id) %>">
+		<%= mp.client.first_name %> <%= mp.client.last_name %>
+		</a>
+	</div>
+<% end %>
+
+
+

@@ -4,8 +4,9 @@ class CreateMessageAdminCadres < ActiveRecord::Migration[5.2]
       t.text :content
 			t.boolean :cadre_see, default: :false
 			t.boolean :admin_see, default: :false
-			t.belongs_to :admin, index:true
 			t.belongs_to :cadre, index:true
+			t.belongs_to :admin, index:true
+      t.belongs_to :contact_admin_cadre, index:true
 
       t.timestamps
     end
