@@ -1,4 +1,6 @@
 class Client < ApplicationRecord
+  after_create :edit_online_time
+
 	has_one :entreprise
 	has_many :offre_jobs
 
@@ -17,4 +19,8 @@ class Client < ApplicationRecord
     return self.online_time > 5.minutes.ago
   end
   #time_ago_in_words(self.online_time)
+
+  def edit_online_time
+    self.update(online_time: Time.current)
+  end
 end

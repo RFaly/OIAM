@@ -1,4 +1,6 @@
 class Cadre < ApplicationRecord
+  after_create :edit_online_time
+
 	has_one :cadre_info
 
 	has_many :promise_to_hires
@@ -25,4 +27,7 @@ class Cadre < ApplicationRecord
     return self.online_time > 5.minutes.ago
   end
   #time_ago_in_words(self.online_time)
+  def edit_online_time
+    self.update(online_time: Time.current)
+  end
 end

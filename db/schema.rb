@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_22_074517) do
+ActiveRecord::Schema.define(version: 2020_07_26_035958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,19 @@ ActiveRecord::Schema.define(version: 2020_07_22_074517) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "agenda_clients", force: :cascade do |t|
+    t.string "entretien_date"
+    t.string "entretien_time"
+    t.string "adresse"
+    t.string "recruteur"
+    t.string "alternative"
+    t.boolean "is_accepted", default: false
+    t.bigint "offre_for_candidate_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["offre_for_candidate_id"], name: "index_agenda_clients_on_offre_for_candidate_id"
   end
 
   create_table "cadre_infos", force: :cascade do |t|
@@ -63,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_07_22_074517) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "online_time"
     t.index ["email"], name: "index_cadres_on_email", unique: true
     t.index ["reset_password_token"], name: "index_cadres_on_reset_password_token", unique: true
   end
@@ -81,6 +95,7 @@ ActiveRecord::Schema.define(version: 2020_07_22_074517) do
     t.string "mail"
     t.string "telephone"
     t.string "image"
+    t.datetime "online_time"
     t.index ["email"], name: "index_clients_on_email", unique: true
     t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
   end
@@ -98,6 +113,62 @@ ActiveRecord::Schema.define(version: 2020_07_22_074517) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_entreprises_on_client_id"
+  end
+
+  create_table "favotire_jobs", force: :cascade do |t|
+    t.bigint "offre_job_id"
+    t.bigint "cadre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cadre_id"], name: "index_favotire_jobs_on_cadre_id"
+    t.index ["offre_job_id"], name: "index_favotire_jobs_on_offre_job_id"
+  end
+
+  create_table "message_admin_cadres", force: :cascade do |t|
+    t.text "content"
+    t.boolean "cadre_see", default: false
+    t.boolean "admin_see", default: false
+    t.bigint "admin_id"
+    t.bigint "cadre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_message_admin_cadres_on_admin_id"
+    t.index ["cadre_id"], name: "index_message_admin_cadres_on_cadre_id"
+  end
+
+  create_table "message_admin_clients", force: :cascade do |t|
+    t.text "content"
+    t.boolean "client_see", default: false
+    t.boolean "admin_see", default: false
+    t.bigint "admin_id"
+    t.bigint "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_message_admin_clients_on_admin_id"
+    t.index ["client_id"], name: "index_message_admin_clients_on_client_id"
+  end
+
+  create_table "message_client_cadres", force: :cascade do |t|
+    t.text "content"
+    t.boolean "client_see", default: false
+    t.boolean "cadre_see", default: false
+    t.bigint "cadre_id"
+    t.bigint "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cadre_id"], name: "index_message_client_cadres_on_cadre_id"
+    t.index ["client_id"], name: "index_message_client_cadres_on_client_id"
+  end
+
+  create_table "offre_for_candidates", force: :cascade do |t|
+    t.string "status"
+    t.boolean "is_recrute", default: false
+    t.bigint "offre_job_id"
+    t.bigint "cadre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cadre_id"], name: "index_offre_for_candidates_on_cadre_id"
+    t.index ["offre_job_id"], name: "index_offre_for_candidates_on_offre_job_id"
   end
 
   create_table "offre_jobs", force: :cascade do |t|
