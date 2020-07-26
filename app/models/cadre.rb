@@ -20,4 +20,9 @@ class Cadre < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def is_online?
+    return self.online_time > 5.minutes.ago
+  end
+  #time_ago_in_words(self.online_time)
 end
