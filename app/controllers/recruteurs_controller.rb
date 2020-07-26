@@ -275,7 +275,7 @@ class RecruteursController < ApplicationController
       @messages = []
     else
       if @contact.client == current_client && @contact.cadre == @cadre
-        @messages = @contact.message_client_cadres.order(created_at: :ASC).last(50)
+        @messages = @contact.message_client_cadres.update(client_see:true).order(created_at: :ASC).last(50)
       else
         @messages = []
       end

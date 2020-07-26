@@ -180,7 +180,7 @@ class CandidatesController < ApplicationController
       @messages = []
     else
       if @contact.client == @client && @contact.cadre == current_cadre
-        @messages = @contact.message_client_cadres.order(created_at: :ASC).last(50)
+        @messages = @contact.message_client_cadres.update(cadre_see:true).order(created_at: :ASC).last(50)
       else
         @messages = []
       end

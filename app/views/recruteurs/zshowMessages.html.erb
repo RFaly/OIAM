@@ -21,9 +21,9 @@
 <div class="boit-reception" id="js-add-new-message">
 <% @messages.each do |message| %>
 	<% if message.is_client %>
-		<div class="my-message" data-index="<%= message.id %>">
+		<div class="my-message" data-store-id="<%= message.id %>">
 	<% else %>
-		<div class="her-message" data-index="<%= message.id %>">
+		<div class="her-message" data-store-id="<%= message.id %>">
 	<% end %>
 		<%= message.content %>
 	</div>
@@ -34,7 +34,7 @@
 <hr>
 
 <%= form_tag(rzpostMessage_path, id:"form-promo-code", 'data-path':getClientLastMessage_path(cadre_id:@cadre.id,contact_id:@contact.id),  remote: true) do %>
-	<input type="hidden" name="message_client_cadre[cadre_id]" value="<%=@cadre.id%>">
+	<input type="hidden" name="message_client_cadre[cadre_id]" value="<%=@cadre.id%>" id="is_client_session" data-client="true">
 	<input type="hidden" name="message_client_cadre[contact_id]" value="<%=@contact.id%>">
 	<div class="form-group">
 		<textarea required="required" rows="3" class="form-control" name="message_client_cadre[content]" id="message_client_cadre_content"></textarea>
