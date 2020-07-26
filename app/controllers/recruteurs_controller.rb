@@ -243,13 +243,28 @@ class RecruteursController < ApplicationController
   def zpostMessage
     @cadre = Cadre.find_by_id(params[:message_client_cadre][:cadre_id])
     @contact = ContactClientCadre.find_by_id(params[:message_client_cadre][:contact_id])
-    @newMessage = MessageClientCadre.new(content: params[:message_client_cadre][:content],client_see: true,contact_client_cadre: @contact,is_client:true)
-    if @newMessage.save
-      redirect_to rzshowMessages_path(@cadre.id)
-    else
-      flash[:alert] = @newMessage.errors.details
-      redirect_to rzshowMessages_path(@cadre.id)
+    @content = params[:message_client_cadre][:content]
+    @newMessage = MessageClientCadre.new(content: @content, client_see: true,contact_client_cadre: @contact,is_client:true)
+    
+		respond_to do |format|
+      format.html do
+        if @newMessage.save
+		      redirect_to rzshowMessages_path(@cadre.id)
+		    else
+		      flash[:alert] = @newMessage.errors.details
+		      redirect_to rzshowMessages_path(@cadre.id)
+		    end
+      end
+      format.js do
+        if @newMessage.save
+          @errors = false
+        else
+          flash[:alert] = @newMessage.errors.details
+		      redirect_to rzshowMessages_path(@cadre.id)
+        end
+      end
     end
+
   end
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

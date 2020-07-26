@@ -147,12 +147,26 @@ class CandidatesController < ApplicationController
   def zpostMessage
     @client = Client.find_by_id(params[:message_client_cadre][:client_id])
     @contact = ContactClientCadre.find_by_id(params[:message_client_cadre][:contact_id])
-    @newMessage = MessageClientCadre.new(content: params[:message_client_cadre][:content],cadre_see: true,contact_client_cadre: @contact,is_client:false)
-    if @newMessage.save
-      redirect_to zshowMessages_path(@client.id)
-    else
-      flash[:alert] = @newMessage.errors.details
-      redirect_to zshowMessages_path(@client.id)
+    @content = params[:message_client_cadre][:content]
+    @newMessage = MessageClientCadre.new(content:@content, cadre_see: true,contact_client_cadre: @contact,is_client:false)
+
+    respond_to do |format|
+      format.html do
+        if @newMessage.save
+          redirect_to zshowMessages_path(@client.id)
+        else
+          flash[:alert] = @newMessage.errors.details
+          redirect_to zshowMessages_path(@client.id)
+        end
+      end
+      format.js do
+        if @newMessage.save
+          @errors = false
+        else
+          flash[:alert] = @newMessage.errors.details
+          redirect_to zshowMessages_path(@client.id)
+        end
+      end
     end
   end
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
