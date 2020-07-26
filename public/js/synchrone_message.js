@@ -1,5 +1,6 @@
 window.$boitReception = $('#js-add-new-message')
 window.$is_client = $('#is_client_session').data().client
+window.path_url = $("#form-promo-code").data().path
 
 function creatAndApendNewMessage(data){
 	var div = document.createElement('div')
@@ -25,13 +26,9 @@ function creatAndApendNewMessage(data){
 }
 
 function getMyMessage(){
-	var path = $("#form-promo-code").data().path
-	$.getJSON(path,function(data) {
-		console.log('a')
+	var storeId = $("div[data-store-id]").last().data().storeId
+	$.getJSON(path_url,function(data) {
 		var my_data = data
-
-		var storeId = $("div[data-store-id]").last().data().storeId
-
 		for (var i = 0; i < my_data.length; i++) {
 			if (my_data[i].id == storeId){
 				for (var j = i+1; j < my_data.length; j++) {

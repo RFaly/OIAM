@@ -245,10 +245,10 @@ class RecruteursController < ApplicationController
     @contact = ContactClientCadre.find_by_id(params[:message_client_cadre][:contact_id])
     @content = params[:message_client_cadre][:content]
     @newMessage = MessageClientCadre.new(content: @content, client_see: true,contact_client_cadre: @contact,is_client:true)
-    
 		respond_to do |format|
       format.html do
         if @newMessage.save
+        	@contact.message_client_cadres.update(client_see:true)
 		      redirect_to rzshowMessages_path(@cadre.id)
 		    else
 		      flash[:alert] = @newMessage.errors.details
@@ -257,6 +257,7 @@ class RecruteursController < ApplicationController
       end
       format.js do
         if @newMessage.save
+        	@contact.message_client_cadres.update(client_see:true)
           @errors = false
         else
           flash[:alert] = @newMessage.errors.details
@@ -267,15 +268,13 @@ class RecruteursController < ApplicationController
   end
 
   def getLastMessage
-# http://localhost:3000/recruteur/2/3/all-messages.json
-# current_client
     @cadre = Cadre.find_by_id(params[:cadre_id])
     @contact = ContactClientCadre.find_by_id(params[:contact_id])
     if @contact.nil?
       @messages = []
     else
       if @contact.client == current_client && @contact.cadre == @cadre
-        @messages = @contact.message_client_cadres.update(client_see:true).order(created_at: :ASC).last(50)
+        @messages = @contact.message_client_cadres.order(created_at: :ASC).last(50)
       else
         @messages = []
       end

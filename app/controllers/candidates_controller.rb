@@ -153,6 +153,7 @@ class CandidatesController < ApplicationController
     respond_to do |format|
       format.html do
         if @newMessage.save
+          @contact.message_client_cadres.update(cadre_see:true)
           redirect_to zshowMessages_path(@client.id)
         else
           flash[:alert] = @newMessage.errors.details
@@ -161,6 +162,7 @@ class CandidatesController < ApplicationController
       end
       format.js do
         if @newMessage.save
+          @contact.message_client_cadres.update(cadre_see:true)
           @errors = false
         else
           flash[:alert] = @newMessage.errors.details
@@ -169,23 +171,22 @@ class CandidatesController < ApplicationController
       end
     end
   end
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   def getLastMessage
-# http://localhost:3000/cadre/2/3/all-messages.json
-# current_cadre
     @client = Client.find_by_id(params[:client_id])
     @contact = ContactClientCadre.find_by_id(params[:contact_id])
     if @contact.nil?
       @messages = []
     else
       if @contact.client == @client && @contact.cadre == current_cadre
-        @messages = @contact.message_client_cadres.update(cadre_see:true).order(created_at: :ASC).last(50)
+        @messages = @contact.message_client_cadres.order(created_at: :ASC).last(50)
       else
         @messages = []
       end
     end
   end
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   private
 
