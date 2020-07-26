@@ -93,14 +93,14 @@ Rails.application.routes.draw do
   }
 
 
-  #~~~~~~~~~~ LINK fo MESSAGE ~~~~~ TEST
-  
-  
-  
+  #~~~~~~~~~~ LINK fo MESSAGE ~~~~~ TEST CANDIDAT
   get '/cadre/messages', to: 'candidates#zMessages', as: 'zMessages'
   get '/cadre/messages/:id', to: 'candidates#zshowMessages', as: 'zshowMessages'
   post '/cadre/send-message', to: 'candidates#zpostMessage', as: 'zpostMessage'
-  
+  #~~~~~~~~~~ LINK fo MESSAGE ~~~~~ TEST RECRUTEUR
+  get '/recruteur/messages', to: 'recruteurs#zMessages', as: 'rzMessages'
+  get '/recruteur/messages/:id', to: 'recruteurs#zshowMessages', as: 'rzshowMessages'
+  post '/recruteur/send-message', to: 'recruteurs#zpostMessage', as: 'rzpostMessage'
 
 end
 

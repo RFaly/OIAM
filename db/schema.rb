@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_26_035958) do
+ActiveRecord::Schema.define(version: 2020_07_26_074459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,33 @@ ActiveRecord::Schema.define(version: 2020_07_26_035958) do
     t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
   end
 
+  create_table "contact_admin_cadres", force: :cascade do |t|
+    t.bigint "admin_id"
+    t.bigint "cadre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_contact_admin_cadres_on_admin_id"
+    t.index ["cadre_id"], name: "index_contact_admin_cadres_on_cadre_id"
+  end
+
+  create_table "contact_admin_clients", force: :cascade do |t|
+    t.bigint "admin_id"
+    t.bigint "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_contact_admin_clients_on_admin_id"
+    t.index ["client_id"], name: "index_contact_admin_clients_on_client_id"
+  end
+
+  create_table "contact_client_cadres", force: :cascade do |t|
+    t.bigint "client_id"
+    t.bigint "cadre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cadre_id"], name: "index_contact_client_cadres_on_cadre_id"
+    t.index ["client_id"], name: "index_contact_client_cadres_on_client_id"
+  end
+
   create_table "entreprises", force: :cascade do |t|
     t.string "name"
     t.string "adresse"
@@ -128,36 +155,33 @@ ActiveRecord::Schema.define(version: 2020_07_26_035958) do
     t.text "content"
     t.boolean "cadre_see", default: false
     t.boolean "admin_see", default: false
-    t.bigint "admin_id"
-    t.bigint "cadre_id"
+    t.boolean "is_admin", default: true
+    t.bigint "contact_admin_cadre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["admin_id"], name: "index_message_admin_cadres_on_admin_id"
-    t.index ["cadre_id"], name: "index_message_admin_cadres_on_cadre_id"
+    t.index ["contact_admin_cadre_id"], name: "index_message_admin_cadres_on_contact_admin_cadre_id"
   end
 
   create_table "message_admin_clients", force: :cascade do |t|
     t.text "content"
     t.boolean "client_see", default: false
     t.boolean "admin_see", default: false
-    t.bigint "admin_id"
-    t.bigint "client_id"
+    t.boolean "is_admin", default: true
+    t.bigint "contact_admin_client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["admin_id"], name: "index_message_admin_clients_on_admin_id"
-    t.index ["client_id"], name: "index_message_admin_clients_on_client_id"
+    t.index ["contact_admin_client_id"], name: "index_message_admin_clients_on_contact_admin_client_id"
   end
 
   create_table "message_client_cadres", force: :cascade do |t|
     t.text "content"
     t.boolean "client_see", default: false
     t.boolean "cadre_see", default: false
-    t.bigint "cadre_id"
-    t.bigint "client_id"
+    t.boolean "is_client", default: false
+    t.bigint "contact_client_cadre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cadre_id"], name: "index_message_client_cadres_on_cadre_id"
-    t.index ["client_id"], name: "index_message_client_cadres_on_client_id"
+    t.index ["contact_client_cadre_id"], name: "index_message_client_cadres_on_contact_client_cadre_id"
   end
 
   create_table "offre_for_candidates", force: :cascade do |t|

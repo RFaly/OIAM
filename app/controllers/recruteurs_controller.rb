@@ -220,9 +220,39 @@ class RecruteursController < ApplicationController
 
 	end
 
-#Messages
-	# def method_name
-	# end
+
+#~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~~~~~
+  def zMessages
+    @candidats = Cadre.all
+    @contactListes = current_client.contact_client_cadres
+  end
+
+  def zshowMessages
+    @cadre = Cadre.find_by_id(params[:id])
+    @contact = ContactClientCadre.where(cadre: @cadre, client:current_client)
+    if @contact.count == 0
+      @contact = ContactClientCadre.create(cadre: @cadre, client:current_client)
+    else
+      @contact = @contact.first
+    end
+		@contact.message_client_cadres.where(client_see:false).update(client_see:true)
+    @messages = @contact.message_client_cadres
+    @newMessage = MessageClientCadre.new
+  end
+
+  def zpostMessage
+    @cadre = Cadre.find_by_id(params[:message_client_cadre][:cadre_id])
+    @contact = ContactClientCadre.find_by_id(params[:message_client_cadre][:contact_id])
+    @newMessage = MessageClientCadre.new(content: params[:message_client_cadre][:content],client_see: true,contact_client_cadre: @contact,is_client:true)
+    if @newMessage.save
+      redirect_to rzshowMessages_path(@cadre.id)
+    else
+      flash[:alert] = @newMessage.errors.details
+      redirect_to rzshowMessages_path(@cadre.id)
+    end
+  end
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	private
 

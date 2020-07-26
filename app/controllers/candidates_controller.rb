@@ -127,29 +127,35 @@ class CandidatesController < ApplicationController
 #~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~~~~~
   def zMessages
     @clients = Client.all
-    @contactListes = current_cadre.clients
+    @contactListes = current_cadre.contact_client_cadres
   end
 
   def zshowMessages
     @client = Client.find_by_id(params[:id])
-    @mps = MessageClientCadre.where(client: @client, cadre:current_cadre)
-    
-    # if @mps.count == 0
-      @mps = MessageClientCadre.create(content:"hi", client: @client, cadre:current_cadre)
-    # end
-
+    @contact = ContactClientCadre.where(client: @client, cadre:current_cadre)
+    if @contact.count == 0
+      @contact = ContactClientCadre.create(client: @client, cadre:current_cadre)
+    else
+      @contact = @contact.first
+    end
+    #marquer tous comme lue
+    @contact.message_client_cadres.where(cadre_see:false).update(cadre_see:true)
+    @messages = @contact.message_client_cadres
+    @newMessage = MessageClientCadre.new
   end
 
   def zpostMessage
-    
+    @client = Client.find_by_id(params[:message_client_cadre][:client_id])
+    @contact = ContactClientCadre.find_by_id(params[:message_client_cadre][:contact_id])
+    @newMessage = MessageClientCadre.new(content: params[:message_client_cadre][:content],cadre_see: true,contact_client_cadre: @contact,is_client:false)
+    if @newMessage.save
+      redirect_to zshowMessages_path(@client.id)
+    else
+      flash[:alert] = @newMessage.errors.details
+      redirect_to zshowMessages_path(@client.id)
+    end
   end
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-
-
-
 
 
 

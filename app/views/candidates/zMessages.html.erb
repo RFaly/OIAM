@@ -8,13 +8,14 @@
 <% end %>
 
 <h2>Liste de mes contactes</h2>
-<% @contactListes.each do |mp| %>
+<% @contactListes.each do |contact| %>
+	<% nbr = contact.mp_cadre_not_see %>
 	<div>
-		<a href="<%= zshowMessages_path(client.id) %>">
-		<%= mp.client.first_name %> <%= mp.client.last_name %>
+		<a href="<%= zshowMessages_path(contact.client.id) %>">
+		<%= contact.client.first_name %> <%= contact.client.last_name %>
 		</a>
+		<% unless nbr == 0 %>
+			<span class="alert-info"><%= nbr %></span>
+		<% end %>
 	</div>
 <% end %>
-
-
-

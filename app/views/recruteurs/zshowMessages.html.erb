@@ -12,18 +12,19 @@
 	.clear{
 		clear: both;
 	}
+
 </style>
 
 <div class="container">
 
+<h2><%= @cadre.cadre_info.last_name %> <%= @cadre.cadre_info.first_name %></h2>
 
-<h2><%= @client.last_name %> <%= @client.first_name %></h2>
 <div class="boit-reception">
 <% @messages.each do |message| %>
 	<% if message.is_client %>
-		<div class="her-message">
-	<% else %>
 		<div class="my-message">
+	<% else %>
+		<div class="her-message">
 	<% end %>
 		<%= message.content %>
 	</div>
@@ -33,8 +34,8 @@
 
 <hr>
 
-<%= form_for @newMessage , url: zpostMessage_path do |f| %>
-	<input type="hidden" name="message_client_cadre[client_id]" value="<%=@client.id%>">
+<%= form_for @newMessage , url: rzpostMessage_path do |f| %>
+	<input type="hidden" name="message_client_cadre[cadre_id]" value="<%=@cadre.id%>">
 	<input type="hidden" name="message_client_cadre[contact_id]" value="<%=@contact.id%>">
 	<div class="form-group">
 		<%= f.text_area :content, required:true, rows:3, class:"form-control" %>
