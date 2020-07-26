@@ -1,3 +1,12 @@
+<style type="text/css">
+	.connected{
+		color: green;
+	}
+	.not-connected{
+		color: red;
+	}
+</style>
+
 <h2>Liste de tous les CADRES dans le site</h2>
 <% @candidats.each do |cadre| %>
 	<div>
@@ -16,6 +25,11 @@
 		</a>
 		<% unless nbr == 0 %>
 			<span class="alert-info"><%= nbr %></span>
+		<% end %>
+		<% if contact.cadre.is_online? %>
+			<span class="connected">connectée</span>
+		<% else %>
+			<span class="not-connected">non connectée il y a <%= time_ago_in_words(contact.cadre.online_time) %></span>
 		<% end %>
 	</div>
 <% end %>

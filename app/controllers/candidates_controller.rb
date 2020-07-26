@@ -140,7 +140,7 @@ class CandidatesController < ApplicationController
     end
     #marquer tous comme lue
     @contact.message_client_cadres.where(cadre_see:false).update(cadre_see:true)
-    @messages = @contact.message_client_cadres
+    @messages = @contact.message_client_cadres.order(created_at: :ASC)
     @newMessage = MessageClientCadre.new
   end
 
