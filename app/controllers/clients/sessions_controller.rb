@@ -16,9 +16,10 @@ class Clients::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    current_client.update(online_time: Time.current - 6.minutes)
+    super
+  end
 
   # protected
 
@@ -28,6 +29,7 @@ class Clients::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
+    current_client.edit_online_time
     stored_location_for(resource) || client_my_profil_path
   end
   

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  entretien_date: MyString
+  entretien_time: MyString
+  adresse: MyString
+  recruteur: MyString
+  alternative: MyString
+  is_accepted: false
+
+two:
+  entretien_date: MyString
+  entretien_time: MyString
+  adresse: MyString
+  recruteur: MyString
+  alternative: MyString
+  is_accepted: false

@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-  before_action :authenticate_cadre!, only: [:confirmedProfil,:edit_profil, :my_profil, :searchJob, :favoriteJob, :recrutmentMonitoring]
+  before_action :authenticate_cadre!, only: [:confirmedProfil,:edit_profil, :my_profil, :searchJob, :favoriteJob, :recrutmentMonitoring, :getLastMessage]
   before_action :validate_cadre, only: [:my_tests, :testpotential, :testskills, :testfit, :resultatsTest]
   before_action :current_info_cadre, only: [:my_profil, :edit_profil, :confirmedProfil]
 
@@ -46,7 +46,7 @@ class CandidatesController < ApplicationController
 
   def confirmedProfil
     errorMessage = ""
-    
+
     is_error = params[:cadre_info][:question1].empty? || params[:cadre_info][:question2].empty? || params[:cadre_info][:question3].empty? || params[:cadre_info][:question4].empty? || params[:cadre_info][:question5].empty? || params[:cadre_info][:status].empty?
     if is_error
       errorMessage += " [ Tous les champs sont obligatoire ] "
@@ -124,6 +124,70 @@ class CandidatesController < ApplicationController
   def resultatsTest
   end
 
+#~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~~~~~
+  def my_messages
+    @clients = Client.all
+    @contactListes = current_cadre.contact_client_cadres
+  end
+
+  def show_my_messages
+    @client = Client.find_by_id(params[:id])
+    @contact = ContactClientCadre.where(client: @client, cadre:current_cadre)
+    if @contact.count == 0
+      @contact = ContactClientCadre.create(client: @client, cadre:current_cadre)
+    else
+      @contact = @contact.first
+    end
+    #marquer tous comme lue
+    @contact.message_client_cadres.where(cadre_see:false).update(cadre_see:true)
+    @messages = @contact.message_client_cadres.order(created_at: :ASC)
+    @newMessage = MessageClientCadre.new
+  end
+
+  def post_my_message
+    @client = Client.find_by_id(params[:message_client_cadre][:client_id])
+    @contact = ContactClientCadre.find_by_id(params[:message_client_cadre][:contact_id])
+    @content = params[:message_client_cadre][:content]
+    @newMessage = MessageClientCadre.new(content:@content, cadre_see: true,contact_client_cadre: @contact,is_client:false)
+
+    respond_to do |format|
+      format.html do
+        if @newMessage.save
+          @contact.message_client_cadres.update(cadre_see:true)
+          redirect_to zshowMessages_path(@client.id)
+        else
+          flash[:alert] = @newMessage.errors.details
+          redirect_to zshowMessages_path(@client.id)
+        end
+      end
+      format.js do
+        if @newMessage.save
+          @contact.message_client_cadres.update(cadre_see:true)
+          @errors = false
+        else
+          flash[:alert] = @newMessage.errors.details
+          redirect_to zshowMessages_path(@client.id)
+        end
+      end
+    end
+  end
+
+  def getLastMessage
+    @client = Client.find_by_id(params[:client_id])
+    @contact = ContactClientCadre.find_by_id(params[:contact_id])
+    if @contact.nil?
+      @messages = []
+    else
+      if @contact.client == @client && @contact.cadre == current_cadre
+        @messages = @contact.message_client_cadres.order(created_at: :ASC).last(50)
+      else
+        @messages = []
+      end
+    end
+  end
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   private
 
   def validate_cadre
@@ -177,3 +241,4 @@ admin_signed_in?
 current_admin
 
 =end
+
