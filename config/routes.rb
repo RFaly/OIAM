@@ -76,6 +76,10 @@ Rails.application.routes.draw do
 
   get '/cadre/mon_profil/offres', to: 'candidates#searchJob', as: 'searchJob'
   get '/cadre/mon_profil/offres-favorites', to: 'candidates#favoriteJob', as: 'favoriteJob'
+
+  post '/cadre/mon_profil/add-offres-favorites', to: 'candidates#addToFavoriteJob', as: 'addToFavoriteJob'
+  delete '/cadre/mon_profil/remove-offres-favorites', to: 'candidates#removeToFavoriteJob', as: 'removeToFavoriteJob'
+
   get '/cadre/mon_profil/suivi-recrutement', to: 'candidates#recrutmentMonitoring', as: 'recrutment_monitoring'
 
   # les 3 test a faire
