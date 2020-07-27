@@ -125,12 +125,12 @@ class CandidatesController < ApplicationController
   end
 
 #~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~~~~~
-  def zMessages
+  def my_messages
     @clients = Client.all
     @contactListes = current_cadre.contact_client_cadres
   end
 
-  def zshowMessages
+  def show_my_messages
     @client = Client.find_by_id(params[:id])
     @contact = ContactClientCadre.where(client: @client, cadre:current_cadre)
     if @contact.count == 0
@@ -144,7 +144,7 @@ class CandidatesController < ApplicationController
     @newMessage = MessageClientCadre.new
   end
 
-  def zpostMessage
+  def post_my_message
     @client = Client.find_by_id(params[:message_client_cadre][:client_id])
     @contact = ContactClientCadre.find_by_id(params[:message_client_cadre][:contact_id])
     @content = params[:message_client_cadre][:content]

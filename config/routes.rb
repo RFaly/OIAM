@@ -93,15 +93,15 @@ Rails.application.routes.draw do
   }
 
   #~~~~~~~~~~ LINK fo MESSAGE ~~~~~ TEST CANDIDAT
-  get '/cadre/messages', to: 'candidates#zMessages', as: 'zMessages'
-  get '/cadre/messages/:id', to: 'candidates#zshowMessages', as: 'zshowMessages'
-  post '/cadre/send-message', to: 'candidates#zpostMessage', as: 'zpostMessage'
+  get '/cadre/messages', to: 'candidates#my_messages', as: 'my_messages_cadre'
+  get '/cadre/messages/:id', to: 'candidates#show_my_messages', as: 'show_my_messages_cadre'
+  post '/cadre/send-message', to: 'candidates#post_my_message', as: 'post_my_message_cadre'
   get '/cadre/:client_id/:contact_id/all-messages', to:'candidates#getLastMessage', as:'getCadreLastMessage'
 
   #~~~~~~~~~~ LINK fo MESSAGE ~~~~~ TEST RECRUTEUR
-  get '/recruteur/messages', to: 'recruteurs#zMessages', as: 'rzMessages'
-  get '/recruteur/messages/:id', to: 'recruteurs#zshowMessages', as: 'rzshowMessages'
-  post '/recruteur/send-message', to: 'recruteurs#zpostMessage', as: 'rzpostMessage'
+  get '/recruteur/messages', to: 'recruteurs#my_messages', as: 'my_messages_client'
+  get '/recruteur/messages/:id', to: 'recruteurs#show_my_messages', as: 'show_my_messages_client'
+  post '/recruteur/send-message', to: 'recruteurs#post_my_message', as: 'post_my_message_client'
   get '/recruteur/:cadre_id/:contact_id/all-messages', to:'recruteurs#getLastMessage', as:'getClientLastMessage'
 
 end
