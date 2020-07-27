@@ -16,6 +16,11 @@ class CandidatesController < ApplicationController
   end
 
   def tmp_create_sign_up
+    puts "~~~~"*43
+    puts params.inspect
+    puts "~~~~"*43
+    puts post_params_tmp.inspect
+    puts "~~~~"*43
     @cadreInfo = CadreInfo.new(post_params_tmp)
     if @cadreInfo.save
       cookies.encrypted[:oiam_cadre] = {
@@ -207,7 +212,7 @@ class CandidatesController < ApplicationController
   end
 
   def post_params_tmp
-    params.require(:cadre_info).permit(:first_name,:adresse,:postal_code,:city,:situation,:telephone,:mail)
+    params.require(:cadre_info).permit(:last_name,:first_name,:adresse,:postal_code,:city,:situation,:telephone,:mail)
   end
  
   def post_params
@@ -241,4 +246,3 @@ admin_signed_in?
 current_admin
 
 =end
-

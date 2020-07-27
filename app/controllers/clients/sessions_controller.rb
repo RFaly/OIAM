@@ -32,5 +32,8 @@ class Clients::SessionsController < Devise::SessionsController
     current_client.edit_online_time
     stored_location_for(resource) || client_my_profil_path
   end
-  
+
+  def after_sign_out_path_for(resource_or_scope)
+    welcome_path
+  end
 end

@@ -33,4 +33,8 @@ class Cadres::SessionsController < Devise::SessionsController
     stored_location_for(resource) || my_profil_path
   end
 
+  def after_sign_out_path_for(resource_or_scope)
+    welcome_path
+  end
+
 end
