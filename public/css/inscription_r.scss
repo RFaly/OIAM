@@ -51,8 +51,9 @@
     }
   }
   .dr-textarea {
-    padding-top: 40px;
+    padding-top: 25px;
     opacity: 0.5;
+    height: 70px;
     &:focus,
     &:active,
     &:hover {
@@ -173,7 +174,6 @@
   .before-number {
     box-shadow: $box-shadow;
     background-color: #c4c4c4c4;
-    // padding: 6px;
     color: rgba(white, 0.8);
     font: $ffbtn;
     font-size: 14px;

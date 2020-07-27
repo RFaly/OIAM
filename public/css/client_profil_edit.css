@@ -1,0 +1,206 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+  border-left: 1px solid #d6b36a;
+}
+
+.cp-edit-table-box {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.cp-edit-table-box table {
+  width: 100%;
+}
+
+.cp-edit-table-box td {
+  padding-top: 20px;
+}
+
+.cp-edit-table-box h5 {
+  font: 500 18px Raleway, sans-serif;
+  font-size: 20px;
+}
+
+.cp-edit-table-box .cp-edit-form {
+  font: 16px Questrial, sans-serif;
+  border-radius: 0;
+  padding: 6px;
+  text-align: center;
+  box-shadow: none;
+  border: none;
+  background: #f0f2f4;
+}
+
+.cp-edit-table-box input:focus {
+  outline: 1px solid #d6b36a;
+  box-shadow: 1px 1px 5px 1px #d6b36a;
+}
+
+.cp-edit-table-box #entreprise_description {
+  width: 100%;
+  height: 70px;
+  padding-top: 23px;
+}
+
+.cp-edit-table-box #entreprise_description:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.cp-edit-table-box .cpe-ville input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.cp-edit-table-box .cp-icone {
+  width: 21px;
+  height: 21px;
+}
+
+.cp-edit-table-box .cp-flex {
+  display: flex;
+}
+
+.cp-edit-table-box .cp-flex-t {
+  text-align: center;
+}
+
+.cp-edit-table-box .cp-icon-text {
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.35);
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.cp-edit-table-box .cp-icon-text img {
+  position: absolute;
+}
+
+.cp-edit-table-box .cp-pprofil-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cp-edit-table-box .cp-pprofil-box .cp-pprofil {
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 10px 1px rgba(227, 215, 191, 0.63);
+}
+
+.cp-edit-table-box .cp-pprofil-box .cp-pprofil img {
+  width: 100%;
+  height: 100%;
+}
+
+.cp-edit-table-box .cp-pprofil-box label {
+  margin-top: 15px;
+  width: 190px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: transparent;
+  color: #d6b36a;
+  border: 2px solid #d6b36a;
+  padding: 10px 0;
+  text-align: center;
+  font: 500 18px Raleway, sans-serif;
+  font-size: 16px;
+}
+
+.cp-edit-table-box .cp-pprofil-box label:hover, .cp-edit-table-box .cp-pprofil-box label:active {
+  color: white;
+  background-color: #d6b36a;
+}
+
+.cp-edit-table-box .table-td {
+  display: flex;
+}
+
+.cp-edit-table-box .table-td .cp-infos-r {
+  text-align: center;
+}
+
+.cp-edit-table-box .table-td .cp-infos-r h5 {
+  color: #d6b36a;
+  margin-bottom: 20px;
+}
+
+.cp-edit-table-box .table-td .cp-infos-r .cpr-name {
+  font: 500 18px Raleway, sans-serif;
+  margin-bottom: 20px;
+}
+
+.cp-edit-table-box .table-td .cp-infos-r p {
+  margin-bottom: 25px;
+}
+
+.cp-edit-table-box .table-td .cp-infos-r .cpr-r {
+  position: relative;
+}
+
+.cp-edit-table-box .table-td .cp-infos-r .cpr-r img {
+  top: 7px;
+  position: absolute;
+}
+
+.cp-edit-table-box .table-td .cp-infos-r .cpr-r .add {
+  position: absolute;
+  top: 4px;
+}
+
+.cp-edit-table-box .cp-entreprise-name input {
+  text-align: center;
+  width: 100%;
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.cp-edit-table-box .cpe-si {
+  position: relative;
+}
+
+.cp-edit-table-box .cpe-si .number {
+  width: 15px;
+  height: 15px;
+}
+
+.cp-edit-table-box .cpe-si .line-white {
+  width: 3px;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  background-color: white;
+}
+
+.cp-edit-table-box .cp-link {
+  text-align: center;
+}
+
+.cp-edit-table-box .cp-link input {
+  text-transform: uppercase;
+  background: transparent;
+  color: #d6b36a;
+  border: 2px solid #d6b36a;
+  padding: 12px 30px;
+  font: 500 18px Raleway, sans-serif;
+}
+
+.cp-edit-table-box .cp-link input:hover, .cp-edit-table-box .cp-link input:active {
+  color: white;
+  background-color: #d6b36a;
+}
+
+.cp-edit-table-box .cpe-naf input {
+  width: 100%;
+}

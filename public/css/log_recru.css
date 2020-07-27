@@ -40,7 +40,7 @@
     text-transform: uppercase;
     outline: 0;
     background: #d6b36a;
-    width: 100%;
+    width: 60%;
     border: 0;
     padding: 15px;
     color: #FFFFFF;
@@ -52,7 +52,6 @@
 .form-log .log-button:hover,.form-log .log-button:active,.form-log .log-button:focus {
     background: #ffffff;
     color: #d6b36a;
-    border: 1px solid #d6b36a;
 }
 .form-log .log-message {
     margin: 15px 0 0;
