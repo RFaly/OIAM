@@ -105,20 +105,23 @@ class CandidatesController < ApplicationController
 
 	def searchJob
     validate_info_cadre
-    @offres = OffreJob.all
-
+    @offres = OffreJob.where(is_publish:true)
 	end
 
 	def favoriteJob
     validate_info_cadre
+    @offres = OffreJob.joins(:favorite_jobs).where(favorite_jobs:{cadre_id:current_cadre.id})
 	end
 
   def addToFavoriteJob
     @offre = OffreJob.find_by_id(params[:id])
+    @favoriteJob = FavoriteJob.find_by(offre_job: @offre, cadre: current_cadre)
     if @offre.nil?
       redirect_to wellcome_path
     else
-      @favoriteJob = FavoriteJob.create(offre_job: @offre, cadre: current_cadre)
+      if @favoriteJob.nil?
+        @favoriteJob = FavoriteJob.create(offre_job: @offre, cadre: current_cadre)
+      end
       respond_to do |format|
         format.html do
           redirect_to searchJob_path
@@ -133,9 +136,12 @@ class CandidatesController < ApplicationController
   def removeToFavoriteJob
     @offre = OffreJob.find_by_id(params[:id])
     if @offre.nil?
-      redirect_to wellcome_path
+      redirect_to welcome_path
     else
-      FavoriteJob.where(offre_job: @offre, cadre: current_cadre).destroy_all
+      @favoriteJob = FavoriteJob.find_by(offre_job: @offre, cadre: current_cadre)
+      unless @favoriteJob.nil?
+        @favoriteJob.destroy
+      end
       respond_to do |format|
         format.html do
           redirect_to searchJob_path

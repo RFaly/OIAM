@@ -25,4 +25,8 @@ class OffreJob < ApplicationRecord
 	validates :question3, presence: true
 	validates :question4, presence: true
 	validates :question5, presence: true
+
+	def is_in_my_favorite(cadre)
+		return FavoriteJob.find_by(offre_job:self, cadre:cadre)
+	end
 end
