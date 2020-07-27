@@ -13,37 +13,41 @@ class Clients::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    # errorsList = []
-    # if params[:entreprise_name].empty?
-    #   errorsList.push("Champ NOM ENTREPRISE obligatoire")
-    # end
-    # if params[:entreprise_adresse].empty?
-    #   errorsList.push("Champ ADRESSE obligatoire")
-    # end
-    # if params[:entreprise_siret].empty?
-    #   errorsList.push("Champ SIRET obligatoire")
-    # end
-    # if params[:entreprise_site].empty?
-    #   errorsList.push("Champ SITE INTERNET obligatoire.")
-    # end
-    # if params[:entreprise_description].empty?
-    #   errorsList.push("Champ DESCRIPTION DE VOTRE ACTIVITÉ obligatoire")
-    # end
-    # if params[:postal_code].empty?
-    #   errorsList.push("Champ code postal obligatoire")
-    # end
-    # if params[:city].nil? || params[:city].empty?
-    #   errorsList.push("Champ ville obligatoire")
-    # end
-    # if params[:code_naf].empty?
-    #   errorsList.push("Champ code Naf obligatoire")
-    # end
-    # if errorsList.empty?
+    errorsList = []
+    if params[:entreprise_name].empty?
+      errorsList.push("Champ NOM ENTREPRISE obligatoire")
+    end
+    if params[:entreprise_adresse].empty?
+      errorsList.push("Champ ADRESSE obligatoire")
+    end
+    if params[:entreprise_siret].empty?
+      errorsList.push("Champ SIRET obligatoire")
+    end
+    if params[:entreprise_site].empty?
+      errorsList.push("Champ SITE INTERNET obligatoire.")
+    end
+    if params[:entreprise_description].nil?
+      errorsList.push("Champ DESCRIPTION DE VOTRE ACTIVITÉ obligatoire")
+    elsif params[:entreprise_description].empty?
+      errorsList.push("Champ DESCRIPTION DE VOTRE ACTIVITÉ obligatoire")
+    end
+    if params[:postal_code].empty?
+      errorsList.push("Champ code postal obligatoire")
+    end
+    if params[:city].nil?
+      errorsList.push("Champ ville obligatoire")
+    elsif params[:city].empty?
+      errorsList.push("Champ ville obligatoire")
+    end
+    if params[:code_naf].empty?
+      errorsList.push("Champ code Naf obligatoire")
+    end
+    if errorsList.empty?
       super
-      # Entreprise.create(code_naf: params[:code_naf], name: params[:entreprise_name], adresse: params[:entreprise_adresse], siret: params[:entreprise_siret], site: params[:entreprise_site], description: params[:entreprise_description], postal_code: params[:postal_code], city: params[:city], client: current_client)
-    # else
-    #   redirect_to new_client_registration_path, alert: errorsList
-    # end
+      Entreprise.create(code_naf: params[:code_naf], name: params[:entreprise_name], adresse: params[:entreprise_adresse], siret: params[:entreprise_siret], site: params[:entreprise_site], description: params[:entreprise_description], postal_code: params[:postal_code], city: params[:city], client: current_client)
+    else
+      redirect_to new_client_registration_path, alert: errorsList
+    end
   end
 
   # GET /resource/edit
