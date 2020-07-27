@@ -4,6 +4,53 @@
 	</div>
 
 	<div class="col-sm-9">
-		<h1>Recherche d'offre liste</h1>
+
+		<table class="table">
+			<tr>
+				<td>Localisation</td>
+				<td>Fonction</td>
+				<td>Rémunération</td>
+				<td>Disponibilité</td>
+				<td>RECHERCHE</td>
+			</tr>
+		</table>
+
+		<div id="list-resultats">
+		<% unless @offres.empty? %>
+			<% @offres.each do |offre| %>
+				<div class="row">
+					<div class="col-sm-3">
+						<% unless offre.image.nil? %>
+							<%= image_tag(offre.image, alt: 'logo entreprise', width:"250px")%>
+						<% end %>		
+					</div>
+					<div class="col-sm-7">
+						<h2><%= offre.intitule_pote %></h2>
+						<p><%= offre.contrat_cdi ? "CDI" : "CDD" %> <br>
+						<%= offre.client.entreprise.postal_code %>, <%= offre.client.entreprise.city %><br>
+						<%= offre.descriptif_mission %><br>
+						</p>
+					</div>
+					<div class="col-sm-2">
+
+<%= link_to addToFavoriteJob_path(id:offre.id), method: :post, remote: true do %>
+	  <img src="/image/Vector-22.png" alt="logo oiam non favorie" width="30px" style="background-color: #b7bdc3ed;">
+<% end %> <br>
+
+<%= link_to removeToFavoriteJob_path(offre.id), method: :delete, remote: true do %>
+	  <img src="/image/Vector-24.png" alt="logo oiam favorie" width="30px">
+<% end %> <br>
+
+
+
+						<%= link_to "Voir L'offre", showNewJob_path(offre.id) %>
+					</div>
+				</div>
+				<hr>
+			<% end %>
+		<% else %>
+			<p>Les nouvelles offres d'emploi seront disponibles très prochainemen.</p>
+		<% end %>
+		</div>
 	</div>
 </div>

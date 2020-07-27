@@ -105,11 +105,47 @@ class CandidatesController < ApplicationController
 
 	def searchJob
     validate_info_cadre
+    @offres = OffreJob.all
+
 	end
 
 	def favoriteJob
     validate_info_cadre
 	end
+
+  def addToFavoriteJob
+    @offre = OffreJob.find_by_id(params[:id])
+    if @offre.nil?
+      redirect_to wellcome_path
+    else
+      @favoriteJob = FavoriteJob.create(offre_job: @offre, cadre: current_cadre)
+      respond_to do |format|
+        format.html do
+          redirect_to searchJob_path
+        end
+        format.js do
+
+        end
+      end
+    end
+  end
+
+  def removeToFavoriteJob
+    @offre = OffreJob.find_by_id(params[:id])
+    if @offre.nil?
+      redirect_to wellcome_path
+    else
+      FavoriteJob.where(offre_job: @offre, cadre: current_cadre).destroy_all
+      respond_to do |format|
+        format.html do
+          redirect_to searchJob_path
+        end
+        format.js do
+
+        end
+      end
+    end
+  end
 
 	def recrutmentMonitoring
     validate_info_cadre

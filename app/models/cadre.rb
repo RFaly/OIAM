@@ -9,8 +9,8 @@ class Cadre < ApplicationRecord
   has_many :offre_for_candidates
   has_many :offre_jobs, through: :offre_for_candidates
 
-  has_many :favotire_jobs
-  has_many :offre_jobs, through: :favotire_jobs
+  has_many :favorite_jobs
+  has_many :offre_jobs, through: :favorite_jobs
 
   has_many :contact_client_cadres
   has_many :clients, through: :contact_client_cadres
