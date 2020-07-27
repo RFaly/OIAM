@@ -1,5 +1,5 @@
 <!-- appel css -->
-<link rel="stylesheet" href="/css/inscription-r.css" />
+<link rel="stylesheet" href="/css/inscription_r.css" />
 <!-- body html  -->
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %> <%= render "clients/shared/error_messages", resource: resource %>
 <div class="inscription-r">
@@ -65,7 +65,7 @@
     <%= f.email_field :mail, autofocus: true, class:"dr-item",id:'recruteur-mail' , autocomplete: "mail", required: true, placeholder: 'Mail' %>
     <span class="input-error" id="recruteur-mail-error"></span>
     <div class="phone-number-add">
-      <%= f.text_field :telephone, autofocus: true, class:"dr-item",id:'recruteur-phone' ,autocomplete: "telephone", required: true,placeholder: 'Téléphone' , maxlength:"14"%>
+      <%= f.text_field :telephone, autofocus: true, class:"dr-item",id:'recruteur-phone' ,autocomplete: "telephone", required: true,placeholder: 'Téléphone' , maxlength:"16"%>
       <span class="before-number">
         +33
       </span>
@@ -79,16 +79,16 @@
   </div>
 
   <div class="details-r dr-3">
-    <%= f.email_field :email, autofocus: true, class:"dr-item",id:'email-r', autocomplete: "email", required: true, placeholder: 'IDENTIFIANT' %>
+    <%= f.email_field :email, autofocus: true, class:"dr-item",id:'email-r', autocomplete: "email", required: true, placeholder: 'Identifiant' %>
     <span class="input-error" id="email-r-error"></span>
     <!-- <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %> -->
     <em>(Adresse email)</em>
     <br />
-    <%= f.password_field :password, class:"dr-item",id:'password-r', autocomplete: "new-password", required: true, placeholder: 'MOT DE PASSE' %>
+    <%= f.password_field :password, class:"dr-item",id:'password-r', autocomplete: "new-password", required: true, placeholder: 'Mot de passe' %>
     <span class="input-error" id="password-r-error"></span>
-    <%= f.password_field :password_confirmation, class:"dr-item",id:'cpass-r', autocomplete: "new-password", required: true, placeholder: 'CONFIRMATION DU MOT DE PASSE' %>
+    <%= f.password_field :password_confirmation, class:"dr-item",id:'cpass-r', autocomplete: "new-password", required: true, placeholder: 'Confirmation du mot de passe' %>
     <span class="input-error" id="cpass-r-error"></span>
     <div class="details-btn dr-btn3">
       SUIVANT
