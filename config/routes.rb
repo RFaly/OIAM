@@ -21,9 +21,9 @@ Rails.application.routes.draw do
 	get '/recruteur', to: 'recruteurs#main', as: 'main_recruiter'
 
 # list menu dans le dashbord client
-  get '/recruteur/mon_profil', to: 'recruteurs#my_profil', as: 'client_my_profil'
-  get '/recruteur/mon_profil/edit', to: 'recruteurs#my_profil_edit', as: 'my_profil_edit'
-  patch '/recruteur/mon_profil/save', to: 'recruteurs#update_my_profil', as: 'update_my_profil'
+  get '/recruteur/mon-profil', to: 'recruteurs#my_profil', as: 'client_my_profil'
+  get '/recruteur/mon-profil/edit', to: 'recruteurs#my_profil_edit', as: 'my_profil_edit'
+  patch '/recruteur/mon-profil/save', to: 'recruteurs#update_my_profil', as: 'update_my_profil'
 
 
   get '/recruteur/mes-offre-d-emploi', to: 'recruteurs#my_job_offers', as: 'my_job_offers'
@@ -66,23 +66,24 @@ Rails.application.routes.draw do
 	get '/cadre', to: 'candidates#main', as: 'main_cadre'
   get '/cadre/inscription-candidat', to: 'candidates#tmp_sign_up', as: 'tmp_sign_up'
   post '/cadre/go-inscription', to: 'candidates#tmp_create_sign_up', as: 'tmp_create_sign_up'
-  
+
   # list menu dans le dashbord candidat
-  get '/cadre/mon_profil', to: 'candidates#my_profil', as: 'my_profil'
-  get '/cadre/mon_profil/edit', to: 'candidates#edit_profil', as: 'edit_profil'
-  get '/cadre/mes_tests', to: 'candidates#my_tests', as: 'my_tests'
-  
+  get '/cadre/mon-profil', to: 'candidates#my_profil', as: 'my_profil'
+  get '/cadre/mon-profil/edit', to: 'candidates#edit_profil', as: 'edit_profil'
+  get '/cadre/mes_tests', to: 'candidates#main_test', as: 'main_test'
   patch '/cadre/confirmed-profil', to: 'candidates#confirmedProfil', as: 'confirmedProfil'
 
-  get '/cadre/mon_profil/offres', to: 'candidates#searchJob', as: 'searchJob'
-  get '/cadre/mon_profil/offres-favorites', to: 'candidates#favoriteJob', as: 'favoriteJob'
-
-  post '/cadre/mon_profil/add-offres-favorites', to: 'candidates#addToFavoriteJob', as: 'addToFavoriteJob'
-  delete '/cadre/mon_profil/remove-offres-favorites', to: 'candidates#removeToFavoriteJob', as: 'removeToFavoriteJob'
-
-  get '/cadre/mon_profil/suivi-recrutement', to: 'candidates#recrutmentMonitoring', as: 'recrutment_monitoring'
-
+  get '/cadre/offres', to: 'candidates#searchJob', as: 'searchJob'
+  get '/cadre/offres-favorites', to: 'candidates#favoriteJob', as: 'favoriteJob'
+  get '/cadre/recherche/:id/offre', to: 'candidates#showSearchJob', as: 'showSearchJob'
+  post '/cadre/offre/:id/me-postuler', to: 'candidates#apply_for_job', as: 'apply_for_job'
+  post '/cadre/add-offres-to-favorites', to: 'candidates#addToFavoriteJob', as: 'addToFavoriteJob'
+  delete '/cadre/remove-offres-to-favorites', to: 'candidates#removeToFavoriteJob', as: 'removeToFavoriteJob'
+  get '/cadre/mes-offres-reçues', to: 'candidates#received_job', as: 'received_job'
+  get '/cadre/suivi-recrutement', to: 'candidates#recrutmentMonitoring', as: 'recrutment_monitoring'
+  get '/cadre/mes-notifications', to: 'candidates#notifications', as: 'cadres_notifications'
   # les 3 test a faire
+  get '/cadre/welcome-to-test', to: 'candidates#my_tests', as: 'my_tests'
   get '/cadre/potential-test', to: 'candidates#testpotential', as: 'testpotential'
   get '/cadre/skills-test', to: 'candidates#testskills', as: 'testskills'
   get '/cadre/fit-test', to: 'candidates#testfit', as: 'testfit'

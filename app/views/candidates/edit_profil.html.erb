@@ -1,62 +1,50 @@
-<div class="row">
-	<div class="col-sm-3">
-		<%= render partial: "candidates/left_link_bar" %>
-	</div>
+<link rel="stylesheet" href="/css/edit_cadre_profil.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<div class="main">
+	<%= form_for @cadre , url: confirmedProfil_path do |f| %>
+			<%= f.label :question1, "Que faites-vous actuellement et que recherchez-vous comme type de poste ?", class:"label-content" %>
+			<%= f.text_area :question1, required:true, rows:3, class:"champs" %>
 
-	<div class="col-sm-9">
+			<%= f.label :question2, "Où souhaitez-vous travailler et acceptez-vous les déplacements ?",class:"label-content" %>
+			<%= f.text_area :question2, required:true, rows:3, class:"champs" %>
 
-		<div>
-			<%= form_for @cadre , url: confirmedProfil_path do |f| %>
-				<div class="form-group">
-					<%= f.label :question1, "Que faites-vous actuellement et que recherchez-vous comme type de poste ?", class:"ggag" %>
-					<%= f.text_area :question1, required:true, rows:3, class:"form-control" %>
-				</div>
+			<%= f.label :question3, "Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?", class:"label-content" %>
+			<%= f.text_area :question3, required:true, rows:3, class:"champs" %>
 
-				<div class="form-group">
-					<%= f.label :question2, "Où souhaitez-vous travailler et acceptez-vous les déplacements ?" %>
-					<%= f.text_area :question2, required:true, rows:3, class:"form-control" %>
-				</div>
+			<%= f.label :question4, "Quel est le minimum salarial en dessous duquel il n’est pas nécessaire de vous contacter ?", class:"label-content" %>
+			<div class="slide">
+				<%=f.range_field :question4, :min=>60, :max=>350,required:true, class:"intervalle", id:"slide" %><span id="value" class="value"></span>
+			</div>
+			
 
-				<div class="form-group">
-					<%= f.label :question3, "Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?" %>
-					<%= f.text_area :question3, required:true, rows:3, class:"form-control" %>
-				</div>
+			<%= f.label :question5, "Parlez-nous de vous ?", class:"label-content" %>
+			<%= f.text_area :question5, required:true, rows:3, class:"champs" %>
+			
 
-				<div class="form-group">
-					<%= f.label :question4, "Quel est le minimum salarial en dessous duquel il n’est pas nécessaire de vous contacter ?" %>
-					<%= f.text_area :question4, required:true, rows:3, class:"form-control" %>
-				</div>
-
-				<div class="form-group">
-					<%= f.label :question5, "Parlez-nous de vous ?" %>
-					<%= f.text_area :question5, required:true, rows:3, class:"form-control" %>
-				</div>
-
-				<div class="form-group">
-					<%= f.select(:status, ['EN RECHERCHE ACTIVE',' ',' '], {}, { :class => 'form-control' }) %>
-				</div>
-
-				<div class="form-group">
-					<%= f.label :cv, "CV" %>
-					<%= f.file_field :cv %>
-				</div>
-
-				<div class="form-group">				
+			<%= f.select(:status, ['STATUS',' ',' '], {}, { :class => 'btn-recherche' }) %>
+			<div class="image-cv">
+				<div id="import-cv">
+					<p class="importe-cv">CV</p>
+					<div class="cv">
+						<%= f.label :cv, "Telecharger", class:"cv-label"%>
+						<%= f.file_field :cv, class:"cv-champs" %>
+					</div>
+				</div>	
+				<div class="pdp">
 					<% unless @cadre.image.nil? %>
-						<%= image_tag(@cadre.image, alt: 'photo de profil', width:"250px", id:'addImage' )%> <br>
-					<% else %>
-						<img id="addImage" src="https://via.placeholder.com/150/FF0000/FFFFFF?Text=Down.com" width="250px">
-					<% end %>
-					<%= f.label :image, "Photo de profil" %>
-					<%= f.file_field :image %>
+					<%= image_tag(@cadre.image, alt: 'photo de profil', id:'addImage', class:"add-image" )%> <br>
+				<% else %>
+					<img id="addImage" src="https://via.placeholder.com/150/FF0000/FFFFFF?Text=Down.com" class="add-image">
+				<% end %>
+				<%= f.label :image, "IMPORTER UNE PHOTO", class:"add-image-label" %>
+				<%= f.file_field :image, class:"image_add" %>
 				</div>
-
-				<div class="form-group">
-					<%= f.submit("APERÇU") %>
-				</div>
-			<% end %>
-		</div>
-	</div>
+			</div>
+			
+			<%= f.submit 'APERÇU', :class => 'apercu' %>
+			
+	<% end %>
 </div>
 
 <script type="text/javascript">
@@ -74,5 +62,7 @@
 		shwoMyImage(this);
 	});
 </script>
+
+<script type="text/javascript" src="/js/edit_profil_cadre.js"></script>
 
 
