@@ -32,7 +32,8 @@ class CandidatesController < ApplicationController
     validate_info_cadre
   end
 
-  def my_tests
+  def main_test
+    validate_info_cadre
   end
 
   def edit_profil
@@ -165,11 +166,24 @@ class CandidatesController < ApplicationController
     end
   end
 
+#mes offre réçues
+  def received_job
+    
+  end
+
 	def recrutmentMonitoring
     validate_info_cadre
 	end
 
+  def notifications
+    
+  end
+
 # 3 test de recrutement
+
+  def my_tests
+  end
+
   def testpotential
   end
 
