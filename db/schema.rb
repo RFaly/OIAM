@@ -218,7 +218,6 @@ ActiveRecord::Schema.define(version: 2020_07_28_092151) do
     t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "id_sercure"
     t.index ["client_id"], name: "index_offre_jobs_on_client_id"
   end
 
