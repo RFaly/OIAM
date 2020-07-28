@@ -66,7 +66,7 @@ Rails.application.routes.draw do
 	get '/cadre', to: 'candidates#main', as: 'main_cadre'
   get '/cadre/inscription-candidat', to: 'candidates#tmp_sign_up', as: 'tmp_sign_up'
   post '/cadre/go-inscription', to: 'candidates#tmp_create_sign_up', as: 'tmp_create_sign_up'
-  
+
   # list menu dans le dashbord candidat
   get '/cadre/mon_profil', to: 'candidates#my_profil', as: 'my_profil'
   get '/cadre/mon_profil/edit', to: 'candidates#edit_profil', as: 'edit_profil'
@@ -76,7 +76,8 @@ Rails.application.routes.draw do
 
   get '/cadre/mon_profil/offres', to: 'candidates#searchJob', as: 'searchJob'
   get '/cadre/mon_profil/offres-favorites', to: 'candidates#favoriteJob', as: 'favoriteJob'
-
+  get '/cadre/mon_profil/recherche/:id/offre', to: 'candidates#showSearchJob', as: 'showSearchJob'
+  post '/cadre/mon_profil/:id/me-postuler', to: 'candidates#apply_for_job', as: 'apply_for_job'
   post '/cadre/mon_profil/add-offres-favorites', to: 'candidates#addToFavoriteJob', as: 'addToFavoriteJob'
   delete '/cadre/mon_profil/remove-offres-favorites', to: 'candidates#removeToFavoriteJob', as: 'removeToFavoriteJob'
 

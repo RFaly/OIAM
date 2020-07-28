@@ -1,4 +1,5 @@
 class OffreJob < ApplicationRecord
+	before_create :set_default_id_secure
 	belongs_to :client
 	
 	has_many :promise_to_hires
@@ -29,4 +30,15 @@ class OffreJob < ApplicationRecord
 	def is_in_my_favorite(cadre)
 		return FavoriteJob.find_by(offre_job:self, cadre:cadre)
 	end
+
+	private
+
+  def set_default_id_secure
+    if self.id_secure.blank?
+      self.id_secure = SecureRandom.urlsafe_base64.to_s
+    end
+  end
+
 end
+
+# rails generate migration add_id_sercure_to_offre_jobs id_sercure:string

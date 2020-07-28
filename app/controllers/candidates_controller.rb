@@ -16,11 +16,6 @@ class CandidatesController < ApplicationController
   end
 
   def tmp_create_sign_up
-    puts "~~~~"*43
-    puts params.inspect
-    puts "~~~~"*43
-    puts post_params_tmp.inspect
-    puts "~~~~"*43
     @cadreInfo = CadreInfo.new(post_params_tmp)
     if @cadreInfo.save
       cookies.encrypted[:oiam_cadre] = {
@@ -33,12 +28,6 @@ class CandidatesController < ApplicationController
     end
   end
 
-# test: <%= cookies.encrypted[:oiam_cadre].nil? %>
-# cookies.encrypted[:oiam_cadre]
-# a = JSON.generate({name:'google'})
-# JSON.parse(a)
-
-# dashbord
   def my_profil
     validate_info_cadre
   end
@@ -108,6 +97,17 @@ class CandidatesController < ApplicationController
     @offres = OffreJob.where(is_publish:true)
 	end
 
+  def showSearchJob
+    @offre = OffreJob.find_by_id(params[:id])
+    if @offre.nil?
+      flash[:alert] = "Offre non disponible"
+      redirect_back(fallback_location: root_path)
+    elsif @offre.is_publish == false
+      flash[:alert] = "Offre non disponible"
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
 	def favoriteJob
     validate_info_cadre
     @offres = OffreJob.joins(:favorite_jobs).where(favorite_jobs:{cadre_id:current_cadre.id})
@@ -152,6 +152,13 @@ class CandidatesController < ApplicationController
       end
     end
   end
+
+  def apply_for_job
+    puts "~~~"*54
+    puts params.inspect
+    puts "~~~"*54
+  end
+
 
 	def recrutmentMonitoring
     validate_info_cadre

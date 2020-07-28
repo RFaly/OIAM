@@ -75,8 +75,6 @@ class RecruteursController < ApplicationController
 		end
 	end
 
-
-# alksdjmfkflsdjmlfkqjmlf
 	def editJob
 		@offre = OffreJob.find(params[:id])
 	end
@@ -84,12 +82,13 @@ class RecruteursController < ApplicationController
 	def updateJob
 		@offre = OffreJob.find(params[:id])
 	end
-# alksdjmfkflsdjmlfkqjmlf
-
-
 
 	def showNewJob
-		@offre = OffreJob.find(params[:id])
+		@offre = OffreJob.find_by_id(params[:id])
+		if @offre.client != current_client
+			flash[:alert] = "Offre non disponible"
+			redirect_back(fallback_location: root_path)
+		end
 	end
 
 	def publish
