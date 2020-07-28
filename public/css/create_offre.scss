@@ -1,0 +1,93 @@
+@import 'config';
+@import 'pagemenu';
+// line travel create offre
+.create-offre-box {
+  text-align: center;
+  .travel-creation {
+    background: green;
+    margin: 0 auto;
+    .circle {
+      background-color: $secondary_element_color;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font: 600 16px roboto, sans-serif;
+      border-radius: 50%;
+      color: white;
+    }
+    .line {
+      content: ' ';
+      align-self: center;
+      height: 2px;
+      background-color: $secondary_element_color;
+    }
+    .travelc-image {
+      display: flex;
+    }
+    ol {
+      margin-top: 10px;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+    }
+    .color-bg {
+      background-color: $main_theme_color;
+    }
+  }
+  // end line
+  .detail-post-box {
+    background: red;
+    padding: 20px;
+    margin: 35px 0;
+    .dp-input {
+      background: blue;
+      width: 35%;
+      margin: 0 auto;
+      margin-bottom: 20px;
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        text-align: center;
+        border: none;
+        padding: 10px 0;
+        border-radius: 0;
+      }
+    }
+    .dp-input-renumeration {
+      width: 90%;
+    }
+  }
+  .context-offre-box {
+    background: yellow;
+    padding: 20px;
+    margin: 35px 0;
+  }
+  .co-select {
+    background: rgb(251, 251, 252) url('/image/dropdown.png') no-repeat right 1.75rem center/17px 17px;
+    &::before {
+      content: ' ';
+      background-color: rgb(241, 12, 241);
+      height: 100px;
+      width: 200px;
+      position: absolute;
+      z-index: 20;
+      top: 52px;
+      left: 100px;
+    }
+  }
+  .faffafa {
+    position: relative;
+    &::before {
+      content: ' ';
+      position: absolute;
+      right: 0;
+      background: purple;
+      width: 11px;
+      height: 100%;
+    }
+  }
+}
