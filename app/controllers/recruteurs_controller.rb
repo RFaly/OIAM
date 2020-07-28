@@ -101,7 +101,9 @@ class RecruteursController < ApplicationController
 	end
 
 	def  search_candidate
-
+		@offre = OffreJob.find(params[:id])
+		@topCinqs = []
+		@cadres = Cadre.joins(:cadre_info).where("cadre_infos.empty = ?",false)
 	end
 #Mes candidats favoris
 	def favorite_candidates
