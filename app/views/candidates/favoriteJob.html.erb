@@ -4,6 +4,34 @@
 	</div>
 
 	<div class="col-sm-9">
-		<h1>Mes offre favorie</h1>
+		<div id="list-resultats">
+		<% unless @offres.empty? %>
+			<% @offres.each do |offre| %>
+				<div class="row">
+					<div class="col-sm-3">
+						<% unless offre.image.nil? %>
+							<%= image_tag(offre.image, alt: 'logo entreprise', width:"250px")%>
+						<% end %>		
+					</div>
+					<div class="col-sm-7">
+						<h2><%= offre.intitule_pote %></h2>
+						<p><%= offre.contrat_cdi ? "CDI" : "CDD" %> <br>
+						<%= offre.client.entreprise.postal_code %>, <%= offre.client.entreprise.city %><br>
+						<%= offre.descriptif_mission %><br>
+						</p>
+					</div>
+					<div class="col-sm-2">
+						<%= link_to "Voir L'offre", showNewJob_path(offre.id) %>
+					</div>
+				</div>
+				<hr>
+			<% end %>
+		<% else %>
+			<p class="alert success" >
+				Pour ajouter des offres d'emploi au favori cliquer sur le bouton : <img src="/image/Vector-22.png" alt="logo oiam non favorie" width="30px" style="background-color: #b7bdc3ed;"> <br>
+				Pour retirer cliquer sur le bouton : <img src="/image/Vector-24.png" alt="logo oiam non favorie" width="30px">
+			</p>
+		<% end %>
+		</div>
 	</div>
 </div>
