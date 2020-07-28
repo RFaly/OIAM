@@ -1,34 +1,18 @@
-<style type="text/css">
-  .sign_up{
-    margin: 40px;
-  }
-</style>
-
-<div class="sign_up">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-    <div class="form-group row">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'Identifiant', class:'form-control' %>
-    </div>
-
-    <div class="form-group row">
-      <%= f.password_field :password, autocomplete: "current-password", placeholder:'Mot de passe', class:'form-control' %>
-    </div>
-
-    <% if devise_mapping.rememberable? %>
-      <div class="form-check row">
-        <%= f.check_box :remember_me, class:'form-check-input' %>
-        <%= f.label :remember_me, 'Se souvenir de moi', class:'form-check-label' %>
+<!-- appel log-cadre.css  -->
+<link rel="stylesheet" href="/css/log_cadre.css" />
+<!-- body html login  -->
+<div class="log-page">
+  <div class="form-log">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <form class="log-form">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'IDENTIFIANT', class:'log-input' %> <%= f.password_field :password, autocomplete: "current-password", placeholder:'MOT DE PASSE', class:'log-input' %> <%= f.submit "SE CONNECTER", class:'log-button' %> <% if
+      devise_mapping.rememberable? %>
+      <div class="log-rem custom-control custom-switch">
+        <%= f.check_box :remember_me, class:'custom-control-input', id:'switch1' %> <%= f.label :remember_me, 'Se souvenir de moi', class:'custom-control-label', for:'switch1' %>
       </div>
+      <% end %>
+      <p class="log-message">Pas encore de compte? <%= link_to "S'inscrire", tmp_sign_up_path %></p>
+    </form>
     <% end %>
-
-    <div class="row">
-      <div class="col-sm-6">
-        <%= link_to "S'INSCRIRE", tmp_sign_up_path, class:'btn btn-secondary' %>
-      </div>
-      <div class="col-sm-6">
-        <%= f.submit "SE CONNECTER", class:'btn btn-primary' %>
-      </div>
-    </div>
-  <% end %>
+  </div>
 </div>

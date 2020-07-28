@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-  before_action :authenticate_cadre!, only: [:confirmedProfil,:edit_profil, :my_profil, :searchJob, :favoriteJob, :recrutmentMonitoring]
+  before_action :authenticate_cadre!, only: [:confirmedProfil,:edit_profil, :my_profil, :searchJob, :favoriteJob, :recrutmentMonitoring, :getLastMessage]
   before_action :validate_cadre, only: [:my_tests, :testpotential, :testskills, :testfit, :resultatsTest]
   before_action :current_info_cadre, only: [:my_profil, :edit_profil, :confirmedProfil]
 
@@ -28,17 +28,12 @@ class CandidatesController < ApplicationController
     end
   end
 
-# test: <%= cookies.encrypted[:oiam_cadre].nil? %>
-# cookies.encrypted[:oiam_cadre]
-# a = JSON.generate({name:'google'})
-# JSON.parse(a)
-
-# dashbord
   def my_profil
     validate_info_cadre
   end
 
-  def my_tests
+  def main_test
+    validate_info_cadre
   end
 
   def edit_profil
@@ -46,7 +41,7 @@ class CandidatesController < ApplicationController
 
   def confirmedProfil
     errorMessage = ""
-    
+
     is_error = params[:cadre_info][:question1].empty? || params[:cadre_info][:question2].empty? || params[:cadre_info][:question3].empty? || params[:cadre_info][:question4].empty? || params[:cadre_info][:question5].empty? || params[:cadre_info][:status].empty?
     if is_error
       errorMessage += " [ Tous les champs sont obligatoire ] "
@@ -100,17 +95,95 @@ class CandidatesController < ApplicationController
 
 	def searchJob
     validate_info_cadre
+    @offres = OffreJob.where(is_publish:true)
 	end
+
+  def showSearchJob
+    @offre = OffreJob.find_by_id(params[:id])
+    if @offre.nil?
+      flash[:alert] = "Offre non disponible"
+      redirect_back(fallback_location: root_path)
+    elsif @offre.is_publish == false
+      flash[:alert] = "Offre non disponible"
+      redirect_back(fallback_location: root_path)
+    end
+  end
 
 	def favoriteJob
     validate_info_cadre
+    @offres = OffreJob.joins(:favorite_jobs).where(favorite_jobs:{cadre_id:current_cadre.id})
 	end
+
+  def addToFavoriteJob
+    @offre = OffreJob.find_by_id(params[:id])
+    @favoriteJob = FavoriteJob.find_by(offre_job: @offre, cadre: current_cadre)
+    if @offre.nil?
+      redirect_to wellcome_path
+    else
+      if @favoriteJob.nil?
+        @favoriteJob = FavoriteJob.create(offre_job: @offre, cadre: current_cadre)
+      end
+      respond_to do |format|
+        format.html do
+          redirect_to searchJob_path
+        end
+        format.js do
+
+        end
+      end
+    end
+  end
+
+  def removeToFavoriteJob
+    @offre = OffreJob.find_by_id(params[:id])
+    if @offre.nil?
+      redirect_to welcome_path
+    else
+      @favoriteJob = FavoriteJob.find_by(offre_job: @offre, cadre: current_cadre)
+      unless @favoriteJob.nil?
+        @favoriteJob.destroy
+      end
+      respond_to do |format|
+        format.html do
+          redirect_to searchJob_path
+        end
+        format.js do
+
+        end
+      end
+    end
+  end
+
+  def apply_for_job
+    offre = OffreJob.find_by_id(params[:id])
+    if offre.nil?
+      redirect_back(fallback_location: root_path)
+    else
+      offre_for_candidate = OffreForCandidate.find_by(offre_job:offre,cadre:current_cadre)
+      if offre_for_candidate.nil?
+        OffreForCandidate.create(offre_job:offre,cadre:current_cadre)
+      end
+    end
+  end
+
+#mes offre réçues
+  def received_job
+    
+  end
 
 	def recrutmentMonitoring
     validate_info_cadre
 	end
 
+  def notifications
+    
+  end
+
 # 3 test de recrutement
+
+  def my_tests
+  end
+
   def testpotential
   end
 
@@ -123,6 +196,70 @@ class CandidatesController < ApplicationController
 # Resultat test
   def resultatsTest
   end
+
+#~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~~~~~
+  def my_messages
+    @clients = Client.all
+    @contactListes = current_cadre.contact_client_cadres
+  end
+
+  def show_my_messages
+    @client = Client.find_by_id(params[:id])
+    @contact = ContactClientCadre.where(client: @client, cadre:current_cadre)
+    if @contact.count == 0
+      @contact = ContactClientCadre.create(client: @client, cadre:current_cadre)
+    else
+      @contact = @contact.first
+    end
+    #marquer tous comme lue
+    @contact.message_client_cadres.where(cadre_see:false).update(cadre_see:true)
+    @messages = @contact.message_client_cadres.order(created_at: :ASC)
+    @newMessage = MessageClientCadre.new
+  end
+
+  def post_my_message
+    @client = Client.find_by_id(params[:message_client_cadre][:client_id])
+    @contact = ContactClientCadre.find_by_id(params[:message_client_cadre][:contact_id])
+    @content = params[:message_client_cadre][:content]
+    @newMessage = MessageClientCadre.new(content:@content, cadre_see: true,contact_client_cadre: @contact,is_client:false)
+
+    respond_to do |format|
+      format.html do
+        if @newMessage.save
+          @contact.message_client_cadres.update(cadre_see:true)
+          redirect_to zshowMessages_path(@client.id)
+        else
+          flash[:alert] = @newMessage.errors.details
+          redirect_to zshowMessages_path(@client.id)
+        end
+      end
+      format.js do
+        if @newMessage.save
+          @contact.message_client_cadres.update(cadre_see:true)
+          @errors = false
+        else
+          flash[:alert] = @newMessage.errors.details
+          redirect_to zshowMessages_path(@client.id)
+        end
+      end
+    end
+  end
+
+  def getLastMessage
+    @client = Client.find_by_id(params[:client_id])
+    @contact = ContactClientCadre.find_by_id(params[:contact_id])
+    if @contact.nil?
+      @messages = []
+    else
+      if @contact.client == @client && @contact.cadre == current_cadre
+        @messages = @contact.message_client_cadres.order(created_at: :ASC).last(50)
+      else
+        @messages = []
+      end
+    end
+  end
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   private
 
@@ -143,7 +280,7 @@ class CandidatesController < ApplicationController
   end
 
   def post_params_tmp
-    params.require(:cadre_info).permit(:first_name,:adresse,:postal_code,:city,:situation,:telephone,:mail)
+    params.require(:cadre_info).permit(:last_name,:first_name,:adresse,:postal_code,:city,:situation,:telephone,:mail)
   end
  
   def post_params

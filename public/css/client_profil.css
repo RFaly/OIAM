@@ -1,12 +1,20 @@
-.client-profil-column {
+.client-column {
   display: flex;
+  flex-wrap: nowrap;
   padding: 20px 0;
 }
 
 .cp-box {
   width: 100%;
+  min-height: 80vh;
   padding-top: 15px;
   border-left: 1px solid #d6b36a;
+}
+
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .cp-table-box {
@@ -30,7 +38,8 @@
 }
 
 .cp-table-box h5 {
-  font: 500 20px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
+  font-size: 20px;
 }
 
 .cp-table-box p {
@@ -89,7 +98,7 @@
 }
 
 .cp-table-box .table-td .cp-infos-r .cpr-name {
-  font: 500 20px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   margin-bottom: 20px;
 }
 
@@ -143,7 +152,7 @@
   color: #d6b36a;
   border: 2px solid #d6b36a;
   padding: 12px 50px;
-  font: 500 20px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 .cp-table-box .cp-link a:hover, .cp-table-box .cp-link a:active {

@@ -1,0 +1,26 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+  border-left: 1px solid $main_theme_color;
+}
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+// <div class="client-column">
+//   <div class="client-menu-left">
+//     <%= render "recruteurs/left_link_bar" %>
+//   </div>
+//   <div class="cp-box">
+//        <div class="box-inside">
+//        </div>
+//   </div>
+//  </div>

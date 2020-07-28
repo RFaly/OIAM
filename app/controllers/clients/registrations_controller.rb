@@ -26,13 +26,17 @@ class Clients::RegistrationsController < Devise::RegistrationsController
     if params[:entreprise_site].empty?
       errorsList.push("Champ SITE INTERNET obligatoire.")
     end
-    if params[:entreprise_description].empty?
+    if params[:entreprise_description].nil?
+      errorsList.push("Champ DESCRIPTION DE VOTRE ACTIVITÉ obligatoire")
+    elsif params[:entreprise_description].empty?
       errorsList.push("Champ DESCRIPTION DE VOTRE ACTIVITÉ obligatoire")
     end
     if params[:postal_code].empty?
       errorsList.push("Champ code postal obligatoire")
     end
-    if params[:city].nil? || params[:city].empty?
+    if params[:city].nil?
+      errorsList.push("Champ ville obligatoire")
+    elsif params[:city].empty?
       errorsList.push("Champ ville obligatoire")
     end
     if params[:code_naf].empty?

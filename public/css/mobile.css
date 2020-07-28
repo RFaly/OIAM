@@ -94,7 +94,7 @@
     width: 90%;
   }
   .accueil-recruteur .title-ar {
-    font: 500 20px Raleway, sans-serif;
+    font: 500 18px Raleway, sans-serif;
   }
   .accueil-recruteur .ar-item p {
     text-align: justify;
@@ -114,7 +114,7 @@
   }
   .travel-parcours ol {
     width: 400px;
-    font: 500 20px Raleway, sans-serif;
+    font: 500 18px Raleway, sans-serif;
     font-size: 12px;
   }
   .phone-number-add .before-number {
@@ -173,6 +173,44 @@
   .cp-table-box .cpe-description,
   .cp-table-box .cpe-naf {
     text-align: center;
+  }
+  .cp-edit-table-box .cp-edit-form {
+    width: 100%;
+  }
+  .cp-edit-table-box td {
+    padding: 5px 0px;
+  }
+  .cp-edit-table-box .table-td {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .cp-edit-table-box .table-td .cp-infos-r {
+    width: 90%;
+  }
+  .cp-edit-table-box .table-td .cp-infos-r input {
+    width: 100%;
+  }
+  .cp-edit-table-box .table-td .cpr-r img {
+    left: 6%;
+  }
+  .cp-edit-table-box .table-td .cpr-r .add {
+    right: 2%;
+  }
+  .cp-edit-table-box .cp-flex-t {
+    flex-direction: column;
+  }
+  .cp-edit-table-box .cp-icon-text img {
+    left: 35px;
+  }
+  .cp-edit-table-box .cpe-description,
+  .cp-edit-table-box .cpe-naf {
+    text-align: center;
+  }
+  .coj-box {
+    flex-wrap: wrap;
+  }
+  .coj-box .cjo-content {
+    width: 50%;
   }
 }
 
@@ -286,6 +324,24 @@
   .cp-table-box .cpe-description,
   .cp-table-box .cpe-naf {
     text-align: left;
+  }
+  .cp-edit-table-box .table-td {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .cp-edit-table-box .table-td .cp-infos-r {
+    width: 50%;
+  }
+  .cp-edit-table-box .cp-flex-t {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .cp-edit-table-box .cp-icon-text img {
+    left: -5px;
+  }
+  .coj-box .cjo-content {
+    width: 40%;
   }
 }
 
@@ -421,7 +477,7 @@
     align-items: flex-end;
   }
   .accueil-recruteur .title-ar {
-    font: 500 20px Raleway, sans-serif;
+    font: 500 18px Raleway, sans-serif;
     font-size: 16px;
   }
   .accueil-recruteur .ar-vertical-line {
@@ -503,6 +559,32 @@
   .cp-table-box .cp-icon-text img {
     left: -40px;
   }
+  .cp-edit-table-box .table-td {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+  .cp-edit-table-box .table-td #cp-edit-form,
+  .cp-edit-table-box .table-td #recruteur-mail,
+  .cp-edit-table-box .table-td #recruteur-phone {
+    width: 60%;
+  }
+  .cp-edit-table-box .table-td .cp-infos-r {
+    width: 70%;
+  }
+  .cp-edit-table-box .table-td .cpr-r img {
+    left: 10%;
+  }
+  .cp-edit-table-box .table-td .cpr-r .add {
+    left: 20%;
+  }
+  .cp-edit-table-box .cp-flex-t {
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    justify-content: space-between;
+  }
+  .cp-edit-table-box .cp-icon-text img {
+    left: 1px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -565,6 +647,26 @@
     width: 72%;
   }
   .cp-table-box .table-td .cpr-r img {
+    left: 25%;
+  }
+  .cp-edit-table-box td {
+    padding: 5px 30px;
+  }
+  .cp-edit-table-box .table-td {
+    justify-content: space-between;
+  }
+  .cp-edit-table-box .table-td #cp-edit-form,
+  .cp-edit-table-box .table-td #recruteur-mail,
+  .cp-edit-table-box .table-td #recruteur-phone {
+    width: 50%;
+  }
+  .cp-edit-table-box .table-td .cp-infos-r {
+    width: 72%;
+  }
+  .cp-edit-table-box .table-td .cpr-r img {
+    left: 12%;
+  }
+  .cp-edit-table-box .table-td .cpr-r .add {
     left: 25%;
   }
 }

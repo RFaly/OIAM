@@ -75,8 +75,6 @@ class RecruteursController < ApplicationController
 		end
 	end
 
-
-# alksdjmfkflsdjmlfkqjmlf
 	def editJob
 		@offre = OffreJob.find(params[:id])
 	end
@@ -84,12 +82,13 @@ class RecruteursController < ApplicationController
 	def updateJob
 		@offre = OffreJob.find(params[:id])
 	end
-# alksdjmfkflsdjmlfkqjmlf
-
-
 
 	def showNewJob
-		@offre = OffreJob.find(params[:id])
+		@offre = OffreJob.find_by_id(params[:id])
+		if @offre.client != current_client
+			flash[:alert] = "Offre non disponible"
+			redirect_back(fallback_location: root_path)
+		end
 	end
 
 	def publish
@@ -102,7 +101,9 @@ class RecruteursController < ApplicationController
 	end
 
 	def  search_candidate
-
+		@offre = OffreJob.find(params[:id])
+		@topCinqs = []
+		@cadres = Cadre.joins(:cadre_info).where("cadre_infos.empty = ?",false)
 	end
 #Mes candidats favoris
 	def favorite_candidates
@@ -220,9 +221,78 @@ class RecruteursController < ApplicationController
 
 	end
 
-#Messages
-	# def method_name
-	# end
+
+#~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~~~~~
+  def my_messages
+    @candidats = Cadre.all
+    @contactListes = current_client.contact_client_cadres
+  end
+=begin
+	<h2>Liste de tous les CADRES dans le site</h2>
+	<% @candidats.each do |cadre| %>
+		<div>
+			<a href="<%= rzshowMessages_path(cadre.id) %>">
+			<%= cadre.cadre_info.first_name %> <%= cadre.cadre_info.last_name %>
+			</a>
+		</div>
+	<% end %>
+=end
+
+  def show_my_messages
+    @cadre = Cadre.find_by_id(params[:id])
+    @contact = ContactClientCadre.where(cadre: @cadre, client:current_client)
+    if @contact.count == 0
+      @contact = ContactClientCadre.create(cadre: @cadre, client:current_client)
+    else
+      @contact = @contact.first
+    end
+		@contact.message_client_cadres.where(client_see:false).update(client_see:true)
+    @messages = @contact.message_client_cadres.order(created_at: :ASC)
+    @newMessage = MessageClientCadre.new
+  end
+
+  def post_my_message
+    @cadre = Cadre.find_by_id(params[:message_client_cadre][:cadre_id])
+    @contact = ContactClientCadre.find_by_id(params[:message_client_cadre][:contact_id])
+    @content = params[:message_client_cadre][:content]
+    @newMessage = MessageClientCadre.new(content: @content, client_see: true,contact_client_cadre: @contact,is_client:true)
+		respond_to do |format|
+      format.html do
+        if @newMessage.save
+        	@contact.message_client_cadres.update(client_see:true)
+		      redirect_to rzshowMessages_path(@cadre.id)
+		    else
+		      flash[:alert] = @newMessage.errors.details
+		      redirect_to rzshowMessages_path(@cadre.id)
+		    end
+      end
+      format.js do
+        if @newMessage.save
+        	@contact.message_client_cadres.update(client_see:true)
+          @errors = false
+        else
+          flash[:alert] = @newMessage.errors.details
+		      redirect_to rzshowMessages_path(@cadre.id)
+        end
+      end
+    end
+  end
+
+  def getLastMessage
+    @cadre = Cadre.find_by_id(params[:cadre_id])
+    @contact = ContactClientCadre.find_by_id(params[:contact_id])
+    if @contact.nil?
+      @messages = []
+    else
+      if @contact.client == current_client && @contact.cadre == @cadre
+        @messages = @contact.message_client_cadres.order(created_at: :ASC).last(50)
+      else
+        @messages = []
+      end
+    end
+  end
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	private
 

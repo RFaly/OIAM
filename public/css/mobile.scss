@@ -211,6 +211,52 @@
       text-align: center;
     }
   }
+  // client edit profil
+  .cp-edit-table-box {
+    .cp-edit-form {
+      width: 100%;
+    }
+    td {
+      padding: 5px 0px;
+    }
+    .table-td {
+      flex-wrap: wrap;
+      justify-content: center;
+      .cp-infos-r {
+        width: 90%;
+        input {
+          width: 100%;
+        }
+      }
+      .cpr-r {
+        img {
+          left: 6%;
+        }
+        .add {
+          right: 2%;
+        }
+      }
+    }
+    .cp-flex-t {
+      flex-direction: column;
+    }
+    .cp-icon-text {
+      img {
+        left: 35px;
+      }
+    }
+    .cpe-description,
+    .cpe-naf {
+      text-align: center;
+    }
+  }
+  // mes offres d emploi :
+  .coj-box {
+    flex-wrap: wrap;
+    .cjo-content {
+      width: 50%;
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -347,6 +393,33 @@
     .cpe-description,
     .cpe-naf {
       text-align: left;
+    }
+  }
+  // client edit profil
+  // client edit profil
+  .cp-edit-table-box {
+    .table-td {
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      .cp-infos-r {
+        width: 50%;
+      }
+    }
+    .cp-flex-t {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .cp-icon-text {
+      img {
+        left: -5px;
+      }
+    }
+  }
+  // mes offres d emploi :
+  .coj-box {
+    .cjo-content {
+      width: 40%;
     }
   }
 }
@@ -608,6 +681,40 @@
       }
     }
   }
+  // client edit profil
+  .cp-edit-table-box {
+    .table-td {
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      // padding-left: 50px;
+      #cp-edit-form,
+      #recruteur-mail,
+      #recruteur-phone {
+        width: 60%;
+      }
+      .cp-infos-r {
+        width: 70%;
+      }
+      .cpr-r {
+        img {
+          left: 10%;
+        }
+        .add {
+          left: 20%;
+        }
+      }
+    }
+    .cp-flex-t {
+      flex-direction: row;
+      flex-wrap: no-wrap;
+      justify-content: space-between;
+    }
+    .cp-icon-text {
+      img {
+        left: 1px;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -699,6 +806,31 @@
       }
       .cpr-r {
         img {
+          left: 25%;
+        }
+      }
+    }
+  }
+  // client edit profil
+  .cp-edit-table-box {
+    td {
+      padding: 5px 30px;
+    }
+    .table-td {
+      #cp-edit-form,
+      #recruteur-mail,
+      #recruteur-phone {
+        width: 50%;
+      }
+      justify-content: space-between;
+      .cp-infos-r {
+        width: 72%;
+      }
+      .cpr-r {
+        img {
+          left: 12%;
+        }
+        .add {
           left: 25%;
         }
       }

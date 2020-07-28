@@ -346,15 +346,30 @@ body {
 }
 
 .directeur-marketing {
+  position: relative;
+  font-size: 18px;
   display: block;
   margin: auto;
   width: 288px;
   height: 47px;
   border: 2px solid #d6b36a;
-  background: none;
+  background: no-repeat right 10px center url(/image/dropdown.png);
   color: #d6b36a;
   padding-left: 25px;
   margin-top: 41px;
+  text-transform: uppercase;
+  -webkit-appearance: button; 
+  -moz-appearance: button; 
+  appearance: button;
+}
+
+.directeur-marketing option{
+  background-color: #e3d7bf;
+}
+
+
+select option{
+  text-transform: uppercase;
 }
 
 .skills-title {
@@ -373,7 +388,7 @@ body {
 }
 
 #directeur-marketing img {
-  margin-left: 30px;
+  position: absolute;
 }
 
 .cadre {
@@ -383,3 +398,5 @@ body {
 .trait1::after {
   background: #f0f2f4;
 }
+
+

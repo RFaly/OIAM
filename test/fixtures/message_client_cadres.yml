@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyString
+  cadre_see: false
+  client_see: false
+
+two:
+  content: MyString
+  cadre_see: false
+  client_see: false

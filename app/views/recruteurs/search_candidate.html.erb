@@ -1,18 +1,71 @@
+<style type="text/css">
+	.flex-candidates{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+	.candidates{
+		width: 100px;
+		height: 150px;
+		border: 3px solid #d6b36a;
+	}
+	#boutton-bottom{
+		margin-top: 98px;
+		padding: 5px;
+	    color: #d6b36a;
+	    font-size: 25px;
+	    border-color: #d6b36a;
+	    border: 3px solid #d6b36a;
+	    display: inline-block;
+	}
+</style>
+
 <div class="row">
 	<div class="col-sm-3">
 		<%= render partial: "recruteurs/left_link_bar" %>
 	</div>
 
 	<div class="col-sm-9">
+		<table class="table">
+			<tr>
+				<td>Localisation</td>
+				<td>Fonction</td>
+				<td>Rémunération</td>
+				<td>Disponibilité</td>
+				<td>Recherche</td>
+			</tr>
+		</table>	
+
+		<div class="flex-candidates">
+		<% 5.times do |i| %>
+			<% if @topCinqs[i].nil? %>
+				<div class="candidates">
+
+				</div>
+			<% else %>
+				<div class="candidates">
+					
+				</div>
+			<% end %>
+		<% end %>
+			<div>
+				<span id="boutton-bottom">Valider ma selection</span>	
+			</div>
+		</div>
 		
-		Localisation
-		Fonction
-		Rémunération
-		Disponibilité
+		<hr>
 
-		Recherche
-
-		Valider ma selection
+		<div class="flex-candidates">
+			<% @cadres.each do |cadre| %>
+			<div>
+				<div>
+				<%= image_tag(cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px")%>
+				</div>
+				<center><%= cadre.cadre_info.first_name %> <%= cadre.cadre_info.last_name[0].upcase %>.</center><br>
+				<center>Compatibilité : 60%</center><br>
+			</div>
+			<% end %>
+		</div>
 
 	</div>
 </div>

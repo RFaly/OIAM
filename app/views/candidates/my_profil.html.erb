@@ -8,7 +8,7 @@
 		<div class="row">
 			<div class="col-sm-3">
 				<% unless @cadre.image.nil? %>
-					<%= image_tag(@cadre.image, alt: 'photo de profil', class:'photo_ako')%> <br>
+					<%= image_tag(@cadre.image, alt: 'photo de profil', width:"150px" )%> <br>
 				<% end %>
 				<p>
 				<%= @cadre.last_name %> <%= @cadre.first_name %> <br>
