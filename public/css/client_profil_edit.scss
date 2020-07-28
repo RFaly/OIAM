@@ -129,7 +129,9 @@
         }
         .add {
           position: absolute;
+          width: 50px;
           top: 4px;
+          z-index: 0;
         }
       }
     }

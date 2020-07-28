@@ -575,7 +575,7 @@
     left: 10%;
   }
   .cp-edit-table-box .table-td .cpr-r .add {
-    right: 21%;
+    left: 20%;
   }
   .cp-edit-table-box .cp-flex-t {
     flex-direction: row;
@@ -667,6 +667,6 @@
     left: 12%;
   }
   .cp-edit-table-box .table-td .cpr-r .add {
-    right: 26%;
+    left: 25%;
   }
 }

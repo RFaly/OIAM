@@ -162,7 +162,9 @@
 
 .cp-edit-table-box .table-td .cp-infos-r .cpr-r .add {
   position: absolute;
+  width: 50px;
   top: 4px;
+  z-index: 0;
 }
 
 .cp-edit-table-box .cp-entreprise-name input {
