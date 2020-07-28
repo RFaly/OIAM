@@ -1,25 +1,22 @@
-<center><h2>CREATION DE COMPTE</h2></center>
+<link rel="stylesheet" type="text/css" href="/css/inscription_cadre.css">
+<div class="content">
+  <h2 class="content-title">CREATION DE COMPTE</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "cadres/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "cadres/shared/error_messages", resource: resource %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "IDENTIFIANT", value: @email, required: true, placeholder:"IDENTIFIANT", class:"champs" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> caractères minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", required: true, class:"champs", placeholder: 'MOT DE PASSE' %>
 
-  <div class="form-group">
-    <%= f.email_field :email, autofocus: true, autocomplete: "IDENTIFIANT", value: @email, required: true, placeholder:"IDENTIFIANT", class:"form-control" %>
-  </div>
 
-  <div class="form-group">
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> caractères minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", required: true, class:"form-control", placeholder: 'MOT DE PASSE' %>
-  </div>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true, class:"champs", placeholder:"CONFIRMATION DU MOT DE PASSE" %>
 
-  <div class="form-group">
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true, class:"form-control", placeholder:"CONFIRMATION DU MOT DE PASSE" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "VALIDER", class:"btn btn-primary" %>
-  </div>
+    <div class="actions">
+      <%= f.submit "VALIDER", class:"valider" %>
+    </div>
+  <% end %>
+</div>
 
-<% end %>
