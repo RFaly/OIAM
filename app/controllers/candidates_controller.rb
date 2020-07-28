@@ -154,11 +154,16 @@ class CandidatesController < ApplicationController
   end
 
   def apply_for_job
-    puts "~~~"*54
-    puts params.inspect
-    puts "~~~"*54
+    offre = OffreJob.find_by_id(params[:id])
+    if offre.nil?
+      redirect_back(fallback_location: root_path)
+    else
+      offre_for_candidate = OffreForCandidate.find_by(offre_job:offre,cadre:current_cadre)
+      if offre_for_candidate.nil?
+        OffreForCandidate.create(offre_job:offre,cadre:current_cadre)
+      end
+    end
   end
-
 
 	def recrutmentMonitoring
     validate_info_cadre

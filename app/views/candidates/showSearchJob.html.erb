@@ -24,6 +24,8 @@
 
 				<% if @offre.contrat_cdi %>
 					Contrat CDI
+				<% else %>
+					Contrat CDD
 				<% end %>
 
 			</div>
@@ -77,14 +79,19 @@
 			</p>
 		</div>
 
-		<div id="link-to-send-post">
-			<%= link_to "POSTULER", apply_for_job_path(id:@offre.id), method: :post, remote: true, id:'send-candidature', class:'btn btn-primary' %>
-		</div>
-
-		<div id="modal-ajax-bull" style="display: none; background-color: #e3b465;">
-			Votre demande d'entretien a été envoyée <br>
-			<center id="plus-plus"> ... </center>
-		</div>
+		<% if @offre.is_in_this_job(current_cadre).nil? %>
+			<div id="link-to-send-post">
+				<%= link_to "POSTULER", apply_for_job_path(id:@offre.id), method: :post, remote: true, id:'send-candidature', class:'btn btn-primary' %>
+			</div>
+			<div id="modal-ajax-bull" style="display: none; background-color: #e3b465;">
+				Votre demande d'entretien a été envoyée <br>
+				<center id="plus-plus"> ... </center>
+			</div>
+		<% else %>
+			<div>
+				<span class="btn btn-primary">VOUS ÊTES POSTULÉ À CETTE OFFRE</span>
+			</div>
+		<% end %>
 
 	</div>
 

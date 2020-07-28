@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_065907) do
+ActiveRecord::Schema.define(version: 2020_07_28_092151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -191,6 +191,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_065907) do
     t.bigint "cadre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "accepted_postule", default: false
     t.index ["cadre_id"], name: "index_offre_for_candidates_on_cadre_id"
     t.index ["offre_job_id"], name: "index_offre_for_candidates_on_offre_job_id"
   end

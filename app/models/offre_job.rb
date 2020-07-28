@@ -31,6 +31,10 @@ class OffreJob < ApplicationRecord
 		return FavoriteJob.find_by(offre_job:self, cadre:cadre)
 	end
 
+	def is_in_this_job(cadre)
+		return OffreForCandidate.find_by(offre_job:self,cadre:cadre)
+	end
+
 	private
 
   def set_default_id_secure
