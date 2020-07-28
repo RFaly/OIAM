@@ -1,27 +1,33 @@
-<div class="row">
-	<div class="col-sm-3">
-		<%= render partial: "recruteurs/left_link_bar" %>
-	</div>
-
-	<div class="col-sm-9">
-		<%= link_to "PUBLIER UNE OFFRE", newJob_path %>
-		<!-- <h1>Mes offres d’emploi</h1> -->
-		<% if @offres.empty? %>
-			<p>Vous n'avez pas publié d'offre d'emploi pour le moment.</p>
-			<%= link_to "PUBLIER UNE OFFRE", newJob_path %>
-		<% else %>
-			<table class="table table-hover">
-			  <tbody>
-				<% @offres.each do |offre| %>
-				    <tr>
-				    	<td><%= offre.intitule_pote %></td>
-				    	<td>
-							<%= link_to "VOIR L'OFFRE", showNewJob_path(offre.id), class: 'btn btn-primary' %>
-						</td>
-				    </tr>
-				<% end %>
-			  </tbody>
-			</table>
-		<% end %>
-	</div>
+<!-- call css  -->
+<link rel="stylesheet" href="/css/my_job_offre.css" />
+<!-- body html  -->
+<div class="client-column">
+  <div class="client-menu-left">
+    <%= render "recruteurs/left_link_bar" %>
+  </div>
+  <div class="cp-box">
+    <div class="box-inside">
+      <% if @offres.empty? %>
+      <div class="co-any-job">
+        <p>Vous n'avez pas publié d'offre d'emploi pour le moment.</p>
+        <%= link_to "PUBLIER UNE OFFRE", newJob_path %>
+      </div>
+      <% else %>
+      <div class="co-with-job">
+        <h5>Mes offres d'emploi</h5>
+        <% @offres.each do |offre| %>
+        <div class="coj-box">
+          <div class="cjo-image">
+            <img src="/image/work.png" alt="icone work" />
+          </div>
+          <div class="cjo-content"><%= offre.intitule_pote %></div>
+          <div class="cjo-link">
+            <%= link_to "VOIR L'OFFRE", showNewJob_path(offre.id)%>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>

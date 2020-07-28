@@ -1,0 +1,78 @@
+@import 'config';
+@import 'pagemenu';
+
+.co-any-job {
+  font: $ffsentence;
+  padding: 10px;
+  width: 70%;
+  height: 250px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 2px solid $main_theme_color;
+  margin-top: 150px;
+  text-align: center;
+  a {
+    font: $ffbtn;
+    color: $main_theme_color;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 2px solid $main_theme_color;
+    &:hover,
+    &:active {
+      background: $main_theme_color;
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+.co-with-job {
+  padding: 5px;
+  h5 {
+    text-align: center;
+    font: $ffbtn;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+  .coj-box {
+    margin: 50px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .cjo-image {
+      width: 30px;
+      img {
+        width: 100%;
+      }
+    }
+    .cjo-content {
+      // width: 30%;
+      font: $ffsentence;
+      color: $main_theme_color;
+    }
+    .cjo-link {
+      font: $ffbtn;
+      padding: 10px 10px;
+      border: 2px solid $main_theme_color;
+      &:hover,
+      &:active {
+        background: $main_theme_color;
+        text-decoration: none;
+        a {
+          color: white;
+        }
+      }
+      a {
+        font: $ffbtn;
+        padding: 10px 20px;
+
+        color: $main_theme_color;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

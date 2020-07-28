@@ -11,6 +11,12 @@
   border-left: 1px solid #d6b36a;
 }
 
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
 .cp-table-box {
   width: 90%;
   margin: 0 auto;

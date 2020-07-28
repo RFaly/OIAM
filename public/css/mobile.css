@@ -206,6 +206,12 @@
   .cp-edit-table-box .cpe-naf {
     text-align: center;
   }
+  .coj-box {
+    flex-wrap: wrap;
+  }
+  .coj-box .cjo-content {
+    width: 50%;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -333,6 +339,9 @@
   }
   .cp-edit-table-box .cp-icon-text img {
     left: -5px;
+  }
+  .coj-box .cjo-content {
+    width: 40%;
   }
 }
 

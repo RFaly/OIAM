@@ -250,6 +250,13 @@
       text-align: center;
     }
   }
+  // mes offres d emploi :
+  .coj-box {
+    flex-wrap: wrap;
+    .cjo-content {
+      width: 50%;
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -407,6 +414,12 @@
       img {
         left: -5px;
       }
+    }
+  }
+  // mes offres d emploi :
+  .coj-box {
+    .cjo-content {
+      width: 40%;
     }
   }
 }

@@ -73,7 +73,7 @@
               <div class="cpe-ville">
                 <h5 class="cp-icon-text"><img src="/image/city.png" alt="ville icon" class="cp-icone" /> Ville</h5>
 
-                <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="city" type="text" name="city" id="city" value="<%= @entreprise.city %>" placeholder="Ville" readonly />
+                <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="city" type="text" name="city" id="city" value="<%= @entreprise.city %>" placeholder="Ville" readonly style="opacity: 0.5;" />
               </div>
             </div>
           </td>
@@ -99,7 +99,9 @@
             <div class="cpe-description">
               <h5 class="cp-icon-text"><img src="/image/description.png" alt="description icon" class="cp-icone number" />Description</h5>
 
-              <textarea class="cp-edit-form" required="required" autocomplete="entreprise_description" type="text" name="entreprise_description" id="entreprise_description" autofocus="autofocus" placeholder="Description de votre activité" readonly><%= @entreprise.description %></textarea>
+              <textarea class="cp-edit-form" required="required" autocomplete="entreprise_description" type="text" name="entreprise_description" id="entreprise_description" autofocus="autofocus" placeholder="Description de votre activité" readonly style="opacity: 0.5;">
+                <%= @entreprise.description %>
+              </textarea>
             </div>
           </td>
         </tr>
