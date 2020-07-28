@@ -1,5 +1,4 @@
 class OffreJob < ApplicationRecord
-	before_create :set_default_id_secure
 	belongs_to :client
 	
 	has_many :promise_to_hires
@@ -35,13 +34,13 @@ class OffreJob < ApplicationRecord
 		return OffreForCandidate.find_by(offre_job:self,cadre:cadre)
 	end
 
-	private
-
-  def set_default_id_secure
-    if self.id_secure.blank?
-      self.id_secure = SecureRandom.urlsafe_base64.to_s
-    end
-  end
+	# private
+	# before_create :set_default_id_secure
+ #  def set_default_id_secure
+ #    if self.id_secure.blank?
+ #      self.id_secure = SecureRandom.urlsafe_base64.to_s
+ #    end
+ #  end
 
 end
 
