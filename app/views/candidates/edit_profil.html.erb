@@ -16,13 +16,14 @@
 			<div class="slide">
 				<%=f.range_field :question4, :min=>60, :max=>350,required:true, class:"intervalle", id:"slide" %><span id="value" class="value"></span>
 			</div>
-			
+
 
 			<%= f.label :question5, "Parlez-nous de vous ?", class:"label-content" %>
 			<%= f.text_area :question5, required:true, rows:3, class:"champs" %>
-			
+
 
 			<%= f.select(:status, ['STATUS',' ',' '], {}, { :class => 'btn-recherche' }) %>
+      <div id="cv-filename"></div>
 			<div class="image-cv">
 				<div id="import-cv">
 					<p class="importe-cv">CV</p>
@@ -30,7 +31,7 @@
 						<%= f.label :cv, "Telecharger", class:"cv-label"%>
 						<%= f.file_field :cv, class:"cv-champs" %>
 					</div>
-				</div>	
+				</div>
 				<div class="pdp">
 					<% unless @cadre.image.nil? %>
 					<%= image_tag(@cadre.image, alt: 'photo de profil', id:'addImage', class:"add-image" )%> <br>
@@ -41,9 +42,10 @@
 				<%= f.file_field :image, class:"image_add" %>
 				</div>
 			</div>
-			
-			<%= f.submit 'APERÇU', :class => 'apercu' %>
-			
+      <div class="btn-apercu">
+        <%= f.submit 'APERÇU', :class => 'apercu' %>
+      </div>
+
 	<% end %>
 </div>
 
@@ -64,5 +66,3 @@
 </script>
 
 <script type="text/javascript" src="/js/edit_profil_cadre.js"></script>
-
-
