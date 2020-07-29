@@ -11,7 +11,10 @@ $(document).ready(function () {
     check_none($(this), $('#entreprise-postal-error'), $('#city'));
   });
   $('#entreprise_siret').focusout(function () {
-    check_nil($(this), $('#entreprise-siret-error'));
+    check_siret($(this), $('#entreprise-siret-error'));
+  });
+  $('#entreprise_siret').on('input', function () {
+    verifyNumber($(this).val(), $('#entreprise-siret-error'));
   });
   $('#entreprise_site').focusout(function () {
     check_nil($(this), $('#entreprise-site-error'));
@@ -38,7 +41,7 @@ $(document).ready(function () {
     check_phone($(this), $('#recruteur-phone-error'));
   });
   $('#recruteur-phone').on('input', function () {
-    verifyPhone($(this).val());
+    verifyNumber($(this).val(), $('#recruteur-phone-error'));
   });
   ////////////////////////////////////////////////////
   ////////////////////////////////////
@@ -169,6 +172,19 @@ function check_mail(testee, value) {
     value.show();
   }
 }
+// fonction check siret
+function check_siret(testee, value) {
+  var siret = testee.val().split(' ').join('').length;
+  if (siret == 14) {
+    value.hide();
+  } else if (siret < 14) {
+    value.html('(Le numero de SIRET doit avoir au moins 14 caractères.)');
+    value.show();
+  } else {
+    value.html('(Le numero de SIRET ne doit pas dépasser 14 caractères.)');
+    value.show();
+  }
+}
 //  fonction check phone
 function check_phone(testee, value) {
   var checkspace = testee.val().split(' ').join('');
@@ -179,14 +195,14 @@ function check_phone(testee, value) {
     value.show();
   }
 }
-
-function verifyPhone(phone) {
+// Verify number
+function verifyNumber(Number, error) {
   var pathern2 = /^[\d\s]+$/;
-  if (pathern2.test(phone)) {
-    $('#recruteur-phone-error').hide();
+  if (pathern2.test(Number)) {
+    error.hide();
   } else {
-    $('#recruteur-phone-error').html('(Veuillez saisir uniquement des chiffres ou des espaces)');
-    $('#recruteur-phone-error').show();
+    error.html('(Veuillez saisir uniquement des chiffres ou des espaces)');
+    error.show();
   }
 }
 
