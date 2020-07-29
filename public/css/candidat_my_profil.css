@@ -1,0 +1,222 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 18px;
+}
+
+body{
+  font-family: 'Questrial', sans-serif;
+  margin: 0;
+  line-height: 1.5;
+}
+
+
+.content{
+  margin: auto;
+}
+
+.main{
+  margin: 30px;
+}
+
+.pdp{
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+
+.user_name{
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: 50px;
+}
+
+.block-left p{
+  text-align: center;
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+.block-left{
+  margin-bottom: 30px;
+}
+
+.block-left span{
+  color: #D6B36A;
+  margin-left: 5px;
+}
+
+.questionnaire-title{
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.questionnaire{
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.questionnaire p{
+  text-align: justify;
+  opacity: .7;
+}
+
+.btn-edit{
+  display: block;
+  margin: auto;
+  width: 250px;
+  height: 50px;
+  border: 1px solid #D6B36A;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #D6B36A;
+  margin-bottom: 30px;
+}
+
+
+.btn-edit:hover{
+  text-decoration: none;
+  background: #D6B36A;
+  color: #ffffff;
+}
+
+.block-button{
+  display: block;
+  margin: auto;
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+
+
+@media only screen and (min-width: 800px){
+  .block-button{
+    margin-left: 25%;
+  }
+
+  .btn-edit{
+    display: inline-block;
+    margin-left: 50px;
+  }
+}
+
+@media only screen and (min-width: 900px){
+  .content{
+    display: flex;
+  }
+
+  .main{
+    display: flex;
+  }
+
+  .block-left{
+    padding-right: 50px;
+  }
+
+  .block-left p{
+    line-height: 40px;
+  }
+
+  .btn-edit{
+    display: inline-block;
+  }
+
+  .block-button{
+    width: 100%;
+  }
+
+  .block-left{
+    padding-left: 20px;
+    border-left: 1px solid #D6B36A;
+  }
+
+  .main{
+    margin-left: 0;
+  }
+}
+
+@media only screen and (min-width: 900px){
+  .btn-edit{
+    display: inline-block;
+    margin-left: 10%;
+  }
+
+  .block-button{
+    width: 100%;
+    float: right;
+  }
+
+}
+
+
+@media only screen and (min-width: 1024px){
+  .content{
+    padding-right: 50px;
+  }
+
+  .btn-edit{
+    display: inline-block;
+    margin-left: 5%;
+  }
+
+  .block-button{
+    display: block;
+    margin: auto;
+  }
+}
