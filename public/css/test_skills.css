@@ -10,7 +10,7 @@ html {
 
 body {
   font-family: 'Questrial', sans-serif;
-  line-height: 1.2;
+  line-height: 25px;
   margin: 0;
 }
 
@@ -288,7 +288,7 @@ body {
 
   body {
     font-family: 'Questrial', sans-serif;
-    line-height: 1.2;
+    line-height: 25px;
     margin: 0;
   }
 
@@ -318,7 +318,7 @@ body {
 
   body {
     font-family: 'Questrial', sans-serif;
-    line-height: 1.2;
+    line-height: 25px;
     margin: 0;
   }
 
@@ -332,7 +332,7 @@ body {
     display: block;
     margin: auto;
     width: 870px;
-    height: 1200x;
+    height: 1250px;
     padding: 26px 77px 90px 77px;
     background-color: #e3d7bf;
     margin-top: 50px;
@@ -353,14 +353,15 @@ body {
   width: 288px;
   height: 47px;
   border: 2px solid #d6b36a;
-  background: no-repeat right 10px center url(/image/dropdown.png);
+  background: no-repeat right 10px center url(/image/dropdown2.png);
+  background-size: 25px;
   color: #d6b36a;
   padding-left: 25px;
   margin-top: 41px;
   text-transform: uppercase;
-  -webkit-appearance: button; 
-  -moz-appearance: button; 
-  appearance: button;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .directeur-marketing option{
@@ -391,12 +392,8 @@ select option{
   position: absolute;
 }
 
-.cadre {
-  height: 1200px;
-}
+
 
 .trait1::after {
   background: #f0f2f4;
 }
-
-
