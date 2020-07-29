@@ -4,20 +4,38 @@ $(document).ready(function () {
   $('#entreprise_name').focusout(function () {
     check_name($(this), $('#entreprise-name-error'));
   });
+  // adress
   $('#entreprise_adresse').focusout(function () {
     check_nil($(this), $('#entreprise-adress-error'));
   });
+  // postal check
   $('#postal_code').on('input', function () {
-    check_none($(this), $('#entreprise-postal-error'), $('#city'));
+    check_none($(this), $('#entreprise-postal-error') , $('#city'));
   });
+  $('#postal_code').focusout(function () {
+    check_nil($(this), $('#entreprise-postal-error'));
+  });
+  // siret check
   $('#entreprise_siret').focusout(function () {
-    check_nil($(this), $('#entreprise-siret-error'));
+    check_siret($(this), $('#entreprise-siret-error'));
   });
+  $('#entreprise_siret').on('input', function () {
+    verifyNumber($(this).val(), $('#entreprise-siret-error'));
+  });
+  // site check
   $('#entreprise_site').focusout(function () {
     check_nil($(this), $('#entreprise-site-error'));
   });
+  // code naf check
+  $('#code_naf').focusout(function () {
+    check_nil($(this), $('#code-naf-error'));
+  });
   $('#code_naf').on('input', function () {
     check_none($(this), $('#code-naf-error'), $('#entreprise_description'));
+    check_inside_list($(this));
+  });
+  $('#code_naf').focus(function () {
+     add_list();
   });
 
   ////////////////////////////////////
@@ -25,20 +43,24 @@ $(document).ready(function () {
   $('#recruteur-last-name').focusout(function () {
     check_name($(this), $('#recruteur-last-name-error'));
   });
+  // first name
   $('#recruteur-first-name').focusout(function () {
     check_name($(this), $('#recruteur-first-name-error'));
   });
+  // fonction
   $('#recruteur-fonction').focusout(function () {
     check_nil($(this), $('#recruteur-fonction-error'));
   });
+  // check mail
   $('#recruteur-mail').focusout(function () {
     check_mail($(this), $('#recruteur-mail-error'));
   });
+  // check phone
   $('#recruteur-phone').focusout(function () {
     check_phone($(this), $('#recruteur-phone-error'));
   });
   $('#recruteur-phone').on('input', function () {
-    verifyPhone($(this).val());
+    verifyNumber($(this).val(), $('#recruteur-phone-error'));
   });
   ////////////////////////////////////////////////////
   ////////////////////////////////////
@@ -46,9 +68,11 @@ $(document).ready(function () {
   $('#email-r').focusout(function () {
     check_mail($(this), $('#email-r-error'));
   });
+  // check password
   $('#password-r').focusout(function () {
     check_pass($(this), $('#password-r-error'));
   });
+  // check confirmation
   $('#cpass-r').focusout(function () {
     check_cpass($(this), $('#cpass-r-error'));
   });
@@ -60,7 +84,7 @@ $(document).ready(function () {
       $('#entreprise_name').val().length > 1 &&
       $('#entreprise_adresse').val().length > 1 &&
       $('#postal_code').val().length > 1 &&
-      $('#entreprise_siret').val().length > 1 &&
+      $('#entreprise_siret').val().split(' ').join('').length == 14 &&
       $('#entreprise_site').val().length > 1 &&
       $('#code_naf').val().length > 1 &&
       $('#entreprise_description').val() != "Aucune description d'entreprise correspondante!!" &&
@@ -103,6 +127,19 @@ $(document).ready(function () {
     }
   });
 });
+/////////////////////////////////////////////////
+// submit 4 validation
+$('#cpe-submit').hover(function () {
+  if ($('#entreprise_description').val() != "Aucune description d'entreprise correspondante!!" && $('#city').val() != 'Aucune ville correspondante!!' && $('#recruteur-phone').val().split(' ').join('').length == 9) {
+    $('#submit-error4').hide();
+
+    $(this).prop('disabled', false);
+  } else {
+    $('#submit-error4').html('(Verifié les erreurs dans les remplissage de champ!!)');
+    $('#submit-error4').show();
+    $(this).prop('disabled', true);
+  }
+});
 
 ////////////////////////////////////////////////////
 // fonction check name
@@ -142,7 +179,9 @@ function check_nil(test, value) {
   if (name < 3) {
     value.html('(Champ obligatoire)');
     value.show();
+    $('#code-naf-list').css('display','none');
   } else {
+    $('#code-naf-list').css('display','none');
     value.hide();
   }
 }
@@ -156,6 +195,19 @@ function check_mail(testee, value) {
     value.show();
   }
 }
+// fonction check siret
+function check_siret(testee, value) {
+  var siret = testee.val().split(' ').join('').length;
+  if (siret == 14) {
+    value.hide();
+  } else if (siret < 14) {
+    value.html('(Le numero de SIRET doit avoir au moins 14 caractères.)');
+    value.show();
+  } else {
+    value.html('(Le numero de SIRET ne doit pas dépasser 14 caractères.)');
+    value.show();
+  }
+}
 //  fonction check phone
 function check_phone(testee, value) {
   var checkspace = testee.val().split(' ').join('');
@@ -166,35 +218,56 @@ function check_phone(testee, value) {
     value.show();
   }
 }
-
-function verifyPhone(phone) {
+// Verify number
+function verifyNumber(Number, error) {
   var pathern2 = /^[\d\s]+$/;
-  if (pathern2.test(phone)) {
-    $('#recruteur-phone-error').hide();
+  if (pathern2.test(Number)) {
+    error.hide();
   } else {
-    $('#recruteur-phone-error').html('(Veuillez saisir uniquement des chiffres ou des espaces)');
-    $('#recruteur-phone-error').show();
+    error.html('(Veuillez saisir uniquement des chiffres ou des espaces)');
+    error.show();
   }
 }
 
 // fonction check description
-function check_none(test, value, check) {
+function check_none(test, value,check) {
   var nameCity = 'Aucune ville correspondante!!';
   var description = "Aucune description d'entreprise correspondante!!";
   var name = test.val().length;
   if (name < 3) {
-    value.html('(Champ obligatoire)');
-    value.show();
     check.css('outline', '1px solid red');
     check.css('box-shadow', '.5px 1px 10px 1px red');
   } else {
-    value.hide();
     if (check.val() == description || check.val() == nameCity) {
       check.css('outline', '1px solid red');
       check.css('box-shadow', '.5px 1px 10px 1px red');
+      value.html('(Code invalide)');
+      value.show();
     } else {
+      value.hide();
       check.css('outline', 'none');
       check.css('box-shadow', 'none');
+    }
+  }
+}
+// fonction add data in list 
+function add_list(){
+  var list = $('#code-naf-list');
+  list.css('display', 'block');
+  for (var i = 0; i < code_naf.length; i++) {
+    list.append('<li class="code-naf-list-item">' + code_naf[i].code + ' ' + code_naf[i].info + '</li>');
+  }
+}
+// fonction find list
+function check_inside_list(test){
+  var filter = test.val();
+  var list_li = $('.code-naf-list-item');
+  for (i = 0; i < list_li.length; i++) {
+    txtValue = list_li[i].textContent || list_li[i].innerText;
+    if (txtValue.indexOf(filter) > -1) {
+      list_li[i].style.display = "";
+    } else {
+      list_li[i].style.display = "none";
     }
   }
 }

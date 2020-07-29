@@ -5,7 +5,7 @@
 }
 
 .accueil-recruteur .title-ar {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .accueil-recruteur .title-ar span {
@@ -15,8 +15,9 @@
 }
 
 .accueil-recruteur p {
-  font: 16px Questrial, sans-serif;
-  margin-top: 10px;
+  font: 15px Questrial, sans-serif;
+  margin: 2px 0;
+  line-height: 1.5;
 }
 
 .accueil-recruteur .accueil-r-btn {
@@ -27,7 +28,7 @@
 
 .accueil-recruteur .accueil-r-btn a {
   background-color: #e3d7bf;
-  padding: 10px 30px;
+  padding: 12px 35px;
   font: 500 18px Raleway, sans-serif;
   text-transform: uppercase;
   text-decoration: none;
@@ -37,7 +38,7 @@
 .accueil-recruteur .accueil-r-btn a:hover, .accueil-recruteur .accueil-r-btn a:active {
   text-decoration: none;
   background-color: white;
-  box-shadow: 1px 1px 10px 1px rgba(227, 215, 191, 0.63);
+  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
   color: #e3d7bf;
 }
 

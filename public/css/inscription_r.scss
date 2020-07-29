@@ -157,6 +157,7 @@
     background-color: $main_theme_color;
   }
 }
+// line parcours end
 .details-r.open {
   display: block;
 }
@@ -179,5 +180,19 @@
     font-size: 14px;
     position: absolute;
     left: 4px;
+  }
+}
+
+.code-naf-list {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  max-height: 300px;
+  overflow-y: auto;
+  display: none;
+  .code-naf-list-item {
+    list-style: none;
+    padding: 0.75rem 1.25rem;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-top: 0px;
   }
 }
