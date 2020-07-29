@@ -4,39 +4,55 @@ $(document).ready(function () {
   $('#entreprise_name').focusout(function () {
     check_name($(this), $('#entreprise-name-error'));
   });
+  // adress
   $('#entreprise_adresse').focusout(function () {
     check_nil($(this), $('#entreprise-adress-error'));
   });
+  // postal check
   $('#postal_code').on('input', function () {
-    check_none($(this), $('#entreprise-postal-error'), $('#city'));
+    check_none($(this), $('#entreprise-postal-error') , $('#city'));
   });
+  $('#postal_code').focusout(function () {
+    check_nil($(this), $('#entreprise-postal-error'));
+  });
+  // siret check
   $('#entreprise_siret').focusout(function () {
     check_siret($(this), $('#entreprise-siret-error'));
   });
   $('#entreprise_siret').on('input', function () {
     verifyNumber($(this).val(), $('#entreprise-siret-error'));
   });
+  // site check
   $('#entreprise_site').focusout(function () {
     check_nil($(this), $('#entreprise-site-error'));
+  });
+  // code naf check
+  $('#code_naf').focusout(function () {
+    check_nil($(this), $('#code-naf-error'));
   });
   $('#code_naf').on('input', function () {
     check_none($(this), $('#code-naf-error'), $('#entreprise_description'));
   });
+  
 
   ////////////////////////////////////
   // details recruteur validation
   $('#recruteur-last-name').focusout(function () {
     check_name($(this), $('#recruteur-last-name-error'));
   });
+  // first name
   $('#recruteur-first-name').focusout(function () {
     check_name($(this), $('#recruteur-first-name-error'));
   });
+  // fonction
   $('#recruteur-fonction').focusout(function () {
     check_nil($(this), $('#recruteur-fonction-error'));
   });
+  // check mail
   $('#recruteur-mail').focusout(function () {
     check_mail($(this), $('#recruteur-mail-error'));
   });
+  // check phone
   $('#recruteur-phone').focusout(function () {
     check_phone($(this), $('#recruteur-phone-error'));
   });
@@ -49,9 +65,11 @@ $(document).ready(function () {
   $('#email-r').focusout(function () {
     check_mail($(this), $('#email-r-error'));
   });
+  // check password
   $('#password-r').focusout(function () {
     check_pass($(this), $('#password-r-error'));
   });
+  // check confirmation
   $('#cpass-r').focusout(function () {
     check_cpass($(this), $('#cpass-r-error'));
   });
@@ -63,7 +81,7 @@ $(document).ready(function () {
       $('#entreprise_name').val().length > 1 &&
       $('#entreprise_adresse').val().length > 1 &&
       $('#postal_code').val().length > 1 &&
-      $('#entreprise_siret').val().length > 1 &&
+      $('#entreprise_siret').val().split(' ').join('').length == 14 &&
       $('#entreprise_site').val().length > 1 &&
       $('#code_naf').val().length > 1 &&
       $('#entreprise_description').val() != "Aucune description d'entreprise correspondante!!" &&
@@ -207,21 +225,21 @@ function verifyNumber(Number, error) {
 }
 
 // fonction check description
-function check_none(test, value, check) {
+function check_none(test, value,check) {
   var nameCity = 'Aucune ville correspondante!!';
   var description = "Aucune description d'entreprise correspondante!!";
   var name = test.val().length;
   if (name < 3) {
-    value.html('(Champ obligatoire)');
-    value.show();
     check.css('outline', '1px solid red');
     check.css('box-shadow', '.5px 1px 10px 1px red');
   } else {
-    value.hide();
     if (check.val() == description || check.val() == nameCity) {
       check.css('outline', '1px solid red');
       check.css('box-shadow', '.5px 1px 10px 1px red');
+      value.html('(Code invalide)');
+      value.show();
     } else {
+      value.hide();
       check.css('outline', 'none');
       check.css('box-shadow', 'none');
     }
