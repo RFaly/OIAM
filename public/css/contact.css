@@ -1,5 +1,5 @@
 .contact-us {
-  width: 90%;
+  width: 80%;
   margin: 60px auto;
   margin-top: 15px;
   background-color: rgba(240, 242, 244, 0.7);
@@ -15,8 +15,8 @@
 
 .contact-us input,
 .contact-us textarea {
-  font: 16px Questrial, sans-serif;
-  margin-bottom: 20px;
+  font: 15px Questrial, sans-serif;
+  margin-bottom: 15px;
   width: 100%;
   border-radius: 0;
   padding: 8px;
@@ -29,11 +29,10 @@
   border-radius: none;
   outline: none;
   outline: 2px solid #d6b36a;
-  padding: 12px;
 }
 
 .contact-us .textarea {
-  height: 100px;
+  height: 80px;
 }
 
 .contact-us .sub {

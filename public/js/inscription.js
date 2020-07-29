@@ -103,6 +103,19 @@ $(document).ready(function () {
     }
   });
 });
+/////////////////////////////////////////////////
+// submit 4 validation
+$('#cpe-submit').hover(function () {
+  if ($('#entreprise_description').val() != "Aucune description d'entreprise correspondante!!" && $('#city').val() != 'Aucune ville correspondante!!' && $('#recruteur-phone').val().split(' ').join('').length == 9) {
+    $('#submit-error4').hide();
+
+    $(this).prop('disabled', false);
+  } else {
+    $('#submit-error4').html('(Verifié les erreurs dans les remplissage de champ!!)');
+    $('#submit-error4').show();
+    $(this).prop('disabled', true);
+  }
+});
 
 ////////////////////////////////////////////////////
 // fonction check name

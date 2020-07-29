@@ -1,0 +1,153 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+  border-left: 1px solid #d6b36a;
+}
+
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.create-offre-box {
+  text-align: center;
+}
+
+.create-offre-box .travel-creation {
+  background: green;
+  margin: 0 auto;
+}
+
+.create-offre-box .travel-creation .circle {
+  background-color: #f0f2f4;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 16px roboto, sans-serif;
+  border-radius: 50%;
+  color: white;
+}
+
+.create-offre-box .travel-creation .line {
+  content: ' ';
+  align-self: center;
+  height: 2px;
+  background-color: #f0f2f4;
+}
+
+.create-offre-box .travel-creation .travelc-image {
+  display: flex;
+}
+
+.create-offre-box .travel-creation ol {
+  margin-top: 10px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.create-offre-box .travel-creation .color-bg {
+  background-color: #d6b36a;
+}
+
+.create-offre-box .detail-post-box {
+  background: red;
+  padding: 20px;
+  margin: 35px 0;
+}
+
+.create-offre-box .detail-post-box #offre_job_contrat_cdi {
+  width: 40px;
+}
+
+.create-offre-box .detail-post-box #dp-date {
+  background: #f0f2f4 url("/image/calendar.png") no-repeat right 1rem center/21px 24px;
+}
+
+.create-offre-box .detail-post-box .dp-input {
+  background: blue;
+  width: 35%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.create-offre-box .detail-post-box .dp-input input,
+.create-offre-box .detail-post-box .dp-input select,
+.create-offre-box .detail-post-box .dp-input textarea {
+  width: 100%;
+  text-align: center;
+  border: none;
+  padding: 10px 0;
+  border-radius: 0;
+}
+
+.create-offre-box .detail-post-box .dp-input input:focus,
+.create-offre-box .detail-post-box .dp-input select:focus,
+.create-offre-box .detail-post-box .dp-input textarea:focus {
+  border-radius: none;
+  outline: 1px solid #d6b36a;
+  box-shadow: 1px 1px 5px 1px #d6b36a;
+}
+
+.create-offre-box .detail-post-box .dp-input input,
+.create-offre-box .detail-post-box .dp-input textarea {
+  background: #f0f2f4;
+}
+
+.create-offre-box .detail-post-box .dp-input textarea {
+  height: 70px;
+}
+
+.create-offre-box .detail-post-box .dp-input-renumeration {
+  font: 500 18px Raleway, sans-serif;
+  width: 90%;
+}
+
+.create-offre-box .detail-post-box .dp-input-renumeration .dp-input-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.create-offre-box .detail-post-box .dp-input-renumeration input {
+  width: 90%;
+}
+
+.create-offre-box .detail-post-box .dp-input-renumeration input:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.create-offre-box .context-offre-box {
+  background: yellow;
+  padding: 20px;
+  margin: 35px 0;
+}
+
+.create-offre-box .co-select {
+  background: #f0f2f4 url("/image/dropdown.png") no-repeat right 1rem center/21px 18px;
+}
+
+.create-offre-box .hide-right {
+  position: relative;
+}
+
+.create-offre-box .hide-right::before {
+  content: ' ';
+  position: absolute;
+  right: 0;
+  background: #f0f2f4;
+  width: 14px;
+  height: 100%;
+}

@@ -31,7 +31,7 @@
 
 .equipe-box .eq-box-eq {
   background-color: white;
-  box-shadow: 1px 1px 10px 1px rgba(227, 215, 191, 0.63);
+  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
 }
 
 .equipe-box .eq-box-eq .eq-image {
@@ -55,7 +55,7 @@
 }
 
 .equipe-box .eq-box-eq .eq-content .eq-des {
-  font: 16px Questrial, sans-serif;
+  font: 15px Questrial, sans-serif;
 }
 
 .equipe-box .box-spec {

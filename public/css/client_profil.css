@@ -43,12 +43,17 @@
 }
 
 .cp-table-box p {
-  font: 16px Questrial, sans-serif;
+  font: 15px Questrial, sans-serif;
 }
 
 .cp-table-box .cp-icone {
   width: 21px;
   height: 21px;
+}
+
+.cp-table-box .cpr-i-mail {
+  width: 20px;
+  height: 16px;
 }
 
 .cp-table-box .cp-flex {
@@ -75,7 +80,7 @@
   height: 200px;
   padding: 10px;
   background-color: white;
-  box-shadow: 1px 1px 10px 1px rgba(227, 215, 191, 0.63);
+  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
 }
 
 .cp-table-box .cp-pprofil img {

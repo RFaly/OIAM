@@ -48,7 +48,7 @@
                 <span class="add">(+33)</span>
                 <p class="cpr-name">
                   <%= f.text_field :telephone, autofocus: true, class:"cp-edit-form", autocomplete: "telephone", required: true, placeholder: 'Téléphone',id:"recruteur-phone" ,maxlength:"16"%>
-                  <span class="input-error" id="recruteur-phone-error"></span>
+                  <br /><span class="input-error" id="recruteur-phone-error"></span>
                 </p>
               </div>
             </div>
@@ -118,7 +118,8 @@
         <tr>
           <td>
             <div class="cp-link">
-              <input type="submit" value="Sauvegarder" />
+              <input type="submit" value="Sauvegarder" id="cpe-submit" />
+              <br /><span id="submit-error4"></span>
             </div>
           </td>
         </tr>

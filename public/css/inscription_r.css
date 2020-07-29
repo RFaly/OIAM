@@ -20,7 +20,7 @@
   padding: 10px;
   background-color: #f0f2f4;
   text-align: center;
-  font: 16px Questrial, sans-serif;
+  font: 15px Questrial, sans-serif;
 }
 
 .details-r .dr-item:focus {
@@ -73,7 +73,7 @@
 }
 
 .details-r-condition p {
-  font: 16px Questrial, sans-serif;
+  font: 15px Questrial, sans-serif;
   text-align: center;
 }
 
@@ -94,7 +94,7 @@
 
 .details-r-condition .condition-content .dc-1 {
   margin: 20px 0;
-  font: 16px Questrial, sans-serif;
+  font: 15px Questrial, sans-serif;
   font-size: 12px;
 }
 
@@ -115,7 +115,7 @@
 
 .details-r-condition .condition-check label {
   margin-left: 10px;
-  font: 16px Questrial, sans-serif;
+  font: 15px Questrial, sans-serif;
 }
 
 .dr-btn {
@@ -198,7 +198,7 @@
 }
 
 .phone-number-add .before-number {
-  box-shadow: 1px 1px 10px 1px rgba(227, 215, 191, 0.63);
+  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
   background-color: #c4c4c4c4;
   color: rgba(255, 255, 255, 0.8);
   font: 500 18px Raleway, sans-serif;
