@@ -96,7 +96,8 @@ html{
      -moz-appearance: button;
      appearance: button;
      font-size: 16px;
-     background: no-repeat right 10px center url(/image/dropdown.png);
+     background: no-repeat right 10px center url(/image/dropdown2.png);
+		 background-size: 25px;
      text-align: center;
      color: #D6B36A;
   }
@@ -120,7 +121,8 @@ html{
     width: 35px;
     height: 30px;
     background-color: transparent;
-    background:no-repeat right 10px center url(/image/dropdown.png);
+    background:no-repeat right 10px center url(/image/dropdown2.png);
+		background-size: 25px;
     border: none;
   }
 
@@ -131,7 +133,8 @@ html{
     width: 35px;
     height: 50px;
     background-color: transparent;
-    background:no-repeat right 10px center url(/image/dropdown.png);
+    background:no-repeat right 10px center url(/image/dropdown2.png);
+		background-size: 25px;
     border: none;
   }
 
@@ -145,7 +148,7 @@ html{
       position: absolute;
       text-align: center;
       top: 50px;
-      left: -0.8%;
+      left: -1%;
       width: 40px;
       height: 30px;
       padding: 8px;
@@ -243,7 +246,7 @@ html{
     padding: 15px;
     display: block;
     margin: auto;
-		margin-top: 50px;
+		cursor: pointer;
   }
 
 	.btn-apercu{
@@ -282,7 +285,7 @@ html{
   }
 
 
-	
+
   @media only screen and (min-width: 800px){
     .main{
       margin:  80px;
@@ -344,10 +347,11 @@ html{
     }
 
     .add-image-label{
-      position: relative;
+      position: absolute;
+      top: 0;
+      right: 0;
       display: inline;
-      float: right;
-      top: 30px;
+      top: 60px;
 
     }
 

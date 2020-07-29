@@ -6,6 +6,7 @@ body{
   font-family: 'Questrial', sans-serif;
   margin: 0;
   text-align: justify;
+  line-height: 28px;
 }
 
 
@@ -43,8 +44,9 @@ img{
 .check-gold1{
   position: absolute;
   float: left;
-  width: 50px;
-  height: 50px;
+  width: 42px;
+  height: 42px;
+  margin-top: 10px;
   margin-left: -5px;
 }
 
@@ -84,7 +86,7 @@ img{
   display: block;
   margin: auto;
   width: 300px;
-  height: 340px;
+  height: 390px;
   margin-bottom: 50px;
   padding: 46px 24px 20px 24px;
 }
@@ -106,13 +108,14 @@ img{
 
 .cote-recruteur{
   background-color: #D6B36A;
+  margin-left: 60px;
 }
 
 .methode-oiam{
   display: block;
   margin: auto;
   font-family: 'Raleway', sans-serif;
-  font-weight: 600;
+  font-weight: bold;
   font-size: 20px;
   color: #000;
   text-align: center;
@@ -157,7 +160,7 @@ img{
     margin-top: 50px;
   }
   .methode-oiam{
-    width: 600px;
+    width: 725px;
     margin-bottom: 80px;
   }
 }
@@ -168,6 +171,13 @@ img{
     padding: 0 180px;
     width: 1000px;
     float: right;
+  }
+
+  .notice{
+    display: flex;
+    width: 100%;
+    padding: 0 280px;
+    margin-top: 50px;
   }
 
   .block-right{
@@ -196,7 +206,8 @@ img{
     margin-top: 50px;
     padding: 0 180px;
     width: 1000px;
-    float: right;
+    float: left;
+    margin-left: 25%;
   }
 
   .block-right{

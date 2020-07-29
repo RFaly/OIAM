@@ -137,12 +137,12 @@ table {
 }
 
 html {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 body {
   font-family: 'Questrial', sans-serif;
-  line-height: 1.2;
+  line-height: 1.5;
   margin: 0;
 }
 
@@ -295,7 +295,8 @@ body {
 	}
 
 	.article-title-number{
-		left: -50px;
+		left: -60px;
+		top: -23px;
 	}
 
 
@@ -304,14 +305,15 @@ body {
 		display: block;
 		margin-left: 50%;
 		position: absolute;
-		top: 890px;
+		top: 1015px;
 		width: 1px;
-		height: 640px;
+		height: 770px;
 		background: rgba(51, 51, 51, 0.54);;
 	}
 
 	.goLeft{
-		left: -65px;
+		left: -60px;
+		top: -23px;
 	}
 
 	.btn-inscrire{
