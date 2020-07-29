@@ -37,6 +37,25 @@
     text-transform: uppercase;
     margin-bottom: 50px;
   }
+  .btn-newjob-div {
+    text-align: center;
+    margin: 90px 0;
+
+    .btn-newjob {
+      font: $ffbtn;
+      color: $main_theme_color;
+      padding: 10px 20px;
+      text-decoration: none;
+      text-transform: uppercase;
+      border: 2px solid $main_theme_color;
+      &:hover,
+      &:active {
+        background: $main_theme_color;
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
   .coj-box {
     margin: 50px 5px;
     display: flex;

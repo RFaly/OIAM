@@ -3,6 +3,7 @@
 .navbar-content {
   text-transform: uppercase;
   font: $ffbtn;
+  font-size: 16px;
   .navbar-item {
     list-style: none;
     text-decoration: none;
@@ -46,8 +47,8 @@
 }
 .navbar-logo {
   img {
-    width: 60px;
-    height: 70px;
+    width: 50px;
+    height: 55px;
   }
 }
 nav {

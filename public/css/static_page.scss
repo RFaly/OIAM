@@ -4,7 +4,7 @@
 @import 'config';
 
 .box-1-logo {
-  width: 70%;
+  // width: 70%;
   img {
     width: 100%;
   }
@@ -13,6 +13,9 @@
   width: 80%;
   text-transform: uppercase;
   font: $ffsentence;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  word-spacing: 3px;
 }
 .box-1 {
   height: 100vh;
@@ -23,15 +26,13 @@
 }
 .box-1-btn {
   justify-self: start;
-  align-self: flex-end;
-  margin-right: 10%;
   font: $ffbtn;
   background-color: $secondary_text_color_button;
   padding: 15px 30px;
   text-decoration: none;
   color: white;
   &:hover {
-    box-shadow: 1px 1px 10px 1px rgb(230, 225, 225);
+    box-shadow: 1px 1px 3px 1px rgb(230, 225, 225);
     background-color: rgba(255, 255, 255, 0.8);
     color: $secondary_text_color_button;
     text-decoration: none;

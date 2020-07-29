@@ -32,15 +32,15 @@
         <hr />
         <div class="detail-post-box">
           <label>LOCALISATION</label>
-          <div class="dp-input faffafa">
+          <div class="dp-input hide-right">
             <%= f.select :country, options_for_select([["France", "France"]]),{}, class:'co-select', required:true, id:'paysInput', title:'Pays' %>
           </div>
 
-          <div class="dp-input">
+          <div class="dp-input hide-right">
             <%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région' %>
           </div>
 
-          <div class="dp-input">
+          <div class="dp-input hide-right">
             <%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département' %>
           </div>
 
@@ -59,20 +59,20 @@
             <%= f.text_field :rattachement, required:true, class:"form-control" %>
           </div>
 
+          <%= f.label :remuneration, "RÉMUNÉRATION PROPOSÉE FIXE (K€ BRUTS ANNUELS)" %>
           <div class="dp-input dp-input-renumeration">
-            <%= f.label :remuneration, "RÉMUNÉRATION PROPOSÉE FIXE (K€ BRUTS ANNUELS)" %>
-            <br />
-            <span class="font-weight-bold blue-text ml-2 mt-1">min: 60</span>
-            <%= f.range_field :remuneration, min:60, max:350, required:true, class:"form-control", id:"remuneration"%>
-            <br />
-            <span class="font-weight-bold blue-text ml-2 mt-1">max: 350</span>
-            <br />
+            <div class="dp-input-flex">
+              <span>60</span>
+              <%= f.range_field :remuneration, min:60, max:350, required:true, class:"form-control", id:"remuneration"%>
+
+              <span>350</span>
+            </div>
             <span>current_value: <b id="inputRange">100</b></span>
           </div>
 
           <%= f.label :remuneration_anne, "RÉMUNÉRATION PROPOSÉE VARIABLE(K€ BRUTS ANNUELS)" %>
-          <div class="dp-input">
-            <%= f.number_field :remuneration_anne, required:true, class:"form-control" %>
+          <div class="dp-input hide-right">
+            <%= f.select :remuneration_anne, options_for_select([["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"]]),{}, class:'co-select', required:true, id:'paysInput', title:'Pays' %>
           </div>
 
           <div class="dp-input">
@@ -81,13 +81,13 @@
           </div>
 
           <%= f.label :type_deplacement, "LE POSTE IMPLIQUE-T-IL DES DÉPLACEMENTS?" %>
-          <div class="dp-input">
-            <%= f.select :type_deplacement, options_for_select([["Régionaux","Régionaux"],["Internationaux", "Internationaux"]]), {}, required:true, class:'custom-select' %>
+          <div class="dp-input hide-right">
+            <%= f.select :type_deplacement, options_for_select([["Régionaux","Régionaux"],["Internationaux", "Internationaux"]]), {}, required:true, class:'co-select' %>
           </div>
 
           <%= f.label :type_deplacement, "DATE DE PRISE DE POSTE (date piker)" %>
           <div class="dp-input">
-            <%= f.date_field :date_poste, required:true, min: Date.today %>
+            <%= f.date_field :date_poste, required:true, min: Date.today,id:'dp-date' %>
           </div>
 
           <span class="btn btn-primary">SUIVANT</span>
