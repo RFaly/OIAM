@@ -36,7 +36,7 @@
 					<% unless @cadre.image.nil? %>
 					<%= image_tag(@cadre.image, alt: 'photo de profil', id:'addImage', class:"add-image" )%> <br>
 				<% else %>
-					<img id="addImage" src="src="/image/profie.png"" class="add-image">
+					<img id="addImage" src="src="/image/profile.png"" class="add-image">
 				<% end %>
 				<%= f.label :image, "IMPORTER UNE PHOTO", class:"add-image-label" %>
 				<%= f.file_field :image, class:"image_add" %>

@@ -1,4 +1,16 @@
-<div>
+<!-- appel css user-menu.css  -->
+<link rel="stylesheet" href="/css/user_menu.css" />
+<!-- html body  -->
+<div class="left-menu-r">
+  <div class="btn-menu-r">
+    <span class="btn-menu-burger open"> </span>
+  </div>
+  <div class="left-menu-photo">
+    <% unless @cadre.image.nil? %> <%= image_tag(@cadre.image, alt: 'photo de profil', id:'addImage', class:"add-image" )%> <% else %>
+    	<img id="addImage" src="src="/image/profile.png"" class="add-image">
+    <% end %>
+  </div>
+  <ul class="left-menu-content">
 	<li><%= link_to "MON PROFIL", my_profil_path %></li>
 	<li><%= link_to "MES TESTS", main_test_path %></li>
 	<li><%= link_to "MES OFFRES REÇUES", received_job_path %></li>
@@ -7,4 +19,7 @@
 	<li><%= link_to "MON SUIVI RECRUTEMENT", recrutment_monitoring_path %></li>
 	<li><%= link_to "MES NOTIFICATIONS", cadres_notifications_path %></li>
 	<li><%= link_to "MA MESSAGERIE", my_messages_cadre_path %></li>
+  </ul>
 </div>
+<!-- appel js menu_recruteur.js  -->
+<script data-turbolinks-track="reload" src="/js/menu_recruteur.js"></script>
