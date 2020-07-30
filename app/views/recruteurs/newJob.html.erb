@@ -46,28 +46,30 @@
 
           <%= f.label :intitule_pote, "INTITULÉ DU POSTE" %>
           <div class="dp-input">
-            <%= f.text_field :intitule_pote, required:true, class:"form-control" %>
+            <%= f.text_field :intitule_pote, required:true %>
           </div>
 
           <%= f.label :descriptif_mission, "DESCRIPTIF DES MISSIONS" %>
           <div class="dp-input">
-            <%= f.text_area :descriptif_mission, required:true, rows:3, class:"form-control" %>
+            <%= f.text_area :descriptif_mission, required:true, rows:3 %>
           </div>
 
           <%= f.label :rattachement, "RATTACHEMENT HIÉRARCHIQUE" %>
           <div class="dp-input">
-            <%= f.text_field :rattachement, required:true, class:"form-control" %>
+            <%= f.text_field :rattachement, required:true %>
           </div>
 
           <%= f.label :remuneration, "RÉMUNÉRATION PROPOSÉE FIXE (K€ BRUTS ANNUELS)" %>
           <div class="dp-input dp-input-renumeration">
             <div class="dp-input-flex">
-              <span>60</span>
-              <%= f.range_field :remuneration, min:60, max:350, required:true, class:"form-control", id:"remuneration"%>
+              <span class="span1">60</span>
+              <%= f.range_field :remuneration, min:60, max:350,required:true, id:"remuneration"%>
 
-              <span>350</span>
+              <span class="span1">350</span>
             </div>
-            <span>current_value: <b id="inputRange">100</b></span>
+            <div class="value-renum">
+              <div id="inputRange-div"><b id="inputRange">205</b></div>
+            </div>
           </div>
 
           <%= f.label :remuneration_anne, "RÉMUNÉRATION PROPOSÉE VARIABLE(K€ BRUTS ANNUELS)" %>
@@ -98,7 +100,7 @@
 
           <%= f.label :question1, "QUELLE POURRAIT-ÊTRE LA RÉMUNÉRATION MAXIMALE POUR LE CANDIDAT IDÉAL ?", class:"ggag" %>
           <div class="co-input">
-            <%= f.text_field :question1, required:true, class:"form-control" %>
+            <%= f.text_field :question1, required:true %>
           </div>
 
           <%= f.label :question2, "QUE POUVEZ-VOUS DIRE AUX CANDIDATS POUR LEUR DONNER L’ENVIE DE TRAVAILLER CHEZ VOUS ?", class:"ggag" %>

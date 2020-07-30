@@ -80,7 +80,7 @@ class CandidatesController < ApplicationController
         @cadre.save
       end
     end
-    
+
     if errorMessage.empty?
       @cadre.update(post_params)
       @cadre.update(empty:false)
@@ -168,7 +168,7 @@ class CandidatesController < ApplicationController
 
 #mes offre réçues
   def received_job
-    
+
   end
 
 	def recrutmentMonitoring
@@ -176,7 +176,7 @@ class CandidatesController < ApplicationController
 	end
 
   def notifications
-    
+
   end
 
 # 3 test de recrutement
@@ -191,6 +191,44 @@ class CandidatesController < ApplicationController
   end
 
   def testfit
+    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+    @agendaAdmin = @cadreInfo.agenda_admin
+    if @agendaAdmin.nil?
+      date = @cadreInfo.created_at.to_datetime
+      @dates = []
+      @datesShorts = []
+      i = 1
+      while @dates.length < 2
+        tmp_date = date.next_day(i)
+        if !tmp_date.saturday?
+          if !tmp_date.sunday?
+            long_date = l tmp_date, :format => :long
+            @dates.push({long:long_date[0 .. -7],short:"#{tmp_date.day}-#{tmp_date.month}-#{tmp_date.year}"})
+          end
+        end
+        i += 1
+      end
+    else
+      @dates = l @agendaAdmin.entretien_date, :format => :long
+    end
+  end
+
+  def saveEntretientDate
+    date = params[:date].split("-")
+    time = params[:time].split(":")
+    day = date[0].to_i
+    month = date[1].to_i
+    year = date[2].to_i
+    hour = time[0].to_i
+    min = time[1].to_i
+    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+    @agenda = AgendaAdmin.new(entretien_date:DateTime.new(year,month,day,hour,min).utc,cadre_info:@cadreInfo)
+    if @agenda.save
+      puts "vô sôvy e"
+    else
+      puts "tsy vô sovy e"
+      flash[:alert] = @agenda.errors.details
+    end
   end
 
 # Resultat test
@@ -282,7 +320,7 @@ class CandidatesController < ApplicationController
   def post_params_tmp
     params.require(:cadre_info).permit(:last_name,:first_name,:adresse,:postal_code,:city,:situation,:telephone,:mail)
   end
- 
+
   def post_params
     params.require(:cadre_info).permit(:question1,:question2,:question3,:question4,:question5)
   end

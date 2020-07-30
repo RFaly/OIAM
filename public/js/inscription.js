@@ -10,7 +10,7 @@ $(document).ready(function () {
   });
   // postal check
   $('#postal_code').on('input', function () {
-    check_none($(this), $('#entreprise-postal-error') , $('#city'));
+    check_none($(this), $('#entreprise-postal-error'), $('#city'));
   });
   $('#postal_code').focusout(function () {
     check_nil($(this), $('#entreprise-postal-error'));
@@ -35,7 +35,7 @@ $(document).ready(function () {
     check_inside_list($(this));
   });
   $('#code_naf').focus(function () {
-     add_list();
+    add_list();
   });
 
   ////////////////////////////////////
@@ -148,7 +148,11 @@ function check_name(test, value) {
   if (name0 < 3 || name0 > 80) {
     value.html('(doit avoir 3 à 80 caractères)');
     value.show();
+
+    test.css('outline', '.2px solid red');
   } else {
+    test.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
+    test.css('outline', '2px solid #e3d7bf ');
     value.hide();
   }
 }
@@ -156,9 +160,12 @@ function check_name(test, value) {
 function check_pass(test, value) {
   var name = test.val().length;
   if (name < 6 || name > 80) {
+    test.css('outline', '.2px solid red');
     value.html('(doit avoir 6 à 80 caractères)');
     value.show();
   } else {
+    test.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
+    test.css('outline', '2px solid #e3d7bf ');
     value.hide();
   }
 }
@@ -167,9 +174,12 @@ function check_cpass(test, value) {
   var name1 = test.val();
   var name2 = $('#password-r').val();
   if (name1 != name2) {
+    test.css('outline', '.2px solid red');
     value.html('(inégale au mots de passe)');
     value.show();
   } else {
+    test.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
+    test.css('outline', '2px solid #e3d7bf ');
     value.hide();
   }
 }
@@ -177,11 +187,14 @@ function check_cpass(test, value) {
 function check_nil(test, value) {
   var name = test.val().length;
   if (name < 3) {
+    test.css('outline', '.2px solid red');
     value.html('(Champ obligatoire)');
     value.show();
-    $('#code-naf-list').css('display','none');
+    $('#code-naf-list').css('display', 'none');
   } else {
-    $('#code-naf-list').css('display','none');
+    $('#code-naf-list').css('display', 'none');
+    test.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
+    test.css('outline', '2px solid #e3d7bf ');
     value.hide();
   }
 }
@@ -189,8 +202,11 @@ function check_nil(test, value) {
 function check_mail(testee, value) {
   var pattern = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   if (pattern.test(testee.val())) {
+    testee.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
+    testee.css('outline', '2px solid #e3d7bf ');
     value.hide();
   } else {
+    testee.css('outline', '.2px solid red');
     value.html('(Adresse email invalide)');
     value.show();
   }
@@ -199,11 +215,15 @@ function check_mail(testee, value) {
 function check_siret(testee, value) {
   var siret = testee.val().split(' ').join('').length;
   if (siret == 14) {
+    testee.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
+    testee.css('outline', '2px solid #e3d7bf ');
     value.hide();
   } else if (siret < 14) {
+    testee.css('outline', '.2px solid red');
     value.html('(Le numero de SIRET doit avoir au moins 14 caractères.)');
     value.show();
   } else {
+    testee.css('outline', '.2px solid red');
     value.html('(Le numero de SIRET ne doit pas dépasser 14 caractères.)');
     value.show();
   }
@@ -212,8 +232,11 @@ function check_siret(testee, value) {
 function check_phone(testee, value) {
   var checkspace = testee.val().split(' ').join('');
   if (checkspace.length == 9) {
+    testee.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
+    testee.css('outline', '2px solid #e3d7bf ');
     value.hide();
   } else {
+    testee.css('outline', '.2px solid red');
     value.html('(Numero téléphone invalide)');
     value.show();
   }
@@ -229,29 +252,35 @@ function verifyNumber(Number, error) {
   }
 }
 
-// fonction check description
-function check_none(test, value,check) {
+// fonction check description and ville
+function check_none(test, value, check) {
   var nameCity = 'Aucune ville correspondante!!';
   var description = "Aucune description d'entreprise correspondante!!";
   var name = test.val().length;
   if (name < 3) {
-    check.css('outline', '1px solid red');
-    check.css('box-shadow', '.5px 1px 10px 1px red');
+    test.css('outline', '.2px solid red');
+    check.css('outline', '.2px solid red');
+    check.css('box-shadow', '0px 1px 2px 1px red');
+    value.html('(Code invalide)');
+    value.show();
   } else {
     if (check.val() == description || check.val() == nameCity) {
-      check.css('outline', '1px solid red');
-      check.css('box-shadow', '.5px 1px 10px 1px red');
+      test.css('outline', '.2px solid red');
+      check.css('outline', '.2px solid red');
+      check.css('box-shadow', '0px 1px 2px 1px red');
       value.html('(Code invalide)');
       value.show();
     } else {
-      value.hide();
+      test.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
+      test.css('outline', '2px solid #e3d7bf ');
       check.css('outline', 'none');
       check.css('box-shadow', 'none');
+      value.hide();
     }
   }
 }
-// fonction add data in list 
-function add_list(){
+// fonction add data in list
+function add_list() {
   var list = $('#code-naf-list');
   list.css('display', 'block');
   for (var i = 0; i < code_naf.length; i++) {
@@ -259,15 +288,15 @@ function add_list(){
   }
 }
 // fonction find list
-function check_inside_list(test){
+function check_inside_list(test) {
   var filter = test.val();
   var list_li = $('.code-naf-list-item');
   for (i = 0; i < list_li.length; i++) {
     txtValue = list_li[i].textContent || list_li[i].innerText;
     if (txtValue.indexOf(filter) > -1) {
-      list_li[i].style.display = "";
+      list_li[i].style.display = '';
     } else {
-      list_li[i].style.display = "none";
+      list_li[i].style.display = 'none';
     }
   }
 }

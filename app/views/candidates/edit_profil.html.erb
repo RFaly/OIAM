@@ -22,13 +22,13 @@
 			<%= f.text_area :question5, required:true, rows:3, class:"champs" %>
 
 
-			<%= f.select(:status, ['STATUS',' ',' '], {}, { :class => 'btn-recherche' }) %>
+			<%= f.select(:status, ['STATUT',' ',' '], {}, { :class => 'btn-recherche' }) %>
       <div id="cv-filename"></div>
 			<div class="image-cv">
 				<div id="import-cv">
 					<p class="importe-cv">CV</p>
 					<div class="cv">
-						<%= f.label :cv, "Telecharger", class:"cv-label"%>
+						<%= f.label :cv, "IMPORTER CV", class:"cv-label"%>
 						<%= f.file_field :cv, class:"cv-champs" %>
 					</div>
 				</div>
@@ -36,7 +36,7 @@
 					<% unless @cadre.image.nil? %>
 					<%= image_tag(@cadre.image, alt: 'photo de profil', id:'addImage', class:"add-image" )%> <br>
 				<% else %>
-					<img id="addImage" src="/image/profie.png"" class="add-image">
+					<img id="addImage" src="/image/profie.png" class="add-image">
 				<% end %>
 				<%= f.label :image, "IMPORTER UNE PHOTO", class:"add-image-label" %>
 				<%= f.file_field :image, class:"image_add" %>

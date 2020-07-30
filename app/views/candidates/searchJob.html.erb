@@ -1,58 +1,72 @@
-<div class="row">
-	<div class="col-sm-3">
+<link rel="stylesheet" type="text/css" href="/css/search_job_cadre.css">
+<div class="all-content">
+	<div class="content">
+	<div class="left_link">
 		<%= render partial: "candidates/left_link_bar" %>
 	</div>
-
-	<div class="col-sm-9">
-
-		<table class="table">
-			<tr>
-				<td>Localisation</td>
-				<td>Fonction</td>
-				<td>Rémunération</td>
-				<td>Disponibilité</td>
-				<td>RECHERCHE</td>
-			</tr>
-		</table>
-
-		<div id="list-resultats">
-		<% unless @offres.empty? %>
-			<% @offres.each do |offre| %>
-				<div class="row">
-					<div class="col-sm-3">
+	<div class="main">
+		<div class="seach-bar">
+			<select name="dropdown" id="" class="seacrh-drop">
+				<option value="" disabled selected>Localisation</option>
+				<option value="">Paris</option>
+				<option value="">Lille</option>
+				<option value="">Nancy</option>
+			</select>
+			<select name="dropdown" id="" class="seacrh-drop">
+				<option value="" disabled selected>Fonction</option>
+				<option value="">Agent immobilier</option>
+				<option value="">Agent commercial</option>
+				<option value="">Developpeur</option>
+			</select>
+			<select name="dropdown" id="" class="seacrh-drop">
+				<option value="" disabled selected>Rémuneration</option>
+				<option value="">10</option>
+				<option value="">20</option>
+				<option value="">30</option>
+			</select>
+			<select name="dropdown" id="" class="seacrh-drop">
+				<option value="" disabled selected>Disponibilité</option>
+				<option value="">Paris</option>
+				<option value="">Lille</option>
+				<option value="">Nancy</option>
+			</select>
+			<button class="btn-recherche">RECHERCHER</button>
+		</div>
+		<div class="post_info">
+			<% unless @offres.empty? %>
+				<% @offres.each do |offre| %>
+				<div class="post_info_content">
+					<div class="logo">
 						<% unless offre.image.nil? %>
 							<%= image_tag(offre.image, alt: 'logo entreprise', width:"250px")%>
-						<% end %>		
+						<% end %>
 					</div>
-					<div class="col-sm-7">
-						<h2><%= offre.intitule_pote %></h2>
-						<p><%= offre.contrat_cdi ? "CDI" : "CDD" %> <br>
-						<%= offre.client.entreprise.postal_code %>, <%= offre.client.entreprise.city %><br>
-						<%= offre.descriptif_mission %><br>
-						</p>
+					<div class="job_info">
+						<h2 class="job_info_title"><%= offre.intitule_pote %></h2>
+						<p><img src="/image/map.png" alt="logo oiam favorie" width="16px" height="22px" class="indic"><%= offre.client.entreprise.postal_code %>, <%= offre.client.entreprise.city %></p>
+						<p><img src="/image/description.png" alt="logo oiam favorie" width="16px" height="22px" class="indic"><%= offre.contrat_cdi ? "CDI" : "CDD" %> <br><img src="/image/gg_time.png" alt="logo oiam favorie" width="25px" height="25px" class="indic"><span></span><%= offre.date_poste%></span> </p>
+						<p><%= offre.descriptif_mission %></p>
 					</div>
-					<div class="col-sm-2">
+					<div class="action">
 						<% if offre.is_in_my_favorite(current_cadre).nil? %>
-							<div id="image-<%=offre.id%>-logo-link">
 								<%= link_to addToFavoriteJob_path(id:offre.id), method: :post, remote: true do %>
 									  <img src="/image/Vector-22.png" alt="logo oiam non favorie" width="30px" style="background-color: #b7bdc3ed;">
 								<% end %>
-							</div>
 						<% else %>
-							<div id="image-<%=offre.id%>-logo-link">
 								<%= link_to removeToFavoriteJob_path(id:offre.id), method: :delete, remote: true do %>
 									  <img src="/image/Vector-24.png" alt="logo oiam favorie" width="30px">
 								<% end %>
-							</div>
 						<% end %>
-						<%= link_to "Voir L'offre", showSearchJob_path(offre.id) %>
+						<%= link_to "Voir L'offre", showSearchJob_path(offre.id),class:"btn-voir" %>
 					</div>
 				</div>
-				<hr>
-			<% end %>
-		<% else %>
+				<% end %>
+
+			<% else %>
 			<p class="alert success" >Les nouvelles offres d'emploi seront disponibles très prochainemen.!</p>
-		<% end %>
+			<% end %>
 		</div>
 	</div>
+</div>
+<div class="no-flex"></div>	
 </div>

@@ -43,9 +43,21 @@
     margin: 35px 0;
     #offre_job_contrat_cdi {
       width: 40px;
+      &:hover,
+      &:active,
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
     }
     #dp-date {
-      background: $secondary_element_color url('/image/calendar.png') no-repeat right 1rem center/21px 24px;
+      &::-webkit-inner-spin-button,
+      &::-webkit-calendar-picker-indicator {
+        // display: none;
+        background: transparent;
+        -webkit-appearance: none;
+      }
+      background: $secondary_element_color url('/image/calendar.png') no-repeat right 0.5rem center/21px 24px;
     }
     .dp-input {
       background: blue;
@@ -83,11 +95,74 @@
         justify-content: space-between;
       }
       input {
-        width: 90%;
+        -webkit-appearance: none;
+        width: 92%;
+        height: 0px;
+        padding: 0;
+        padding-top: 5px;
         &:focus {
           border: none;
           box-shadow: none;
           outline: none;
+        }
+
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 0;
+          height: 0;
+          border: 0 solid transparent;
+          border-left: 15px solid transparent;
+          border-right: 15px solid transparent;
+          border-top: 25px solid $main_theme_color;
+          border-radius: 0;
+          box-shadow: none;
+          outline: none;
+          cursor: pointer;
+        }
+        &::-ms-thumb {
+          width: 0;
+          height: 0;
+          border: 0 solid transparent;
+          border-left: 15px solid transparent;
+          border-right: 15px solid transparent;
+          border-top: 25px solid $main_theme_color;
+          border-radius: 0;
+          box-shadow: none;
+          outline: none;
+          background: transparent;
+          cursor: pointer;
+        }
+        &::-moz-range-thumb {
+          width: 0;
+          height: 0;
+          border: 0 solid transparent;
+          border-left: 15px solid transparent;
+          border-right: 15px solid transparent;
+          border-top: 25px solid $main_theme_color;
+          border-radius: 0;
+          box-shadow: none;
+          outline: none;
+          background: transparent;
+          cursor: pointer;
+        }
+      }
+      .span1 {
+        width: 45px;
+      }
+      .value-renum {
+        margin: 0 auto;
+        width: 120%;
+        position: relative;
+        div {
+          left: 50%;
+          transform: translateX(-185%);
+          top: 3px;
+          position: absolute;
+          width: 60px;
+          height: 35px;
+          line-height: 1.8;
+          background: $main_theme_color;
         }
       }
     }
@@ -98,7 +173,14 @@
     margin: 35px 0;
   }
   .co-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     background: $secondary_element_color url('/image/dropdown.png') no-repeat right 1rem center/21px 18px;
+    text-align: center !important;
+    option {
+      text-align: center;
+    }
   }
   .hide-right {
     position: relative;

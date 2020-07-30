@@ -53,7 +53,6 @@ body {
   line-height: 24px;
   color: #d6b36a;
   text-align: center;
-
   margin: 100px 0 58px 0;
 }
 
@@ -77,6 +76,7 @@ body {
   background: no-repeat right 10px center url(/image/dropdown.png);
   background-size: 25px;
   background-color: #f0f2f4;
+  text-align: center;
 }
 
 .champs:focus{
@@ -116,13 +116,22 @@ body {
   color: #fff;
 }
 
-.fandeany {
-  margin-bottom: 200px;
-  margin-top: 70px;
-}
 
 .ville-adresse {
   display: flex;
   margin: auto;
   width: 420px;
+}
+
+
+.tel-container{
+  background: no-repeat left center url(/image/+33.png);
+  background-size: 70px;
+  background-color: #f0f2f4;
+}
+
+.tel-container:onfocus{
+  background: no-repeat left center url(/image/+33.png);
+  background-size: 70px;
+  background-color: #f0f2f4;
 }

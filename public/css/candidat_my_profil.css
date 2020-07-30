@@ -72,6 +72,8 @@ body{
   margin: 30px;
 }
 
+
+
 .pdp{
   display: block;
   margin: auto;
@@ -146,13 +148,15 @@ body{
 
 
 @media only screen and (min-width: 800px){
+
+	
   .block-button{
-    margin-left: 25%;
+    text-align: center;
   }
 
   .btn-edit{
     display: inline-block;
-    margin-left: 50px;
+		margin-left: 20px;
   }
 }
 
@@ -173,10 +177,6 @@ body{
     line-height: 40px;
   }
 
-  .btn-edit{
-    display: inline-block;
-  }
-
   .block-button{
     width: 100%;
   }
@@ -194,13 +194,8 @@ body{
 @media only screen and (min-width: 900px){
   .btn-edit{
     display: inline-block;
-    margin-left: 10%;
   }
 
-  .block-button{
-    width: 100%;
-    float: right;
-  }
 
 }
 
@@ -210,13 +205,19 @@ body{
     padding-right: 50px;
   }
 
+
   .btn-edit{
     display: inline-block;
-    margin-left: 5%;
+		text-align: center;
   }
 
   .block-button{
-    display: block;
-    margin: auto;
+		position: relative;
+		bottom: 0;
   }
+
+	.block-image{
+		width: 350px;
+		height: auto;
+	}
 }
