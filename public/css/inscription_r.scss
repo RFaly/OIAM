@@ -189,10 +189,16 @@
   overflow-y: auto;
   display: none;
   .code-naf-list-item {
+    font: $ffsentence;
     list-style: none;
     padding: 0.75rem 1.25rem;
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-top: 0px;
+    cursor: pointer;
+  }
+  li:hover {
+    background: $main_theme_color;
+    color: white;
   }
 }

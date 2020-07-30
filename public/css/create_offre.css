@@ -70,8 +70,18 @@
   width: 40px;
 }
 
+.create-offre-box .detail-post-box #offre_job_contrat_cdi:hover, .create-offre-box .detail-post-box #offre_job_contrat_cdi:active, .create-offre-box .detail-post-box #offre_job_contrat_cdi:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .create-offre-box .detail-post-box #dp-date {
-  background: #f0f2f4 url("/image/calendar.png") no-repeat right 1rem center/21px 24px;
+  background: #f0f2f4 url("/image/calendar.png") no-repeat right 0.5rem center/21px 24px;
+}
+
+.create-offre-box .detail-post-box #dp-date::-webkit-inner-spin-button, .create-offre-box .detail-post-box #dp-date::-webkit-calendar-picker-indicator {
+  background: transparent;
+  -webkit-appearance: none;
 }
 
 .create-offre-box .detail-post-box .dp-input {
@@ -120,13 +130,80 @@
 }
 
 .create-offre-box .detail-post-box .dp-input-renumeration input {
-  width: 90%;
+  -webkit-appearance: none;
+  width: 92%;
+  height: 0px;
+  padding: 0;
+  padding-top: 5px;
 }
 
 .create-offre-box .detail-post-box .dp-input-renumeration input:focus {
   border: none;
   box-shadow: none;
   outline: none;
+}
+
+.create-offre-box .detail-post-box .dp-input-renumeration input::-webkit-slider-thumb {
+  appearance: none;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 25px solid #d6b36a;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.create-offre-box .detail-post-box .dp-input-renumeration input::-ms-thumb {
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 25px solid #d6b36a;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.create-offre-box .detail-post-box .dp-input-renumeration input::-moz-range-thumb {
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 25px solid #d6b36a;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.create-offre-box .detail-post-box .dp-input-renumeration .span1 {
+  width: 45px;
+}
+
+.create-offre-box .detail-post-box .dp-input-renumeration .value-renum {
+  margin: 0 auto;
+  width: 120%;
+  position: relative;
+}
+
+.create-offre-box .detail-post-box .dp-input-renumeration .value-renum div {
+  left: 50%;
+  transform: translateX(-185%);
+  top: 3px;
+  position: absolute;
+  width: 60px;
+  height: 35px;
+  line-height: 1.8;
+  background: #d6b36a;
 }
 
 .create-offre-box .context-offre-box {
@@ -136,7 +213,13 @@
 }
 
 .create-offre-box .co-select {
+  appearance: none;
   background: #f0f2f4 url("/image/dropdown.png") no-repeat right 1rem center/21px 18px;
+  text-align: center !important;
+}
+
+.create-offre-box .co-select option {
+  text-align: center;
 }
 
 .create-offre-box .hide-right {
