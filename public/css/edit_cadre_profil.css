@@ -70,7 +70,6 @@ html{
 
   .label-content{
       text-transform: uppercase;
-      font-size: 14px;
       line-height: 18px;
       margin-bottom: 10px;
   }
@@ -92,14 +91,15 @@ html{
       background: #ffffff;
       width: 180px;
       height: 46px;
-     -webkit-appearance: button;
-     -moz-appearance: button;
-     appearance: button;
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
      font-size: 16px;
      background: no-repeat right 10px center url(/image/dropdown2.png);
 		 background-size: 25px;
      text-align: center;
      color: #D6B36A;
+     padding-left:50px;
   }
 
   .intervalle{
@@ -161,20 +161,20 @@ html{
       content: "60";
       display: block;
       position: absolute;
-      top: 0px;
+      top: 10px;
       left: 0;
       color: black;
-      font-size: 18px;
+      font-size: 16px;
   }
 
   .slide::before{
     content: "350(k€)";
     display: block;
     position: absolute;
-    top: 0px;
+    top: 10px;
     right: 0;
     color: black;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 
@@ -199,6 +199,8 @@ html{
   }
 
   .cv-label{
+    padding-left: 15px;
+    font-size: 16px;
     margin-right: 20px;
   }
 
@@ -247,6 +249,7 @@ html{
     display: block;
     margin: auto;
 		cursor: pointer;
+    margin-top: 50px;
   }
 
 	.btn-apercu{
@@ -284,6 +287,11 @@ html{
     color: #ffffff;
   }
 
+
+   .last_name{
+    color: #000;
+    text-transform: uppercase;
+   }
 
 
   @media only screen and (min-width: 800px){
@@ -351,7 +359,6 @@ html{
       top: 0;
       right: 0;
       display: inline;
-      top: 60px;
 
     }
 
@@ -367,7 +374,7 @@ html{
     }
 
     .label-content{
-      font-size: 18px;
+      font-size: 16px;
     }
   }
 
