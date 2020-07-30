@@ -45,9 +45,12 @@
 
     <input autofocus="autofocus" class="dr-item" required="required" autocomplete="entreprise_site" type="text" name="entreprise_site" id="entreprise_site" placeholder="Site Internet" />
     <span class="input-error" id="entreprise-site-error"></span>
-    <input autofocus="autofocus" class="dr-item" required="required" autocomplete="code_naf" type="search" name="code_naf" id="code_naf" placeholder="Code NAF" />
-    <span class="input-error" id="code-naf-error"></span>
-    <ul class="code-naf-list" id="code-naf-list"></ul>
+    <div class="search_form">
+      <input autofocus="autofocus" class="dr-item search-input" required="required" autocomplete="code_naf" type="text" name="code_naf" id="code_naf" placeholder="Code NAF" />
+
+      <span class="input-error" id="code-naf-error"></span>
+      <div class="code-naf-list search-result" id="code-naf-list"></div>
+    </div>
 
     <textarea required="required" class="dr-item dr-textarea" autocomplete="entreprise_description" type="text" name="entreprise_description" id="entreprise_description" autofocus="autofocus" placeholder="Description de votre activité" readonly></textarea>
 
@@ -155,3 +158,132 @@
 <!-- javascript inscription  -->
 <script type="text/javascript" src="/js/inscription.js"></script>
 <!-- javascript inscription  -->
+<script>
+  var $searchInput = $('.search-input'),
+    $resultsContainer = $('.search-result'),
+    $btnTop = 38,
+    $btnBottom = 40,
+    $btnEnter = 13;
+
+  var activeResultIndex = 0;
+  var $resultItem = null;
+
+  function fadeResult(i) {
+    $($resultItem[i]).removeClass('result-item__hover');
+  }
+
+  function highlightResult(i) {
+    $($resultItem[i]).addClass('result-item__hover');
+  }
+
+  function keyboardSelection(e) {
+    if (e.keyCode === $btnBottom) {
+      fadeResult(activeResultIndex);
+      if (activeResultIndex === $resultItem.length) {
+        activeResultIndex = 0;
+        highlightResult(activeResultIndex);
+      } else {
+        activeResultIndex++;
+        highlightResult(activeResultIndex);
+      }
+    } else if (e.keyCode === $btnTop) {
+      fadeResult(activeResultIndex);
+      if (activeResultIndex === 0) {
+        activeResultIndex = $resultItem.length;
+        highlightResult(activeResultIndex);
+      } else {
+        activeResultIndex--;
+        highlightResult(activeResultIndex);
+      }
+    } else if (e.keyCode === $btnEnter) {
+      selectValue();
+    }
+  }
+
+  function mouseOver(e) {
+    if ($(e.target).hasClass('result-item')) {
+      fadeResult(activeResultIndex);
+      activeResultIndex = $(e.target).index();
+      highlightResult($(e.target).index());
+    }
+  }
+
+  function selectValue() {
+    $searchInput.val($($resultItem[activeResultIndex]).text());
+    hideResults();
+  }
+
+  function displayResults(value) {
+    $resultsContainer.append("<p class='result-item'>" + value + '</p>');
+    $resultItem = $('.result-item');
+    activeResultIndex = 0;
+    $($resultItem[activeResultIndex]).addClass('result-item__hover');
+    if ($resultsContainer.outerHeight() > 210) {
+      $resultsContainer.addClass('results-scroll');
+    } else {
+      $resultsContainer.removeClass('results-scroll');
+    }
+  }
+
+  function hideResults() {
+    $resultsContainer.find('p').remove();
+    $resultsContainer.fadeOut();
+    $resultItem = null;
+    activeResultIndex = 0;
+    console.log('hide');
+  }
+
+  function searchData(e) {
+    var inputValue = $searchInput.val();
+    if (inputValue.length) {
+      getResults(e, inputValue);
+    } else {
+      hideResults();
+    }
+  }
+
+  function searchLetter(e) {
+    let vt = $(this).val();
+    for (var i = 0; i < code_naf.length; i++) {
+      $resultsContainer.append("<p class='result-item'>" + code_naf[i].code + '</p>');
+    }
+    if (vt.length) {
+      $resultsContainer.fadeIn();
+      if (e.keyCode === $btnBottom || e.keyCode === $btnTop || e.keyCode === $btnEnter) {
+        keyboardSelection(e);
+      } else {
+        $resultsContainer.find('p').remove();
+        for (let i = 0; i < code_naf.length; i++) {
+          let dataT = code_naf[i].code.indexOf(vt);
+          let dataMax = dataT + vt.length;
+          if (dataT >= 0) {
+            $resultItem = $('.result-item');
+            $resultsContainer.append("<p class='result-item'>" + code_naf[i].name + '</p>');
+          }
+        }
+      }
+    } else {
+      hideResults();
+    }
+  }
+
+  $searchInput.keyup(searchLetter);
+  $resultsContainer.on('mouseover', mouseOver);
+  $resultsContainer.on('click', $resultItem, selectValue);
+  $searchInput.focus(function () {
+    $resultsContainer.show();
+    for (var i = 0; i < code_naf.length; i++) {
+      $resultsContainer.append("<p class='result-item'>" + code_naf[i].code + '</p>');
+    }
+  });
+  $searchInput.on('input', function () {
+    if ($(this).val().length == 0) {
+      for (var i = 0; i < code_naf.length; i++) {
+        $resultsContainer.append("<p class='result-item'>" + code_naf[i].code + '</p>');
+      }
+    }
+  });
+  $(document).on('keypress', 'form', function (e) {
+    return e.keyCode != $btnEnter;
+  });
+</script>

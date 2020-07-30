@@ -32,11 +32,11 @@ $(document).ready(function () {
   });
   $('#code_naf').on('input', function () {
     check_none($(this), $('#code-naf-error'), $('#entreprise_description'));
-    check_inside_list($(this));
+    // check_inside_list($(this));
   });
-  $('#code_naf').focus(function () {
-    add_list();
-  });
+  // $('#code_naf').focus(function () {
+  //   add_list();
+  // });
 
   ////////////////////////////////////
   // details recruteur validation
@@ -190,9 +190,9 @@ function check_nil(test, value) {
     test.css('outline', '.2px solid red');
     value.html('(Champ obligatoire)');
     value.show();
-    $('#code-naf-list').css('display', 'none');
+    // $('#code-naf-list').css('display', 'none');
   } else {
-    $('#code-naf-list').css('display', 'none');
+    // $('#code-naf-list').css('display', 'none');
     test.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
     test.css('outline', '2px solid #e3d7bf ');
     value.hide();
@@ -280,23 +280,23 @@ function check_none(test, value, check) {
   }
 }
 // fonction add data in list
-function add_list() {
-  var list = $('#code-naf-list');
-  list.css('display', 'block');
-  for (var i = 0; i < code_naf.length; i++) {
-    list.append('<li class="code-naf-list-item">' + code_naf[i].code + ' ' + code_naf[i].info + '</li>');
-  }
-}
+// function add_list() {
+//   var list = $('#code-naf-list');
+//   list.css('display', 'block');
+//   for (var i = 0; i < code_naf.length; i++) {
+//     list.append('<li class="code-naf-list-item">' + code_naf[i].code + ' ' + code_naf[i].info + '</li>');
+//   }
+// }
 // fonction find list
-function check_inside_list(test) {
-  var filter = test.val();
-  var list_li = $('.code-naf-list-item');
-  for (i = 0; i < list_li.length; i++) {
-    txtValue = list_li[i].textContent || list_li[i].innerText;
-    if (txtValue.indexOf(filter) > -1) {
-      list_li[i].style.display = '';
-    } else {
-      list_li[i].style.display = 'none';
-    }
-  }
-}
+// function check_inside_list(test) {
+//   var filter = test.val();
+//   var list_li = $('.code-naf-list-item');
+//   for (i = 0; i < list_li.length; i++) {
+//     txtValue = list_li[i].textContent || list_li[i].innerText;
+//     if (txtValue.indexOf(filter) > -1) {
+//       list_li[i].style.display = '';
+//     } else {
+//       list_li[i].style.display = 'none';
+//     }
+//   }
+// }

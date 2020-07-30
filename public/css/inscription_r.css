@@ -206,3 +206,37 @@
   position: absolute;
   left: 4px;
 }
+
+.search-form {
+  position: relative;
+}
+
+.search-result {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  max-height: 200px;
+  overflow: auto;
+  background: #fff;
+  text-align: left;
+}
+
+.search-result p {
+  padding: 5px 10px;
+}
+
+.search-result p span {
+  display: inline-block;
+  color: #900;
+}
+
+.result-item {
+  margin: 0;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.result-item__hover {
+  background: #eee;
+}
