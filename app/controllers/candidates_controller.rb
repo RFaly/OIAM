@@ -80,7 +80,7 @@ class CandidatesController < ApplicationController
         @cadre.save
       end
     end
-    
+
     if errorMessage.empty?
       @cadre.update(post_params)
       @cadre.update(empty:false)
@@ -168,7 +168,7 @@ class CandidatesController < ApplicationController
 
 #mes offre réçues
   def received_job
-    
+
   end
 
 	def recrutmentMonitoring
@@ -176,7 +176,7 @@ class CandidatesController < ApplicationController
 	end
 
   def notifications
-    
+
   end
 
 # 3 test de recrutement
@@ -320,7 +320,7 @@ class CandidatesController < ApplicationController
   def post_params_tmp
     params.require(:cadre_info).permit(:last_name,:first_name,:adresse,:postal_code,:city,:situation,:telephone,:mail)
   end
- 
+
   def post_params
     params.require(:cadre_info).permit(:question1,:question2,:question3,:question4,:question5)
   end
