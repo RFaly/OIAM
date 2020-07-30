@@ -6,9 +6,7 @@
     <span class="btn-menu-burger open"> </span>
   </div>
   <div class="left-menu-photo">
-    <% unless @cadre.image.nil? %> <%= image_tag(@cadre.image, alt: 'photo de profil', id:'addImage', class:"add-image" )%> <% else %>
-    	<img id="addImage" src="src="/image/profile.png"" class="add-image">
-    <% end %>
+    	<img id="addImage" src="/image/profie.png" class="add-image">
   </div>
   <ul class="left-menu-content">
 	<li><%= link_to "MON PROFIL", my_profil_path %></li>
