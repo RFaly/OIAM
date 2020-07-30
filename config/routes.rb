@@ -90,7 +90,8 @@ Rails.application.routes.draw do
 
   # tokony post ito
   get '/cadre/resultat-test', to: 'candidates#resultatsTest', as: 'resultatsTest'
-
+  post '/cadre/save-entretien-date', to:'candidates#saveEntretientDate',as:'saveEntretientDate'
+  
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Admin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :admins, path: 'admins', controllers: {
   	sessions: 'admins/sessions',
@@ -108,6 +109,7 @@ Rails.application.routes.draw do
   get '/recruteur/messages/:id', to: 'recruteurs#show_my_messages', as: 'show_my_messages_client'
   post '/recruteur/send-message', to: 'recruteurs#post_my_message', as: 'post_my_message_client'
   get '/recruteur/:cadre_id/:contact_id/all-messages', to:'recruteurs#getLastMessage', as:'getClientLastMessage'
+
 
 end
 
