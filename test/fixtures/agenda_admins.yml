@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  entretien_date: 2020-07-30 13:45:21
+
+two:
+  entretien_date: 2020-07-30 13:45:21

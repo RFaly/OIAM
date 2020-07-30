@@ -1,67 +1,46 @@
-
-<div class="row">
-	<div class="col-sm-3">
+<link rel="stylesheet" type="text/css" href="/css/candidat_my_profil.css" />
+<div class="content">
+	<div class="left_link">
 		<%= render partial: "candidates/left_link_bar" %>
 	</div>
-
-	<div class="col-sm-9">
-		<div class="row">
-			<div class="col-sm-3">
+	<div class="main">
+		<div class="block-left">
+			<div class="block-image">
 				<% unless @cadre.image.nil? %>
-					<%= image_tag(@cadre.image, alt: 'photo de profil', width:"150px" )%> <br>
+					<%= image_tag(@cadre.image, alt: 'photo de profil', width:"150px", class:"pdp" )%> <br>
 				<% end %>
-				<p>
-				<%= @cadre.last_name %> <%= @cadre.first_name %> <br>
-
-				Score du test : <br>
-				<ul>
-					<li><%= @cadre.potential_test %></li>
-					<li><%= @cadre.skils_test %></li>
-					<li><%= @cadre.fit_test %></li>
-				</ul>
-
-				<div>
-					Type de post: <br>
-					<strong>Manager marketing</strong>
-				</div>
-
-				<div>
-					Dispo: <br>
-					<strong>Maintenant</strong>
-				</div>
-
-				<div>
-					Mobilité: <br>
-					<strong>Ile de France</strong>
-				</div>
-
-				<div>
-					Salaire: <%= @cadre.question4 %>
-				</div>
-
-				</p>
 			</div>
-
-			<div class="col-sm-9">
-
-				<h2>Que faites-vous actuellement et que recherchez-vous comme type de poste ?</h2>
+			<div class="user_name"><%= @cadre.last_name %> <%= @cadre.first_name %> <br></div>
+			<p>Score du test: <span>1005</span></p>
+			<p>Type de post:<br> <span>Manager marketing</span></p>
+			<p>Disponibilité:<br> <span>Maintenant</span></p>
+			<p>Mobilité:<br> <span>Ile de France</span></p>
+			<p>Salaire: <span><%= @cadre.question4 %></span></p>
+		</div>
+		<div class="block-right">
+			<div class="questionnaire">
+				<h2 class="questionnaire-title">Que faites-vous actuellement et que recherchez-vous comme type de poste ?</h2>
 				<p><%= @cadre.question1 %></p>
-
-				<h2>Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h2>
+			</div>
+			<div class="questionnaire">
+				<h2 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h2>
 				<p><%= @cadre.question2 %></p>
-
-				<h2>Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?</h2>
+			</div>
+			<div class="questionnaire">
+				<h2 class="questionnaire-title">Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?</h2>
 				<p><%= @cadre.question3 %></p>
-
-				<h2>Quel est le minimum salarial en dessous duquel il n’est pas nécessaire de vous contacter ?</h2>
+			</div>
+			<div class="questionnaire">
+				<h2 class="questionnaire-title">Quel est le minimum salarial en dessous duquel il n’est pas nécessaire de vous contacter ?</h2>
 				<p><%= @cadre.question4 %></p>
-
-				<h2>Parlez-nous de vous ?</h2>
+			</div>
+			<div class="questionnaire">
+				<h2 class="questionnaire-title">Parlez-nous de vous</h2>
 				<p><%= @cadre.question5 %></p>
-
-				<p>
-					<%= link_to "Modifier mon profil", edit_profil_path %>
-				</p>
+			</div>
+			<div class="block-button">
+				<%= link_to "MODIFIER", edit_profil_path, class:"btn-edit" %>
+				<%= link_to "VALIDER", edit_profil_path ,class:"btn-edit"%>
 			</div>
 		</div>
 	</div>
