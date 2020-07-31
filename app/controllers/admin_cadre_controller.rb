@@ -1,4 +1,4 @@
-class AdminCadreController < ApplicationController
+class AdminCadreController < ApplicationAdminController
   def main
   end
 

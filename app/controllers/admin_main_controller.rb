@@ -1,4 +1,4 @@
-class AdminMainController < ApplicationController
+class AdminMainController < ApplicationAdminController
   def home
   end
 
@@ -6,5 +6,9 @@ class AdminMainController < ApplicationController
   end
 
   def notification
+  end
+
+  def my_profil
+  	
   end
 end
