@@ -84,14 +84,25 @@ $('#departmentInput').change(function () {
   sessionStorage.setItem('departement', this.value);
 });
 
-/* show value integer remuneration */
 $('#remuneration').on('input', function () {
   $('#inputRange').html($(this).val());
-  $('#inputRange-div').css('left', `${(($(this).val() * 1.001) / 410) * 100}%`);
-  if ($(this).val() < 205) {
-    $('#inputRange-div').css('transform', 'translateX(-195%)');
+  var valuer = $('#value-renum');
+  // console.log($(this).width());
+  $('#inputRange-div').css('left', `${(($(this).val() - 60) * 100) / 290}%`);
+  if ($(this).width() < 270) {
+    valuer.css('width', `${($(this).width() * 84) / 100}`);
+    valuer.css('left', `5%`);
+  }
+  if ($(this).width() < 550) {
+    valuer.css('width', `${($(this).width() * 92) / 100}`);
+    valuer.css('left', '2.8%');
+  }
+  if ($(this).width() < 800) {
+    valuer.css('width', `${($(this).width() * 96) / 100}`);
+    valuer.css('left', '.5%');
   } else {
-    $('#inputRange-div').css('transform', 'translateX(-185%)');
+    valuer.css('width', `${($(this).width() * 97) / 100}`);
+    valuer.css('left', '0');
   }
 });
 
@@ -121,5 +132,84 @@ function initializeData() {
   }
   if (sessionStorage.getItem('departement')) {
     $('#departmentInput').val(sessionStorage.getItem('departement'));
+  }
+}
+
+// js animation and form validation
+$('#paysInput').focusout(function () {
+  check_nil($(this), $('.country-error'));
+});
+$('#regionInput').focusout(function () {
+  check_nil($(this), $('.country-error'));
+});
+$('#departmentInput').focusout(function () {
+  check_nil($(this), $('.departement-error'));
+});
+$('#intitule-pote').focusout(function () {
+  check_nil($(this), $('.intitule-pote-error'));
+});
+$('#descriptif-mission').focusout(function () {
+  check_nil($(this), $('.descriptif-mission-error'));
+});
+$('#rattachement').focusout(function () {
+  check_nil($(this), $('.rattachement-error'));
+});
+$('#remuneration-anne').focusout(function () {
+  check_nil($(this), $('.remuneration-anne-error'));
+});
+$('#type-deplacement').focusout(function () {
+  check_nil($(this), $('.type-deplacement-error'));
+});
+$('#dp-date').focusout(function () {
+  check_nil($(this), $('.dp-date-error'));
+});
+// check second party of create offre
+$('#question1').focusout(function () {
+  check_nil($(this), $('#question1-error'));
+});
+$('#question2').focusout(function () {
+  check_nil($(this), $('#question2-error'));
+});
+$('#question3').focusout(function () {
+  check_nil($(this), $('#question3-error'));
+});
+$('#question5').focusout(function () {
+  check_nil($(this), $('#question5-error'));
+});
+/////////////////////////////////////////////////
+// submit validation
+$('#co-dp-btn').click(function () {
+  if (
+    $('#paysInput').val().length >= 1 &&
+    $('#regionInput').val().length >= 1 &&
+    $('#departmentInput').val().length >= 1 &&
+    $('#intitule-pote').val().length >= 1 &&
+    $('#descriptif-mission').val().length >= 1 &&
+    $('#rattachement').val().length >= 1 &&
+    $('#remuneration-anne').val().length >= 1 &&
+    $('#dp-date').val().length >= 1 &&
+    $('#type-deplacement').val().length >= 1
+  ) {
+    $('.ir-l1').addClass('color-bg');
+    $('.ir-c1').addClass('color-bg');
+    $('.detail-post-box').hide();
+    $('.context-offre-box').fadeIn(800);
+  } else {
+    $('#co-dp-btn-error').html('(formulaire non remplie)');
+    $('#co-dp-btn-error').show();
+  }
+});
+
+// fonction check nil
+function check_nil(test, value) {
+  var name = test.val().length;
+  if (name < 1) {
+    test.css('outline', '.2px solid red');
+    value.html('(Champ obligatoire)');
+    value.show();
+  } else {
+    test.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
+    test.css('outline', '2px solid #e3d7bf ');
+    value.hide();
   }
 }

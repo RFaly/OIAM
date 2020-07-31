@@ -212,3 +212,9 @@
 .cp-edit-table-box .cpe-naf input {
   width: 100%;
 }
+
+.cp-edit-table-box .input-error {
+  color: #ff0000;
+  font: 500 18px Raleway, sans-serif;
+  font-size: 13px;
+}

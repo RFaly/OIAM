@@ -18,11 +18,12 @@
 }
 
 .create-offre-box {
+  padding: 20px 0;
+  font: 15px Questrial, sans-serif;
   text-align: center;
 }
 
 .create-offre-box .travel-creation {
-  background: green;
   margin: 0 auto;
 }
 
@@ -54,6 +55,8 @@
   list-style: none;
   display: flex;
   justify-content: space-between;
+  font: 500 18px Raleway, sans-serif;
+  font-size: 16px;
 }
 
 .create-offre-box .travel-creation .color-bg {
@@ -61,9 +64,8 @@
 }
 
 .create-offre-box .detail-post-box {
-  background: red;
-  padding: 20px;
-  margin: 35px 0;
+  padding: 20px 0;
+  margin: 30px auto;
 }
 
 .create-offre-box .detail-post-box #offre_job_contrat_cdi {
@@ -85,16 +87,12 @@
 }
 
 .create-offre-box .detail-post-box .dp-input {
-  background: blue;
-  width: 35%;
-  margin: 0 auto;
-  margin-bottom: 20px;
+  margin: 6px auto 30px auto;
 }
 
 .create-offre-box .detail-post-box .dp-input input,
 .create-offre-box .detail-post-box .dp-input select,
 .create-offre-box .detail-post-box .dp-input textarea {
-  width: 100%;
   text-align: center;
   border: none;
   padding: 10px 0;
@@ -118,9 +116,66 @@
   height: 70px;
 }
 
+.create-offre-box .detail-post-box .dp-input-checkbox1 {
+  font: 15px Questrial, sans-serif;
+  display: block;
+  position: relative;
+  padding-left: 45px;
+  margin: 35px auto;
+  cursor: pointer;
+  user-select: none;
+}
+
+.create-offre-box .detail-post-box .dp-input-checkbox1 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.create-offre-box .detail-post-box .dp-input-checkbox1 .checkmark {
+  position: absolute;
+  top: -2px;
+  left: 100px;
+  height: 20px;
+  width: 20px;
+  background-color: #c4c4c4;
+}
+
+.create-offre-box .detail-post-box .dp-input-checkbox1:hover input ~ .checkmark {
+  background-color: #d6b36a;
+}
+
+.create-offre-box .detail-post-box .dp-input-checkbox1 input:checked ~ .checkmark {
+  background-color: #f0f2f4;
+}
+
+.create-offre-box .detail-post-box .dp-input-checkbox1 .checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.create-offre-box .detail-post-box .dp-input-checkbox1 input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.create-offre-box .detail-post-box .dp-input-checkbox1 .checkmark:after {
+  left: 5px;
+  top: -7px;
+  width: 15px;
+  height: 25px;
+  border: solid black;
+  border-width: 0 5px 5px 0;
+  transform: rotate(45deg);
+}
+
 .create-offre-box .detail-post-box .dp-input-renumeration {
   font: 500 18px Raleway, sans-serif;
   width: 90%;
+  margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 .create-offre-box .detail-post-box .dp-input-renumeration .dp-input-flex {
@@ -190,14 +245,13 @@
 }
 
 .create-offre-box .detail-post-box .dp-input-renumeration .value-renum {
-  margin: 0 auto;
-  width: 120%;
+  height: 20px;
   position: relative;
 }
 
 .create-offre-box .detail-post-box .dp-input-renumeration .value-renum div {
+  color: white;
   left: 50%;
-  transform: translateX(-185%);
   top: 3px;
   position: absolute;
   width: 60px;
@@ -206,10 +260,180 @@
   background: #d6b36a;
 }
 
+.create-offre-box .detail-post-box .co-dp-btn {
+  font: 500 18px Raleway, sans-serif;
+  text-align: center;
+  border: 2px solid #d6b36a;
+  color: #d6b36a;
+  padding: 12px 5px;
+  margin: 50px auto;
+  margin-bottom: 20px;
+  width: 170px;
+  cursor: pointer;
+}
+
+.create-offre-box .detail-post-box .co-dp-btn:hover, .create-offre-box .detail-post-box .co-dp-btn:active {
+  background: #d6b36a;
+  color: white;
+}
+
 .create-offre-box .context-offre-box {
-  background: yellow;
+  display: none;
   padding: 20px;
-  margin: 35px 0;
+  margin: 30px 0;
+}
+
+.create-offre-box .context-offre-box .co-input {
+  margin: 6px auto 30px auto;
+  width: 80%;
+}
+
+.create-offre-box .context-offre-box .co-input input,
+.create-offre-box .context-offre-box .co-input select,
+.create-offre-box .context-offre-box .co-input textarea {
+  text-align: center;
+  border: none;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 0;
+}
+
+.create-offre-box .context-offre-box .co-input input:focus,
+.create-offre-box .context-offre-box .co-input select:focus,
+.create-offre-box .context-offre-box .co-input textarea:focus {
+  border-radius: none;
+  outline: 1px solid #d6b36a;
+  box-shadow: 1px 1px 5px 1px #d6b36a;
+}
+
+.create-offre-box .context-offre-box .co-input input,
+.create-offre-box .context-offre-box .co-input textarea {
+  background: #f0f2f4;
+}
+
+.create-offre-box .context-offre-box .co-input #addImage {
+  width: 100px;
+  height: 100px;
+}
+
+.create-offre-box .context-offre-box .co-input-image {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+}
+
+.create-offre-box .context-offre-box .co-input-image img {
+  align-self: flex-end;
+}
+
+.create-offre-box .context-offre-box .co-input-image label {
+  align-self: flex-end;
+  font: 500 18px Raleway, sans-serif;
+  text-align: center;
+  margin-left: 30px;
+}
+
+.create-offre-box .context-offre-box .co-input-image label .first-p {
+  color: #d6b36a;
+}
+
+.create-offre-box .context-offre-box .co-input-image label .last-p {
+  margin-top: 15px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.create-offre-box .context-offre-box .cp-input-check {
+  margin: 15px auto 40px auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.create-offre-box .context-offre-box .cp-input-check .cp-input-ckeck-label {
+  margin-left: 0;
+  margin-right: 80px;
+  font: 15px Questrial, sans-serif;
+}
+
+.create-offre-box .context-offre-box .cp-input-check #cp-input-check {
+  width: 60px;
+}
+
+.create-offre-box .context-offre-box .cp-input-check #cp-input-check:focus, .create-offre-box .context-offre-box .cp-input-check #cp-input-check:active {
+  outline: 0;
+  box-shadow: none;
+}
+
+.create-offre-box .context-offre-box .co-input-submit input {
+  font: 500 18px Raleway, sans-serif;
+  border: 2px solid #d6b36a;
+  color: #d6b36a;
+  background: transparent;
+  margin: 35px auto 10px auto;
+  cursor: pointer;
+}
+
+.create-offre-box .context-offre-box .co-input-submit input:hover, .create-offre-box .context-offre-box .co-input-submit input:active {
+  background: #d6b36a;
+  color: white;
+}
+
+.create-offre-box .context-offre-box .co-input-submit input:focus, .create-offre-box .context-offre-box .co-input-submit input:active {
+  outline: 0;
+  box-shadow: none;
+}
+
+.create-offre-box .cp-input-ckeck-label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+}
+
+.create-offre-box .cp-input-ckeck-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.create-offre-box .cp-input-ckeck-label .cp-radio {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #f0f2f4;
+  border-radius: 50%;
+}
+
+.create-offre-box .cp-input-ckeck-label:hover input ~ .cp-radio {
+  background-color: #d6b36a;
+}
+
+.create-offre-box .cp-input-ckeck-label input:checked ~ .cp-radio {
+  background-color: #f0f2f4;
+}
+
+.create-offre-box .cp-input-ckeck-label .cp-radio:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.create-offre-box .cp-input-ckeck-label input:checked ~ .cp-radio:after {
+  display: block;
+}
+
+.create-offre-box .cp-input-ckeck-label .cp-radio:after {
+  top: 5px;
+  left: 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #c4c4c4;
 }
 
 .create-offre-box .co-select {
@@ -233,4 +457,12 @@
   background: #f0f2f4;
   width: 14px;
   height: 100%;
+}
+
+.input-error {
+  color: red;
+  font: 500 18px Raleway, sans-serif;
+  font-size: 13px;
+  display: block;
+  margin: -15px 0 20px 0;
 }

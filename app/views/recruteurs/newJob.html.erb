@@ -6,145 +6,166 @@
     <%= render "recruteurs/left_link_bar" %>
   </div>
   <div class="cp-box">
-    <div class="box-inside">
-      <div class="create-offre-box">
-        <div class="travel-creation">
-          <div class="travelc-image">
-            <div class="circle color-bg">
-              1
-            </div>
-            <div class="line ir-l1"></div>
-            <div class="circle ir-c1">
-              2
-            </div>
-            <div class="line ir-l2"></div>
-            <div class="circle ir-c2">
-              3
-            </div>
+    <div class="create-offre-box">
+      <div class="travel-creation">
+        <div class="travelc-image">
+          <div class="circle color-bg">
+            1
           </div>
-          <ol>
-            <li>Détails du poste</li>
-            <li>Contexte de l'offre</li>
-            <li>Publication</li>
-          </ol>
-        </div>
-        <%= form_for @offre , url: createJob_path do |f| %>
-        <hr />
-        <div class="detail-post-box">
-          <label>LOCALISATION</label>
-          <div class="dp-input hide-right">
-            <%= f.select :country, options_for_select([["France", "France"]]),{}, class:'co-select', required:true, id:'paysInput', title:'Pays' %>
+          <div class="line ir-l1"></div>
+          <div class="circle ir-c1">
+            2
           </div>
-
-          <div class="dp-input hide-right">
-            <%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région' %>
-          </div>
-
-          <div class="dp-input hide-right">
-            <%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département' %>
-          </div>
-
-          <%= f.label :intitule_pote, "INTITULÉ DU POSTE" %>
-          <div class="dp-input">
-            <%= f.text_field :intitule_pote, required:true %>
-          </div>
-
-          <%= f.label :descriptif_mission, "DESCRIPTIF DES MISSIONS" %>
-          <div class="dp-input">
-            <%= f.text_area :descriptif_mission, required:true, rows:3 %>
-          </div>
-
-          <%= f.label :rattachement, "RATTACHEMENT HIÉRARCHIQUE" %>
-          <div class="dp-input">
-            <%= f.text_field :rattachement, required:true %>
-          </div>
-
-          <%= f.label :remuneration, "RÉMUNÉRATION PROPOSÉE FIXE (K€ BRUTS ANNUELS)" %>
-          <div class="dp-input dp-input-renumeration">
-            <div class="dp-input-flex">
-              <span class="span1">60</span>
-              <%= f.range_field :remuneration, min:60, max:350,required:true, id:"remuneration"%>
-
-              <span class="span1">350</span>
-            </div>
-            <div class="value-renum">
-              <div id="inputRange-div"><b id="inputRange">205</b></div>
-            </div>
-          </div>
-
-          <%= f.label :remuneration_anne, "RÉMUNÉRATION PROPOSÉE VARIABLE(K€ BRUTS ANNUELS)" %>
-          <div class="dp-input hide-right">
-            <%= f.select :remuneration_anne, options_for_select([["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"]]),{}, class:'co-select', required:true, id:'paysInput', title:'Pays' %>
-          </div>
-
-          <div class="dp-input">
-            <input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi" />
-            <label for="offre_job_contrat_cdi">Contrat CDI</label>
-          </div>
-
-          <%= f.label :type_deplacement, "LE POSTE IMPLIQUE-T-IL DES DÉPLACEMENTS?" %>
-          <div class="dp-input hide-right">
-            <%= f.select :type_deplacement, options_for_select([["Régionaux","Régionaux"],["Internationaux", "Internationaux"]]), {}, required:true, class:'co-select' %>
-          </div>
-
-          <%= f.label :type_deplacement, "DATE DE PRISE DE POSTE (date piker)" %>
-          <div class="dp-input">
-            <%= f.date_field :date_poste, required:true, min: Date.today,id:'dp-date' %>
-          </div>
-
-          <span class="btn btn-primary">SUIVANT</span>
-        </div>
-
-        <div class="context-offre-box">
-          <legend>Contexte de l'offre</legend>
-
-          <%= f.label :question1, "QUELLE POURRAIT-ÊTRE LA RÉMUNÉRATION MAXIMALE POUR LE CANDIDAT IDÉAL ?", class:"ggag" %>
-          <div class="co-input">
-            <%= f.text_field :question1, required:true %>
-          </div>
-
-          <%= f.label :question2, "QUE POUVEZ-VOUS DIRE AUX CANDIDATS POUR LEUR DONNER L’ENVIE DE TRAVAILLER CHEZ VOUS ?", class:"ggag" %>
-          <div class="co-input">
-            <%= f.text_area :question2, required:true, rows:3, class:"form-control" %>
-          </div>
-
-          <%= f.label :question3, "QUEL SERA VOTRE PROCESSUS DE RECRUTEMENT ?", class:"ggag" %>
-          <div class="co-input">
-            <%= f.text_area :question3, required:true, rows:3, class:"form-control" %>
-          </div>
-
-          <div class="co-input">
-            <span>POURRIEZ-VOUS SUPPORTER UN PRÉAVIS SUR CE POSTE ?</span>
-            <div class="form-check">
-              <%= f.radio_button :question4, 'OUI', :checked => true, class:"form-check-input" %> <%= label :question4, 'OUI', required:true, class:"form-check-label", for:"offre_job_question4_oui" %>
-            </div>
-            <div class="form-check">
-              <%= f.radio_button :question4, 'NON', class:"form-check-input" %> <%= label :question4, 'NON', required:true, class:"form-check-label", for:"offre_job_question4_non" %>
-            </div>
-          </div>
-
-          <%= f.label :question5, "PRÉSENTER LE CONTEXTE D’OUVERTURE DE CE POSTE.", class:"ggag" %>
-          <div class="co-input">
-            <%= f.text_area :question5, required:true, rows:3, class:"form-control" %>
-          </div>
-
-          <div class="co-input">
-            <img id="addImage" src="#" alt="logo entreprise" width="350" />
-            <%= f.label :image, "Logo entreprise:" %> <br />
-            <%= f.file_field :image %>
-            <!-- Télécharger une image -->
-          </div>
-
-          <div class="co-input">
-            <%= f.submit("APERCU AVANT PUBLICATION") %>
+          <div class="line ir-l2"></div>
+          <div class="circle ir-c2">
+            3
           </div>
         </div>
-
-        <% end %>
-        <p>
-          *Ces détails seront visibles par les candidats.
-        </p>
+        <ol>
+          <li>Détails du poste</li>
+          <li>Contexte de l'offre</li>
+          <li>Publication</li>
+        </ol>
       </div>
+      <%= form_for @offre , url: createJob_path do |f| %>
+      <div class="detail-post-box">
+        <label>LOCALISATION</label>
+        <div class="dp-input hide-right">
+          <%= f.select :country , options_for_select([["France", "France"]]),{}, class:'co-select', required:true, id:'paysInput', title:'Pays',autofocus:true%>
+        </div>
+        <span class="input-error country-error"></span>
+
+        <div class="dp-input hide-right">
+          <%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région' %>
+        </div>
+        <span class="input-error region-error"></span>
+
+        <div class="dp-input hide-right">
+          <%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département' %>
+        </div>
+        <span class="input-error departement-error"></span>
+
+        <%= f.label :intitule_pote, "INTITULÉ DU POSTE" %>
+        <div class="dp-input">
+          <%= f.text_field :intitule_pote, required:true , id:'intitule-pote'%>
+        </div>
+        <span class="input-error intitule-pote-error"></span>
+
+        <%= f.label :descriptif_mission, "DESCRIPTIF DES MISSIONS" %>
+        <div class="dp-input">
+          <%= f.text_area :descriptif_mission, required:true,id:'descriptif-mission' %>
+        </div>
+        <span class="input-error descriptif-mission-error"></span>
+
+        <%= f.label :rattachement, "RATTACHEMENT HIÉRARCHIQUE" %>
+        <div class="dp-input">
+          <%= f.text_field :rattachement, required:true,id:'rattachement' %>
+        </div>
+        <span class="input-error rattachement-error"></span>
+
+        <%= f.label :remuneration, "RÉMUNÉRATION PROPOSÉE FIXE (K€ BRUTS ANNUELS)" %>
+        <div class="dp-input dp-input-renumeration">
+          <div class="dp-input-flex">
+            <span class="span1">60</span>
+            <%= f.range_field :remuneration, min:60, max:350,required:true, id:"remuneration"%>
+
+            <span class="span1">350</span>
+          </div>
+          <div class="value-renum" id="value-renum">
+            <div id="inputRange-div"><b id="inputRange">205</b></div>
+          </div>
+        </div>
+
+        <%= f.label :remuneration_anne, "RÉMUNÉRATION PROPOSÉE VARIABLE(K€ BRUTS ANNUELS)" %>
+        <div class="dp-input hide-right">
+          <%= f.select :remuneration_anne, options_for_select([["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"]]),{}, class:'co-select', required:true, id:'remuneration-anne' %>
+        </div>
+        <span class="input-error remuneration-anne-error"></span>
+
+        <label class="dp-input dp-input-checkbox1">
+          Contrat CDI
+          <input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi" />
+          <span class="checkmark"></span>
+        </label>
+
+        <%= f.label :type_deplacement, "LE POSTE IMPLIQUE-T-IL DES DÉPLACEMENTS ?" %>
+        <div class="dp-input hide-right">
+          <%= f.select :type_deplacement, options_for_select([["Régionaux","Régionaux"],["Internationaux", "Internationaux"]]), {}, required:true, class:'co-select',id:'type-deplacement' %>
+        </div>
+        <span class="input-error type-deplacement-error"></span>
+
+        <%= f.label :type_deplacement, "DATE DE PRISE DE POSTE (date piker)" %>
+        <div class="dp-input">
+          <%= f.date_field :date_poste, required:true, min: Date.today,id:'dp-date' %>
+        </div>
+        <span class="input-error dp-date-error"></span>
+
+        <div class="co-dp-btn" id="co-dp-btn">SUIVANT</div>
+        <span class="input-error" id="co-dp-btn-error"></span>
+      </div>
+
+      <div class="context-offre-box">
+        <%= f.label :question1, "QUELLE POURRAIT-ÊTRE LA RÉMUNÉRATION MAXIMALE POUR LE CANDIDAT IDÉAL ?", class:"ggag" %>
+        <div class="co-input hide-right">
+          <%= f.select :question1, options_for_select([["60 k€ bruts annuels", "60 k€ bruts annuels"],["70 k€ bruts annuels", "70 k€ bruts annuels"],["80 k€ bruts annuels", "80 k€ bruts annuels"],["90 k€ bruts annuels", "90 k€ bruts annuels"]]),{}, class:'co-select', id:'question1' , required:true
+          %>
+        </div>
+        <span class="input-error" id="question1-error"></span>
+
+        <%= f.label :question2, "QUE POUVEZ-VOUS DIRE AUX CANDIDATS POUR LEUR DONNER L’ENVIE DE TRAVAILLER CHEZ VOUS ?", class:"ggag" %>
+        <div class="co-input">
+          <%= f.text_area :question2, required:true,id:'question2' %>
+        </div>
+        <span class="input-error" id="question2-error"></span>
+
+        <%= f.label :question3, "QUEL SERA VOTRE PROCESSUS DE RECRUTEMENT ?", class:"ggag" %>
+        <div class="co-input hide-right">
+          <%= f.select :question3, options_for_select([[ "1 entretien RH ","1"],[ "1 entretien RH + 1 entretien manager" ,"2"],[ "1 entretien RH + 2 entretien manager" ,"3"]]),{}, class:'co-select', required:true,id:'question3' %>
+        </div>
+        <span class="input-error" id="question3-error"></span>
+
+        <label>POURRIEZ-VOUS SUPPORTER UN PRÉAVIS SUR CE POSTE ?</label>
+        <div class="co-input cp-input-check">
+          <label class="cp-input-ckeck-label">
+            OUI <%= f.radio_button :question4, 'OUI', :checked => true, class:"form-check-input" ,id:'cp-input-check' %>
+            <span class="cp-radio"></span>
+          </label>
+          <label class="cp-input-ckeck-label">
+            NON <%= f.radio_button :question4, 'NON', class:"form-check-input" ,id:'cp-input-check'%>
+            <span class="cp-radio"></span>
+          </label>
+        </div>
+
+        <%= f.label :question5, "PRÉSENTER LE CONTEXTE D’OUVERTURE DE CE POSTE.", class:"ggag" %>
+        <div class="co-input hide-right">
+          <%= f.select :question5, options_for_select([[ "Remplacement ","1"],[ "Changement" ,"2"],[ "Départ" ,"3"]]),{}, class:'co-select', required:true,id:'question5' %>
+        </div>
+        <span class="input-error" id="question5-error"></span>
+
+        <div class="co-input co-input-image">
+          <img id="addImage" src="/image/picture.png" alt="logo entreprise"" />
+          <label>
+            <p class="first-p">Logo entreprise</p>
+            <p class="last-p">Télécharger une image</p>
+            <span style="display: none;">
+              <%= f.file_field :image , class:'input_fied' %>
+            </span>
+          </label>
+        </div>
+
+        <div class="co-input co-input-submit" id="co-input-submit">
+          <%= f.submit("APERCU AVANT PUBLICATION") %>
+        </div>
+
+        <div class="co-input co-input-submit" id="co-input-submit-1">
+          <%= f.submit("APERCU") %>
+        </div>
+      </div>
+
+      <% end %>
+      <p>
+        *Ces détails seront visibles par les candidats.
+      </p>
     </div>
   </div>
 </div>
