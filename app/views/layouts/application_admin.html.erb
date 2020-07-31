@@ -12,6 +12,9 @@
   </head>
 
   <body>
+    
+    <%= render "layouts/navbar_admin" %>
+
     <div>
       <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
@@ -19,7 +22,6 @@
       <p class="alert alert-danger"><%= alert %></p>
       <% end %>
     </div>
-    <%= render "layouts/navbar_admin" %>
 
     <%= yield %>
   </body>
