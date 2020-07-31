@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'admin_cadre/main'
+  get 'admin_cadre/send_message'
+  get 'admin_cadre/entretien_fit'
+  get 'admin_cadre/coaching_workshop'
+  get 'admin_cadre/events'
+  get 'admin_client/main'
+  get 'admin_dashboard/main'
+  get 'admin_main/home'
+  get 'admin_main/messaging'
+  get 'admin_main/notification'
 	#~~~~~~~~~~~~~~~~~~~~ Accueil ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   root to: 'static_page#home'
   get '/welcome', to: 'static_page#allHome', as: 'welcome'
