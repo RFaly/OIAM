@@ -1,11 +1,10 @@
 html{
-  font-size: 16px;
+  font-size: 18px;
 }
 
 body{
   font-family: 'Questrial', sans-serif;
   margin: 0;
-  text-align: justify;
   line-height: 28px;
 }
 
@@ -15,216 +14,192 @@ img{
   height: auto;
 }
 
-.aside{
-  overflow: hidden;
-}
-.block-left{
-  display: block;
-  width: auto;
-  margin-bottom: 50px;
-}
-.block-left p{
-  position:relative;
+p{
   text-align: justify;
-  width: 100%;
-  margin-left: 50px;
 }
+
 .aside{
   margin: 15px;
 }
 
 .block-title{
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
   color: #D6B36A;
-  margin-bottom: 50px;
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 50px;
+  margin-bottom: 40px;
 }
 
-.check-gold1{
-  position: absolute;
+.block-article-title{
+  color: #D6B36A;
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.block-left-content{
+  display: flex;
+  height: auto;
   float: left;
-  width: 42px;
-  height: 42px;
-  margin-top: 10px;
-  margin-left: -5px;
+}
+
+.block-left-content img{
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  padding-right: 5px;
+}
+
+
+.block-left-content p{
+  position: relative;
+  top: 50%;
+}
+
+
+.block-image{
+  display: block;
+  margin: 0 auto;
+  width: 80px;
+  height: 91px;
 }
 
 .article{
   clear: both;
-}
-
-.block-article-title{
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  color: #D6B36A;
-  margin-bottom: 20px;
-}
-
-.block-image{
-
-}
-
-.block-image{
-  display: block;
-  margin: auto;
-  width: 91px;
-  height: 100px;
-}
-
-.article-content-left{
   margin-bottom: 50px;
 }
 
-.notice{
-  display: block;
-  margin: auto;
-}
 
 .block-cadre{
   display: block;
   margin: auto;
-  width: 300px;
+  width: 100%;
   height: 390px;
-  margin-bottom: 50px;
-  padding: 46px 24px 20px 24px;
-}
-
-
-.block-cadre h2{
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  font-size: 20px;
-  color: #000;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 30px;
+  padding: 48px 20px 24px;
 }
 
 .cote-candidat{
-  background-color: #E3D7BF;
+  background: #E3D7BF;
+  margin-bottom: 25px;
 }
 
 .cote-recruteur{
-  background-color: #D6B36A;
-  margin-left: 60px;
+  background: rgba(214, 179, 106, 0.7);;
+}
+
+.block-cadre h2{
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 30px;
 }
 
 .methode-oiam{
-  display: block;
-  margin: auto;
-  font-family: 'Raleway', sans-serif;
-  font-weight: bold;
+  font-family: 'Raleway',sans-serif;
+  font-style: normal;
+  font-weight: 600;
   font-size: 20px;
-  color: #000;
-  text-align: center;
-  width: auto;
-
-}
-
-.notre-methode{
+  text-align:center;
+  line-height: 24px;
   margin-top: 50px;
 }
 
-@media only screen and (min-width: 800px){
-  .block-left{
-    margin-top: 25px;
-    padding: 0 100px;
-  }
 
+@media only screen and (min-width: 900px){
   .article-content-left{
     display: flex;
   }
 
-  .block-right{
-    padding: 0 30px;
-    width: 750px;
+  .block-cadre{
+    width: 320px;
   }
 
   .block-image{
-    flex: none;
+    margin: auto;
+    width: 20%;
+  }
+
+  .block-images{
     float: right;
   }
-  .goRight{
+
+  .block-image img{
+    width: 90px;
+    height: 91px;
+  }
+
+  .block-right{
+    width: 80%;
+  }
+
+  .goRigh{
     order: 1;
   }
-  .goLeft{
+
+  .block-imag{
     float: left;
+  }
+
+  .block{
     order: -1;
   }
 
   .notice{
     display: flex;
-    width: 670px;
-    margin-top: 50px;
+    width: 760px;
+    margin: 0 auto;
   }
+
+  .cote-candidat{
+    margin-bottom: 0;
+  }
+
   .methode-oiam{
-    width: 725px;
-    margin-bottom: 80px;
+    display: block;
+    margin: 100px auto;
+    width: 822px;
+  }
+
+  .aside{
+    margin-top: 75px;
+  }
+
+  .block-left-content img{
+    position: relative;
+    top: -10px;
+    left: -5px;
+  }
+
+}
+
+@media only screen and (min-width: 975px){
+  .block-left{
+    margin-left: 10%;
   }
 }
 
 @media only screen and (min-width: 1024px){
   .block-left{
-    margin-top: 50px;
-    padding: 0 180px;
-    width: 1000px;
-    float: right;
+    margin-left: 220px;
+    margin-right: 105px;
   }
 
-  .notice{
-    display: flex;
-    width: 100%;
-    padding: 0 280px;
-    margin-top: 50px;
-  }
-
-  .block-right{
-    padding: 0 80px;
-    width: 670px;
-  }
-
-  .goRight{
-    order: 1;
-  }
-  .goLeft{
-    float: left;
-    order: -1;
+  .article{
+    margin-left: 95px;
+    margin-right: 100px;
   }
 
   .notre-methode{
-    margin-top: 50px;
-    padding: 0 80px;
+    margin-left: 95px;
+    margin-right: 105px;
     margin-bottom: 100px;
-  }
-}
-
-
-@media only screen and (min-width: 1270px){
-  .block-left{
-    margin-top: 50px;
-    padding: 0 180px;
-    width: 1000px;
-    float: left;
-    margin-left: 25%;
-  }
-
-  .block-right{
-    padding: 0 120px;
-    width: 900px;
-  }
-
-  .goRight{
-    order: 1;
-  }
-  .goLeft{
-    float: left;
-    order: -1;
-  }
-
-  .notre-methode{
-    margin-top: 50px;
-    padding: 0 120px;
   }
 }

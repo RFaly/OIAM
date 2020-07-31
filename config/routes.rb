@@ -20,11 +20,10 @@ Rails.application.routes.draw do
 
 	get '/recruteur', to: 'recruteurs#main', as: 'main_recruiter'
 
-# list menu dans le dashbord client
+  # list menu dans le dashbord client
   get '/recruteur/mon-profil', to: 'recruteurs#my_profil', as: 'client_my_profil'
   get '/recruteur/mon-profil/edit', to: 'recruteurs#my_profil_edit', as: 'my_profil_edit'
   patch '/recruteur/mon-profil/save', to: 'recruteurs#update_my_profil', as: 'update_my_profil'
-
 
   get '/recruteur/mes-offre-d-emploi', to: 'recruteurs#my_job_offers', as: 'my_job_offers'
   get '/recruteur/mes-candidats-favoris', to: 'recruteurs#favorite_candidates', as: 'favorite_candidates'
@@ -91,12 +90,6 @@ Rails.application.routes.draw do
   # tokony post ito
   get '/cadre/resultat-test', to: 'candidates#resultatsTest', as: 'resultatsTest'
   post '/cadre/save-entretien-date', to:'candidates#saveEntretientDate',as:'saveEntretientDate'
-  
-	#~~~~~~~~~~~~~~~~~~~~~~~~ Admin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	devise_for :admins, path: 'admins', controllers: {
-  	sessions: 'admins/sessions',
-  	registrations: 'admins/registrations'
-  }
 
   #~~~~~~~~~~ LINK fo MESSAGE ~~~~~ TEST CANDIDAT
   get '/cadre/messages', to: 'candidates#my_messages', as: 'my_messages_cadre'
@@ -110,6 +103,35 @@ Rails.application.routes.draw do
   post '/recruteur/send-message', to: 'recruteurs#post_my_message', as: 'post_my_message_client'
   get '/recruteur/:cadre_id/:contact_id/all-messages', to:'recruteurs#getLastMessage', as:'getClientLastMessage'
 
+  #~~~~~~~~~~~~~~~~~~~~~~~~ Admin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  # Lien pour authentification admin
+  devise_for :admins, path: 'secret-oiam-page/admin',:skip => [:registrations], controllers: { 
+    sessions: "admins/sessions"
+  }, path_names: {
+    sign_in: 'se-connecter', sign_out: 'se-deconneter', cancel: 'supprimer',
+    password: 'mot-de-passe', confirmation: 'verification', edit: 'editer'
+  }
+  # routes principale dans admin_main
+  get 'secret-oiam-page/admin', to: 'admin_main#home', as: 'admin_main_home'
+  get 'secret-oiam-page/admin/messages', to: 'admin_main#messaging', as: 'admin_main_messaging'
+  get 'secret-oiam-page/admin/notifications', to: 'admin_main#notification', as: 'admin_main_notification'
+  get 'secret-oiam-page/admin/mon-profil', to: 'admin_main#my_profil', as: 'admin_main_my_profil'
+
+  # route admin cadre
+  get 'secret-oiam-page/admin/cadre', to: 'admin_cadre#main', as: 'admin_cadre_main'
+  get 'secret-oiam-page/admin/cadre/envoyer-un-message', to: 'admin_cadre#send_message', as: 'admin_cadre_send_message'
+  get 'secret-oiam-page/admin/cadre/entretien-fit', to: 'admin_cadre#entretien_fit', as: 'admin_cadre_entretien_fit'
+  get 'secret-oiam-page/admin/cadre/coaching-workshop', to: 'admin_cadre#coaching_workshop', as: 'admin_cadre_coaching_workshop'
+  get 'secret-oiam-page/admin/cadre/events', to: 'admin_cadre#events', as: 'admin_cadre_events'
+
+  # route admin client
+  get 'secret-oiam-page/admin/client', to: 'admin_client#main', as: 'admin_client_main'
+
+  # routes dans le dashboard
+  get 'secret-oiam-page/admin/dashboard', to: 'admin_dashboard#main', as: 'admin_dashboard_main'
+
+  # routes dans pour l'administration
+  get 'secret-oiam-page/admin/administration', to: 'admin_administration#main', as: 'admin_administration_main'
 
 end
 

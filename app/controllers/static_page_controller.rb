@@ -1,5 +1,6 @@
 class StaticPageController < ApplicationController
 	def home
+    @header = true
   end
 
   def allHome

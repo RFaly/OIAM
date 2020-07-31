@@ -15,9 +15,11 @@
   </head>
 
   <body>
-    <div class="navbar-controll bg-inside">
-      <%= render "layouts/navbar" %>
-    </div>
+    <% if @header.nil? %>
+      <div class="navbar-controll bg-inside">
+        <%= render "layouts/navbar" %>
+      </div>
+    <% end %>
     <!-- ~~~~~~~~~~~~~~~~~~~ Alert devise ito ~~~~~~~~~~~~~~~~~~~ -->
     <div>
       <% if notice %>
@@ -28,9 +30,14 @@
     </div>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <%= yield %>
-    <div class="footer-controll">
-      <%= render "layouts/footer" %>
-    </div>
+    
+    <% if @header.nil? %>
+      <div class="footer-controll">
+        <%= render "layouts/footer" %>
+      </div>
+    <% end %>
+
     <script type="text/javascript" data-turbolinks-track="reload" src="/js/check_path.js"></script>
+    
   </body>
 </html>
