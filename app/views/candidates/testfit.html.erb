@@ -26,26 +26,29 @@
 	}
 	.show-default-value-date{
 		border: 1px solid #fff;
-		background-color: #e3d7bf;	
+		background-color: #e3d7bf;
 	}
 </style>
 
 <div class="bg-uniq">
-	<div class="cadres">
-	<div class="content">
-			<div class="numero goRight trait gold potential">1</div>
-			<div class="numero goRight trait1 gold skills">2</div>
-			<div class="numero fit gold">3</div>
-	</div>
+	<div class="cadre">
+		<div class="content">
+				<div class="numero un">1<span class="potential">Potential</span></div>
+				<div class="numero deux">2<span class="skills">Skills</span></div>
+				<div class="numero trois">3<span class="fit">Fit</span></div>
+		</div>
 
-	<h1>3ème partie : FIT <img src="/image/fit.png" height="60" width="60"></h1>
+		<div class="potential-title">
+			<h1>3ème partie : FIT</h1>
+			<img src="/image/fit.png" height="60" width="60">
+		</div>
 
-	<p>Bravo, vous avez excellé aux phases précédentes, et êtes maintenant à quelques pas de l’entrée chez One In A Million.</p>
+	<p>Bravo, vous avez excellé aux phases précédentes, et êtes maintenant à quelques pas de l’entrée chez One in a Million.</p>
 
 	<p>Afin  d’assurer  un  excellent  suivi  de  votre  candidature  tout  au  long   de votre  carrière,  nous  tenons  à  vous  proposer  un   entretien  humain,  appelé  “FIT ” avec l’un de nos experts en recrutement.</p>
 
-	<p>Cet  échange  nous  permettra  d’en  savoir  plus  sur vous et de découvrir votre  “ FIT ”  avec  les  nombreuses  opportunités  que nous proposons sur One In A Million.</p>
-<% if @agendaAdmin.nil? %>	
+	<p>Cet  échange  nous  permettra  d’en  savoir  plus  sur vous et de découvrir votre  “ FIT ”  avec  les  nombreuses  opportunités  que nous proposons sur One in a Million.</p>
+<% if @agendaAdmin.nil? %>
 	<span class="pass-test" id="show-selected-date">PLANIFIER UN ENTRETIEN SKYPE</span>
 <% else %>
 	<div class="show-default-value-date">

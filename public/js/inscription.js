@@ -190,9 +190,7 @@ function check_nil(test, value) {
     test.css('outline', '.2px solid red');
     value.html('(Champ obligatoire)');
     value.show();
-    $('#code-naf-list').css('display', 'none');
   } else {
-    $('#code-naf-list').css('display', 'none');
     test.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
     test.css('outline', '2px solid #e3d7bf ');
     value.hide();
@@ -283,14 +281,32 @@ function check_none(test, value, check) {
 function add_list() {
   var list = $('#code-naf-list');
   list.css('display', 'block');
+  // add all data in html
   for (var i = 0; i < code_naf.length; i++) {
     list.append('<li class="code-naf-list-item">' + code_naf[i].code + ' ' + code_naf[i].info + '</li>');
   }
+  // add event click list
+  $('.code-naf-list').on('click', 'li', function (e) {
+    // console.log($(e.target).html().split(' '));
+    var value = $(e.target).html().split(' ').splice(1).join(' ');
+    var naf = $('#code_naf');
+    var codenaf = $(e.target).html().split(' ')[0];
+    // console.log(value);
+    // add value to input
+    naf.val(codenaf);
+    $('#entreprise_description').val(value);
+    // hide list
+    $('#code-naf-list').css('display', 'none');
+    // check error
+    check_none(naf, $('#code-naf-error'), $('#entreprise_description'));
+    check_nil(naf, $('#code-naf-error'));
+  });
 }
-// fonction find list
+// fonction filter list
 function check_inside_list(test) {
   var filter = test.val();
   var list_li = $('.code-naf-list-item');
+  // find element same to types
   for (i = 0; i < list_li.length; i++) {
     txtValue = list_li[i].textContent || list_li[i].innerText;
     if (txtValue.indexOf(filter) > -1) {
@@ -299,4 +315,21 @@ function check_inside_list(test) {
       list_li[i].style.display = 'none';
     }
   }
+  // add event click to list
+
+  // console.log($('.code-naf-list-item:visible').length);
+  $('.code-naf-list').on('click', 'li', function (e) {
+    // console.log($(e.target).html().split(' ')[0]);
+    var naf = $('#code_naf');
+    var value = $(e.target).html().split(' ').splice(1).join(' ');
+    var codenaf = $(e.target).html().split(' ')[0];
+    // get value and add it to input
+    $('#entreprise_description').val(value);
+    naf.val(codenaf);
+    // hide list after click
+    $('#code-naf-list').css('display', 'none');
+    // check error
+    check_nil(naf, $('#code-naf-error'));
+    check_none(naf, $('#code-naf-error'), $('#entreprise_description'));
+  });
 }

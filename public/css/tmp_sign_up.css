@@ -87,7 +87,7 @@ body {
 
 .ville {
   display: inline-block;
-  margin-right: 29px;
+  margin-right: 8px;
   margin-left: auto;
   width: 195px;
   position: relative;
@@ -102,7 +102,7 @@ body {
 .btnInscrire {
   display: block;
   margin: auto;
-  width: 150px;
+  width: 152px;
   height: 50px;
   border: 1px solid #d6b36a;
   background: #ffff;
@@ -120,7 +120,15 @@ body {
 .ville-adresse {
   display: flex;
   margin: auto;
-  width: 420px;
+  width: 440px;
+}
+
+.code_postal{
+  width: 170px;
+}
+
+.city{
+  width: 230px;
 }
 
 
