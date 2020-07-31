@@ -1,36 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-#
+# create a default admin
+# login: admin@admin.oiam
+# password: admin@admin.oiam
 
-=begin
+Admin.create(email: "emmanuelle@vandepitterie.fr", password:"incorect-pass", first_name: "Emmanuelle", last_name: "Vandepitterie", metier:"CEO")
+Admin.create(email: "loic@rakotozafy.fr", password:"incorect-pass", first_name: "Loic", last_name: "Rakotozafy", metier:"Data Analyst")
+Admin.create(email: "brian@lombert.fr", password:"incorect-pass", first_name: "Brian", last_name: "Lombert", metier:"CFO")
+Admin.create(email: "isabelle@deleskiewicz.fr", password:"incorect-pass", first_name: "Isabelle", last_name: "Deleskiewicz", metier:"Communication Manager")
+Admin.create(email: "admin@admin.oiam", password:"admin@admin.oiam", first_name: "test", last_name: "Admin", metier:"Admin default")
 
-
-Entreprise.create(name: "Gogole", adresse: "Traduction", siret: "0234023978409237",
-site: "www.google.com", description: "milay wa io eeeeee!!", client_id: Client.first.id)
-
-Client.first.entreprise
-Entreprise.first.client
-
-
-
-1 Mon profil
-2 Mes offres d’emploi
-3 Mes candidats favoris
-4 Mon suivi recrutement
-5 Mes factures
-6 Messages
-
-
-2  Vous n’avez pas publié d’offre d’emploi pour le moment.
-PUBLIER UNE OFFRE
-
-
-
-
-
-=end
+puts "~~~"*12
+puts "login: admin@admin.oiam"
+puts "password: admin@admin.oiam"
+puts "Admin created"
+puts "~~~"*12
