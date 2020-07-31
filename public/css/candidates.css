@@ -206,11 +206,11 @@ body {
   background-color: #e3d7bf;
   text-decoration: none;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   color: #fff;
-  width: 186px;
-  height: 60px;
-  padding: 20px;
+  width: 152px;
+  height: 45.74px;
+  padding: 13px;
   margin-bottom: 200px;
 }
 
@@ -306,7 +306,7 @@ body {
 		position: absolute;
 		top: 1015px;
 		width: 1px;
-		height: 770px;
+		height: 730px;
 		background: rgba(51, 51, 51, 0.54);;
 	}
 
@@ -316,7 +316,19 @@ body {
 	}
 
 	.btn-inscrire{
-		margin-top: 900px;
+		margin-top: 1000px;
 	}
 
+}
+
+
+@media only screen and (min-width: 1200px){
+  .article-title{
+    left: 0;
+    width: 440px;
+  }
+  .goLeft{
+    left: -60px;
+    top: -50px;
+  }
 }
