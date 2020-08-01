@@ -749,7 +749,8 @@
     justify-content: flex-start;
     flex-wrap: nowrap;
   }
-  .cp-edit-table-box .table-td #cp-edit-form,
+  .cp-edit-table-box .table-td #recruteur-fonction,
+  .cp-edit-table-box .table-td #cp-full-name,
   .cp-edit-table-box .table-td #recruteur-mail,
   .cp-edit-table-box .table-td #recruteur-phone {
     width: 60%;
@@ -897,7 +898,8 @@
   .cp-edit-table-box .table-td {
     justify-content: space-between;
   }
-  .cp-edit-table-box .table-td #cp-edit-form,
+  .cp-edit-table-box .table-td #recruteur-fonction,
+  .cp-edit-table-box .table-td #cp-full-name,
   .cp-edit-table-box .table-td #recruteur-mail,
   .cp-edit-table-box .table-td #recruteur-phone {
     width: 50%;

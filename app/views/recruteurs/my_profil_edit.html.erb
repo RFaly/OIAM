@@ -27,20 +27,20 @@
             <div class="cp-infos-r">
               <h5>MON PROFIL</h5>
               <p class="cpr-name">
-                <input type="text" autofocus="autofocus" class="cp-edit-form" required placeholder="Nom prénoms" value="<%= @client.last_name %> <%= @client.first_name %>" id="cp-edit-form" />
+                <input type="text" autofocus="autofocus" class="cp-edit-form cp-full-name" required placeholder="Nom prénoms" value="<%= @client.last_name %> <%= @client.first_name %>" id="cp-full-name" />
                 <%= f.hidden_field :first_name, autofocus: true, autocomplete: "first_name", required: true,id:"cp-first-name" %> <%= f.hidden_field :last_name, autofocus: true, autocomplete: "last_name", required: true,id:"cp-last-name" %>
               </p>
 
               <p class="cpr-name">
-                <%= f.text_field :fonction, autofocus: true, class:"cp-edit-form", autocomplete: "fonction", required: true, placeholder: 'Fonction',id:"cp-edit-form" %>
+                <%= f.text_field :fonction, autofocus: true, class:"cp-edit-form", autocomplete: "fonction", required: true, placeholder: 'Fonction',id:"recruteur-fonction" %>
               </p>
-
+              <span class="input-error" id="recruteur-fonction-error"></span>
               <div class="cpr-r">
                 <img src="/image/mess.png" alt="logo mail" class="cp-icone" />
                 <p class="cpr-name">
                   <%= f.email_field :mail, autofocus: true, class:"cp-edit-form", autocomplete: "mail", required: true, placeholder: 'Mail',id:"recruteur-mail" %>
-                  <span class="input-error" id="recruteur-mail-error"></span>
                 </p>
+                <span class="input-error" id="recruteur-mail-error"></span>
               </div>
 
               <div class="cpr-r">
@@ -48,8 +48,8 @@
                 <span class="add">(+33)</span>
                 <p class="cpr-name">
                   <%= f.text_field :telephone, autofocus: true, class:"cp-edit-form", autocomplete: "telephone", required: true, placeholder: 'Téléphone',id:"recruteur-phone" ,maxlength:"16"%>
-                  <br /><span class="input-error" id="recruteur-phone-error"></span>
                 </p>
+                <span class="input-error" id="recruteur-phone-error"></span>
               </div>
             </div>
           </td>
@@ -92,6 +92,7 @@
                 <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="entreprise_site" type="text" name="entreprise_site" id="entreprise_site" value="<%= @entreprise.site %>" placeholder="Site Internet" />
               </div>
             </div>
+            <span class="input-error" id="entreprise-siret-error"></span>
           </td>
         </tr>
         <tr>
@@ -111,6 +112,8 @@
               <h5 class="cp-icon-text"><img src="/image/code.png" alt="code icon" class="cp-icone number" />Code NAF</h5>
 
               <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="code_naf" type="text" name="code_naf" id="code_naf" value="<%= @entreprise.code_naf %>" placeholder="Code NAF" />
+              <span class="input-error" id="code-naf-error"></span>
+              <ul class="code-naf-list" id="code-naf-list"></ul>
             </div>
           </td>
         </tr>

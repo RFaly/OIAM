@@ -913,7 +913,8 @@
       justify-content: flex-start;
       flex-wrap: nowrap;
       // padding-left: 50px;
-      #cp-edit-form,
+      #recruteur-fonction,
+      #cp-full-name,
       #recruteur-mail,
       #recruteur-phone {
         width: 60%;
@@ -1113,7 +1114,8 @@
       padding: 5px 30px;
     }
     .table-td {
-      #cp-edit-form,
+      #recruteur-fonction,
+      #cp-full-name,
       #recruteur-mail,
       #recruteur-phone {
         width: 50%;
