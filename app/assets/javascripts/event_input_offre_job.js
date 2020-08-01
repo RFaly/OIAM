@@ -195,8 +195,18 @@ $('#co-dp-btn').click(function () {
     $('.detail-post-box').hide();
     $('.context-offre-box').fadeIn(800);
   } else {
-    $('#co-dp-btn-error').html('(formulaire non remplie)');
+    $('#co-dp-btn-error').html('(Tous les champs sont obligatoires.)');
     $('#co-dp-btn-error').show();
+  }
+});
+// submit validation
+$('.co-input-submit').click(function () {
+  if ($('#question1').val().length >= 1 && $('#question2').val().length >= 1 && $('#question3').val().length >= 1 && $('#question5').val().length >= 1 && $('.input_fied').val().length >= 1) {
+    return true;
+  } else {
+    $('#co-dp-btn1-error').html('(Tous les champs sont obligatoires.)');
+    $('#co-dp-btn1-error').show();
+    return false;
   }
 });
 

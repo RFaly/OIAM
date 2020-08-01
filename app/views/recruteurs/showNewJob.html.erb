@@ -98,14 +98,14 @@
           our_selection_path(@offre.id) %> <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %> <% end %>
         </div>
       </div>
-      <div class="show-pb2" style="" id="publish-ajax">
+      <div class="show-pb2" style="display: none;" id="publish-ajax">
         <!-- - apercu photo a1 et a2  -->
         <p>Votre offre d’emploi a bien été publiée.</p>
         <img src="/image/check.png" alt="image checked" class="check" />
         <p>Vous disposez désormais de 15 jours pour sélectionner 5 candidats recommandés par notre algorithme ou en recherchant directement dans notre base de données.</p>
         <p class="p-icon">Vous pouvez sauvegarder les profils avec l’icône <img src="/image/Vector-24.png" alt="diamond icone" /></p>
         <div class="show-pb2-btn">
-          <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id), class:'btn btn-primary' %> <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id), class:'btn btn-primary' %>
+          <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id) %> <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %>
         </div>
       </div>
     </div>

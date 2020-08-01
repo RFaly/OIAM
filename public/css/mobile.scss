@@ -269,7 +269,8 @@
   }
   // création d offre
   .create-offre-box {
-    width: 80%;
+    width: 90%;
+    margin: 0 auto;
     padding: 0 10px;
 
     .detail-post-box {
@@ -288,15 +289,21 @@
         }
       }
     }
-  }
-  .travel-creation {
-    width: 90%;
-    .line {
-      width: 38%;
+    .dp-input-checkbox1 {
+      padding-left: 10%;
+      span {
+        margin-left: -50px;
+      }
     }
-    ol {
-      width: 115%;
-      margin-left: -10%;
+    .travel-creation {
+      width: 90%;
+      .line {
+        width: 38%;
+      }
+      ol {
+        width: 115%;
+        margin-left: -10%;
+      }
     }
   }
   .context-offre-box {
@@ -305,12 +312,19 @@
       display: none;
     }
     #co-input-submit-1 {
-      width: 200px;
+      width: 150px;
       margin: 0 auto;
       input {
         width: 100%;
         padding: 10px 20px;
       }
+    }
+    .co-input-image {
+      align-items: center;
+      flex-direction: column;
+    }
+    .cp-input-check {
+      flex-wrap: wrap;
     }
   }
   // show new job
@@ -543,15 +557,20 @@
         }
       }
     }
-  }
-  .travel-creation {
-    width: 70%;
-    .line {
-      width: 38%;
+    .dp-input-checkbox1 {
+      span {
+        margin-left: 0;
+      }
     }
-    ol {
-      width: 115%;
-      margin-left: -10%;
+    .travel-creation {
+      width: 70%;
+      .line {
+        width: 38%;
+      }
+      ol {
+        width: 115%;
+        margin-left: -10%;
+      }
     }
   }
   .context-offre-box {
@@ -569,6 +588,17 @@
       input {
         width: 100%;
         padding: 12px 10px;
+      }
+    }
+    .co-input-image {
+      flex-direction: row;
+      justify-content: center;
+      img {
+        align-self: flex-end;
+      }
+      label {
+        align-self: flex-end;
+        margin: 0;
       }
     }
   }
@@ -926,6 +956,9 @@
         }
       }
     }
+    .dp-input-checkbox1 {
+      padding-left: 4%;
+    }
     .travel-creation {
       width: 450px;
       .line {
@@ -1112,6 +1145,9 @@
           width: 87%;
         }
       }
+    }
+    .dp-input-checkbox1 {
+      padding-left: 6%;
     }
     .travel-creation {
       width: 600px;

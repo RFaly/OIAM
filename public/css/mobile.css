@@ -223,7 +223,8 @@
     width: 50%;
   }
   .create-offre-box {
-    width: 80%;
+    width: 90%;
+    margin: 0 auto;
     padding: 0 10px;
   }
   .create-offre-box .detail-post-box .dp-input {
@@ -238,13 +239,19 @@
     margin-left: 6%;
     width: 70%;
   }
-  .travel-creation {
+  .create-offre-box .dp-input-checkbox1 {
+    padding-left: 10%;
+  }
+  .create-offre-box .dp-input-checkbox1 span {
+    margin-left: -50px;
+  }
+  .create-offre-box .travel-creation {
     width: 90%;
   }
-  .travel-creation .line {
+  .create-offre-box .travel-creation .line {
     width: 38%;
   }
-  .travel-creation ol {
+  .create-offre-box .travel-creation ol {
     width: 115%;
     margin-left: -10%;
   }
@@ -255,12 +262,19 @@
     display: none;
   }
   .context-offre-box #co-input-submit-1 {
-    width: 200px;
+    width: 150px;
     margin: 0 auto;
   }
   .context-offre-box #co-input-submit-1 input {
     width: 100%;
     padding: 10px 20px;
+  }
+  .context-offre-box .co-input-image {
+    align-items: center;
+    flex-direction: column;
+  }
+  .context-offre-box .cp-input-check {
+    flex-wrap: wrap;
   }
   .show-job-box .travel-creation {
     width: 90%;
@@ -442,13 +456,16 @@
     margin-left: 3%;
     width: 80%;
   }
-  .travel-creation {
+  .create-offre-box .dp-input-checkbox1 span {
+    margin-left: 0;
+  }
+  .create-offre-box .travel-creation {
     width: 70%;
   }
-  .travel-creation .line {
+  .create-offre-box .travel-creation .line {
     width: 38%;
   }
-  .travel-creation ol {
+  .create-offre-box .travel-creation ol {
     width: 115%;
     margin-left: -10%;
   }
@@ -467,6 +484,17 @@
   .context-offre-box #co-input-submit input {
     width: 100%;
     padding: 12px 10px;
+  }
+  .context-offre-box .co-input-image {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .context-offre-box .co-input-image img {
+    align-self: flex-end;
+  }
+  .context-offre-box .co-input-image label {
+    align-self: flex-end;
+    margin: 0;
   }
   .show-job-box .travel-creation {
     width: 70%;
@@ -750,6 +778,9 @@
     margin-left: 3%;
     width: 85%;
   }
+  .create-offre-box .dp-input-checkbox1 {
+    padding-left: 4%;
+  }
   .create-offre-box .travel-creation {
     width: 450px;
   }
@@ -885,6 +916,9 @@
   }
   .create-offre-box .detail-post-box .dp-input-renumeration .value-renum {
     width: 87%;
+  }
+  .create-offre-box .dp-input-checkbox1 {
+    padding-left: 6%;
   }
   .create-offre-box .travel-creation {
     width: 600px;

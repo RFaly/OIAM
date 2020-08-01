@@ -95,7 +95,7 @@ $(document).ready(function () {
       $('.dr-1').hide();
       $('.dr-2').fadeIn(800);
     } else {
-      $('#submit-error').html('(formulaire non remplie)');
+      $('#submit-error').html('(Tous les champs sont obligatoires.)');
       $('#submit-error').show();
     }
   });
@@ -109,7 +109,7 @@ $(document).ready(function () {
       $('.dr-2').hide();
       $('.dr-3').fadeIn(800);
     } else {
-      $('#submit-error2').html('(formulaire non remplie)');
+      $('#submit-error2').html('(Tous les champs sont obligatoires.)');
       $('#submit-error2').show();
     }
   });
@@ -122,7 +122,7 @@ $(document).ready(function () {
       $('.dr-3').hide();
       $('.details-r-condition').fadeIn(800);
     } else {
-      $('#submit-error3').html('(formulaire non remplie)');
+      $('#submit-error3').html('(Tous les champs sont obligatoires.)');
       $('#submit-error3').show();
     }
   });
