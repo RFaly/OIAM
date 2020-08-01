@@ -1,0 +1,182 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+  border-left: 1px solid #d6b36a;
+}
+
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.show-job-box {
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.show-job-box .travel-creation {
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.show-job-box .travel-creation .circle {
+  background-color: #f0f2f4;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 16px roboto, sans-serif;
+  border-radius: 50%;
+  color: white;
+}
+
+.show-job-box .travel-creation .line {
+  content: ' ';
+  align-self: center;
+  height: 2px;
+  background-color: #f0f2f4;
+}
+
+.show-job-box .travel-creation .travelc-image {
+  display: flex;
+}
+
+.show-job-box .travel-creation ol {
+  margin-top: 10px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  font: 500 18px Raleway, sans-serif;
+  font-size: 16px;
+}
+
+.show-job-box .travel-creation .color-bg {
+  background-color: #d6b36a;
+}
+
+.show-job-box .show-publication {
+  font: 15px Questrial, sans-serif;
+}
+
+.show-job-box .show-publication .sjb-content .show-einfos {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.show-job-box .show-publication .sjb-content .show-einfos .logo {
+  width: 150px;
+}
+
+.show-job-box .show-publication .sjb-content .show-einfos .logo img {
+  width: 100%;
+}
+
+.show-job-box .show-publication .sjb-content .show-einfos .local {
+  text-align: center;
+}
+
+.show-job-box .show-publication .sjb-content .show-einfos .local img {
+  margin-right: 10px;
+  margin-left: -25px;
+}
+
+.show-job-box .show-publication .sjb-content .show-einfos .local p {
+  margin-top: 15px;
+}
+
+.show-job-box .show-publication .sjb-content .so-content {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.show-job-box .show-publication .sjb-content .so-content.first-content {
+  font: 500 18px Raleway, sans-serif;
+  font-size: 20px;
+}
+
+.show-job-box .show-publication .sjb-content .so-content div {
+  background: #f0f2f4;
+  padding: 10px;
+}
+
+.show-job-box .show-publication .sjb-content .so-content .description {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.show-job-box .show-publication .sjb-content .so-content p {
+  margin: 5px 0;
+}
+
+.show-job-box .show-publication .so-btn {
+  margin: 70px auto 20px auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.show-job-box .show-publication .so-btn a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #d6b36a;
+  border: 2px solid #d6b36a;
+  padding: 10px 20px;
+}
+
+.show-job-box .show-publication .so-btn a:hover {
+  background: #d6b36a;
+  color: white;
+}
+
+.show-job-box .show-publication .so-btn .so-btn-btn {
+  padding: 10px 40px;
+}
+
+.show-job-box .show-pb2 {
+  font: 15px Questrial, sans-serif;
+  margin: 0 auto;
+  margin-top: 50px;
+  text-align: center;
+  border: 2px solid #d6b36a;
+  padding: 30px;
+}
+
+.show-job-box .show-pb2 img {
+  width: 35px;
+}
+
+.show-job-box .show-pb2 .check {
+  margin: 35px 0;
+}
+
+.show-job-box .show-pb2 .p-icon {
+  margin: 35px 0;
+}
+
+.show-job-box .show-pb2 .show-pb2-btn {
+  margin-top: 50px;
+}
+
+.show-job-box .show-pb2 .show-pb2-btn a {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #d6b36a;
+  border: 2px solid #d6b36a;
+  padding: 10px 20px;
+}
+
+.show-job-box .show-pb2 .show-pb2-btn a:hover {
+  background: #d6b36a;
+  color: white;
+}

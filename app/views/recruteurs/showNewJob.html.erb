@@ -1,126 +1,122 @@
-<style type="text/css">
-	.photo_ako{
-		width: 150px;
-	}
-</style>
+<!-- call css  -->
 
+<link rel="stylesheet" href="/css/shownewjob.css" />
 
-<div class="row">
-	<div class="col-sm-3">
-		<%= render partial: "recruteurs/left_link_bar" %>
-	</div>
+<!-- body html  -->
+<div class="client-column">
+  <div class="client-menu-left">
+    <%= render "recruteurs/left_link_bar" %>
+  </div>
+  <div class="cp-box">
+    <div class="show-job-box">
+      <% unless @offre.is_publish %>
+      <div class="travel-creation">
+        <div class="travelc-image">
+          <div class="circle color-bg">
+            1
+          </div>
+          <div class="line ir-l1 color-bg"></div>
+          <div class="circle ir-c1 color-bg">
+            2
+          </div>
+          <div class="line ir-l2 color-bg"></div>
+          <div class="circle ir-c2 color-bg">
+            3
+          </div>
+        </div>
+        <ol>
+          <li>Détails du poste</li>
+          <li>Contexte de l'offre</li>
+          <li>Publication</li>
+        </ol>
+      </div>
+      <% end %>
+      <div class="show-publication" id="publish-ajax-hid">
+        <div class="sjb-content">
+          <div class="show-einfos">
+            <div class="logo">
+              <% unless @offre.image.nil? %> <%= image_tag(@offre.image, alt: 'photo de profil', class:'photo_ako')%> <% end %>
+            </div>
+            <div class="local">
+              <p><%= @offre.intitule_pote %></p>
+              <p><img src="/image/map.png" alt="localisation icon" /> <%= @offre.department %></p>
 
-	<div class="col-sm-9" id="publish-ajax-hid">
-		<% unless @offre.is_publish %>
-			<ol>
-				<li>Détails du poste</li>
-				<li>Contexte de l'offre</li>
-				<li>Publication</li>
-			</ol>
-		<% end %>
+              <% if @offre.contrat_cdi %>
+              <p>Contrat CDI</p>
+              <% end %>
+            </div>
+          </div>
+          <hr />
+          <div class="so-content first-content">
+            <%= @offre.question2 %>
+          </div>
+          <div class="so-content">
+            <p>DESCRIPTIF DES MISSIONS</p>
+            <div class="description">
+              <%= @offre.descriptif_mission %>
+            </div>
+          </div>
+          <div class="so-content">
+            <p>RATTACHEMENT HIÉRARCHIQUE</p>
+            <div><%= @offre.rattachement %></div>
+          </div>
+          <div class="so-content">
+            <p>RÉMUNÉRATION (K€ BRUTS ANNUELS)</p>
+            <div>
+              Fixe: <%= @offre.remuneration.to_i %> <br />
+              Variable: <%= @offre.remuneration_anne.to_i %>
+            </div>
+          </div>
+          <div class="so-content">
+            <p>DÉPLACEMENTS</p>
+            <div>
+              <%= @offre.type_deplacement %>
+            </div>
+          </div>
+          <div class="so-content">
+            <p>PROCESSUS RH</p>
+            <div>
+              <%= @offre.question3 %>
+            </div>
+          </div>
+          <div class="so-content">
+            <p>CONTEXTE D'OUVERTURE DE CE POSTE</p>
+            <div>
+              <%= @offre.question5 %>
+            </div>
+          </div>
 
-		<div class="row">
-			<div class="col-sm-3">
-				<% unless @offre.image.nil? %>
-					<%= image_tag(@offre.image, alt: 'photo de profil', class:'photo_ako')%>
-				<% end %>
-			</div>
-
-			<div class="col-sm-9">
-				<%= @offre.intitule_pote %> <br>
-
-				<%= @offre.department %> <br>
-
-				<% if @offre.contrat_cdi %>
-					Contrat CDI
-				<% end %>
-
-			</div>
-		</div>
-		<hr>
-
-		<div>
-			<center><%= @offre.question2 %></center>
-		</div>
-
-		<div>
-			<h3>DESCRIPTIF DES MISSIONS</h3>
-			<p>
-				<%= @offre.descriptif_mission %>		
-			</p>
-		</div>
-		<div>
-			<h3>RATTACHEMENT HIÉRARCHIQUE</h3>
-			<p><%= @offre.rattachement %></p>	
-		</div>
-		<div>
-			<h3>RÉMUNÉRATION (K€ BRUTS ANNUELS)</h3>
-			<p>
-				Fixe: <%= @offre.remuneration.to_i %> <br>
-				Variable: <%= @offre.remuneration_anne.to_i %>
-			</p>
-		</div>
-		<div>
-			<h3>DÉPLACEMENTS</h3>
-			<p>
-				<%= @offre.type_deplacement %>
-			</p>
-		</div>
-		<div>
-			<h3>PROCESSUS RH</h3>
-			<p>
-				<%= @offre.question3 %>
-			</p>
-		</div>
-		<div>
-			<h3>CONTEXTE D'OUVERTURE DE CE POSTE</h3>
-			<p>
-				<%= @offre.question5 %>
-			</p>
-		</div>
-
-		<div>
-			<h3>DATE DE PRISE DE POSTE</h3>
-			<p>
-				<%= @offre.date_poste %>	
-			</p>
-		</div>
-
-		<div>
-			<%= link_to "MODIFIER", editJob_path(@offre.id), class:'btn btn-primary' %>
-
-			<% unless @offre.is_publish %>
-				<%= link_to publish_path(@offre.id), method: :patch, class: 'link-delete btn btn-primary', :remote => true do %>PUBLIER<% end %>
-			<% else %>
-				<%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id), class:'btn btn-primary' %>
-				<%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id), class:'btn btn-primary' %>
-			<% end %>
-		</div>
-	</div>
-
-	<div class="col-sm-9" style="display: none;" id="publish-ajax">
-		<ol>
-			<li>Détails du poste</li>
-			<li>Contexte de l'offre</li>
-			<li>Publication</li>
-		</ol>
-		<!-- - apercu photo a1 et a2  -->
-		<h3>Votre offre d’emploi a bien été publiée.</h3>
-		<img src="" alt="image checked">
-		<p>Vous disposez désormais de 15 jours pour sélectionner 5 candidats recommandés par notre algorithme ou en recherchant directement dans notre base de données.</p>
-		<span>Vous pouvez sauvegarder les profils avec l’icône </span> <br>
-		<%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id), class:'btn btn-primary' %> <br><br>
-		<%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id), class:'btn btn-primary' %>
-	</div>
-
+          <div class="so-content">
+            <p>DATE DE PRISE DE POSTE</p>
+            <div>
+              <%= @offre.date_poste %>
+            </div>
+          </div>
+        </div>
+        <div class="so-btn">
+          <%= link_to "MODIFIER", editJob_path(@offre.id), class:'so-btn-btn' %> <% unless @offre.is_publish %> <%= link_to publish_path(@offre.id), method: :patch, class: 'link-delete so-btn-btn', :remote => true do %>PUBLIER<% end %> <% else %> <%= link_to "VOIR NOTRE SÉlECTION",
+          our_selection_path(@offre.id) %> <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %> <% end %>
+        </div>
+      </div>
+      <div class="show-pb2" style="" id="publish-ajax">
+        <!-- - apercu photo a1 et a2  -->
+        <p>Votre offre d’emploi a bien été publiée.</p>
+        <img src="/image/check.png" alt="image checked" class="check" />
+        <p>Vous disposez désormais de 15 jours pour sélectionner 5 candidats recommandés par notre algorithme ou en recherchant directement dans notre base de données.</p>
+        <p class="p-icon">Vous pouvez sauvegarder les profils avec l’icône <img src="/image/Vector-24.png" alt="diamond icone" /></p>
+        <div class="show-pb2-btn">
+          <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id), class:'btn btn-primary' %> <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id), class:'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 <script type="text/javascript">
-	$('.link-delete').bind('ajax:beforeSend', function() {
-		$('#publish-ajax-hid').hide();
-	});
+  $('.link-delete').bind('ajax:beforeSend', function () {
+    $('#publish-ajax-hid').hide(200);
+  });
 
-	$('.link-delete').bind('ajax:complete', function() {
-		$('#publish-ajax').show();
-	});
+  $('.link-delete').bind('ajax:complete', function () {
+    $('#publish-ajax').show(800);
+  });
 </script>
