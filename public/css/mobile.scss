@@ -4,6 +4,7 @@
   box-sizing: 0;
   margin: 0;
   padding: 0;
+  line-height: 1.5;
 }
 
 .bg-uniq {
@@ -268,7 +269,8 @@
   }
   // création d offre
   .create-offre-box {
-    width: 80%;
+    width: 90%;
+    margin: 0 auto;
     padding: 0 10px;
 
     .detail-post-box {
@@ -287,15 +289,21 @@
         }
       }
     }
-  }
-  .travel-creation {
-    width: 90%;
-    .line {
-      width: 38%;
+    .dp-input-checkbox1 {
+      padding-left: 10%;
+      span {
+        margin-left: -50px;
+      }
     }
-    ol {
-      width: 115%;
-      margin-left: -10%;
+    .travel-creation {
+      width: 90%;
+      .line {
+        width: 38%;
+      }
+      ol {
+        width: 115%;
+        margin-left: -10%;
+      }
     }
   }
   .context-offre-box {
@@ -304,13 +312,59 @@
       display: none;
     }
     #co-input-submit-1 {
-      width: 200px;
+      width: 150px;
       margin: 0 auto;
       input {
         width: 100%;
         padding: 10px 20px;
       }
     }
+    .co-input-image {
+      align-items: center;
+      flex-direction: column;
+    }
+    .cp-input-check {
+      flex-wrap: wrap;
+    }
+  }
+  // show new job
+  .show-job-box {
+    .travel-creation {
+      width: 90%;
+      .line {
+        width: 30%;
+      }
+      ol {
+        width: 115%;
+        margin-left: -10%;
+      }
+    }
+  }
+  .show-publication {
+    width: 90%;
+    margin: 0 auto;
+    font: $ffsentence;
+    .sjb-content {
+      .show-einfos {
+        flex-direction: column;
+        .logo {
+          align-self: center;
+        }
+        .local {
+          width: 100%;
+        }
+      }
+    }
+    .so-btn {
+      flex-direction: column;
+      a {
+        margin-bottom: 15px;
+        text-align: center;
+      }
+    }
+  }
+  .show-pb2 {
+    width: 70%;
   }
 }
 
@@ -503,15 +557,20 @@
         }
       }
     }
-  }
-  .travel-creation {
-    width: 70%;
-    .line {
-      width: 38%;
+    .dp-input-checkbox1 {
+      span {
+        margin-left: 0;
+      }
     }
-    ol {
-      width: 115%;
-      margin-left: -10%;
+    .travel-creation {
+      width: 70%;
+      .line {
+        width: 38%;
+      }
+      ol {
+        width: 115%;
+        margin-left: -10%;
+      }
     }
   }
   .context-offre-box {
@@ -530,6 +589,48 @@
         width: 100%;
         padding: 12px 10px;
       }
+    }
+    .co-input-image {
+      flex-direction: row;
+      justify-content: center;
+      img {
+        align-self: flex-end;
+      }
+      label {
+        align-self: flex-end;
+        margin: 0;
+      }
+    }
+  }
+  // show new job
+  .show-job-box {
+    .travel-creation {
+      width: 70%;
+      .line {
+        width: 38%;
+      }
+      ol {
+        width: 115%;
+        margin-left: -10%;
+      }
+    }
+    .sjb-content {
+      .show-einfos {
+        flex-direction: row;
+        flex-wrap: wrap;
+        .local {
+          width: 70%;
+        }
+      }
+    }
+    .so-btn {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+  .show-pb2 {
+    a {
+      width: 70%;
     }
   }
 }
@@ -656,7 +757,7 @@
   .first-btn1 {
     position: absolute;
     width: 100%;
-    top: 300px;
+    top: 320px;
   }
   .accueilg-content1 {
     margin: 0 auto;
@@ -844,7 +945,7 @@
   .create-offre-box {
     .detail-post-box {
       .dp-input {
-        width: 40%;
+        width: 50%;
       }
     }
     .detail-post-box {
@@ -855,16 +956,56 @@
         }
       }
     }
-  }
-
-  .travel-creation {
-    width: 450px;
-    .line {
-      width: 173px;
+    .dp-input-checkbox1 {
+      padding-left: 4%;
     }
-    ol {
-      width: 510px;
-      margin-left: -8%;
+    .travel-creation {
+      width: 450px;
+      .line {
+        width: 173px;
+      }
+      ol {
+        width: 510px;
+        margin-left: -8%;
+      }
+    }
+  }
+  // show new job
+  .show-job-box {
+    .travel-creation {
+      width: 450px;
+      .line {
+        width: 173px;
+      }
+      ol {
+        width: 510px;
+        margin-left: -8%;
+      }
+    }
+    .sjb-content {
+      width: 80%;
+      margin: 0 auto;
+      .show-einfos {
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        .local {
+          width: 65%;
+        }
+      }
+    }
+    .so-btn {
+      flex-wrap: nowrap;
+    }
+    .show-pb2-btn {
+      a {
+        width: 70%;
+      }
+    }
+    .show-pb2 {
+      width: 65%;
+      a {
+        width: 45%;
+      }
     }
   }
 }
@@ -1005,15 +1146,191 @@
         }
       }
     }
-  }
-  .travel-creation {
-    width: 600px;
-    .line {
-      width: 248px;
+    .dp-input-checkbox1 {
+      padding-left: 6%;
     }
-    ol {
-      width: 664px;
-      margin-left: -7%;
+    .travel-creation {
+      width: 600px;
+      .line {
+        width: 248px;
+      }
+      ol {
+        width: 664px;
+        margin-left: -7%;
+      }
     }
   }
+  // show new job
+  .show-job-box {
+    .travel-creation {
+      width: 600px;
+      .line {
+        width: 248px;
+      }
+      ol {
+        width: 664px;
+        margin-left: -7%;
+      }
+    }
+    // .show-pb2 {
+    //   width: 50%;
+    // }
+  }
+}
+@media screen and (min-width: 1500px) {
+  // navbar
+  // /////////////////////
+  .navdiv {
+    height: 600px;
+  }
+  // .navbar-content {
+  //   justify-content: space-between;
+  //   width: 70%;
+  //   align-items: center;
+  // }
+  // .navbar-ul {
+  //   width: 70%;
+  //   margin-bottom: inherit;
+  // }
+
+  // .logo-g {
+  //   width: 35%;
+  // }
+  // .dropup-content1 {
+  //   right: 5.2%;
+  // }
+  // // navbar background all
+  // ///////////////////////////////////////////////
+  // .navdiv {
+  //   padding-bottom: 100px;
+  // }
+  // // nabar bg accueil
+  // ///////////////////////////////////////////////
+
+  // // page d'accueil général
+  .first-btn1 {
+    position: absolute;
+    width: 100%;
+    top: 350px;
+  }
+
+  // .accueilg-btn1 {
+  //   .cadre-btn1 {
+  //     margin: 0 2em;
+  //     a {
+  //       padding: 12px 65px;
+  //     }
+  //   }
+  //   .recruteur-btn1 {
+  //     margin: 0 2em;
+  //     a {
+  //       padding: 12px 50px;
+  //     }
+  //   }
+  // }
+  // .accueilg-content1 {
+  //   margin-top: 220px;
+  // }
+
+  // // accueil recruteur
+  // // ******************************//
+  // .accueil-recruteur {
+  //   .title-ar {
+  //     font-size: 20px;
+  //   }
+  // }
+  // // inscription recruteur
+  // ///////////////////////////////////////@extend
+
+  // .travel-parcours {
+  //   width: 700px;
+  //   ol {
+  //     width: 790px;
+  //     margin-left: -45px;
+  //   }
+  // }
+  // .inscription-r {
+  //   margin: 60px auto;
+  // }
+
+  // // equipe equipe responsive
+  // .equipe-box {
+  //   padding-bottom: 100px;
+  // }
+  // // client profil
+  // .table-td {
+  //   .cpr-r {
+  //     img {
+  //       left: 30%;
+  //     }
+  //   }
+  // }
+
+  // // client profil
+  // .cp-table-box {
+  //   td {
+  //     padding: 5px 60px;
+  //   }
+  //   .table-td {
+  //     justify-content: space-between;
+  //     .cp-infos-r {
+  //       width: 72%;
+  //     }
+  //     .cpr-r {
+  //       img {
+  //         left: 25%;
+  //       }
+  //     }
+  //   }
+  // }
+  // // client edit profil
+  // .cp-edit-table-box {
+  //   td {
+  //     padding: 5px 30px;
+  //   }
+  //   .table-td {
+  //     #cp-edit-form,
+  //     #recruteur-mail,
+  //     #recruteur-phone {
+  //       width: 50%;
+  //     }
+  //     justify-content: space-between;
+  //     .cp-infos-r {
+  //       width: 72%;
+  //     }
+  //     .cpr-r {
+  //       img {
+  //         left: 12%;
+  //       }
+  //       .add {
+  //         left: 25%;
+  //       }
+  //     }
+  //   }
+  // }
+  // // création d offre
+  // .create-offre-box {
+  //   .detail-post-box {
+  //     .dp-input {
+  //       width: 35%;
+  //     }
+  //   }
+  //   .detail-post-box {
+  //     .dp-input-renumeration {
+  //       .value-renum {
+  //         width: 87%;
+  //       }
+  //     }
+  //   }
+  // }
+  // .travel-creation {
+  //   width: 600px;
+  //   .line {
+  //     width: 248px;
+  //   }
+  //   ol {
+  //     width: 664px;
+  //     margin-left: -7%;
+  //   }
+  // }
 }

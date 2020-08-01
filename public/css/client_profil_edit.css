@@ -67,8 +67,8 @@
 }
 
 .cp-edit-table-box .cp-icone {
-  width: 21px;
-  height: 21px;
+  width: 18px;
+  height: 22px;
 }
 
 .cp-edit-table-box .cp-flex {
@@ -216,5 +216,5 @@
 .cp-edit-table-box .input-error {
   color: #ff0000;
   font: 500 18px Raleway, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
 }

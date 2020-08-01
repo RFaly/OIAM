@@ -120,8 +120,8 @@
   font: 15px Questrial, sans-serif;
   display: block;
   position: relative;
-  padding-left: 45px;
   margin: 35px auto;
+  margin-top: 50px;
   cursor: pointer;
   user-select: none;
 }
@@ -318,16 +318,10 @@
 
 .create-offre-box .context-offre-box .co-input-image {
   display: flex;
-  justify-content: center;
   margin: 50px auto;
 }
 
-.create-offre-box .context-offre-box .co-input-image img {
-  align-self: flex-end;
-}
-
 .create-offre-box .context-offre-box .co-input-image label {
-  align-self: flex-end;
   font: 500 18px Raleway, sans-serif;
   text-align: center;
   margin-left: 30px;
@@ -338,6 +332,7 @@
 }
 
 .create-offre-box .context-offre-box .co-input-image label .last-p {
+  margin: 0;
   margin-top: 15px;
   cursor: pointer;
   text-decoration: underline;
@@ -352,6 +347,7 @@
 .create-offre-box .context-offre-box .cp-input-check .cp-input-ckeck-label {
   margin-left: 0;
   margin-right: 80px;
+  margin-bottom: 20px;
   font: 15px Questrial, sans-serif;
 }
 
@@ -462,7 +458,7 @@
 .input-error {
   color: red;
   font: 500 18px Raleway, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   display: block;
   margin: -15px 0 20px 0;
 }
