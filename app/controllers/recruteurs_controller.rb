@@ -121,12 +121,25 @@ class RecruteursController < ApplicationController
 
 	def search_candidate
 		@offre = OffreJob.find_by_id(params[:id])
-		@topCinqs = []
+		@topCinqs = OffreForCandidate.where(offre_job_id: @offre.id)[0..4]
 		@cadres = Cadre.joins(:cadre_info).where("cadre_infos.empty = ?",false)
 	end
 
 	def show_search_candidate
 		@cadre = Cadre.find_by_id(params[:id]).cadre_info
+	end
+
+	def add_top_five_candidate
+		cadre_ids = params[:cadre_ids].split(",")
+		@offre = OffreJob.find_by_id(params[:id])
+
+		cadre_ids.each do |cadre_id|
+			cadre = Cadre.find_by_id(cadre_id)
+			if @offre.is_in_this_job(cadre).nil?
+				OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: cadre)
+			end
+		end
+
 	end
 #Mes candidats favoris
 	def favorite_candidates
