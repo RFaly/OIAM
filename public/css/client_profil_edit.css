@@ -67,8 +67,8 @@
 }
 
 .cp-edit-table-box .cp-icone {
-  width: 21px;
-  height: 21px;
+  width: 18px;
+  height: 22px;
 }
 
 .cp-edit-table-box .cp-flex {
@@ -211,4 +211,32 @@
 
 .cp-edit-table-box .cpe-naf input {
   width: 100%;
+}
+
+.cp-edit-table-box .input-error {
+  color: #ff0000;
+  font: 500 18px Raleway, sans-serif;
+  font-size: 14px;
+}
+
+.cp-edit-table-box .code-naf-list {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  max-height: 300px;
+  overflow-y: auto;
+  display: none;
+}
+
+.cp-edit-table-box .code-naf-list .code-naf-list-item {
+  font: 15px Questrial, sans-serif;
+  list-style: none;
+  padding: 0.75rem 1.25rem;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-top: 0px;
+  cursor: pointer;
+}
+
+.cp-edit-table-box .code-naf-list li:hover {
+  background: #d6b36a;
+  color: white;
 }

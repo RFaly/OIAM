@@ -39,12 +39,12 @@
 		<div>
 			<h3>DESCRIPTIF DES MISSIONS</h3>
 			<p>
-				<%= @offre.descriptif_mission %>		
+				<%= @offre.descriptif_mission %>
 			</p>
 		</div>
 		<div>
 			<h3>RATTACHEMENT HIÉRARCHIQUE</h3>
-			<p><%= @offre.rattachement %></p>	
+			<p><%= @offre.rattachement %></p>
 		</div>
 		<div>
 			<h3>RÉMUNÉRATION (K€ BRUTS ANNUELS)</h3>
@@ -99,7 +99,7 @@
 
 
 <script type="text/javascript">
-	
+
 	$('#send-candidature').bind('ajax:beforeSend', function() {
 		$('#modal-ajax-bull').show();
 	});
@@ -110,5 +110,3 @@
 	});
 
 </script>
-
-

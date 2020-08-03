@@ -46,8 +46,8 @@
     }
   }
   .cp-icone {
-    width: 21px;
-    height: 21px;
+    width: 18px;
+    height: 22px;
   }
   .cp-flex {
     display: flex;
@@ -178,6 +178,30 @@
   .cpe-naf {
     input {
       width: 100%;
+    }
+  }
+  .input-error {
+    color: #ff0000;
+    font: $ffbtn;
+    font-size: 14px;
+  }
+  .code-naf-list {
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    .code-naf-list-item {
+      font: $ffsentence;
+      list-style: none;
+      padding: 0.75rem 1.25rem;
+      background-color: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-top: 0px;
+      cursor: pointer;
+    }
+    li:hover {
+      background: $main_theme_color;
+      color: white;
     }
   }
 }

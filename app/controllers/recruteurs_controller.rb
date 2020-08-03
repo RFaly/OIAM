@@ -80,7 +80,17 @@ class RecruteursController < ApplicationController
 	end
 
 	def updateJob
+		uploader = ImageUploader.new
 		@offre = OffreJob.find(params[:id])
+		@offre.update(post_params)
+		uploader.store!(params[:offre_job][:image])
+		@offre.image = uploader.url
+		if @offre.save
+			redirect_to showNewJob_path(@offre)
+		else
+			flash[:alert] = @offre.errors.details
+			return render :editJob
+		end
 	end
 
 	def showNewJob
@@ -96,14 +106,40 @@ class RecruteursController < ApplicationController
 		@offre.update(is_publish:true)
 	end
 
+	def destroyJob
+		@offre = OffreJob.find(params[:id])
+		@offre.destroy
+		respond_to do |format|
+			format.html { redirect_to :my_job_offers }
+			format.js { }
+			end
+		
+	end
 	def our_selection
 		
 	end
 
-	def  search_candidate
-		@offre = OffreJob.find(params[:id])
-		@topCinqs = []
+	def search_candidate
+		@offre = OffreJob.find_by_id(params[:id])
+		@topCinqs = OffreForCandidate.where(offre_job_id: @offre.id)[0..4]
 		@cadres = Cadre.joins(:cadre_info).where("cadre_infos.empty = ?",false)
+	end
+
+	def show_search_candidate
+		@cadre = Cadre.find_by_id(params[:id]).cadre_info
+	end
+
+	def add_top_five_candidate
+		cadre_ids = params[:cadre_ids].split(",")
+		@offre = OffreJob.find_by_id(params[:id])
+
+		cadre_ids.each do |cadre_id|
+			cadre = Cadre.find_by_id(cadre_id)
+			if @offre.is_in_this_job(cadre).nil?
+				OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: cadre)
+			end
+		end
+
 	end
 #Mes candidats favoris
 	def favorite_candidates

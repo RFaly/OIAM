@@ -1,0 +1,73 @@
+<div class="row">
+	<div class="col-sm-3">
+		<%= render partial: "recruteurs/left_link_bar" %>
+	</div>
+
+	<div class="col-sm-9">
+		<div class="row">
+			<div class="col-sm-3">
+
+				<div class="block-image">
+					<% unless @cadre.image.nil? %>
+						<%= image_tag(@cadre.image, alt: 'photo de profil', width:"150px", class:"pdp" )%> <br>
+					<% end %>
+				</div>
+
+				<div class="user_name">
+					<%= @cadre.last_name %> <%= @cadre.first_name[0].upcase %>
+					<p>Score de test: <span>1005</span><br>
+						Compatibilité: 90%
+					</p>
+				</div>
+
+				<p>Type de post:<br> <span>Manager marketing</span></p>
+				<p>Disponibilité:<br> <span>Maintenant</span></p>
+				<p>Salaire: <span><%= @cadre.question4 %></span></p>
+				<p>Mobilité:<br> <span>Ile de France</span></p>
+
+				<div class="block-button">
+					<div>
+					<%= link_to "VISUALISER LE CV", @cadre.cv, class:"btn btn-primary" %>
+					</div>
+					<br>
+					<div>
+					<%= link_to "MESSAGERIE", show_my_messages_client_path(@cadre.cadre.id) ,class:"btn btn-primary"%>
+					</div>
+					<br>
+					<div>
+					<%= link_to "PLANIFIER UN ENTRETIEN", "#" ,class:"btn btn-primary"%>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-sm-9">
+				<div class="questionnaire">
+					<h2 class="questionnaire-title">Que faites-vous actuellement et que recherchez-vous comme type de poste ?</h2>
+					<p><%= @cadre.question1 %></p>
+				</div>
+				<div class="questionnaire">
+					<h2 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h2>
+					<p><%= @cadre.question2 %></p>
+				</div>
+				<div class="questionnaire">
+					<h2 class="questionnaire-title">Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?</h2>
+					<p><%= @cadre.question3 %></p>
+				</div>
+				<div class="questionnaire">
+					<h2 class="questionnaire-title">Quel est le minimum salarial en dessous duquel il n’est pas nécessaire de vous contacter ?</h2>
+					<p><%= @cadre.question4 %></p>
+				</div>
+				<div class="questionnaire">
+					<h2 class="questionnaire-title">Parlez-nous de vous</h2>
+					<p><%= @cadre.question5 %></p>
+				</div>
+				<div class="block-avis">
+					<h2>L'avis de One in a million</h2>
+					<p><%= @cadre.avis_recruteur %></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

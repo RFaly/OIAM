@@ -137,7 +137,11 @@
       </div>
     </div>
     <div class="condition-check">
-      <input id="cgu" type="checkbox" class="form-check-input" required="required" /><label for="cgu" class="form-check-label">En cochant cette case, je reconnais avoir pris connaissance d’annulation et de responsabilités (telles qu’indiquées dans le programme).</label>
+      <label id="condition-check">
+        En cochant cette case, je reconnais avoir pris connaissance d’annulation et de responsabilités (telles qu’indiquées dans le programme).
+        <input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi" />
+        <span class="checkmark"></span>
+      </label>
     </div>
     <div class="dr-btn">
       <%= f.submit "VALIDER", class:'dr-btn-btn' %> <% end %>

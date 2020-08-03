@@ -35,14 +35,17 @@ Rails.application.routes.draw do
   post '/recruteur/publier-offre', to: 'recruteurs#createJob', as: 'createJob'
 
   get '/recruteur/edit/:id/offre', to: 'recruteurs#editJob', as: 'editJob'
-  patch '/recruteur/edit-offre', to: 'recruteurs#updateJob', as: 'updateJob'
+  patch '/recruteur/edit/:id/offre', to: 'recruteurs#updateJob', as: 'updateJob'
+  delete '/recruteur/supprimer/offre/:id', to: 'recruteurs#destroyJob', as: 'destroyJob'
 
   get '/recruteur/mes/:id/offre', to: 'recruteurs#showNewJob', as: 'showNewJob'
   patch '/recruteur/publier/:id/-offre', to: 'recruteurs#publish', as: 'publish'
 
   get '/recruteur/offre/:id/notre-selection', to: 'recruteurs#our_selection', as: 'our_selection'
   get '/recruteur/offre/:id/recherche-candidat', to: 'recruteurs#search_candidate', as: 'search_candidate'  
-  
+  get '/recruteurs/offre/:id/candidate', to:'recruteurs#show_search_candidate', as:'show_search_candidate'
+  post '/recruteurs/favorite/:id/candidate', to:'recruteurs#add_top_five_candidate', as:'add_top_five_candidate'
+
   # show promesse d'embauche
   get '/recruteur/offre-d-emploi/:id/contrat-d-embauche', to: 'recruteurs#show_promise_to_hire', as: 'show_promise_to_hire'
   #create a promesse d'embauche

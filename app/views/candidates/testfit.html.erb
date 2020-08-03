@@ -1,43 +1,18 @@
 <link rel="stylesheet" type="text/css" href="/css/test_fit.css">
 
 <style type="text/css">
-	.selected-date{
-		background-color: #e3d7bf;
-		display: none;
-	}
-	.js-hours{
-		color: #fff;
-		font-size: 40px;
-		background-color: #e3d7bf;
-		border: 1px solid #fff;
-		padding: 10px;
-		margin: 5px;
-	}
-	.main-container{
-		display: flex;
-	}
-	h2{
-		color: #fff;
-	}
-	#validate-date-time{
-		display: none;
-		border: 1px solid #fff;
-		background-color: #e3d7bf;
-	}
-	.show-default-value-date{
-		border: 1px solid #fff;
-		background-color: #e3d7bf;
-	}
+
 </style>
 
 <div class="bg-uniq">
 	<div class="cadre">
+		<% if @agendaAdmin.nil? %>
 		<div class="content">
 				<div class="numero un">1<span class="potential">Potential</span></div>
 				<div class="numero deux">2<span class="skills">Skills</span></div>
 				<div class="numero trois">3<span class="fit">Fit</span></div>
 		</div>
-
+		<% end %>
 		<div class="potential-title">
 			<h1>3ème partie : FIT</h1>
 			<img src="/image/fit.png" height="60" width="60">
@@ -50,77 +25,78 @@
 	<p>Cet  échange  nous  permettra  d’en  savoir  plus  sur vous et de découvrir votre  “ FIT ”  avec  les  nombreuses  opportunités  que nous proposons sur One in a Million.</p>
 <% if @agendaAdmin.nil? %>
 	<span class="pass-test" id="show-selected-date">PLANIFIER UN ENTRETIEN SKYPE</span>
-<% else %>
-	<div class="show-default-value-date">
-		<h2>Entretien Skype confirmé</h2>
-		<center id="dateSkype"><%= @dates %></center>
-		<span class="pass-test">MENU</span>
-	</div>
-<% end %>
-	</div>
-
-
-</div>
-
-<% if @agendaAdmin.nil? %>
-<div>
-	<div class="selected-date" id="hide-js">
-		<div>
-			<h2><%= @dates[0][:long] %></h2>
-			<div class="main-container">
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="08:30">08:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="10:00">10:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="11:30">11:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="13:00">13:00</div>
-			</div>
-			<div class="main-container">
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="14:30">14:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="16:00">16:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="17:00">17:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="19:00">19:00</div>
-			</div>
-		</div>
-
-		<div>
-			<h2><%= @dates[1][:long] %></h2>
-			<div class="main-container">
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="08:30">08:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="10:00">10:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="11:30">11:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="13:00">13:00</div>
-			</div>
-			<div class="main-container">
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="14:30">14:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="16:00">16:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="17:00">17:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="19:00">19:00</div>
+	<% if @agendaAdmin.nil? %>
+	<div class="date-container">
+		<div class="selected-date" id="hide-js">
+			<div>
+				<h2 class="date-title"><%= @dates[0][:long] %></h2>
+				<div class="main-container">
+					<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="08:30">08:30</div>
+					<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="10:00">10:00</div>
+					<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="11:30">11:30</div>
+					<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="13:00">13:00</div>
+				</div>
+				<div class="main-container">
+					<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="14:30">14:30</div>
+					<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="16:00">16:00</div>
+					<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="17:00">17:00</div>
+					<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="19:00">19:00</div>
+				</div>
 			</div>
 
 			<div>
-				<%= form_tag(saveEntretientDate_path, remote: true, id:"send-data-form") do %>
-					<input type="hidden" name="date" id="input-date">
-					<input type="hidden" name="time" id="input-time">
-					<div class="form-group">
-						<%= submit_tag("VALIDER") %>
-					</div>
-				<% end %>
+				<h2 class="date-title"><%= @dates[1][:long] %></h2>
+				<div class="main-container">
+					<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="08:30">08:30</div>
+					<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="10:00">10:00</div>
+					<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="11:30">11:30</div>
+					<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="13:00">13:00</div>
+				</div>
+				<div class="main-container">
+					<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="14:30">14:30</div>
+					<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="16:00">16:00</div>
+					<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="17:00">17:00</div>
+					<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="19:00">19:00</div>
+				</div>
+
+				<div class="validate">
+					<%= form_tag(saveEntretientDate_path, remote: true, id:"send-data-form") do %>
+						<input type="hidden" name="date" id="input-date">
+						<input type="hidden" name="time" id="input-time">
+						<div class="form-group">
+							<%= submit_tag("VALIDER", :class=>"btn-valider")%>
+						</div>
+					<% end %>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div id="validate-date-time">
-		<h2>Entretien Skype confirmé</h2>
-		<center id="dateSkype"></center>
-		<center id="timeSkype"></center>
-		<span class="pass-test">MENU</span>
+		<div id="validate-date-time" class="show-default-value-date">
+			<h2 class="entretien-confirme">Entretien Skype confirmé</h2>
+			<center id="dateSkype"></center>
+			<img src="/image/checkWhite.png" alt="" class="iconify">
+			<center id="timeSkype" class="skype-time"></center>
+			<span class="pass-test past-test-menu">MENU</span>
+		</div>
+	</div>
+	<% end %>
+<% else %>
+	<div class="show-default-value-date">
+		<h2 class="entretien-confirme">Entretien Skype confirmé</h2>
+		<img src="/image/checkWhite.png" alt="">
+		<center id="dateSkype" class="skype-time"><%= @dates %></center>
+		<span class="pass-test past-test-menu">MENU</span>
+	</div>
+<% end %>
 	</div>
 </div>
-<% end %>
+
 
 <script type="text/javascript">
 	$("#hide-js").hide();
 	$("#show-selected-date").click(function () {
 		$("#hide-js").show();
+		$(".content").hide();
 	});
 
 	$('.js-hours').click(function(){
@@ -147,5 +123,10 @@
 		$('#validate-date-time').show();
 		$("#show-selected-date").hide();
 	});
+
+	$(".btn-valider").click(function(){
+		$(".show-selected-date").hide();
+		$(".content").hide();
+	})
 
 </script>

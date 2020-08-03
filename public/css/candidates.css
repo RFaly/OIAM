@@ -153,51 +153,51 @@ body {
   padding: 0 20px;
 }
 
-.main p{
-	margin-bottom: 15px;
+.main p {
+  margin-bottom: 15px;
 }
 
 .main span {
   color: #b68e27;
 }
 
-.article{
-	padding: 0 20px;
-	margin-bottom: 100px;;
+.article {
+  padding: 0 20px;
+  margin-bottom: 100px;
 }
 
-.article-content{
-	text-align: justify;
-	width: 100%;
-	height: auto;
-	margin-bottom: 30px;
+.article-content {
+  text-align: justify;
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
 }
 
-.article-content p{
-	margin-bottom: 15px;
+.article-content p {
+  margin-bottom: 15px;
 }
 
-.article-title{
-	position: relative;
-	left: 50px;
-	font-size: 20px;
-	width: 420px;
-	margin-bottom: 20px;
-	text-align: left;
+.article-title {
+  position: relative;
+  left: 50px;
+  font-size: 20px;
+  width: 420px;
+  margin-bottom: 20px;
+  text-align: left;
 }
 
-.article-title-number{
-	position: absolute;
-	top: -20px;
-	left: -50px;
-	font-family: "Qwigley", sans-serif;
-	color: #b68e27;
-	font-size: 80px;
+.article-title-number {
+  position: absolute;
+  top: -20px;
+  left: -50px;
+  font-family: 'Qwigley', sans-serif;
+  color: #b68e27;
+  font-size: 80px;
 }
 
-.deux-ligne{
-	position: absolute;
-	top: -42px;
+.deux-ligne {
+  position: absolute;
+  top: -42px;
 }
 
 .btn-inscrire {
@@ -221,113 +221,108 @@ body {
   color: #e3d7bf;
 }
 
+@media only screen and (min-width: 800px) {
+  .main {
+    padding: 0 50px;
+    margin-bottom: 45px;
+  }
 
-@media only screen and (min-width: 800px){
-	.main{
-		padding: 0 50px;
-		margin-bottom: 45px;
-	}
-
-	.article{
-		padding: 0 50px;
-	}
+  .article {
+    padding: 0 50px;
+  }
 }
 
-@media only screen and (min-width: 900px){
-	.main{
-		padding: 0 80px;
-	}
-	.article{
-		padding: 0 90px;
-	}
+@media only screen and (min-width: 900px) {
+  .main {
+    padding: 0 80px;
+  }
+  .article {
+    padding: 0 90px;
+  }
 }
 
-@media only screen and (min-width: 1024px){
-	.main{
-		padding: 20px 100px;
-	}
+@media only screen and (min-width: 1024px) {
+  .main {
+    padding: 20px 100px;
+  }
 
-	.article{
-		width: 100%;
-	}
+  .article {
+    width: 100%;
+  }
 
-	.article-title{
-		left: 0;
-		width: 350px;
-	}
+  .article-title {
+    left: 0;
+    width: 350px;
+  }
 
-	.deux-ligne{
-		position: absolute;
-		top: -20px;
-	}
+  .deux-ligne {
+    position: absolute;
+    top: -20px;
+  }
 
-	.article-content{
-		clear: both;
-		left: 20px;
-		width: 420px;
-		padding: 0 20px;
-	}
-	.article-content:first-child{
-		float: right;
-		width: 45%;
-	}
+  .article-content {
+    clear: both;
+    left: 20px;
+    width: 420px;
+    padding: 0 20px;
+  }
+  .article-content:first-child {
+    float: right;
+    width: 45%;
+  }
 
-	.article-content:nth-child(2){
-		float: left;
-		width: 45%;
-		padding-left:70px;
-	}
+  .article-content:nth-child(2) {
+    float: left;
+    width: 45%;
+    padding-left: 70px;
+  }
 
-	.article-content:nth-child(3){
-		float: right;
-		width: 45%;
-	}
+  .article-content:nth-child(3) {
+    float: right;
+    width: 45%;
+  }
 
-	.article-content:nth-child(4){
-		float: left;
-		width: 45%;
-		padding-left:70px;
-	}
+  .article-content:nth-child(4) {
+    float: left;
+    width: 45%;
+    padding-left: 70px;
+  }
 
-	.btn-inscrire {
-		clear: both;
-	}
+  .btn-inscrire {
+    clear: both;
+  }
 
-	.article-title-number{
-		left: -60px;
-		top: -23px;
-	}
+  .article-title-number {
+    left: -60px;
+    top: -23px;
+  }
 
+  .trait {
+    display: block;
+    margin-left: 50%;
+    position: absolute;
+    top: 1015px;
+    width: 1px;
+    height: 730px;
+    background: rgba(51, 51, 51, 0.54);
+  }
 
+  .goLeft {
+    left: -60px;
+    top: -23px;
+  }
 
-	.trait {
-		display: block;
-		margin-left: 50%;
-		position: absolute;
-		top: 1015px;
-		width: 1px;
-		height: 730px;
-		background: rgba(51, 51, 51, 0.54);;
-	}
-
-	.goLeft{
-		left: -60px;
-		top: -23px;
-	}
-
-	.btn-inscrire{
-		margin-top: 1000px;
-	}
-
+  .btn-inscrire {
+    margin-top: 1000px;
+  }
 }
 
-
-@media only screen and (min-width: 1200px){
-  .article-title{
+@media only screen and (min-width: 1200px) {
+  .article-title {
     left: 0;
     width: 440px;
   }
-  .goLeft{
+  .goLeft {
     left: -60px;
     top: -50px;
   }
