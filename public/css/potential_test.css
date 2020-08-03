@@ -47,7 +47,7 @@ body{
 	position: relative;
 	display: flex;
 	margin: 0 auto;
-	width: 365px;
+	width: 100%;
 	justify-content: center;
 	margin-bottom: 100px;
 }
@@ -104,6 +104,8 @@ ul{
 	list-style: none;
 	text-align: center;
 	color: #D6B36A;
+	font-weight: 600;
+	margin: 30px ;
 }
 
 h2{
@@ -129,7 +131,7 @@ h2{
 .skills{
 	position: absolute;
 	top: 42px;
-	left: 160px;
+	left: 45%;
 }
 
 .fit{
@@ -167,6 +169,11 @@ h2{
 	color: #e3d7bf;
 }
 
+@media only screen and (min-width: 500px){
+	.content{
+		width: 365px;
+	}
+}
 
 @media only screen and (min-width: 900px){
 	.cadre{
