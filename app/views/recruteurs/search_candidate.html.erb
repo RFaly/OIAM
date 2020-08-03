@@ -59,7 +59,9 @@
 			<% @cadres.each do |cadre| %>
 			<div>
 				<div>
-				<%= image_tag(cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px")%>
+					<a href="<%= show_search_candidate_path(cadre.id) %>">
+					<%= image_tag(cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px")%>
+					</a>
 				</div>
 				<center><%= cadre.cadre_info.first_name %> <%= cadre.cadre_info.last_name[0].upcase %>.</center><br>
 				<center>Compatibilité : 60%</center><br>
