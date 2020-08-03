@@ -35,7 +35,8 @@ Rails.application.routes.draw do
   post '/recruteur/publier-offre', to: 'recruteurs#createJob', as: 'createJob'
 
   get '/recruteur/edit/:id/offre', to: 'recruteurs#editJob', as: 'editJob'
-  patch '/recruteur/edit-offre', to: 'recruteurs#updateJob', as: 'updateJob'
+  patch '/recruteur/edit/:id/offre', to: 'recruteurs#updateJob', as: 'updateJob'
+  delete '/recruteur/supprimer/offre/:id', to: 'recruteurs#destroyJob', as: 'destroyJob'
 
   get '/recruteur/mes/:id/offre', to: 'recruteurs#showNewJob', as: 'showNewJob'
   patch '/recruteur/publier/:id/-offre', to: 'recruteurs#publish', as: 'publish'
