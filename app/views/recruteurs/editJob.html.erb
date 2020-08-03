@@ -27,7 +27,7 @@
           <li>Publication</li>
         </ol>
       </div>
-      <%= form_for @offre , url: updateJob_path do |f| %>
+      <%= form_for @offre , url: updateJob_path(@offre.id) do |f| %>
       <div class="detail-post-box">
         <label>LOCALISATION</label>
         <div class="dp-input hide-right">

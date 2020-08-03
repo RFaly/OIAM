@@ -80,7 +80,17 @@ class RecruteursController < ApplicationController
 	end
 
 	def updateJob
+		uploader = ImageUploader.new
 		@offre = OffreJob.find(params[:id])
+		@offre.update(post_params)
+		uploader.store!(params[:offre_job][:image])
+		@offre.image = uploader.url
+		if @offre.save
+			redirect_to showNewJob_path(@offre)
+		else
+			flash[:alert] = @offre.errors.details
+			return render :editJob
+		end
 	end
 
 	def showNewJob
@@ -96,6 +106,15 @@ class RecruteursController < ApplicationController
 		@offre.update(is_publish:true)
 	end
 
+	def destroyJob
+		@offre = OffreJob.find(params[:id])
+		@offre.destroy
+		respond_to do |format|
+			format.html { redirect_to :my_job_offers }
+			format.js { }
+			end
+		
+	end
 	def our_selection
 		
 	end
