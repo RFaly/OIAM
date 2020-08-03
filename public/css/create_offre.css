@@ -379,6 +379,11 @@
   box-shadow: none;
 }
 
+.create-offre-box .context-offre-box #co-input-submit3 input {
+  width: 185px;
+  padding: 12px auto;
+}
+
 .create-offre-box .cp-input-ckeck-label {
   display: block;
   position: relative;
