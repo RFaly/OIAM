@@ -15,17 +15,23 @@
       <% else %>
       <div class="co-with-job">
         <h5>Mes offres d'emploi</h5>
-        <% @offres.each do |offre| %>
+        <% i = 0%> <% @offres.each do |offre| %>
+
         <div class="coj-box">
           <div class="cjo-image">
             <img src="/image/work.png" alt="icone work" />
           </div>
           <div class="cjo-content"><%= offre.intitule_pote %></div>
-          <div class="cjo-link">
-            <%= link_to "VOIR L'OFFRE", showNewJob_path(offre.id)%>
+          <div class="cjo-link-items">
+            <div class="cjo-link">
+              <%= link_to "VOIR L'OFFRE", showNewJob_path(offre.id)%>
+            </div>
+            <div class="cjo-delete">
+              <a href="" data-method="" class="delete" data-remote="true" id="<%= i%>"> <img src="/image/trash.png" alt="Delete" /></a>
+            </div>
           </div>
         </div>
-        <% end %>
+        <% i+= 1%> <% end %>
         <div class="btn-newjob-div">
           <%= link_to "PUBLIER UNE OFFRE", newJob_path, class:'btn-newjob' %>
         </div>
@@ -34,3 +40,4 @@
     </div>
   </div>
 </div>
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/myoffre.js"></script>

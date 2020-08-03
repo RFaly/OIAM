@@ -77,6 +77,7 @@
           box-shadow: 1px 1px 5px 1px $main_theme_color;
         }
       }
+
       input,
       textarea {
         background: $secondary_element_color;
@@ -385,9 +386,15 @@
     -moz-appearance: none;
     appearance: none;
     background: $secondary_element_color url('/image/dropdown.png') no-repeat right 1rem center/21px 18px;
-    text-align: center !important;
+    text-align: center;
+    -moz-text-align-last: center;
+    -ms-text-align-last: center;
+    text-align-last: center;
     option {
       text-align: center;
+      -moz-text-align-last: center;
+      -ms-text-align-last: center;
+      text-align-last: center;
     }
   }
   .hide-right {
@@ -410,3 +417,8 @@
   display: block;
   margin: -15px 0 20px 0;
 }
+// select {
+//   -moz-text-align-last: center;
+//   -ms-text-align-last: center;
+//   text-align-last: center;
+// }

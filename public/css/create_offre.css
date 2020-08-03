@@ -435,11 +435,15 @@
 .create-offre-box .co-select {
   appearance: none;
   background: #f0f2f4 url("/image/dropdown.png") no-repeat right 1rem center/21px 18px;
-  text-align: center !important;
+  text-align: center;
+  -ms-text-align-last: center;
+  text-align-last: center;
 }
 
 .create-offre-box .co-select option {
   text-align: center;
+  -ms-text-align-last: center;
+  text-align-last: center;
 }
 
 .create-offre-box .hide-right {
