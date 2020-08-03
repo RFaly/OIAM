@@ -743,7 +743,7 @@
     top: 0;
     position: absolute;
     width: 100%;
-    height: 630px;
+    height: 650px;
     background: url(/image/BANNIERE.png) no-repeat center;
     background-size: cover;
   }
@@ -1185,27 +1185,11 @@
   .navdiv {
     height: 600px;
   }
-  // .navbar-content {
-  //   justify-content: space-between;
-  //   width: 70%;
-  //   align-items: center;
-  // }
-  // .navbar-ul {
-  //   width: 70%;
-  //   margin-bottom: inherit;
-  // }
 
-  // .logo-g {
-  //   width: 35%;
-  // }
-  // .dropup-content1 {
-  //   right: 5.2%;
-  // }
-  // // navbar background all
-  // ///////////////////////////////////////////////
-  // .navdiv {
-  //   padding-bottom: 100px;
-  // }
+  .logo-g {
+    width: 32%;
+  }
+
   // // nabar bg accueil
   // ///////////////////////////////////////////////
 
@@ -1213,126 +1197,43 @@
   .first-btn1 {
     position: absolute;
     width: 100%;
-    top: 350px;
+    top: 380px;
   }
-
-  // .accueilg-btn1 {
-  //   .cadre-btn1 {
-  //     margin: 0 2em;
-  //     a {
-  //       padding: 12px 65px;
-  //     }
-  //   }
-  //   .recruteur-btn1 {
-  //     margin: 0 2em;
-  //     a {
-  //       padding: 12px 50px;
-  //     }
-  //   }
-  // }
-  // .accueilg-content1 {
-  //   margin-top: 220px;
-  // }
+  .bg-accueil1 {
+    height: 750px;
+  }
 
   // // accueil recruteur
   // // ******************************//
-  // .accueil-recruteur {
-  //   .title-ar {
-  //     font-size: 20px;
-  //   }
-  // }
+
   // // inscription recruteur
   // ///////////////////////////////////////@extend
+}
+@media screen and (min-width: 2500px) {
+  // navbar
+  // /////////////////////
+  .navdiv {
+    height: 700px;
+  }
 
-  // .travel-parcours {
-  //   width: 700px;
-  //   ol {
-  //     width: 790px;
-  //     margin-left: -45px;
-  //   }
-  // }
-  // .inscription-r {
-  //   margin: 60px auto;
-  // }
+  .logo-g {
+    width: 30%;
+  }
 
-  // // equipe equipe responsive
-  // .equipe-box {
-  //   padding-bottom: 100px;
-  // }
-  // // client profil
-  // .table-td {
-  //   .cpr-r {
-  //     img {
-  //       left: 30%;
-  //     }
-  //   }
-  // }
+  // // nabar bg accueil
+  // ///////////////////////////////////////////////
 
-  // // client profil
-  // .cp-table-box {
-  //   td {
-  //     padding: 5px 60px;
-  //   }
-  //   .table-td {
-  //     justify-content: space-between;
-  //     .cp-infos-r {
-  //       width: 72%;
-  //     }
-  //     .cpr-r {
-  //       img {
-  //         left: 25%;
-  //       }
-  //     }
-  //   }
-  // }
-  // // client edit profil
-  // .cp-edit-table-box {
-  //   td {
-  //     padding: 5px 30px;
-  //   }
-  //   .table-td {
-  //     #cp-edit-form,
-  //     #recruteur-mail,
-  //     #recruteur-phone {
-  //       width: 50%;
-  //     }
-  //     justify-content: space-between;
-  //     .cp-infos-r {
-  //       width: 72%;
-  //     }
-  //     .cpr-r {
-  //       img {
-  //         left: 12%;
-  //       }
-  //       .add {
-  //         left: 25%;
-  //       }
-  //     }
-  //   }
-  // }
-  // // création d offre
-  // .create-offre-box {
-  //   .detail-post-box {
-  //     .dp-input {
-  //       width: 35%;
-  //     }
-  //   }
-  //   .detail-post-box {
-  //     .dp-input-renumeration {
-  //       .value-renum {
-  //         width: 87%;
-  //       }
-  //     }
-  //   }
-  // }
-  // .travel-creation {
-  //   width: 600px;
-  //   .line {
-  //     width: 248px;
-  //   }
-  //   ol {
-  //     width: 664px;
-  //     margin-left: -7%;
-  //   }
-  // }
+  // // page d'accueil général
+  .first-btn1 {
+    top: 450px;
+  }
+  .bg-accueil1 {
+    height: 800px;
+  }
+
+  // // accueil recruteur
+  // // ******************************//
+
+  // // inscription recruteur
+  // ///////////////////////////////////////@extend
 }
