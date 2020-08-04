@@ -87,6 +87,7 @@ class RecruteursController < ApplicationController
 			uploader.store!(params[:offre_job][:image])
 			@offre.image = uploader.url
 		end
+		@offre.update(country: params[:country], remuneration_anne: params[:remuneration_anne], date_poste: params[:date_poste],type_deplacement: params[:type_deplacement],question1: params[:question1],question3: params[:question3],question5: params[:question5])
 		if @offre.save
 			redirect_to showNewJob_path(@offre)
 		else
