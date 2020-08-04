@@ -83,8 +83,10 @@ class RecruteursController < ApplicationController
 		uploader = ImageUploader.new
 		@offre = OffreJob.find(params[:id])
 		@offre.update(post_params)
-		uploader.store!(params[:offre_job][:image])
-		@offre.image = uploader.url
+		if !params[:offre_job][:image].nil?
+			uploader.store!(params[:offre_job][:image])
+			@offre.image = uploader.url
+		end
 		if @offre.save
 			redirect_to showNewJob_path(@offre)
 		else

@@ -8,7 +8,7 @@
 }
 
 .bg-uniq {
-  margin-top: -492px;
+  // margin-top: -600px;
   padding-top: 492px;
   padding-bottom: 100px;
   width: 100%;
@@ -18,6 +18,11 @@
 }
 
 @media screen and (min-width: 320px) {
+  // bg unique
+  .bg-uniq {
+    margin-top: -450px;
+  }
+  // landing page
   .logo-g {
     display: none;
   }
@@ -636,6 +641,11 @@
 }
 
 @media screen and (min-width: 992px) {
+  // bg unique
+  .bg-uniq {
+    margin-top: -505px;
+  }
+  // landing page
   // landing page
   .box-1 {
     width: 50%;
@@ -1180,6 +1190,11 @@
   }
 }
 @media screen and (min-width: 1500px) {
+  // bg unique
+  .bg-uniq {
+    margin-top: -605px;
+  }
+  // landing page
   // navbar
   // /////////////////////
   .navdiv {

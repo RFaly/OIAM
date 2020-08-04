@@ -31,17 +31,17 @@
       <div class="detail-post-box">
         <label>LOCALISATION</label>
         <div class="dp-input hide-right">
-          <%= f.select :country , options_for_select([["France", "France"]]),{}, class:'co-select', required:true, id:'paysInput', title:'Pays',autofocus:true%>
+          <%= f.select :country , options_for_select([["France", "France"]]),{}, class:'co-select', required:true, id:'paysInput', title:'Pays',autofocus:true,autocomplete: "country" %>
         </div>
         <span class="input-error country-error"></span>
 
         <div class="dp-input hide-right">
-          <%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région' %>
+          <%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région',autocomplete: "region" %>
         </div>
         <span class="input-error region-error"></span>
 
         <div class="dp-input hide-right">
-          <%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département' %>
+          <%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autocomplete: "departement" %>
         </div>
         <span class="input-error departement-error"></span>
 
@@ -78,7 +78,7 @@
 
         <%= f.label :remuneration_anne, "RÉMUNÉRATION PROPOSÉE VARIABLE(K€ BRUTS ANNUELS)" %>
         <div class="dp-input hide-right">
-          <%= f.select :remuneration_anne, options_for_select([["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"]]),{}, class:'co-select', required:true, id:'remuneration-anne' %>
+          <%= f.select :remuneration_anne, options_for_select([["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"]]),{}, class:'co-select', required:true, id:'remuneration-anne',autocomplete: "remuneration_anne" %>
         </div>
         <span class="input-error remuneration-anne-error"></span>
 
@@ -96,7 +96,7 @@
 
         <%= f.label :type_deplacement, "DATE DE PRISE DE POSTE" %>
         <div class="dp-input">
-          <%= f.date_field :date_poste, required:true, min: Date.today,id:'dp-date' %>
+          <%= f.date_field :date_poste, required:true, min: Date.today,id:'dp-date',value:' @offre.date_poste' %>
         </div>
         <span class="input-error dp-date-error"></span>
 
@@ -143,7 +143,7 @@
         <span class="input-error" id="question5-error"></span>
 
         <div class="co-input co-input-image">
-          <img id="addImage" src="/image/picture.png" alt="logo entreprise"" />
+          <%= image_tag(@offre.image, alt: 'photo logo',id:"addImage" )%>
           <label>
             <p class="first-p">Logo entreprise</p>
             <p class="last-p">Télécharger une image</p>
@@ -153,7 +153,7 @@
           </label>
         </div>
 
-        <div class="co-input co-input-submit" id="co-input-submit3">
+        <div class="co-input co-input-submit co-input-submit2" id="co-input-submit3">
           <%= f.submit("VALIDER") %>
         </div>
         <br />

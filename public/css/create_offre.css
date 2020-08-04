@@ -78,6 +78,9 @@
 }
 
 .create-offre-box .detail-post-box #dp-date {
+  text-align: center;
+  -ms-text-align-last: center;
+  text-align-last: center;
   background: #f0f2f4 url("/image/calendar.png") no-repeat right 0.5rem center/21px 24px;
 }
 
