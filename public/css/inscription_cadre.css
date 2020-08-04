@@ -94,6 +94,7 @@ html{
       height: 43px;
       background: #F0F2F4;
       margin-bottom: 50px;
+      outline: none;
   }
 
 
@@ -106,6 +107,7 @@ html{
       background: none;
       padding: 15px;
       color: #D6B36A;
+      outline: none;
   }
 
   .valider:hover{
