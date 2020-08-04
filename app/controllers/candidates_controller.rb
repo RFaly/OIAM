@@ -185,9 +185,11 @@ class CandidatesController < ApplicationController
   end
 
   def testpotential
+    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
   end
 
   def testskills
+    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
   end
 
   def testfit
@@ -233,6 +235,7 @@ class CandidatesController < ApplicationController
 
 # Resultat test
   def resultatsTest
+    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
   end
 
 #~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~~~~~

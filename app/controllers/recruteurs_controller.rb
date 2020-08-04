@@ -4,7 +4,7 @@ class RecruteursController < ApplicationController
   def main
   end
 
-#Mon profil
+	#Mon profil
   def my_profil
   	@client = current_client
   	@entreprise = @client.entreprise
@@ -112,9 +112,9 @@ class RecruteursController < ApplicationController
 		respond_to do |format|
 			format.html { redirect_to :my_job_offers }
 			format.js { }
-			end
-		
+		end
 	end
+
 	def our_selection
 		
 	end
@@ -126,6 +126,7 @@ class RecruteursController < ApplicationController
 	end
 
 	def show_search_candidate
+		@offre = OffreJob.find_by_id(params[:offre_id])
 		@cadre = Cadre.find_by_id(params[:id]).cadre_info
 	end
 
@@ -136,11 +137,23 @@ class RecruteursController < ApplicationController
 		cadre_ids.each do |cadre_id|
 			cadre = Cadre.find_by_id(cadre_id)
 			if @offre.is_in_this_job(cadre).nil?
-				OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: cadre)
+				OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: cadre,accepted_postule:true)
 			end
+		end
+	end
+
+	def save_entretien_client
+		puts "~~"*43
+		puts params.inspect
+		puts "~~"*43
+
+		respond_to do |format|
+			format.html { redirect_to :my_job_offers }
+			format.js { }
 		end
 
 	end
+
 #Mes candidats favoris
 	def favorite_candidates
 	end
