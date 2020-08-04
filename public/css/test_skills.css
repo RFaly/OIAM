@@ -201,6 +201,7 @@ h2{
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance:none;
+  outline: none;
 }
 
 .directeur-marketing option{

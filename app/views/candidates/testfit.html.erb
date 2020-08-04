@@ -13,7 +13,7 @@
 				<div class="numero trois">3<span class="fit">Fit</span></div>
 		</div>
 		<% end %>
-		<div class="potential-title">
+		<div class="potential-title" id="potential-title-hide">
 			<h1>3ème partie : FIT</h1>
 			<img src="/image/fit.png" height="60" width="60">
 		</div>
@@ -26,6 +26,9 @@
 		</div>
 
 		<div id="para-hide">
+			<div id="potential-title-show">
+				<h1>Félicitations et Bienvenue !</h1>
+			</div>
 			<p>Vous avez désormais terminé le test d’entrée One in a Million et nous avons le plaisir de vous annoncer que vous faites partie du top 10 des cadres du marché.</p>
 			<p>Remplissez dès maintenant votre profil et rejoignez notre communauté ! Découvrez des offres d’emploi sélectionnées spécialement pour vous, ainsi que nos événements dédiés aux cadres d’élite.</p>
 			<%= link_to "COMPLÉTER MON PROFIL", new_cadre_registration_path,class:'pass-test'%>
@@ -82,7 +85,7 @@
 		<div id="validate-date-time" class="show-default-value-date">
 			<h2 class="entretien-confirme">Entretien Skype confirmé</h2>
 			<img src="/image/checkWhite.png" alt="" class="iconify">
-			<center id="dateSkype"></center>
+			<center id="dateSkype" class="skype-time"></center>
 			<center id="timeSkype" class="skype-time"></center>
 			<span class="pass-test past-test-menu" id="btn-menu">MENU</span>
 		</div>
@@ -103,6 +106,7 @@
 <script type="text/javascript">
 	$("#hide-js").hide();
 	$("#para-hide").hide();
+	$("#potential-title-show").hide();
 	$("p").css("text-align", "center")
 	$("#show-selected-date").click(function () {
 		$("#hide-js").show();
@@ -145,5 +149,7 @@
 		$("#para-show").hide();
 		$("#para-hide").show();
 		$(".show-default-value-date").hide();
+		$("#potential-title-hide").hide();
+		$("#potential-title-show").show();
 	})
 </script>

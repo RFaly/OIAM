@@ -70,6 +70,7 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  outline: none;
 }
 
 .dropdown{
@@ -80,7 +81,6 @@ body {
 }
 
 .champs:focus{
-  outline: none;
   outline: 2px solid #d6b36a;
   box-shadow: 1px 1px 5px 1px #d6b36a;
 }
@@ -110,6 +110,7 @@ body {
   color: #d6b36a;
   padding: 13px;
   margin-bottom: 150px;
+  outline: none;
 }
 .btnInscrire:hover{
   background: #d6b36a;

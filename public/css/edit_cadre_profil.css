@@ -82,6 +82,7 @@ html{
       color: #594E4E;
       margin-bottom: 35px;
       padding: 15px;
+      outline: none;
   }
 
   .btn-recherche{
@@ -89,7 +90,8 @@ html{
       margin: auto;
       border: 1px solid #D6B36A;
       background: #ffffff;
-      width: 180px;
+      width: 250px;
+      text-align: center;
       height: 46px;
      -webkit-appearance: none;
      -moz-appearance: none;
@@ -98,7 +100,8 @@ html{
      background: no-repeat right 10px center url(/image/dropdown2.png);
 		 background-size: 25px;
      color: #D6B36A;
-     padding-left:50px;
+     padding-left: 5px;
+     outline: none;
   }
 
   .intervalle{
@@ -161,7 +164,7 @@ html{
       content: "60";
       display: block;
       position: absolute;
-      top: 10px;
+      top: 5px;
       left: 0;
       color: black;
       font-size: 16px;
@@ -171,7 +174,7 @@ html{
     content: "350(k€)";
     display: block;
     position: absolute;
-    top: 10px;
+    top: 5px;
     right: 0;
     color: black;
     font-size: 16px;
