@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-  before_action :authenticate_cadre!, except: [:main,:my_tests,:testpotential,:testskills,:testfit,:saveEntretientDate,:resultatsTest]
+  before_action :authenticate_cadre!, except: [:main,:my_tests,:testpotential,:testskills,:testfit,:saveEntretientDate,:resultatsTest,:tmp_sign_up,:tmp_create_sign_up]
   before_action :validate_cadre, only: [:my_tests, :testpotential, :testskills, :testfit, :resultatsTest]
   before_action :current_info_cadre, only: [:my_profil, :edit_profil, :confirmedProfil]
 
