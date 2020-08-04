@@ -200,8 +200,18 @@ $('#co-dp-btn').click(function () {
   }
 });
 // submit validation
-$('.co-input-submit').click(function () {
+$('.co-input-submit1').click(function () {
   if ($('#question1').val().length >= 1 && $('#question2').val().length >= 1 && $('#question3').val().length >= 1 && $('#question5').val().length >= 1 && $('.input_fied').val().length >= 1) {
+    return true;
+  } else {
+    $('#co-dp-btn1-error').html('(Tous les champs sont obligatoires.)');
+    $('#co-dp-btn1-error').show();
+    return false;
+  }
+});
+// submit validation update
+$('.co-input-submit2').click(function () {
+  if ($('#question1').val().length >= 1 && $('#question2').val().length >= 1 && $('#question3').val().length >= 1 && $('#question5').val().length >= 1) {
     return true;
   } else {
     $('#co-dp-btn1-error').html('(Tous les champs sont obligatoires.)');

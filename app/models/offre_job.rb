@@ -34,6 +34,20 @@ class OffreJob < ApplicationRecord
 		return OffreForCandidate.find_by(offre_job:self,cadre:cadre)
 	end
 
+	def in_list_entretien(cadre)
+		ofc = self.is_in_this_job(cadre)
+		if ofc.nil?
+			return nil
+		else
+			agenda_c = ofc.agenda_clients
+			if agenda_c.empty?
+				return nil
+			else
+				return agenda_c.order('created_at DESC')[0]
+			end
+		end
+	end
+
 	# private
 	# before_create :set_default_id_secure
  #  def set_default_id_secure

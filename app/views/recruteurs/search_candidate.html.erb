@@ -64,11 +64,10 @@
 			<% @cadres.each do |cadre| %>
 			<div>
 				<div>
-					<a href="<%= show_search_candidate_path(cadre.id) %>">
-					<%= image_tag(cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px", class:"js-image-#{cadre.id}")%>
-					</a>
+					<%= link_to show_search_candidate_path(cadre.id, offre_id: @offre.id), method: :get do %>
+						<%= image_tag(cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px", class:"js-image-#{cadre.id}")%>
+					<% end %>
 					<div>
-
 					<% if @offre.is_in_this_job(cadre).nil? %>
 						<div>
 							<img class="add-js-toFavorite" data-info="<%= cadre.id %>" src="/image/Vector-22.png" alt="logo oiam non favorie" width="30px" style="background-color:#b7bdc3ed;">

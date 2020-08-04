@@ -54,6 +54,10 @@
       }
     }
     #dp-date {
+      text-align: center;
+      -moz-text-align-last: center;
+      -ms-text-align-last: center;
+      text-align-last: center;
       &::-webkit-inner-spin-button,
       &::-webkit-calendar-picker-indicator {
         // display: none;
