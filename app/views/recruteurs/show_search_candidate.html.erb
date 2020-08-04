@@ -52,13 +52,20 @@
 					<%= link_to "MESSAGERIE", show_my_messages_client_path(@cadre.cadre.id) ,class:"btn btn-primary"%>
 					</div>
 
-					<div class="btn btn-primary" id="dateEntretien">
-						PLANIFIER UN ENTRETIEN
-					</div>
+					<% if @offre.in_list_entretien(@cadre.cadre).nil? %>
+						<div class="btn btn-primary" id="dateEntretien">
+							PLANIFIER UN ENTRETIEN
+						</div>
+					<% else %>
+						<div class="btn btn-primary">
+							INVITATION ENTRETIEN ENVOYER
+						</div>
+					<% end %>
+
+					<div class="hiddenDate" style="display: none;" id="js-form-show">
 
 					<%= form_tag(save_entretien_client_path, remote: true, id:"send-data-form") do %>
 
-					<div class="hiddenDate" style="display: none;">
 						<div class="date">
 							<input type="date" name="date" id="input-date">
 						</div>
@@ -106,14 +113,38 @@
 							</div>
 
 							<input type="hidden" name="time" id="input-time">
+							
+							<input type="hidden" name="cadre_id" value="<%= @cadre.cadre.id %>">
+
 							<input type="hidden" name="offre_id" value="<%= @offre.id %>">
 
 							<div class="form-group">
 								<%= submit_tag("VALIDER", class:"btn btn-primary", id:"valid-submit", disabled:"disabled" )%>
 							</div>
 						</div>
-					</div>
 					<% end %>
+					</div>
+
+					<div id="send-data-form-ok-success" style="display: none;">
+						<h2>Demande d'entretien envoyée</h2>
+						<div>
+							<div id="dateShowOk">
+								
+							</div>
+							<div id="timeShowOk">
+								
+							</div>
+							<div>
+								<span id="adresseShowOk">
+									Adresse : <%= current_client.entreprise.adresse %>
+								</span> <br>
+								<span id="nameShowOk">
+									Recruteur : <%= current_client.first_name %> <%= current_client.last_name %>
+								</span>
+							</div>
+						</div>
+					</div>
+
 				</div>
 			</div>
 
@@ -147,6 +178,4 @@
 	</div>
 </div>
 
-
 <script type="text/javascript" src="/js/entretien_client.js"></script>
-

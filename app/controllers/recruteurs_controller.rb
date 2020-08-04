@@ -1,5 +1,5 @@
 class RecruteursController < ApplicationController
-	#before_action :authenticate_client!, except: :main
+	before_action :authenticate_client!, except: :main
 
   def main
   end
@@ -143,12 +143,35 @@ class RecruteursController < ApplicationController
 	end
 
 	def save_entretien_client
-		puts "~~"*43
-		puts params.inspect
-		puts "~~"*43
+		name_entretien = params[:name] == "1" ? params[:client_name] : params[:name]
+		name_adresse = params[:adresse] == "on" ? params[:adresse_name] : params[:adresse]
+
+		@offre = OffreJob.find_by_id(params[:offre_id].to_i)
+		@cadre = Cadre.find_by_id(params[:cadre_id].to_i)
+
+		@oFc = OffreForCandidate.find_by(offre_job_id: @offre.id, cadre_id: @cadre.id)
+		if @oFc.nil?
+			@oFc = OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: cadre, accepted_postule:true)
+		end
+
+    date = params[:date].split("-")
+    time = params[:time].split(":")
+
+    year = date[0].to_i
+    month = date[1].to_i
+    day = date[2].to_i
+    hour = time[0].to_i
+    min = time[1].to_i
+
+    @agenda = AgendaClient.new(entretien_date:DateTime.new(year,month,day,hour,min).utc, adresse: name_adresse, recruteur: name_entretien, offre_for_candidate: @oFc)
+
+    unless @agenda.save
+    	flash[:alert] = "une erreur c'est produit"
+    	redirect_to root_path
+    end
 
 		respond_to do |format|
-			format.html { redirect_to :my_job_offers }
+			format.html { redirect_to show_search_candidate_path(@cadre.id) }
 			format.js { }
 		end
 
@@ -269,7 +292,6 @@ class RecruteursController < ApplicationController
 		end
 
 	end
-
 
 #~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~~~~~
   def my_messages
