@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-  before_action :authenticate_cadre!, only: [:confirmedProfil,:edit_profil, :my_profil, :searchJob, :favoriteJob, :recrutmentMonitoring, :getLastMessage]
+  before_action :authenticate_cadre!, except: [:main,:my_tests,:testpotential,:testskills,:testfit,:saveEntretientDate,:resultatsTest,:tmp_sign_up,:tmp_create_sign_up]
   before_action :validate_cadre, only: [:my_tests, :testpotential, :testskills, :testfit, :resultatsTest]
   before_action :current_info_cadre, only: [:my_profil, :edit_profil, :confirmedProfil]
 
@@ -185,9 +185,11 @@ class CandidatesController < ApplicationController
   end
 
   def testpotential
+    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
   end
 
   def testskills
+    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
   end
 
   def testfit
@@ -233,6 +235,7 @@ class CandidatesController < ApplicationController
 
 # Resultat test
   def resultatsTest
+    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
   end
 
 #~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~~~~~
