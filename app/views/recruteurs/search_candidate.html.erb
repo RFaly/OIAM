@@ -4,7 +4,7 @@
 		flex-wrap: wrap;
 		justify-content: space-around;
 	}
-	.candidates{
+	.js-candidates-list{
 		width: 100px;
 		height: 150px;
 		border: 3px solid #d6b36a;
@@ -39,17 +39,22 @@
 		<div class="flex-candidates">
 		<% 5.times do |i| %>
 			<% if @topCinqs[i].nil? %>
-				<div class="candidates">
+				<div class="js-candidates-list" data-element="" data-info="true">
 
 				</div>
 			<% else %>
-				<div class="candidates">
-					
+				<div class="js-candidates-list" data-element="" data-info="false">
+					<%= image_tag(@topCinqs[i].cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px", width:"100px" )%>
 				</div>
 			<% end %>
 		<% end %>
 			<div>
-				<span id="boutton-bottom">Valider ma selection</span>	
+				<%= form_tag(add_top_five_candidate_path(@offre.id),remote: true) do %>
+					<input type="hidden" name="cadre_ids" value="[]" id="input_cadre_ids">
+					<div class="form-group">
+						<%= submit_tag("VALIDER MA SELECTION", id:'boutton-bottom') %>
+					</div>
+				<% end %>
 			</div>
 		</div>
 		
@@ -59,9 +64,23 @@
 			<% @cadres.each do |cadre| %>
 			<div>
 				<div>
-					<a href="<%= show_search_candidate_path(cadre.id) %>">
-					<%= image_tag(cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px")%>
-					</a>
+					<%= link_to show_search_candidate_path(cadre.id, offre_id: @offre.id), method: :get do %>
+						<%= image_tag(cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px", class:"js-image-#{cadre.id}")%>
+					<% end %>
+					<div>
+					<% if @offre.is_in_this_job(cadre).nil? %>
+						<div>
+							<img class="add-js-toFavorite" data-info="<%= cadre.id %>" src="/image/Vector-22.png" alt="logo oiam non favorie" width="30px" style="background-color:#b7bdc3ed;">
+						</div>
+					<% else %>
+						<div>
+							<img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" width="30px" >
+						</div>
+					<% end %>
+						<div>
+							<img class="rmv-js-toFavorite" data-info="<%= cadre.id %>" src="/image/Vector-24.png" alt="logo oiam favorie" width="30px" style="display: none;" >
+						</div>
+					</div>
 				</div>
 				<center><%= cadre.cadre_info.first_name %> <%= cadre.cadre_info.last_name[0].upcase %>.</center><br>
 				<center>Compatibilité : 60%</center><br>
@@ -71,3 +90,5 @@
 
 	</div>
 </div>
+
+<script type="text/javascript" src="/js/add_favorite_cadre.js"></script>

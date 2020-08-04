@@ -1,3 +1,20 @@
+<style type="text/css">
+	.js-timeContainer{
+		padding: 5px;
+		background-color: #e3b465;
+	}
+	.firstSelection{
+		display: flex;
+		justify-content: center;
+	}
+	.js-hoursTime{
+		margin: 4px;
+		padding: 5px;
+		border: 2px solid #fff;
+		color: #fff;
+	}
+</style>
+
 <div class="row">
 	<div class="col-sm-3">
 		<%= render partial: "recruteurs/left_link_bar" %>
@@ -5,7 +22,7 @@
 
 	<div class="col-sm-9">
 		<div class="row">
-			<div class="col-sm-3">
+			<div class="col-sm-5">
 
 				<div class="block-image">
 					<% unless @cadre.image.nil? %>
@@ -30,18 +47,108 @@
 					<%= link_to "VISUALISER LE CV", @cadre.cv, class:"btn btn-primary" %>
 					</div>
 					<br>
+
 					<div>
 					<%= link_to "MESSAGERIE", show_my_messages_client_path(@cadre.cadre.id) ,class:"btn btn-primary"%>
 					</div>
-					<br>
-					<div>
-					<%= link_to "PLANIFIER UN ENTRETIEN", "#" ,class:"btn btn-primary"%>
-					</div>
-				</div>
 
+					<% if @offre.in_list_entretien(@cadre.cadre).nil? %>
+						<div class="btn btn-primary" id="dateEntretien">
+							PLANIFIER UN ENTRETIEN
+						</div>
+					<% else %>
+						<div class="btn btn-primary">
+							INVITATION ENTRETIEN ENVOYER
+						</div>
+					<% end %>
+
+					<div class="hiddenDate" style="display: none;" id="js-form-show">
+
+					<%= form_tag(save_entretien_client_path, remote: true, id:"send-data-form") do %>
+
+						<div class="date">
+							<input type="date" name="date" id="input-date">
+						</div>
+
+						<div class="js-timeContainer" style="display: none;">
+							<h2 id="showDateLong"></h2>
+							<span id="reditDate" class="badge badge-secondary">modifier la date</span>
+
+							<div class="firstSelection">
+								<div class="js-hoursTime" data-time="08:00">08:00</div>
+								<div class="js-hoursTime" data-time="09:00">09:00</div>
+								<div class="js-hoursTime" data-time="10:00">10:00</div>
+								<div class="js-hoursTime" data-time="11:00">11:00</div>
+							</div>
+							<div class="firstSelection">
+								<div class="js-hoursTime" data-time="12:00">12:00</div>
+								<div class="js-hoursTime" data-time="13:00">13:00</div>
+								<div class="js-hoursTime" data-time="14:00">14:00</div>
+								<div class="js-hoursTime" data-time="15:00">15:00</div>
+							</div>
+							<div class="firstSelection">
+								<div class="js-hoursTime" data-time="16:00">16:00</div>
+								<div class="js-hoursTime" data-time="17:00">17:00</div>
+								<div class="js-hoursTime" data-time="18:00">18:00</div>
+								<div class="js-hoursTime" data-time="19:00">19:00</div>
+							</div>
+
+							<div>
+								<input type="radio" checked="checked" required name="adresse" id="adresse1" value="<%= current_client.entreprise.adresse %>" class="js-input-adresse" data-value="none">
+								<label for="adresse1">Adresse de l'entreprise</label>
+							</div>
+							<div>
+								<input type="radio" required name="adresse" id="adresse2" data-value="autre" class="js-input-adresse">
+								<label for="adresse2">Autre lieu: </label>
+								<input type="text" name="adresse_name" id="js-adresse_name_input" style="display: none;" disabled="disabled" placeholder="l'adresse ...">
+							</div>
+							<div>
+								<input type="radio" checked="checked" required name="name" value="<%= current_client.first_name %> <%= current_client.last_name %>" id="name_client" class="js-input-name">
+								<label for="name_client"><%= current_client.first_name %> <%= current_client.last_name %>, recruteur</label>
+							</div>
+							<div>
+								<input type="radio" required name="name" id="autre_personne" value="1" class="js-input-name">
+								<label for="autre_personne">Autre personne:</label>
+								<input type="text" name="client_name" id="client_name_input" style="display: none;" disabled="disabled" placeholder="nom et prénom">
+							</div>
+
+							<input type="hidden" name="time" id="input-time">
+							
+							<input type="hidden" name="cadre_id" value="<%= @cadre.cadre.id %>">
+
+							<input type="hidden" name="offre_id" value="<%= @offre.id %>">
+
+							<div class="form-group">
+								<%= submit_tag("VALIDER", class:"btn btn-primary", id:"valid-submit", disabled:"disabled" )%>
+							</div>
+						</div>
+					<% end %>
+					</div>
+
+					<div id="send-data-form-ok-success" style="display: none;">
+						<h2>Demande d'entretien envoyée</h2>
+						<div>
+							<div id="dateShowOk">
+								
+							</div>
+							<div id="timeShowOk">
+								
+							</div>
+							<div>
+								<span id="adresseShowOk">
+									Adresse : <%= current_client.entreprise.adresse %>
+								</span> <br>
+								<span id="nameShowOk">
+									Recruteur : <%= current_client.first_name %> <%= current_client.last_name %>
+								</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
 			</div>
 
-			<div class="col-sm-9">
+			<div class="col-sm-7">
 				<div class="questionnaire">
 					<h2 class="questionnaire-title">Que faites-vous actuellement et que recherchez-vous comme type de poste ?</h2>
 					<p><%= @cadre.question1 %></p>
@@ -71,3 +178,4 @@
 	</div>
 </div>
 
+<script type="text/javascript" src="/js/entretien_client.js"></script>

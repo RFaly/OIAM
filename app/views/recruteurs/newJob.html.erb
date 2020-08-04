@@ -120,7 +120,7 @@
 
         <%= f.label :question3, "QUEL SERA VOTRE PROCESSUS DE RECRUTEMENT ?", class:"ggag" %>
         <div class="co-input hide-right">
-          <%= f.select :question3, options_for_select([[ "1 entretien RH ","1"],[ "1 entretien RH + 1 entretien manager" ,"2"],[ "1 entretien RH + 2 entretien manager" ,"3"]]),{}, class:'co-select', required:true,id:'question3' %>
+          <%= f.select :question3, options_for_select([[ "1 entretien RH"],[ "1 entretien RH + 1 entretien manager"],[ "1 entretien RH + 2 entretien manager"]]),{}, class:'co-select', required:true,id:'question3' %>
         </div>
         <span class="input-error" id="question3-error"></span>
 
@@ -138,12 +138,12 @@
 
         <%= f.label :question5, "PRÉSENTER LE CONTEXTE D’OUVERTURE DE CE POSTE.", class:"ggag" %>
         <div class="co-input hide-right">
-          <%= f.select :question5, options_for_select([[ "Remplacement ","1"],[ "Changement" ,"2"],[ "Départ" ,"3"]]),{}, class:'co-select', required:true,id:'question5' %>
+          <%= f.select :question5, options_for_select([[ "Remplacement " ],[ "Changement" ],[ "Départ" ]]),{}, class:'co-select', required:true,id:'question5' %>
         </div>
         <span class="input-error" id="question5-error"></span>
 
         <div class="co-input co-input-image">
-          <img id="addImage" src="/image/picture.png" alt="logo entreprise"" />
+          <img id="addImage" src="/image/picture.png" alt="logo entreprise" />
           <label>
             <p class="first-p">Logo entreprise</p>
             <p class="last-p">Télécharger une image</p>

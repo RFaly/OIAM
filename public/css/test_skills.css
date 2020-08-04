@@ -47,7 +47,7 @@ body{
 	position: relative;
 	display: flex;
 	margin: 0 auto;
-	width: 365px;
+	width: 100%;
 	justify-content: center;
 	margin-bottom: 100px;
 }
@@ -145,7 +145,7 @@ h2{
 .skills{
 	position: absolute;
 	top: 42px;
-	left: 160px;
+	left: 45%;
 }
 
 .fit{
@@ -201,12 +201,19 @@ h2{
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance:none;
+  outline: none;
 }
 
 .directeur-marketing option{
   background: #E3D7BF;
   color: #D6B36A;
   border: 1px solid #D6B36A;
+}
+
+@media only screen and (min-width: 500px){
+	.content{
+		width: 365px;
+	}
 }
 
 

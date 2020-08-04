@@ -1,126 +1,121 @@
 <link rel="stylesheet" type="text/css" href="/css/test_fit.css">
 
 <style type="text/css">
-	.selected-date{
-		background-color: #e3d7bf;
-		display: none;
-	}
-	.js-hours{
-		color: #fff;
-		font-size: 40px;
-		background-color: #e3d7bf;
-		border: 1px solid #fff;
-		padding: 10px;
-		margin: 5px;
-	}
-	.main-container{
-		display: flex;
-	}
-	h2{
-		color: #fff;
-	}
-	#validate-date-time{
-		display: none;
-		border: 1px solid #fff;
-		background-color: #e3d7bf;
-	}
-	.show-default-value-date{
-		border: 1px solid #fff;
-		background-color: #e3d7bf;
-	}
+
 </style>
 
 <div class="bg-uniq">
 	<div class="cadre">
+		<% if @agendaAdmin.nil? %>
 		<div class="content">
 				<div class="numero un">1<span class="potential">Potential</span></div>
 				<div class="numero deux">2<span class="skills">Skills</span></div>
 				<div class="numero trois">3<span class="fit">Fit</span></div>
 		</div>
-
-		<div class="potential-title">
+		<% end %>
+		<div class="potential-title" id="potential-title-hide">
 			<h1>3ème partie : FIT</h1>
 			<img src="/image/fit.png" height="60" width="60">
 		</div>
-
-	<p>Bravo, vous avez excellé aux phases précédentes, et êtes maintenant à quelques pas de l’entrée chez One in a Million.</p>
+		<div id="para-show">
+			<p>Bravo, vous avez excellé aux phases précédentes, et êtes maintenant à quelques pas de l’entrée chez One in a Million.</p>
 
 	<p>Afin  d’assurer  un  excellent  suivi  de  votre  candidature  tout  au  long   de votre  carrière,  nous  tenons  à  vous  proposer  un   entretien  humain,  appelé  “FIT ” avec l’un de nos experts en recrutement.</p>
 
-	<p>Cet  échange  nous  permettra  d’en  savoir  plus  sur vous et de découvrir votre  “ FIT ”  avec  les  nombreuses  opportunités  que nous proposons sur One in a Million.</p>
-<% if @agendaAdmin.nil? %>
-	<span class="pass-test" id="show-selected-date">PLANIFIER UN ENTRETIEN SKYPE</span>
-<% else %>
-	<div class="show-default-value-date">
-		<h2>Entretien Skype confirmé</h2>
-		<center id="dateSkype"><%= @dates %></center>
-		<span class="pass-test">MENU</span>
-	</div>
-<% end %>
-	</div>
-
-
-</div>
-
-<% if @agendaAdmin.nil? %>
-<div>
-	<div class="selected-date" id="hide-js">
-		<div>
-			<h2><%= @dates[0][:long] %></h2>
-			<div class="main-container">
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="08:30">08:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="10:00">10:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="11:30">11:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="13:00">13:00</div>
-			</div>
-			<div class="main-container">
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="14:30">14:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="16:00">16:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="17:00">17:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="19:00">19:00</div>
-			</div>
+	<p>Cet  échange  nous  permettra  d’en  savoir  plus  sur vous et de découvrir votre  “ FIT ”  avec  les  nombreuses  opportunités  que nous proposons sur One in a Million.</p>		
 		</div>
 
-		<div>
-			<h2><%= @dates[1][:long] %></h2>
-			<div class="main-container">
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="08:30">08:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="10:00">10:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="11:30">11:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="13:00">13:00</div>
+		<div id="para-hide">
+			<div id="potential-title-show">
+				<h1>Félicitations et Bienvenue !</h1>
 			</div>
-			<div class="main-container">
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="14:30">14:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="16:00">16:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="17:00">17:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="19:00">19:00</div>
+			<p>Vous avez désormais terminé le test d’entrée One in a Million et nous avons le plaisir de vous annoncer que vous faites partie du top 10 des cadres du marché.</p>
+			<p>Remplissez dès maintenant votre profil et rejoignez notre communauté ! Découvrez des offres d’emploi sélectionnées spécialement pour vous, ainsi que nos événements dédiés aux cadres d’élite.</p>
+			<%= link_to "COMPLÉTER MON PROFIL", new_cadre_registration_path,class:'pass-test'%>
+		</div>
+	
+<% if @agendaAdmin.nil? %>
+	<span class="pass-test" id="show-selected-date">PLANIFIER UN ENTRETIEN SKYPE</span>
+	<% if @agendaAdmin.nil? %>
+	<div class="date-container">
+		<div class="selected-date" id="hide-js">
+			<div>
+				<h2 class="date-title"><%= @dates[0][:long] %></h2>
+				<div class="main-container">
+					<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="08:30">08:30</div>
+					<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="10:00">10:00</div>
+					<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="11:30">11:30</div>
+					<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="13:00">13:00</div>
+				</div>
+				<div class="main-container">
+					<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="14:30">14:30</div>
+					<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="16:00">16:00</div>
+					<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="17:00">17:00</div>
+					<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="19:00">19:00</div>
+				</div>
 			</div>
 
 			<div>
-				<%= form_tag(saveEntretientDate_path, remote: true, id:"send-data-form") do %>
-					<input type="hidden" name="date" id="input-date">
-					<input type="hidden" name="time" id="input-time">
-					<div class="form-group">
-						<%= submit_tag("VALIDER") %>
-					</div>
-				<% end %>
+				<h2 class="date-title"><%= @dates[1][:long] %></h2>
+				<div class="main-container">
+					<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="08:30">08:30</div>
+					<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="10:00">10:00</div>
+					<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="11:30">11:30</div>
+					<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="13:00">13:00</div>
+				</div>
+				<div class="main-container">
+					<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="14:30">14:30</div>
+					<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="16:00">16:00</div>
+					<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="17:00">17:00</div>
+					<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="19:00">19:00</div>
+				</div>
+
+				<div class="validate">
+					<%= form_tag(saveEntretientDate_path, remote: true, id:"send-data-form") do %>
+						<input type="hidden" name="date" id="input-date">
+						<input type="hidden" name="time" id="input-time">
+						<div class="form-group">
+							<%= submit_tag("VALIDER", :class=>"btn-valider")%>
+						</div>
+					<% end %>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div id="validate-date-time">
-		<h2>Entretien Skype confirmé</h2>
-		<center id="dateSkype"></center>
-		<center id="timeSkype"></center>
-		<span class="pass-test">MENU</span>
+		<div id="validate-date-time" class="show-default-value-date">
+			<h2 class="entretien-confirme">Entretien Skype confirmé</h2>
+			<img src="/image/checkWhite.png" alt="" class="iconify">
+			<center id="dateSkype" class="skype-time"></center>
+			<center id="timeSkype" class="skype-time"></center>
+
+			<a href="<%= new_cadre_registration_path %>" class="pass-test past-test-menu">MENU</a>
+
+		</div>
+	</div>
+	<% end %>
+<% else %>
+	<div class="show-default-value-date">
+		<h2 class="entretien-confirme">Entretien Skype confirmé</h2>
+		<img src="/image/checkWhite.png" alt="">
+		<center id="dateSkype" class="skype-time"><%= @dates %></center>
+
+		<a href="<%= new_cadre_registration_path %>" class="pass-test past-test-menu">MENU</a>
+
+	</div>
+<% end %>
 	</div>
 </div>
-<% end %>
+
 
 <script type="text/javascript">
 	$("#hide-js").hide();
+	$("#para-hide").hide();
+	$("#potential-title-show").hide();
+	$("p").css("text-align", "center")
 	$("#show-selected-date").click(function () {
 		$("#hide-js").show();
+		$(".content").hide();
+
 	});
 
 	$('.js-hours').click(function(){
@@ -148,4 +143,17 @@
 		$("#show-selected-date").hide();
 	});
 
+	$(".btn-valider").click(function(){
+		$(".show-selected-date").hide();
+		$(".content").hide();
+	})
+
+
+	$("#btn-menu").click(function(){
+		$("#para-show").hide();
+		$("#para-hide").show();
+		$(".show-default-value-date").hide();
+		$("#potential-title-hide").hide();
+		$("#potential-title-show").show();
+	})
 </script>

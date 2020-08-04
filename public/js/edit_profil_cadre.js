@@ -1,29 +1,23 @@
-$(document).ready(function(){
 
-    $(".cv-champs").change(function() {
-   shwoNameCv(this);
-    });
 
-    function shwoNameCv(input) {
-     if (input.files && input.files[0]) {
-       var cv_filename_show = $('#cv-filename');
-       $(cv_filename_show).text(cv_filename);
-     }
-}
- });
+$(".importe-cv").click(function(){
+  let value = $(".cv-champs").files;
+  alert(value)
+})
+
 
 
 var slider = document.getElementById("slide");
 var output = document.getElementById("value");
 
-output.style.left = ((slider.value-60)*97)/290 + "%";
+output.style.left = ((slider.value-62)*97)/290 + "%";
 
 
 output.innerHTML = slide.value;
 
 slider.oninput = function(){
     output.innerHTML = this.value;
-    output.style.left = ((this.value-60)*97)/290 + "%";
+    output.style.left = ((this.value-62)*97)/290 + "%";
 }
 
 

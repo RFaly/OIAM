@@ -23,7 +23,18 @@ body{
 	display: flex;
 	justify-content: center;
 	text-align: center;
+}
 
+#potential-title-show h1{
+	font-family: 'Raleway', sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	line-height: 24px;
+	color:  #D6B36A;
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 50px;
 }
 
 .potential-title h1{
@@ -47,7 +58,7 @@ body{
 	position: relative;
 	display: flex;
 	margin: 0 auto;
-	width: 365px;
+	width: 100%;
 	justify-content: center;
 	margin-bottom: 100px;
 }
@@ -136,7 +147,7 @@ h2{
 .skills{
 	position: absolute;
 	top: 42px;
-	left: 160px;
+	left: 45%;
 }
 
 .fit{
@@ -175,7 +186,103 @@ h2{
 }
 
 
+.selected-date{
+	background-color: #e3d7bf;
+	display: none;
+	width: 100%;
+}
+.js-hours{
+	color: #fff;
+	font-size: 18px;
+	background-color: #e3d7bf;
+	border: 1px solid #fff;
+	text-align: center;
+	padding-top: 15px;
+	width: 138px;
+	height: 55px;
+	margin-left: 38px;
+	margin-bottom: 50px;
+	cursor: pointer;
+}
+.main-container{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+h2{
+	color: #fff;
+}
+#validate-date-time{
+	display: none;
+	border: 1px solid #fff;
+	background-color: #e3d7bf;
+}
+.show-default-value-date{
+	display: block;
+	margin: auto;
+	border: 1px solid #fff;
+	background-color: #e3d7bf;
+	text-align: center;
+	width: 578px;
+	margin-bottom: 50px;
+	margin-top: 130px;
+}
 
+
+
+.date-title{
+	margin-bottom: 13px;
+	text-transform: capitalize;
+	font-size: 18px;
+	margin-left: 60px;
+}
+
+.validate{
+	overflow: hidden;
+}
+
+.btn-valider{
+	float: right;
+	border: 1px solid #fff;
+	background: none;
+	width: 150px;
+	height: 50px;
+	color: #ffff;
+	font-size: 18px;
+	margin-bottom: 50px;
+	margin-right: 25px;
+}
+
+.btn-valider:hover{
+	color: #E3D7BF;
+	background: #ffff;
+}
+
+.entretien-confirme{
+	margin-bottom: 50px;
+}
+
+#dateSkype{
+	margin-top: 50px;
+}
+
+.skype-time{
+	position: relative;
+	left: 180px;
+	color: white;
+	width: 200px;
+	text-transform: capitalize;
+}
+
+.past-test-menu{
+	width: 200px;
+}
+
+@media only screen and (min-width: 500px){
+	.content{
+		width: 365px;
+	}
+}
 
 
 @media only screen and (min-width: 900px){
@@ -184,6 +291,8 @@ h2{
 		margin: auto;
 		width: 870px;
 	}
+
+
 
 	.potential-title img{
 		right: -30px;
