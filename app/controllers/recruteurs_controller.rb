@@ -139,10 +139,14 @@ class RecruteursController < ApplicationController
 
 		cadre_ids.each do |cadre_id|
 			cadre = Cadre.find_by_id(cadre_id)
+			number = OffreForCandidate.where(offre_job: @offre, accepted_postule:true).count
 			if @offre.is_in_this_job(cadre).nil?
-				OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: cadre,accepted_postule:true)
+				if number < 5
+					OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: cadre, accepted_postule:true)
+				end
 			end
 		end
+
 	end
 
 	def save_entretien_client
