@@ -23,14 +23,14 @@
 
 
 			<%= f.select(:status, ['STATUT',' EN POSTE',' EN RECHERCHE ACTIVE', 'SANS POSTE'], {}, { :class => 'btn-recherche' }) %>
-      <div id="cv-filename"></div>
 			<div class="image-cv">
 				<div id="import-cv">
-					<p class="importe-cv">CV</p>
+					<div class="importe-cv">CV</div>
 					<div class="cv">
 						<%= f.label :cv, "IMPORTER CV", class:"cv-label"%>
 						<%= f.file_field :cv, class:"cv-champs" %>
 					</div>
+          <p class="nom_fichier">VOTRE FICHIER : <span id="cv-filename"></span></p> 
 				</div>
 				<div class="pdp">
 					<% unless @cadre.image.nil? %>

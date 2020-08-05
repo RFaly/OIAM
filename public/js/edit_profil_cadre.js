@@ -1,10 +1,11 @@
-
-
-$(".importe-cv").click(function(){
-  let value = $(".cv-champs").files;
-  alert(value)
-})
-
+$(document).ready(function() {
+  $('.nom_fichier').hide()
+    $('.cv-champs').change(function(e) {
+        var file = e.target.files[0].name;
+        $('#cv-filename').text(file);
+        $('.nom_fichier').show();
+    });
+});
 
 
 var slider = document.getElementById("slide");
