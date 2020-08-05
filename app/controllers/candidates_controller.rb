@@ -168,6 +168,25 @@ class CandidatesController < ApplicationController
 
 #mes offre réçues
   def received_job
+    @oFcs = OffreForCandidate.where(cadre:current_cadre,accepted_postule:true)
+
+    @agendaClients = []
+
+    @oFcs.each do |oFc|
+      agendaItems = {}
+      agendaItems[:agenda_client] = oFc.agenda_clients.where(alternative:nil, is_accepted: false).order('created_at DESC')[0]
+      unless agendaItems[:agenda_client].nil?
+        agendaItems[:intitule_pote] = oFc.offre_job.intitule_pote
+        agendaItems[:offre_id] = oFc.offre_job.id
+        @agendaClients.push(agendaItems)
+      end
+    end
+
+
+
+
+
+
 
   end
 
