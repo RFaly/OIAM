@@ -1096,6 +1096,21 @@
       }
     }
   }
+  // search cadre
+  .select-cadre-box {
+    .select-cadre-list {
+      .validation {
+        .submit-validation {
+          .validation-bt1 {
+            display: none;
+          }
+          .validation-bt {
+            display: block;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 1200px) {
