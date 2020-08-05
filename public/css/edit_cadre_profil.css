@@ -194,6 +194,7 @@ html{
     text-transform: uppercase;
     margin-bottom: 50px;
     padding-left: 30px;
+		cursor: pointer;
   }
 
   .cv:hover{
@@ -211,6 +212,18 @@ html{
     display: none;
   }
 
+	.nom_fichier{
+		font-size: 18px;
+		text-align: center;
+		margin-bottom: 50px;
+
+	}
+
+	#cv-filename::before{
+		content: "a";
+		color: #fff;
+	}
+
   .importe-cv{
     margin-top: 50px;
     text-align: center;
@@ -227,6 +240,7 @@ html{
     margin: auto;
     border: 1px solid #D6B36A;
     width: 250px;
+		height: 250px;
   }
 
   .add-image img{
@@ -314,21 +328,24 @@ html{
     .importe-cv{
       position: relative;
       display: inline-block;
-      width: 200px;
+      width: 250px;
       top: -40px;
     }
+
+
+
 
 
     .importe-cv{
       margin-top: 50px;
       text-align: center;
-      margin-bottom: 30px;
       height: 30px;
       font-size: 20px;
       padding-top: 5px;
       color: #D6B36A;
-      background:no-repeat left 10px center url(/image/importer_CV.png);
+      background:no-repeat left 5px center url(/image/importer_CV.png);
     }
+
 
 
 
@@ -379,6 +396,11 @@ html{
     .label-content{
       font-size: 16px;
     }
+
+		.nom_fichier{
+			text-align: left;
+		}
+
   }
 
   @media only screen and (min-width: 1280px){
