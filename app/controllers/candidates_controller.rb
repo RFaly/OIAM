@@ -169,9 +169,7 @@ class CandidatesController < ApplicationController
 #mes offre réçues
   def received_job
     @oFcs = OffreForCandidate.where(cadre:current_cadre,accepted_postule:true)
-
     @agendaClients = []
-
     @oFcs.each do |oFc|
       agendaItems = {}
       agendaItems[:agenda_client] = oFc.agenda_clients.where(alternative:nil, is_accepted: false).order('created_at DESC')[0]
@@ -181,13 +179,30 @@ class CandidatesController < ApplicationController
         @agendaClients.push(agendaItems)
       end
     end
+  end
 
-
-
-
-
-
-
+  def post_repons_received_job
+    @offreJob = OffreJob.find_by_id(params[:offre_id])
+    @agendaClient = AgendaClient.find_by_id(params[:agenda_id])
+    case params[:reponse]
+    when "0"
+      @agendaClient.update(alternative:params[:alternative],is_accepted: false)
+    when "1"
+      @agendaClient.update(is_accepted:true)
+    when "2"
+      date = params[:date].split("-")
+      time = params[:time].split(":")
+      year = date[0].to_i
+      month = date[1].to_i
+      day = date[2].to_i
+      hour = time[0].to_i
+      min = time[1].to_i
+      date_time = DateTime.new(year,month,day,hour,min).utc
+      @agendaClient.update(alternative: date_time.to_s, is_accepted:true)
+    else
+      flash[:alert] = "erreur lors de la vérification des donnés"
+      redirect_to root_path
+    end
   end
 
 	def recrutmentMonitoring
