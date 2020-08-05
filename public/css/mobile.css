@@ -6,7 +6,6 @@
 }
 
 .bg-uniq {
-  padding-top: 492px;
   padding-bottom: 100px;
   width: 100%;
   z-index: -1;
@@ -17,6 +16,7 @@
 @media screen and (min-width: 320px) {
   .bg-uniq {
     margin-top: -450px;
+    padding-top: 492px;
   }
   .logo-g {
     display: none;
@@ -312,6 +312,21 @@
   .show-pb2 {
     width: 70%;
   }
+  .select-cadre-box .select-cadre-list .validation .submit-validation .validation-bt {
+    display: none;
+  }
+  .select-cadre-box .select-cadre-list-items .cadre-box {
+    width: 200px;
+  }
+  .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-image {
+    position: relative;
+  }
+  .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo {
+    width: 100%;
+  }
+  .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo img {
+    height: 280px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -522,11 +537,18 @@
   .show-pb2 a {
     width: 70%;
   }
+  .select-cadre-box .select-cadre-list .validation .submit-validation .validation-bt1 {
+    display: none;
+  }
+  .select-cadre-box .select-cadre-list .validation .submit-validation .validation-bt {
+    display: block;
+  }
 }
 
 @media screen and (min-width: 992px) {
   .bg-uniq {
     margin-top: -505px;
+    padding-top: 550px;
   }
   .box-1 {
     width: 50%;
@@ -829,6 +851,29 @@
   }
   .show-job-box .show-pb2 a {
     width: 45%;
+  }
+  .select-cadre-box .select-cadre-list-items .cadre-box {
+    width: 250px;
+  }
+  .select-cadre-box .select-cadre-list-items .cadre-box:hover .cadre-box-info, .select-cadre-box .select-cadre-list-items .cadre-box:active .cadre-box-info {
+    height: 170px;
+    transition: all 500ms ease-in-out;
+  }
+  .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-image {
+    position: relative;
+  }
+  .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo {
+    width: 100%;
+  }
+  .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo img {
+    height: 350px;
+  }
+  .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-info {
+    position: absolute;
+    height: 70px;
+    transition: all 900ms ease-in-out;
+    overflow: hidden;
+    bottom: 0;
   }
 }
 

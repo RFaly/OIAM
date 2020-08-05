@@ -13,6 +13,7 @@
 }
 
 .navbar-content .navbar-ul {
+  margin: inherit;
   list-style: none;
 }
 

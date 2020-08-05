@@ -294,6 +294,7 @@
 .create-offre-box .context-offre-box .co-input input,
 .create-offre-box .context-offre-box .co-input select,
 .create-offre-box .context-offre-box .co-input textarea {
+  font: 15px Questrial, sans-serif;
   text-align: center;
   border: none;
   width: 100%;
