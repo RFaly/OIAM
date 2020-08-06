@@ -175,7 +175,7 @@ function check_cpass(test, value) {
   var name2 = $('#password-r').val();
   if (name1 != name2) {
     test.css('outline', '.2px solid red');
-    value.html('(inégale au mots de passe)');
+    value.html('(Password confirmation ne concorde pas avec Password)');
     value.show();
   } else {
     test.css('box-shadow', '0px 1px 5px 1px #e3d7bf');

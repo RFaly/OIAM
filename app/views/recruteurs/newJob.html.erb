@@ -90,7 +90,7 @@
 
         <%= f.label :type_deplacement, "LE POSTE IMPLIQUE-T-IL DES DÉPLACEMENTS ?" %>
         <div class="dp-input hide-right">
-          <%= f.select :type_deplacement, options_for_select([["Régionaux","Régionaux"],["Internationaux", "Internationaux"]]), {}, required:true, class:'co-select',id:'type-deplacement' %>
+          <%= f.select :type_deplacement, options_for_select([["Pas de déplacements","Pas de déplacements"],["Nationaux","Nationaux"],["Régionaux","Régionaux"],["Internationaux", "Internationaux"]]), {}, required:true, class:'co-select',id:'type-deplacement' %>
         </div>
         <span class="input-error type-deplacement-error"></span>
 

@@ -87,6 +87,7 @@ class RecruteursController < ApplicationController
 			uploader.store!(params[:offre_job][:image])
 			@offre.image = uploader.url
 		end
+		@offre.update(country: params[:country], remuneration_anne: params[:remuneration_anne], date_poste: params[:date_poste],type_deplacement: params[:type_deplacement],question1: params[:question1],question3: params[:question3],question5: params[:question5])
 		if @offre.save
 			redirect_to showNewJob_path(@offre)
 		else
@@ -123,7 +124,7 @@ class RecruteursController < ApplicationController
 
 	def search_candidate
 		@offre = OffreJob.find_by_id(params[:id])
-		@topCinqs = OffreForCandidate.where(offre_job_id: @offre.id)[0..4]
+		@topCinqs = OffreForCandidate.where(offre_job_id: @offre.id, accepted_postule:true)[0..4]
 		@cadres = Cadre.joins(:cadre_info).where("cadre_infos.empty = ?",false)
 	end
 
@@ -138,10 +139,17 @@ class RecruteursController < ApplicationController
 
 		cadre_ids.each do |cadre_id|
 			cadre = Cadre.find_by_id(cadre_id)
-			if @offre.is_in_this_job(cadre).nil?
-				OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: cadre,accepted_postule:true)
+			number = OffreForCandidate.where(offre_job: @offre, accepted_postule:true).count
+			oFc = @offre.is_in_this_job(cadre)
+			if oFc.nil?
+				if number < 5
+					OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: cadre, accepted_postule:true)
+				end
+			else
+				oFc.update(accepted_postule:true)
 			end
 		end
+
 	end
 
 	def save_entretien_client
@@ -153,7 +161,9 @@ class RecruteursController < ApplicationController
 
 		@oFc = OffreForCandidate.find_by(offre_job_id: @offre.id, cadre_id: @cadre.id)
 		if @oFc.nil?
-			@oFc = OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: cadre, accepted_postule:true)
+			@oFc = OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: @cadre, accepted_postule:true)
+		else
+			@oFc.update(accepted_postule:true)
 		end
 
     date = params[:date].split("-")
@@ -181,10 +191,12 @@ class RecruteursController < ApplicationController
 
 #Mes candidats favoris
 	def favorite_candidates
+		@offres = current_client.offre_jobs
 	end
 
 #Mon suivi recrutement
 	def my_recruitment_follow
+		@offres = current_client.offre_jobs
 	end
 
 #Mes factures

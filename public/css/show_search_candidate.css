@@ -1,0 +1,148 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+  border-left: 1px solid #d6b36a;
+}
+
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.ssc-box {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.ssc-box .ssc-btn {
+  width: 250px;
+  margin: 0 auto;
+  border-radius: 0;
+  padding: 10px 0;
+  background: transparent;
+  border: 2px solid #d6b36a;
+}
+
+.ssc-box .ssc-btn a {
+  padding: 10px 43px;
+  font: 550 18px Raleway, sans-serif;
+  color: #d6b36a;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.ssc-box .ssc-btn:hover, .ssc-box .ssc-btn:active {
+  background: #d6b36a;
+}
+
+.ssc-box .ssc-btn:hover a, .ssc-box .ssc-btn:active a {
+  color: white;
+}
+
+.ssc-box .ssc-all-infos {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ssc-box .ssc-all-infos .ssc-infos {
+  font: 15px Questrial, sans-serif;
+  text-align: center;
+}
+
+.ssc-box .ssc-all-infos .ssc-infos .image img {
+  height: 300px;
+}
+
+.ssc-box .ssc-all-infos .ssc-infos .infos {
+  margin: 15px 0;
+}
+
+.ssc-box .ssc-all-infos .ssc-infos .infos .name {
+  text-transform: capitalize;
+}
+
+.ssc-box .ssc-all-infos .ssc-infos .infos p {
+  margin: 0;
+}
+
+.ssc-box .ssc-all-infos .ssc-infos .infos span {
+  color: #d6b36a;
+}
+
+.ssc-box .ssc-all-infos .ssc-infos .infos .local {
+  margin: 25px 0;
+}
+
+.ssc-box .ssc-all-infos .ssc-question {
+  padding: 20px;
+  text-align: justify;
+  background: #f0f2f4;
+}
+
+.ssc-box .ssc-all-infos .ssc-question .title {
+  margin-bottom: 10px;
+  color: #d6b36a;
+  font-size: 20px;
+}
+
+.ssc-box .ssc-all-infos .ssc-question .questionnaire-title {
+  font: 550 18px Raleway, sans-serif;
+  font-size: 20px;
+}
+
+.ssc-box .ssc-rest {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ssc-box .ssc-rest .ssc-rest-btn {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.ssc-box .ssc-rest .ssc-rest-btn .ssc-message a {
+  padding: 10px 67px;
+}
+
+.ssc-box .ssc-rest .ssc-rest-btn .ssc-pe {
+  cursor: pointer;
+  margin-top: 20px;
+  padding: 12px 0;
+  font: 550 18px Raleway, sans-serif;
+  color: #d6b36a;
+}
+
+.ssc-box .ssc-rest .ssc-rest-btn .ssc-pe:hover, .ssc-box .ssc-rest .ssc-rest-btn .ssc-pe:active {
+  color: white;
+}
+
+.ssc-box .ssc-rest .ssc-oiam {
+  background: #f0f2f4;
+  padding: 20px;
+  text-align: justify;
+}
+
+.ssc-box .ssc-rest .ssc-oiam h5 {
+  font: 550 18px Raleway, sans-serif;
+  font-size: 20px;
+}
+
+.ssc-box .ssc-planification {
+  position: relative;
+  z-index: 2000;
+  width: 50%;
+  margin-top: -90px;
+  margin-bottom: 90px;
+}

@@ -19,6 +19,11 @@
       <div class="navbar-controll bg-inside">
         <%= render "layouts/navbar" %>
       </div>
+    <% else %>
+      <% unless @new_nav_bar.nil? %>
+        <!-- ito ny navbar ny admin topoko -->
+        <%= render "layouts/navbar_admin" %>
+      <% end %>
     <% end %>
     <!-- ~~~~~~~~~~~~~~~~~~~ Alert devise ito ~~~~~~~~~~~~~~~~~~~ -->
     <div>

@@ -1,0 +1,148 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+  border-left: 1px solid #d6b36a;
+}
+
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.select-cadre-box {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.select-cadre-box tr {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.select-cadre-box tr td {
+  border: none;
+}
+
+.select-cadre-box tr .td-button {
+  border: 2px solid #d6b36a;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font: 550 18px Raleway, sans-serif;
+  color: #d6b36a;
+  cursor: pointer;
+}
+
+.select-cadre-box .select-cadre-list {
+  width: 95%;
+  margin: 30px auto;
+}
+
+.select-cadre-box .select-cadre-list .flex-candidates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: #f3f7fb;
+  padding: 10px 30px;
+  margin: 30px 0;
+}
+
+.select-cadre-box .select-cadre-list .flex-candidates .js-candidates-list {
+  margin: 20px 0;
+  width: 80px;
+  height: 108px;
+  border: 2px solid #d6b36a;
+}
+
+.select-cadre-box .select-cadre-list .flex-candidates .js-candidates-list[data-info='false'] {
+  border: none;
+}
+
+.select-cadre-box .select-cadre-list .flex-candidates .js-candidates-list img {
+  width: 82px;
+  height: 110px;
+}
+
+.select-cadre-box .select-cadre-list .flex-candidates .validation {
+  margin: 20px 0;
+  height: 46px;
+  align-self: flex-end;
+}
+
+.select-cadre-box .select-cadre-list .flex-candidates .validation .submit-validation {
+  align-self: flex-end;
+}
+
+.select-cadre-box .select-cadre-list .flex-candidates .validation .submit-validation #boutton-bottom {
+  padding: 10px 20px;
+  color: #d6b36a;
+  background: transparent;
+  font: 550 18px Raleway, sans-serif;
+  border: 2px solid #d6b36a;
+}
+
+.select-cadre-box .select-cadre-list .flex-candidates .validation .submit-validation #boutton-bottom:hover, .select-cadre-box .select-cadre-list .flex-candidates .validation .submit-validation #boutton-bottom:active {
+  background-color: #d6b36a;
+  color: white;
+}
+
+.select-cadre-box .select-cadre-list .select-cadre-list-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box {
+  margin: 30px 0;
+  height: 430px;
+  position: relative;
+}
+
+.select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-image {
+  position: relative;
+}
+
+.select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo {
+  width: 100%;
+}
+
+.select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo img {
+  width: 100%;
+}
+
+.select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-image .icone {
+  position: absolute;
+  cursor: pointer;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+}
+
+.select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-image .icone img {
+  width: 100%;
+}
+
+.select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-info {
+  width: 100%;
+  background: white;
+  text-align: center;
+  padding: 5px 0;
+  font: 15px Questrial, sans-serif;
+}
+
+.select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-info p span {
+  color: #d6b36a;
+}
+
+.select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-info .name {
+  text-transform: uppercase;
+  font: 550 18px Raleway, sans-serif;
+}

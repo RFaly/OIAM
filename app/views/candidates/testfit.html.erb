@@ -22,7 +22,7 @@
 
 	<p>Afin  d’assurer  un  excellent  suivi  de  votre  candidature  tout  au  long   de votre  carrière,  nous  tenons  à  vous  proposer  un   entretien  humain,  appelé  “FIT ” avec l’un de nos experts en recrutement.</p>
 
-	<p>Cet  échange  nous  permettra  d’en  savoir  plus  sur vous et de découvrir votre  “ FIT ”  avec  les  nombreuses  opportunités  que nous proposons sur One in a Million.</p>		
+	<p>Cet  échange  nous  permettra  d’en  savoir  plus  sur vous et de découvrir votre  “ FIT ”  avec  les  nombreuses  opportunités  que nous proposons sur One in a Million.</p>
 		</div>
 
 		<div id="para-hide">
@@ -33,7 +33,7 @@
 			<p>Remplissez dès maintenant votre profil et rejoignez notre communauté ! Découvrez des offres d’emploi sélectionnées spécialement pour vous, ainsi que nos événements dédiés aux cadres d’élite.</p>
 			<%= link_to "COMPLÉTER MON PROFIL", new_cadre_registration_path,class:'pass-test'%>
 		</div>
-	
+
 <% if @agendaAdmin.nil? %>
 	<span class="pass-test" id="show-selected-date">PLANIFIER UN ENTRETIEN SKYPE</span>
 	<% if @agendaAdmin.nil? %>
@@ -88,7 +88,7 @@
 			<center id="dateSkype" class="skype-time"></center>
 			<center id="timeSkype" class="skype-time"></center>
 
-			<a href="<%= new_cadre_registration_path %>" class="pass-test past-test-menu">MENU</a>
+			<span class="pass-test past-test-menu" id="btn-menu">MENU</span>
 
 		</div>
 	</div>
@@ -99,7 +99,7 @@
 		<img src="/image/checkWhite.png" alt="">
 		<center id="dateSkype" class="skype-time"><%= @dates %></center>
 
-		<a href="<%= new_cadre_registration_path %>" class="pass-test past-test-menu">MENU</a>
+		<span class="pass-test past-test-menu" id="btn-menu">MENU</span>
 
 	</div>
 <% end %>
