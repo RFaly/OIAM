@@ -36,7 +36,7 @@
   border: 2px solid #d6b36a;
   padding: 10px 20px;
   text-transform: uppercase;
-  font: 500 18px Raleway, sans-serif;
+  font: 550 18px Raleway, sans-serif;
   color: #d6b36a;
   cursor: pointer;
 }
@@ -85,7 +85,7 @@
   padding: 10px 20px;
   color: #d6b36a;
   background: transparent;
-  font: 500 18px Raleway, sans-serif;
+  font: 550 18px Raleway, sans-serif;
   border: 2px solid #d6b36a;
 }
 
@@ -144,5 +144,5 @@
 
 .select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-info .name {
   text-transform: uppercase;
-  font: 500 18px Raleway, sans-serif;
+  font: 550 18px Raleway, sans-serif;
 }

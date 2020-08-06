@@ -400,6 +400,37 @@
       }
     }
   }
+  // show search candidate
+  .ssc-box {
+    .ssc-all-infos {
+      flex-direction: column;
+      flex-wrap: wrap;
+      .image {
+        margin: 0 auto;
+        width: 90%;
+        img {
+          width: 90%;
+          height: 300px;
+        }
+      }
+      .ssc-infos {
+        width: 280px;
+      }
+    }
+    .ssc-question {
+      width: 100%;
+    }
+    .ssc-rest {
+      flex-direction: column-reverse;
+      flex-wrap: wrap;
+      .ssc-rest-btn {
+        width: 280px;
+      }
+      .ssc-oiam {
+        width: 85%;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -681,6 +712,27 @@
           }
         }
       }
+    }
+  }
+  // show search candidate
+  .ssc-box {
+    .ssc-all-infos {
+      flex-direction: row;
+      flex-wrap: wrap;
+      .image {
+        margin: 0 auto;
+        width: 90%;
+        img {
+          width: 90%;
+          height: 300px;
+        }
+      }
+      .ssc-infos {
+        width: 250px;
+      }
+    }
+    .ssc-question {
+      width: 60%;
     }
   }
 }
@@ -1067,6 +1119,18 @@
   }
   // search cadre
   .select-cadre-box {
+    .select-cadre-list {
+      .validation {
+        .submit-validation {
+          .validation-bt1 {
+            display: none;
+          }
+          .validation-bt {
+            display: block;
+          }
+        }
+      }
+    }
     .select-cadre-list-items {
       .cadre-box {
         width: 250px;
@@ -1096,18 +1160,26 @@
       }
     }
   }
-  // search cadre
-  .select-cadre-box {
-    .select-cadre-list {
-      .validation {
-        .submit-validation {
-          .validation-bt1 {
-            display: none;
-          }
-          .validation-bt {
-            display: block;
-          }
-        }
+  // show search candidate
+  .ssc-box {
+    .ssc-all-infos {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      .ssc-infos {
+        width: 300px;
+      }
+    }
+    .ssc-question {
+      width: 60%;
+    }
+    .ssc-rest {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      .ssc-rest-btn {
+        width: 300px;
+      }
+      .ssc-oiam {
+        width: 60%;
       }
     }
   }
@@ -1280,6 +1352,35 @@
     //   width: 50%;
     // }
   }
+  // show search candidate
+  .ssc-box {
+    .ssc-all-infos {
+      .ssc-infos {
+        .image {
+          margin: 0 auto;
+          width: 90%;
+          img {
+            width: 88%;
+            height: 300px;
+          }
+        }
+        width: 350px;
+      }
+      .ssc-question {
+        width: 68%;
+      }
+    }
+    .ssc-rest {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      .ssc-rest-btn {
+        width: 350px;
+      }
+      .ssc-oiam {
+        width: 68%;
+      }
+    }
+  }
 }
 @media screen and (min-width: 1500px) {
   // bg unique
@@ -1314,7 +1415,32 @@
   // // ******************************//
 
   // // inscription recruteur
-  // ///////////////////////////////////////@extend
+  // ///////////////////////////////////////@
+  // show search candidate
+  .ssc-box {
+    .ssc-all-infos {
+      .ssc-infos {
+        width: 380px;
+        .image {
+          img {
+            width: 70%;
+            height: 300px;
+          }
+        }
+      }
+    }
+    .ssc-question {
+      width: 80%;
+    }
+    .ssc-rest {
+      .ssc-rest-btn {
+        width: 380px;
+      }
+      .ssc-oiam {
+        width: 80%;
+      }
+    }
+  }
 }
 @media screen and (min-width: 2500px) {
   // navbar
@@ -1343,4 +1469,30 @@
 
   // // inscription recruteur
   // ///////////////////////////////////////@extend
+
+  // show search candidate
+  .ssc-box {
+    .ssc-all-infos {
+      .ssc-infos {
+        width: 400px;
+        .image {
+          img {
+            width: 70%;
+            height: 300px;
+          }
+        }
+      }
+    }
+    .ssc-question {
+      width: 90%;
+    }
+    .ssc-rest {
+      .ssc-rest-btn {
+        width: 400px;
+      }
+      .ssc-oiam {
+        width: 90%;
+      }
+    }
+  }
 }

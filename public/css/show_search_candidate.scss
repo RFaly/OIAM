@@ -1,0 +1,117 @@
+@import 'config';
+@import 'pagemenu';
+
+.ssc-box {
+  width: 95%;
+  margin: 0 auto;
+  .ssc-btn {
+    width: 250px;
+    margin: 0 auto;
+    border-radius: 0;
+    padding: 10px 0;
+    background: transparent;
+    border: 2px solid $main_theme_color;
+    a {
+      padding: 10px 43px;
+      font: $ffbtn;
+      color: $main_theme_color;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    &:hover,
+    &:active {
+      a {
+        color: white;
+      }
+      background: $main_theme_color;
+    }
+  }
+  .ssc-all-infos {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    .ssc-infos {
+      font: $ffsentence;
+      text-align: center;
+      .image {
+        img {
+          height: 300px;
+        }
+      }
+      .infos {
+        margin: 15px 0;
+        .name {
+          text-transform: capitalize;
+        }
+        p {
+          margin: 0;
+        }
+        span {
+          color: $main_theme_color;
+        }
+        .local {
+          margin: 25px 0;
+        }
+      }
+    }
+    .ssc-question {
+      padding: 20px;
+      //   width: 60%;
+      text-align: justify;
+      background: $secondary_element_color;
+      .title {
+        margin-bottom: 10px;
+        color: $main_theme_color;
+        font-size: 20px;
+      }
+      .questionnaire-title {
+        font: $ffbtn;
+        font-size: 20px;
+      }
+    }
+  }
+  .ssc-rest {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .ssc-rest-btn {
+      padding: 20px 0;
+      text-align: center;
+      .ssc-message {
+        a {
+          padding: 10px 67px;
+        }
+      }
+      .ssc-pe {
+        cursor: pointer;
+        margin-top: 20px;
+        padding: 12px 0;
+        font: $ffbtn;
+        color: $main_theme_color;
+        &:hover,
+        &:active {
+          color: white;
+        }
+      }
+    }
+    .ssc-oiam {
+      background: $secondary_element_color;
+      padding: 20px;
+
+      text-align: justify;
+      h5 {
+        font: $ffbtn;
+        font-size: 20px;
+      }
+    }
+  }
+  .ssc-planification {
+    position: relative;
+    z-index: 2000;
+    width: 50%;
+    margin-top: -90px;
+    margin-bottom: 90px;
+  }
+}
