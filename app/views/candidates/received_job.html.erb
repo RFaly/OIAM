@@ -47,6 +47,9 @@
 
 						<div class="col-sm-3">
 							<%= link_to "ACCEPTER", post_repons_received_job_path(reponse:1, offre_id: aClient[:offre_id], agenda_id: aClient[:agenda_client].id), remote:true, class:'btn btn-primary js-repons-send-post', 'data-items':"#{aClient[:agenda_client].id}", method: :post %>
+							<br>
+							<%= link_to "Voir L'offre", showSearchJob_path(aClient[:offre_id]),class:"btn btn-primary" %>
+
 						</div>
 
 						<div class="col-sm-3">
@@ -57,8 +60,6 @@
 						</div>
 					</div>
 				</div>
-
-
 
 <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
 
