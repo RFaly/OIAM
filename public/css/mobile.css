@@ -106,7 +106,7 @@
     width: 90%;
   }
   .accueil-recruteur .title-ar {
-    font: 500 18px Raleway, sans-serif;
+    font: 550 18px Raleway, sans-serif;
   }
   .accueil-recruteur .ar-item p {
     text-align: justify;
@@ -126,7 +126,7 @@
   }
   .travel-parcours ol {
     width: 400px;
-    font: 500 18px Raleway, sans-serif;
+    font: 550 18px Raleway, sans-serif;
     font-size: 12px;
   }
   .phone-number-add .before-number {
@@ -326,6 +326,34 @@
   }
   .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo img {
     height: 280px;
+  }
+  .ssc-box .ssc-all-infos {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .ssc-box .ssc-all-infos .image {
+    margin: 0 auto;
+    width: 90%;
+  }
+  .ssc-box .ssc-all-infos .image img {
+    width: 90%;
+    height: 300px;
+  }
+  .ssc-box .ssc-all-infos .ssc-infos {
+    width: 280px;
+  }
+  .ssc-box .ssc-question {
+    width: 100%;
+  }
+  .ssc-box .ssc-rest {
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+  }
+  .ssc-box .ssc-rest .ssc-rest-btn {
+    width: 280px;
+  }
+  .ssc-box .ssc-rest .ssc-oiam {
+    width: 85%;
   }
 }
 
@@ -543,6 +571,24 @@
   .select-cadre-box .select-cadre-list .validation .submit-validation .validation-bt {
     display: block;
   }
+  .ssc-box .ssc-all-infos {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .ssc-box .ssc-all-infos .image {
+    margin: 0 auto;
+    width: 90%;
+  }
+  .ssc-box .ssc-all-infos .image img {
+    width: 90%;
+    height: 300px;
+  }
+  .ssc-box .ssc-all-infos .ssc-infos {
+    width: 250px;
+  }
+  .ssc-box .ssc-question {
+    width: 60%;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -690,7 +736,7 @@
     align-items: flex-end;
   }
   .accueil-recruteur .title-ar {
-    font: 500 18px Raleway, sans-serif;
+    font: 550 18px Raleway, sans-serif;
     font-size: 16px;
   }
   .accueil-recruteur .ar-vertical-line {
@@ -852,6 +898,12 @@
   .show-job-box .show-pb2 a {
     width: 45%;
   }
+  .select-cadre-box .select-cadre-list .validation .submit-validation .validation-bt1 {
+    display: none;
+  }
+  .select-cadre-box .select-cadre-list .validation .submit-validation .validation-bt {
+    display: block;
+  }
   .select-cadre-box .select-cadre-list-items .cadre-box {
     width: 250px;
   }
@@ -875,11 +927,25 @@
     overflow: hidden;
     bottom: 0;
   }
-  .select-cadre-box .select-cadre-list .validation .submit-validation .validation-bt1 {
-    display: none;
+  .ssc-box .ssc-all-infos {
+    flex-direction: row;
+    flex-wrap: nowrap;
   }
-  .select-cadre-box .select-cadre-list .validation .submit-validation .validation-bt {
-    display: block;
+  .ssc-box .ssc-all-infos .ssc-infos {
+    width: 300px;
+  }
+  .ssc-box .ssc-question {
+    width: 60%;
+  }
+  .ssc-box .ssc-rest {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .ssc-box .ssc-rest .ssc-rest-btn {
+    width: 300px;
+  }
+  .ssc-box .ssc-rest .ssc-oiam {
+    width: 60%;
   }
 }
 
@@ -998,6 +1064,30 @@
     width: 664px;
     margin-left: -7%;
   }
+  .ssc-box .ssc-all-infos .ssc-infos {
+    width: 350px;
+  }
+  .ssc-box .ssc-all-infos .ssc-infos .image {
+    margin: 0 auto;
+    width: 90%;
+  }
+  .ssc-box .ssc-all-infos .ssc-infos .image img {
+    width: 88%;
+    height: 300px;
+  }
+  .ssc-box .ssc-all-infos .ssc-question {
+    width: 68%;
+  }
+  .ssc-box .ssc-rest {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .ssc-box .ssc-rest .ssc-rest-btn {
+    width: 350px;
+  }
+  .ssc-box .ssc-rest .ssc-oiam {
+    width: 68%;
+  }
 }
 
 @media screen and (min-width: 1500px) {
@@ -1018,6 +1108,22 @@
   .bg-accueil1 {
     height: 750px;
   }
+  .ssc-box .ssc-all-infos .ssc-infos {
+    width: 380px;
+  }
+  .ssc-box .ssc-all-infos .ssc-infos .image img {
+    width: 70%;
+    height: 300px;
+  }
+  .ssc-box .ssc-question {
+    width: 80%;
+  }
+  .ssc-box .ssc-rest .ssc-rest-btn {
+    width: 380px;
+  }
+  .ssc-box .ssc-rest .ssc-oiam {
+    width: 80%;
+  }
 }
 
 @media screen and (min-width: 2500px) {
@@ -1032,5 +1138,21 @@
   }
   .bg-accueil1 {
     height: 800px;
+  }
+  .ssc-box .ssc-all-infos .ssc-infos {
+    width: 400px;
+  }
+  .ssc-box .ssc-all-infos .ssc-infos .image img {
+    width: 70%;
+    height: 300px;
+  }
+  .ssc-box .ssc-question {
+    width: 90%;
+  }
+  .ssc-box .ssc-rest .ssc-rest-btn {
+    width: 400px;
+  }
+  .ssc-box .ssc-rest .ssc-oiam {
+    width: 90%;
   }
 }

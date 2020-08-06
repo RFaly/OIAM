@@ -55,7 +55,7 @@
   list-style: none;
   display: flex;
   justify-content: space-between;
-  font: 500 18px Raleway, sans-serif;
+  font: 550 18px Raleway, sans-serif;
   font-size: 16px;
 }
 
@@ -175,7 +175,7 @@
 }
 
 .create-offre-box .detail-post-box .dp-input-renumeration {
-  font: 500 18px Raleway, sans-serif;
+  font: 550 18px Raleway, sans-serif;
   width: 90%;
   margin-top: 30px;
   margin-bottom: 40px;
@@ -264,7 +264,7 @@
 }
 
 .create-offre-box .detail-post-box .co-dp-btn {
-  font: 500 18px Raleway, sans-serif;
+  font: 550 18px Raleway, sans-serif;
   text-align: center;
   border: 2px solid #d6b36a;
   color: #d6b36a;
@@ -326,7 +326,7 @@
 }
 
 .create-offre-box .context-offre-box .co-input-image label {
-  font: 500 18px Raleway, sans-serif;
+  font: 550 18px Raleway, sans-serif;
   text-align: center;
   margin-left: 30px;
 }
@@ -365,7 +365,7 @@
 }
 
 .create-offre-box .context-offre-box .co-input-submit input {
-  font: 500 18px Raleway, sans-serif;
+  font: 550 18px Raleway, sans-serif;
   border: 2px solid #d6b36a;
   color: #d6b36a;
   background: transparent;
@@ -470,7 +470,7 @@
 
 .input-error {
   color: red;
-  font: 500 18px Raleway, sans-serif;
+  font: 550 18px Raleway, sans-serif;
   font-size: 14px;
   display: block;
   margin: -15px 0 20px 0;
