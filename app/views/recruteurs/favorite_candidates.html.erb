@@ -1,9 +1,40 @@
+<style type="text/css">
+	.my_five_candidates{
+		display: flex;
+
+	}
+	.cadre-items{
+		border: 3px solid #d6b36a;
+		margin: 10px;
+	}
+</style>
+
 <div class="row">
 	<div class="col-sm-3">
 		<%= render partial: "recruteurs/left_link_bar" %>
 	</div>
 
 	<div class="col-sm-9">
-		<h1>Mes candidats favoris</h1>
+
+		<h1>MES CANDIDATS FAVORIS</h1>
+		
+		<% @offres.each do |offre| %>
+			<hr>
+			<h2>Poste: <%= offre.intitule_pote %></h2>
+
+			<div class="my_five_candidates">
+				<% offre.offre_for_candidates.each do |oFc| %>
+					<div class="cadre-items">
+						 <%= link_to show_search_candidate_path(oFc.cadre.id, offre_id: offre.id), method: :get do %> <%= image_tag(oFc.cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px", width:"100px" )%>
+						 <% end %>
+						 <br>
+						 <h3><%= oFc.cadre.cadre_info.first_name %> <%= oFc.cadre.cadre_info.last_name %></h3>
+					</div>
+				<% end %>
+			</div>
+
+			<hr>
+		<% end %>
+
 	</div>
 </div>

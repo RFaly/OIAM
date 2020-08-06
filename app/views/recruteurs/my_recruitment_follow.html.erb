@@ -5,5 +5,14 @@
 
 	<div class="col-sm-9">
 		<h2>Mon suivi recrutement</h2>
+		
+		<% @offres.each do |offre| %>
+			<hr>
+			<h2>Poste: <%= offre.intitule_pote %></h2>
+
+
+			<hr>
+		<% end %>
+
 	</div>
 </div>
