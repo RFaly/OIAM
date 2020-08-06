@@ -6,7 +6,7 @@
     <span class="btn-menu-burger open"> </span>
   </div>
   <div class="left-menu-photo">
-    	<img id="addImage" src="/image/profie.png" class="add-image">
+    	<%= image_tag(current_cadre.cadre_info.image, alt: 'photo de profil', class:"pdp" )%>
   </div>
   <ul class="left-menu-content">
 	<li><%= link_to "MON PROFIL", my_profil_path %></li>

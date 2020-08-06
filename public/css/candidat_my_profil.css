@@ -78,8 +78,8 @@ body{
 .pdp{
   display: block;
   margin: auto;
-  width: 300px;
-  height: 350px;
+  width: 100%;
+  height: auto;
 }
 
 .user_name{
@@ -214,12 +214,11 @@ body{
 
   .block-button{
 		position: relative;
-		top: 200px;
   }
 
 	.block-image{
-		width: 350px;
-		height: auto;
+		max-width: 300px;
+		max-height: 350px;
 	}
 
 	.block-right{

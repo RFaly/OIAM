@@ -71,6 +71,7 @@ body {
   -moz-appearance: none;
   appearance: none;
   outline: none;
+  text-transform: capitalize;
 }
 
 .dropdown{
@@ -83,6 +84,7 @@ body {
 .champs:focus{
   outline: 2px solid #d6b36a;
   box-shadow: 1px 1px 5px 1px #d6b36a;
+  text-align: center;
 }
 
 .ville {
@@ -132,6 +134,10 @@ body {
   width: 230px;
 }
 
+
+select{
+  text-transform: uppercase;
+}
 
 .tel-container{
   background: no-repeat left center url(/image/+33.png);
