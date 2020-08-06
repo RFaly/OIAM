@@ -7,7 +7,8 @@ class Admins::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   def new
-    # @header = true
+    @new_nav_bar = true
+    @header = true
     super
   end
 

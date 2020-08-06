@@ -186,10 +186,12 @@ class RecruteursController < ApplicationController
 
 #Mes candidats favoris
 	def favorite_candidates
+		@offres = current_client.offre_jobs
 	end
 
 #Mon suivi recrutement
 	def my_recruitment_follow
+		@offres = current_client.offre_jobs
 	end
 
 #Mes factures
