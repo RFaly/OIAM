@@ -10,13 +10,14 @@
 		<% else %>
 		<% @oFcs.each do |oFc| %>
 			<% offre_job = oFc.offre_job %>
-
+			<hr>
 			<div>
 				<h2><%= offre_job.client.entreprise.name %></h2>
-				<h3>post: <%= offre_job.intitule_pote %></h3>
+				<h3>poste: <%= offre_job.intitule_pote %></h3>
 			</div>
+			<%= link_to "Mon progression", show_recrutment_monitoring_path(oFc.offre_job.id), class:'btn btn-success'%>
 
-
+			<hr>
 		<% end %>
 		<% end %>
 

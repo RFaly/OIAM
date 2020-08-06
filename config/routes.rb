@@ -85,6 +85,8 @@ Rails.application.routes.draw do
   get '/cadre/mes-offres-reçues', to: 'candidates#received_job', as: 'received_job'
   post '/cadre/post-repons-received-job', to:'candidates#post_repons_received_job', as: 'post_repons_received_job'
   get '/cadre/suivi-recrutement', to: 'candidates#recrutmentMonitoring', as: 'recrutment_monitoring'
+  get '/cadre/suivi-recrutement/:offre_id', to: 'candidates#showRecrutmentMonitoring', as: 'show_recrutment_monitoring'
+  
   get '/cadre/mes-notifications', to: 'candidates#notifications', as: 'cadres_notifications'
   # les 3 test a faire
   get '/cadre/welcome-to-test', to: 'candidates#my_tests', as: 'my_tests'
@@ -166,3 +168,4 @@ cancel_client_registration GET    /clients/cancel(.:format)        clients/regis
     new_admin_registration GET    /admins/sign_up(.:format)        admins/registrations#new
    edit_admin_registration GET    /admins/edit(.:format)           admins/registrations#edit
 =end
+
