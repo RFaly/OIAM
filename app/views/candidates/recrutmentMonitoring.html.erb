@@ -4,6 +4,22 @@
 	</div>
 
 	<div class="col-sm-9">
-		<h1>Mon suivi recrutement</h1>
+		
+		<% if @oFcs.empty? %>
+			<i>Vous n'avez aucun recrutement en cours pour l'instants.</i>
+		<% else %>
+		<% @oFcs.each do |oFc| %>
+			<% offre_job = oFc.offre_job %>
+
+			<div>
+				<h2><%= offre_job.client.entreprise.name %></h2>
+				<h3>post: <%= offre_job.intitule_pote %></h3>
+			</div>
+
+
+		<% end %>
+		<% end %>
+
 	</div>
 </div>
+

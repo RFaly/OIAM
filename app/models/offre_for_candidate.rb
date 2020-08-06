@@ -8,16 +8,3 @@ class OffreForCandidate < ApplicationRecord
 # status: refuser-accepter(next etap)-en_attente
 # accepted_postule: recruteur à accepter sa demande de postulation
 end
-
-
-=begin
-
-	AgendaClient
-	# entretien_date:string
-	# entretien_time:string
-	# adresse:string
-	# recruteur:string
-	# alternative:string
-	# is_accepted:boolean #accepter la demande d'entretien
-
-=end
