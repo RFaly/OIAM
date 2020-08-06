@@ -107,6 +107,8 @@ class CandidatesController < ApplicationController
       flash[:alert] = "Offre non disponible"
       redirect_back(fallback_location: root_path)
     end
+    @ofc = @offre.is_in_this_job(current_cadre)
+    @agendat_client = @offre.in_list_entretien(current_cadre)
   end
 
 	def favoriteJob
