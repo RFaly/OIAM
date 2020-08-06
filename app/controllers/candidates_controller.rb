@@ -373,11 +373,11 @@ class CandidatesController < ApplicationController
   end
 
   def post_params_tmp
-    params.require(:cadre_info).permit(:last_name,:first_name,:adresse,:postal_code,:city,:situation,:telephone,:mail)
+    params.require(:cadre_info).permit(:last_name,:first_name,:adresse,:postal_code,:city,:telephone,:mail)
   end
 
   def post_params
-    params.require(:cadre_info).permit(:question1,:question2,:question3,:question4,:question5)
+    params.require(:cadre_info).permit(:question1,:question2,:question3,:question4,:question5,:status)
   end
 
   def current_info_cadre
