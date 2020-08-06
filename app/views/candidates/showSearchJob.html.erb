@@ -79,7 +79,7 @@
 			</p>
 		</div>
 
-		<% if @offre.is_in_this_job(current_cadre).nil? %>
+		<% if @ofc.nil? %>
 			<div id="link-to-send-post">
 				<%= link_to "POSTULER", apply_for_job_path(id:@offre.id), method: :post, remote: true, id:'send-candidature', class:'btn btn-primary' %>
 			</div>
@@ -88,13 +88,32 @@
 				<center id="plus-plus"> ... </center>
 			</div>
 		<% else %>
-			<div>
-				<span class="btn btn-primary">VOUS ÊTES POSTULÉ À CETTE OFFRE</span>
-			</div>
+			<% if @ofc.accepted_postule %>
+				<% if @agendat_client.nil? %>
+					<div id="link-to-send-post">
+						<%= link_to "POSTULER", apply_for_job_path(id:@offre.id), method: :post, remote: true, id:'send-candidature', class:'btn btn-primary' %>
+					</div>
+					<div id="modal-ajax-bull" style="display: none; background-color: #e3b465;">
+						Votre demande d'entretien a été envoyée <br>
+						<center id="plus-plus"> ... </center>
+					</div>
+				<% else %>
+					<% if @agendat_client.is_accepted %>
+						<%= link_to "MON SUIVI RECRUTEMENT", recrutment_monitoring_path %>
+					<% elsif !@agendat_client.is_accepted && !@agendat_client.alternative.nil? %>
+						<span class="btn btn-primary">VOUS AVEZ RÉFUSER LA DEMANDE D'ENTRETIEN</span>
+					<% else %>
+						<i><%= @offre.client.entreprise.name %> vous a envoyer une demande d'entretien</i><br>
+						<%= link_to "RÉPENDRE L'INVITATION", received_job_path %>
+					<% end %>
+				<% end %>
+			<% else %>
+				<div>
+					<span class="btn btn-primary">VOUS ÊTES POSTULÉ À CETTE OFFRE</span>
+				</div>
+			<% end %>
 		<% end %>
-
 	</div>
-
 </div>
 
 
