@@ -1,4 +1,6 @@
 <link rel="stylesheet" type="text/css" href="/css/search_job_cadre.css">
+<style type="text/css">
+</style>
 <div class="all-content">
 	<div class="content">
 	<div class="left_link">
@@ -45,7 +47,7 @@
 						<h2 class="job_info_title"><%= offre.intitule_pote %></h2>
 						<p><img src="/image/map.png" alt="logo oiam favorie" width="16px" height="22px" class="indic"><%= offre.client.entreprise.postal_code %>, <%= offre.client.entreprise.city %></p>
 						<p><img src="/image/description.png" alt="logo oiam favorie" width="16px" height="22px" class="indic"><%= offre.contrat_cdi ? "CDI" : "CDD" %> <br><img src="/image/gg_time.png" alt="logo oiam favorie" width="25px" height="25px" class="indic"><span></span><%= offre.date_poste%></span> </p>
-						<p><%= offre.descriptif_mission %></p>
+						<p class="description"><%= offre.descriptif_mission %></p>
 					</div>
 					<div class="action">
 						<% if offre.is_in_my_favorite(current_cadre).nil? %>
@@ -76,3 +78,25 @@
 </div>
 <div class="no-flex"></div>
 </div>
+
+<script>
+$(function () { 
+    var maxL = 50;  
+    $('.description').each(function (i, div) {
+        
+        var text = $(div).text();
+        if(text.length > maxL) {
+            
+            var begin = text.substr(0, maxL),
+                end = text.substr(maxL);
+
+            $(this).html(begin)
+                .append($('<a class="readmore"/>').attr('href', '').html('...'))
+                .append($('<div class="hidden" />').html(end));                           
+        }
+    });           
+    $(document).on('click', '.readmore', function () {
+        $(this).next('.hidden').slideDown(750);
+    })          
+})
+</script>

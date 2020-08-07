@@ -85,6 +85,11 @@ html{
       outline: none;
   }
 
+.btn-dispo{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
   .btn-recherche{
       display: block;
       margin: auto;
@@ -239,8 +244,8 @@ html{
     display: block;
     margin: auto;
     border: 1px solid #D6B36A;
-    max-width: 350px;
-		max-height: 350px;
+    max-width: 230px;
+		max-height: 250px;
   }
 
   .add-image img{
@@ -401,6 +406,11 @@ html{
 		.nom_fichier{
 			text-align: left;
 		}
+
+    .btn-dispo{
+      margin-left: 5px;
+      margin-right: 5px;
+    }
 
   }
 

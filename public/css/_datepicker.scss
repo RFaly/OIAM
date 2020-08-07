@@ -1,0 +1,74 @@
+#ui-datepicker-div {
+  width: 600px;
+  color: white;
+}
+.ui-datepicker {
+  background-color: red;
+  &-calendar {
+    padding: 30px;
+    width: 100%;
+    // height: 200px;
+
+    td {
+      cursor: pointer;
+      border-radius: 50%;
+      text-align: center;
+      height: 60px;
+
+      &:hover {
+        background: url(/cercle.png) no-repeat center/55px 55px;
+      }
+    }
+    .ui-state-disabled {
+      cursor: default;
+      background: none;
+      opacity: 0.4;
+      &:hover {
+        background: none;
+      }
+    }
+  }
+  &-header {
+    padding: 50px;
+    padding-bottom: 10px;
+    color: white;
+  }
+  .ui-datepicker-prev {
+    top: 40px;
+    text-indent: -900000px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    overflow: hidden;
+    background: url(/left.png) no-repeat center/ 20px 20px;
+    border: 2px solid white;
+    border-radius: 8px;
+    position: absolute;
+    right: 20%;
+  }
+  .ui-datepicker-next {
+    top: 40px;
+    text-indent: -900000px;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    border: 2px solid white;
+    background: url(/right.png) no-repeat center/ 20px 20px;
+
+    right: 10%;
+  }
+}
+.ui-widget-content {
+  .ui-state-default {
+    border: 0px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+  }
+  .ui-state-active {
+    border: 0px;
+  }
+}

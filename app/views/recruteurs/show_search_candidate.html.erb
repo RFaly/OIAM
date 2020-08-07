@@ -43,7 +43,7 @@
             <div class="local">
               <p>Type de post : Manager marketing</p>
               <p>Disponibilité : Maintenant</p>
-              <p>Salaire : <%= @cadre.question4 %></p>
+              <p>Salaire : <%= @cadre.question4 %>k€</p>
               <p>Mobilité : Ile de France</p>
             </div>
             <div class="ssc-btn">
@@ -105,9 +105,7 @@
         <div class="hiddenDate" style="display: none;" id="js-form-show">
           <%= form_tag(save_entretien_client_path, remote: true, id:"send-data-form") do %>
 
-          <div class="date">
-            <input type="date" name="date" id="input-date" />
-          </div>
+          <div class="date"><input type="text" name="date" id="datepicker" /></div>
 
           <div class="js-timeContainer" style="display: none;">
             <h2 id="showDateLong"></h2>
@@ -184,4 +182,34 @@
     </div>
   </div>
 </div>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="/js/entretien_client.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#datepicker').datepicker({
+      dateFormat: 'dd/mm/yy',
+      inline: true,
+      minDate: 0,
+      showOtherMonths: true,
+      dayNamesMin: ['', '', '', '', '', '', ''],
+      beforeShow: function (input, inst) {
+        setTimeout(function () {
+          inst.dpDiv.css({
+            top: 1000,
+            left: 700,
+          });
+        }, 0);
+      },
+      onSelect: function (date) {
+        // Your CSS changes, just in case you still need them
+        var date = $('#datepicker').datepicker('getDate');
+        let dateGet = new Date($.datepicker.formatDate('yy-mm-dd', date));
+        let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+        $('#showDateLong').html(dateString);
+        $('#dateShowOk').html(dateString);
+        $('#datepicker').hide();
+        $('.js-timeContainer').show();
+      },
+    });
+  });
+</script>
