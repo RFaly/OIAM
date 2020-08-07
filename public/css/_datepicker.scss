@@ -33,6 +33,10 @@
     border: 2px solid white;
     border-radius: 8px;
     position: absolute;
+    &:hover,
+    &:active {
+      background: $secondary_element_color;
+    }
   }
   .ui-datepicker-next {
     text-indent: -900000px;
@@ -44,6 +48,10 @@
     position: absolute;
     border: 2px solid white;
     background: url(/image/right.png) no-repeat center/ 15px 20px;
+    &:hover,
+    &:active {
+      background: $secondary_element_color;
+    }
   }
 }
 .ui-widget-content {

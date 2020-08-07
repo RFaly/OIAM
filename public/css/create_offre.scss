@@ -435,24 +435,26 @@
 }
 .ui-datepicker {
   &-calendar {
-    padding: 15px;
+    padding: 20px;
     td {
       height: 40px;
 
-      &:hover {
+      &:hover,
+      &:active {
         background: $secondary_element_color;
       }
     }
   }
   &-header {
+    text-align: center;
     padding: 30px;
   }
   &-next {
     top: 28px;
-    right: 10%;
+    right: 5%;
   }
   &-prev {
     top: 28px;
-    right: 30%;
+    left: 5%;
   }
 }
