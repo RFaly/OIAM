@@ -85,6 +85,11 @@ html{
       outline: none;
   }
 
+.btn-dispo{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
   .btn-recherche{
       display: block;
       margin: auto;
@@ -401,6 +406,11 @@ html{
 		.nom_fichier{
 			text-align: left;
 		}
+
+    .btn-dispo{
+      margin-left: 5px;
+      margin-right: 5px;
+    }
 
   }
 
