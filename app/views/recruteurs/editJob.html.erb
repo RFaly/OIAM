@@ -191,7 +191,7 @@
             <p class="first-p">Logo entreprise</p>
             <p class="last-p">Télécharger une image</p>
             <span style="display: none;">
-              <%= f.file_field :image , class:'input_fied' %>
+              <%= f.file_field :image , class:'input_fied', accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
             </span>
           </label>
         </div>

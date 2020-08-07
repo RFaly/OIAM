@@ -13,4 +13,6 @@ $(document).ready(function () {
   // check path menu recruteur
   $('.left-menu-r a[href="/recruteur/' + path + '"]').addClass('color-this');
   $('.line-white').css('height', $('.cpe-si-td').height() + 25);
+  $('.left-menu-r a[href="/cadre/' + path + '"]').addClass('color-this');
+  $('.line-white').css('height', $('.cpe-si-td').height() + 25);
 });

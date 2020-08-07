@@ -254,5 +254,5 @@ fr:
       carrierwave_processing_error: "Impossible de redimensionner l'image."
       carrierwave_integrity_error: "Pas une image."
       carrierwave_download_error: "Impossible de télécharger l'image."
-      extension_whitelist_error: "Vous n'êtes pas autorisé à télécharger des fichiers %{extension}, types autorisés: %{allowed_types}"
-      extension_blacklist_error: "Vous n'êtes pas autorisé à télécharger des fichiers %{extension}, types interdits:: %{prohibited_types}"
+      extension_whitelist_error: "Vous pouvez télécharger uniquement les types de fichier %{allowed_types}."
+      extension_blacklist_error: "Vous pouvez télécharger uniquement les types de fichier %{allowed_types}."
