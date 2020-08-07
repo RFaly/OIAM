@@ -30,7 +30,7 @@
 				<option value="EN POSTE">EN POSTE</option>
 			</select>
 
-			<select class="btn-recherche" required="required" name="cadre_info[disponibilite]" value="" id="cadre_info_disponibilite">
+			<select class="btn-recherche btn-dispo" required="required" name="cadre_info[disponibilite]" value="" id="cadre_info_disponibilite">
 				<option value="" disabled selected>DISPONIBILITÉ</option>
 				<% unless @cadre.disponibilite.nil? %>
 					<option value="<%= @cadre.disponibilite %>" selected hidden><%= @cadre.disponibilite %></option>
