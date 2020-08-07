@@ -1,5 +1,6 @@
 @import 'config';
 @import 'pagemenu';
+@import 'datepicker';
 
 .ssc-box {
   width: 95%;
@@ -113,5 +114,8 @@
     width: 50%;
     margin-top: -90px;
     margin-bottom: 90px;
+  }
+  .date {
+    opacity: 0;
   }
 }
