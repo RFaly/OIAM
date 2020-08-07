@@ -63,7 +63,7 @@
           <div class="so-content">
             <p>RÉMUNÉRATION (K€ BRUTS ANNUELS)</p>
             <div>
-              Fixe: <%= @offre.remuneration.to_i %> <br />
+              Fixe: <%= @offre.remuneration.to_i %>k€ <br />
               Variable: <%= @offre.remuneration_anne.to_i %>
             </div>
           </div>
@@ -76,7 +76,14 @@
           <div class="so-content">
             <p>PROCESSUS RH</p>
             <div>
-              <%= @offre.question3 %>
+              <% case @offre.question3.to_i %>
+              <% when 1 %>
+                1 entretien RH
+              <% when 2 %>
+                1 entretien RH + 1 entretien manager
+              <% when 3 %>
+                1 entretien RH + 2 entretien manager
+              <% end %>
             </div>
           </div>
           <div class="so-content">

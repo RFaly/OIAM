@@ -174,7 +174,7 @@ class CandidatesController < ApplicationController
     @agendaClients = []
     @oFcs.each do |oFc|
       agendaItems = {}
-      agendaItems[:agenda_client] = oFc.agenda_clients.where(alternative:nil, is_accepted: false).order('created_at DESC')[0]
+      agendaItems[:agenda_client] = oFc.agenda_clients.where(repons_client: true, repons_cadre: nil, alternative: nil).order('created_at DESC')[0]
       unless agendaItems[:agenda_client].nil?
         agendaItems[:intitule_pote] = oFc.offre_job.intitule_pote
         agendaItems[:offre_id] = oFc.offre_job.id
@@ -188,9 +188,9 @@ class CandidatesController < ApplicationController
     @agendaClient = AgendaClient.find_by_id(params[:agenda_id])
     case params[:reponse]
     when "0"
-      @agendaClient.update(alternative:params[:alternative],is_accepted: false)
+      @agendaClient.update(alternative:params[:alternative],repons_cadre: false)
     when "1"
-      @agendaClient.update(is_accepted:true)
+      @agendaClient.update(repons_cadre:true)
     when "2"
       date = params[:date].split("-")
       time = params[:time].split(":")
@@ -200,7 +200,7 @@ class CandidatesController < ApplicationController
       hour = time[0].to_i
       min = time[1].to_i
       date_time = DateTime.new(year,month,day,hour,min).utc
-      @agendaClient.update(alternative: date_time.to_s, is_accepted:true)
+      @agendaClient.update(alternative: date_time.to_s, repons_cadre:true)
     else
       flash[:alert] = "erreur lors de la vérification des donnés"
       redirect_to root_path
@@ -209,7 +209,23 @@ class CandidatesController < ApplicationController
 
 	def recrutmentMonitoring
     validate_info_cadre
+    @oFcs = OffreForCandidate.where(cadre: current_cadre).joins(:agenda_clients).where(agenda_clients: {repons_client:true, repons_cadre:true })
+  # status: nil
+  # is_recrute: false
+  # offre_job_id: nil
+  # cadre_id: nil
+  # accepted_postule: false)
 	end
+
+  def showRecrutmentMonitoring
+    @offreJob = OffreJob.find_by_id(params[:offre_id])
+    @oFc = OffreForCandidate.find_by(cadre:current_cadre,offre_job:@offreJob)
+    @agendaClient = @oFc.agenda_clients
+    
+    puts "~~~"*43
+    puts params.inspect
+    puts "~~~"*43
+  end
 
   def notifications
 
@@ -357,11 +373,11 @@ class CandidatesController < ApplicationController
   end
 
   def post_params_tmp
-    params.require(:cadre_info).permit(:last_name,:first_name,:adresse,:postal_code,:city,:situation,:telephone,:mail)
+    params.require(:cadre_info).permit(:last_name,:first_name,:adresse,:postal_code,:city,:telephone,:mail)
   end
 
   def post_params
-    params.require(:cadre_info).permit(:question1,:question2,:question3,:question4,:question5)
+    params.require(:cadre_info).permit(:question1,:question2,:question3,:question4,:question5,:status)
   end
 
   def current_info_cadre
@@ -375,19 +391,3 @@ class CandidatesController < ApplicationController
     end
   end
 end
-
-=begin
-
-before_action :authenticate_cadre!
-cadre_signed_in?
-current_cadre
-
-before_action :authenticate_client!
-client_signed_in?
-current_client
-
-before_action :authenticate_admin!
-admin_signed_in?
-current_admin
-
-=end

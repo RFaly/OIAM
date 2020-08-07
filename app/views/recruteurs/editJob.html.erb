@@ -31,9 +31,8 @@
       <div class="detail-post-box">
         <label>LOCALISATION</label>
         <div class="dp-input hide-right">
-          <select id="paysInput" name="country" class="co-select" autofocus>
-            <option value="<%= @offre.country %>" selected hidden><%= @offre.country %></option>
-            <option value="France">France</option>
+          <select id="paysInput" name="offre_job[country]" class="co-select" autofocus>
+            <option value="France" selected>France</option>
           </select>
         </div>
         <span class="input-error country-error"></span>
@@ -80,8 +79,9 @@
         </div>
 
         <%= f.label :remuneration_anne, "RÉMUNÉRATION PROPOSÉE VARIABLE(K€ BRUTS ANNUELS)" %>
+
         <div class="dp-input hide-right">
-          <select id="remuneration-anne" name="remuneration_anne" class="co-select">
+          <select id="remuneration-anne" name="offre_job[remuneration_anne]" class="co-select">
             <option value="<%= @offre.remuneration_anne.to_i %>" selected hidden><%= @offre.remuneration_anne.to_i %></option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -99,13 +99,17 @@
 
         <label class="dp-input dp-input-checkbox1">
           Contrat CDI
-          <input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi" />
+          <% if @offre.contrat_cdi %>
+            <input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi" checked="checked" />
+          <% else %>
+            <input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi" />
+          <% end %>
           <span class="checkmark"></span>
         </label>
 
         <%= f.label :type_deplacement, "LE POSTE IMPLIQUE-T-IL DES DÉPLACEMENTS ?" %>
         <div class="dp-input hide-right">
-          <select id="type-deplacement" name="type_deplacement" class="co-select">
+          <select id="type-deplacement" name="offre_job[type_deplacement]" class="co-select">
             <option value="<%= @offre.type_deplacement %>" selected hidden><%= @offre.type_deplacement %></option>
             <option value="Pas de déplacements">Pas de déplacements</option>
             <option value="Nationaux">Nationaux</option>
@@ -117,7 +121,7 @@
 
         <%= f.label :type_deplacement, "DATE DE PRISE DE POSTE" %>
         <div class="dp-input">
-          <input type="date" name="date_poste" id="dp-date" required min="<%= Date.today %>" value="<%= @offre.date_poste %>" />
+          <input type="date" name="offre_job[date_poste]" id="dp-date" required min="<%= Date.today %>" value="<%= @offre.date_poste %>" />
         </div>
         <span class="input-error dp-date-error"></span>
 
@@ -128,7 +132,7 @@
       <div class="context-offre-box">
         <%= f.label :question1, "QUELLE POURRAIT-ÊTRE LA RÉMUNÉRATION MAXIMALE POUR LE CANDIDAT IDÉAL ?", class:"ggag" %>
         <div class="co-input hide-right">
-          <select id="question1" name="question1" class="co-select">
+          <select id="question1" name="offre_job[question1]" class="co-select">
             <option value="<%= @offre.question1 %>" selected hidden><%= @offre.question1 %></option>
             <option value="60 k€ bruts annuels">60 k€ bruts annuels</option>
             <option value="70 k€ bruts annuels">70 k€ bruts annuels</option>
@@ -146,9 +150,11 @@
 
         <%= f.label :question3, "QUEL SERA VOTRE PROCESSUS DE RECRUTEMENT ?", class:"ggag" %>
         <div class="co-input hide-right">
-          <select id="question3" name="question3" class="co-select">
-            <option value="<%= @offre.question3 %>" selected hidden><%if @offre.question3 == 1 %>1 entretien RH <%elsif @offre.question3 == 2 %>1 entretien RH + 1 entretien manager <%else%>1 entretien RH + 2 entretien <%end%></option>
-            <option value="1 ">1 entretien RH</option>
+          <select id="question3" name="offre_job[question3]" class="co-select">
+            <option value="<%= @offre.question3 %>" selected hidden>
+              <% case @offre.question3.to_i %><% when 1 %>1 entretien RH<% when 2 %>1 entretien RH + 1 entretien manager<% when 3 %>1 entretien RH + 2 ntretien manager<% end %>
+              </option>
+            <option value="1">1 entretien RH</option>
             <option value="2">1 entretien RH + 1 entretien manager</option>
             <option value="3">1 entretien RH + 2 entretien manager</option>
           </select>
@@ -169,11 +175,13 @@
 
         <%= f.label :question5, "PRÉSENTER LE CONTEXTE D’OUVERTURE DE CE POSTE.", class:"ggag" %>
         <div class="co-input hide-right">
-          <select id="question5" name="question5" class="co-select">
-            <option value="<%= @offre.question5 %>" selected hidden><%if @offre.question5 == 1 %>Remplacement <%elsif @offre.question5 == 2 %>Changement <%else%>Départ <%end%></option>
-            <option value="1 ">Remplacement</option>
-            <option value="2">Changement</option>
-            <option value="3">Départ</option>
+          <select id="question5" name="offre_job[question5]" class="co-select">
+            <option value="<%= @offre.question5 %>" selected hidden>
+              <%= @offre.question5 %>
+            </option>
+            <option value="Remplacement">Remplacement</option>
+            <option value="Changement">Changement</option>
+            <option value="Départ">Départ</option>
           </select>
         </div>
         <span class="input-error" id="question5-error"></span>

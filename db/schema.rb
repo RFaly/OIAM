@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_122623) do
+ActiveRecord::Schema.define(version: 2020_08_06_112111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,11 +45,12 @@ ActiveRecord::Schema.define(version: 2020_08_04_122623) do
     t.string "adresse"
     t.string "recruteur"
     t.string "alternative"
-    t.boolean "is_accepted", default: false
     t.bigint "offre_for_candidate_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "entretien_date"
+    t.boolean "repons_client", default: true
+    t.boolean "repons_cadre"
     t.index ["offre_for_candidate_id"], name: "index_agenda_clients_on_offre_for_candidate_id"
   end
 
