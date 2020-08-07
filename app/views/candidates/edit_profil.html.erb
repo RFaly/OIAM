@@ -22,12 +22,19 @@
 			<%= f.text_area :question5, required:true, rows:3, class:"champs" %>
 
 			<select class="btn-recherche" required="required" name="cadre_info[status]" id="cadre_info_status">
-				<option value="">STATUT</option>
-				<option value="EN POSTE">EN POSTE</option>
-				<option value="EN RECHERCHE ACTIVE">EN RECHERCHE ACTIVE</option>
-				<option value="SANS POSTE">SANS POSTE</option>
+				<option value="" disabled selected>STATUT</option>
+				<option value="EN POSTE">DISPONIBLE</option>
+				<option value="EN RECHERCHE ACTIVE">EN PÉRIODE D'ESSAI</option>
+				<option value="SANS POSTE">EN POSTE</option>
 			</select>
-
+			<select class="btn-recherche" required="required" name="cadre_info[status]" id="cadre_info_status">
+				<option value="" disabled selected>DISPONIBILITÉ</option>
+				<option value="EN POSTE">Immédiate</option>
+				<option value="EN RECHERCHE ACTIVE">Préavis 1 mois</option>
+				<option value="SANS POSTE">Préavis 3 mois</option>
+				<option value="SANS POSTE">Préavis 3 à 6 mois</option>
+				<option value="SANS POSTE">Préavis > 6 mois</option>
+			</select>
 			<div class="image-cv">
 				<div id="import-cv">
 					<div class="importe-cv">CV</div>
@@ -35,7 +42,7 @@
 						<%= f.label :cv, "IMPORTER CV", class:"cv-label"%>
 						<%= f.file_field :cv, class:"cv-champs" %>
 					</div>
-          <p class="nom_fichier">VOTRE FICHIER : <span id="cv-filename"></span></p> 
+          <p class="nom_fichier">VOTRE FICHIER : <span id="cv-filename"></span></p>
 				</div>
 				<div class="pdp">
 					<% unless @cadre.image.nil? %>
