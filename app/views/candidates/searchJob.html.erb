@@ -47,7 +47,7 @@
 						<h2 class="job_info_title"><%= offre.intitule_pote %></h2>
 						<p><img src="/image/map.png" alt="logo oiam favorie" width="16px" height="22px" class="indic"><%= offre.client.entreprise.postal_code %>, <%= offre.client.entreprise.city %></p>
 						<p><img src="/image/description.png" alt="logo oiam favorie" width="16px" height="22px" class="indic"><%= offre.contrat_cdi ? "CDI" : "CDD" %> <br><img src="/image/gg_time.png" alt="logo oiam favorie" width="25px" height="25px" class="indic"><span></span><%= offre.date_poste%></span> </p>
-						<p id="description"><%= offre.descriptif_mission %></p>
+						<p class="description"><%= offre.descriptif_mission %></p>
 					</div>
 					<div class="action">
 						<% if offre.is_in_my_favorite(current_cadre).nil? %>
@@ -82,7 +82,7 @@
 <script>
 $(function () { 
     var maxL = 50;  
-    $('#description').each(function (i, div) {
+    $('.description').each(function (i, div) {
         
         var text = $(div).text();
         if(text.length > maxL) {
@@ -90,7 +90,7 @@ $(function () {
             var begin = text.substr(0, maxL),
                 end = text.substr(maxL);
 
-            $(div).html(begin)
+            $(this).html(begin)
                 .append($('<a class="readmore"/>').attr('href', '').html('...'))
                 .append($('<div class="hidden" />').html(end));                           
         }
