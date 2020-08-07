@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2020_08_07_120544) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "disponibilite"
+    t.string "mobilite"
     t.index ["cadre_id"], name: "index_cadre_infos_on_cadre_id"
   end
 
