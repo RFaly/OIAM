@@ -17,17 +17,40 @@
 				<%=f.range_field :question4, :min=>60, :max=>350,required:true, class:"intervalle", id:"slide" %><span id="value" class="value"></span>
 			</div>
 
-
 			<%= f.label :question5, "Parlez-nous de vous ?", class:"label-content" %>
 			<%= f.text_area :question5, required:true, rows:3, class:"champs" %>
 
 			<select class="btn-recherche" required="required" name="cadre_info[status]" id="cadre_info_status">
-				<option value="">STATUT</option>
+				<option value="" disabled selected>STATUT</option>
+				<% unless @cadre.status.nil? %>
+				<option value="<%= @cadre.status %>" selected hidden><%= @cadre.status %></option>
+				<% end %>
+				<option value="DISPONIBLE">DISPONIBLE</option>
+				<option value="EN PÉRIODE D'ESSAI">EN PÉRIODE D'ESSAI</option>
 				<option value="EN POSTE">EN POSTE</option>
-				<option value="EN RECHERCHE ACTIVE">EN RECHERCHE ACTIVE</option>
-				<option value="SANS POSTE">SANS POSTE</option>
 			</select>
 
+			<select class="btn-recherche btn-dispo" required="required" name="cadre_info[disponibilite]" value="" id="cadre_info_disponibilite">
+				<option value="" disabled selected>DISPONIBILITÉ</option>
+				<% unless @cadre.disponibilite.nil? %>
+					<option value="<%= @cadre.disponibilite %>" selected hidden><%= @cadre.disponibilite %></option>
+				<% end %>
+				<option value="IMMÉDIATE">IMMÉDIATE</option>
+				<option value="PRÉAVIS 1 MOIS">PRÉAVIS 1 MOIS</option>
+				<option value="PRÉAVIS 3 MOIS">PRÉAVIS 3 MOIS</option>
+				<option value="PRÉAVIS 3 À 6 MOIS">PRÉAVIS 3 À 6 MOIS</option>
+				<option value="PRÉAVIS > 6 MOIS">PRÉAVIS > 6 MOIS</option>
+			</select>
+			<select class="btn-recherche" required="required" name="cadre_info[mobilite]" id="cadre_info_mobilite">
+				<option value="" disabled selected>MOBILITÉ</option>
+				<% unless @cadre.mobilite.nil? %>
+				<option value="<%= @cadre.mobilite %>" selected hidden><%= @cadre.mobilite %></option>
+				<% end %>
+				<option value="RÉGIONAL">RÉGIONAL</option>
+				<option value="NATIONAL">NATIONAL</option>
+				<option value="INTERNATIONAL">INTERNATIONAL</option>
+				<option value="NON MOBILE">NON MOBILE</option>
+			</select>
 			<div class="image-cv">
 				<div id="import-cv">
 					<div class="importe-cv">CV</div>
@@ -35,7 +58,7 @@
 						<%= f.label :cv, "IMPORTER CV", class:"cv-label"%>
 						<%= f.file_field :cv, class:"cv-champs" %>
 					</div>
-          <p class="nom_fichier">VOTRE FICHIER : <span id="cv-filename"></span></p> 
+          <p class="nom_fichier">VOTRE FICHIER : <span id="cv-filename"></span></p>
 				</div>
 				<div class="pdp">
 					<% unless @cadre.image.nil? %>

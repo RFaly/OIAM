@@ -71,7 +71,6 @@ body {
   -moz-appearance: none;
   appearance: none;
   outline: none;
-  text-transform: capitalize;
 }
 
 .dropdown{

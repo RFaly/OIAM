@@ -42,7 +42,7 @@ class CandidatesController < ApplicationController
   def confirmedProfil
     errorMessage = ""
 
-    is_error = params[:cadre_info][:question1].empty? || params[:cadre_info][:question2].empty? || params[:cadre_info][:question3].empty? || params[:cadre_info][:question4].empty? || params[:cadre_info][:question5].empty? || params[:cadre_info][:status].empty?
+    is_error = params[:cadre_info][:question1].empty? || params[:cadre_info][:question2].empty? || params[:cadre_info][:question3].empty? || params[:cadre_info][:question4].empty? || params[:cadre_info][:question5].empty? || params[:cadre_info][:status].empty? || params[:cadre_info][:disponibilite].empty? || params[:cadre_info][:mobilite].empty?
     if is_error
       errorMessage += " [ Tous les champs sont obligatoire ] "
     end
@@ -377,7 +377,7 @@ class CandidatesController < ApplicationController
   end
 
   def post_params
-    params.require(:cadre_info).permit(:question1,:question2,:question3,:question4,:question5,:status)
+    params.require(:cadre_info).permit(:question1,:question2,:question3,:question4,:question5,:status,:disponibilite,:mobilite)
   end
 
   def current_info_cadre
