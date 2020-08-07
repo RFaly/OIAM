@@ -119,3 +119,30 @@
     opacity: 0;
   }
 }
+#ui-datepicker-div {
+  width: 600px;
+  color: white;
+}
+.ui-datepicker {
+  &-calendar {
+    padding: 30px;
+    td {
+      height: 60px;
+
+      &:hover {
+        background: url(/image/cercle.png) no-repeat center/55px 55px;
+      }
+    }
+  }
+  &-header {
+    padding: 50px;
+  }
+  &-next {
+    top: 40px;
+    right: 10%;
+  }
+  &-prev {
+    top: 40px;
+    right: 20%;
+  }
+}

@@ -16,15 +16,12 @@
 
   <body>
     <% if @header.nil? %>
-      <div class="navbar-controll bg-inside">
-        <%= render "layouts/navbar" %>
-      </div>
-    <% else %>
-      <% unless @new_nav_bar.nil? %>
-        <!-- ito ny navbar ny admin topoko -->
-        <%= render "layouts/navbar_admin" %>
-      <% end %>
-    <% end %>
+    <div class="navbar-controll bg-inside">
+      <%= render "layouts/navbar" %>
+    </div>
+    <% else %> <% unless @new_nav_bar.nil? %>
+    <!-- ito ny navbar ny admin topoko -->
+    <%= render "layouts/navbar_admin" %> <% end %> <% end %>
     <!-- ~~~~~~~~~~~~~~~~~~~ Alert devise ito ~~~~~~~~~~~~~~~~~~~ -->
     <div>
       <% if notice %>
@@ -34,15 +31,12 @@
       <% end %>
     </div>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <%= yield %>
-    
-    <% if @header.nil? %>
-      <div class="footer-controll">
-        <%= render "layouts/footer" %>
-      </div>
+    <%= yield %> <% if @header.nil? %>
+    <div class="footer-controll">
+      <%= render "layouts/footer" %>
+    </div>
     <% end %>
 
     <script type="text/javascript" data-turbolinks-track="reload" src="/js/check_path.js"></script>
-    
   </body>
 </html>

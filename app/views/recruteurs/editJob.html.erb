@@ -98,11 +98,10 @@
         <span class="input-error remuneration-anne-error"></span>
 
         <label class="dp-input dp-input-checkbox1">
-          Contrat CDI
-          <% if @offre.contrat_cdi %>
-            <input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi" checked="checked" />
+          Contrat CDI <% if @offre.contrat_cdi %>
+          <input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi" checked="checked" />
           <% else %>
-            <input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi" />
+          <input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi" />
           <% end %>
           <span class="checkmark"></span>
         </label>
@@ -121,7 +120,7 @@
 
         <%= f.label :type_deplacement, "DATE DE PRISE DE POSTE" %>
         <div class="dp-input">
-          <input type="date" name="offre_job[date_poste]" id="dp-date" required min="<%= Date.today %>" value="<%= @offre.date_poste %>" />
+          <input type="text" name="offre_job[date_poste]" id="datepicker" required value="<%= @offre.date_poste %>" />
         </div>
         <span class="input-error dp-date-error"></span>
 
@@ -153,7 +152,7 @@
           <select id="question3" name="offre_job[question3]" class="co-select">
             <option value="<%= @offre.question3 %>" selected hidden>
               <% case @offre.question3.to_i %><% when 1 %>1 entretien RH<% when 2 %>1 entretien RH + 1 entretien manager<% when 3 %>1 entretien RH + 2 ntretien manager<% end %>
-              </option>
+            </option>
             <option value="1">1 entretien RH</option>
             <option value="2">1 entretien RH + 1 entretien manager</option>
             <option value="3">1 entretien RH + 2 entretien manager</option>
@@ -211,5 +210,7 @@
     </div>
   </div>
 </div>
-
-<%= javascript_include_tag "event_input_offre_job" %>
+<!-- call js  -->
+<script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- date picker jquery  -->
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/event_input_offre_job.js"></script>
