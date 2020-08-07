@@ -9,7 +9,7 @@ class CandidatesController < ApplicationController
   def tmp_sign_up
     unless cookies.encrypted[:oiam_cadre].nil?
       # @cadre = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
-      flash[:notice] = "Vous pouvez continuer votre test!"
+      flash[:notice] = "Vous pouvez continuer votre test."
       redirect_to my_tests_path
     end
     @cadreInfo = CadreInfo.new
@@ -101,10 +101,10 @@ class CandidatesController < ApplicationController
   def showSearchJob
     @offre = OffreJob.find_by_id(params[:id])
     if @offre.nil?
-      flash[:alert] = "Offre non disponible"
+      flash[:alert] = "Cette offre n'est plus disponible."
       redirect_back(fallback_location: root_path)
     elsif @offre.is_publish == false
-      flash[:alert] = "Offre non disponible"
+      flash[:alert] = "Cette offre n'est plus disponible."
       redirect_back(fallback_location: root_path)
     end
     @ofc = @offre.is_in_this_job(current_cadre)
@@ -202,7 +202,7 @@ class CandidatesController < ApplicationController
       date_time = DateTime.new(year,month,day,hour,min).utc
       @agendaClient.update(alternative: date_time.to_s, repons_cadre:true)
     else
-      flash[:alert] = "erreur lors de la vérification des donnés"
+      flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
       redirect_to root_path
     end
   end
@@ -359,13 +359,13 @@ class CandidatesController < ApplicationController
   def validate_cadre
     unless current_cadre
       if cookies.encrypted[:oiam_cadre].nil?
-        flash[:alert] = "Vous devez vous s'inscrire pour faire les tests!"
+        flash[:alert] = "Vous devez vous inscrire pour effectuer les tests."
         redirect_to tmp_sign_up_path
       else
         @cadre = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
         if @cadre.nil?
           cookies.delete :oiam_cadre
-          flash[:alert] = "Vous devez vous s'inscrire pour faire les tests!"
+          flash[:alert] = "Vous devez vous inscrire pour effectuer les tests."
           redirect_to tmp_sign_up_path
         end
       end
@@ -386,7 +386,7 @@ class CandidatesController < ApplicationController
 
   def validate_info_cadre
     if current_cadre.cadre_info.empty
-      flash[:notice] = "Veuillez remplir votre profil"
+      flash[:notice] = "Veuillez compléter votre profil."
       redirect_to edit_profil_path
     end
   end
