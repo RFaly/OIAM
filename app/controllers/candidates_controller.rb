@@ -391,19 +391,3 @@ class CandidatesController < ApplicationController
     end
   end
 end
-
-=begin
-
-before_action :authenticate_cadre!
-cadre_signed_in?
-current_cadre
-
-before_action :authenticate_client!
-client_signed_in?
-current_client
-
-before_action :authenticate_admin!
-admin_signed_in?
-current_admin
-
-=end

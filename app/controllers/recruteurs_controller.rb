@@ -57,21 +57,33 @@ class RecruteursController < ApplicationController
 		@offre = OffreJob.new
 	end
 
+##validation
 	def createJob
 		@offre = OffreJob.new(post_params)
 		@offre.client = current_client
 		uploader = ImageUploader.new
-    if params[:offre_job][:image].nil? && current_client.image.nil?
-    	flash[:alert] = "Image non trouvé"
+		errorMessage = ""
+		image_entreprise = params[:offre_job][:image]
+		is_image = true
+		unless image_entreprise.nil?
+	    begin
+	      uploader.store!(image_entreprise)
+	    rescue StandardError => e
+	      is_image = false
+	      errorMessage += " [ #{e.message} ] "
+	    end
+		else
+			errorMessage += " [ Importer un logo ] "
 			return render :newJob
-    elsif !params[:offre_job][:image].nil? && @offre.save
-    	uploader.store!(params[:offre_job][:image])
+		end
+		if is_image && @offre.valid? && errorMessage.empty?
     	@offre.image = uploader.url
     	@offre.save
-    	redirect_to showNewJob_path(@offre)
-		else
-			flash[:alert] = @offre.errors.details
-			return render :newJob
+      redirect_to showNewJob_path(@offre)
+    else
+			@offre.errors.details[:logo] = errorMessage
+    	flash[:alert] = @offre.errors.details
+    	return render :newJob
 		end
 	end
 
@@ -82,18 +94,21 @@ class RecruteursController < ApplicationController
 	def updateJob
 		uploader = ImageUploader.new
 		@offre = OffreJob.find(params[:id])
+		image_entreprise = params[:offre_job][:image]
+		unless image_entreprise.nil?
+	    begin
+	      uploader.store!(image_entreprise)
+	    rescue StandardError => e
+	      flash[:alert] = " [ #{e.message} ] "
+				return render :editJob
+	    end
+		end
+		unless image_entreprise.nil?
+			@offre.update(image:uploader.url)
+		end
 		@offre.update(post_params)
-		if !params[:offre_job][:image].nil?
-			uploader.store!(params[:offre_job][:image])
-			@offre.image = uploader.url
-		end
-		@offre.update(country: params[:country], remuneration_anne: params[:remuneration_anne], date_poste: params[:date_poste],type_deplacement: params[:type_deplacement],question1: params[:question1],question3: params[:question3],question5: params[:question5])
-		if @offre.save
-			redirect_to showNewJob_path(@offre)
-		else
-			flash[:alert] = @offre.errors.details
-			return render :editJob
-		end
+		flash[:notice] = "Votre offre d'emploi a bien été mise à jour !"
+		redirect_to showNewJob_path(@offre)
 	end
 
 	def showNewJob
