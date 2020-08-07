@@ -96,7 +96,7 @@
 
         <%= f.label :type_deplacement, "DATE DE PRISE DE POSTE" %>
         <div class="dp-input">
-          <%= f.date_field :date_poste, required:true, min: Date.today,id:'dp-date' %>
+          <%= f.text_field :date_poste, required:true,id:'datepicker' %>
         </div>
         <span class="input-error dp-date-error"></span>
 
@@ -172,4 +172,7 @@
   </div>
 </div>
 <!-- call js  -->
-<%= javascript_include_tag "event_input_offre_job" %>
+<script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- date picker jquery  -->
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/event_input_offre_job.js"></script>
+

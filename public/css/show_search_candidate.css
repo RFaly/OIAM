@@ -17,17 +17,12 @@
   padding: 10px;
 }
 
-#ui-datepicker-div {
-  width: 600px;
-  color: white;
-}
-
 .ui-datepicker {
-  background-color: red;
+  font: 550 18px Raleway, sans-serif;
+  background-color: #e3d7bf;
 }
 
 .ui-datepicker-calendar {
-  padding: 30px;
   width: 100%;
 }
 
@@ -36,10 +31,6 @@
   border-radius: 50%;
   text-align: center;
   height: 60px;
-}
-
-.ui-datepicker-calendar td:hover {
-  background: url(/cercle.png) no-repeat center/55px 55px;
 }
 
 .ui-datepicker-calendar .ui-state-disabled {
@@ -53,27 +44,23 @@
 }
 
 .ui-datepicker-header {
-  padding: 50px;
   padding-bottom: 10px;
   color: white;
 }
 
 .ui-datepicker .ui-datepicker-prev {
-  top: 40px;
   text-indent: -900000px;
   width: 30px;
   height: 30px;
   cursor: pointer;
   overflow: hidden;
-  background: url(/left.png) no-repeat center/20px 20px;
+  background: url(/image/left.png) no-repeat center/15px 20px;
   border: 2px solid white;
   border-radius: 8px;
   position: absolute;
-  right: 20%;
 }
 
 .ui-datepicker .ui-datepicker-next {
-  top: 40px;
   text-indent: -900000px;
   overflow: hidden;
   cursor: pointer;
@@ -82,8 +69,7 @@
   height: 30px;
   position: absolute;
   border: 2px solid white;
-  background: url(/right.png) no-repeat center/20px 20px;
-  right: 10%;
+  background: url(/image/right.png) no-repeat center/15px 20px;
 }
 
 .ui-widget-content .ui-state-default {
@@ -229,4 +215,35 @@
 
 .ssc-box .date {
   opacity: 0;
+}
+
+#ui-datepicker-div {
+  width: 600px;
+  color: white;
+}
+
+.ui-datepicker-calendar {
+  padding: 30px;
+}
+
+.ui-datepicker-calendar td {
+  height: 60px;
+}
+
+.ui-datepicker-calendar td:hover {
+  background: url(/image/cercle.png) no-repeat center/55px 55px;
+}
+
+.ui-datepicker-header {
+  padding: 50px;
+}
+
+.ui-datepicker-next {
+  top: 40px;
+  right: 10%;
+}
+
+.ui-datepicker-prev {
+  top: 40px;
+  right: 20%;
 }

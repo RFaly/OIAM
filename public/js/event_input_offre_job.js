@@ -83,7 +83,22 @@ $('#departmentInput').change(function () {
   sessionStorage.setItem('region', $('#regionInput').val());
   sessionStorage.setItem('departement', this.value);
 });
-
+// custom date picker
+$('#datepicker').datepicker({
+  dateFormat: 'dd/mm/yy',
+  inline: true,
+  minDate: 0,
+  showOtherMonths: true,
+  dayNamesMin: ['', '', '', '', '', '', ''],
+  monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+  monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+  onSelect: function (date) {
+    $('#datepicker').css('box-shadow', '0px 1px 5px 1px #e3d7bf');
+    $('#datepicker').css('outline', '2px solid #e3d7bf ');
+    $('.dp-date-error').hide();
+  },
+});
+// custom slide
 $('#remuneration').on('input', function () {
   $('#inputRange').html($(this).val());
   var valuer = $('#value-renum');
@@ -160,7 +175,7 @@ $('#remuneration-anne').focusout(function () {
 $('#type-deplacement').focusout(function () {
   check_nil($(this), $('.type-deplacement-error'));
 });
-$('#dp-date').focusout(function () {
+$('#datepicker').focusout(function () {
   check_nil($(this), $('.dp-date-error'));
 });
 // check second party of create offre
@@ -187,7 +202,7 @@ $('#co-dp-btn').click(function () {
     $('#descriptif-mission').val().length >= 1 &&
     $('#rattachement').val().length >= 1 &&
     $('#remuneration-anne').val().length >= 1 &&
-    $('#dp-date').val().length >= 1 &&
+    $('#datepicker').val().length >= 1 &&
     $('#type-deplacement').val().length >= 1
   ) {
     $('.ir-l1').addClass('color-bg');
