@@ -61,7 +61,7 @@
 }
 
 .ui-datepicker .ui-datepicker-prev:hover, .ui-datepicker .ui-datepicker-prev:active {
-  background: #f0f2f4;
+  box-shadow: 1px 1px 5px 1px #f0f2f4;
 }
 
 .ui-datepicker .ui-datepicker-next {
@@ -77,7 +77,7 @@
 }
 
 .ui-datepicker .ui-datepicker-next:hover, .ui-datepicker .ui-datepicker-next:active {
-  background: #f0f2f4;
+  box-shadow: 1px 1px 5px 1px #f0f2f4;
 }
 
 .ui-widget-content .ui-state-default {

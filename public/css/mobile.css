@@ -205,9 +205,6 @@
   .cp-edit-table-box .table-td .cpr-r img {
     left: 6%;
   }
-  .cp-edit-table-box .table-td .cpr-r .add {
-    right: 2%;
-  }
   .cp-edit-table-box .cp-flex-t {
     flex-direction: column;
   }
@@ -834,9 +831,6 @@
   .cp-edit-table-box .table-td .cpr-r img {
     left: 10%;
   }
-  .cp-edit-table-box .table-td .cpr-r .add {
-    left: 20%;
-  }
   .cp-edit-table-box .cp-flex-t {
     flex-direction: row;
     flex-wrap: no-wrap;
@@ -1031,9 +1025,6 @@
   }
   .cp-edit-table-box .table-td .cpr-r img {
     left: 12%;
-  }
-  .cp-edit-table-box .table-td .cpr-r .add {
-    left: 25%;
   }
   .create-offre-box .detail-post-box .dp-input {
     width: 35%;

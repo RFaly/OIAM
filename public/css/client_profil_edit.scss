@@ -127,11 +127,8 @@
           top: 7px;
           position: absolute;
         }
-        .add {
-          position: absolute;
-          width: 50px;
-          top: 4px;
-          z-index: 0;
+        #recruteur-phone {
+          background: $secondary_element_color url(/image/tel.png) no-repeat left 0.2rem center/50px 25px;
         }
       }
     }

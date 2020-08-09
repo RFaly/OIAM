@@ -95,7 +95,7 @@ $(document).ready(function () {
       $('.dr-1').hide();
       $('.dr-2').fadeIn(800);
     } else {
-      $('#submit-error').html('(Tous les champs sont obligatoires.)');
+      $('#submit-error').html('(Veuillez corriger les erreurs dans le remplissage des champs.)');
       $('#submit-error').show();
     }
   });
@@ -109,7 +109,7 @@ $(document).ready(function () {
       $('.dr-2').hide();
       $('.dr-3').fadeIn(800);
     } else {
-      $('#submit-error2').html('(Tous les champs sont obligatoires.)');
+      $('#submit-error2').html('(Veuillez corriger les erreurs dans le remplissage des champs.)');
       $('#submit-error2').show();
     }
   });
@@ -122,7 +122,7 @@ $(document).ready(function () {
       $('.dr-3').hide();
       $('.details-r-condition').fadeIn(800);
     } else {
-      $('#submit-error3').html('(Tous les champs sont obligatoires.)');
+      $('#submit-error3').html('(Veuillez corriger les erreurs dans le remplissage des champs.)');
       $('#submit-error3').show();
     }
   });
@@ -135,7 +135,7 @@ $('#cpe-submit').hover(function () {
 
     $(this).prop('disabled', false);
   } else {
-    $('#submit-error4').html('(Verifié les erreurs dans les remplissage de champ!!)');
+    $('#submit-error4').html('(Veuillez corriger les erreurs dans le remplissage des champs.)');
     $('#submit-error4').show();
     $(this).prop('disabled', true);
   }
