@@ -147,11 +147,11 @@
         </div>
         <span class="input-error" id="question2-error"></span>
 
-        <%= f.label :question3, "QUEL SERA VOTRE PROCESSUS DE RECRUTEMENT ?", class:"ggag" %>
+        <%= f.label :numberEntretien, "QUEL SERA VOTRE PROCESSUS DE RECRUTEMENT ?", class:"ggag" %>
         <div class="co-input hide-right">
-          <select id="question3" name="offre_job[question3]" class="co-select">
-            <option value="<%= @offre.question3 %>" selected hidden>
-              <% case @offre.question3.to_i %><% when 1 %>1 entretien RH<% when 2 %>1 entretien RH + 1 entretien manager<% when 3 %>1 entretien RH + 2 ntretien manager<% end %>
+          <select id="question3" name="offre_job[numberEntretien]" class="co-select">
+            <option value="<%= @offre.numberEntretien %>" selected hidden>
+              <% case @offre.numberEntretien.to_i %><% when 1 %>1 entretien RH<% when 2 %>1 entretien RH + 1 entretien manager<% when 3 %>1 entretien RH + 2 ntretien manager<% end %>
             </option>
             <option value="1">1 entretien RH</option>
             <option value="2">1 entretien RH + 1 entretien manager</option>
