@@ -36,7 +36,7 @@ fr:
       updated_not_active: "Votre mot de passe a été changé avec succès."
     registrations:
       destroyed: "Votre compte a été supprimé avec succès. Nous espérons vous revoir bientôt."
-      signed_up: "Bienvenue, vous êtes connecté."
+      signed_up: "Bienvenue, vous êtes bien connecté(e)."
       signed_up_but_inactive: "Vous êtes bien enregistré. Vous ne pouvez cependant pas vous connecter car votre compte n'est pas encore activé."
       signed_up_but_locked: "Vous êtes bien enregistré. Vous ne pouvez cependant pas vous connecter car votre compte est verrouillé."
       signed_up_but_unconfirmed: "Un message contenant un lien de confirmation a été envoyé à votre adresse email. Ouvrez ce lien pour activer votre compte."
@@ -44,9 +44,9 @@ fr:
       updated: "Votre compte a été modifié avec succès."
       updated_but_not_signed_in: "Votre compte a été modifié avec succès. Merci de vous reconnecter."
     sessions:
-      signed_in: "Connecté."
-      signed_out: "Déconnecté."
-      already_signed_out: "Déconnecté."
+      signed_in: "Vous êtes bien connecté(e)."
+      signed_out: "Vous êtes bien déconnecté(e)."
+      already_signed_out: "Vous êtes déjà déconnecté."
     unlocks:
       send_instructions: "Vous allez recevoir les instructions nécessaires au déverrouillage de votre compte dans quelques instants."
       send_paranoid_instructions: "Si votre compte existe, vous allez bientôt recevoir un email contenant les instructions pour le déverrouiller."

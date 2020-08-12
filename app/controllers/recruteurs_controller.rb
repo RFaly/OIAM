@@ -43,7 +43,7 @@ class RecruteursController < ApplicationController
 			flash[:alert] = errorMessage
 			return render :my_profil_edit
 		else
-			flash[:notice] = "modification sauvegarder"
+			flash[:notice] = "Vos modifications ont bien été sauvegardées."
 			redirect_to client_my_profil_path
 		end
   end
@@ -114,7 +114,7 @@ class RecruteursController < ApplicationController
 	def showNewJob
 		@offre = OffreJob.find_by_id(params[:id])
 		if @offre.client != current_client
-			flash[:alert] = "Offre non disponible"
+			flash[:alert] = "Cette offre n'est plus disponible."
 			redirect_back(fallback_location: root_path)
 		end
 	end
@@ -193,7 +193,7 @@ class RecruteursController < ApplicationController
     @agenda = AgendaClient.new(entretien_date:DateTime.new(year,month,day,hour,min).utc, adresse: name_adresse, recruteur: name_entretien, offre_for_candidate: @oFc)
 
     unless @agenda.save
-    	flash[:alert] = "une erreur c'est produit"
+    	flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
     	redirect_to root_path
     end
 
