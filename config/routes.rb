@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   patch '/recruteur/edit/:id/offre', to: 'recruteurs#updateJob', as: 'updateJob'
   delete '/recruteur/supprimer/offre/:id', to: 'recruteurs#destroyJob', as: 'destroyJob'
 
-  get '/recruteur/mes/:id/offre', to: 'recruteurs#showNewJob', as: 'showNewJob'
+  get '/recruteur/mes-offre-d-emploi/:id/offre', to: 'recruteurs#showNewJob', as: 'showNewJob'
   patch '/recruteur/publier/:id/-offre', to: 'recruteurs#publish', as: 'publish'
 
   get '/recruteur/offre/:id/notre-selection', to: 'recruteurs#our_selection', as: 'our_selection'
