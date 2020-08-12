@@ -1,3 +1,13 @@
+<style type="text/css">
+	.flex-container{
+		display: flex;
+	}
+	.flex-container div	{
+		border: 2px solid red;
+		padding: 2px;
+		margin-left: 3px;
+	}
+</style>
 <div class="row">
 	<div class="col-sm-3">
 		<%= render partial: "recruteurs/left_link_bar" %>
@@ -7,11 +17,27 @@
 		<h2>Mon suivi recrutement</h2>
 		
 		<% @offres.each do |offre| %>
-			<hr>
-			<h2>Poste: <%= offre.intitule_pote %></h2>
+		<div class="container">
+			<h2>Poste: <%= link_to "#{offre.intitule_pote}", recruitment_liste_cadre_path(offre.id)%></h2>
 
-
-			<hr>
+			<<i>actuelement à l'étapes: <%= offre.etapes + 1 %></i>>
+			
+			<div class="flex-container">
+				<div>Publication <span class="badge-success">1</span></div>
+				<div>Sélection <span class="badge-success">2</span></div>
+				<% etape = 2 %>
+				<% offre.numberEntretien.times do |i| %>
+					<% etape += 1 %>
+					<% if i == 0 %>
+						<div>1er entretien <span class="badge-success"><%= etape %></span></div>
+					<% else %>
+						<div><%=i%>e entretien <span class="badge-success"><%= etape %></span></div>
+					<% end %>
+				<% end %>
+				<div>Promesse d'embauche <span class="badge-success"><%= etape + 1 %></span> </div>
+				<div>Recrutement <span class="badge-success"><%= etape + 2 %></span> </div>
+			</div>
+		</div>
 		<% end %>
 
 	</div>

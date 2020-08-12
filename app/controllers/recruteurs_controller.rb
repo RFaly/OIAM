@@ -214,6 +214,18 @@ class RecruteursController < ApplicationController
 		@offres = current_client.offre_jobs
 	end
 
+	def recruitment_liste_cadre
+		@offre = OffreJob.find_by_id(params[:offre_id])
+		@oFcs = @offre.offre_for_candidates.where(accepted_postule:true)
+
+	end
+
+	def recruitment_show_cadre
+		@oFc = OffreForCandidate.find_by_id(params[:oFc_id])
+		@offre = @oFc.offre_job
+		@cadre = @oFc.cadre
+	end
+
 #Mes factures
 	def my_bills
 	end

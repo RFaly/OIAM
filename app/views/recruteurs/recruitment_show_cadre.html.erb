@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="col-sm-3">
+		<%= render partial: "recruteurs/left_link_bar" %>
+	</div>
+
+	<div class="col-sm-9">
+		<center>
+			<%= image_tag(@cadre.cadre_info.image, alt: 'photo de profil', class:"pdp_mandona" )%>
+			<br>
+
+			<h3><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %></h3>
+		</center>
+
+		<% @offre.numberEntretien.times do |i| %>
+
+
+
+		<% end %>
+
+		<strong><%= @oFc.etapes %></strong> <br>
+		nombre d'etape total : 
+		<strong><%= @offre.numberEntretien + 1 %></strong>
+
+	</div>
+</div>
