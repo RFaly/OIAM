@@ -214,6 +214,18 @@ class RecruteursController < ApplicationController
 		@offres = current_client.offre_jobs
 	end
 
+	def recruitment_liste_cadre
+		@offre = OffreJob.find_by_id(params[:offre_id])
+		@oFcs = @offre.offre_for_candidates.where(accepted_postule:true)
+
+	end
+
+	def recruitment_show_cadre
+		@oFc = OffreForCandidate.find_by_id(params[:oFc_id])
+		@offre = @oFc.offre_job
+		@cadre = @oFc.cadre
+	end
+
 #Mes factures
 	def my_bills
 	end
@@ -397,7 +409,7 @@ class RecruteursController < ApplicationController
 	private
 
 	def post_params
-		params.require(:offre_job).permit(:country,:region,:department,:intitule_pote,:descriptif_mission,:rattachement,:remuneration,:remuneration_anne,:contrat_cdi,:type_deplacement,:date_poste,:question1,:question2,:question3,:question4,:question5)
+		params.require(:offre_job).permit(:country,:region,:department,:intitule_pote,:descriptif_mission,:rattachement,:remuneration,:remuneration_anne,:contrat_cdi,:type_deplacement,:date_poste,:question1,:question2,:numberEntretien,:question4,:question5)
 	end
 
 	def remuneration_variable_valid?(remuneration_variable,remuneration_info)

@@ -22,7 +22,7 @@ class OffreJob < ApplicationRecord
 	validates :date_poste, presence: true
 	validates :question1, presence: true
 	validates :question2, presence: true
-	validates :question3, presence: true
+	validates :numberEntretien, presence: true
 	validates :question4, presence: true
 	validates :question5, presence: true
 
@@ -46,6 +46,10 @@ class OffreJob < ApplicationRecord
 				return agenda_c.order('created_at DESC')[0]
 			end
 		end
+	end
+
+	def next_stape
+		self.update(etapes: self.etapes + 1)
 	end
 
 	# private

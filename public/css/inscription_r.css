@@ -192,18 +192,8 @@
   font: 550 18px Raleway, sans-serif;
 }
 
-.phone-number-add {
-  position: relative;
-}
-
-.phone-number-add .before-number {
-  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
-  background-color: #c4c4c4c4;
-  color: rgba(255, 255, 255, 0.8);
-  font: 550 18px Raleway, sans-serif;
-  font-size: 14px;
-  position: absolute;
-  left: 4px;
+#recruteur-phone {
+  background: #f0f2f4 url(/image/tel.png) no-repeat left 0.2rem center/70px 33px;
 }
 
 .code-naf-list {

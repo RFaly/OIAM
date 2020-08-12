@@ -43,8 +43,7 @@
                 <%= link_to show_search_candidate_path(cadre.id, offre_id: @offre.id), method: :get do %> <%= image_tag(cadre.cadre_info.image, alt: 'photo profil cadre', class:"js-image-#{cadre.id}")%> <% end %>
               </div>
               <div class="icone">
-                <% oFc = @offre.is_in_this_job(cadre) %>
-                <% if oFc.nil? || oFc.accepted_postule == false %>
+                <% oFc = @offre.is_in_this_job(cadre) %> <% if oFc.nil? || oFc.accepted_postule == false %>
                 <img class="add-js-toFavorite" data-info="<%= cadre.id %>" src="/image/Vector-22.png" alt="logo oiam non favorie" />
                 <% else %>
                 <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
@@ -69,4 +68,4 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="/js/add_favorite_cadre.js"></script>
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/add_favorite_cadre.js"></script>

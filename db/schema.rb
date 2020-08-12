@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_120544) do
+ActiveRecord::Schema.define(version: 2020_08_12_091756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_08_07_120544) do
     t.datetime "updated_at", null: false
     t.string "disponibilite"
     t.string "mobilite"
+    t.boolean "is_validate", default: false
     t.index ["cadre_id"], name: "index_cadre_infos_on_cadre_id"
   end
 
@@ -208,6 +209,7 @@ ActiveRecord::Schema.define(version: 2020_08_07_120544) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "accepted_postule", default: false
+    t.integer "etapes", default: 0
     t.index ["cadre_id"], name: "index_offre_for_candidates_on_cadre_id"
     t.index ["offre_job_id"], name: "index_offre_for_candidates_on_offre_job_id"
   end
@@ -227,13 +229,14 @@ ActiveRecord::Schema.define(version: 2020_08_07_120544) do
     t.string "date_poste"
     t.text "question1"
     t.text "question2"
-    t.text "question3"
     t.text "question4"
     t.text "question5"
     t.string "image"
     t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "etapes", default: 0
+    t.integer "numberEntretien"
     t.index ["client_id"], name: "index_offre_jobs_on_client_id"
   end
 
