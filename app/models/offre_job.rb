@@ -48,6 +48,10 @@ class OffreJob < ApplicationRecord
 		end
 	end
 
+	def next_stape
+		self.update(etapes: self.etapes + 1)
+	end
+
 	# private
 	# before_create :set_default_id_secure
  #  def set_default_id_secure

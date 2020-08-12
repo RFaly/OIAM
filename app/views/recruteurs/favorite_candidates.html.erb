@@ -18,22 +18,45 @@
 
 		<h1>MES CANDIDATS FAVORIS</h1>
 		
-		<% @offres.each do |offre| %>
-			<hr>
-			<h2>Poste: <%= offre.intitule_pote %></h2>
+		<% if @offres.empty? %>
 
-			<div class="my_five_candidates">
-				<% offre.offre_for_candidates.each do |oFc| %>
-					<div class="cadre-items">
-						 <%= link_to show_search_candidate_path(oFc.cadre.id, offre_id: offre.id), method: :get do %> <%= image_tag(oFc.cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px", width:"100px" )%>
-						 <% end %>
-						 <br>
-						 <h3><%= oFc.cadre.cadre_info.first_name %> <%= oFc.cadre.cadre_info.last_name %></h3>
+			<div class="co-any-job">
+	        	<p>Vous n'avez pas publié d'offre d'emploi pour le moment.</p>
+	        	<%= link_to "PUBLIER UNE OFFRE", newJob_path %>
+	      	</div>
+
+		<% else %>
+
+			<% @offres.each do |offre| %>
+				<hr>
+				<h2>Poste: <%= offre.intitule_pote %></h2>
+
+				<% if offre.offre_for_candidates.empty? %>
+
+					<h3>Aucun candidat selectionner pour cette offre</h3>
+					<div class="show-pb2-btn">
+			          <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(offre.id), class:'btn btn-primary' %>
+			          <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(offre.id), class:'btn btn-primary' %>
+		        	</div>
+
+				<% else %>
+
+					<div class="my_five_candidates">
+						<% offre.offre_for_candidates.each do |oFc| %>
+							<div class="cadre-items">
+								 <%= link_to show_search_candidate_path(oFc.cadre.id, offre_id: offre.id), method: :get do %> <%= image_tag(oFc.cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px", width:"100px" )%>
+								 <% end %>
+								 <br>
+								 <h3><%= oFc.cadre.cadre_info.first_name %> <%= oFc.cadre.cadre_info.last_name %></h3>
+							</div>
+						<% end %>
 					</div>
+					
 				<% end %>
-			</div>
 
-			<hr>
+				<hr>
+			<% end %>
+
 		<% end %>
 
 	</div>
