@@ -73,11 +73,11 @@
   }
   .ssc-rest {
     z-index: 1;
-    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     .ssc-rest-btn {
+      position: relative;
       padding: 20px 0;
       text-align: center;
       .ssc-message {
@@ -108,15 +108,95 @@
       }
     }
   }
+  // planification entretien
   .ssc-planification {
+    margin: 0 auto;
     position: relative;
-    z-index: 2000;
-    width: 50%;
     margin-top: -90px;
     margin-bottom: 90px;
-  }
-  .date {
-    opacity: 0;
+    width: 80%;
+    padding: 0 10%;
+    z-index: 200;
+    // date validation
+    .date {
+      opacity: 0;
+      input {
+        top: -3px;
+        border-radius: 0;
+        font-size: 0.002px;
+        position: absolute;
+      }
+    }
+    // hour validation
+    .js-timeContainer {
+      padding: 30px;
+      padding-bottom: 15px;
+      background: $secondary_text_color_button;
+      color: white;
+      font: $ffbtn;
+      h4 {
+        text-align: center;
+      }
+      .fselect {
+        width: 95%;
+        margin: 0 auto;
+        #reditDate {
+          cursor: pointer;
+        }
+        .firstSelection {
+          display: flex;
+          justify-content: space-between;
+          margin: 20px 0;
+        }
+        .js-hoursTime {
+          padding: 5px;
+          background: transparent;
+          border: 2px solid #fff;
+          width: 86px;
+          text-align: center;
+          cursor: pointer;
+          &:hover,
+          &:active {
+            background: white;
+            color: $secondary_text_color_button;
+          }
+        }
+      }
+    }
+    .with-input {
+      align-items: center;
+      display: flex;
+      .with-input-item {
+        border-radius: 0;
+        outline: none;
+        box-shadow: none;
+        padding: 2px;
+        padding-left: 2px;
+        padding-left: 5px;
+        border: none;
+        background: $secondary_element_color;
+        &:focus {
+          outline: 1px solid white;
+          box-shadow: $box-shadow;
+        }
+      }
+    }
+    .planQ-btn {
+      text-align: right;
+      input {
+        font: $ffbtn;
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 0;
+        color: white;
+        padding: 10px 30px;
+        &:hover,
+        &:active {
+          background: white;
+          color: $secondary_text_color_button;
+        }
+      }
+    }
   }
 }
 #ui-datepicker-div {
@@ -144,5 +224,53 @@
   &-prev {
     top: 40px;
     right: 20%;
+  }
+}
+#conditioncheck {
+  font: $ffsentence;
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkmark {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border: 2px solid white;
+  }
+  &:hover input ~ .checkmark {
+    background-color: $secondary_text_color_button;
+  }
+  .checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+  .checkmark:after {
+    left: 6px;
+    top: -7px;
+    width: 10px;
+    height: 20px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
   }
 }

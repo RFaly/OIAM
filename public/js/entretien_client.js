@@ -1,9 +1,13 @@
 $('#dateEntretien').click(function () {
   if ($('.hiddenDate').is(':visible')) {
     $('.hiddenDate').hide();
+    $('.ssc-planification').height(0);
+    $('.ssc-planification').css('margin-bottom', 90);
   } else {
     $('.hiddenDate').show();
     $('#datepicker').focus();
+    $('.ssc-planification').height(535);
+    $('.ssc-planification').css('margin-bottom', 0);
   }
 });
 
@@ -49,13 +53,12 @@ $('.js-hoursTime').click(function () {
   $('#timeShowOk').html($(this).data().time);
   $('#valid-submit').prop('disabled', false);
 
-  $('.js-hoursTime').css('background-color', '#e3b465');
+  $('.js-hoursTime').css('background-color', 'transparent');
   $('.js-hoursTime').css('border', '2px solid #fff');
   $('.js-hoursTime').css('color', '#fff');
 
   $(this).css('background-color', '#fff');
-  $(this).css('border', '2px solid #e3b465');
-  $(this).css('color', '#e3b465');
+  $(this).css('color', '#e3d7bf');
 });
 
 $('#js-adresse_name_input').on('input', function () {
@@ -64,6 +67,7 @@ $('#js-adresse_name_input').on('input', function () {
 
 $('#send-data-form').bind('ajax:complete', function () {
   $('#send-data-form-ok-success').show(800);
+  $('.ssc-planification').height(200);
   $('#dateEntretien').replaceWith("<div class='btn btn-primary'>INVITATION ENTRETIEN ENVOYER</div>");
 });
 
