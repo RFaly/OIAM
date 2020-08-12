@@ -35,7 +35,7 @@
     position: absolute;
     &:hover,
     &:active {
-      background: $secondary_element_color;
+      box-shadow: 1px 1px 5px 1px $secondary_element_color;
     }
   }
   .ui-datepicker-next {
@@ -50,7 +50,7 @@
     background: url(/image/right.png) no-repeat center/ 15px 20px;
     &:hover,
     &:active {
-      background: $secondary_element_color;
+      box-shadow: 1px 1px 5px 1px $secondary_element_color;
     }
   }
 }
