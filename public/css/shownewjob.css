@@ -87,6 +87,8 @@
 .show-job-box .show-publication .sjb-content .show-einfos .local img {
   margin-right: 10px;
   margin-left: -25px;
+  width: 18px;
+  height: 22px;
 }
 
 .show-job-box .show-publication .sjb-content .show-einfos .local p {
