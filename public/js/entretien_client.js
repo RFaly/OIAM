@@ -67,7 +67,7 @@ $('#js-adresse_name_input').on('input', function () {
 
 $('#send-data-form').bind('ajax:complete', function () {
   $('#send-data-form-ok-success').show(800);
-  $('.ssc-planification').height(200);
+  $('.ssc-planification').height(535);
   $('#dateEntretien').replaceWith("<div class='ssc-btn ssc-pe ssc-invite'>INVITATION D'ENTRETIEN ENVOYER</div>");
 });
 
