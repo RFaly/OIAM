@@ -209,25 +209,27 @@ class CandidatesController < ApplicationController
 
 	def recrutmentMonitoring
     validate_info_cadre
-
-    @oFcs = OffreForCandidate.where(cadre: current_cadre,accepted_postule: false) + OffreForCandidate.where(cadre: current_cadre,accepted_postule: true).joins(:agenda_clients)
-
-    # status: nil
-    # is_recrute: false
-    # offre_job_id: nil
-    # cadre_id: nil
-    # accepted_postule: false)
-
+    @oFcs = OffreForCandidate.where(cadre: current_cadre, accepted_postule: nil).or(OffreForCandidate.where(cadre: current_cadre, accepted_postule: false)) + 
+    OffreForCandidate.where(cadre: current_cadre,accepted_postule: true).joins(:agenda_clients)
 	end
 
   def showRecrutmentMonitoring
-    @offreJob = OffreJob.find_by_id(params[:offre_id])
-    @oFc = OffreForCandidate.find_by(cadre:current_cadre,offre_job:@offreJob)
-    @agendaClient = @oFc.agenda_clients
+    @oFc = OffreForCandidate.find_by_id(params[:ofc_id])
     
-    puts "~~~"*43
-    puts params.inspect
-    puts "~~~"*43
+    if @oFc.nil?
+      redirect_back(fallback_location: root_path)
+      return
+    end
+
+    unless @oFc.cadre == current_cadre
+      redirect_back(fallback_location: root_path)
+      return
+    end
+    
+    @offreJob = @oFc.offre_job
+
+    @agendaClient = @oFc.agenda_clients
+
   end
 
   def notifications

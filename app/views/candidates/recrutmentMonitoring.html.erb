@@ -20,31 +20,36 @@
 	</div>
 
 	<div class="col-sm-9">
-		
+		<br><br><br>
+
 		<% if @oFcs.empty? %>
-			<i>Vous n'avez aucun recrutement en cours pour l'instants.</i>
+
+			<center>
+				<i>Vous n'avez aucun recrutement en cours pour l'instants.</i>
+				<br>
+				<%= link_to "TROUVER UNE OFFRES", searchJob_path, class:'btn btn-success' %>
+			</center>
+
 		<% else %>
+
 			<div class="container-flex">
+
 			<% @oFcs.each do |oFc| %>
 				<% offre_job = oFc.offre_job %>
 				<div class="offre-items">
 					<hr>
 					<div>
 						<center>
-
 							<%= image_tag(offre_job.image, alt: 'photo de job', class:'photo_ako')%>
-
 							<br>
-
 							<h2><%= offre_job.client.entreprise.name %></h2>
-
 							<h3>poste: <%= offre_job.intitule_pote %></h3>
-
 						</center>
 					</div>
 
 					<% if oFc.accepted_postule == true %>
-						<%= link_to show_recrutment_monitoring_path(oFc.offre_job.id), class:'btn btn-success' do %>
+
+						<%= link_to show_recrutment_monitoring_path(oFc.id), class:'btn btn-success' do %>
 
 							Vous êtes à l'étape n° : <%= oFc.etapes %> <br>
 							Nombre d'étape totale : <%= oFc.offre_job.numberEntretien + 1 %>
@@ -52,23 +57,33 @@
 						<% end %>
 
 					<% elsif oFc.accepted_postule == false  %>
-						<center>
-							Demande d'entretien envoyer <br>
-							<span class="btn-info">Le recruteur a refusé votre candidature</span>
-						</center>
-					<% else %>
-						<center>
-							Demande d'entretien envoyer <br>
-							<span class="btn-info"> En attente</span>
-						</center>
-					<% end %>
 
+						<%= link_to showSearchJob_path(oFc.offre_job.id), class:'btn btn-success' do %>
+							<center>
+								Demande d'entretien envoyer <br>
+								<span class="btn-info">Le recruteur a refusé votre candidature</span>
+							</center>
+						<% end %>
+
+					<% else %>
+
+						<%= link_to showSearchJob_path(oFc.offre_job.id), class:'btn btn-success' do %>
+							<center>
+								Demande d'entretien envoyer <br>
+								<span class="btn-info"> En attente de réponse</span>
+							</center>
+						<% end %>
+
+					<% end %>
 
 					<hr>
 				</div>
-			<% end %>
-			</div>
-		<% end %>
+
+			<% end %> <!-- fin each -->
+
+			</div> <!-- fin container-flex -->
+
+		<% end %> <!-- fin if else principal -->
 
 	</div>
 </div>

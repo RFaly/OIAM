@@ -203,12 +203,12 @@ ActiveRecord::Schema.define(version: 2020_08_13_105448) do
 
   create_table "offre_for_candidates", force: :cascade do |t|
     t.string "status"
-    t.boolean "is_recrute"
+    t.boolean "is_recrute", default: false
     t.bigint "offre_job_id"
     t.bigint "cadre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "accepted_postule", default: false
+    t.boolean "accepted_postule"
     t.integer "etapes", default: 0
     t.index ["cadre_id"], name: "index_offre_for_candidates_on_cadre_id"
     t.index ["offre_job_id"], name: "index_offre_for_candidates_on_offre_job_id"

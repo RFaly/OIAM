@@ -89,7 +89,7 @@ Rails.application.routes.draw do
   get '/cadre/mes-offres-reçues', to: 'candidates#received_job', as: 'received_job'
   post '/cadre/post-repons-received-job', to:'candidates#post_repons_received_job', as: 'post_repons_received_job'
   get '/cadre/suivi-recrutement', to: 'candidates#recrutmentMonitoring', as: 'recrutment_monitoring'
-  get '/cadre/suivi-recrutement/:offre_id', to: 'candidates#showRecrutmentMonitoring', as: 'show_recrutment_monitoring'
+  get '/cadre/suivi-recrutement/:ofc_id/mon-progression', to: 'candidates#showRecrutmentMonitoring', as: 'show_recrutment_monitoring'
   
   get '/cadre/mes-notifications', to: 'candidates#notifications', as: 'cadres_notifications'
   # les 3 test a faire
