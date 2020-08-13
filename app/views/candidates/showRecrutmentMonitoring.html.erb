@@ -6,9 +6,109 @@
 	<div class="col-sm-9">
 		<h1>Show progression candidate</h1>
 		
+<%= @offreJob %>
+<%= @oFc %>
+<%= @agendaClient %>
 
 	</div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+<style type="text/css">
+	.pdp_mandona{
+		width: 250px;
+		height: 250px;
+		border-radius: 50%;
+	}
+	.container-flex{
+		display: flex;
+		justify-content: center;
+	}
+	.list-etapes{
+		border: 2px solid red;
+		padding: 5px;
+		margin-left: 10px;
+	}
+	.badge-success{
+		font-size: 55px;
+	}
+</style>
+
+<div class="row">
+	<div class="col-sm-3">
+		<%= render partial: "recruteurs/left_link_bar" %>
+	</div>
+
+	<div class="col-sm-9">
+		<center>
+			<%= link_to show_search_candidate_path(@cadre.id, offre_id: @offre.id) do %>
+				<%= image_tag(@cadre.cadre_info.image, alt: 'photo de profil', class:"pdp_mandona" )%>
+				<br>
+				<h3><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %></h3>
+			<% end %>
+		</center>
+
+
+		<div class="container-flex">
+			<% etape = 0 %>
+			<% @offre.numberEntretien.times do |i| %>
+				<% etape += 1 %>
+				<% if i == 0 %>
+					<div class="list-etapes">1er entretien <span class="badge-success"><%= etape %></span></div>
+				<% else %>
+					<div class="list-etapes"><%= i+1 %>e entretien <span class="badge-success"><%= etape %></span></div>
+				<% end %>
+			<% end %>
+			<div class="list-etapes">
+				Promesse d'embauche <span class="badge-success"><%= etape + 1 %></span>
+			</div>
+		</div>
+
+<br><br> <br>
+
+		<div class="btn-info">
+			ce candidat est à l'etape : 
+			<strong><%= @oFc.etapes %></strong> <br>
+			nombre d'etape total : 
+			<strong><%= @offre.numberEntretien + 1 %></strong>
+
+		</div>
+
+	</div>
+</div>
+
+
+
 
 
 

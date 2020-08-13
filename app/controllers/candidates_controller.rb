@@ -209,12 +209,15 @@ class CandidatesController < ApplicationController
 
 	def recrutmentMonitoring
     validate_info_cadre
-    @oFcs = OffreForCandidate.where(cadre: current_cadre).joins(:agenda_clients).where(agenda_clients: {repons_client:true, repons_cadre:true })
-  # status: nil
-  # is_recrute: false
-  # offre_job_id: nil
-  # cadre_id: nil
-  # accepted_postule: false)
+
+    @oFcs = OffreForCandidate.where(cadre: current_cadre,accepted_postule: false) + OffreForCandidate.where(cadre: current_cadre,accepted_postule: true).joins(:agenda_clients)
+
+    # status: nil
+    # is_recrute: false
+    # offre_job_id: nil
+    # cadre_id: nil
+    # accepted_postule: false)
+
 	end
 
   def showRecrutmentMonitoring

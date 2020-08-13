@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_12_091756) do
+ActiveRecord::Schema.define(version: 2020_08_13_105448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,13 +159,13 @@ ActiveRecord::Schema.define(version: 2020_08_12_091756) do
     t.index ["client_id"], name: "index_entreprises_on_client_id"
   end
 
-  create_table "favotire_jobs", force: :cascade do |t|
+  create_table "favorite_jobs", force: :cascade do |t|
     t.bigint "offre_job_id"
     t.bigint "cadre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cadre_id"], name: "index_favotire_jobs_on_cadre_id"
-    t.index ["offre_job_id"], name: "index_favotire_jobs_on_offre_job_id"
+    t.index ["cadre_id"], name: "index_favorite_jobs_on_cadre_id"
+    t.index ["offre_job_id"], name: "index_favorite_jobs_on_offre_job_id"
   end
 
   create_table "message_admin_cadres", force: :cascade do |t|
@@ -203,7 +203,7 @@ ActiveRecord::Schema.define(version: 2020_08_12_091756) do
 
   create_table "offre_for_candidates", force: :cascade do |t|
     t.string "status"
-    t.boolean "is_recrute", default: false
+    t.boolean "is_recrute"
     t.bigint "offre_job_id"
     t.bigint "cadre_id"
     t.datetime "created_at", null: false
