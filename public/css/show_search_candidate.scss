@@ -119,11 +119,11 @@
     z-index: 200;
     // date validation
     .date {
-      opacity: 1;
+      opacity: 0;
       input {
         top: -3px;
         border-radius: 0;
-        // font-size: 0.002px;
+        font-size: 0.002px;
         position: absolute;
       }
     }

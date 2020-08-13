@@ -224,12 +224,13 @@
 }
 
 .ssc-box .ssc-planification .date {
-  opacity: 1;
+  opacity: 0;
 }
 
 .ssc-box .ssc-planification .date input {
   top: -3px;
   border-radius: 0;
+  font-size: 0.002px;
   position: absolute;
 }
 
