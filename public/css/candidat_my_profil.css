@@ -63,6 +63,9 @@ body{
   line-height: 1.5;
 }
 
+#confirmed-profil{
+  display:none;
+}
 
 .content{
   margin: auto;
@@ -130,6 +133,7 @@ body{
   text-decoration: none;
   color: #D6B36A;
   margin-bottom: 30px;
+  cursor: pointer;
 }
 
 
@@ -179,6 +183,7 @@ body{
   }
 
   .block-button{
+    align-items: flex-end;
     width: 100%;
   }
 

@@ -1,30 +1,31 @@
-<div class="row">
-	<div class="col-sm-3">
+<link rel="stylesheet" type="text/css" href="/css/favorite_job_cadre.css">
+<div class="all-content">
+	<div class="content">
+	<div class="left_link">
 		<%= render partial: "candidates/left_link_bar" %>
 	</div>
 
-	<div class="col-sm-9">
-		<div id="list-resultats">
+	<div class="main">
+		<h2 class="favorite-offre-title">Mes offres favorites</h2>
+		<div id="list-resultats" class="post-info">
 		<% unless @offres.empty? %>
 			<% @offres.each do |offre| %>
-				<div class="row">
-					<div class="col-sm-3">
+				<div class="post_info_content">
+					<div class="logo">
 						<% unless offre.image.nil? %>
 							<%= image_tag(offre.image, alt: 'logo entreprise', width:"250px")%>
 						<% end %>		
 					</div>
-					<div class="col-sm-7">
-						<h2><%= offre.intitule_pote %></h2>
-						<p><%= offre.contrat_cdi ? "CDI" : "CDD" %> <br>
-						<%= offre.client.entreprise.postal_code %>, <%= offre.client.entreprise.city %><br>
-						<%= offre.descriptif_mission %><br>
-						</p>
+					<div class="job_info">
+						<h2 class="job_info_title"><%= offre.intitule_pote %></h2>
+						<p><img src="/image/map.png" alt="logo oiam favorie" width="16px" height="22px" class="indic"><%= offre.client.entreprise.postal_code %>, <%= offre.client.entreprise.city %></p>
+						<p><img src="/image/description.png" alt="logo oiam favorie" width="16px" height="22px" class="indic"><%= offre.contrat_cdi ? "CDI" : "CDD" %> <br><img src="/image/gg_time.png" alt="logo oiam favorie" width="25px" height="25px" class="indic"><span></span><%= offre.date_poste%></span> </p>
+						<p class="description"><%= offre.descriptif_mission %></p>
 					</div>
-					<div class="col-sm-2">
-						<%= link_to "Voir L'offre", showSearchJob_path(offre.id) %>
+					<div class="action">
+						<%= link_to "Voir L'offre", showSearchJob_path(offre.id),class:"btn-voir" %>
 					</div>
 				</div>
-				<hr>
 			<% end %>
 		<% else %>
 			<p class="alert success" >
@@ -34,4 +35,28 @@
 		<% end %>
 		</div>
 	</div>
+	</div>
 </div>
+
+
+<script>
+$(function () { 
+    var maxL = 50;  
+    $('.description').each(function (i, div) {
+        
+        var text = $(div).text();
+        if(text.length > maxL) {
+            
+            var begin = text.substr(0, maxL),
+                end = text.substr(maxL);
+
+            $(this).html(begin)
+                .append($('<a class="readmore"/>').attr('href', '').html('...'))
+                .append($('<div class="hidden" />').html(end));                           
+        }
+    });           
+    $(document).on('click', '.readmore', function () {
+        $(this).next('.hidden').slideDown(750);
+    })          
+})
+</script>

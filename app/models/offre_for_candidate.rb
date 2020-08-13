@@ -5,6 +5,11 @@ class OffreForCandidate < ApplicationRecord
 # rails g model OffreForCandidates
 # status:string
 # is_recrute:boolean
-# status: refuser-accepter(next etap)-en_attente
+# status: refusé-accepté(next etap)-en_attente
 # accepted_postule: recruteur à accepter sa demande de postulation
+
+	def next_stape
+		self.update(etapes: self.etapes + 1)
+	end
+
 end
