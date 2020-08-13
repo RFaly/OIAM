@@ -96,6 +96,10 @@
           color: white;
         }
       }
+      .ssc-invite {
+        color: white;
+        background: $main_theme_color;
+      }
     }
     .ssc-oiam {
       background: $secondary_element_color;
@@ -190,6 +194,41 @@
         border-radius: 0;
         color: white;
         padding: 10px 30px;
+        &:hover,
+        &:active {
+          background: white;
+          color: $secondary_text_color_button;
+        }
+      }
+    }
+    .ssc-send {
+      color: white;
+      background: $secondary_text_color_button;
+      font: $ffsentence;
+      text-align: center;
+      padding: 30px;
+      margin-top: 11px;
+      img {
+        width: 40px;
+        height: 48px;
+        margin: 10px 0;
+      }
+      .datetime {
+        background: white;
+        width: 90%;
+        margin: 30px auto;
+        color: $secondary_text_color_button;
+        font: $ffbtn;
+        padding: 20px;
+      }
+      .ssc-send-btn {
+        cursor: pointer;
+        border: 2px solid white;
+        padding: 10px 30px;
+        font: $ffbtn;
+        width: 150px;
+        margin-top: 30px;
+        margin-left: auto;
         &:hover,
         &:active {
           background: white;

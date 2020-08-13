@@ -202,6 +202,11 @@
   color: white;
 }
 
+.ssc-box .ssc-rest .ssc-rest-btn .ssc-invite {
+  color: white;
+  background: #d6b36a;
+}
+
 .ssc-box .ssc-rest .ssc-oiam {
   background: #f0f2f4;
   padding: 20px;
@@ -310,6 +315,45 @@
 }
 
 .ssc-box .ssc-planification .planQ-btn input:hover, .ssc-box .ssc-planification .planQ-btn input:active {
+  background: white;
+  color: #e3d7bf;
+}
+
+.ssc-box .ssc-planification .ssc-send {
+  color: white;
+  background: #e3d7bf;
+  font: 15px Questrial, sans-serif;
+  text-align: center;
+  padding: 30px;
+  margin-top: 11px;
+}
+
+.ssc-box .ssc-planification .ssc-send img {
+  width: 40px;
+  height: 48px;
+  margin: 10px 0;
+}
+
+.ssc-box .ssc-planification .ssc-send .datetime {
+  background: white;
+  width: 90%;
+  margin: 30px auto;
+  color: #e3d7bf;
+  font: 550 18px Raleway, sans-serif;
+  padding: 20px;
+}
+
+.ssc-box .ssc-planification .ssc-send .ssc-send-btn {
+  cursor: pointer;
+  border: 2px solid white;
+  padding: 10px 30px;
+  font: 550 18px Raleway, sans-serif;
+  width: 150px;
+  margin-top: 30px;
+  margin-left: auto;
+}
+
+.ssc-box .ssc-planification .ssc-send .ssc-send-btn:hover, .ssc-box .ssc-planification .ssc-send .ssc-send-btn:active {
   background: white;
   color: #e3d7bf;
 }
