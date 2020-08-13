@@ -1,0 +1,87 @@
+@import 'config';
+@import 'pagemenu';
+
+.fc-box {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  .title {
+    font-size: 20px;
+  }
+  h3 {
+    font: $ffsentence;
+  }
+  h2 {
+    font: $ffbtn;
+  }
+  .co-any-job {
+    border: 2px solid $main_theme_color;
+    width: 50%;
+    margin: 50px auto;
+    text-align: center;
+    padding: 50px;
+    p {
+      margin: 30px 0;
+    }
+    a {
+      color: $main_theme_color;
+      border: 2px solid $main_theme_color;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 10px 30px;
+      font: $ffbtn;
+      &:hover,
+      &:active {
+        background: $main_theme_color;
+        color: white;
+      }
+    }
+  }
+  .fc-body {
+    h2 {
+      text-align: left;
+      a {
+        color: black;
+        font: $ffbtn;
+        text-decoration: none;
+        font-size: 20px;
+        &:hover,
+        &:active {
+          color: $main_theme_color;
+        }
+      }
+    }
+    .my_five_candidates {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .cadre-items {
+      border: 3px solid #d6b36a;
+      margin: 10px;
+    }
+    .name {
+      text-transform: capitalize;
+    }
+    .fc-body-empty {
+      padding: 20px;
+      h3 {
+        margin-bottom: 20px;
+      }
+      .show-pb2-btn {
+        a {
+          color: $main_theme_color;
+          border: 2px solid $main_theme_color;
+          text-decoration: none;
+          text-transform: uppercase;
+          padding: 10px 30px;
+          font: $ffbtn;
+          &:hover,
+          &:active {
+            background: $main_theme_color;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
