@@ -68,7 +68,7 @@ $('#js-adresse_name_input').on('input', function () {
 $('#send-data-form').bind('ajax:complete', function () {
   $('#send-data-form-ok-success').show(800);
   $('.ssc-planification').height(200);
-  $('#dateEntretien').replaceWith("<div class='btn btn-primary'>INVITATION ENTRETIEN ENVOYER</div>");
+  $('#dateEntretien').replaceWith("<div class='ssc-btn ssc-pe ssc-invite'>INVITATION D'ENTRETIEN ENVOYER</div>");
 });
 
 $('#js-valid-first').click(function () {
@@ -82,4 +82,10 @@ $('#client_name_input').on('input', function () {
 // event for send data in app
 $('#send-data-form').bind('ajax:beforeSend', function () {
   $('#js-form-show').hide(200);
+});
+
+// close div send entretien
+$('.ssc-send-btn').click(function () {
+  $('#send-data-form-ok-success').fadeOut(500);
+  $('.ssc-planification').fadeOut(500);
 });

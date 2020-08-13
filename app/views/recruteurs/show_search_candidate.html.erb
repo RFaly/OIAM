@@ -72,8 +72,8 @@
             PLANIFIER UN ENTRETIEN
           </div>
           <% else %>
-          <div class="">
-            INVITATION ENTRETIEN ENVOYER
+          <div class="ssc-btn ssc-pe ssc-invite">
+            INVITATION D'ENTRETIEN ENVOYER
           </div>
           <% end %>
         </div>
@@ -158,19 +158,26 @@
           <% end %>
         </div>
 
-        <div id="send-data-form-ok-success" style="display: none;">
-          <h2>Demande d'entretien envoyée</h2>
+        <div id="send-data-form-ok-success" class="ssc-send" style="display: none;">
+          <h4>Demande d'entretien envoyée</h4>
+          <img src="/image/check.png" alt="OK" />
           <div>
-            <div id="dateShowOk"></div>
-            <div id="timeShowOk"></div>
+            <div class="datetime">
+              <div id="dateShowOk"></div>
+              <div id="timeShowOk"></div>
+            </div>
             <div>
               <span id="adresseShowOk">
-                Adresse : <%= current_client.entreprise.adresse %>
+                <%= current_client.entreprise.adresse %> <br />
+                <%= current_client.entreprise.city %>
               </span>
               <br />
               <span id="nameShowOk">
-                Recruteur : <%= current_client.first_name %> <%= current_client.last_name %>
+                <%= current_client.fonction %> : <%= current_client.first_name %> <%= current_client.last_name %>
               </span>
+            </div>
+            <div class="ssc-send-btn">
+              VALIDER
             </div>
           </div>
         </div>
