@@ -63,3 +63,11 @@ $(".js-repons-send-post").bind('ajax:complete', function () {
 	let items_id = $(this).data().items;
 	$("#agenda-"+items_id+"-yes").replaceWith("<div class='btn btn-primary'>VOTRE RÉPONSE EST ENVOYER AVEC SUCCESS</div>")
 });
+
+$('.alternatives').hide();
+
+$('.alternative').click(function(){
+	if ($('.alternatives').hide()) {
+		$('.alternatives').show();
+	}	
+})
