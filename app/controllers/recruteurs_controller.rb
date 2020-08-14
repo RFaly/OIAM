@@ -209,6 +209,12 @@ class RecruteursController < ApplicationController
 		@offres = current_client.offre_jobs
 	end
 
+	def show_favorite_cadres
+		@offre = OffreJob.find_by_id(params[:id])
+		@oFcs = @offre.my_top_five_candidates
+		#repons_cadre in offre_job
+	end
+
 #Mon suivi recrutement
 	def my_recruitment_follow
 		@offres = current_client.offre_jobs
@@ -217,7 +223,7 @@ class RecruteursController < ApplicationController
 	def recruitment_liste_cadre
 		@offre = OffreJob.find_by_id(params[:offre_id])
 		@oFcs = @offre.offre_for_candidates.where(accepted_postule:true)
-
+		
 	end
 
 	def recruitment_show_cadre

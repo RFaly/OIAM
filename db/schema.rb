@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_13_105448) do
+ActiveRecord::Schema.define(version: 2020_08_14_053332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -237,6 +237,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_105448) do
     t.datetime "updated_at", null: false
     t.integer "etapes", default: 0
     t.integer "numberEntretien"
+    t.boolean "repons_cadre"
     t.index ["client_id"], name: "index_offre_jobs_on_client_id"
   end
 

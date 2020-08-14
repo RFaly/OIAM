@@ -18,20 +18,19 @@
       <% else %> <% @offres.each do |offre| %>
       <hr />
       <div class="fc-body">
-        <h2>Poste : <%=link_to offre.intitule_pote, root_path %></h2>
+        <h2>Poste : <%= link_to offre.intitule_pote, show_favorite_cadres_path(offre.id) %></h2>
 
-        <% if offre.offre_for_candidates.empty? %>
-        <div class="fc-body-empty">
-          <h3>Aucun candidat selectionner pour cette offre</h3>
-          <div class="show-pb2-btn">
-            <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(offre.id) %> <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(offre.id) %>
+        <% if offre.my_top_five_candidates.empty? %>
+          <div class="fc-body-empty">
+            <h3>Aucun candidat selectionner pour cette offre</h3>
+            <div class="show-pb2-btn">
+              <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(offre.id) %> <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(offre.id) %>
+            </div>
           </div>
-        </div>
-
         <% else %>
 
         <div class="my_five_candidates">
-          <% offre.offre_for_candidates.each do |oFc| %>
+          <% offre.my_top_five_candidates.each do |oFc| %>
           <div class="cadre-items">
             <%= link_to show_search_candidate_path(oFc.cadre.id, offre_id: offre.id), method: :get do %> <%= image_tag(oFc.cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px", width:"100px" )%> <% end %>
             <br />

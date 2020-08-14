@@ -1,0 +1,65 @@
+<style type="text/css">
+	.container-flex{
+		display: flex;
+	}
+	.list-candidat{
+		border: 2px solid red;
+	}
+	.photo-cadre{
+		width: 250px;
+	}
+</style>
+
+
+<div class="row">
+	<div class="col-sm-3">
+		<%= render partial: "recruteurs/left_link_bar" %>
+	</div>
+
+	<div class="col-sm-9">
+		<center>
+			<h1><%= @offre.intitule_pote %></h1>
+			<h2>Liste de mes candidats mandonas</h2>
+		</center>
+
+		<% if @oFcs.count == 0 %>
+
+		<i>Aucun candidat selectionner pour cette offre: </i> <br>
+			<%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id) %> <br>
+			<%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %>
+
+		<% else %>
+
+			<div class="container-flex">
+				<% @oFcs.each do |ofc| %>
+
+					<div class="list-candidat">
+						
+						<%= link_to show_search_candidate_path(ofc.cadre.id, offre_id: @offre.id), method: :get do %>
+							<%= image_tag(ofc.cadre.cadre_info.image, alt: 'photo profil cadre', class:'photo-cadre')%>
+						<% end %>
+
+						<h2><%= ofc.cadre.cadre_info.first_name %> <%= ofc.cadre.cadre_info.last_name[0].upcase %></h2>
+
+						<p class="compatibilite">Compatibilité : <span>60%</span></p>
+						<p class="score">Score OIAM : <span>1700</span></p>
+						<p class="poste">
+							Type de poste : Manager Marketing
+						</p>
+
+					</div>
+
+				<% end %>
+			</div>
+
+			<br><br>
+
+			<% if @oFcs.count < 5 %>
+				<i> <%= link_to "Vous pouvez encore selection #{5 - @oFcs.count} autre candidats", search_candidate_path(@offre.id), class:"btn btn-primary" %> </i>
+			<% end %>
+
+		<% end %>
+
+	</div>
+
+</div>
