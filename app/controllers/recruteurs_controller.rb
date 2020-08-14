@@ -24,7 +24,7 @@ class RecruteursController < ApplicationController
 		@entreprise.update(name: params[:entreprise_name],adresse: params[:entreprise_adresse],siret: params[:entreprise_siret],city: params[:city],postal_code: params[:postal_code],code_naf: params[:code_naf],site: params[:entreprise_site],description: params[:entreprise_description])
 
     if params[:client][:image].nil? && current_client.image.nil?
-    	errorMessage += " [ Ajouter votre logo ] "
+    	errorMessage += " [ Ajouter une photo de profil ] "
     elsif !params[:client][:image].nil?
     	is_cv = true
       begin
