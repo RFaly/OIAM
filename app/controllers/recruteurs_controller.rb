@@ -165,6 +165,8 @@ class RecruteursController < ApplicationController
 			end
 		end
 
+		redirect_to show_favorite_cadres_path(@offre.id)
+
 	end
 
 	def save_entretien_client

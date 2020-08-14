@@ -27,7 +27,7 @@
           <% end %> <% end %>
 
           <div class="validation">
-            <%= form_tag(add_top_five_candidate_path(@offre.id),remote: true) do %>
+            <%= form_tag(add_top_five_candidate_path(@offre.id)) do %>
             <input type="hidden" name="cadre_ids" value="[]" id="input_cadre_ids" />
             <div class="submit-validation">
               <%= submit_tag("VALIDER MA SELECTION", id:'boutton-bottom',class:'validation-bt') %> <%= submit_tag("VALIDER ", id:'boutton-bottom',class:'validation-bt1') %>
