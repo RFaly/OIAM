@@ -101,8 +101,16 @@
           </div>
         </div>
         <div class="so-btn">
-          <%= link_to "MODIFIER", editJob_path(@offre.id), class:'so-btn-btn' %> <% unless @offre.is_publish %> <%= link_to publish_path(@offre.id), method: :patch, class: 'link-delete so-btn-btn', :remote => true do %>PUBLIER<% end %> <% else %> <%= link_to "VOIR NOTRE SÉlECTION",
-          our_selection_path(@offre.id) %> <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %> <% end %>
+          <%= link_to "MODIFIER", editJob_path(@offre.id), class:'so-btn-btn' %> <% unless @offre.is_publish %>
+              <%= link_to publish_path(@offre.id), method: :patch, class: 'link-delete so-btn-btn', :remote => true do %>PUBLIER<% end %>
+            <% else %>
+              <% if @offre.my_top_five_candidates.count < 5 %>
+                  <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id) %>
+                  <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %>
+              <% else %>
+                  <%= link_to "Mon suivi recrutement", recruitment_liste_cadre_path(@offre.id) %>
+              <% end %>
+            <% end %>
         </div>
       </div>
       <div class="show-pb2" style="display: none;" id="publish-ajax">
@@ -112,21 +120,10 @@
         <p>Vous disposez désormais de 15 jours pour sélectionner 5 candidats recommandés par notre algorithme ou en recherchant directement dans notre base de données.</p>
         <p class="p-icon">Vous pouvez sauvegarder les profils avec l’icône <img src="/image/Vector-24.png" alt="diamond icone" /></p>
 
-        
-        <% if @offre.my_top_five_candidates.count < 5 %>
-
-          <div class="show-pb2-btn">
-            <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id) %>
-            <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %>
-          </div>
-
-        <% else %>
-
-          <div class="show-pb2-btn">
-            <%= link_to "Mon suivi recrutement", recruitment_liste_cadre_path(@offre.id) %>
-          </div>
-
-        <% end %>
+        <div class="show-pb2-btn">
+          <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id) %>
+          <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %>
+        </div>
 
       </div>
     </div>
