@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   get '/recruteur/mes-offre-d-emploi', to: 'recruteurs#my_job_offers', as: 'my_job_offers'
   get '/recruteur/mes-candidats-favoris', to: 'recruteurs#favorite_candidates', as: 'favorite_candidates'
+  get '/recruteur/mes-candidats-favoris/:id/listes', to: 'recruteurs#show_favorite_cadres', as:'show_favorite_cadres'
   get '/recruteur/mon-suivi-recrutement', to: 'recruteurs#my_recruitment_follow', as: 'my_recruitment_follow'
 
   get '/recruteur/mon-suivi-recrutement/:offre_id/liste-cadres', to: 'recruteurs#recruitment_liste_cadre', as: 'recruitment_liste_cadre'
@@ -76,11 +77,13 @@ Rails.application.routes.draw do
 
   # list menu dans le dashbord candidat
   get '/cadre/mon-profil', to: 'candidates#my_profil', as: 'my_profil'
+  post '/cadre/mon-profil/validate', to: 'candidates#validate_profil', as: 'validate_profil'
   get '/cadre/mon-profil/edit', to: 'candidates#edit_profil', as: 'edit_profil'
   get '/cadre/mes_tests', to: 'candidates#main_test', as: 'main_test'
   patch '/cadre/confirmed-profil', to: 'candidates#confirmedProfil', as: 'confirmedProfil'
 
   get '/cadre/offres', to: 'candidates#searchJob', as: 'searchJob'
+  get '/cadre/offres-personnalise', to:'candidates#jobsPersonalized', as:'jobsPersonalized'
   get '/cadre/offres-favorites', to: 'candidates#favoriteJob', as: 'favoriteJob'
   get '/cadre/recherche/:id/offre', to: 'candidates#showSearchJob', as: 'showSearchJob'
   post '/cadre/offre/:id/me-postuler', to: 'candidates#apply_for_job', as: 'apply_for_job'
