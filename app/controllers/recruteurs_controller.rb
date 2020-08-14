@@ -149,24 +149,27 @@ class RecruteursController < ApplicationController
 	end
 
 	def add_top_five_candidate
+		# liste des id des cadre ajouter au favôries
 		cadre_ids = params[:cadre_ids].split(",")
 		@offre = OffreJob.find_by_id(params[:id])
 
 		cadre_ids.each do |cadre_id|
+
 			cadre = Cadre.find_by_id(cadre_id)
-			number = OffreForCandidate.where(offre_job: @offre, accepted_postule:true).count
+			number = @offre.my_top_five_candidates.count
 			oFc = @offre.is_in_this_job(cadre)
-			if oFc.nil?
-				if number < 5
+			if number < 5 #if number of favorite cadre < 5
+				if oFc.nil?
 					OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: cadre, accepted_postule:true)
+				else
+					oFc.update(accepted_postule:true, status: "en attente")
 				end
-			else
-				oFc.update(accepted_postule:true)
 			end
+
 		end
 
 		redirect_to show_favorite_cadres_path(@offre.id)
-
+		
 	end
 
 	def save_entretien_client

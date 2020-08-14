@@ -18,13 +18,16 @@
       </table>
       <div class="select-cadre-list">
         <div class="flex-candidates">
-          <% 5.times do |i| %> <% if @topCinqs[i].nil? %>
-          <div class="js-candidates-list" data-element="" data-info="true"></div>
-          <% else %>
-          <div class="js-candidates-list" data-element="" data-info="false">
-            <%= image_tag(@topCinqs[i].cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px", width:"100px" )%>
-          </div>
-          <% end %> <% end %>
+          
+          <% 5.times do |i| %>
+            <% if @topCinqs[i].nil? %>
+              <div class="js-candidates-list" data-element="" data-info="true"></div>
+            <% else %>
+              <div class="js-candidates-list" data-element="" data-info="false">
+                <%= image_tag(@topCinqs[i].cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px", width:"100px" )%>
+              </div>
+            <% end %>
+          <% end %>
 
           <div class="validation">
             <%= form_tag(add_top_five_candidate_path(@offre.id)) do %>
