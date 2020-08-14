@@ -24,7 +24,7 @@ class RecruteursController < ApplicationController
 		@entreprise.update(name: params[:entreprise_name],adresse: params[:entreprise_adresse],siret: params[:entreprise_siret],city: params[:city],postal_code: params[:postal_code],code_naf: params[:code_naf],site: params[:entreprise_site],description: params[:entreprise_description])
 
     if params[:client][:image].nil? && current_client.image.nil?
-    	errorMessage += " [ Ajouter votre logo ] "
+    	errorMessage += " [ Ajouter une photo de profil ] "
     elsif !params[:client][:image].nil?
     	is_cv = true
       begin
@@ -139,7 +139,9 @@ class RecruteursController < ApplicationController
 
 	def search_candidate
 		@offre = OffreJob.find_by_id(params[:id])
-		@topCinqs = OffreForCandidate.where(offre_job_id: @offre.id, accepted_postule:true)[0..4]
+		@topCinqs = @offre.my_top_five_candidates
+		
+		#afficher tous les cadre dans la bdd
 		@cadres = Cadre.joins(:cadre_info).where("cadre_infos.empty = ?",false)
 	end
 
@@ -149,21 +151,26 @@ class RecruteursController < ApplicationController
 	end
 
 	def add_top_five_candidate
+		# liste des id des cadre ajouter au favôries
 		cadre_ids = params[:cadre_ids].split(",")
 		@offre = OffreJob.find_by_id(params[:id])
 
 		cadre_ids.each do |cadre_id|
+
 			cadre = Cadre.find_by_id(cadre_id)
-			number = OffreForCandidate.where(offre_job: @offre, accepted_postule:true).count
+			number = @offre.my_top_five_candidates.count
 			oFc = @offre.is_in_this_job(cadre)
-			if oFc.nil?
-				if number < 5
+			if number < 5 #if number of favorite cadre < 5
+				if oFc.nil?
 					OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: cadre, accepted_postule:true)
+				else
+					oFc.update(accepted_postule:true, status: "en attente")
 				end
-			else
-				oFc.update(accepted_postule:true)
 			end
+
 		end
+
+		redirect_to show_favorite_cadres_path(@offre.id)
 
 	end
 
@@ -209,6 +216,12 @@ class RecruteursController < ApplicationController
 		@offres = current_client.offre_jobs
 	end
 
+	def show_favorite_cadres
+		@offre = OffreJob.find_by_id(params[:id])
+		@oFcs = @offre.my_top_five_candidates
+		#repons_cadre in offre_job
+	end
+
 #Mon suivi recrutement
 	def my_recruitment_follow
 		@offres = current_client.offre_jobs
@@ -217,7 +230,7 @@ class RecruteursController < ApplicationController
 	def recruitment_liste_cadre
 		@offre = OffreJob.find_by_id(params[:offre_id])
 		@oFcs = @offre.offre_for_candidates.where(accepted_postule:true)
-
+		
 	end
 
 	def recruitment_show_cadre

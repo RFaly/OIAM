@@ -32,6 +32,10 @@ class CandidatesController < ApplicationController
     validate_info_cadre
   end
 
+  def validate_profil
+    current_cadre.cadre_info.update(is_validate:true)
+  end
+
   def main_test
     validate_info_cadre
   end
@@ -97,6 +101,11 @@ class CandidatesController < ApplicationController
     validate_info_cadre
     @offres = OffreJob.where(is_publish:true)
 	end
+
+  def jobsPersonalized
+    validate_info_cadre
+
+  end
 
   def showSearchJob
     @offre = OffreJob.find_by_id(params[:id])
@@ -178,6 +187,7 @@ class CandidatesController < ApplicationController
       unless agendaItems[:agenda_client].nil?
         agendaItems[:intitule_pote] = oFc.offre_job.intitule_pote
         agendaItems[:offre_id] = oFc.offre_job.id
+        agendaItems[:image] = oFc.offre_job.image
         @agendaClients.push(agendaItems)
       end
     end

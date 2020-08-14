@@ -36,7 +36,11 @@
 			<% @agendaClients.each do |aClient| %>
 			<div id="agenda-<%= aClient[:agenda_client].id %>-yes" class="post_info_content">
 					<div class="logo">
-						<img src="/image/profie.png" width="250px">	
+						<% if aClient[:image].nil? %>
+							<img src="/image/profie.png" width="250px">	
+						<% else %>
+							<%= image_tag(aClient[:image], alt: 'logo entreprise',width:"250px")%>
+						<% end %>
 					</div>
 					<div class="job_info">
 							<h2 class="job_info_title"> <a href="<%=showSearchJob_path(aClient[:offre_id])%>"></a> <%= aClient[:intitule_pote] %></h2>

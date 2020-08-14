@@ -26,6 +26,7 @@ class OffreJob < ApplicationRecord
 	validates :question4, presence: true
 	validates :question5, presence: true
 
+	# use in cadre
 	def is_in_my_favorite(cadre)
 		return FavoriteJob.find_by(offre_job:self, cadre:cadre)
 	end
@@ -50,6 +51,11 @@ class OffreJob < ApplicationRecord
 
 	def next_stape
 		self.update(etapes: self.etapes + 1)
+	end
+
+	#use in clien dashbord
+	def my_top_five_candidates
+		return self.offre_for_candidates.where(accepted_postule:true)
 	end
 
 	# private
