@@ -103,7 +103,8 @@ $(document).ready(function () {
   /////////////////////////////////////////////////
   // submit 2 validation
   $('.dr-btn2').click(function () {
-    if ($('#recruteur-last-name').val().length > 1 && $('#recruteur-first-name').val().length > 1 && $('#recruteur-fonction').val().length > 1 && $('#recruteur-phone').val().length > 1) {
+    var pattern = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if ($('#recruteur-last-name').val().length > 1 && $('#recruteur-first-name').val().length > 1 && $('#recruteur-fonction').val().length > 1 && $('#recruteur-phone').val().length == 9 && pattern.test($('#recruteur-mail').val())) {
       $('.ir-l2').addClass('color-bg');
       $('.ir-c2').addClass('color-bg');
       $('.dr-2').hide();
@@ -116,7 +117,8 @@ $(document).ready(function () {
   /////////////////////////////////////////////////
   // submit 3 validation
   $('.dr-btn3').click(function () {
-    if ($('#email-r').val().length > 1 && $('#password-r').val().length > 1 && $('#cpass-r').val().length > 1 && $('#password-r').val() === $('#cpass-r').val()) {
+    var pattern = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (pattern.test($('#email-r').val()) && $('#password-r').val().length > 5 && $('#cpass-r').val().length > 5 && $('#password-r').val() === $('#cpass-r').val()) {
       $('.ir-l3').addClass('color-bg');
       $('.ir-c3').addClass('color-bg');
       $('.dr-3').hide();
