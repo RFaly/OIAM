@@ -77,6 +77,13 @@ body{
 }
 
 
+  .btn-dispo{
+    padding-top: 15px;
+    font-size: 12px;
+    width: 330px;
+  }
+
+
 
 .pdp{
   display: block;
@@ -148,9 +155,25 @@ body{
   margin: auto;
   margin-top: 80px;
   margin-bottom: 0;
+  text-align: center;
 }
 
+  .btn-orange{
+    background: #D6B36A;
+    color: #fff;
+  }
 
+  .btn-orange:hover{
+    background: none;
+    color: #D6B36A;
+  }
+
+.btn-dispo{
+    padding-top: 15px;
+    font-size: 12px;
+    width: 330px;
+    text-align: center;
+  }
 
 @media only screen and (min-width: 800px){
 
@@ -163,6 +186,12 @@ body{
     display: inline-block;
 		margin-left: 20px;
   }
+
+  .btn-dispo{
+    padding-top: 15px;
+    font-size: 12px;
+    width: 330px;
+  }
 }
 
 @media only screen and (min-width: 900px){
@@ -173,6 +202,11 @@ body{
   .main{
     display: flex;
   }
+
+  .left_link{
+  margin-top: 15px;
+  border-right: 1px solid #D6B36A;
+}
 
   .block-left{
     padding-right: 50px;
@@ -189,12 +223,18 @@ body{
 
   .block-left{
     padding-left: 20px;
-    border-left: 1px solid #D6B36A;
   }
 
   .main{
     margin-left: 0;
   }
+
+  .btn-dispo{
+    padding-top: 15px;
+    font-size: 12px;
+    width: 330px;
+  }
+
 }
 
 @media only screen and (min-width: 900px){
@@ -212,14 +252,13 @@ body{
   }
 
 
+
   .btn-edit{
     display: inline-block;
 		text-align: center;
   }
 
-  .block-button{
-		position: relative;
-  }
+  
 
 	.block-image{
 		max-width: 300px;
@@ -229,4 +268,45 @@ body{
 	.block-right{
 		margin-bottom: 0;
 	}
+
+  .offre-perso{
+    display: inline-block;
+  }
+
+.btn-modif{
+  margin-bottom: 100px;
+}
+
+.block-right{
+  position: relative;
+  height: 900px;
+}
+
+  .block-button{
+    position: absolute;
+    bottom:0;
+  }
+
+  .validate-profil{
+    display: block;
+    margin: auto;
+    padding-top: 100px;
+    padding-bottom: 100px; 
+  }
+
+  #js-show-in-validate-profil{
+    border: 1px solid #D6B36A;
+    text-align: center;
+    width: 500px;
+    height: 400px;
+    padding: 50px;
+  }
+
+  #js-show-in-validate-profil h4{
+    margin-bottom: 30px;
+  }
+
+  .check{
+    margin-bottom: 50px;
+  }
 }
