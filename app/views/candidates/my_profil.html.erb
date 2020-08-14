@@ -39,10 +39,41 @@
 				<h2 class="questionnaire-title">Parlez-nous de vous</h2>
 				<p><%= @cadre.question5 %></p>
 			</div>
-			<div class="block-button">
+			<div class="block-button" id="js-body-element">
 				<%= link_to "MODIFIER", edit_profil_path, class:"btn-edit" %>
-				<%= link_to "VALIDER", searchJob_path ,class:"btn-edit"%>
+				<% if @cadre.is_validate %>
+					<br>
+					<%= link_to "VOIR NOTRE SELECTION PERSONNALISÉE", jobsPersonalized_path ,class:"btn-edit"%>
+					<br>
+					<%= link_to "VOIR LES OPPORTUNITÉS DISPONIBLES", searchJob_path ,class:"btn-edit"%>
+				<% else %>
+					<%= link_to "VALIDER", validate_profil_path(id:current_cadre.id), method: :post, remote: true, id:'send-validation', class:'btn-edit' %>
+
+					<script type="text/javascript">
+						$('#send-validation').bind('ajax:beforeSend', function() {
+							$('#send-validation').hide();
+						});
+
+						$('#send-validation').bind('ajax:complete', function() {
+							$("#send-validation").replaceWith($("#js-clone-element").clone());
+							$('#js-show-in-validate-profil').show();
+						});
+					</script>
+
+				<% end %>
 			</div>
+
+<!------ ito le modal mipotra refa izy mikiliky valider iny -------------------->
+			<div id="js-show-in-validate-profil" style="display: none;">
+				<h4>Votre profil est complet</h4>
+				<div id="js-clone-element">
+				<%= link_to "VOIR NOTRE SELECTION PERSONNALISÉE", jobsPersonalized_path ,class:"btn-edit"%>
+				<br>
+				<%= link_to "VOIR LES OPPORTUNITÉS DISPONIBLES", searchJob_path ,class:"btn-edit"%>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </div>
+

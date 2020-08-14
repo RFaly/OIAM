@@ -76,11 +76,13 @@ Rails.application.routes.draw do
 
   # list menu dans le dashbord candidat
   get '/cadre/mon-profil', to: 'candidates#my_profil', as: 'my_profil'
+  post '/cadre/mon-profil/validate', to: 'candidates#validate_profil', as: 'validate_profil'
   get '/cadre/mon-profil/edit', to: 'candidates#edit_profil', as: 'edit_profil'
   get '/cadre/mes_tests', to: 'candidates#main_test', as: 'main_test'
   patch '/cadre/confirmed-profil', to: 'candidates#confirmedProfil', as: 'confirmedProfil'
 
   get '/cadre/offres', to: 'candidates#searchJob', as: 'searchJob'
+  get '/cadre/offres-personnalise', to:'candidates#jobsPersonalized', as:'jobsPersonalized'
   get '/cadre/offres-favorites', to: 'candidates#favoriteJob', as: 'favoriteJob'
   get '/cadre/recherche/:id/offre', to: 'candidates#showSearchJob', as: 'showSearchJob'
   post '/cadre/offre/:id/me-postuler', to: 'candidates#apply_for_job', as: 'apply_for_job'
