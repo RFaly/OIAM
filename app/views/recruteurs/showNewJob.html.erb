@@ -111,9 +111,23 @@
         <img src="/image/check.png" alt="image checked" class="check" />
         <p>Vous disposez désormais de 15 jours pour sélectionner 5 candidats recommandés par notre algorithme ou en recherchant directement dans notre base de données.</p>
         <p class="p-icon">Vous pouvez sauvegarder les profils avec l’icône <img src="/image/Vector-24.png" alt="diamond icone" /></p>
-        <div class="show-pb2-btn">
-          <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id) %> <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %>
-        </div>
+
+        
+        <% if @offre.my_top_five_candidates.count < 5 %>
+
+          <div class="show-pb2-btn">
+            <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id) %>
+            <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %>
+          </div>
+
+        <% else %>
+
+          <div class="show-pb2-btn">
+            <%= link_to "Mon suivi recrutement", recruitment_liste_cadre_path(@offre.id) %>
+          </div>
+
+        <% end %>
+
       </div>
     </div>
   </div>

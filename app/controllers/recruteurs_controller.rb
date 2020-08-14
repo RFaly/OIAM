@@ -139,7 +139,9 @@ class RecruteursController < ApplicationController
 
 	def search_candidate
 		@offre = OffreJob.find_by_id(params[:id])
-		@topCinqs = OffreForCandidate.where(offre_job_id: @offre.id, accepted_postule:true)[0..4]
+		@topCinqs = @offre.my_top_five_candidates
+		
+		#afficher tous les cadre dans la bdd
 		@cadres = Cadre.joins(:cadre_info).where("cadre_infos.empty = ?",false)
 	end
 
@@ -169,7 +171,7 @@ class RecruteursController < ApplicationController
 		end
 
 		redirect_to show_favorite_cadres_path(@offre.id)
-		
+
 	end
 
 	def save_entretien_client
