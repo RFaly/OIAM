@@ -187,6 +187,7 @@ class CandidatesController < ApplicationController
       unless agendaItems[:agenda_client].nil?
         agendaItems[:intitule_pote] = oFc.offre_job.intitule_pote
         agendaItems[:offre_id] = oFc.offre_job.id
+        agendaItems[:image] = oFc.offre_job.image
         @agendaClients.push(agendaItems)
       end
     end
