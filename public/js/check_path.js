@@ -1,4 +1,16 @@
 $(document).ready(function () {
+  // flash animation
+  if ($('.flash').html().length == 6) {
+    $('.flash').hide();
+  } else {
+    $('.flash').fadeIn(300);
+    $('.flash-notice').addClass('active');
+    setTimeout(function () {
+      $('.flash-notice').removeClass('active');
+      $('.flash').fadeOut(2000);
+    }, 4000);
+  }
+  $('.flash').click(function () {});
   // check path
   var path = window.location.pathname.split('/').pop();
 

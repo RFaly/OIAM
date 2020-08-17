@@ -6,7 +6,44 @@
   padding: 0;
   line-height: 1.5;
 }
-
+.flash {
+  position: fixed;
+  display: none;
+  top: 40px;
+  right: 50px;
+  overflow: hidden;
+  border-right: 7px solid rgba(141, 141, 141, 0.5);
+  height: 60px;
+  .flash-notice,
+  .flash-alert {
+    transform: translateX(420px);
+    transition: all 1000ms ease-in-out;
+    height: 100%;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    color: white;
+    font: $ffbtn;
+    font-size: 15px;
+    .icon {
+      width: 35px;
+      margin-right: 16px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .active {
+    transform: translateX(0);
+    transition: all 1000ms ease-in-out;
+  }
+  .flash-notice {
+    background: #009d00;
+  }
+  .flash-alert {
+    background: red;
+  }
+}
 .bg-uniq {
   // margin-top: -600px;
   // padding-top: 492px;
