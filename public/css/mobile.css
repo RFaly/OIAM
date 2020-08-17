@@ -5,6 +5,53 @@
   line-height: 1.5;
 }
 
+.flash {
+  position: fixed;
+  display: none;
+  top: 40px;
+  right: 50px;
+  overflow: hidden;
+  border-right: 7px solid rgba(141, 141, 141, 0.5);
+  height: 60px;
+}
+
+.flash .flash-notice,
+.flash .flash-alert {
+  transform: translateX(420px);
+  transition: all 1000ms ease-in-out;
+  height: 100%;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  color: white;
+  font: 550 18px Raleway, sans-serif;
+  font-size: 15px;
+}
+
+.flash .flash-notice .icon,
+.flash .flash-alert .icon {
+  width: 35px;
+  margin-right: 16px;
+}
+
+.flash .flash-notice .icon img,
+.flash .flash-alert .icon img {
+  width: 100%;
+}
+
+.flash .active {
+  transform: translateX(0);
+  transition: all 1000ms ease-in-out;
+}
+
+.flash .flash-notice {
+  background: #009d00;
+}
+
+.flash .flash-alert {
+  background: red;
+}
+
 .bg-uniq {
   padding-bottom: 100px;
   width: 100%;

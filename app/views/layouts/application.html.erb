@@ -23,11 +23,21 @@
     <!-- ito ny navbar ny admin topoko -->
     <%= render "layouts/navbar_admin" %> <% end %> <% end %>
     <!-- ~~~~~~~~~~~~~~~~~~~ Alert devise ito ~~~~~~~~~~~~~~~~~~~ -->
-    <div>
+    <div class="flash">
       <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
+      <div class="flash-notice">
+        <div class="icon">
+          <img src="/image/flash-valid.png" alt="Icone" />
+        </div>
+        <div><%= notice %></div>
+      </div>
       <% end %> <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
+      <div class="flash-alert">
+        <div class="icon">
+          <img src="/image/flash-unvalid.png" alt="Icone" />
+        </div>
+        <div><%= alert %></div>
+      </div>
       <% end %>
     </div>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
