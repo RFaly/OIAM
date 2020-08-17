@@ -8,7 +8,7 @@ $(document).ready(function () {
     setTimeout(function () {
       $('.flash-notice').removeClass('active');
       $('.flash').fadeOut(2000);
-    }, 4000);
+    }, 2700);
   }
   $('.flash').click(function () {});
   // check path
