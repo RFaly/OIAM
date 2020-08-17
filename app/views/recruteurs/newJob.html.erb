@@ -76,7 +76,7 @@
           </div>
         </div>
 
-        <%= f.label :remuneration_anne, "RÉMUNÉRATION PROPOSÉE VARIABLE(K€ BRUTS ANNUELS)" %>
+        <%= f.label :remuneration_anne, "RÉMUNÉRATION PROPOSÉE VARIABLE (K€ BRUTS ANNUELS)" %>
         <div class="dp-input hide-right">
           <%= f.select :remuneration_anne, options_for_select([["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"]]),{}, class:'co-select', required:true, id:'remuneration-anne' %>
         </div>
@@ -120,7 +120,7 @@
 
         <%= f.label :numberEntretien, "QUEL SERA VOTRE PROCESSUS DE RECRUTEMENT ?", class:"ggag" %>
         <div class="co-input hide-right">
-          <%= f.select :numberEntretien, options_for_select([[ "1 entretien RH","1"],[ "1 entretien RH + 1 entretien manager","2"],[ "1 entretien RH + 2 entretien manager","3"]]),{}, class:'co-select', required:true,id:'question3' %>
+          <%= f.select :numberEntretien, options_for_select([[ "1 entretien RH","1"],[ "1 entretien RH + 1 entretien manager","2"],[ "1 entretien RH + 2 entretiens manager","3"]]),{}, class:'co-select', required:true,id:'question3' %>
         </div>
         <span class="input-error" id="question3-error"></span>
 
@@ -175,4 +175,3 @@
 <script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- date picker jquery  -->
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/event_input_offre_job.js"></script>
-
