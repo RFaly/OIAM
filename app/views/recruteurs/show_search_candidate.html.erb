@@ -61,21 +61,28 @@
           </div>
         </div>
       </div>
+
       <div class="ssc-rest">
         <div class="ssc-rest-btn">
+          
           <div class="ssc-btn ssc-message">
             <%= link_to "MESSAGERIE", show_my_messages_client_path(@cadre.cadre.id)%>
           </div>
 
-          <% if @offre.in_list_entretien(@cadre.cadre).nil? %>
-          <div class="ssc-btn ssc-pe" id="dateEntretien">
-            PLANIFIER UN ENTRETIEN
-          </div>
-          <% else %>
-          <div class="ssc-btn ssc-pe ssc-invite">
-            INVITATION D'ENTRETIEN ENVOYER
-          </div>
+<!-- misy condition mbôla tokony aiditra -->
+
+          <% if @offre.my_top_five_candidates.count < 5 %>
+            <% if @offre.in_list_entretien(@cadre.cadre).nil? %>
+              <div class="ssc-btn ssc-pe" id="dateEntretien">
+                PLANIFIER UN ENTRETIEN
+              </div>
+            <% else %>
+              <div class="ssc-btn ssc-pe ssc-invite">
+                INVITATION D'ENTRETIEN ENVOYER
+              </div>
+            <% end %>
           <% end %>
+
         </div>
         <div class="ssc-oiam">
           <h5>L'avis de One in a million</h5>
@@ -85,6 +92,7 @@
           rem modi placeat in ea accusamus totam. Autem iure maxime consequatur nostrum unde quasi.
         </div>
       </div>
+
       <div class="ssc-planification">
         <div class="hiddenDate" style="display: none;" id="js-form-show">
           <%= form_tag(save_entretien_client_path, remote: true, id:"send-data-form") do %>
