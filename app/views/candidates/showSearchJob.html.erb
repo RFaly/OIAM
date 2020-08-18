@@ -88,27 +88,18 @@
 				<p><img src="/image/check.png" width="10px" alt="check"></p>
 			</div>
 		<% else %>
-			<% if @ofc.accepted_postule %>
+			<% if @ofc.accepted_postule == true %>
 				<% if @agendat_client.nil? %>
-					<div id="link-to-send-post">
-						<%= link_to "POSTULER", apply_for_job_path(id:@offre.id), method: :post, remote: true, id:'send-candidature', class:'btn btn-primary' %>
-					</div>
-					<div id="modal-ajax-bull" style="display:none; background-color: #e3b465;" class="modal">
-						Votre demande d'entretien a été envoyée <br>
-						<center id="plus-plus"> ... </center>
+					<div><span class="btn btn-primare">
+						Le recruteur vous a selectionner pour ce poste, il vous contactera ulterieurement !</span>
 					</div>
 				<% else %>
-					<% if @agendat_client.repons_client && @agendat_client.repons_cadre %>
-						<%= link_to "MON SUIVI RECRUTEMENT", recrutment_monitoring_path %>
-					<% elsif !@agendat_client.repons_cadre == false && !@agendat_client.alternative.nil? %>
-						<span class="btn btn-primary">VOUS AVEZ RÉFUSER LA DEMANDE D'ENTRETIEN</span>
-					<% else %>
-					<div class="repondre-invitation">
-						<i><span><%= @offre.client.entreprise.name %> </span>vous a envoyer une demande d'entretien, cliquez <%= link_to "ici", received_job_path, class:"repondre" %> pour repondre</i>
-
-					</div>
-					<% end %>
+					<%= link_to "MON SUIVI RECRUTEMENT", recrutment_monitoring_path %>
 				<% end %>
+			<% elsif @ofc.accepted_postule == false %>
+				<div>
+					<span class="btn btn-primare">Le recruteur à réfuser votre candidature</span>
+				</div>
 			<% else %>
 				<div>
 					<span class="btn btn-primare">DEMANDE D'ENTRETIEN ENVOYÉ</span>
