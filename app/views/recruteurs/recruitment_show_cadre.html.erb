@@ -28,10 +28,9 @@
 			<%= link_to show_search_candidate_path(@cadre.id, offre_id: @offre.id) do %>
 				<%= image_tag(@cadre.cadre_info.image, alt: 'photo de profil', class:"pdp_mandona" )%>
 				<br>
-				<h3><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %></h3>
+				<h4><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %></h4>
 			<% end %>
 		</center>
-
 
 		<div class="container-flex">
 			<% etape = 0 %>
@@ -48,15 +47,86 @@
 			</div>
 		</div>
 
-<br><br> <br>
-
-		<div class="btn-info">
+		<div class="btn-info" style="margin-top: 10px;">
 			ce candidat est à l'etape : 
 			<strong><%= @oFc.etapes %></strong> <br>
 			nombre d'etape total : 
 			<strong><%= @offre.numberEntretien + 1 %></strong>
-
 		</div>
 
-	</div>
-</div>
+<hr><hr>
+
+		<div id="js-data-bloc-principal">
+			<div id="js-main-bloc-information">
+				<h3>Suivi recrutement</h3>
+				<p>Vous avez rencontré <%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %> le 04/09/20, comment s'est déroulé votre entretien ?</p>
+				<div>
+					<span class="btn btn-primary" id="js-ca_next_stape">CANDIDAT RETENU POUR LA PROCHAINE ETAPE</span><br><br>
+					<span class="btn btn-primary" id="js-ca_en_attente">CANDIDAT EN ATTENTE</span><br><br>
+					<span class="btn btn-primary" id="js-ca_refused">CANDIDAT REFUSE</span>
+				</div>
+				<div>
+					<a href="">Chat en ligne</a>
+					<a href="">Mail</a>
+					<a href="">Compte rendu</a>
+				</div>
+			</div>
+
+	<!-- au cas ou retenu pour la prochaine étape -->
+			<div id="js-show_ca_next_stape" style="display: none;">
+				<h3>Suivi recrutement</h3>
+				<div>
+					<% if @oFc.etapes < @offre.numberEntretien %>
+						<%= link_to "NOUVEL ENTRETIEN", "#", class:'btn btn-primary' %><br><br>
+						<%= link_to "PROMESSE D'EMBAUCHE", promise_to_hire_path(id_offre_job: @offre.id,id_cadre: @cadre.id), class:'btn btn-primary', 'data-confirm':"Attention vous avez encore #{@offre.numberEntretien - @oFc.etapes} autre entretien à faire avec ce candidat, voulez-vous continuer quand même ?" %>
+					<% else %>
+						<%= link_to "PROMESSE D'EMBAUCHE", promise_to_hire_path(id_offre_job: @offre.id,id_cadre: @cadre.id), class:'btn btn-primary' %>
+					<% end %>
+					<br>
+					<span class="js-retour-choice btn btn-info">Retour</span>
+				</div>
+				<div>
+					<a href="">Chat en ligne</a>
+					<a href="">Mail</a>
+					<a href="">Compte rendu</a>
+				</div>
+			</div>
+
+	<!-- au cas ou en attente -->
+			<div id="js-show_ca_en_attente" style="display: none;">
+				<p>Attention ! Ce candidat figure parmi les meilleurs du marché et ne peut vous être réservé exclusivement et nous portons à votre attention qu'une réponse rapide favorise la réussite du recrutement.</p>
+				<span>VOIR LE CANDIDAT</span>
+				<span class="js-retour-choice btn btn-info">Annuler</span>
+			</div>
+
+	<!-- au cas ou réfuser -->			
+			<div id="js-show_ca_refused" style="display: none;">
+				<center>
+					<div style="border: 2px solid red; width: 30%;">
+						<h4><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %></h4>
+						<p>
+							poste : <strong><%= @offre.intitule_pote %></strong> <br>
+
+							Candidat refusé
+						</p>
+					</div>
+				</center>
+
+		      	<%= form_tag(notice_refused_post_path) do %>
+					<label for="send-notice">Envoyer une raison de la refus au candidat</label>
+					<div class="form-group">
+		        		<textarea required="required" rows="3" class="form-control" name="notifier" id="send-notice"></textarea>
+		      		</div>
+		      		<div class="form-group">
+		        		<%= submit_tag("NOTIFIER") %>
+		        		<span class="js-retour-choice btn btn-info">Annuler</span>
+		      		</div>
+		      	<% end %>
+			</div>
+
+		</div> <!-- fin js-data-bloc-principal -->
+
+	</div> <!-- fin col-sm-9 -->
+</div> <!-- fin row -->
+
+<script type="text/javascript" src="/js/recrutement_show.js"></script>

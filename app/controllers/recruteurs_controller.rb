@@ -165,9 +165,9 @@ class RecruteursController < ApplicationController
 			oFc = @offre.is_in_this_job(cadre)
 			if number < 5 #if number of favorite cadre < 5
 				if oFc.nil?
-					OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: cadre, accepted_postule:true)
+					OffreForCandidate.create(offre_job: @offre, cadre: cadre, accepted_postule:true)
 				else
-					oFc.update(accepted_postule:true, status: "en attente")
+					oFc.update(accepted_postule:true)
 				end
 			end
 
@@ -190,7 +190,7 @@ class RecruteursController < ApplicationController
 
 		@oFc = OffreForCandidate.find_by(offre_job_id: @offre.id, cadre_id: @cadre.id)
 		if @oFc.nil?
-			@oFc = OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: @cadre, accepted_postule:true)
+			@oFc = OffreForCandidate.create(offre_job: @offre, cadre: @cadre, accepted_postule:true)
 		else
 			@oFc.update(accepted_postule:true)
 		end
@@ -254,6 +254,12 @@ class RecruteursController < ApplicationController
 		@oFc = OffreForCandidate.find_by_id(params[:oFc_id])
 		@offre = @oFc.offre_job
 		@cadre = @oFc.cadre
+	end
+
+	def notice_refused_post
+		puts "#"*34
+		puts params.inspect
+		puts "#"*34
 	end
 
 #Mes factures
