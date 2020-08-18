@@ -216,8 +216,9 @@ class RecruteursController < ApplicationController
 				if max_step < numberOfc
 					max_step = numberOfc
 				end
-			end		
+			end
 			@offre.update(etapes:2+max_step)
+			@oFc.update(etapes:@oFc.agenda_clients.count)
     end
 
 		respond_to do |format|
