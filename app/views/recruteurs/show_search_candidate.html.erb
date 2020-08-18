@@ -77,8 +77,9 @@
                 PLANIFIER UN ENTRETIEN
               </div>
             <% else %>
-              <div class="ssc-btn ssc-pe ssc-invite">
-                INVITATION D'ENTRETIEN ENVOYER
+            <br>
+              <div class="ssc-btn">
+                <%= link_to "SUIVI RECRUTEMENT", recruitment_show_cadre_path(@offre.is_in_this_job(@cadre.cadre)) %>
               </div>
             <% end %>
           <% end %>
