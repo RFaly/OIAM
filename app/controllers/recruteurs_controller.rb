@@ -254,6 +254,8 @@ class RecruteursController < ApplicationController
 		@oFc = OffreForCandidate.find_by_id(params[:oFc_id])
 		@offre = @oFc.offre_job
 		@cadre = @oFc.cadre
+		@agendas = @oFc.agenda_clients.order('created_at DESC')[0]
+		#first element current
 	end
 
 	def notice_refused_post
