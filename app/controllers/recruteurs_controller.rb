@@ -122,6 +122,9 @@ class RecruteursController < ApplicationController
 	def publish
 		@offre = OffreJob.find(params[:id])
 		@offre.update(is_publish:true)
+		if @offre.etapes == 0
+			@offre.next_stape
+		end
 	end
 
 	def destroyJob
@@ -170,6 +173,10 @@ class RecruteursController < ApplicationController
 
 		end
 
+		if @offre.etapes == 1
+			@offre.next_stape
+		end
+
 		redirect_to show_favorite_cadres_path(@offre.id)
 
 	end
@@ -202,6 +209,15 @@ class RecruteursController < ApplicationController
     unless @agenda.save
     	flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
     	redirect_to root_path
+		else
+			max_step = 0
+			@offre.my_top_five_candidates.each do |oFc|
+				numberOfc = oFc.agenda_clients.count
+				if max_step < numberOfc
+					max_step = numberOfc
+				end
+			end		
+			@offre.update(etapes:2+max_step)
     end
 
 		respond_to do |format|
