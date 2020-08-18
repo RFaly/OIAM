@@ -94,7 +94,7 @@
 						Le recruteur vous a selectionner pour ce poste, il vous contactera ulterieurement !</span>
 					</div>
 				<% else %>
-					<%= link_to "MON SUIVI RECRUTEMENT", recrutment_monitoring_path %>
+					<%= link_to "MON SUIVI RECRUTEMENT", show_recrutment_monitoring_path(@ofc.id) %>
 				<% end %>
 			<% elsif @ofc.accepted_postule == false %>
 				<div>
