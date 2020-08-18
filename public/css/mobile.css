@@ -402,6 +402,24 @@
   .fc-item-all .list-candidat .fci-infos {
     height: 170px;
   }
+  .rf-box .rf-items {
+    margin-bottom: 65px;
+  }
+  .rf-box .rf-items-flex .timeline .line {
+    width: 28px;
+    content: ' ';
+    align-self: center;
+    height: 2px;
+    background-color: #f0f2f4;
+  }
+  .rf-box .rf-items-flex .timeline .content {
+    top: 30px;
+  }
+  .rf-box .rf-items-flex .timeline .content2,
+  .rf-box .rf-items-flex .timeline .content4,
+  .rf-box .rf-items-flex .timeline .content6 {
+    top: 60px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -635,6 +653,24 @@
   }
   .ssc-box .ssc-question {
     width: 60%;
+  }
+  .rf-box .rf-items {
+    margin-bottom: 65px;
+  }
+  .rf-box .rf-items-flex .timeline .line {
+    width: 34px;
+    content: ' ';
+    align-self: center;
+    height: 2px;
+    background-color: #f0f2f4;
+  }
+  .rf-box .rf-items-flex .timeline .content {
+    top: 35px;
+  }
+  .rf-box .rf-items-flex .timeline .content2,
+  .rf-box .rf-items-flex .timeline .content4,
+  .rf-box .rf-items-flex .timeline .content6 {
+    top: 60px;
   }
 }
 
@@ -994,6 +1030,19 @@
   .fc-item-all .list-candidat .fci-infos {
     height: 92px;
   }
+  .rf-box .rf-items-flex {
+    margin-left: 60px;
+  }
+  .rf-box .rf-items-flex .timeline .line {
+    width: 58px;
+    content: ' ';
+    align-self: center;
+    height: 2px;
+    background-color: #f0f2f4;
+  }
+  .rf-box .rf-items-flex .timeline .content {
+    top: 35px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -1131,6 +1180,16 @@
   }
   .ssc-box .ssc-rest .ssc-oiam {
     width: 68%;
+  }
+  .rf-box .rf-items-flex {
+    margin-left: 60px;
+  }
+  .rf-box .rf-items-flex .timeline .line {
+    width: 70px;
+    content: ' ';
+    align-self: center;
+    height: 2px;
+    background-color: #f0f2f4;
   }
 }
 

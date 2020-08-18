@@ -1,0 +1,135 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+  border-left: 1px solid #d6b36a;
+}
+
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.r-follow-box {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.r-follow-box .title {
+  font: 550 18px Raleway, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.r-follow-box .co-any-job {
+  font: 15px Questrial, sans-serif;
+  padding: 10px;
+  width: 70%;
+  height: 250px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 2px solid #d6b36a;
+  margin-top: 150px;
+  text-align: center;
+}
+
+.r-follow-box .co-any-job a {
+  font: 550 18px Raleway, sans-serif;
+  color: #d6b36a;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 2px solid #d6b36a;
+}
+
+.r-follow-box .co-any-job a:hover, .r-follow-box .co-any-job a:active {
+  background: #d6b36a;
+  text-decoration: none;
+  color: white;
+}
+
+.r-follow-box .rf-box {
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.r-follow-box .rf-box .rf-items-title {
+  display: flex;
+  align-items: center;
+}
+
+.r-follow-box .rf-box .rf-items-title a {
+  font: 550 18px Raleway, sans-serif;
+  font-size: 20px;
+  color: #d6b36a;
+}
+
+.r-follow-box .rf-box .rf-items-title a:hover {
+  color: #d6b46ae3;
+}
+
+.r-follow-box .rf-box .rf-items-title img {
+  width: 30px;
+  height: 30px;
+  margin-right: 25px;
+}
+
+.r-follow-box .rf-box .rf-items-flex {
+  display: flex;
+}
+
+.r-follow-box .rf-box .rf-items-flex .timeline {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.r-follow-box .rf-box .rf-items-flex .timeline .number {
+  background-color: #f0f2f4;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 14px roboto, sans-serif;
+  border-radius: 50%;
+  color: white;
+}
+
+.r-follow-box .rf-box .rf-items-flex .timeline .number.color {
+  background-color: #d6b36a;
+}
+
+.r-follow-box .rf-box .rf-items-flex .timeline .line {
+  content: ' ';
+  align-self: center;
+  height: 2px;
+  background-color: #f0f2f4;
+}
+
+.r-follow-box .rf-box .rf-items-flex .timeline .line.color {
+  background-color: #d6b36a;
+}
+
+.r-follow-box .rf-box .rf-items-flex .timeline .content {
+  font: 550 18px Raleway, sans-serif;
+  text-align: center;
+  font-size: 12px;
+  position: absolute;
+  left: -20px;
+}
+
+.r-follow-box .rf-box .rf-items-flex .timeline .content2 {
+  left: -10px;
+}
