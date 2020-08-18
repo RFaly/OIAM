@@ -6,7 +6,8 @@
   margin: 0 auto;
   text-align: center;
   .title {
-    font-size: 20px;
+    font: $ffbtn;
+    text-transform: uppercase;
   }
   h3 {
     font: $ffsentence;
@@ -40,6 +41,7 @@
   .fc-body {
     h2 {
       text-align: left;
+
       a {
         color: black;
         font: $ffbtn;
@@ -48,6 +50,11 @@
         &:hover,
         &:active {
           color: $main_theme_color;
+        }
+        img {
+          width: 30px;
+          height: 30px;
+          margin-right: 25px;
         }
       }
     }

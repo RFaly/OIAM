@@ -1,55 +1,88 @@
-<style type="text/css">
-	.flex-container{
-		display: flex;
-	}
-	.flex-container div	{
-		border: 2px solid red;
-		padding: 2px;
-		margin-left: 3px;
-	}
-</style>
-<div class="row">
-	<div class="col-sm-3">
-		<%= render partial: "recruteurs/left_link_bar" %>
-	</div>
+<!-- call css  -->
+<link rel="stylesheet" href="/css/recrutement_follow.css" />
+<!-- body html  -->
+<div class="client-column">
+  <div class="client-menu-left">
+    <%= render "recruteurs/left_link_bar" %>
+  </div>
+  <div class="cp-box">
+    <div class="r-follow-box">
+      <h3 class="title">Mon suivi recrutement</h3>
+      <% if @offres.empty? %>
+      <div class="co-any-job">
+        <p>Vous n'avez pas publié d'offre d'emploi pour le moment.</p>
+        <%= link_to "PUBLIER UNE OFFRE", newJob_path %>
+      </div>
+      <% else %>
+      <div class="rf-box">
+        <% @offres.each do |offre| %>
+        <div class="rf-items">
+          <h2 class="rf-items-title"><%= link_to recruitment_liste_cadre_path(offre.id) do%> <img src="/image/work.png" alt="icone work" /><%= offre.intitule_pote%><%end%></h2>
+          <i> <% offre.etapes + 1 %></i>
+          <div class="rf-items-flex">
+            <div class="timeline">
+              <div class="number color">
+                1
+              </div>
+              <div class="line <%if offre.etapes + 1 >= 2 %>color <%end%>"></div>
+              <div class="content">
+                Publication
+              </div>
+            </div>
+            <div class="timeline">
+              <div class="number <%if offre.etapes + 1 >= 2 %>color <%end%>">
+                2
+              </div>
+              <div class="line <%if offre.etapes + 1 >= 3 %>color <%end%>"></div>
+              <div class="content content2">
+                Sélection
+              </div>
+            </div>
+            <% etape = 2 %> <% offre.numberEntretien.times do |i| %> <% etape += 1 %> <% if i == 0 %>
+            <div class="timeline">
+              <div class="number <%if offre.etapes + 1 >= etape %>color <%end%>">
+                <%= etape %>
+              </div>
+              <div class="line <%if offre.etapes + 1 >= etape + 1 %>color <%end%>"></div>
+              <div class="content">
+                1er entretien
+              </div>
+            </div>
+            <% else %>
+            <div class="timeline">
+              <div class="number <%if offre.etapes + 1 >= etape %>color <%end%>">
+                <%= etape %>
+              </div>
+              <div class="line <%if offre.etapes + 1 >= etape + 1 %>color <%end%>"></div>
+              <div class="content content<%= etape %>">
+                <%=i+1%>e entretien
+              </div>
+            </div>
 
-	<div class="col-sm-9">
-		<h2>Mon suivi recrutement</h2>
-
-		<% if @offres.empty? %>
-
-			<div class="co-any-job">
-	        	<p>Vous n'avez pas publié d'offre d'emploi pour le moment.</p>
-	        	<%= link_to "PUBLIER UNE OFFRE", newJob_path %>
-	      	</div>
-
-		<% else %>
-
-			<% @offres.each do |offre| %>
-			<div class="container">
-				<h2>Poste: <%= link_to "#{offre.intitule_pote}", recruitment_liste_cadre_path(offre.id)%></h2>
-
-				<<i>actuelement à l'étapes: <%= offre.etapes + 1 %></i>>
-				
-				<div class="flex-container">
-					<div>Publication <span class="badge-success">1</span></div>
-					<div>Sélection <span class="badge-success">2</span></div>
-					<% etape = 2 %>
-					<% offre.numberEntretien.times do |i| %>
-						<% etape += 1 %>
-						<% if i == 0 %>
-							<div>1er entretien <span class="badge-success"><%= etape %></span></div>
-						<% else %>
-							<div><%=i+1%>e entretien <span class="badge-success"><%= etape %></span></div>
-						<% end %>
-					<% end %>
-					<div>Promesse d'embauche <span class="badge-success"><%= etape + 1 %></span> </div>
-					<div>Recrutement <span class="badge-success"><%= etape + 2 %></span> </div>
-				</div>
-			</div>
-			<% end %>
-
-		<% end %>
-
-	</div>
+            <% end %> <% end %>
+            <div class="timeline">
+              <div class="number <%if offre.etapes + 1 >= etape + 1 %>color <%end%>">
+                <%= etape + 1 %>
+              </div>
+              <div class="line <%if offre.etapes + 1 >= etape + 2 %>color <%end%>"></div>
+              <div class="content content<%= etape + 1 %>">
+                Promesse <br />
+                d'embauche
+              </div>
+            </div>
+            <div class="timeline">
+              <div class="number <%if offre.etapes + 1 >= etape + 2 %>color <%end%>">
+                <%= etape + 2 %>
+              </div>
+              <div class="content content<%= etape + 2 %>">
+                Recrutement
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>

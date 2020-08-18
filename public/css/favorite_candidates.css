@@ -24,7 +24,8 @@
 }
 
 .fc-box .title {
-  font-size: 20px;
+  font: 550 18px Raleway, sans-serif;
+  text-transform: uppercase;
 }
 
 .fc-box h3 {
@@ -74,6 +75,12 @@
 
 .fc-box .fc-body h2 a:hover, .fc-box .fc-body h2 a:active {
   color: #d6b36a;
+}
+
+.fc-box .fc-body h2 a img {
+  width: 30px;
+  height: 30px;
+  margin-right: 25px;
 }
 
 .fc-box .fc-body .my_five_candidates {
