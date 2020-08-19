@@ -120,9 +120,6 @@ body{
 		display: flex;
 	}
 
-	.main{
-		position: relative;
-	}
 
 	.left_link{
 		margin-top: 20px;
@@ -130,9 +127,13 @@ body{
 		border-right: 1px solid #D6B36A;
 	}
 
+	.main{
+		width: 100%;
+
+	}
+
 	.recrutement-content{
-		position: absolute;
-		left: 50%;
+		padding: 10% 0;
 	}
 
 	.recrutement{
