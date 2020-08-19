@@ -175,6 +175,30 @@ body{
     text-align: center;
   }
 
+  .recrutement-content{
+  display: block;
+  margin: auto;
+}
+
+.recrutement{
+  display: block;
+  margin: auto;
+  border: 1px solid #D6B36A;
+  width: 450px;
+  height: 200px;
+  padding: 20px;
+  position: relative;
+  
+}
+
+.recrutement h4{
+  margin-bottom: 30px;
+}
+
+.btn-recrutement{
+  margin-left: 38px;
+}
+
 @media only screen and (min-width: 800px){
 
 
@@ -192,12 +216,15 @@ body{
     font-size: 12px;
     width: 330px;
   }
+
 }
 
 @media only screen and (min-width: 900px){
   .content{
     display: flex;
   }
+
+
 
   .main{
     display: flex;
@@ -235,6 +262,11 @@ body{
     width: 330px;
   }
 
+   .recrutement{{
+    position: relative;
+    left: 30%;
+  }
+
 }
 
 @media only screen and (min-width: 900px){
@@ -253,12 +285,38 @@ body{
 
 
 
+
+
   .btn-edit{
     display: inline-block;
 		text-align: center;
   }
 
-  
+
+.recrutement-content{
+  display: block;
+  margin: auto;
+  padding-top: 50px;
+}
+
+.recrutement{
+  display: block;
+  margin: auto;
+  border: 1px solid #D6B36A;
+  width: 450px;
+  height: 200px;
+  padding: 20px;
+  position: relative;
+  left: 40%;
+}
+
+.recrutement h4{
+  margin-bottom: 30px;
+}
+
+.btn-recrutement{
+  margin-left: 38px;
+}
 
 	.block-image{
 		max-width: 300px;
