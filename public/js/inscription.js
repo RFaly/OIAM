@@ -142,6 +142,28 @@ $('#cpe-submit').hover(function () {
     $(this).prop('disabled', true);
   }
 });
+/////////////////////////////////////////////////
+// submit cadre validation
+var pattern = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+$('#cadre-submit').hover(function () {
+  if (
+    $('#recruteur-last-name').val().length > 1 &&
+    $('#recruteur-first-name').val().length > 1 &&
+    $('#entreprise_adresse').val().length > 1 &&
+    $('#recruteur-phone').val().length == 9 &&
+    pattern.test($('#recruteur-mail').val()) &&
+    $('#city').val() != 'Aucune ville correspondante!!' &&
+    $('#postal_code').val().length > 1
+  ) {
+    $('#cadre-submit').prop('disabled', false);
+    $('#submit-error4').hide();
+  } else {
+    $('#submit-error4').html('(Veuillez corriger les erreurs dans le remplissage des champs.)');
+    $('#submit-error4').show();
+    $('#cadre-submit').prop('disabled', true);
+  }
+});
 
 ////////////////////////////////////////////////////
 // fonction check name

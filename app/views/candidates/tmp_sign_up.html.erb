@@ -1,14 +1,44 @@
+<!-- call css  -->
 <link rel="stylesheet" type="text/css" href="/css/tmp_sign_up.css" />
+<!-- body html  -->
 <h2 class="inscription">INSCRIPTION</h2>
-<%= form_for @cadreInfo, class:"test" ,url: tmp_create_sign_up_path do |f| %> <%= f.text_field :last_name, autofocus: true, autocomplete: "NOM", required: true, placeholder:"NOM", class:"champs" %> <%= f.text_field :first_name, autofocus: true, autocomplete: "PRÉNOM", required: true,
-placeholder:"PRÉNOM", class:"champs" %> <%= f.text_field :adresse, autofocus: true, autocomplete: "ADRESSE", required: true, placeholder:"ADRESSE", class:"champs" %>
+<%= form_for @cadreInfo, class:"test" ,url: tmp_create_sign_up_path do |f| %> <%= f.text_field :last_name, autofocus: true, autocomplete: "NOM", required: true, placeholder:"NOM", class:"champs",id:'recruteur-last-name' %>
+<div class="input-error-div">
+  <span class="input-error" id="recruteur-last-name-error"></span>
+</div>
+<%= f.text_field :first_name , id:'recruteur-first-name', autofocus: true, autocomplete: "PRÉNOM", required: true, placeholder:"PRÉNOM", class:"champs" %>
+<div class="input-error-div">
+  <span class="input-error" id="recruteur-first-name-error"></span>
+</div>
+<%= f.text_field :adresse, autofocus: true, autocomplete: "ADRESSE", required: true, placeholder:"ADRESSE", class:"champs",id:"entreprise_adresse" %>
+<div class="input-error-div">
+  <span class="input-error" id="entreprise-adress-error"></span>
+</div>
 <div class="ville-adresse">
-  <%= f.text_field :postal_code, autofocus: true, autocomplete: "ADRESSE", required: true, placeholder:"CODE POSTAL", class:"champs ville code_postal",id:"postal_code" %> <%= f.text_field :city, autofocus: true, autocomplete: "VILLE", required: true, placeholder:"VILLE", class:"champs ville city",id:"city" %>
+  <%= f.text_field :postal_code, autofocus: true, autocomplete: "ADRESSE", required: true, placeholder:"CODE POSTAL", class:"champs ville code_postal",id:"postal_code" %> <%= f.text_field :city, autofocus: true, autocomplete: "VILLE", required: true, placeholder:"VILLE", class:"champs ville
+  city",id:"city" %>
+</div>
+<div class="input-error-div">
+  <span class="input-error" id="entreprise-postal-error"></span>
 </div>
 
-<%= f.text_field :telephone, autofocus: true, autocomplete: "TÉLÉPHONE", required: true, placeholder:"TÉLÉPHONE", class:"champs tel-container"%>
-<%=f.email_field :mail, autofocus: true, autocomplete: "MAIL", required: true, placeholder:"MAIL", class:"champs" %> <%= f.submit "S'INSCRIRE", class:"btnInscrire" %> <% end %>
+<%= f.text_field :telephone, autofocus: true, autocomplete: "TÉLÉPHONE", required: true, placeholder:"TÉLÉPHONE", class:"champs tel-container",id:'recruteur-phone'%>
+<div class="input-error-div">
+  <span class="input-error" id="recruteur-phone-error"></span>
+</div>
+<%=f.email_field :mail, autofocus: true, autocomplete: "MAIL", required: true, placeholder:"MAIL", class:"champs",id:'recruteur-mail' %>
+<div class="input-error-div">
+  <span class="input-error" id="recruteur-mail-error"></span>
+</div>
+<div class="input-error-div">
+  <span class="input-error" id="submit-error4"></span>
+</div>
+<%= f.submit "S'INSCRIRE",class:"btnInscrire",id:'cadre-submit' %> <% end %>
 
+<!-- call js  -->
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/data.json"></script>
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/show_data.js"></script>
+<!-- javascript inscription  -->
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/inscription.js"></script>
+<!-- javascript inscription  -->
