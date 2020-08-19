@@ -42,8 +42,13 @@
 
 						<%= link_to show_recrutment_monitoring_path(oFc.id), class:'btn btn-success' do %>
 
-							Vous êtes à l'étape n° : <%= oFc.etapes %> <br>
-							Nombre d'étape totale : <%= oFc.offre_job.numberEntretien + 1 %>
+							<% if oFc.status == "refused"  %>
+								Candidature réfusé
+							<% else %>
+								<i>petit image loading</i>
+								Vous êtes à l'étape n° : <%= oFc.etapes %> <br>
+								Nombre d'étape totale : <%= oFc.offre_job.numberEntretien + 1 %>
+							<% end %>
 
 						<% end %>
 
