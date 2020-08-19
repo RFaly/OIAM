@@ -10,7 +10,7 @@ $(document).ready(function () {
       $('.flash-notice').removeClass('active');
       $('.flash-alert').removeClass('active');
       $('.flash').fadeOut(2000);
-    }, 2700);
+    }, 5000);
   }
   $('.flash').click(function () {});
   // check path
