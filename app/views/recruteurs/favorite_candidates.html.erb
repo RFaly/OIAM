@@ -18,7 +18,7 @@
       <% else %> <% @offres.each do |offre| %>
       <hr />
       <div class="fc-body">
-        <h2><%= link_to offre.intitule_pote, show_favorite_cadres_path(offre.id) %></h2>
+        <h2><%= link_to show_favorite_cadres_path(offre.id) do%> <img src="/image/work.png" alt="icone work" /><%= offre.intitule_pote%><%end%></h2>
 
         <% if offre.my_top_five_candidates.empty? %>
         <div class="fc-body-empty">

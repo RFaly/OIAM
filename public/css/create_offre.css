@@ -358,12 +358,14 @@
 .create-offre-box .context-offre-box {
   display: none;
   padding: 20px;
-  margin: 30px 0;
+  margin: 30px auto;
+  text-align: left;
+  width: 80%;
 }
 
 .create-offre-box .context-offre-box .co-input {
   margin: 6px auto 30px auto;
-  width: 80%;
+  text-align: center;
 }
 
 .create-offre-box .context-offre-box .co-input input,

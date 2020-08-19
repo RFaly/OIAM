@@ -1,4 +1,18 @@
 $(document).ready(function () {
+  // flash animation
+  if ($('.flash').html().length == 6) {
+    $('.flash').hide();
+  } else {
+    $('.flash').fadeIn(300);
+    $('.flash-notice').addClass('active');
+    $('.flash-alert').addClass('active');
+    setTimeout(function () {
+      $('.flash-notice').removeClass('active');
+      $('.flash-alert').removeClass('active');
+      $('.flash').fadeOut(2000);
+    }, 2700);
+  }
+  $('.flash').click(function () {});
   // check path
   var path = window.location.pathname.split('/').pop();
 
@@ -13,6 +27,36 @@ $(document).ready(function () {
   // check path menu recruteur
   $('.left-menu-r a[href="/recruteur/' + path + '"]').addClass('color-this');
   $('.line-white').css('height', $('.cpe-si-td').height() + 25);
+  // check path menu cadre
   $('.left-menu-r a[href="/cadre/' + path + '"]').addClass('color-this');
-  $('.line-white').css('height', $('.cpe-si-td').height() + 25);
+  // check path menu recruteur suit
+  // mon profil
+  if (window.location.href.indexOf('/mon-profil') > -1) {
+    $('.left-menu-r a[href="/recruteur/mon-profil"]').addClass('color-this');
+  }
+  // mes offres d'emploi
+  if (window.location.href.indexOf('/mes-offre-d-emploi') > -1) {
+    $('.left-menu-r a[href="/recruteur/mes-offre-d-emploi"]').addClass('color-this');
+  }
+  // mes candidats favoris
+  if (window.location.href.indexOf('/mes-candidats-favoris') > -1) {
+    $('.left-menu-r a[href="/recruteur/mes-candidats-favoris"]').addClass('color-this');
+  }
+  // mon suivi de recruteument
+  if (window.location.href.indexOf('/mon-suivi-recrutement') > -1) {
+    $('.left-menu-r a[href="/recruteur/mon-suivi-recrutement"]').addClass('color-this');
+  }
+  // mes factures
+  if (window.location.href.indexOf('/mes-factures') > -1) {
+    $('.left-menu-r a[href="/recruteur/mes-factures"]').addClass('color-this');
+  }
+  // mes notifications
+  if (window.location.href.indexOf('/mes-notifications') > -1) {
+    $('.left-menu-r a[href="/recruteur/mes-notifications"]').addClass('color-this');
+  }
+  // message
+  if (window.location.href.indexOf('/messages') > -1) {
+    $('.left-menu-r a[href="/recruteur/messages"]').addClass('color-this');
+  }
+  //end check path menu recruteur
 });

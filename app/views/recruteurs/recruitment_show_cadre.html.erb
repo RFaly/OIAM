@@ -1,3 +1,5 @@
+<!-- natsoko fotsy ty css sô de mba mapety an'le designe an'le date -->
+<link rel="stylesheet" href="/css/show_search_candidate.css" />
 <style type="text/css">
 	.pdp_mandona{
 		width: 250px;
@@ -28,10 +30,9 @@
 			<%= link_to show_search_candidate_path(@cadre.id, offre_id: @offre.id) do %>
 				<%= image_tag(@cadre.cadre_info.image, alt: 'photo de profil', class:"pdp_mandona" )%>
 				<br>
-				<h3><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %></h3>
+				<h4><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %></h4>
 			<% end %>
 		</center>
-
 
 		<div class="container-flex">
 			<% etape = 0 %>
@@ -48,15 +49,239 @@
 			</div>
 		</div>
 
-<br><br> <br>
-
-		<div class="btn-info">
+		<div class="btn-info" style="margin-top: 10px;">
 			ce candidat est à l'etape : 
 			<strong><%= @oFc.etapes %></strong> <br>
 			nombre d'etape total : 
 			<strong><%= @offre.numberEntretien + 1 %></strong>
-
 		</div>
 
-	</div>
+<hr><hr>
+
+
+<div style="font-size: 50px" >
+
+
+
+<div id="clockdiv" data-times="<%= @agendas.entretien_date.strftime("%m/%d/%Y %H:%M") %>">
+
+    Prochain entretien dans <span id="js-days"></span>j : <span id="js-hours"></span>h : <span id="js-minutes"></span>m : <span id="js-seconds">0</span>s
 </div>
+
+</div>
+
+
+
+
+	<!-- condition pour afficher si la date est passé ou non? -->
+	<% if @agendas.entretien_date.future? %>
+		<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
+
+		
+
+
+
+		<% elsif @agendas.repons_cadre == false %>
+
+		<% end %>
+<!-- 
+alternative: nil
+repons_client: true
+repons_cadre: nil
+ -->
+
+
+	<% else %> <!-- proposer les action à faire si la date est passé -->
+
+		<div id="js-data-bloc-principal">
+			<div id="js-main-bloc-information">
+				<h3>Suivi recrutement</h3>
+				<p>Vous avez rencontré <%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %> le <%= @agendas.entretien_date.strftime("%m/%d/%Y") %>, comment s'est déroulé votre entretien ?</p>
+				<div>
+					<span class="btn btn-primary" id="js-ca_next_stape">CANDIDAT RETENU POUR LA PROCHAINE ETAPE</span><br><br>
+					<span class="btn btn-primary" id="js-ca_en_attente">CANDIDAT EN ATTENTE</span><br><br>
+					<span class="btn btn-primary" id="js-ca_refused">CANDIDAT REFUSE</span>
+				</div>
+				<div>
+					<a href="">Chat en ligne</a>
+					<a href="">Mail</a>
+					<a href="">Compte rendu</a>
+				</div>
+			</div>
+
+	<!-- au cas ou retenu pour la prochaine étape -->
+			<div id="js-show_ca_next_stape" style="display: none;">
+				<h3>Suivi recrutement</h3>
+				<div>
+					<% if @oFc.etapes < @offre.numberEntretien %>
+
+						<div class="ssc-btn ssc-pe btn btn-primary" id="dateEntretien">
+							NOUVEL ENTRETIEN
+						</div>
+						
+						<%= link_to "PROMESSE D'EMBAUCHE", promise_to_hire_path(id_offre_job: @offre.id,id_cadre: @cadre.id), class:'btn btn-primary', 'data-confirm':"Attention vous avez encore #{@offre.numberEntretien - @oFc.etapes} autre entretien à faire avec ce candidat, voulez-vous continuer quand même ?" %>
+
+					<% else %>
+						<%= link_to "PROMESSE D'EMBAUCHE", promise_to_hire_path(id_offre_job: @offre.id,id_cadre: @cadre.id), class:'btn btn-primary' %>
+					<% end %>
+					<br>
+					<span class="js-retour-choice btn btn-info">Retour</span>
+				</div>
+				<div>
+					<a href="">Chat en ligne</a>
+					<a href="">Mail</a>
+					<a href="">Compte rendu</a>
+				</div>
+			</div>
+
+	<!-- au cas ou en attente -->
+			<div id="js-show_ca_en_attente" style="display: none;">
+				<p>Attention ! Ce candidat figure parmi les meilleurs du marché et ne peut vous être réservé exclusivement et nous portons à votre attention qu'une réponse rapide favorise la réussite du recrutement.</p>
+				<span>VOIR LE CANDIDAT</span>
+				<span class="js-retour-choice btn btn-info">Annuler</span>
+			</div>
+
+	<!-- au cas ou réfuser -->			
+			<div id="js-show_ca_refused" style="display: none;">
+				<center>
+					<div style="border: 2px solid red; width: 30%;">
+						<h4><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %></h4>
+						<p>
+							poste : <strong><%= @offre.intitule_pote %></strong> <br>
+
+							Candidat refusé
+						</p>
+					</div>
+				</center>
+
+		      	<%= form_tag(notice_refused_post_path) do %>
+					<label for="send-notice">Envoyer une raison de la refus au candidat</label>
+					<div class="form-group">
+		        		<textarea required="required" rows="3" class="form-control" name="notifier" id="send-notice"></textarea>
+		      		</div>
+		      		<div class="form-group">
+		        		<%= submit_tag("NOTIFIER") %>
+		        		<span class="js-retour-choice btn btn-info">Annuler</span>
+		      		</div>
+		      	<% end %>
+			</div>
+
+			<!-- ~~~~~~~~~~~~~~~~~~ USE THIS ELEMENT FOR SELECT DATE ~~~~~~~~~~~~~~~~~~~~ -->
+			<% if @oFc.etapes < @offre.numberEntretien %>
+			      <div class="ssc-planification">
+			        <div class="hiddenDate" style="display: none;" id="js-form-show">
+			          <%= form_tag(save_entretien_client_path, remote: true, id:"send-data-form") do %>
+
+			          <div class="date"><input type="text" name="date" id="datepicker" /></div>
+
+			          <div class="js-timeContainer" style="display: none;">
+			            <h4 id="showDateLong"></h4>
+			            <div class="fselect">
+			              <span id="reditDate" class="badge badge-secondary">modifier la date</span>
+			              <div class="firstSelection">
+			                <div class="js-hoursTime" data-time="08:00">08:00</div>
+			                <div class="js-hoursTime" data-time="09:00">09:00</div>
+			                <div class="js-hoursTime" data-time="10:00">10:00</div>
+			                <div class="js-hoursTime" data-time="11:00">11:00</div>
+			              </div>
+			              <div class="firstSelection">
+			                <div class="js-hoursTime" data-time="12:00">12:00</div>
+			                <div class="js-hoursTime" data-time="13:00">13:00</div>
+			                <div class="js-hoursTime" data-time="14:00">14:00</div>
+			                <div class="js-hoursTime" data-time="15:00">15:00</div>
+			              </div>
+			              <div class="firstSelection">
+			                <div class="js-hoursTime" data-time="16:00">16:00</div>
+			                <div class="js-hoursTime" data-time="17:00">17:00</div>
+			                <div class="js-hoursTime" data-time="18:00">18:00</div>
+			                <div class="js-hoursTime" data-time="19:00">19:00</div>
+			              </div>
+			              <div>
+			                <label id="conditioncheck">
+			                  Adresse de l'entreprise
+			                  <input type="radio" checked="checked" required name="adresse" id="adresse1" value="<%= current_client.entreprise.adresse %>" class="js-input-adresse" data-value="none" />
+			                  <span class="checkmark"></span>
+			                </label>
+			              </div>
+			              <div class="with-input">
+			                <label id="conditioncheck">
+			                  Autre lieu :
+			                  <input type="radio" required name="adresse" id="adresse2" data-value="autre" class="js-input-adresse" />
+			                  <span class="checkmark"></span>
+			                </label>
+			                <input type="text" name="adresse_name" id="js-adresse_name_input" style="display: none;" disabled="disabled" placeholder="L'adresse ..." class="with-input-item" />
+			              </div>
+			              <div>
+			                <label id="conditioncheck">
+			                  <%= current_client.first_name %> <%= current_client.last_name %>, <%= current_client.fonction %>
+			                  <input type="radio" checked="checked" required name="name" value="<%= current_client.first_name %> <%= current_client.last_name %>" id="name_client" class="js-input-name" />
+			                  <span class="checkmark"></span>
+			                </label>
+			              </div>
+			              <div class="with-input">
+			                <label id="conditioncheck">
+			                  Autre personne :
+			                  <input type="radio" required name="name" id="autre_personne" value="1" class="js-input-name" />
+			                  <span class="checkmark"></span>
+			                </label>
+			                <input type="text" name="client_name" id="client_name_input" style="display: none;" disabled="disabled" placeholder="Nom et prénoms" class="with-input-item" />
+			              </div>
+
+			              <input type="hidden" name="time" id="input-time" />
+
+			              <input type="hidden" name="cadre_id" value="<%= @cadre.id %>" />
+
+			              <input type="hidden" name="offre_id" value="<%= @offre.id %>" />
+
+			              <div class="planQ-btn">
+			                <%= submit_tag("VALIDER", id:"valid-submit", disabled:"disabled" )%>
+			              </div>
+			            </div>
+			          </div>
+			          <% end %>
+			        </div>
+
+			        <div id="send-data-form-ok-success" class="ssc-send" style="display: none;">
+			          <h4>Demande d'entretien envoyée</h4>
+			          <img src="/image/check.png" alt="OK" />
+			          <div>
+			            <div class="datetime">
+			              <div id="dateShowOk"></div>
+			              <div id="timeShowOk"></div>
+			            </div>
+			            <div>
+			              <span id="adresseShowOk">
+			                <%= current_client.entreprise.adresse %> <br />
+			                <%= current_client.entreprise.city %>
+			              </span>
+			              <br />
+			              <span id="nameShowOk">
+			                <%= current_client.fonction %> : <%= current_client.first_name %> <%= current_client.last_name %>
+			              </span>
+			            </div>
+			            <div class="ssc-send-btn">
+			              VALIDER
+			            </div>
+			          </div>
+			        </div>
+			      </div>
+			<% end %>
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+		</div> <!-- fin js-data-bloc-principal -->
+
+	<% end %> <!-- fin "if" la date de la dernier entretien est passé ou future -->
+
+
+
+
+	</div> <!-- fin col-sm-9 -->
+</div> <!-- fin row -->
+
+<script type="text/javascript" src="/js/recrutement_show.js"></script>
+
+<script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/entretien_client.js"></script>
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/date_picker.js"></script>

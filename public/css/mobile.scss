@@ -6,7 +6,44 @@
   padding: 0;
   line-height: 1.5;
 }
-
+.flash {
+  position: fixed;
+  display: none;
+  top: 90px;
+  right: 50px;
+  overflow: hidden;
+  border-right: 7px solid rgba(141, 141, 141, 0.5);
+  height: 60px;
+  .flash-notice,
+  .flash-alert {
+    transform: translateX(500px);
+    transition: all 1000ms ease-in-out;
+    height: 100%;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    color: white;
+    font: $ffbtn;
+    font-size: 15px;
+    .icon {
+      width: 35px;
+      margin-right: 16px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .active {
+    transform: translateX(0);
+    transition: all 1000ms ease-in-out;
+  }
+  .flash-notice {
+    background: $main_theme_color;
+  }
+  .flash-alert {
+    background: #bb3f3f;
+  }
+}
 .bg-uniq {
   // margin-top: -600px;
   // padding-top: 492px;
@@ -437,6 +474,31 @@
       }
     }
   }
+  // suivi de recrutement index
+  .rf-box {
+    .rf-items {
+      margin-bottom: 65px;
+    }
+    .rf-items-flex {
+      .timeline {
+        .line {
+          width: 28px;
+          content: ' ';
+          align-self: center;
+          height: 2px;
+          background-color: #f0f2f4;
+        }
+        .content {
+          top: 30px;
+        }
+        .content2,
+        .content4,
+        .content6 {
+          top: 60px;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -739,6 +801,31 @@
     }
     .ssc-question {
       width: 60%;
+    }
+  }
+  // suivi de recrutement index
+  .rf-box {
+    .rf-items {
+      margin-bottom: 65px;
+    }
+    .rf-items-flex {
+      .timeline {
+        .line {
+          width: 34px;
+          content: ' ';
+          align-self: center;
+          height: 2px;
+          background-color: #f0f2f4;
+        }
+        .content {
+          top: 35px;
+        }
+        .content2,
+        .content4,
+        .content6 {
+          top: 60px;
+        }
+      }
     }
   }
 }
@@ -1194,6 +1281,24 @@
       }
     }
   }
+  // suivi de recrutement index
+  .rf-box {
+    .rf-items-flex {
+      margin-left: 60px;
+      .timeline {
+        .line {
+          width: 58px;
+          content: ' ';
+          align-self: center;
+          height: 2px;
+          background-color: #f0f2f4;
+        }
+        .content {
+          top: 35px;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -1386,6 +1491,21 @@
       }
       .ssc-oiam {
         width: 68%;
+      }
+    }
+  }
+  // suivi de recrutement index
+  .rf-box {
+    .rf-items-flex {
+      margin-left: 60px;
+      .timeline {
+        .line {
+          width: 70px;
+          content: ' ';
+          align-self: center;
+          height: 2px;
+          background-color: #f0f2f4;
+        }
       }
     }
   }

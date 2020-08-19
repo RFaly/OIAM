@@ -122,6 +122,9 @@ class RecruteursController < ApplicationController
 	def publish
 		@offre = OffreJob.find(params[:id])
 		@offre.update(is_publish:true)
+		if @offre.etapes == 0
+			@offre.next_stape
+		end
 	end
 
 	def destroyJob
@@ -162,12 +165,16 @@ class RecruteursController < ApplicationController
 			oFc = @offre.is_in_this_job(cadre)
 			if number < 5 #if number of favorite cadre < 5
 				if oFc.nil?
-					OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: cadre, accepted_postule:true)
+					OffreForCandidate.create(offre_job: @offre, cadre: cadre, accepted_postule:true)
 				else
-					oFc.update(accepted_postule:true, status: "en attente")
+					oFc.update(accepted_postule:true)
 				end
 			end
 
+		end
+
+		if @offre.etapes == 1
+			@offre.next_stape
 		end
 
 		redirect_to show_favorite_cadres_path(@offre.id)
@@ -183,7 +190,7 @@ class RecruteursController < ApplicationController
 
 		@oFc = OffreForCandidate.find_by(offre_job_id: @offre.id, cadre_id: @cadre.id)
 		if @oFc.nil?
-			@oFc = OffreForCandidate.create(status: "en attente", offre_job: @offre, cadre: @cadre, accepted_postule:true)
+			@oFc = OffreForCandidate.create(offre_job: @offre, cadre: @cadre, accepted_postule:true)
 		else
 			@oFc.update(accepted_postule:true)
 		end
@@ -202,6 +209,16 @@ class RecruteursController < ApplicationController
     unless @agenda.save
     	flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
     	redirect_to root_path
+		else
+			max_step = 0
+			@offre.my_top_five_candidates.each do |oFc|
+				numberOfc = oFc.agenda_clients.count
+				if max_step < numberOfc
+					max_step = numberOfc
+				end
+			end
+			@offre.update(etapes:2+max_step)
+			@oFc.update(etapes:@oFc.agenda_clients.count)
     end
 
 		respond_to do |format|
@@ -237,6 +254,14 @@ class RecruteursController < ApplicationController
 		@oFc = OffreForCandidate.find_by_id(params[:oFc_id])
 		@offre = @oFc.offre_job
 		@cadre = @oFc.cadre
+		@agendas = @oFc.agenda_clients.order('created_at DESC')[0]
+		#first element current
+	end
+
+	def notice_refused_post
+		puts "#"*34
+		puts params.inspect
+		puts "#"*34
 	end
 
 #Mes factures

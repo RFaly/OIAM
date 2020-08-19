@@ -31,6 +31,7 @@ class OffreJob < ApplicationRecord
 		return FavoriteJob.find_by(offre_job:self, cadre:cadre)
 	end
 
+	# pour verifier si le candidat est dans le job et peut postuler
 	def is_in_this_job(cadre)
 		return OffreForCandidate.find_by(offre_job:self,cadre:cadre)
 	end

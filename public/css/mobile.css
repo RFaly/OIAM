@@ -5,6 +5,53 @@
   line-height: 1.5;
 }
 
+.flash {
+  position: fixed;
+  display: none;
+  top: 90px;
+  right: 50px;
+  overflow: hidden;
+  border-right: 7px solid rgba(141, 141, 141, 0.5);
+  height: 60px;
+}
+
+.flash .flash-notice,
+.flash .flash-alert {
+  transform: translateX(500px);
+  transition: all 1000ms ease-in-out;
+  height: 100%;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  color: white;
+  font: 550 18px Raleway, sans-serif;
+  font-size: 15px;
+}
+
+.flash .flash-notice .icon,
+.flash .flash-alert .icon {
+  width: 35px;
+  margin-right: 16px;
+}
+
+.flash .flash-notice .icon img,
+.flash .flash-alert .icon img {
+  width: 100%;
+}
+
+.flash .active {
+  transform: translateX(0);
+  transition: all 1000ms ease-in-out;
+}
+
+.flash .flash-notice {
+  background: #d6b36a;
+}
+
+.flash .flash-alert {
+  background: #bb3f3f;
+}
+
 .bg-uniq {
   padding-bottom: 100px;
   width: 100%;
@@ -355,6 +402,24 @@
   .fc-item-all .list-candidat .fci-infos {
     height: 170px;
   }
+  .rf-box .rf-items {
+    margin-bottom: 65px;
+  }
+  .rf-box .rf-items-flex .timeline .line {
+    width: 28px;
+    content: ' ';
+    align-self: center;
+    height: 2px;
+    background-color: #f0f2f4;
+  }
+  .rf-box .rf-items-flex .timeline .content {
+    top: 30px;
+  }
+  .rf-box .rf-items-flex .timeline .content2,
+  .rf-box .rf-items-flex .timeline .content4,
+  .rf-box .rf-items-flex .timeline .content6 {
+    top: 60px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -588,6 +653,24 @@
   }
   .ssc-box .ssc-question {
     width: 60%;
+  }
+  .rf-box .rf-items {
+    margin-bottom: 65px;
+  }
+  .rf-box .rf-items-flex .timeline .line {
+    width: 34px;
+    content: ' ';
+    align-self: center;
+    height: 2px;
+    background-color: #f0f2f4;
+  }
+  .rf-box .rf-items-flex .timeline .content {
+    top: 35px;
+  }
+  .rf-box .rf-items-flex .timeline .content2,
+  .rf-box .rf-items-flex .timeline .content4,
+  .rf-box .rf-items-flex .timeline .content6 {
+    top: 60px;
   }
 }
 
@@ -947,6 +1030,19 @@
   .fc-item-all .list-candidat .fci-infos {
     height: 92px;
   }
+  .rf-box .rf-items-flex {
+    margin-left: 60px;
+  }
+  .rf-box .rf-items-flex .timeline .line {
+    width: 58px;
+    content: ' ';
+    align-self: center;
+    height: 2px;
+    background-color: #f0f2f4;
+  }
+  .rf-box .rf-items-flex .timeline .content {
+    top: 35px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -1084,6 +1180,16 @@
   }
   .ssc-box .ssc-rest .ssc-oiam {
     width: 68%;
+  }
+  .rf-box .rf-items-flex {
+    margin-left: 60px;
+  }
+  .rf-box .rf-items-flex .timeline .line {
+    width: 70px;
+    content: ' ';
+    align-self: center;
+    height: 2px;
+    background-color: #f0f2f4;
   }
 }
 
