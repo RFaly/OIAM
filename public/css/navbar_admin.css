@@ -1,0 +1,71 @@
+.navbar-content {
+  text-transform: uppercase;
+  font: 500 18px Raleway, sans-serif;
+  font-size: 16px;
+}
+
+.navbar-content .navbar-item {
+  list-style: none;
+  text-decoration: none;
+  color: black;
+  padding: 10px 15px;
+  width: 100%;
+}
+
+.navbar-content .navbar-ul {
+  margin: inherit;
+  list-style: none;
+}
+
+.navbar-content .navbar-ul a.act {
+  color: #d6b36a;
+}
+
+.navbar-content .dropup1 a:hover,
+.navbar-content .dropup1 a:active {
+  text-decoration: none;
+}
+
+.navbar-content .dropup1 .dropup-btn1 {
+  padding: 12px 10px;
+  cursor: pointer;
+}
+
+.navbar-content .dropup1 .dropup-item1 {
+  padding: 10px;
+}
+
+.navbar-content .dropup1 .dropup-item1:hover, .navbar-content .dropup1 .dropup-item1:active {
+  background-color: white;
+}
+
+.navbar-content .dropup1 .dropup-content1 {
+  display: none;
+}
+
+.navbar-content .dropup1 .dropup-content1 a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-content .dropup1 #photo-profil {
+  width: 50px;
+}
+
+.navbar-logo img {
+  width: 50px;
+  height: 55px;
+}
+
+nav {
+  padding-top: 20px;
+}
+
+.logo-g {
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.logo-g img {
+  width: 100%;
+}

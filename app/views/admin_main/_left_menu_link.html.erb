@@ -1,0 +1,23 @@
+<!-- appel css user-menu.css  -->
+<link rel="stylesheet" href="/css/user_menu.css" />
+<!-- html body  -->
+<div class="left-menu-r">
+  <div class="btn-menu-r">
+    <span class="btn-menu-burger open"> </span>
+  </div>
+  <div class="left-menu-photo">
+    <% unless current_admin.image.nil? %> <%= image_tag(current_admin.image, alt: 'photo logo')%> <% else %>
+    <img src="/image/profie.png" alt="logo entreprise" />
+    <% end %>
+  </div>
+  <ul class="left-menu-content">
+    <li><%= link_to "TABLEAU DE BORD", admin_dashboard_main_path%></li>
+    <li><%= link_to "CANDIDATS", admin_cadre_main_path %></li>
+    <li><%= link_to "CLIENT", admin_client_main_path %></li>
+    <li><%= link_to "ADMINISTRATION", admin_administration_main_path %></li>
+    <li><%= link_to "MES NOTIFICATIONS", admin_main_notification_path %></li>
+    <li><%= link_to "MA MESSAGERIE", admin_main_messaging_path %></li>
+  </ul>
+</div>
+<!-- appel js menu_recruteur.js  -->
+<script data-turbolinks-track="reload" src="/js/menu_recruteur.js"></script>
