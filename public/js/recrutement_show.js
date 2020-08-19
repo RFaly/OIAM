@@ -3,6 +3,13 @@ let $next = $('#js-show_ca_next_stape');
 let $attente = $('#js-show_ca_en_attente');
 let $refused = $('#js-show_ca_refused');
 
+var objectifTime = new Date($('#clockdiv').data().times);
+let $dd = $('#js-days');
+let $hh = $('#js-hours');
+let $mm = $('#js-minutes');
+let $ss = $('#js-seconds');
+
+
 $('#js-ca_next_stape').click(function () {
   $main.hide(500);
   $next.hide(500);
@@ -32,12 +39,6 @@ $('.js-retour-choice').click(function () {
 });
 
 // ~~~~~~~~~~~~~~~~ Mise à jour de la compte à rebours ~~~~~~~~~~~~~~~~
-
-var objectifTime = new Date($('#clockdiv').data().times);
-let $dd = $('#js-days');
-let $hh = $('#js-hours');
-let $mm = $('#js-minutes');
-let $ss = $('#js-seconds');
 
 function updateTimeNow() {
   var current_time = Date.parse(objectifTime) - Date.parse(new Date());
