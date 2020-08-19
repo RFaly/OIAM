@@ -1,39 +1,54 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <%= link_to "TABLEAU DE BORD", admin_dashboard_main_path, class: 'nav-link' %>
-            <!-- <span class="sr-only">(current)</span> -->
-            </li>
-            <li class="nav-item">
-                <%= link_to "CANDIDATS", admin_cadre_main_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item">
-                <%= link_to "CLIENTS", admin_client_main_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item">
-                <%= link_to "ADMINISTRATION", admin_administration_main_path, class: 'nav-link' %>
-            </li>
-
-            <% if admin_signed_in? %>
-                <li class="nav-item">
-                  <%= link_to "MON PROFIL", admin_main_my_profil_path, class:'nav-link' %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "SE DECONNECTER", destroy_admin_session_path, method:"delete", class:'nav-link' %>
-                </li>
-            <% else %>
-                <li class="nav-item">
-                  <%= link_to "SE CONNECTER", new_admin_session_path, class:'nav-link' %>
-                </li>
-            <% end %>
-        </ul>
+<!-- appel css  -->
+<link rel="stylesheet" href="/css/burger_admin.css" />
+<link rel="stylesheet" href="/css/navbar_admin.css" />
+<!-- body html  -->
+  <nav class="navb">
+    <div class="navbar-logo">
+      <% if admin_signed_in? %>
+      <a href="<%=  admin_main_home_path %>">
+        <img src="/image/OIAM_DIAMOND.png" alt="logo" />
+      </a>
+      <% else %>
+      <a href="<%= root_path %>">
+        <img src="/image/OIAM_DIAMOND.png" alt="logo" />
+      </a>
+      <% end %>
     </div>
-</nav>
+    <div class="btn-btn open">
+      <span class="btn-btn-burger"></span>
+    </div>
+    <div class="navbar-content">
+      <ul class="navbar-ul">
+        <li class="act"><a href="<%= admin_dashboard_main_path %>" class="navbar-item">Tableau de bord</a>  </li>
 
+        <li><a href="<%= admin_cadre_main_path %>" class="navbar-item">Candidats</a></li>
 
+        <li>
+          <a href="<%= admin_client_main_path %>" class="navbar-item">Clients</a>
+        </li>
 
+        <li><a href="<%= admin_administration_main_path %>" class="navbar-item">Adminstration</a></li>
+      </ul>
 
-
+      <div class="dropup1">
+              <% if admin_signed_in? %>
+                  <div class="dropup-btn1" data-toggle="dropdown">
+                    MON PROFIL
+                  </div>
+                    <div class="dropup-content1">
+                      <%= link_to "MON PROFIL", admin_main_my_profil_path, class:'dropup-item1' %>
+                      <%= link_to "DECONNEXION", destroy_admin_session_path, method:"delete", class:'dropup-item1' %>
+                    </div>
+              <% else %>
+                <div class="dropup-btn1" data-toggle="dropdown">
+                  <%= link_to "SE CONNECTER", new_admin_session_path %>
+                </div>
+              <% end %>
+      </div>
+    </div>
+  </nav>
+<!-- //*********************************// -->
+<!-- javascript navbar  -->
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/navbar_admin.js"></script>
+<!-- javascript navbar  -->
+<!-- /////////////////////////////////////  -->
