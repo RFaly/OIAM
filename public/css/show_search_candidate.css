@@ -113,6 +113,10 @@
   text-decoration: none;
 }
 
+.ssc-box .ssc-btn#ssc-btn2 a {
+  padding: 10px 30px;
+}
+
 .ssc-box .ssc-btn:hover, .ssc-box .ssc-btn:active {
   background: #d6b36a;
 }

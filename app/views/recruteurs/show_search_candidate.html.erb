@@ -64,26 +64,21 @@
 
       <div class="ssc-rest">
         <div class="ssc-rest-btn">
-          
           <div class="ssc-btn ssc-message">
             <%= link_to "MESSAGERIE", show_my_messages_client_path(@cadre.cadre.id)%>
           </div>
 
-<!-- misy condition mbôla tokony aiditra -->
+          <!-- misy condition mbôla tokony aiditra -->
 
-          <% unless @offre.my_top_five_candidates.where(cadre:@cadre.cadre.id).empty? %>
-            <% if @offre.in_list_entretien(@cadre.cadre).nil? %>
-              <div class="ssc-btn ssc-pe" id="dateEntretien">
-                PLANIFIER UN ENTRETIEN
-              </div>
-            <% else %>
-            <br>
-              <div class="ssc-btn">
-                <%= link_to "SUIVI RECRUTEMENT", recruitment_show_cadre_path(@offre.is_in_this_job(@cadre.cadre)) %>
-              </div>
-            <% end %>
-          <% end %>
-
+          <% unless @offre.my_top_five_candidates.where(cadre:@cadre.cadre.id).empty? %> <% if @offre.in_list_entretien(@cadre.cadre).nil? %>
+          <div class="ssc-btn ssc-pe" id="dateEntretien">
+            PLANIFIER UN ENTRETIEN
+          </div>
+          <% else %>
+          <div class="ssc-btn ssc-pe" id="ssc-btn2">
+            <%= link_to "SUIVI RECRUTEMENT", recruitment_show_cadre_path(@offre.is_in_this_job(@cadre.cadre))%>
+          </div>
+          <% end %> <% end %>
         </div>
         <div class="ssc-oiam">
           <h5>L'avis de One in a million</h5>

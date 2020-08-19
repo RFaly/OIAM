@@ -1,2 +1,23 @@
-<h1>AdminMain#home</h1>
-<p>Find me in app/views/admin_main/home.html.erb</p>
+<!-- appel ds-admin.css  -->
+<link rel="stylesheet" href="/css/main_admin.css" />
+<!-- body html login  -->
+
+<div class="container">
+  <div class="dash-box1">
+    <div class="dash-box">
+      <a href="<%= admin_dashboard_main_path %>">Tableau de bord</a>
+    </div>
+    <div class="dash-box">
+      <a href="<%= admin_cadre_main_path %>">Candidats</a>
+    </div>
+  </div>
+  <div class="dash-box1">
+    <div class="dash-box">
+      <a href="<%= admin_client_main_path %>">Clients</a>
+    </div>
+    <div class="dash-box">
+      <a href="<%= admin_administration_main_path %>">Adminstration</a>
+    </div>
+  </div>
+</div>
+

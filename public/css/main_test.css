@@ -63,85 +63,129 @@ body{
   line-height: 1.5;
 }
 
-.content{
-	margin: 15px;
-}
 
-
-.recrutement{
-	width: 100%;
-	height: 250px;
-	border: 1px solid #D6B36A;
-	padding: 15px;
-}
-
-.recrutement h4{
-	padding-top: 20px;
+.resultat-title{
+	font-size: 20px;
+	text-align: center;
+	color: #d6b36a;
 	margin-bottom: 50px;
 }
 
-.btn-edit{
+.all-content{
+	margin: 15px;
+}
+
+.resultat p{
+	margin-bottom: 20px;
+}
+
+.certificat{
 	display: block;
 	margin: auto;
-	width: 200px;
-	height: 50px;
-	background: #D6B36A;
-	color: #fff;
-	padding: 15px;
-	font-size: 14px;
 	text-align: center;
+	width: 100%;
+	margin-bottom: 50px;
 }
 
-.btn-edit:hover{
-	border: 1px solid #D6B36A;
-	text-decoration: none;
-	background: none;
-	color: #D6B36A;
+.paragraphe{
+	position: relative;
+	left: 0;
+	right: 0;
+	width: 220px;
 }
 
+.image{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
 
-.container-flex{
-		display: flex;
-	}
-	.offre-items{
-		border: 2px solid red;
-		padding: 10px;
-		margin: 5px;
-	}
-	.photo_ako{
-		width: 200px;
-		height: 250px;
-		border-radius: 40%;
+.btn-download{
+	width: 150px;
+	height: 50px;
+	border: 1px solid #d6b36a;
+	color: #d6b36a;
+	padding: 10px;
+	text-align: center;
+	background: #fff;
+	font-size: 16px;
+}
+
+.btn-download:hover{
+	background: #d6b36a;
+	color: #fff;
+}
+
+.certificat p{
+	margin-bottom: 20px;
+}
+
+.imprimer{
+	color: #d6b36a;
+	font-weight: bold;
+}
+
+.imprimer:hover{
+	color: #d6b36a;
+}
+
+p span{
+	float: right;
+}
+
+@media only screen and (min-width: 500px){
+	.certificat p{
+		display: inline-block;
 	}
 
+	.image{
+		position: absolute;
+	}
+
+	.resultat{
+		margin-bottom: 50px;
+	}
+
+	.imprimer{
+		margin-right: 10px;
+	}
+}
 
 @media only screen and (min-width: 900px){
-	.content{
+	.all-content{
 		display: flex;
-	}
-
-
-	.left_link{
-		margin-top: 20px;
-		padding-right: 2px;
-		border-right: 1px solid #D6B36A;
 	}
 
 	.main{
-		width: 100%;
-
-	}
-
-	.recrutement-content{
-		padding: 10% 0;
-	}
-
-	.recrutement{
 		display: block;
-		margin: auto;
-		width: 450px;
-		display: flex;
-	    flex-wrap: wrap;
-	    justify-content: center;
+		margin: 0 auto;
+		width: 500px;
+		margin-top: 50px;
+		margin-bottom: 200px;
+	}
+
+	.resultat-title{
+		font-size: 30px;
+	}
+
+	.all-main{
+		border-left: 1px solid #d6b36a;
+		width: 100%;
+	}
+
+	.resultat p{
+		margin-bottom: 50px;
+	}
+
+	.resultat{
+		margin-bottom: 100px;
+	}
+
+	.button{
+		float: right;
+	}
+
+	.certificat p{
+		float: left;
 	}
 }

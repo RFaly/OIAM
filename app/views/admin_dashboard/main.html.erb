@@ -1,2 +1,23 @@
-<h1>AdminDashboard#main</h1>
-<p>Find me in app/views/admin_dashboard/main.html.erb</p>
+<!-- appel ds-admin.css  -->
+<link rel="stylesheet" href="/css/dash_admin.css" />
+<!-- body html login  -->
+
+<div class="container">
+  <div class="dash-box1">
+    <div class="dash-box">
+      <a href="<%= admin_dashboard_main_path %>">AGENDA</a>
+    </div>
+    <div class="dash-box">
+      <a href="<%= admin_dashboard_main_path %>">OFFRES EN COURS</a>
+    </div>
+  </div>
+  <div class="dash-box1">
+    <div class="dash-box">
+      <a href="<%= admin_dashboard_main_path %>">CANDIDATS A SUIVRE</a>
+    </div>
+    <div class="dash-box">
+      <a href="<%= admin_dashboard_main_path %>">TACHES</a>
+    </div>
+  </div>
+</div>
+

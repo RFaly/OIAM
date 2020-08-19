@@ -14,7 +14,7 @@
 		<% if @oFcs.empty? %>
 		<div class="recrutement-content">
 			<div class="recrutement">
-				<center><h4>Vous n'avez aucun recrutement en cours pour l'instants.</h4></center>
+				<center><h4>Vous n'avez aucun récrutement en cours pour l'instant.</h4></center>
 				<div class="offre-perso">
 					<%= link_to "TROUVER UNE OFFRES", searchJob_path, class:"btn-edit" %>
 				</div>
@@ -42,8 +42,13 @@
 
 						<%= link_to show_recrutment_monitoring_path(oFc.id), class:'btn btn-success' do %>
 
-							Vous êtes à l'étape n° : <%= oFc.etapes %> <br>
-							Nombre d'étape totale : <%= oFc.offre_job.numberEntretien + 1 %>
+							<% if oFc.status == "refused"  %>
+								Candidature réfusé
+							<% else %>
+								<i>petit image loading</i>
+								Vous êtes à l'étape n° : <%= oFc.etapes %> <br>
+								Nombre d'étape totale : <%= oFc.offre_job.numberEntretien + 1 %>
+							<% end %>
 
 						<% end %>
 
