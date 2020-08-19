@@ -5,8 +5,10 @@ $(document).ready(function () {
   } else {
     $('.flash').fadeIn(300);
     $('.flash-notice').addClass('active');
+    $('.flash-alert').addClass('active');
     setTimeout(function () {
       $('.flash-notice').removeClass('active');
+      $('.flash-alert').removeClass('active');
       $('.flash').fadeOut(2000);
     }, 2700);
   }
