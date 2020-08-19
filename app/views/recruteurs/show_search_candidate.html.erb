@@ -71,7 +71,7 @@
 
 <!-- misy condition mbôla tokony aiditra -->
 
-          <% if @offre.my_top_five_candidates.count < 5 %>
+          <% unless @offre.my_top_five_candidates.where(cadre:@cadre.cadre.id).empty? %>
             <% if @offre.in_list_entretien(@cadre.cadre).nil? %>
               <div class="ssc-btn ssc-pe" id="dateEntretien">
                 PLANIFIER UN ENTRETIEN
