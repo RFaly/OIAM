@@ -230,6 +230,7 @@ body{
     clear: both;
   }
 
+
   .seacrh-drop{
     display: inline;
     width: 180px;
@@ -253,7 +254,7 @@ body{
   .action{
     position: relative;
     padding-right: 15px;
-    width: 35%;
+    width: auto;
     float: left;
     top: 50%;
     display: flex;
