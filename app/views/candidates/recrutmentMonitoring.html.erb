@@ -1,34 +1,25 @@
+<link rel="stylesheet" type="text/css" href="/css/recrutement.css" />
 <style type="text/css">
-	.container-flex{
-		display: flex;
-	}
-	.offre-items{
-		border: 2px solid red;
-		padding: 10px;
-		margin: 5px;
-	}
-	.photo_ako{
-		width: 200px;
-		height: 250px;
-		border-radius: 40%;
-	}
+	
 </style>
 
-<div class="row">
-	<div class="col-sm-3">
+<div class="content">
+	<div class="left_link">
 		<%= render partial: "candidates/left_link_bar" %>
 	</div>
 
-	<div class="col-sm-9">
+	<div class="main">
 		<br><br><br>
 
 		<% if @oFcs.empty? %>
-
-			<center>
-				<i>Vous n'avez aucun recrutement en cours pour l'instants.</i>
-				<br>
-				<%= link_to "TROUVER UNE OFFRES", searchJob_path, class:'btn btn-success' %>
-			</center>
+		<div class="recrutement-content">
+			<div class="recrutement">
+				<center><h4>Vous n'avez aucun recrutement en cours pour l'instants.</h4></center>
+				<div class="offre-perso">
+					<%= link_to "TROUVER UNE OFFRES", searchJob_path, class:"btn-edit" %>
+				</div>
+			</div>
+		</div>
 
 		<% else %>
 
