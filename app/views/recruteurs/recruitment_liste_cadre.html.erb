@@ -44,7 +44,7 @@
 						<h3><%= oFc.cadre.cadre_info.first_name %> <%= oFc.cadre.cadre_info.last_name %></h3>
 
 						poste: <strong><%= @offre.intitule_pote %></strong>
-						<% if oFc.status == "refusé" %>
+						<% if oFc.status == "refused" %>
 							Candidat refusé
 						<% else %>
 							<div class="info">
