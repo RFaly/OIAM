@@ -118,7 +118,7 @@
 	<% else %>
 		<!-- if aucun entretien -->
 		<% if @agendas.nil? %>
-			<i>Vous n'avez encore planifié aucun entretien avec ce candidat..</i>
+			<i>Vous n'avez pas encore planifié aucun entretien avec ce candidat.</i>
 
 			<br>
 			<%= link_to "PLANIFIER UN ENTRETIEN", show_search_candidate_path(@cadre.id, offre_id: @offre.id), class:"btn btn-success" %>
@@ -153,7 +153,10 @@
 						Le candidat a reffusé l'entretien
 						<% unless @agendas.alternative.nil? %>
 							<br>motif: <%= @agendas.alternative %>
-						<% end %>
+						<% end %> <br>
+						<a class="btn btn-info">
+							ACTION A FAIRE EN ATTENTE DU CLIENT
+						</a>
 					</p>
 				<!-- le recruteur a reffuser l'entretien -->
 				<% elsif @agendas.repons_client == false %>
@@ -248,7 +251,7 @@
 						</a>
 					</p>
 				<% elsif @agendas.repons_client == false %>
-					L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%m/%d/%Y %H:%M") %>" class="currentDateEntretien"></span> est passé mais avez refuser l'entretien du candidat
+					L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%m/%d/%Y %H:%M") %>" class="currentDateEntretien"></span> est passé mais vous avez refuser l'entretien du candidat.
 					<p>
 						<a class="btn btn-info">
 							ACTION A FAIRE EN ATTENTE DU CLIENT

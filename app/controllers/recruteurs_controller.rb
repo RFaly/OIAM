@@ -219,6 +219,7 @@ class RecruteursController < ApplicationController
 			end
 			@offre.update(etapes:2+max_step)
 			@oFc.update(etapes:@oFc.agenda_clients.count)
+			@oFc.update(status:nil)
     end
 
 		respond_to do |format|
@@ -247,7 +248,6 @@ class RecruteursController < ApplicationController
 	def recruitment_liste_cadre
 		@offre = OffreJob.find_by_id(params[:offre_id])
 		@oFcs = @offre.offre_for_candidates.where(accepted_postule:true)
-		
 	end
 
 	def recruitment_show_cadre
@@ -259,18 +259,14 @@ class RecruteursController < ApplicationController
 	end
 
 	def notice_refused_post
-
 		respons = ["accepted","waiting","refused"]
-
 		@oFc = OffreForCandidate.find_by_id(params[:oFc_id])
 		@offre = OffreJob.find_by_id(params[:offre_id])
 		@cadre = Cadre.find_by_id(params[:cadre_id])
-
 		error = false
 		unless respons.include?(params[:repons])
 			error = true
 		end
-
 		if @oFc.nil? || @offre.nil? || @cadre.nil?
 			error = true
 		else
@@ -278,19 +274,17 @@ class RecruteursController < ApplicationController
 				error = true
 			end
 		end
-
 		if error
 			flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
 			redirect_to root_path
 		else
 			@oFc.update(status:params[:repons])
+			@oFc.update(refused_info:params[:notifier])
 		end
-
 		respond_to do |format|
 			format.html { redirect_to root_path }
 			format.js { }
 		end
-
 	end
 
 #Mes factures
@@ -348,6 +342,12 @@ class RecruteursController < ApplicationController
       @promise.signature_entreprise = uploader.url
       @promise.save
       flash[:notice] = "Promesse d'embauche bien sauvegarder"
+
+      #mettre à jour l'etap au dernière étape
+			oFc = @job.my_top_five_candidates.find_by(cadre:@cadre)
+			oFc.update(etapes:@job.numberEntretien + 1)
+			@job.update(etapes: 2 + @job.numberEntretien + 1)
+
       redirect_to show_promise_to_hire_path(@promise.id)
     else
 			@promise.errors.details[:signature_entreprise] = errorMessage
