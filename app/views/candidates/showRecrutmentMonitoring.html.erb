@@ -1,51 +1,37 @@
-
-<style type="text/css">
-	.pdp_mandona{
-		width: 250px;
-		height: 250px;
-		border-radius: 50%;
-	}
-	.container-flex{
-		display: flex;
-		justify-content: center;
-	}
-	.list-etapes{
-		border: 2px solid red;
-		padding: 5px;
-		margin-left: 10px;
-	}
-	.badge-success{
-		font-size: 55px;
-	}
-</style>
-
-
-<div class="row">
-	<div class="col-sm-3">
+<link rel="stylesheet" type="text/css" href="/css/showRecrutementCandidat.css">
+<div class="content">
+	<div class="left_link">
 		<%= render partial: "candidates/left_link_bar" %>
 	</div>
 
-	<div class="col-sm-9">
-		<center>
-			<%= link_to showSearchJob_path(@offreJob.id) do %>
+	<div class="main">
+		<div class="job-info">
+			<%= link_to showSearchJob_path(@offreJob.id), class:'btn-job-info' do %>
 				<%= image_tag(@offreJob.image, alt: 'photo de profil', class:"pdp_mandona" )%>
-				<br>
-				<h3>poste: <%= @offreJob.intitule_pote %></h3>
+				<h3><%= @offreJob.intitule_pote %></h3>
 			<% end %>
-		</center>
+		</div>
 
 		<div class="container-flex">
 			<% etape = 0 %>
 			<% @offreJob.numberEntretien.times do |i| %>
 				<% etape += 1 %>
 				<% if i == 0 %>
-					<div class="list-etapes">1er entretien <span class="badge-success"><%= etape %></span></div>
+					<div class="list-etapes"> <span class="text">1er entretien</span><span class="numero un inverse orange"><%= etape %></span></div>
 				<% else %>
-					<div class="list-etapes"><%= i+1 %>e entretien <span class="badge-success"><%= etape %></span></div>
+					<% if @oFc.etapes > 1 %>
+						<div class="list-etapes"> <span class="text"><%= i+1 %>e entretien</span><span class="badge-success numero inverse deux orange"><%= etape %></span></div>
+					<% else %>
+						<div class="list-etapes"> <span class="text"><%= i+1 %>e entretien</span><span class="badge-success numero inverse deux"><%= etape %></span></div>
+					<% end %>
 				<% end %>
 			<% end %>
 			<div class="list-etapes">
-				Promesse d'embauche <span class="badge-success"><%= etape + 1 %></span>
+				<% if @oFc.etapes == 3 %>
+					<span class="text">Promesse d'embauche </span><span class="badge-success numero inverse trois orange"><%= etape + 1 %></span>
+				<% else %>
+					<span class="text">Promesse d'embauche </span><span class="badge-success numero inverse trois"><%= etape + 1 %></span>
+				<% end %>
 			</div>
 		</div>
 
