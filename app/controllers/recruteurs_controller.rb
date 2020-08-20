@@ -255,7 +255,7 @@ class RecruteursController < ApplicationController
 		@offre = @oFc.offre_job
 		@cadre = @oFc.cadre
 		@agendas = @oFc.agenda_clients.order('created_at DESC')[0]
-		#first element current
+		@promise = @offre.promise_to_hires.find_by(cadre:@cadre)
 	end
 
 	def notice_refused_post
