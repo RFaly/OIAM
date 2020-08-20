@@ -55,14 +55,20 @@
 			nombre d'etape total : 
 			<strong><%= @offre.numberEntretien + 1 %></strong>
 		</div>
-
+<br><br><br>
+<hr><hr>
+<br><br><br>
+<hr><hr>
+<br><br><br>
 <!--
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -->
 
+<div id="container-element">
+
 <% if @oFc.status == "refused" %> <!-- if candidature refusé -->
-	Candidature réfusé
+	<%= render partial: "recruteurs/repons_refused" %>
 <% else %>
 
 	<!-- if candidate in a laste stape namely "promesse d'embauche" -->
@@ -120,7 +126,7 @@
 			<% end %>
 
 			<% if show %> <!-- afficher ce petit compte à rebours mandona -->
-				<div style="font-size: 50px" id="clockdiv" data-times="<%= @agendas.entretien_date.strftime("%m/%d/%Y %H:%M") %>">
+				<div style="font-size: 50px" id="futureTimeClock" data-times="<%= @agendas.entretien_date.strftime("%m/%d/%Y %H:%M") %>">
 					Il vous reste <span id="js-days"></span>j : <span id="js-hours"></span>h : <span id="js-minutes"></span>m : <span id="js-seconds">0</span>s avant la date de l'entretien.
 				</div>
 			<% end %>
@@ -129,26 +135,47 @@
 
 			<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
 
-				<% case @oFc.status %>
-					<% when "waiting" %>
-
-					<% when "accepted" %>
-
+				<% if @oFc.status == "waiting" || @oFc.status == "accepted" %>
+					<% if @oFc.status == "waiting" %>
+						<%= render partial: "recruteurs/repons_waiting" %>
 					<% else %>
+						<%= render partial: "recruteurs/repons_accepted" %>
+					<% end %>
+				<% else %>
+					<div id="js-data-bloc-principal">
+						
+						<div id="js-main-bloc-information">
+							<h3>Suivi recrutement</h3>
+							<p>Vous avez rencontré <%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %> le <%= @agendas.entretien_date.strftime("%m/%d/%Y") %>, comment s'est déroulé votre entretien ?</p>
+
+							<div>
+								<%= link_to "CANDIDAT RETENU POUR LA PROCHAINE ETAPE", notice_refused_post_path(repons: 'accepted', param2: 'value2'), method: :post, class:"btn btn-primary", id:"js-ca_next_stape"%><br>
+								<%= link_to "CANDIDAT EN ATTENTE", notice_refused_post_path(repons: 'waiting', param2: 'value2'), method: :post, class:"btn btn-primary" %><br>
+								<span class="btn btn-primary" id="dj-ca_confirmchoice">CANDIDAT REFUSE</span>
+								<br>
+
+								<!-- Alerte notification if refused candidat -->
+								<div id="js-show_ca_confirmchoice" style="display: none;">
+									<p>Attention ! Ce candidat figure parmi les meilleurs du marché et ne peut vous être réservé exclusivement  et nous portons à votre attention qu'une réponse rapide favorise la réussite du recrutement.</p>
+									<span>VOIR LE CANDIDAT</span>
+									<%= link_to "Valider", notice_refused_post_path(repons: 'refused', param2: 'value2'), method: :post, class:"btn btn-primary", id:"js-ca_confirmchoice" %>
+									<span class="js-retour-choice btn btn-info">Annuler</span>
+								</div>
 
 
-				<% end %>
+							</div>
 
+							<div>
+								<a href="<%= show_my_messages_client_path(@cadre.id) %>">Chat en ligne</a>
+								<a href = "mailto: <%= @cadre.cadre_info.mail %>">Mail</a>
+								<a href="">Compte rendu</a>
+							</div>
 
+						</div>
 
+					</div> <!-- fin js-data-bloc-principal -->
 
-
-
-
-
-
-
-
+				<% end %> <!-- fin choice status waiting || refusing -->
 
 			<% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
 
@@ -181,91 +208,6 @@
 
 
 
-		<div id="js-data-bloc-principal">
-
-			<div id="js-main-bloc-information">
-				<h3>Suivi recrutement</h3>
-				<p>Vous avez rencontré <%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %> le <%= @agendas.entretien_date.strftime("%m/%d/%Y") %>, comment s'est déroulé votre entretien ?</p>
-				<div>
-					<span class="btn btn-primary" id="js-ca_next_stape">CANDIDAT RETENU POUR LA PROCHAINE ETAPE</span><br><br>
-					<span class="btn btn-primary" id="js-ca_en_attente">CANDIDAT EN ATTENTE</span><br><br>
-					<span class="btn btn-primary" id="js-ca_refused">CANDIDAT REFUSE</span>
-				</div>
-				<div>
-					<a href="">Chat en ligne</a>
-					<a href="">Mail</a>
-					<a href="">Compte rendu</a>
-				</div>
-			</div>
-
-	<!-- au cas ou retenu pour la prochaine étape -->
-			<div id="js-show_ca_next_stape" style="display: none;">
-				<h3>Suivi recrutement</h3>
-				<div>
-					<% if @oFc.etapes < @offre.numberEntretien %>
-
-						<div class="ssc-btn ssc-pe btn btn-primary" id="dateEntretien">
-							NOUVEL ENTRETIEN
-						</div>
-						
-						<%= link_to "PROMESSE D'EMBAUCHE", promise_to_hire_path(id_offre_job: @offre.id,id_cadre: @cadre.id), class:'btn btn-primary', 'data-confirm':"Attention vous avez encore #{@offre.numberEntretien - @oFc.etapes} autre entretien à faire avec ce candidat, voulez-vous continuer quand même ?" %>
-
-					<% else %>
-						<%= link_to "PROMESSE D'EMBAUCHE", promise_to_hire_path(id_offre_job: @offre.id,id_cadre: @cadre.id), class:'btn btn-primary' %>
-					<% end %>
-					<br>
-					<span class="js-retour-choice btn btn-info">Retour</span>
-				</div>
-				<div>
-					<a href="">Chat en ligne</a>
-					<a href="">Mail</a>
-					<a href="">Compte rendu</a>
-				</div>
-			</div>
-
-	<!-- au cas ou en attente -->
-			<div id="js-show_ca_en_attente" style="display: none;">
-				<p>Attention ! Ce candidat figure parmi les meilleurs du marché et ne peut vous être réservé exclusivement et nous portons à votre attention qu'une réponse rapide favorise la réussite du recrutement.</p>
-				<span>VOIR LE CANDIDAT</span>
-<!-- 
-Atao 3
-1- voir le candidat (makany am'le profil)
-2- manokatra an'le fandehany
-3- annuler
-
- -->
-				<span class="js-retour-choice btn btn-info">Annuler</span>
-			</div>
-
-	<!-- au cas ou réfuser -->			
-			<div id="js-show_ca_refused" style="display: none;">
-				<center>
-					<div style="border: 2px solid red; width: 30%;">
-						<h4><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %></h4>
-						<p>
-							poste : <strong><%= @offre.intitule_pote %></strong> <br>
-
-							Candidat refusé
-						</p>
-					</div>
-				</center>
-
-		      	<%= form_tag(notice_refused_post_path) do %>
-					<label for="send-notice">Envoyer une raison de la refus au candidat</label>
-					<div class="form-group">
-		        		<textarea required="required" rows="3" class="form-control" name="notifier" id="send-notice"></textarea>
-		      		</div>
-		      		<div class="form-group">
-		        		<%= submit_tag("NOTIFIER") %>
-		        		<span class="js-retour-choice btn btn-info">Annuler</span>
-		      		</div>
-		      	<% end %>
-			</div>
-
-
-		</div> <!-- fin js-data-bloc-principal -->
-
-
 
 
 
@@ -275,7 +217,7 @@ Atao 3
 
 		<!-- ~~~~~~~~~~~~~~~~~~ USE THIS ELEMENT FOR SELECT DATE ~~~~~~~~~~~~~~~~~~~~ -->
 		<% if @oFc.etapes < @offre.numberEntretien %>
-		      <div class="ssc-planification">
+		      <div class="ssc-planification" id="hiddenElementInRetour">
 		        <div class="hiddenDate" style="display: none;" id="js-form-show">
 		          <%= form_tag(save_entretien_client_path, remote: true, id:"send-data-form") do %>
 
@@ -374,7 +316,10 @@ Atao 3
 		      </div>
 		<% end %>
 
+</div> <!-- fin container element -->
 		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<br><br><br><br><br><br><br><br><br>
 
 	</div> <!-- fin col-sm-9 -->
 </div> <!-- fin row -->

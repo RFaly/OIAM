@@ -1,0 +1,31 @@
+<% unless @oFc.refused_info.nil? %>
+	<h4>CANDIDAT REFUSE</h4>
+	<dl>
+		<dt>raison de la refus au candidat:</dt>
+		<dd>"<%= @oFc.refused_info %>"</dd>
+	</dl>
+<% else %>
+	<div id="js-show_ca_refused">
+		<center>
+			<div style="border: 2px solid red; width: 30%;">
+				<h4><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %></h4>
+				<p>
+					poste : <strong><%= @offre.intitule_pote %></strong> <br>
+
+					Candidat refusé
+				</p>
+			</div>
+		</center>
+
+      	<%= form_tag(notice_refused_post_path) do %>
+			<label for="send-notice">Envoyer une raison de la refus au candidat</label>
+			<div class="form-group">
+        		<textarea required="required" rows="3" class="form-control" name="notifier" id="send-notice"></textarea>
+      		</div>
+      		<div class="form-group">
+        		<%= submit_tag("NOTIFIER") %>
+        		<span class="js-retour-choice btn btn-info">Annuler</span>
+      		</div>
+      	<% end %>
+	</div>
+<% end %>
