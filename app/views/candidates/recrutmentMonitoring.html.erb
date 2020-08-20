@@ -1,8 +1,4 @@
 <link rel="stylesheet" type="text/css" href="/css/recrutement.css" />
-<style type="text/css">
-	
-</style>
-
 <div class="content">
 	<div class="left_link">
 		<%= render partial: "candidates/left_link_bar" %>
@@ -28,28 +24,41 @@
 			<% @oFcs.each do |oFc| %>
 				<% offre_job = oFc.offre_job %>
 				<div class="offre-items">
-					<hr>
-					<div>
+					
+					<div class="job-info">
 						<center>
 							<%= image_tag(offre_job.image, alt: 'photo de job', class:'photo_ako')%>
 							<br>
 							<h2><%= offre_job.client.entreprise.name %></h2>
-							<h3>poste: <%= offre_job.intitule_pote %></h3>
+							<h3 class="post-title"><span class="poste">Poste:</span> <span class="job-name"><%= offre_job.intitule_pote %></span></h3>
 						</center>
 					</div>
 
 					<% if oFc.accepted_postule == true %>
-
-						<%= link_to show_recrutment_monitoring_path(oFc.id), class:'btn btn-success' do %>
-
-							<% if oFc.status == "refused"  %>
-								Candidature réfusé
+						<% if oFc.etapes == 1 %>
+							<% if oFc.status == "refused" %>
+							
+								<p>Candidature réfusé</p>
 							<% else %>
-								<i>petit image loading</i>
-								Vous êtes à l'étape n° : <%= oFc.etapes %> <br>
-								Nombre d'étape totale : <%= oFc.offre_job.numberEntretien + 1 %>
+								<%= link_to show_recrutment_monitoring_path(oFc.id), class:'etape' do %>
+									<p class="paragraphe">Vous êtes à l'étape n° : <span><%= oFc.etapes %></span></p>
+									<p class="paragraphe">Nombre d'étape totale : <span><%= oFc.offre_job.numberEntretien + 1 %></span></p>
+									<div class="etape1">
+									</div>
+								<% end %>
 							<% end %>
-
+						<% elsif oFc.etapes == 2%>
+							<%= link_to show_recrutment_monitoring_path(oFc.id), class:'etape' do %>
+								<p class="paragraphe">Vous êtes à l'étape n° : <span><%= oFc.etapes %></span></p>
+								<p class="paragraphe">Nombre d'étape totale : <span><%= oFc.offre_job.numberEntretien + 1 %></span></p>
+								<div class="etape2"></div>
+							<% end %>
+						<% else %>
+							<%= link_to show_recrutment_monitoring_path(oFc.id), class:'etape' do %>
+								<p class="paragraphe">Vous êtes à l'étape n° : <span><%= oFc.etapes %></span></p>
+								<p class="paragraphe">Nombre d'étape totale : <span><%= oFc.offre_job.numberEntretien + 1 %></span></p>
+								<div class="etape3"></div>
+							<% end %>
 						<% end %>
 
 					<% elsif oFc.accepted_postule == false  %>
@@ -63,7 +72,7 @@
 
 					<% else %>
 
-						<%= link_to showSearchJob_path(oFc.offre_job.id), class:'btn btn-success' do %>
+						<%= link_to showSearchJob_path(oFc.offre_job.id), class:'etapes1' do %>
 							<center>
 								Demande d'entretien envoyer <br>
 								<span class="btn-info"> En attente de réponse</span>
@@ -71,8 +80,6 @@
 						<% end %>
 
 					<% end %>
-
-					<hr>
 				</div>
 
 			<% end %> <!-- fin each -->

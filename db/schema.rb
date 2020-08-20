@@ -93,25 +93,6 @@ ActiveRecord::Schema.define(version: 2020_08_14_053332) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "adresse"
-    t.string "postal_code"
-    t.string "city"
-    t.string "mail"
-    t.string "status"
-    t.string "situation"
-    t.string "telephone"
-    t.integer "potential_test"
-    t.integer "skils_test"
-    t.boolean "fit_test"
-    t.text "avis_recruteur"
-    t.text "question1"
-    t.text "question2"
-    t.text "question3"
-    t.text "question4"
-    t.text "question5"
     t.datetime "online_time"
     t.index ["email"], name: "index_cadres_on_email", unique: true
     t.index ["reset_password_token"], name: "index_cadres_on_reset_password_token", unique: true
@@ -243,6 +224,7 @@ ActiveRecord::Schema.define(version: 2020_08_14_053332) do
     t.float "remuneration"
     t.float "remuneration_anne"
     t.boolean "contrat_cdi", default: false
+    t.boolean "is_publish", default: false
     t.string "type_deplacement"
     t.string "date_poste"
     t.text "question1"

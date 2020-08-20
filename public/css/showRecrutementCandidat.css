@@ -1,0 +1,191 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 18px;
+}
+
+body{
+  font-family: 'Questrial', sans-serif;
+  margin: 0;
+  line-height: 1.5;
+}
+
+
+.pdp_mandona{
+		width: 250px;
+		height: 250px;
+		border-radius: 50%;
+	}
+	.container-flex{
+		display: flex;
+		position: relative;
+		justify-content: center;
+		max-width: 500px;
+		 margin-left: auto;
+   		margin-right: auto;
+	}
+	.list-etapes{
+		display: flex;
+		flex-wrap: wrap;
+		grid-column-gap: 15px;
+		width: 140px;
+		height: auto;
+		justify-content: center;
+		text-align: center;
+	}
+	.badge-success{
+		font-size: 55px;
+	}
+
+.main{
+	margin: 15px;
+}
+
+.job-info{
+	display: block;
+	margin: auto;
+	width: 100%;
+	text-align: center;
+}
+
+.job-info h3{
+	font-size: 25px;
+	color: #D6B36A;
+	margin: 10px 0 30px 0;
+}
+
+.btn-job-info:hover{
+	color: #D6B36A;
+}
+
+.text{
+	order: 1
+}
+
+
+.inverse{
+	order: -1;
+}
+
+.numero{
+	display: block;
+	margin: auto;
+	text-align: center;
+  	width: 36px;
+  	height: 36px;
+  	background-color: #f0f2f4;
+  	color: #fff;
+  	border-radius: 30px;
+  	padding: 5px;
+  	font-family: 'Roboto', sans-serif;
+  	font-size: 18px;
+	font-style: normal;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+
+.orange{
+	background: #D6B36A;
+}
+
+.container-flex::after{
+	content: "";
+	position: absolute;
+	top: 15%;
+	left: 0;
+	right: 0;
+	display: block;
+	margin: auto;
+	width: 60%;
+	height: 3px;
+	background-color: #f0f2f4;
+}
+
+
+
+
+
+@media only screen and (min-width: 350px){
+	.trois{
+	position: relative;
+	top: 10%;
+	}
+
+	.container-flex::after{
+		top: 25%;
+	}	
+}
+
+
+@media only screen and (min-width: 900px){
+	.content{
+		display: flex;
+		margin-top: 15px;
+	}
+
+	.main{
+		justify-content: center;
+		width: 100%;
+		border-left: 1px solid #D6B36A;
+		margin-left: 2px;
+		padding: 20px;
+	}
+}
+
+
+
+
