@@ -47,12 +47,24 @@ if ($('#futureTimeClock')[0]) {
   var timeinterval = setInterval(updateTimeInOneSecond, 1000);
 }
 
+var month = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]
+var day = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"]
+let $elementDate = $('.currentDateEntretien')
+
+$elementDate.each(function() {
+  let dateGet = new Date($(this).data().times)
+  let dateString = day[dateGet.getDay()] +" "+ dateGet.getDate()+" "+month[dateGet.getMonth()]+" "+dateGet.getFullYear()
+  $(this).html(dateString + " à " + dateGet.getHours() + "h:00")
+});
+
+
 
 /*
 
 
 // 	let dateGet = new Date($(this).val())
-// 	let dateString = day[dateGet.getDay()] +" "+ dateGet.getDate()+" "+month[dateGet.getMonth()]+" "+dateGet.getFullYear()
+
+
 
 
 1. Publication

@@ -259,9 +259,38 @@ class RecruteursController < ApplicationController
 	end
 
 	def notice_refused_post
-		puts "#"*34
-		puts params.inspect
-		puts "#"*34
+
+		respons = ["accepted","waiting","refused"]
+
+		@oFc = OffreForCandidate.find_by_id(params[:oFc_id])
+		@offre = OffreJob.find_by_id(params[:offre_id])
+		@cadre = Cadre.find_by_id(params[:cadre_id])
+
+		error = false
+		unless respons.include?(params[:repons])
+			error = true
+		end
+
+		if @oFc.nil? || @offre.nil? || @cadre.nil?
+			error = true
+		else
+			unless @oFc.offre_job == @offre && @oFc.cadre == @cadre
+				error = true
+			end
+		end
+
+		if error
+			flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
+			redirect_to root_path
+		else
+			@oFc.update(status:params[:repons])
+		end
+
+		respond_to do |format|
+			format.html { redirect_to root_path }
+			format.js { }
+		end
+
 	end
 
 #Mes factures
