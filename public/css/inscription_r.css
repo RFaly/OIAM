@@ -20,7 +20,7 @@
   padding: 10px;
   background-color: #f0f2f4;
   text-align: center;
-  font: 15px Questrial, sans-serif;
+  font: 16px Questrial, sans-serif;
 }
 
 .details-r .dr-item:focus {
@@ -73,7 +73,7 @@
 }
 
 .details-r-condition p {
-  font: 15px Questrial, sans-serif;
+  font: 16px Questrial, sans-serif;
   text-align: center;
 }
 
@@ -94,7 +94,7 @@
 
 .details-r-condition .condition-content .dc-1 {
   margin: 20px 0;
-  font: 15px Questrial, sans-serif;
+  font: 16px Questrial, sans-serif;
   font-size: 12px;
 }
 
@@ -114,7 +114,7 @@
 }
 
 .details-r-condition .condition-check label {
-  font: 15px Questrial, sans-serif;
+  font: 16px Questrial, sans-serif;
 }
 
 .dr-btn {
@@ -204,7 +204,7 @@
 }
 
 .code-naf-list .code-naf-list-item {
-  font: 15px Questrial, sans-serif;
+  font: 16px Questrial, sans-serif;
   list-style: none;
   padding: 0.75rem 1.25rem;
   background-color: #fff;
@@ -219,7 +219,7 @@
 }
 
 #condition-check {
-  font: 15px Questrial, sans-serif;
+  font: 16px Questrial, sans-serif;
   display: block;
   position: relative;
   padding-left: 65px;

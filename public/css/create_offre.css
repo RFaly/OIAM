@@ -93,7 +93,7 @@
 
 .create-offre-box {
   padding: 20px 0;
-  font: 15px Questrial, sans-serif;
+  font: 16px Questrial, sans-serif;
   text-align: center;
 }
 
@@ -195,7 +195,7 @@
 }
 
 .create-offre-box .detail-post-box .dp-input-checkbox1 {
-  font: 15px Questrial, sans-serif;
+  font: 16px Questrial, sans-serif;
   display: block;
   position: relative;
   margin: 35px auto;
@@ -371,7 +371,7 @@
 .create-offre-box .context-offre-box .co-input input,
 .create-offre-box .context-offre-box .co-input select,
 .create-offre-box .context-offre-box .co-input textarea {
-  font: 15px Questrial, sans-serif;
+  font: 16px Questrial, sans-serif;
   text-align: center;
   border: none;
   width: 100%;
@@ -429,7 +429,7 @@
   margin-left: 0;
   margin-right: 80px;
   margin-bottom: 20px;
-  font: 15px Questrial, sans-serif;
+  font: 16px Questrial, sans-serif;
 }
 
 .create-offre-box .context-offre-box .cp-input-check #cp-input-check {

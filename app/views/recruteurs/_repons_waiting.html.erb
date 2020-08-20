@@ -1,0 +1,19 @@
+<div id="js-show_ca_next_stape" >
+	<h3>Suivi recrutement</h3>
+	<h4>CANDIDAT EN ATTENTE</h4>
+	<div>
+		<% if @oFc.etapes < @offre.numberEntretien %>
+			<div class="ssc-btn ssc-pe btn btn-primary" id="dateEntretien">
+				NOUVEL ENTRETIEN
+			</div>
+			<%= link_to "PROMESSE D'EMBAUCHE", promise_to_hire_path(id_offre_job: @offre.id,id_cadre: @cadre.id), class:'btn btn-primary', 'data-confirm':"Attention vous avez encore #{@offre.numberEntretien - @oFc.etapes} autre entretien à faire avec ce candidat, voulez-vous continuer quand même ?" %>
+		<% else %>
+			<%= link_to "PROMESSE D'EMBAUCHE", promise_to_hire_path(id_offre_job: @offre.id,id_cadre: @cadre.id), class:'btn btn-primary' %>
+		<% end %>
+	</div>
+	<div>
+		<a href="<%= show_my_messages_client_path(@cadre.id) %>">Chat en ligne</a>
+		<a href = "mailto: <%= @cadre.cadre_info.mail %>">Mail</a>
+		<a href="">Compte rendu</a>
+	</div>
+</div>
