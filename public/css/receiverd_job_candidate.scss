@@ -2,98 +2,9 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-.client-column {
-  display: flex;
-  flex-wrap: nowrap;
-  padding: 20px 0;
-}
-
-.cp-box {
-  width: 100%;
-  min-height: 80vh;
-  padding-top: 15px;
-  border-left: 1px solid #d6b36a;
-}
-
-.box-inside {
-  width: 95%;
-  margin: 0 auto;
-  padding: 10px;
-}
-
-.ui-datepicker {
-  font: 550 18px Raleway, sans-serif;
-  background-color: #e3d7bf;
-}
-
-.ui-datepicker-calendar {
-  width: 100%;
-}
-
-.ui-datepicker-calendar td {
-  cursor: pointer;
-  border-radius: 50%;
-  text-align: center;
-  height: 60px;
-}
-
-.ui-datepicker-calendar .ui-state-disabled {
-  cursor: default;
-  background: none;
-  opacity: 0.4;
-}
-
-.ui-datepicker-calendar .ui-state-disabled:hover {
-  background: none;
-}
-
-.ui-datepicker-header {
-  padding-bottom: 10px;
-  color: white;
-}
-
-.ui-datepicker .ui-datepicker-prev {
-  text-indent: -900000px;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  overflow: hidden;
-  background: url(/image/left.png) no-repeat center/15px 20px;
-  border: 2px solid white;
-  border-radius: 8px;
-  position: absolute;
-}
-
-.ui-datepicker .ui-datepicker-prev:hover, .ui-datepicker .ui-datepicker-prev:active {
-  box-shadow: 1px 1px 5px 1px #f0f2f4;
-}
-
-.ui-datepicker .ui-datepicker-next {
-  text-indent: -900000px;
-  overflow: hidden;
-  cursor: pointer;
-  border-radius: 8px;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  border: 2px solid white;
-  background: url(/image/right.png) no-repeat center/15px 20px;
-}
-
-.ui-datepicker .ui-datepicker-next:hover, .ui-datepicker .ui-datepicker-next:active {
-  box-shadow: 1px 1px 5px 1px #f0f2f4;
-}
-
-.ui-widget-content .ui-state-default {
-  border: 0px;
-  text-align: center;
-  text-decoration: none;
-  color: white;
-}
-
-.ui-widget-content .ui-state-active {
-  border: 0px;
-}
+@import 'config';
+@import 'pagemenu';
+@import 'datepicker';
 
 html,
 body,
@@ -183,7 +94,6 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
-
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -198,21 +108,17 @@ nav,
 section {
   display: block;
 }
-
 body {
   line-height: 1;
 }
-
 ol,
 ul {
   list-style: none;
 }
-
 blockquote,
 q {
   quotes: none;
 }
-
 blockquote:before,
 blockquote:after,
 q:before,
@@ -220,7 +126,6 @@ q:after {
   content: '';
   content: none;
 }
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -229,7 +134,6 @@ table {
 html {
   font-size: 18px;
 }
-
 * {
   z-index: 1;
 }
@@ -255,6 +159,8 @@ body {
   width: 200px;
   height: 40px;
   padding-left: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   margin-bottom: 20px;
   text-align: center;
@@ -400,7 +306,6 @@ body {
 .hidden {
   display: none;
 }
-
 .readmore {
   margin: 0 5px;
   cursor: pointer;
@@ -410,7 +315,7 @@ body {
   pointer-events: none;
   text-decoration: none;
 }
-
+// date picker
 .date-picker-f {
   margin: 0 auto;
   margin-right: 0;
@@ -420,140 +325,133 @@ body {
   padding-right: 6.5%;
   width: 70%;
   z-index: 200;
+  ////
+  .date {
+    opacity: 0;
+    input {
+      top: -4px;
+      left: 0;
+      border-radius: 0;
+      font-size: 0.002px;
+      position: absolute;
+    }
+  }
+  // hour validation
+  .js-timeContainer {
+    padding: 30px;
+    padding-bottom: 15px;
+    background: $secondary_text_color_button;
+    color: white;
+    font: $ffbtn;
+    h4 {
+      text-align: center;
+    }
+    .fselect {
+      width: 90%;
+      margin: 10px auto;
+      #reditDate {
+        cursor: pointer;
+      }
+      .firstSelection {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 0;
+      }
+      .js-hoursTime {
+        padding: 5px;
+        background: transparent;
+        border: 2px solid #fff;
+        width: 86px;
+        text-align: center;
+        cursor: pointer;
+        &:hover,
+        &:active {
+          background: white;
+          color: $secondary_text_color_button;
+        }
+      }
+    }
+  }
+  #reditDate {
+    cursor: pointer;
+  }
+  .planQ-btn {
+    margin-top: 50px;
+    text-align: right;
+    input {
+      font: $ffbtn;
+      background: transparent;
+      border: 2px solid white;
+      border-radius: 0;
+      color: white;
+      padding: 10px 30px;
+      &:hover,
+      &:active {
+        background: white;
+        color: $secondary_text_color_button;
+      }
+    }
+  }
 }
-
-.date-picker-f .date {
-  opacity: 0;
-}
-
-.date-picker-f .date input {
-  top: -4px;
-  left: 0;
-  border-radius: 0;
-  font-size: 0.002px;
-  position: absolute;
-}
-
-.date-picker-f .js-timeContainer {
-  padding: 30px;
-  padding-bottom: 15px;
-  background: #e3d7bf;
-  color: white;
-  font: 550 18px Raleway, sans-serif;
-}
-
-.date-picker-f .js-timeContainer h4 {
-  text-align: center;
-}
-
-.date-picker-f .js-timeContainer .fselect {
-  width: 90%;
-  margin: 10px auto;
-}
-
-.date-picker-f .js-timeContainer .fselect #reditDate {
-  cursor: pointer;
-}
-
-.date-picker-f .js-timeContainer .fselect .firstSelection {
-  display: flex;
-  justify-content: space-between;
-  margin: 30px 0;
-}
-
-.date-picker-f .js-timeContainer .fselect .js-hoursTime {
-  padding: 5px;
-  background: transparent;
-  border: 2px solid #fff;
-  width: 86px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.date-picker-f .js-timeContainer .fselect .js-hoursTime:hover, .date-picker-f .js-timeContainer .fselect .js-hoursTime:active {
-  background: white;
-  color: #e3d7bf;
-}
-
-.date-picker-f #reditDate {
-  cursor: pointer;
-}
-
-.date-picker-f .planQ-btn {
-  margin-top: 50px;
-  text-align: right;
-}
-
-.date-picker-f .planQ-btn input {
-  font: 550 18px Raleway, sans-serif;
-  background: transparent;
-  border: 2px solid white;
-  border-radius: 0;
-  color: white;
-  padding: 10px 30px;
-}
-
-.date-picker-f .planQ-btn input:hover, .date-picker-f .planQ-btn input:active {
-  background: white;
-  color: #e3d7bf;
-}
-
+// date picker
 #ui-datepicker-div {
   width: 600px;
   color: white;
 }
+.ui-datepicker {
+  &-calendar {
+    padding: 30px;
+    td {
+      padding-top: 19px;
+      height: 60px;
 
-.ui-datepicker-calendar {
-  padding: 30px;
+      &:hover {
+        margin-top: -5px;
+        background: url(/image/cercle.png) no-repeat center/55px 55px;
+      }
+    }
+  }
+  &-header {
+    padding: 50px;
+  }
+  &-next {
+    top: 40px;
+    right: 10%;
+  }
+  &-prev {
+    top: 40px;
+    right: 20%;
+  }
 }
-
-.ui-datepicker-calendar td {
-  padding-top: 19px;
-  height: 60px;
-}
-
-.ui-datepicker-calendar td:hover {
-  margin-top: -5px;
-  background: url(/image/cercle.png) no-repeat center/55px 55px;
-}
-
-.ui-datepicker-header {
-  padding: 50px;
-}
-
-.ui-datepicker-next {
-  top: 40px;
-  right: 10%;
-}
-
-.ui-datepicker-prev {
-  top: 40px;
-  right: 20%;
-}
-
 @media only screen and (min-width: 900px) {
   .content {
     display: flex;
   }
+
   .no-flex {
     clear: both;
   }
+
   .seacrh-drop {
     display: inline;
     width: 180px;
   }
+
   .post_info_content {
     display: flex;
     height: auto;
   }
+
   .logo {
     width: 20%;
     height: auto;
   }
+
   .job_info {
     width: 60%;
     padding-left: 40px;
   }
+
   .action {
     position: relative;
     padding-right: 15px;
@@ -562,27 +460,33 @@ body {
     top: 50%;
     display: flex;
   }
+
   .action img {
     position: absolute;
     top: -70px;
     right: 0;
   }
+
   .logo {
     padding: 10px;
   }
+
   .logo img {
     position: relative;
     width: 100%;
     height: 200px;
     top: 15px;
   }
+
   .btn-recherche {
     margin-top: 20px;
   }
+
   .btn-voir {
     float: right;
     cursor: pointer;
   }
+
   .main {
     border-left: 1px solid #d6b36a;
     padding-left: 15px;
@@ -597,12 +501,15 @@ body {
     margin-top: 2px;
     float: right;
   }
+
   .logo {
     width: 25%;
   }
+
   .job_info {
     width: 40%;
   }
+
   .main {
     padding-right: 60px;
     width: 100%;

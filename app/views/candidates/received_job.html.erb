@@ -1,120 +1,98 @@
 <link rel="stylesheet" type="text/css" href="/css/receiverd_job_candidate.css">
-<style type="text/css">
-	.btn{
-		margin: 4px;
-	}
-
-	.js-timeContainer{
-		background-color: #e3b465;
-	}
-
-	.firstSelection{
-		display: flex;
-	}
-
-	.js-hoursTime{
-		margin: 10px;
-		padding: 2px;
-		color: #fff;
-		border: 2px solid #fff;
-	}
-</style>
 
 <div class="all-content">
 	<div class="content">
-	<div class="left_link">
-		<%= render partial: "candidates/left_link_bar" %>
-	</div>
+		<div class="left_link">
+			<%= render partial: "candidates/left_link_bar" %>
+		</div>
 
-	<div class="main">
-		<h1 class="favorite-offre-title">DEMANDES D'ENTRETIEN</h1>
-		
-		<% if @agendaClients.empty? %>
-			<p>Aucun demande d'entretien réçu ... </p>
-		<% else %>
-		<div id="list-resultats" class="post-info">
-			<% @agendaClients.each do |aClient| %>
-			<div id="agenda-<%= aClient[:agenda_client].id %>-yes" class="post_info_content">
-					<div class="logo">
-						<% if aClient[:image].nil? %>
-							<img src="/image/profie.png" width="250px">	
-						<% else %>
-							<%= image_tag(aClient[:image], alt: 'logo entreprise',width:"250px")%>
-						<% end %>
+		<div class="main">
+			<h1 class="favorite-offre-title">DEMANDES D'ENTRETIEN</h1>
+			
+			<% if @agendaClients.empty? %>
+				<p>Aucun demande d'entretien réçu ... </p>
+			<% else %>
+				<div id="list-resultats" class="post-info">
+				<% @agendaClients.each do |aClient| %>
+					<div id="agenda-<%= aClient[:agenda_client].id %>-yes" class="post_info_content">
+						<div class="logo">
+							<% if aClient[:image].nil? %>
+								<img src="/image/profie.png" width="250px">	
+							<% else %>
+								<%= image_tag(aClient[:image], alt: 'logo entreprise',width:"250px")%>
+							<% end %>
+						</div>
+						<div class="job_info">
+								<h2 class="job_info_title"> <a href="<%=showSearchJob_path(aClient[:offre_id])%>"></a> <%= aClient[:intitule_pote] %></h2>
+								<img src="/image/gg_time.png" alt="logo oiam favorie" width="25px" height="25px" class="indic"><span class="dateShowGo" data-time="<%= aClient[:agenda_client].entretien_date.strftime("%Y-%m-%d") %>" data-hours="<%= aClient[:agenda_client].entretien_date.strftime("%H : %M") %>"></span>
+								<p><img src="/image/map.png" alt="logo oiam favorie" width="22px" height="25px" class="indic"><%= aClient[:agenda_client].adresse %></p>	
+						</div>
+						<div class="action">
+								<div class="accepter">
+								<%= link_to "ACCEPTER", post_repons_received_job_path(reponse:1, offre_id: aClient[:offre_id], agenda_id: aClient[:agenda_client].id), remote:true, class:'btn-voir btn-accept js-repons-send-post inline', 'data-items':"#{aClient[:agenda_client].id}", method: :post %>
+								</div>
+
+							<div class="alternative">
+								<span class="btn-voir btn-alternative">ALTERNATIVE</span>
+								<span class="alternatives">
+									<%= link_to "DÉJA ENGAGÉ", post_repons_received_job_path(alternative:'Déjà engagé', reponse:0, offre_id: aClient[:offre_id], agenda_id: aClient[:agenda_client].id), remote:true, class:'engage js-repons-send-post inline', 'data-items':"#{aClient[:agenda_client].id}", method: :post %><br><br>
+									<span class="js-proposer-date" id="dateEntretien" data-items="<%= aClient[:agenda_client].id %>">PROPOSER UNE AUTRE DATE</span>
+								</span>
+							</div>	
+						</div>
 					</div>
-					<div class="job_info">
-							<h2 class="job_info_title"> <a href="<%=showSearchJob_path(aClient[:offre_id])%>"></a> <%= aClient[:intitule_pote] %></h2>
-							<img src="/image/gg_time.png" alt="logo oiam favorie" width="25px" height="25px" class="indic"><span class="dateShowGo" data-time="<%= aClient[:agenda_client].entretien_date.strftime("%Y-%m-%d") %>" data-hours="<%= aClient[:agenda_client].entretien_date.strftime("%H : %M") %>"></span>
-							<p><img src="/image/map.png" alt="logo oiam favorie" width="22px" height="25px" class="indic"><%= aClient[:agenda_client].adresse %></p>	
-					</div>
-					<div class="action">
-							<div class="accepter">
-							<%= link_to "ACCEPTER", post_repons_received_job_path(reponse:1, offre_id: aClient[:offre_id], agenda_id: aClient[:agenda_client].id), remote:true, class:'btn-voir btn-accept js-repons-send-post inline', 'data-items':"#{aClient[:agenda_client].id}", method: :post %>
-							</div>
+					<div class="date-picker-f">
+						<div class="hiddenDate" style="display: none;" id="js-form-show-<%= aClient[:agenda_client].id %>">
 
-						<div class="alternative">
-							<span class="btn-voir btn-alternative">ALTERNATIVE</span>
-							<span class="alternatives">
-								<%= link_to "DÉJA ENGAGÉ", post_repons_received_job_path(alternative:'Déjà engagé', reponse:0, offre_id: aClient[:offre_id], agenda_id: aClient[:agenda_client].id), remote:true, class:'engage js-repons-send-post inline', 'data-items':"#{aClient[:agenda_client].id}", method: :post %><br>
-							<span class="js-proposer-date" data-items="<%= aClient[:agenda_client].id %>">PROPOSER UNE AUTRE DATE</span>
-							</span>
-						</div>	
+							<%= form_tag(post_repons_received_job_path, remote: true, class:"send-data-form", 'data-items':"#{aClient[:agenda_client].id}") do %>
+
+								<div class="date" id="js-hide-input-date<%= aClient[:agenda_client].id %>">
+									<input type="text" name="date" id="datepicker" class="input-date-js-me " data-items="<%= aClient[:agenda_client].id %>">
+								</div>
+
+								<div class="js-timeContainer" id="choseTime-<%= aClient[:agenda_client].id %>" style="display: none;" style="display: none;">
+									<h4 id="showDateLong-<%= aClient[:agenda_client].id %>"></h4>
+									<div class="fselect">
+									  <span id="reditDate" class="badge badge-secondary js-reditDate" data-items="<%= aClient[:agenda_client].id %>">modifier la date</span>
+									  <div class="firstSelection">
+										<div class="js-hoursTime" data-time="08:00" data-items="<%= aClient[:agenda_client].id %>">08:00</div>
+										<div class="js-hoursTime" data-time="09:00" data-items="<%= aClient[:agenda_client].id %>">09:00</div>
+										<div class="js-hoursTime" data-time="10:00" data-items="<%= aClient[:agenda_client].id %>">10:00</div>
+										<div class="js-hoursTime" data-time="11:00" data-items="<%= aClient[:agenda_client].id %>">11:00</div>
+									  </div>
+									  <div class="firstSelection">
+										<div class="js-hoursTime" data-time="12:00" data-items="<%= aClient[:agenda_client].id %>">12:00</div>
+										<div class="js-hoursTime" data-time="13:00" data-items="<%= aClient[:agenda_client].id %>">13:00</div>
+										<div class="js-hoursTime" data-time="14:00" data-items="<%= aClient[:agenda_client].id %>">14:00</div>
+										<div class="js-hoursTime" data-time="15:00" data-items="<%= aClient[:agenda_client].id %>">15:00</div>
+									  </div>
+									  <div class="firstSelection">
+										<div class="js-hoursTime" data-time="16:00" data-items="<%= aClient[:agenda_client].id %>">16:00</div>
+										<div class="js-hoursTime" data-time="17:00" data-items="<%= aClient[:agenda_client].id %>">17:00</div>
+										<div class="js-hoursTime" data-time="18:00" data-items="<%= aClient[:agenda_client].id %>">18:00</div>
+										<div class="js-hoursTime" data-time="19:00" data-items="<%= aClient[:agenda_client].id %>">19:00</div>
+									  </div>
+									  <input type="hidden" name="reponse" value="2">
+
+										<input type="hidden" name="time" id="input-time-js-<%= aClient[:agenda_client].id %>">
+										
+										<input type="hidden" name="offre_id" value="<%= aClient[:offre_id] %>">
+										<input type="hidden" name="agenda_id" value="<%= aClient[:agenda_client].id %>">
+									  <div class="planQ-btn">
+										<%= submit_tag("VALIDER", id:"valid-submit-#{aClient[:agenda_client].id}", disabled:"disabled" )%>
+									  </div>
+									</div>
+								</div>
+							<% end %>
 						</div>
-				</div>
-
-<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
-
-				<div class="hiddenDate" style="display: none;" id="js-form-show-<%= aClient[:agenda_client].id %>">
-
-				<%= form_tag(post_repons_received_job_path, remote: true, class:"send-data-form", 'data-items':"#{aClient[:agenda_client].id}") do %>
-
-					<div class="date" id="js-hide-input-date<%= aClient[:agenda_client].id %>">
-						<input type="date" name="date" class="input-date-js-me" data-items="<%= aClient[:agenda_client].id %>">
-					</div>
-
-					<div class="js-timeContainer" id="choseTime-<%= aClient[:agenda_client].id %>" style="display: none;">
-						<h2 id="showDateLong-<%= aClient[:agenda_client].id %>"></h2>
-						<span id="reditDate" class="js-reditDate badge badge-secondary" data-items="<%= aClient[:agenda_client].id %>">modifier la date</span>
-
-						<div class="firstSelection">
-							<div class="js-hoursTime" data-items="<%= aClient[:agenda_client].id %>" data-time="08:00">08:00</div>
-							<div class="js-hoursTime" data-items="<%= aClient[:agenda_client].id %>" data-time="09:00">09:00</div>
-							<div class="js-hoursTime" data-items="<%= aClient[:agenda_client].id %>" data-time="10:00">10:00</div>
-							<div class="js-hoursTime" data-items="<%= aClient[:agenda_client].id %>" data-time="11:00">11:00</div>
-						</div>
-						<div class="firstSelection">
-							<div class="js-hoursTime" data-items="<%= aClient[:agenda_client].id %>" data-time="12:00">12:00</div>
-							<div class="js-hoursTime" data-items="<%= aClient[:agenda_client].id %>" data-time="13:00">13:00</div>
-							<div class="js-hoursTime" data-items="<%= aClient[:agenda_client].id %>" data-time="14:00">14:00</div>
-							<div class="js-hoursTime" data-items="<%= aClient[:agenda_client].id %>" data-time="15:00">15:00</div>
-						</div>
-						<div class="firstSelection">
-							<div class="js-hoursTime" data-items="<%= aClient[:agenda_client].id %>" data-time="16:00">16:00</div>
-							<div class="js-hoursTime" data-items="<%= aClient[:agenda_client].id %>" data-time="17:00">17:00</div>
-							<div class="js-hoursTime" data-items="<%= aClient[:agenda_client].id %>" data-time="18:00">18:00</div>
-							<div class="js-hoursTime" data-items="<%= aClient[:agenda_client].id %>" data-time="19:00">19:00</div>
-						</div>
-
-						<input type="hidden" name="reponse" value="2">
-
-						<input type="hidden" name="time" id="input-time-js-<%= aClient[:agenda_client].id %>">
-						
-						<input type="hidden" name="offre_id" value="<%= aClient[:offre_id] %>">
-						<input type="hidden" name="agenda_id" value="<%= aClient[:agenda_client].id %>">
-
-						<div class="form-group">
-							<%= submit_tag("VALIDER", class:"btn btn-primary", id:"valid-submit-#{aClient[:agenda_client].id}", disabled:"disabled" )%>
-						</div>
-
 					</div>
 				<% end %>
 				</div>
-			</div>
 			<% end %>
-		<% end %>
-
+		</div>
 	</div>
 </div>
-</div>
 
+<!-- appel js  -->
+<script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="/js/entretien_edit_cadre.js"></script>

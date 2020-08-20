@@ -149,3 +149,12 @@ select{
   background-size: 70px;
   background-color: #f0f2f4;
 }
+.input-error-div{
+  margin-top: -20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.input-error{
+  color: #ff0000;
+  font: 550 13px Raleway, sans-serif;
+}
