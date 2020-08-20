@@ -17,8 +17,12 @@
 			</div>
 		</center>
 
-      	<%= form_tag(notice_refused_post_path) do %>
+      	<%= form_tag(notice_refused_post_path, remote: :true) do %>
 			<label for="send-notice">Envoyer une raison de la refus au candidat</label>
+			<input type="hidden" name="repons" value="refused">
+			<input type="hidden" name="oFc_id" value="<%= @oFc.id %>">
+			<input type="hidden" name="offre_id" value="<%= @offre.id %>">
+			<input type="hidden" name="cadre_id" value="<%= @cadre.id %>">
 			<div class="form-group">
         		<textarea required="required" rows="3" class="form-control" name="notifier" id="send-notice"></textarea>
       		</div>
