@@ -345,7 +345,7 @@ class RecruteursController < ApplicationController
 
       #mettre à jour l'etap au dernière étape
 			oFc = @job.my_top_five_candidates.find_by(cadre:@cadre)
-			oFc.update(etapes:@job.numberEntretien + 1)
+			oFc.update(etapes:@job.numberEntretien + 1,status:nil)
 			@job.update(etapes: 2 + @job.numberEntretien + 1)
 
       redirect_to show_promise_to_hire_path(@promise.id)
