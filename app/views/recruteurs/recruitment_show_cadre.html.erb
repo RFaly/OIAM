@@ -146,20 +146,25 @@
 						
 						<div id="js-main-bloc-information">
 							<h3>Suivi recrutement</h3>
-							<p>Vous avez rencontré <%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %> le <%= @agendas.entretien_date.strftime("%m/%d/%Y") %>, comment s'est déroulé votre entretien ?</p>
+							<p>Vous avez rencontré <%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %> le <%= @agendas.entretien_date.strftime("%d/%m/%Y") %>, comment s'est déroulé votre entretien ?</p>
 
 							<div>
-								<%= link_to "CANDIDAT RETENU POUR LA PROCHAINE ETAPE", notice_refused_post_path(repons: 'accepted', param2: 'value2'), method: :post, class:"btn btn-primary", id:"js-ca_next_stape"%><br>
-								<%= link_to "CANDIDAT EN ATTENTE", notice_refused_post_path(repons: 'waiting', param2: 'value2'), method: :post, class:"btn btn-primary" %><br>
-								<span class="btn btn-primary" id="dj-ca_confirmchoice">CANDIDAT REFUSE</span>
+								<%= link_to "CANDIDAT RETENU POUR LA PROCHAINE ETAPE", notice_refused_post_path(repons: 'accepted', param2: 'value2'), method: :post, class:"btn btn-primary" %><br><br>
+
+								<%= link_to "CANDIDAT EN ATTENTE", notice_refused_post_path(repons: 'waiting', param2: 'value2'), method: :post, class:"btn btn-primary" %><br><br>
+
+								<span class="btn btn-primary" id="js-ca_confirmchoice">CANDIDAT REFUSE</span>
 								<br>
 
 								<!-- Alerte notification if refused candidat -->
 								<div id="js-show_ca_confirmchoice" style="display: none;">
 									<p>Attention ! Ce candidat figure parmi les meilleurs du marché et ne peut vous être réservé exclusivement  et nous portons à votre attention qu'une réponse rapide favorise la réussite du recrutement.</p>
-									<span>VOIR LE CANDIDAT</span>
+									
+									<%= link_to "VOIR LE CANDIDAT", show_search_candidate_path(@cadre.id, offre_id: @offre.id), class:'btn btn-primary' %>
+
 									<%= link_to "Valider", notice_refused_post_path(repons: 'refused', param2: 'value2'), method: :post, class:"btn btn-primary", id:"js-ca_confirmchoice" %>
-									<span class="js-retour-choice btn btn-info">Annuler</span>
+									
+									<span class="js-retour-choice btn btn-danger">Annuler</span>
 								</div>
 
 

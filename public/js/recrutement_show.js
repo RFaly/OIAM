@@ -1,47 +1,19 @@
-let $main = $('#js-main-bloc-information');
-let $next = $('#js-show_ca_next_stape');
 let $attente = $('#js-show_ca_confirmchoice');
-let $refused = $('#js-show_ca_refused');
-
-
-$('#js-ca_next_stape').click(function () {
-  $main.hide(500);
-  $next.hide(500);
-  $refused.hide(500);
-  $next.show(500);
-});
 
 $('#js-ca_confirmchoice').click(function () {
-  $main.hide(500);
-  $next.hide(500);
-  $refused.hide(500);
   $attente.show(500);
 });
 
-$('#js-ca_refused').click(function () {
-  $main.hide(500);
-  $next.hide(500);
-  $attente.hide(500);
-  $refused.show(500);
-});
-
 $('.js-retour-choice').click(function () {
-  $main.show(500);
-  $next.hide(500);
   $attente.hide(500);
-  $refused.hide(500);
-  $("#hiddenElementInRetour").hide(500)
 });
-
 
 if ($('#futureTimeClock')[0]) {
   var objectifTime = new Date($('#futureTimeClock').data().times);
-
   let $dd = $('#js-days');
   let $hh = $('#js-hours');
   let $mm = $('#js-minutes');
   let $ss = $('#js-seconds');
-
   // ~~~~~~~~~~~~~~~~ Mise à jour de la compte à rebours ~~~~~~~~~~~~~~~~
 
   function updateTimeNow() {
@@ -58,18 +30,19 @@ if ($('#futureTimeClock')[0]) {
       seconds: seconds,
     };
   }
+
   function updateTimeInOneSecond() {
     var current_time = updateTimeNow();
     $dd.html(current_time.days);
     $hh.html(('0' + current_time.hours).slice(-2));
     $mm.html(('0' + current_time.minutes).slice(-2));
     $ss.html(('0' + current_time.seconds).slice(-2));
-
     if (current_time.rest_number_time <= 0) {
       // window.location.reload();
       clearInterval(timeinterval);
     }
   }
+
   updateTimeInOneSecond();
   var timeinterval = setInterval(updateTimeInOneSecond, 1000);
 }
