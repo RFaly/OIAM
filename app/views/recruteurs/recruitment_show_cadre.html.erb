@@ -30,7 +30,7 @@
 			<%= link_to show_search_candidate_path(@cadre.id, offre_id: @offre.id) do %>
 				<%= image_tag(@cadre.cadre_info.image, alt: 'photo de profil', class:"pdp_mandona" )%>
 				<br>
-				<h4><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %></h4>
+				<h4><%= @cadre.cadre_info.first_name.capitalize %> <%= @cadre.cadre_info.last_name.capitalize %></h4>
 			<% end %>
 		</center>
 
@@ -56,44 +56,133 @@
 			<strong><%= @offre.numberEntretien + 1 %></strong>
 		</div>
 
-<hr><hr>
+<!--
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+
+<% if @oFc.status == "refused" %> <!-- if candidature refusé -->
+	Candidature réfusé
+<% else %>
+
+	<!-- if candidate in a laste stape namely "promesse d'embauche" -->
+
+	<!-- if etapes -->
+	<% if @oFc.etapes == @offre.numberEntretien + 1 %>
 
 
-<div style="font-size: 50px" >
+	<% else %>
+
+		<!-- condition pour afficher si la date est passé ou non? -->
+
+		<!-- if date entretien future -->
+		<% if @agendas.entretien_date.future? %>
+			<% show = true %>
+			<p>
+				Vous avez un entretien le <span data-times="<%= @agendas.entretien_date.strftime("%m/%d/%Y %H:%M") %>" class="currentDateEntretien"></span>
+			</p>
+			<!-- candidat a accepter l'entretien -->
+			<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
+				<p>
+					<b><%= @cadre.cadre_info.first_name.capitalize %> <%= @cadre.cadre_info.last_name.capitalize %></b> a accepté votre demande d'entretien.
+				</p>
+			<!-- candidat a accepter l'entretien sous condition -->
+			<% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
+				<% date = DateTime.parse(@agendas.alternative) %>
+				<p>
+					Le candidat a accepter la demande d'entretien à condition de changer la date <span data-times="<%= date.strftime("%m/%d/%Y %H:%M") %>" class="currentDateEntretien"></span>
+				</p>
+				<p>
+					<a class="btn btn-primary">ACCEPTER SA PROPOSTION</a> <br>
+					<a class="btn btn-primary">REFUSER SA PROPOSTION ET SA CANDIDATURE</a>
+				</p>
+			<!-- candidat a reffuser l'entretien -->
+			<% elsif @agendas.repons_cadre == false %>
+				<% show = false %>
+				<p>
+					Le candidat a reffusé l'entretien
+					<% unless @agendas.alternative.nil? %>
+						<br>motif: <%= @agendas.alternative %>
+					<% end %>
+				</p>
+			<!-- le recruteur a reffuser l'entretien -->
+			<% elsif @agendas.repons_client == false %>
+				<% show = false %>
+				<% date = DateTime.parse(@agendas.alternative) %>
+				<p>
+					Le candidat a proposer une nouvelle date pour l'entretien: <span data-times="<%= date.strftime("%m/%d/%Y %H:%M") %>" class="currentDateEntretien"></span>
+				</p>
+				<p class="btn btn-primary">CANDIDATURE REFFUSER</p>
+			<% else %>
+				<p>
+					Demande d'entretien envoyer, en attente de réponse par le candidat.
+				</p>
+			<% end %>
+
+			<% if show %> <!-- afficher ce petit compte à rebours mandona -->
+				<div style="font-size: 50px" id="clockdiv" data-times="<%= @agendas.entretien_date.strftime("%m/%d/%Y %H:%M") %>">
+					Il vous reste <span id="js-days"></span>j : <span id="js-hours"></span>h : <span id="js-minutes"></span>m : <span id="js-seconds">0</span>s avant la date de l'entretien.
+				</div>
+			<% end %>
+
+		<% else %> <!-- si la date de l'entretien est passé -->
+
+			<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
+
+				<% case @oFc.status %>
+					<% when "waiting" %>
+
+					<% when "accepted" %>
+
+					<% else %>
+
+
+				<% end %>
 
 
 
-<div id="clockdiv" data-times="<%= @agendas.entretien_date.strftime("%m/%d/%Y %H:%M") %>">
-
-    Prochain entretien dans <span id="js-days"></span>j : <span id="js-hours"></span>h : <span id="js-minutes"></span>m : <span id="js-seconds">0</span>s
-</div>
-
-</div>
 
 
 
 
-	<!-- condition pour afficher si la date est passé ou non? -->
-	<% if @agendas.entretien_date.future? %>
-		<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
-
-		
 
 
 
-		<% elsif @agendas.repons_cadre == false %>
-
-		<% end %>
-<!-- 
-alternative: nil
-repons_client: true
-repons_cadre: nil
- -->
 
 
-	<% else %> <!-- proposer les action à faire si la date est passé -->
+			<% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
+
+				<% date = DateTime.parse(@agendas.alternative) %>
+				<p>
+					Le candidat a accepter la demande d'entretien à condition de changer la date <span data-times="<%= date.strftime("%m/%d/%Y %H:%M") %>" class="currentDateEntretien"></span>
+				</p>
+				<p>
+					<a class="btn btn-primary">ACCEPTER SA PROPOSTION</a> <br>
+					<a class="btn btn-primary">REFUSER SA PROPOSTION ET SA CANDIDATURE</a>
+				</p>
+
+			<% elsif @agendas.repons_cadre == false %>
+				<p>
+					Le candidat a reffusé l'entretien
+					<% unless @agendas.alternative.nil? %>
+						<br>motif: <%= @agendas.alternative %>
+					<% end %>
+				</p>
+			<% elsif @agendas.repons_client == false %>
+				Vous avez refuser l'entretien du candidat
+			<% else %>
+				Le candidat n'a donné aucune réponse au demande d'entretien
+			<% end %>
+
+		<% end %> <!-- fin if date entretien future -->
+	<% end %> <!-- fin if etapes -->
+<% end %> <!-- fin if candidature refusé -->
+
+
+
 
 		<div id="js-data-bloc-principal">
+
 			<div id="js-main-bloc-information">
 				<h3>Suivi recrutement</h3>
 				<p>Vous avez rencontré <%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %> le <%= @agendas.entretien_date.strftime("%m/%d/%Y") %>, comment s'est déroulé votre entretien ?</p>
@@ -138,6 +227,13 @@ repons_cadre: nil
 			<div id="js-show_ca_en_attente" style="display: none;">
 				<p>Attention ! Ce candidat figure parmi les meilleurs du marché et ne peut vous être réservé exclusivement et nous portons à votre attention qu'une réponse rapide favorise la réussite du recrutement.</p>
 				<span>VOIR LE CANDIDAT</span>
+<!-- 
+Atao 3
+1- voir le candidat (makany am'le profil)
+2- manokatra an'le fandehany
+3- annuler
+
+ -->
 				<span class="js-retour-choice btn btn-info">Annuler</span>
 			</div>
 
@@ -166,114 +262,119 @@ repons_cadre: nil
 		      	<% end %>
 			</div>
 
-			<!-- ~~~~~~~~~~~~~~~~~~ USE THIS ELEMENT FOR SELECT DATE ~~~~~~~~~~~~~~~~~~~~ -->
-			<% if @oFc.etapes < @offre.numberEntretien %>
-			      <div class="ssc-planification">
-			        <div class="hiddenDate" style="display: none;" id="js-form-show">
-			          <%= form_tag(save_entretien_client_path, remote: true, id:"send-data-form") do %>
-
-			          <div class="date"><input type="text" name="date" id="datepicker" /></div>
-
-			          <div class="js-timeContainer" style="display: none;">
-			            <h4 id="showDateLong"></h4>
-			            <div class="fselect">
-			              <span id="reditDate" class="badge badge-secondary">modifier la date</span>
-			              <div class="firstSelection">
-			                <div class="js-hoursTime" data-time="08:00">08:00</div>
-			                <div class="js-hoursTime" data-time="09:00">09:00</div>
-			                <div class="js-hoursTime" data-time="10:00">10:00</div>
-			                <div class="js-hoursTime" data-time="11:00">11:00</div>
-			              </div>
-			              <div class="firstSelection">
-			                <div class="js-hoursTime" data-time="12:00">12:00</div>
-			                <div class="js-hoursTime" data-time="13:00">13:00</div>
-			                <div class="js-hoursTime" data-time="14:00">14:00</div>
-			                <div class="js-hoursTime" data-time="15:00">15:00</div>
-			              </div>
-			              <div class="firstSelection">
-			                <div class="js-hoursTime" data-time="16:00">16:00</div>
-			                <div class="js-hoursTime" data-time="17:00">17:00</div>
-			                <div class="js-hoursTime" data-time="18:00">18:00</div>
-			                <div class="js-hoursTime" data-time="19:00">19:00</div>
-			              </div>
-			              <div>
-			                <label id="conditioncheck">
-			                  Adresse de l'entreprise
-			                  <input type="radio" checked="checked" required name="adresse" id="adresse1" value="<%= current_client.entreprise.adresse %>" class="js-input-adresse" data-value="none" />
-			                  <span class="checkmark"></span>
-			                </label>
-			              </div>
-			              <div class="with-input">
-			                <label id="conditioncheck">
-			                  Autre lieu :
-			                  <input type="radio" required name="adresse" id="adresse2" data-value="autre" class="js-input-adresse" />
-			                  <span class="checkmark"></span>
-			                </label>
-			                <input type="text" name="adresse_name" id="js-adresse_name_input" style="display: none;" disabled="disabled" placeholder="L'adresse ..." class="with-input-item" />
-			              </div>
-			              <div>
-			                <label id="conditioncheck">
-			                  <%= current_client.first_name %> <%= current_client.last_name %>, <%= current_client.fonction %>
-			                  <input type="radio" checked="checked" required name="name" value="<%= current_client.first_name %> <%= current_client.last_name %>" id="name_client" class="js-input-name" />
-			                  <span class="checkmark"></span>
-			                </label>
-			              </div>
-			              <div class="with-input">
-			                <label id="conditioncheck">
-			                  Autre personne :
-			                  <input type="radio" required name="name" id="autre_personne" value="1" class="js-input-name" />
-			                  <span class="checkmark"></span>
-			                </label>
-			                <input type="text" name="client_name" id="client_name_input" style="display: none;" disabled="disabled" placeholder="Nom et prénoms" class="with-input-item" />
-			              </div>
-
-			              <input type="hidden" name="time" id="input-time" />
-
-			              <input type="hidden" name="cadre_id" value="<%= @cadre.id %>" />
-
-			              <input type="hidden" name="offre_id" value="<%= @offre.id %>" />
-
-			              <div class="planQ-btn">
-			                <%= submit_tag("VALIDER", id:"valid-submit", disabled:"disabled" )%>
-			              </div>
-			            </div>
-			          </div>
-			          <% end %>
-			        </div>
-
-			        <div id="send-data-form-ok-success" class="ssc-send" style="display: none;">
-			          <h4>Demande d'entretien envoyée</h4>
-			          <img src="/image/check.png" alt="OK" />
-			          <div>
-			            <div class="datetime">
-			              <div id="dateShowOk"></div>
-			              <div id="timeShowOk"></div>
-			            </div>
-			            <div>
-			              <span id="adresseShowOk">
-			                <%= current_client.entreprise.adresse %> <br />
-			                <%= current_client.entreprise.city %>
-			              </span>
-			              <br />
-			              <span id="nameShowOk">
-			                <%= current_client.fonction %> : <%= current_client.first_name %> <%= current_client.last_name %>
-			              </span>
-			            </div>
-			            <div class="ssc-send-btn">
-			              VALIDER
-			            </div>
-			          </div>
-			        </div>
-			      </div>
-			<% end %>
-			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 		</div> <!-- fin js-data-bloc-principal -->
 
-	<% end %> <!-- fin "if" la date de la dernier entretien est passé ou future -->
 
 
 
+
+
+
+
+
+		<!-- ~~~~~~~~~~~~~~~~~~ USE THIS ELEMENT FOR SELECT DATE ~~~~~~~~~~~~~~~~~~~~ -->
+		<% if @oFc.etapes < @offre.numberEntretien %>
+		      <div class="ssc-planification">
+		        <div class="hiddenDate" style="display: none;" id="js-form-show">
+		          <%= form_tag(save_entretien_client_path, remote: true, id:"send-data-form") do %>
+
+		          <div class="date"><input type="text" name="date" id="datepicker" /></div>
+
+		          <div class="js-timeContainer" style="display: none;">
+		            <h4 id="showDateLong"></h4>
+		            <div class="fselect">
+		              <span id="reditDate" class="badge badge-secondary">modifier la date</span>
+		              <div class="firstSelection">
+		                <div class="js-hoursTime" data-time="08:00">08:00</div>
+		                <div class="js-hoursTime" data-time="09:00">09:00</div>
+		                <div class="js-hoursTime" data-time="10:00">10:00</div>
+		                <div class="js-hoursTime" data-time="11:00">11:00</div>
+		              </div>
+		              <div class="firstSelection">
+		                <div class="js-hoursTime" data-time="12:00">12:00</div>
+		                <div class="js-hoursTime" data-time="13:00">13:00</div>
+		                <div class="js-hoursTime" data-time="14:00">14:00</div>
+		                <div class="js-hoursTime" data-time="15:00">15:00</div>
+		              </div>
+		              <div class="firstSelection">
+		                <div class="js-hoursTime" data-time="16:00">16:00</div>
+		                <div class="js-hoursTime" data-time="17:00">17:00</div>
+		                <div class="js-hoursTime" data-time="18:00">18:00</div>
+		                <div class="js-hoursTime" data-time="19:00">19:00</div>
+		              </div>
+		              <div>
+		                <label id="conditioncheck">
+		                  Adresse de l'entreprise
+		                  <input type="radio" checked="checked" required name="adresse" id="adresse1" value="<%= current_client.entreprise.adresse %>" class="js-input-adresse" data-value="none" />
+		                  <span class="checkmark"></span>
+		                </label>
+		              </div>
+		              <div class="with-input">
+		                <label id="conditioncheck">
+		                  Autre lieu :
+		                  <input type="radio" required name="adresse" id="adresse2" data-value="autre" class="js-input-adresse" />
+		                  <span class="checkmark"></span>
+		                </label>
+		                <input type="text" name="adresse_name" id="js-adresse_name_input" style="display: none;" disabled="disabled" placeholder="L'adresse ..." class="with-input-item" />
+		              </div>
+		              <div>
+		                <label id="conditioncheck">
+		                  <%= current_client.first_name %> <%= current_client.last_name %>, <%= current_client.fonction %>
+		                  <input type="radio" checked="checked" required name="name" value="<%= current_client.first_name %> <%= current_client.last_name %>" id="name_client" class="js-input-name" />
+		                  <span class="checkmark"></span>
+		                </label>
+		              </div>
+		              <div class="with-input">
+		                <label id="conditioncheck">
+		                  Autre personne :
+		                  <input type="radio" required name="name" id="autre_personne" value="1" class="js-input-name" />
+		                  <span class="checkmark"></span>
+		                </label>
+		                <input type="text" name="client_name" id="client_name_input" style="display: none;" disabled="disabled" placeholder="Nom et prénoms" class="with-input-item" />
+		              </div>
+
+		              <input type="hidden" name="time" id="input-time" />
+
+		              <input type="hidden" name="cadre_id" value="<%= @cadre.id %>" />
+
+		              <input type="hidden" name="offre_id" value="<%= @offre.id %>" />
+
+		              <div class="planQ-btn">
+		                <%= submit_tag("VALIDER", id:"valid-submit", disabled:"disabled" )%>
+		              </div>
+		            </div>
+		          </div>
+		          <% end %>
+		        </div>
+
+		        <div id="send-data-form-ok-success" class="ssc-send" style="display: none;">
+		          <h4>Demande d'entretien envoyée</h4>
+		          <img src="/image/check.png" alt="OK" />
+		          <div>
+		            <div class="datetime">
+		              <div id="dateShowOk"></div>
+		              <div id="timeShowOk"></div>
+		            </div>
+		            <div>
+		              <span id="adresseShowOk">
+		                <%= current_client.entreprise.adresse %> <br />
+		                <%= current_client.entreprise.city %>
+		              </span>
+		              <br />
+		              <span id="nameShowOk">
+		                <%= current_client.fonction %> : <%= current_client.first_name %> <%= current_client.last_name %>
+		              </span>
+		            </div>
+		            <div class="ssc-send-btn">
+		              VALIDER
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		<% end %>
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 	</div> <!-- fin col-sm-9 -->
 </div> <!-- fin row -->
