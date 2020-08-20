@@ -18,43 +18,49 @@
 <!-- call css  -->
 <link rel="stylesheet" href="/css/suivi_show_post.css" />
 <!-- body html  -->
-<div class="row">
-  <div class="col-sm-3">
-    <%= render partial: "recruteurs/left_link_bar" %>
+<div class="client-column">
+  <div class="client-menu-left">
+    <%= render "recruteurs/left_link_bar" %>
   </div>
+  <div class="cp-box">
+    <div class="rlc-box">
+      <% if @oFcs.empty? %>
+      <div class="rlc-empty">
+        <h5>Aucun candidat selectionner</h5>
+        <div class="show-pb2-btn">
+          <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id) %> <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %>
+        </div>
+      </div>
+      <% else %>
+      <div class="rlc-content">
+        <% @oFcs.each do |oFc| %> <%= link_to recruitment_show_cadre_path(oFc.id) do %>
+        <div class="rlc-items">
+          <%= image_tag(oFc.cadre.cadre_info.image, alt: 'photo de profil' )%>
 
-  <div class="col-sm-9">
-    <% if @oFcs.empty? %>
-    <h2>Aucun candidat selectionner</h2>
-    <div class="show-pb2-btn">
-      <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id), class:'btn btn-primary' %> <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id), class:'btn btn-primary' %>
-    </div>
-    <% else %>
-
-    <div class="container-flex">
-      <% @oFcs.each do |oFc| %>
-      <div class="container-oFc">
-        <%= link_to recruitment_show_cadre_path(oFc.id) do %>
-        <div class="tonga-delien-doly">
-          <%= image_tag(oFc.cadre.cadre_info.image, alt: 'photo de profil', class:"pdp_mandona" )%>
-
-          <h3><%= oFc.cadre.cadre_info.first_name %> <%= oFc.cadre.cadre_info.last_name %></h3>
+          <h5><%= oFc.cadre.cadre_info.first_name %> <%= oFc.cadre.cadre_info.last_name %></h5>
 
           poste: <strong><%= @offre.intitule_pote %></strong>
-          <% if oFc.status == "refused" %> Candidat refusé <% else %>
-          <div class="info">
+
+          <% if oFc.status == "refused" %>
+          <div class="refus">
+            <img src="/image/unvalid.png" alt="unvalid" />
+            <p>Candidat refusé</p>
+          </div>
+          <% else %>
+          <div class="loading">
+            <div class="pre-load" style="width: <%= (oFc.etapes * 100)/ (@offre.numberEntretien + 1) %>%;"></div>
+          </div>
+          <!-- <div class="info">
             le cadre est à l'étape n° :
             <strong><%= oFc.etapes %></strong> <br />
             nombre d'etape total :
             <strong><%= @offre.numberEntretien + 1 %></strong>
-          </div>
+          </div> -->
           <% end %>
         </div>
-        <% end %>
+        <% end %> <% end %>
       </div>
       <% end %>
     </div>
-
-    <% end %>
   </div>
 </div>

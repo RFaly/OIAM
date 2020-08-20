@@ -132,7 +132,7 @@
 }
 
 .ssc-box .ssc-all-infos .ssc-infos {
-  font: 15px Questrial, sans-serif;
+  font: 16px Questrial, sans-serif;
   text-align: center;
 }
 
@@ -326,7 +326,7 @@
 .ssc-box .ssc-planification .ssc-send {
   color: white;
   background: #e3d7bf;
-  font: 15px Questrial, sans-serif;
+  font: 16px Questrial, sans-serif;
   text-align: center;
   padding: 30px;
   margin-top: 11px;
@@ -394,7 +394,7 @@
 }
 
 #conditioncheck {
-  font: 15px Questrial, sans-serif;
+  font: 16px Questrial, sans-serif;
   display: block;
   position: relative;
   padding-left: 30px;
