@@ -1,20 +1,3 @@
-<style type="text/css">
-  .container-flex {
-    display: flex;
-  }
-
-  .container-oFc {
-    border: 2px solid red;
-    margin-left: 15px;
-    padding: 15px;
-  }
-
-  .pdp_mandona {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-  }
-</style>
 <!-- call css  -->
 <link rel="stylesheet" href="/css/suivi_show_post.css" />
 <!-- body html  -->
@@ -39,7 +22,7 @@
 
           <h5><%= oFc.cadre.cadre_info.first_name %> <%= oFc.cadre.cadre_info.last_name %></h5>
 
-          poste: <strong><%= @offre.intitule_pote %></strong>
+          poste : <strong><%= @offre.intitule_pote %></strong>
 
           <% if oFc.status == "refused" %>
           <div class="refus">
