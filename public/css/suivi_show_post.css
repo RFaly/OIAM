@@ -98,7 +98,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 10px;
-  background: #f0f2f4;
+  background: linear-gradient(90deg, #d6b36a 4%, #f0f2f4 3%);
 }
 
 .rlc-box .rlc-content .rlc-items .loading .pre-load {

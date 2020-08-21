@@ -75,7 +75,10 @@
         margin-top: 10px;
         margin-bottom: 10px;
         border-radius: 10px;
-        background: $secondary_element_color;
+        background: -webkit-linear-gradient(90deg, $main_theme_color 4%, $secondary_element_color 3%);
+        background: -o-linear-gradient(90deg, $main_theme_color 4%, $secondary_element_color 3%);
+        background: -moz-linear-gradient(90deg, $main_theme_color 4%, $secondary_element_color 3%);
+        background: linear-gradient(90deg, $main_theme_color 4%, $secondary_element_color 3%);
         .pre-load {
           content: ' ';
           height: 15px;
