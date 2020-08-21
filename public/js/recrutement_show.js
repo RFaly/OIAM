@@ -38,7 +38,7 @@ if ($('#futureTimeClock')[0]) {
     $mm.html(('0' + current_time.minutes).slice(-2));
     $ss.html(('0' + current_time.seconds).slice(-2));
     if (current_time.rest_number_time <= 0) {
-      window.location.reload();
+      // window.location.reload();
       clearInterval(timeinterval);
     }
   }
