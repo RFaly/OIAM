@@ -63,35 +63,52 @@ body{
   line-height: 1.5;
 }
 
+.content{
+	margin: 15px;
+}
 
 .pdp_mandona{
-		width: 250px;
-		height: 250px;
-		border-radius: 50%;
-	}
-	.container-flex{
-		display: flex;
-		position: relative;
-		justify-content: center;
-		max-width: 500px;
-		 margin-left: auto;
-   		margin-right: auto;
-	}
-	.list-etapes{
-		display: flex;
-		flex-wrap: wrap;
-		grid-column-gap: 15px;
-		width: 140px;
-		height: auto;
-		justify-content: center;
-		text-align: center;
-	}
-	.badge-success{
-		font-size: 55px;
-	}
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+}
 
-.main{
-	margin: 15px;
+.container-flex{
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+.container-flex1{
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+.container-flex2{
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+.container-flex3{
+	display: flex;
+	justify-content: center;
+	position: relative;	
+}
+
+.list-etapes{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 120px;
+	padding: 5px;
+	margin-left: 10px;
+	z-index: 1;
+}
+
+.badge-success{
+	font-size: 55px;
 }
 
 .job-info{
@@ -102,90 +119,116 @@ body{
 }
 
 .job-info h3{
-	font-size: 25px;
-	color: #D6B36A;
-	margin: 10px 0 30px 0;
-}
-
-.btn-job-info:hover{
-	color: #D6B36A;
-}
-
-.text{
-	order: 1
+	color: #000;
+	text-decoration: none;
+	font-size: 20px;
+	margin-bottom: 50px;
 }
 
 
-.inverse{
+.job-info-link:hover{
+	color: #000;
+}
+
+.badge-success{
+	width: 36px;
+	height: 36px;
+	color: #fff;
+	background: #D6B36A;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: bold;
+	border-radius: 30px;
+	text-align: center;
+	padding-top: 5px;
 	order: -1;
 }
 
-.numero{
-	display: block;
-	margin: auto;
-	text-align: center;
-  	width: 36px;
-  	height: 36px;
-  	background-color: #f0f2f4;
-  	color: #fff;
-  	border-radius: 30px;
-  	padding: 5px;
-  	font-family: 'Roboto', sans-serif;
-  	font-size: 18px;
+.badge-wait{
+	width: 36px;
+	height: 36px;
+	color: #fff;
+	background: #f0f2f4;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
 	font-style: normal;
 	font-weight: bold;
-	margin-bottom: 20px;
+	border-radius: 30px;
+	text-align: center;
+	padding-top: 5px;
+	order: -1;
 }
 
 
-.orange{
-	background: #D6B36A;
+
+.text{
+	text-align: center;
+	font-size: 16px;
+	order: 1;
 }
 
-.container-flex::after{
+.container-flex1::after{
 	content: "";
 	position: absolute;
-	top: 15%;
+	top: 25%;
 	left: 0;
 	right: 0;
 	display: block;
 	margin: auto;
-	width: 60%;
+	width: 22%;
 	height: 3px;
 	background-color: #f0f2f4;
+	text-align: center;
+	z-index: -2;
 }
 
+.container-flex2::after{
+	content: "";
+	position: absolute;
+	top: 25%;
+	left: 0;
+	right: 0;
+	display: block;
+	margin: auto;
+	width: 50%;
+	height: 3px;
+	background-color: #f0f2f4;
+	text-align: center;
+	z-index: -2;
+}
 
-
-
-
-@media only screen and (min-width: 350px){
-	.trois{
-	position: relative;
-	top: 10%;
-	}
-
-	.container-flex::after{
-		top: 25%;
-	}	
+.container-flex3::after{
+	content: "";
+	position: absolute;
+	top: 25%;
+	left: 0;
+	right: 0;
+	display: block;
+	margin: auto;
+	width: 70%;
+	height: 3px;
+	background-color: #f0f2f4;
+	text-align: center;
+	z-index: -2;
 }
 
 
 @media only screen and (min-width: 900px){
 	.content{
 		display: flex;
-		margin-top: 15px;
+	}
+
+	.left_link{
+		margin-top: 20px;
+		padding-right: 2px;
+		border-right: 1px solid #D6B36A;
 	}
 
 	.main{
-		justify-content: center;
-		width: 100%;
-		border-left: 1px solid #D6B36A;
-		margin-left: 2px;
-		padding: 20px;
+		display: block;
+		margin: auto;
+		width: 500px;
+
 	}
 }
-
-
-
-

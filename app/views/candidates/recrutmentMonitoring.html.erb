@@ -5,8 +5,7 @@
 	</div>
 
 	<div class="main">
-		<br><br><br>
-
+		<h1 class="main-title">SUIVI DE RECRUTEMENT</h1>
 		<% if @oFcs.empty? %>
 		<div class="recrutement-content">
 			<div class="recrutement">
@@ -37,27 +36,26 @@
 					<% if oFc.accepted_postule == true %>
 						<% if oFc.etapes == 1 %>
 							<% if oFc.status == "refused" %>
-							
 								<p>Candidature réfusé</p>
 							<% else %>
 								<%= link_to show_recrutment_monitoring_path(oFc.id), class:'etape' do %>
-									<p class="paragraphe">Vous êtes à l'étape n° : <span><%= oFc.etapes %></span></p>
-									<p class="paragraphe">Nombre d'étape totale : <span><%= oFc.offre_job.numberEntretien + 1 %></span></p>
 									<div class="etape1">
 									</div>
 								<% end %>
 							<% end %>
 						<% elsif oFc.etapes == 2%>
 							<%= link_to show_recrutment_monitoring_path(oFc.id), class:'etape' do %>
-								<p class="paragraphe">Vous êtes à l'étape n° : <span><%= oFc.etapes %></span></p>
-								<p class="paragraphe">Nombre d'étape totale : <span><%= oFc.offre_job.numberEntretien + 1 %></span></p>
 								<div class="etape2"></div>
 							<% end %>
 						<% else %>
+							<% if (oFc.etapes == oFc.offre_job.numberEntretien + 1)%>
 							<%= link_to show_recrutment_monitoring_path(oFc.id), class:'etape' do %>
-								<p class="paragraphe">Vous êtes à l'étape n° : <span><%= oFc.etapes %></span></p>
-								<p class="paragraphe">Nombre d'étape totale : <span><%= oFc.offre_job.numberEntretien + 1 %></span></p>
 								<div class="etape3"></div>
+							<% end %>
+							<% elsif (oFc.etapes < oFc.offre_job.numberEntretien + 1) %>
+							<%= link_to show_recrutment_monitoring_path(oFc.id), class:'etape' do %>
+								<div class="etape4"></div>
+							<% end %>
 							<% end %>
 						<% end %>
 
