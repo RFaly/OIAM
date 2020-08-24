@@ -49,7 +49,17 @@ $('#reditDate').click(function () {
 });
 
 $('.js-hoursTime').click(function () {
-  $('#input-time').val($(this).data().time);
+
+  let dateTime = new Date($("#datepicker").val())
+  let datahours = $(this).data().time
+  let times = datahours.split(":")
+
+  dateTime.setHours(times[0])
+  dateTime.setMinutes(times[1])
+
+  utcDate = moment.utc(dateTime);
+  $('#input-time').val(utcDate.hours()+":"+utcDate.minutes());
+
   $('#timeShowOk').html($(this).data().time);
   $('#valid-submit').prop('disabled', false);
 

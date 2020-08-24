@@ -1,4 +1,7 @@
 <!-- natsoko fotsy ty css sô de mba mapety an'le designe an'le date -->
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
+
 <link rel="stylesheet" href="/css/show_search_candidate.css" />
 <style type="text/css">
 	.pdp_mandona{
@@ -126,11 +129,13 @@
 		<% else %>
 			<!-- condition pour afficher si la date est passé ou non? -->
 			<!-- if date entretien future -->
-			<% if @agendas.entretien_date.future? %>
+			<% if @agendas.entretien_date > DateTime.now.utc %>
+
 				<% show = true %>
 				<p>
-					Vous avez un entretien le <span data-times="<%= @agendas.entretien_date.strftime("%m/%d/%Y %H:%M") %>" class="currentDateEntretien"></span>
+					Vous avez un entretien le <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
 				</p>
+
 				<!-- candidat a accepter l'entretien -->
 				<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
 					<p>
@@ -140,7 +145,7 @@
 				<% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
 					<% date = DateTime.parse(@agendas.alternative) %>
 					<p>
-						Le candidat a accepter la demande d'entretien à condition de changer la date <span data-times="<%= date.strftime("%m/%d/%Y %H:%M") %>" class="currentDateEntretien"></span>
+						Le candidat a accepter la demande d'entretien à condition de changer la date <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
 					</p>
 					<p>
 						<a class="btn btn-primary">ACCEPTER SA PROPOSTION</a> <br>
@@ -163,7 +168,7 @@
 					<% show = false %>
 					<% date = DateTime.parse(@agendas.alternative) %>
 					<p>
-						Le candidat a proposer une nouvelle date pour l'entretien: <span data-times="<%= date.strftime("%m/%d/%Y %H:%M") %>" class="currentDateEntretien"></span>
+						Le candidat a proposer une nouvelle date pour l'entretien: <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
 					</p>
 					<p class="btn btn-primary">CANDIDATURE REFFUSER</p>
 				<% else %>
@@ -173,7 +178,7 @@
 				<% end %>
 
 				<% if show %> <!-- afficher ce petit compte à rebours mandona -->
-					<div style="font-size: 50px" id="futureTimeClock" data-times="<%= @agendas.entretien_date.strftime("%m/%d/%Y %H:%M") %>">
+					<div style="font-size: 50px" id="futureTimeClock" data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>">
 						Il vous reste <span id="js-days"></span>j : <span id="js-hours"></span>h : <span id="js-minutes"></span>m : <span id="js-seconds">0</span>s avant la date de l'entretien.
 					</div>
 				<% end %>
@@ -227,10 +232,10 @@
 
 					<% date = DateTime.parse(@agendas.alternative) %>
 
-					<h2>L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%m/%d/%Y %H:%M") %>" class="currentDateEntretien"></span> est passé.</h2>
+					<h2>L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> est passé.</h2>
 
 					<p>
-						Le candidat a accepter la demande d'entretien à condition de changer la date pour <span data-times="<%= date.strftime("%m/%d/%Y %H:%M") %>" class="currentDateEntretien"></span>
+						Le candidat a accepter la demande d'entretien à condition de changer la date pour <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
 					</p>
 					<p>
 						<a class="btn btn-info">
@@ -240,7 +245,7 @@
 
 				<% elsif @agendas.repons_cadre == false %>
 					<p>
-						L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%m/%d/%Y %H:%M") %>" class="currentDateEntretien"></span> est passé mais le candidat a reffusé l'entretien
+						L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> est passé mais le candidat a reffusé l'entretien
 						<% unless @agendas.alternative.nil? %>
 							<br>motif: <%= @agendas.alternative %>
 						<% end %>
@@ -251,14 +256,14 @@
 						</a>
 					</p>
 				<% elsif @agendas.repons_client == false %>
-					L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%m/%d/%Y %H:%M") %>" class="currentDateEntretien"></span> est passé mais vous avez refuser l'entretien du candidat.
+					L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> est passé mais vous avez refuser l'entretien du candidat.
 					<p>
 						<a class="btn btn-info">
 							ACTION A FAIRE EN ATTENTE DU CLIENT
 						</a>
 					</p>
 				<% else %>
-					L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%m/%d/%Y %H:%M") %>" class="currentDateEntretien"></span> est passé mais le candidat n'a donné aucune réponse au demande d'entretien.
+					L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> est passé mais le candidat n'a donné aucune réponse au demande d'entretien.
 					<p>
 						<a class="btn btn-info">
 							ACTION A FAIRE EN ATTENTE DU CLIENT
@@ -388,3 +393,7 @@
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/entretien_client.js"></script>
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/date_picker.js"></script>
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/date-time.js"></script>
+
+
