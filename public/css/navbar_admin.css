@@ -29,6 +29,7 @@
 .navbar-content .dropup1 .dropup-btn1 {
   padding: 12px 10px;
   cursor: pointer;
+  color: #fff;
 }
 
 .navbar-content .dropup1 .dropup-item1 {
@@ -37,6 +38,7 @@
 
 .navbar-content .dropup1 .dropup-item1:hover, .navbar-content .dropup1 .dropup-item1:active {
   background-color: white;
+  color: #e3d7bf;
 }
 
 .navbar-content .dropup1 .dropup-content1 {
@@ -69,3 +71,4 @@ nav {
 .logo-g img {
   width: 100%;
 }
+
