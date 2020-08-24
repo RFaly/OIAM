@@ -51,9 +51,18 @@ $('#dateEntretien').click(function () {
 });
 
 $('.dateShowGo').each(function () {
-  let dateGet = new Date($(this).data().time);
-  let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
-  $(this).html(dateString + ', ' + $(this).data().hours);
+  let dateUTC = moment.utc($(this).data().times)
+  let dateGet = new Date(dateUTC.local())
+  let dateString = day[dateGet.getDay()] +" "+ dateGet.getDate()+" "+month[dateGet.getMonth()]+" "+dateGet.getFullYear()
+  let hour = dateGet.getHours()
+  let minutes = dateGet.getMinutes()
+  if(hour.toString().length == 1){
+    hour = "0"+hour
+  }
+  if(minutes.toString().length == 1){
+    minutes = "0"+minutes
+  }
+  $(this).html(dateString + " à " +hour+"h:"+minutes)
 });
 
 $('.js-reditDate').click(function () {

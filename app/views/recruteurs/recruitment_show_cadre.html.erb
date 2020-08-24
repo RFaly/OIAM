@@ -178,7 +178,7 @@
 				<% end %>
 
 				<% if show %> <!-- afficher ce petit compte à rebours mandona -->
-					<div style="font-size: 50px" id="futureTimeClock" data-times="<%= @agendas.entretien_date.strftime("%m/%d/%Y %H:%M") %>">
+					<div style="font-size: 50px" id="futureTimeClock" data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>">
 						Il vous reste <span id="js-days"></span>j : <span id="js-hours"></span>h : <span id="js-minutes"></span>m : <span id="js-seconds">0</span>s avant la date de l'entretien.
 					</div>
 				<% end %>
