@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="/css/receiverd_job_candidate.css">
-
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 <div class="all-content">
 	<div class="content">
 		<div class="left_link">
@@ -24,7 +24,7 @@
 						</div>
 						<div class="job_info">
 								<h2 class="job_info_title"> <a href="<%=showSearchJob_path(aClient[:offre_id])%>"></a> <%= aClient[:intitule_pote] %></h2>
-								<img src="/image/gg_time.png" alt="logo oiam favorie" width="25px" height="25px" class="indic"><span class="dateShowGo" data-time="<%= aClient[:agenda_client].entretien_date.strftime("%Y-%m-%d") %>" data-hours="<%= aClient[:agenda_client].entretien_date.strftime("%H : %M") %>"></span>
+								<img src="/image/gg_time.png" alt="logo oiam favorie" width="25px" height="25px" class="indic"><span class="dateShowGo" data-times="<%= aClient[:agenda_client].entretien_date.strftime("%Y-%m-%d %H:%M") %>"></span>
 								<p><img src="/image/map.png" alt="logo oiam favorie" width="22px" height="25px" class="indic"><%= aClient[:agenda_client].adresse %></p>	
 						</div>
 						<div class="action">

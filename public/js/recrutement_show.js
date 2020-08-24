@@ -9,7 +9,9 @@ $('.js-retour-choice').click(function () {
 });
 
 if ($('#futureTimeClock')[0]) {
-  var objectifTime = new Date($('#futureTimeClock').data().times);
+  let dateUTC = moment.utc($('#futureTimeClock').data().times)
+  let objectifTime = new Date(dateUTC.local())
+
   let $dd = $('#js-days');
   let $hh = $('#js-hours');
   let $mm = $('#js-minutes');
@@ -38,7 +40,7 @@ if ($('#futureTimeClock')[0]) {
     $mm.html(('0' + current_time.minutes).slice(-2));
     $ss.html(('0' + current_time.seconds).slice(-2));
     if (current_time.rest_number_time <= 0) {
-      // window.location.reload();
+      window.location.reload();
       clearInterval(timeinterval);
     }
   }
@@ -52,20 +54,18 @@ var day = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"]
 let $elementDate = $('.currentDateEntretien')
 
 $elementDate.each(function() {
-  let dateGet = new Date($(this).data().times)
+  let dateUTC = moment.utc($(this).data().times)
+  let dateGet = new Date(dateUTC.local())
   let dateString = day[dateGet.getDay()] +" "+ dateGet.getDate()+" "+month[dateGet.getMonth()]+" "+dateGet.getFullYear()
   $(this).html(dateString + " à " + dateGet.getHours() + "h:00")
 });
 
 
-
 /*
 
+08/25/2020 09:00
 
 // 	let dateGet = new Date($(this).val())
-
-
-
 
 1. Publication
 2. Selection
