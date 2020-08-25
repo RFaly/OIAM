@@ -18,14 +18,9 @@
 }
 
 .rsc-box {
-  background: red;
   width: 95%;
   margin: 0 auto;
   font: 16px Questrial, sans-serif;
-}
-
-.rsc-box .rsc-header {
-  background: green;
 }
 
 .rsc-box .rsc-header .rsc-header-image {
@@ -53,11 +48,9 @@
 .rsc-box .rsc-header .rsc-header-travel {
   display: flex;
   justify-content: center;
-  background: yellow;
 }
 
 .rsc-box .rsc-header .rsc-header-travel .rsch-item {
-  background: purple;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -110,7 +103,6 @@
 
 .rsc-box .rsc-body {
   margin-top: 30px;
-  background: #c4c4c4;
 }
 
 .rsc-box .rsc-body .rsc-body-empty {

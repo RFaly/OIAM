@@ -2,12 +2,10 @@
 @import 'pagemenu';
 
 .rsc-box {
-  background: red;
   width: 95%;
   margin: 0 auto;
   font: $ffsentence;
   .rsc-header {
-    background: green;
     .rsc-header-image {
       text-align: center;
       h4 {
@@ -28,9 +26,7 @@
     .rsc-header-travel {
       display: flex;
       justify-content: center;
-      background: yellow;
       .rsch-item {
-        background: purple;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -77,7 +73,6 @@
   }
   .rsc-body {
     margin-top: 30px;
-    background: #c4c4c4;
     .rsc-body-empty {
       border: 2px solid $main_theme_color;
       padding: 50px 20px;
