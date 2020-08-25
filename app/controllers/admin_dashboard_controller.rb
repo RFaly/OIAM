@@ -10,4 +10,11 @@ class AdminDashboardController < ApplicationAdminController
   end
   def tache
   end
+  # SOUS MENU TACHES
+  def factures
+  end
+  def relances
+  end
+  def taches
+  end
 end
