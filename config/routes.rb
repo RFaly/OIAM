@@ -152,6 +152,10 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/dashboard/candidats-a-suivre', to: 'admin_dashboard#candidate', as: 'admin_dashboard_candidate'
   get 'secret-oiam-page/admin/dashboard/taches', to: 'admin_dashboard#tache', as: 'admin_dashboard_tache'
 
+  # routes dans tache
+  get 'secret-oiam-page/admin/dashboard/taches/mes-factures', to: 'admin_dashboard#factures', as: 'admin_dashboard_tache_factures'
+  get 'secret-oiam-page/admin/dashboard/taches/mes-relances-clients', to: 'admin_dashboard#relances', as: 'admin_dashboard_tache_relances'
+  get 'secret-oiam-page/admin/dashboard/taches/mes-taches-a-faire', to: 'admin_dashboard#taches', as: 'admin_dashboard_tache_taches'
 
   # routes dans pour l'administration
   get 'secret-oiam-page/admin/administration/les-agendas', to: 'admin_administration#main', as: 'admin_administration_main'
