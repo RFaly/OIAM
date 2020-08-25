@@ -1,0 +1,41 @@
+<% if @promise.repons_client && @promise.repons_cadre %> <% unless @promise.payed %>
+<center>
+  <h1>FELICITATIONS !</h1>
+  <p>Le cadre vient d'accepter votre proposition d'embauche !</p>
+  <p>
+    Vous retrouverez la proposition signée dans votre profil. Nous sommes certains que votre collaboration sera couronnée de succès, mais dans tous les cas, une période de garantie de 12 semaines prend effet à compter de son démarrage. Vous pouvez désormais régler la prestation One in a Million et
+    commencer un nouveau recrutement !
+  </p>
+  <p class="btn btn-primary">PROCÉDER AU RÈGLEMENT</p>
+</center>
+<% end %>
+
+<table>
+  <tr>
+    <td>Promesse d'embauche</td>
+    <td>TELECHARGER</td>
+  </tr>
+  <tr>
+    <td>CIN ou Passeport</td>
+    <td><%= link_to "TELECHARGER", @promise.cin_pass_port %></td>
+  </tr>
+  <tr>
+    <td>Attestation de sécurité sociale</td>
+    <td><%= link_to "TELECHARGER", @promise.security_certificate %></td>
+  </tr>
+  <tr>
+    <td>RIB</td>
+    <td><%= link_to "TELECHARGER", @promise.rib %></td>
+  </tr>
+  <tr>
+    <td>CV</td>
+    <td><%= link_to "TELECHARGER", @cadre.cadre_info.cv %></td>
+  </tr>
+</table>
+<% else %> Promesse d'embauche envoyer En attente du réponse du client <%= link_to "Voir", show_promise_to_hire_path(@promise.id), class:"btn btn-success" %>
+<div>
+  <a href="<%= show_my_messages_client_path(@cadre.id) %>">Chat en ligne</a>
+  <a href="mailto: <%= @cadre.cadre_info.mail %>">Mail</a>
+  <a href="">Compte rendu</a>
+</div>
+<% end %>

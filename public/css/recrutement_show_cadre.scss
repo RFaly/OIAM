@@ -1,0 +1,106 @@
+@import 'config';
+@import 'pagemenu';
+
+.rsc-box {
+  width: 95%;
+  margin: 0 auto;
+  font: $ffsentence;
+  .rsc-header {
+    .rsc-header-image {
+      text-align: center;
+      h4 {
+        padding: 20px 0;
+      }
+      img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+      }
+      a {
+        color: black;
+        &:hover {
+          color: $main_theme_color;
+        }
+      }
+    }
+    .rsc-header-travel {
+      display: flex;
+      justify-content: center;
+      .rsch-item {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        .cl {
+          width: 100%;
+          display: flex;
+          align-items: center;
+        }
+        .circle {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 35px;
+          height: 35px;
+          background: $secondary_element_color;
+          border-radius: 50%;
+          font: 600 16px roboto, sans-serif;
+          color: white;
+          &.color {
+            background: $main_theme_color;
+          }
+        }
+        .line {
+          content: ' ';
+          height: 2px;
+          background-color: #f0f2f4;
+          &.color {
+            background: $main_theme_color;
+          }
+        }
+        .content {
+          margin-top: 5px;
+          align-self: center;
+          font: $ffbtn;
+          font-size: 16px;
+        }
+        .content-last {
+          width: 27px;
+          margin-left: -26px;
+          align-self: flex-end;
+        }
+      }
+    }
+  }
+  .rsc-body {
+    margin-top: 30px;
+    .rsc-body-empty {
+      border: 2px solid $main_theme_color;
+      padding: 50px 20px;
+      text-align: center;
+      //   width: 50%;
+      margin: 50px auto;
+      p {
+        margin-bottom: 50px;
+      }
+      .link {
+        border: 2px solid $main_theme_color;
+        margin: 0 auto;
+        padding: 12px 0;
+        padding-top: 13px;
+        a {
+          color: $main_theme_color;
+          font: $ffbtn;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+        &:hover,
+        &:active {
+          background: $main_theme_color;
+          a {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
