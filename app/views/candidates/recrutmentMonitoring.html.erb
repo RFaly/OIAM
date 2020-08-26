@@ -23,7 +23,6 @@
 			<% @oFcs.each do |oFc| %>
 				<% offre_job = oFc.offre_job %>
 				<div class="offre-items">
-					
 					<div class="job-info">
 						<center>
 							<%= image_tag(offre_job.image, alt: 'photo de job', class:'photo_ako')%>
@@ -34,7 +33,9 @@
 					</div>
 
 					<% if oFc.accepted_postule == true %>
-						<% if oFc.etapes == 1 %>
+						<% if oFc.etapes == 0 %>
+							Vous êtes selectioner parmi les 5 candidats favoris pour ce poste.
+						<% elsif oFc.etapes == 1%>
 							<% if oFc.status == "refused" %>
 								<p>Candidature réfusé</p>
 							<% else %>
@@ -69,11 +70,14 @@
 						<% end %>
 
 					<% else %>
-
 						<%= link_to showSearchJob_path(oFc.offre_job.id), class:'etapes1' do %>
 							<center>
 								Demande d'entretien envoyer <br>
-								<span class="btn-info"> En attente de réponse</span>
+								<% if oFc.repons_postule==false %>
+									<span class="btn-info">Demande refuser</span>
+								<% else %>
+									<span class="btn-info">En attente de réponse</span>
+								<% end %>
 							</center>
 						<% end %>
 
