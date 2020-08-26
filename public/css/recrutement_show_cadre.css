@@ -139,6 +139,67 @@
 }
 
 .rsc-box .rsc-body .rsc-date-futur {
-  background: red;
+  background: #d6b36a;
+  background: linear-gradient(90deg, #d6b36a 35%, #d6b46ac9 100%);
   text-align: center;
+  color: white;
+  font-weight: 600;
+  padding: 20px 0;
+}
+
+.rsc-box .rsc-body .rsc-date-futur .rscdf-header {
+  padding: 20px;
+  padding-bottom: 10px;
+}
+
+.rsc-box .rsc-body .rsc-date-futur .rscdf-content {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item1 {
+  padding: 15px;
+}
+
+.rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item1 .refus div {
+  margin: 10px;
+}
+
+.rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item2 {
+  padding: 10px 30px;
+  border-right: 2px solid white;
+}
+
+.rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item2 h4 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item2 .date-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item2 .date-items .date {
+  border-right: 2px solid white;
+  border-left: 2px solid white;
+  padding: 10px;
+  margin: 10px 5px;
+}
+
+.rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item2 .date-items .date:first-child {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item2 .date-items .date span {
+  font-size: 50px;
+}
+
+.rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item2 .date-items .date p {
+  margin: 0;
 }

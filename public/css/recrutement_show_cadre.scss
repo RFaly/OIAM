@@ -103,8 +103,60 @@
       }
     }
     .rsc-date-futur {
-      background: red;
+      background: $main_theme_color;
+      background: linear-gradient(90deg, #d6b36a 35%, #d6b46ac9 100%);
       text-align: center;
+      color: white;
+      font-weight: 600;
+      padding: 20px 0;
+      .rscdf-header {
+        padding: 20px;
+        padding-bottom: 10px;
+      }
+      .rscdf-content {
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        .rscdf-item1 {
+          padding: 15px;
+          .refus {
+            div {
+              margin: 10px;
+            }
+          }
+        }
+        .rscdf-item2 {
+          padding: 10px 30px;
+          border-right: 2px solid white;
+          h4 {
+            font-weight: 600;
+            margin-bottom: 20px;
+          }
+          .date-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            .date {
+              border-right: 2px solid white;
+              border-left: 2px solid white;
+              padding: 10px;
+              margin: 10px 5px;
+              &:first-child {
+                padding-left: 20px;
+                padding-right: 20px;
+              }
+              span {
+                font-size: 50px;
+              }
+              p {
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
