@@ -14,13 +14,15 @@
             <!-- candidat a accepter l'entretien sous condition -->
             <% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
                 <% date = DateTime.parse(@agendas.alternative) %>
-            
-                Le candidat a accepter la demande d'entretien à condition de changer la date <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
-            
-            
-                <a class="btn btn-primary">ACCEPTER SA PROPOSTION</a> 
-                <a class="btn btn-primary">REFUSER SA PROPOSTION ET SA CANDIDATURE</a>
-            
+                <div class="new-date">
+                    Le candidat a accepter la demande d'entretien à condition de changer la date <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+                    <div class="link">
+                        <a >ACCEPTER SA PROPOSTION</a> 
+                    </div>
+                    <div class="link2">
+                        <a>REFUSER SA PROPOSTION ET SA CANDIDATURE</a>
+                    </div>
+                </div>
             <!-- candidat a reffuser l'entretien -->
             <% elsif @agendas.repons_cadre == false %>
                 <% show = false %>
@@ -34,7 +36,9 @@
                 </div>
 
             <% else %>
+            <div class="attent">
                 Demande d'entretien envoyer, en attente de réponse par le candidat.
+            </div>
             <% end %>
         </div>
         
