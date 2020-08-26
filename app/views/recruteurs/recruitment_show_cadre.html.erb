@@ -40,9 +40,11 @@
 							<!-- condition pour afficher si la date est passé ou non? -->
 							<!-- if date entretien future -->
 							<% if @agendas.entretien_date > DateTime.now.utc %>
-								<%= render partial: "recruteurs/_rsc_entretien_date_futur" %>
+								<div class="rsc-date-futur">
+									<%= render partial: "recruteurs/rsc_entretien_date_futur" %>
+								</div>
 							<% else %> <!-- si la date de l'entretien est passé -->
-								<%= render partial: "recruteurs/_rsc_entretien_date_past" %>	
+								<%= render partial: "recruteurs/rsc_entretien_date_past" %>	
 							<% end %> <!-- fin if date entretien future -->
 						<% end %> <!-- fin if aucun entretien -->
 					<% end %> <!-- fin if etapes -->

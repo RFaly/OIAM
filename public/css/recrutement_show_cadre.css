@@ -137,3 +137,8 @@
 .rsc-box .rsc-body .rsc-body-empty .link:hover a, .rsc-box .rsc-body .rsc-body-empty .link:active a {
   color: white;
 }
+
+.rsc-box .rsc-body .rsc-date-futur {
+  background: red;
+  text-align: center;
+}
