@@ -21,14 +21,10 @@
 					<div class="etape1">
 						<div class="list-etapes">1er entretien <span class="badge-success"><%= etape %></span></div>	
 					</div>
-				<% elsif i <= 2 %>
+				<% elsif @oFc.etapes >= 2 %>
 					<div class="etape1">
 						<div class="list-etapes"><%= i+1 %>e entretien <span class="badge-success"><%= etape %></span></div>	
-					</div>
-				<% elsif @oFc.etapes == 2 &&  @oFc.etapes < nombreEntretien%>
-					<div class="etape1">
-						<div class="list-etapes"><%= i+1 %>e entretien <span class="badge-success"><%= etape %></span></div>	
-					</div>
+					</div>	
 				<% else %>
 					<div class="list-etapes"><%= i+1 %>e entretien <span class="badge-wait"><%= etape %></span></div>
 				<% end %>

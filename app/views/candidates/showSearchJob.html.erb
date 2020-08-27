@@ -94,7 +94,7 @@
 					Vous êtes selectioner parmi les 5 candidats favoris pour ce poste.
 					</span>
 				<% else %>
-					<%= link_to "MON SUIVI RECRUTEMENT", show_recrutment_monitoring_path(@ofc.id) %>
+					<%= link_to "MON SUIVI RECRUTEMENT", show_recrutment_monitoring_path(@ofc.id), class:'btn btn-primary' %>
 				<% end %>
 			<% elsif @ofc.accepted_postule == false %>
 				<div>
