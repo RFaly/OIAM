@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_113530) do
+ActiveRecord::Schema.define(version: 2020_08_26_072959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -230,6 +230,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_113530) do
     t.boolean "accepted_postule"
     t.integer "etapes", default: 0
     t.text "refused_info"
+    t.boolean "repons_postule"
     t.index ["cadre_id"], name: "index_offre_for_candidates_on_cadre_id"
     t.index ["offre_job_id"], name: "index_offre_for_candidates_on_offre_job_id"
   end
