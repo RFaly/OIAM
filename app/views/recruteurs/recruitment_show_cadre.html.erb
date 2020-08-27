@@ -44,7 +44,9 @@
 									<%= render partial: "recruteurs/rsc_entretien_date_futur" %>
 								</div>
 							<% else %> <!-- si la date de l'entretien est passé -->
-								<%= render partial: "recruteurs/rsc_entretien_date_past" %>	
+								<div class="rsc-date-past">
+									<%= render partial: "recruteurs/rsc_entretien_date_past" %>	
+								</div>
 							<% end %> <!-- fin if date entretien future -->
 						<% end %> <!-- fin if aucun entretien -->
 					<% end %> <!-- fin if etapes -->

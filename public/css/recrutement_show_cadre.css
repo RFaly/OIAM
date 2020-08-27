@@ -248,3 +248,92 @@
 .rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item2 .date-items .date p {
   margin: 0;
 }
+
+.rsc-box .rsc-body .rsc-date-past .rscdp-empty {
+  font: 16px Questrial, sans-serif;
+  margin: 50px auto;
+  border: 2px solid #d6b36a;
+  text-align: center;
+}
+
+.rsc-box .rsc-body .rsc-date-past .rscdp-empty a {
+  font: 550 18px Raleway, sans-serif;
+  color: #d6b36a;
+}
+
+.rsc-box .rsc-body .rsc-date-past .rscdp-empty a:hover, .rsc-box .rsc-body .rsc-date-past .rscdp-empty a:active {
+  color: #d6b46ab6;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-validation {
+  font: 16px Questrial, sans-serif;
+  margin: 50px auto;
+  border: 2px solid #d6b36a;
+  text-align: center;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-validation h3 {
+  font: 16px Questrial, sans-serif;
+  color: #d6b36a;
+  text-align: left;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-validation p {
+  margin: 30px 0;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-validation p a {
+  color: black;
+  font-weight: 520;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link .dscdp-link-item {
+  margin: 15px auto;
+  border: 2px solid #d6b36a;
+  padding: 13px 0;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link .dscdp-link-item a {
+  color: #d6b36a;
+  text-transform: uppercase;
+  text-decoration: none;
+  font: 550 18px Raleway, sans-serif;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link .dscdp-link-item span {
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  font: 550 18px Raleway, sans-serif;
+  color: #d6b36a;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link .dscdp-link-item:hover, .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link .dscdp-link-item:active {
+  background: #d6b36a;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link .dscdp-link-item:hover a, .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link .dscdp-link-item:active a {
+  color: white;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link .dscdp-link-item:hover span, .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link .dscdp-link-item:active span {
+  color: white;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-contact a {
+  color: #d6b36a;
+  font: 16px Questrial, sans-serif;
+  font-weight: 600;
+  margin: 10px;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-contact a img {
+  width: 55px;
+  height: 30px;
+}

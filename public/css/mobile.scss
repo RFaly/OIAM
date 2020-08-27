@@ -529,6 +529,28 @@
           }
         }
       }
+      .rsc-date-past {
+        .rscdp-empty {
+          width: 90%;
+          padding: 10px;
+        }
+        .dscdp-validation {
+          width: 95%;
+          padding: 20px 5px;
+          .dscdp-link-item {
+            width: 250px;
+            a {
+              padding: 22px 1px;
+            }
+            .link {
+              padding: 12px 20px;
+            }
+            span {
+              padding: 16px 40px;
+            }
+          }
+        }
+      }
     }
     .rscdf-content {
       .new-date {
@@ -545,9 +567,6 @@
             padding: 10px 0;
           }
         }
-      }
-      .attent {
-        width: 90%;
       }
     }
   }
@@ -908,6 +927,16 @@
           }
         }
       }
+      .rsc-date-past {
+        .rscdp-empty {
+          width: 70%;
+          padding: 20px;
+        }
+        .dscdp-validation {
+          width: 70%;
+          padding: 20px 25px;
+        }
+      }
     }
     .rscdf-content {
       .new-date {
@@ -924,9 +953,6 @@
             padding: 10px 5px;
           }
         }
-      }
-      .attent {
-        width: 450px;
       }
     }
   }
@@ -1426,6 +1452,28 @@
       .rsc-body-empty {
         width: 70%;
       }
+      .rsc-date-past {
+        .rscdp-empty {
+          width: 60%;
+          padding: 30px;
+        }
+        .dscdp-validation {
+          width: 65%;
+          padding: 20px 45px;
+          .dscdp-link-item {
+            width: 280px;
+            a {
+              padding: 22px 10px;
+            }
+            .link {
+              padding: 12px 35px;
+            }
+            span {
+              padding: 16px 55px;
+            }
+          }
+        }
+      }
       .rscdf-content {
         .new-date {
           width: 450px;
@@ -1435,9 +1483,6 @@
               padding: 10px 15px;
             }
           }
-        }
-        .attent {
-          width: 350px;
         }
       }
     }
@@ -1665,6 +1710,16 @@
       .rsc-body-empty {
         width: 50%;
       }
+      .rsc-date-past {
+        .rscdp-empty {
+          width: 55%;
+          padding: 50px;
+        }
+        .dscdp-validation {
+          width: 60%;
+          padding: 20px 50px;
+        }
+      }
     }
   }
 }
@@ -1740,9 +1795,11 @@
       .rsc-body-empty {
         width: 50%;
       }
-      .rscdf-content {
-        .attent {
-          width: 100%;
+      .rsc-date-past {
+        .rscdp-empty {
+          width: 40%;
+        }
+        .dscpd-validation {
         }
       }
     }
