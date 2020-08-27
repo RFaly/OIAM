@@ -442,6 +442,26 @@
   .rsc-box .rsc-body .rsc-body-empty .link a {
     padding: 10px 10px;
   }
+  .rsc-box .rsc-body .rsc-date-past .rscdp-empty {
+    width: 90%;
+    padding: 10px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
+    width: 95%;
+    padding: 20px 5px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link-item {
+    width: 250px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link-item a {
+    padding: 22px 1px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link-item .link {
+    padding: 12px 20px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link-item span {
+    padding: 16px 40px;
+  }
   .rsc-box .rscdf-content .new-date {
     width: 90%;
   }
@@ -456,9 +476,6 @@
   }
   .rsc-box .rscdf-content .new-date .link2 a {
     padding: 10px 0;
-  }
-  .rsc-box .rscdf-content .attent {
-    width: 90%;
   }
 }
 
@@ -732,6 +749,14 @@
   .rsc-box .rsc-body .rsc-body-empty .link a {
     padding: 10px 30px;
   }
+  .rsc-box .rsc-body .rsc-date-past .rscdp-empty {
+    width: 70%;
+    padding: 20px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
+    width: 70%;
+    padding: 20px 25px;
+  }
   .rsc-box .rscdf-content .new-date {
     width: 450px;
   }
@@ -746,9 +771,6 @@
   }
   .rsc-box .rscdf-content .new-date .link2 a {
     padding: 10px 5px;
-  }
-  .rsc-box .rscdf-content .attent {
-    width: 450px;
   }
 }
 
@@ -1138,6 +1160,26 @@
   .rsc-box .rsc-body .rsc-body-empty {
     width: 70%;
   }
+  .rsc-box .rsc-body .rsc-date-past .rscdp-empty {
+    width: 60%;
+    padding: 30px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
+    width: 65%;
+    padding: 20px 45px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link-item {
+    width: 280px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link-item a {
+    padding: 22px 10px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link-item .link {
+    padding: 12px 35px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link-item span {
+    padding: 16px 55px;
+  }
   .rsc-box .rsc-body .rscdf-content .new-date {
     width: 450px;
   }
@@ -1146,9 +1188,6 @@
   }
   .rsc-box .rsc-body .rscdf-content .new-date .link2 a {
     padding: 10px 15px;
-  }
-  .rsc-box .rsc-body .rscdf-content .attent {
-    width: 350px;
   }
 }
 
@@ -1305,6 +1344,14 @@
   .rsc-box .rsc-body .rsc-body-empty {
     width: 50%;
   }
+  .rsc-box .rsc-body .rsc-date-past .rscdp-empty {
+    width: 55%;
+    padding: 50px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
+    width: 60%;
+    padding: 20px 50px;
+  }
 }
 
 @media screen and (min-width: 1500px) {
@@ -1348,8 +1395,8 @@
   .rsc-box .rsc-body .rsc-body-empty {
     width: 50%;
   }
-  .rsc-box .rsc-body .rscdf-content .attent {
-    width: 100%;
+  .rsc-box .rsc-body .rsc-date-past .rscdp-empty {
+    width: 40%;
   }
 }
 
