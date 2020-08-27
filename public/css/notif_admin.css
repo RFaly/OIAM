@@ -1,0 +1,205 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+  border-left: 1px solid #d6b36a;
+}
+
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.cp-table-box {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #f0f2f4;
+}
+
+.cp-table-box table,
+.cp-table-box td {
+  border-bottom: 2px solid white;
+}
+
+.cp-table-box table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cp-table-box td {
+  padding-top: 20px;
+}
+
+.cp-table-box h5 {
+  font: 550 18px Raleway, sans-serif;
+  font-size: 20px;
+}
+
+.cp-table-box p {
+  font: 16px Questrial, sans-serif;
+}
+
+.cp-table-box .cp-icone {
+  width: 18px;
+  height: 22px;
+}
+
+.cp-table-box .cpr-i-mail {
+  width: 20px;
+  height: 16px;
+}
+
+.cp-table-box .cp-flex {
+  display: flex;
+}
+
+.cp-table-box .cp-flex-t {
+  text-align: center;
+}
+
+.cp-table-box .cp-icon-text {
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.35);
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.cp-table-box .cp-icon-text img {
+  position: absolute;
+}
+
+.cp-table-box .cp-pprofil {
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+}
+
+.cp-table-box .cp-pprofil img {
+  width: 100%;
+  height: 100%;
+}
+
+.cp-table-box .table-td {
+  padding: 10px;
+}
+
+.cp-table-box .table-td .cp-infos-r {
+  padding: 10px;
+  text-align: center;
+}
+
+.cp-table-box .table-td .cp-infos-r h5 {
+  color: #d6b36a;
+  margin-bottom: 20px;
+}
+
+.cp-table-box .table-td .cp-infos-r .cpr-name {
+  font: 550 18px Raleway, sans-serif;
+  margin-bottom: 20px;
+}
+
+.cp-table-box .table-td .cp-infos-r p {
+  margin-bottom: 25px;
+}
+
+.cp-table-box .table-td .cp-infos-r .cpr-r {
+  position: relative;
+}
+
+.cp-table-box .table-td .cp-infos-r .cpr-r img {
+  position: absolute;
+}
+
+.cp-table-box .cp-entreprise-name {
+  text-align: center;
+}
+
+.cp-table-box .cp-entreprise-name h5 {
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.cp-table-box .cpe-si {
+  position: relative;
+}
+
+.cp-table-box .cpe-si .number {
+  width: 15px;
+  height: 15px;
+}
+
+.cp-table-box .cpe-si .line-white {
+  width: 3px;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  background-color: white;
+}
+
+.cp-table-box .cp-link {
+  text-align: center;
+  padding: 25px;
+  padding-bottom: 40px;
+}
+
+.cp-table-box .cp-link a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #d6b36a;
+  border: 2px solid #d6b36a;
+  padding: 12px 50px;
+  font: 550 18px Raleway, sans-serif;
+}
+
+.cp-table-box .cp-link a:hover, .cp-table-box .cp-link a:active {
+  color: white;
+  background-color: #d6b36a;
+}
+
+.box {
+  background: #d6b36a; 
+  border: 2px solid #d6b36a;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  align-content: center;  
+  text-align: center;
+  padding: 30px 0;
+  width: 75%;
+  transform: translateX(15%);
+}
+
+.box:hover {
+  background: #fff;
+}
+
+.box2 {
+  margin-top: 50px;
+}
+
+.box3 {
+  margin-top: 50px;
+}
+
+.box-link {
+  color: #000;
+  text-decoration: none;
+}
+
+.box-link:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.all-bx {
+  margin: 20px;
+}

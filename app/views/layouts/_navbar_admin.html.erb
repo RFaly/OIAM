@@ -33,15 +33,19 @@
       <div class="dropup1">
               <% if admin_signed_in? %>
                   <div class="dropup-btn1" data-toggle="dropdown">
-                    MON PROFIL
+                    Mon profil
                   </div>
                     <div class="dropup-content1">
-                      <%= link_to "MON PROFIL", admin_main_my_profil_path, class:'dropup-item1' %>
-                      <%= link_to "DECONNEXION", destroy_admin_session_path, method:"delete", class:'dropup-item1' %>
+                      <a href="<%= admin_main_my_profil_path %>">
+                        <div class="dropup-item1">Mon profil</div>
+                      </a>
+                      <%= link_to destroy_admin_session_path, method:"delete" do %>
+                      <div class="dropup-item1">Se déconnecter</div>
+                      <% end %>
                     </div>
               <% else %>
                 <div class="dropup-btn1" data-toggle="dropdown">
-                  <%= link_to "SE CONNECTER", new_admin_session_path %>
+                  <a href="<%= new_admin_session_path %>">Se connecter</a>
                 </div>
               <% end %>
       </div>
