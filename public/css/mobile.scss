@@ -530,6 +530,26 @@
         }
       }
     }
+    .rscdf-content {
+      .new-date {
+        width: 90%;
+        .link {
+          width: 80%;
+          a {
+            padding: 10px 0;
+          }
+        }
+        .link2 {
+          width: 100%;
+          a {
+            padding: 10px 0;
+          }
+        }
+      }
+      .attent {
+        width: 90%;
+      }
+    }
   }
 }
 
@@ -887,6 +907,26 @@
             padding: 10px 30px;
           }
         }
+      }
+    }
+    .rscdf-content {
+      .new-date {
+        width: 450px;
+        .link {
+          width: 70%;
+          a {
+            padding: 10px 32px;
+          }
+        }
+        .link2 {
+          width: 95%;
+          a {
+            padding: 10px 5px;
+          }
+        }
+      }
+      .attent {
+        width: 450px;
       }
     }
   }
@@ -1386,6 +1426,20 @@
       .rsc-body-empty {
         width: 70%;
       }
+      .rscdf-content {
+        .new-date {
+          width: 450px;
+          .link2 {
+            width: 100%;
+            a {
+              padding: 10px 15px;
+            }
+          }
+        }
+        .attent {
+          width: 350px;
+        }
+      }
     }
   }
 }
@@ -1678,6 +1732,19 @@
     .rlc-empty {
       width: 40%;
       margin-top: 100px;
+    }
+  }
+  // recrutement show cadre
+  .rsc-box {
+    .rsc-body {
+      .rsc-body-empty {
+        width: 50%;
+      }
+      .rscdf-content {
+        .attent {
+          width: 100%;
+        }
+      }
     }
   }
 }
