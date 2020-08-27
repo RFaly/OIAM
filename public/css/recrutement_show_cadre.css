@@ -267,6 +267,7 @@
 
 .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
   font: 16px Questrial, sans-serif;
+  position: relative;
   margin: 50px auto;
   border: 2px solid #d6b36a;
   text-align: center;
@@ -336,4 +337,46 @@
 .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-contact a img {
   width: 55px;
   height: 30px;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-refus {
+  top: 30%;
+  background: #d6b36a;
+  position: absolute;
+  z-index: 200;
+  width: 80%;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-refus .dscdpr-flex a {
+  display: block;
+  width: 190px;
+  margin: 15px auto;
+  border: 2px solid white;
+  padding: 10px 5px;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  font: 550 18px Raleway, sans-serif;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-refus .dscdpr-flex a:hover, .rsc-box .rsc-body .rsc-date-past .dscdp-refus .dscdpr-flex a:active {
+  color: #d6b36a;
+  background: white;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-refus .dscdpr-flex div {
+  cursor: pointer;
+  width: 190px;
+  margin: 15px auto;
+  border: 2px solid white;
+  padding: 10px 25px;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  font: 550 18px Raleway, sans-serif;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-refus .dscdpr-flex div:hover, .rsc-box .rsc-body .rsc-date-past .dscdp-refus .dscdpr-flex div:active {
+  color: #d6b36a;
+  background: white;
 }

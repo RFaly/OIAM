@@ -226,6 +226,7 @@
       }
       .dscdp-validation {
         font: $ffsentence;
+        position: relative;
         // width: 55%;
         margin: 50px auto;
         border: 2px solid $main_theme_color;
@@ -292,6 +293,47 @@
             img {
               width: 55px;
               height: 30px;
+            }
+          }
+        }
+      }
+      .dscdp-refus {
+        top: 30%;
+        background: $main_theme_color;
+        position: absolute;
+        z-index: 200;
+        width: 80%;
+        .dscdpr-flex {
+          a {
+            display: block;
+            width: 190px;
+            margin: 15px auto;
+            border: 2px solid white;
+            padding: 10px 5px;
+            color: white;
+            text-transform: uppercase;
+            text-decoration: none;
+            font: $ffbtn;
+            &:hover,
+            &:active {
+              color: $main_theme_color;
+              background: white;
+            }
+          }
+          div {
+            cursor: pointer;
+            width: 190px;
+            margin: 15px auto;
+            border: 2px solid white;
+            padding: 10px 25px;
+            color: white;
+            text-transform: uppercase;
+            text-decoration: none;
+            font: $ffbtn;
+            &:hover,
+            &:active {
+              color: $main_theme_color;
+              background: white;
             }
           }
         }
