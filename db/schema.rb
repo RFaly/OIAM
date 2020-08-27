@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_113530) do
+ActiveRecord::Schema.define(version: 2020_08_26_072959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,25 +93,6 @@ ActiveRecord::Schema.define(version: 2020_08_20_113530) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "adresse"
-    t.string "postal_code"
-    t.string "city"
-    t.string "mail"
-    t.string "status"
-    t.string "situation"
-    t.string "telephone"
-    t.integer "potential_test"
-    t.integer "skils_test"
-    t.boolean "fit_test"
-    t.text "avis_recruteur"
-    t.text "question1"
-    t.text "question2"
-    t.text "question3"
-    t.text "question4"
-    t.text "question5"
     t.datetime "online_time"
     t.index ["email"], name: "index_cadres_on_email", unique: true
     t.index ["reset_password_token"], name: "index_cadres_on_reset_password_token", unique: true
@@ -230,6 +211,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_113530) do
     t.boolean "accepted_postule"
     t.integer "etapes", default: 0
     t.text "refused_info"
+    t.boolean "repons_postule"
     t.index ["cadre_id"], name: "index_offre_for_candidates_on_cadre_id"
     t.index ["offre_job_id"], name: "index_offre_for_candidates_on_offre_job_id"
   end
@@ -244,6 +226,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_113530) do
     t.float "remuneration"
     t.float "remuneration_anne"
     t.boolean "contrat_cdi", default: false
+    t.boolean "is_publish", default: false
     t.string "type_deplacement"
     t.string "date_poste"
     t.text "question1"

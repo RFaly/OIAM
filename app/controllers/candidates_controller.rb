@@ -240,10 +240,10 @@ class CandidatesController < ApplicationController
       return
     end
     
-    @offre = @oFc.offre_job
+    @offreJob = @oFc.offre_job
     @cadre = current_cadre
     @agendas = @oFc.agenda_clients.order('created_at DESC')[0]
-    @promise = @offre.promise_to_hires.find_by(cadre:@cadre)
+    @promise = @offreJob.promise_to_hires.find_by(cadre:@cadre)
 
   end
 
