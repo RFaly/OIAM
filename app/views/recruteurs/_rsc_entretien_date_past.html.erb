@@ -1,85 +1,56 @@
-<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
-		
-    <% if @oFc.status == "waiting" || @oFc.status == "accepted" %>
-        <% if @oFc.status == "waiting" %>
-            <%= render partial: "recruteurs/repons_waiting" %>
-        <% else %>
-            <%= render partial: "recruteurs/repons_accepted" %>
-        <% end %>
-    <% else %>
-
-        <div id="js-main-bloc-information">
-            <h3>Suivi recrutement</h3>
-            
-            <p>Vous avez rencontré <%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %> le <%= @agendas.entretien_date.strftime("%d/%m/%Y") %>, comment s'est déroulé votre entretien ?</p>
-
-            <div>
-                <%= link_to "CANDIDAT RETENU POUR LA PROCHAINE ETAPE", notice_refused_post_path(repons: 'accepted', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true, class:"btn btn-primary" %><br><br>
-
-                <%= link_to "CANDIDAT EN ATTENTE", notice_refused_post_path(repons: 'waiting', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true, class:"btn btn-primary" %><br><br>
-
-                <span class="btn btn-primary" id="js-ca_confirmchoice">CANDIDAT REFUSE</span>
-                <br>
-
-                <!-- Alerte notification if refused candidat -->
-                <div id="js-show_ca_confirmchoice" style="display: none;">
-                    <p>Attention ! Ce candidat figure parmi les meilleurs du marché et ne peut vous être réservé exclusivement  et nous portons à votre attention qu'une réponse rapide favorise la réussite du recrutement.</p>
-                    
-                    <%= link_to "VOIR LE CANDIDAT", show_search_candidate_path(@cadre.id, offre_id: @offre.id), class:'btn btn-primary' %>
-
-                    <%= link_to "Valider", notice_refused_post_path(repons: 'refused', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true, class:"btn btn-primary", id:"js-ca_confirmchoice" %>
-
-                    <span class="js-retour-choice btn btn-danger">Annuler</span>
-                </div>
-            </div>
-            <div>
-                <a href="<%= show_my_messages_client_path(@cadre.id) %>">Chat en ligne</a>
-                <a href = "mailto: <%= @cadre.cadre_info.mail %>">Mail</a>
-                <a href="">Compte rendu</a>
-            </div>
-        </div>
-
-    <% end %> <!-- fin choice status waiting || refusing -->
-
-<% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
-
-    <% date = DateTime.parse(@agendas.alternative) %>
-
-    <h2>L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> est passé.</h2>
-
-    <p>
-        Le candidat a accepter la demande d'entretien à condition de changer la date pour <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
-    </p>
-    <p>
-        <a class="btn btn-info">
-            ACTION A FAIRE EN ATTENTE DU CLIENT
-        </a>
-    </p>
-
-<% elsif @agendas.repons_cadre == false %>
-    <p>
-        L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> est passé mais le candidat a reffusé l'entretien
-        <% unless @agendas.alternative.nil? %>
-            <br>motif: <%= @agendas.alternative %>
-        <% end %>
-    </p>
-    <p>
-        <a class="btn btn-info">
-            ACTION A FAIRE EN ATTENTE DU CLIENT
-        </a>
-    </p>
-<% elsif @agendas.repons_client == false %>
-    L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> est passé mais vous avez refuser l'entretien du candidat.
-    <p>
-        <a class="btn btn-info">
-            ACTION A FAIRE EN ATTENTE DU CLIENT
-        </a>
-    </p>
+<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %> <% if @oFc.status == "waiting" || @oFc.status == "accepted" %> <% if @oFc.status == "waiting" %>
+<div class="dscdp-waiting"><%= render partial: "recruteurs/repons_waiting" %></div>
 <% else %>
-    L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> est passé mais le candidat n'a donné aucune réponse au demande d'entretien.
-    <p>
-        <a class="btn btn-info">
-            ACTION A FAIRE EN ATTENTE DU CLIENT
-        </a>
-    </p>
+<div class="dscdp-accepted"><%= render partial: "recruteurs/repons_accepted" %></div>
+<%end %> <% else %>
+
+<div id="js-main-bloc-information" class="dscdp-validation">
+  <h3>Suivi recrutement</h3>
+
+  <p>Vous avez rencontré <a href="#"><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %></a> le <strong> <%= @agendas.entretien_date.strftime("%d/%m/%Y") %></strong> , comment s'est déroulé votre entretien ?</p>
+
+  <div class="dscdp-link">
+    <div class="dscdp-link-item">
+      <%= link_to notice_refused_post_path(repons: 'accepted', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true do %>CANDIDAT RETENU <br />
+      POUR LA PROCHAINE ETAPE<%end%>
+    </div>
+    <div class="dscdp-link-item"><%= link_to "CANDIDAT EN ATTENTE", notice_refused_post_path(repons: 'waiting', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true, class:'link' %></div>
+    <div class="dscdp-link-item"><span id="js-ca_confirmchoice">CANDIDAT REFUSE</span></div>
+
+    <br />
+
+    <!-- Alerte notification if refused candidat -->
+    <div id="js-show_ca_confirmchoice" style="display: none" class="dscdp-refus">
+      <p>Attention ! Ce candidat figure parmi les meilleurs du marché et ne peut vous être réservé exclusivement et nous portons à votre attention qu'une réponse rapide favorise la réussite du recrutement.</p>
+
+      <div class="dscdpr-flex">
+        <%= link_to "VOIR LE CANDIDAT", show_search_candidate_path(@cadre.id, offre_id: @offre.id) %> <%= link_to "Valider", notice_refused_post_path(repons: 'refused', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true, id:"js-ca_confirmchoice" %>
+        <div class="js-retour-choice">Annuler</div>
+      </div>
+    </div>
+  </div>
+  <div class="dscdp-contact">
+    <a href="<%= show_my_messages_client_path(@cadre.id) %>">
+      <img src="/image/chatS.png" alt="Icon chat" />
+      <div>Chat en ligne</div>
+    </a>
+    <a href="mailto: <%= @cadre.cadre_info.mail %>">
+      <img src="/image/mailS.png" alt="icon mail" />
+      <div>Mail</div>
+    </a>
+    <a href="">
+      <img src="/image/compteR.png" alt="icon compte rendu" />
+      <div>Compte rendu</div>
+    </a>
+  </div>
+</div>
+
+<% end %>
+<!-- fin choice status waiting || refusing -->
+
+<% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %> <% elsif @agendas.repons_cadre == false %> <% elsif @agendas.repons_client == false %> <% else %>
+<div class="rscdp-empty">
+  Le candidat n’a pas donné suite à votre demande d’entretien. Vous avez la possibilité de choisir un autre candidat dans la limite des
+  <a href="#">5 candidats maximum</a>.
+</div>
 <% end %>

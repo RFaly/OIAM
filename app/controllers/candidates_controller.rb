@@ -219,7 +219,12 @@ class CandidatesController < ApplicationController
 
 	def recrutmentMonitoring
     validate_info_cadre
-    @oFcs = OffreForCandidate.where(cadre: current_cadre)
+    tmp_oFcs = OffreForCandidate.where(cadre: current_cadre)
+    @oFcs = []
+    tmp_oFcs.each do |oFc|
+      next if oFc.accepted_postule == true && oFc.repons_postule.nil? && oFc.agenda_clients.empty?
+      @oFcs.push(oFc)
+    end
 	end
 
   def showRecrutmentMonitoring
@@ -236,8 +241,9 @@ class CandidatesController < ApplicationController
     end
     
     @offreJob = @oFc.offre_job
-
-    @agendaClient = @oFc.agenda_clients
+    @cadre = current_cadre
+    @agendas = @oFc.agenda_clients.order('created_at DESC')[0]
+    @promise = @offreJob.promise_to_hires.find_by(cadre:@cadre)
 
   end
 
