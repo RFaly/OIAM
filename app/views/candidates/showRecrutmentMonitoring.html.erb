@@ -13,23 +13,31 @@
 			<% end %>
 		</div>
 		<%nombreEntretien = @offreJob.numberEntretien + 1%>
-		<div class="container-flex <% if (nombreEntretien == 2) %>container-flex1<%elsif (nombreEntretien == 3)%>container-flex2<%elsif (nombreEntretien == 4)%>container-flex3<%end%>">
+		<div class="container-flex <% if (nombreEntretien == 2) && (@oFc.etapes < 2) %> entretien1 <% elsif (nombreEntretien == 2) && (@oFc.etapes == nombreEntretien) %>  promesse1 <% elsif (nombreEntretien == 3) && (@oFc.etapes == 1)%> etapes1 <% elsif (nombreEntretien == 3) && (@oFc.etapes == 2)%> etapes2 <% elsif (nombreEntretien == 3) && (@oFc.etapes == nombreEntretien)%> etapes3 <% elsif (nombreEntretien == 4) && (@oFc.etapes == 1)%> last-etapes1 <% elsif (nombreEntretien == 4) && (@oFc.etapes == 2)%> last-etapes2 <% elsif (nombreEntretien == 4) && (@oFc.etapes == 3)%> last-etapes3 <% elsif (nombreEntretien == 4) && (@oFc.etapes == 4)%> last-etape <%end%>">
 			<% etape = 0 %>
 			<% @offreJob.numberEntretien.times do |i| %>
 				<% etape += 1 %>
 				<% if i == 0 %>
-					<div class="list-etapes"><span class="text">1er entretien</span> <span class="badge-success"><%= etape %></span></div>
-				<% elsif i < 1%>
-					<div class="list-etapes"><span class="text"></span> <%= i+1 %>e entretien <span class="badge-success"><%= etape %></span></div>
-				<% elsif i == 3 %>
-					<div class="list-etapes"><span class="text"></span> <%= i+1 %>e entretien <span class="badge-success"><%= etape %></
-				<% else%>
-					<div class="list-etapes"><span class="text"></span> <%= i+1 %>e entretien <span class="badge-wait"><%= etape %></span></div>
+					<div class="etape1">
+						<div class="list-etapes">1er entretien <span class="badge-success"><%= etape %></span></div>	
+					</div>
+				<% elsif i <= 2 %>
+					<div class="etape1">
+						<div class="list-etapes"><%= i+1 %>e entretien <span class="badge-success"><%= etape %></span></div>	
+					</div>
+				<% elsif @oFc.etapes == 2 &&  @oFc.etapes < nombreEntretien%>
+					<div class="etape1">
+						<div class="list-etapes"><%= i+1 %>e entretien <span class="badge-success"><%= etape %></span></div>	
+					</div>
+				<% else %>
+					<div class="list-etapes"><%= i+1 %>e entretien <span class="badge-wait"><%= etape %></span></div>
 				<% end %>
 			<% end %>
 			<div class="list-etapes">
 				<% if (@oFc.etapes == nombreEntretien) %>
-					<span class="text">Promesse d'embauche</span><span class="badge-success"><%= etape + 1 %></span>
+					<div class="list-etapes">
+						<span class="text">Promesse d'embauche</span><span class="badge-success"><%= etape + 1 %></span>
+					</div>
 				<% else%>
 					<span class="text">Promesse d'embauche</span><span class="badge-wait"><%= etape + 1 %></span>
 				<% end %>
@@ -39,10 +47,8 @@
 <br><br> <br>
 
 		<div class="btn-info">
-			ce candidat est à l'etape : 
-			<strong><%= @oFc.etapes %></strong> <br>
-			nombre d'etape total : 
-			<strong><%= @offreJob.numberEntretien + 1 %></strong>
+			Vous êtes à l'etape : 
+			<strong><%= @oFc.etapes %>/<%= @offreJob.numberEntretien + 1 %></strong>
 		</div>
 
 	</div>

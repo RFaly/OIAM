@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/client_profil.css" />
+<link rel="stylesheet" href="/css/admin_tache.css" />
 <div class="client-column">
 	<div class="client-menu-left">
 		<%= render partial: "admin_dashboard/left_menu_link" %>
@@ -6,7 +6,15 @@
 
 	<div class="cp-box">
 		<div>
-			<h2>TACHES</h2>
+			<div class="box box1">
+				<a class="box-link" href="<%= admin_dashboard_tache_factures_path %>"><h4>MES FACTURES</h4></a>	
+			</div>
+			<div class="box box2">
+				<a class="box-link" href="<%= admin_dashboard_tache_relances_path %>"><h4>MES RELANCES CLIENT</h4></a>		
+			</div>
+			<div class="box box3">
+				<a class="box-link" href="<%= admin_dashboard_tache_taches_path %>"><h4>MES TACHES A FAIRE</h4></a>	
+			</div>
 		</div>
 	</div>
 </div>

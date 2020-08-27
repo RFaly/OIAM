@@ -1,0 +1,55 @@
+<div class="rscdf-box">
+    <% show = true %>
+    <div class="rscdf-header">
+        Vous avez un entretien le <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+    </div>
+    <div class="rscdf-content">
+        <!-- candidat a accepter l'entretien -->
+        <% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
+        
+            <%= @cadre.cadre_info.first_name.capitalize %> <%= @cadre.cadre_info.last_name.capitalize %> a accepté votre demande d'entretien.
+        
+        <!-- candidat a accepter l'entretien sous condition -->
+        <% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
+        <% date = DateTime.parse(@agendas.alternative) %>
+        
+            Le candidat a accepter la demande d'entretien à condition de changer la date <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+        
+        
+            <a class="btn btn-primary">ACCEPTER SA PROPOSTION</a> <br>
+            <a class="btn btn-primary">REFUSER SA PROPOSTION ET SA CANDIDATURE</a>
+        
+        <!-- candidat a reffuser l'entretien -->
+        <% elsif @agendas.repons_cadre == false %>
+        <% show = false %>
+        
+            Le candidat a reffusé l'entretien
+            <% unless @agendas.alternative.nil? %>
+                <br>motif: <%= @agendas.alternative %>
+            <% end %> <br>
+            <a class="btn btn-info">
+                ACTION A FAIRE EN ATTENTE DU CLIENT
+            </a>
+        
+        <!-- le recruteur a reffuser l'entretien -->
+        <% elsif @agendas.repons_client == false %>
+        <% show = false %>
+        <% date = DateTime.parse(@agendas.alternative) %>
+        
+            Le candidat a proposer une nouvelle date pour l'entretien: <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+        
+        <p class="btn btn-primary">CANDIDATURE REFFUSER</p>
+        <% else %>
+        
+            Demande d'entretien envoyer, en attente de réponse par le candidat.
+        
+        <% end %>
+        
+        <% if show %> <!-- afficher ce petit compte à rebours mandona -->
+        <div id="futureTimeClock" data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>">
+            Il vous reste <span id="js-days"></span>j : <span id="js-hours"></span>h : <span id="js-minutes"></span>m : <span id="js-seconds">0</span>s avant la date de l'entretien.
+        </div>
+        <% end %>
+    </div>
+    
+</div>

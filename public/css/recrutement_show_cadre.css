@@ -1,0 +1,144 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+  border-left: 1px solid #d6b36a;
+}
+
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.rsc-box {
+  width: 95%;
+  margin: 0 auto;
+  font: 16px Questrial, sans-serif;
+}
+
+.rsc-box .rsc-header .rsc-header-image {
+  text-align: center;
+}
+
+.rsc-box .rsc-header .rsc-header-image h4 {
+  padding: 20px 0;
+}
+
+.rsc-box .rsc-header .rsc-header-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.rsc-box .rsc-header .rsc-header-image a {
+  color: black;
+}
+
+.rsc-box .rsc-header .rsc-header-image a:hover {
+  color: #d6b36a;
+}
+
+.rsc-box .rsc-header .rsc-header-travel {
+  display: flex;
+  justify-content: center;
+}
+
+.rsc-box .rsc-header .rsc-header-travel .rsch-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.rsc-box .rsc-header .rsc-header-travel .rsch-item .cl {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.rsc-box .rsc-header .rsc-header-travel .rsch-item .circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  background: #f0f2f4;
+  border-radius: 50%;
+  font: 600 16px roboto, sans-serif;
+  color: white;
+}
+
+.rsc-box .rsc-header .rsc-header-travel .rsch-item .circle.color {
+  background: #d6b36a;
+}
+
+.rsc-box .rsc-header .rsc-header-travel .rsch-item .line {
+  content: ' ';
+  height: 2px;
+  background-color: #f0f2f4;
+}
+
+.rsc-box .rsc-header .rsc-header-travel .rsch-item .line.color {
+  background: #d6b36a;
+}
+
+.rsc-box .rsc-header .rsc-header-travel .rsch-item .content {
+  margin-top: 5px;
+  align-self: center;
+  font: 550 18px Raleway, sans-serif;
+  font-size: 16px;
+}
+
+.rsc-box .rsc-header .rsc-header-travel .rsch-item .content-last {
+  width: 27px;
+  margin-left: -26px;
+  align-self: flex-end;
+}
+
+.rsc-box .rsc-body {
+  margin-top: 30px;
+}
+
+.rsc-box .rsc-body .rsc-body-empty {
+  border: 2px solid #d6b36a;
+  padding: 50px 20px;
+  text-align: center;
+  margin: 50px auto;
+}
+
+.rsc-box .rsc-body .rsc-body-empty p {
+  margin-bottom: 50px;
+}
+
+.rsc-box .rsc-body .rsc-body-empty .link {
+  border: 2px solid #d6b36a;
+  margin: 0 auto;
+  padding: 12px 0;
+  padding-top: 13px;
+}
+
+.rsc-box .rsc-body .rsc-body-empty .link a {
+  color: #d6b36a;
+  font: 550 18px Raleway, sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.rsc-box .rsc-body .rsc-body-empty .link:hover, .rsc-box .rsc-body .rsc-body-empty .link:active {
+  background: #d6b36a;
+}
+
+.rsc-box .rsc-body .rsc-body-empty .link:hover a, .rsc-box .rsc-body .rsc-body-empty .link:active a {
+  color: white;
+}
+
+.rsc-box .rsc-body .rsc-date-futur {
+  background: red;
+  text-align: center;
+}
