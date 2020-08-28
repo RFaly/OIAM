@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'formation_candidate/index'
+  get 'formation_candidate/date_rdv'
 	#~~~~~~~~~~~~~~~~~~~~ Accueil ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   root to: 'static_page#home'
   get '/welcome', to: 'static_page#allHome', as: 'welcome'
