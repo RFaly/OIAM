@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2020_08_28_065827) do
     t.boolean "repons_client", default: true
     t.boolean "repons_cadre"
     t.boolean "is_update"
-    t.text "message"
     t.index ["offre_for_candidate_id"], name: "index_agenda_clients_on_offre_for_candidate_id"
   end
 
