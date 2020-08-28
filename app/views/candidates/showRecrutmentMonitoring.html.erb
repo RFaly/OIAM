@@ -21,9 +21,17 @@
 					<div class="etape1">
 						<div class="list-etapes">1er entretien <span class="badge-success"><%= etape %></span></div>	
 					</div>
-				<% elsif @oFc.etapes >= 2 %>
+				<% elsif @oFc.etapes == 2 %>
 					<div class="etape1">
-						<div class="list-etapes"><%= i+1 %>e entretien <span class="badge-success"><%= etape %></span></div>	
+						<div class="list-etapes"><%= i+1 %>e entretien <span class="<% if i == 1 %>badge-success<% else %>badge-wait<% end %>"><%= etape %></span></div>	
+					</div>
+				<% elsif @oFc.etapes == 3 %>
+					<div class="etape1">
+						<div class="list-etapes"><%= i+1 %>e entretien <span class="<% if i < 3 %>badge-success<% else %>badge-wait<% end %>"><%= etape %></span></div>	
+					</div>
+				<% elsif @oFc.etapes == 4 %>
+					<div class="etape1">
+						<div class="list-etapes"><%= i+1 %>e entretien <span class="<% if i < 3 %>badge-success<% else %>badge-wait<% end %>"><%= etape %></span></div>	
 					</div>	
 				<% else %>
 					<div class="list-etapes"><%= i+1 %>e entretien <span class="badge-wait"><%= etape %></span></div>
@@ -100,6 +108,7 @@
 
 			<% else %>
 				<!-- unless aucun entretien -->
+				<div class="proposition-entretien">
 				<% unless @agendas.nil? %>
 					<!-- condition pour afficher si la date est passé ou non? -->
 					<!-- if date entretien future -->
@@ -198,6 +207,7 @@
 
 					<% end %> <!-- fin if date entretien future -->
 				<% end %> <!-- fin unless aucun entretien -->
+				</div>
 			<% end %> <!-- fin if etapes -->
 		<% end %> <!-- fin if candidature refusé -->
 
