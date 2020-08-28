@@ -52,8 +52,8 @@ Rails.application.routes.draw do
   post '/recruteurs/favorite/:id/candidate', to:'recruteurs#add_top_five_candidate', as:'add_top_five_candidate'
   post '/recruteurs/envoyer-invitation-entretien', to:'recruteurs#save_entretien_client', as:'save_entretien_client'
   post '/recruteurs/envoyer-reponse-entretien', to:'recruteurs#notice_refused_post', as:'notice_refused_post'
+  post '/recruteurs/candidate-change/reponse-entretien', to:'recruteurs#update_entretien_client', as:'update_entretien_client'
   
-
   # show promesse d'embauche
   get '/recruteur/offre-d-emploi/:id/contrat-d-embauche', to: 'recruteurs#show_promise_to_hire', as: 'show_promise_to_hire'
   #create a promesse d'embauche
@@ -162,6 +162,14 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/administration/les-mails', to: 'admin_administration#mail', as: 'admin_administration_mail'
   get 'secret-oiam-page/admin/administration/les-tests', to: 'admin_administration#test', as: 'admin_administration_test'
   get 'secret-oiam-page/admin/administration/les-utilisateurs', to: 'admin_administration#utilisateur', as: 'admin_administration_utilisateur'
+
+  #formation liste
+
+  get 'cadres/formation', to: 'formation_candidate#index', as: 'formation_all'
+  get 'cadres/formation/:id', to: 'formation_candidate#date_rdv', as: 'formation_date_rdv'
+  post 'cadres/formation/save', to: 'formation_candidate#save_rdv', as: 'formation_save_rdv'
+
+
 
 end
 

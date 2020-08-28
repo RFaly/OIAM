@@ -21,9 +21,17 @@
 					<div class="etape1">
 						<div class="list-etapes">1er entretien <span class="badge-success"><%= etape %></span></div>	
 					</div>
-				<% elsif @oFc.etapes >= 2 %>
+				<% elsif @oFc.etapes == 2 %>
 					<div class="etape1">
-						<div class="list-etapes"><%= i+1 %>e entretien <span class="badge-success"><%= etape %></span></div>	
+						<div class="list-etapes"><%= i+1 %>e entretien <span class="<% if i == 1 %>badge-success<% else %>badge-wait<% end %>"><%= etape %></span></div>	
+					</div>
+				<% elsif @oFc.etapes == 3 %>
+					<div class="etape1">
+						<div class="list-etapes"><%= i+1 %>e entretien <span class="<% if i < 3 %>badge-success<% else %>badge-wait<% end %>"><%= etape %></span></div>	
+					</div>
+				<% elsif @oFc.etapes == 4 %>
+					<div class="etape1">
+						<div class="list-etapes"><%= i+1 %>e entretien <span class="<% if i < 3 %>badge-success<% else %>badge-wait<% end %>"><%= etape %></span></div>	
 					</div>	
 				<% else %>
 					<div class="list-etapes"><%= i+1 %>e entretien <span class="badge-wait"><%= etape %></span></div>
@@ -41,12 +49,7 @@
 		</div>
 
 
-
-
-		<br><br><br><br>
-		<hr>
-
-		<div id="container-element">
+	<div id="container-element">
 
 		<% if @oFc.status == "refused" %> <!-- if candidature refusé -->
 			CANDIDATURE REFUSÉ
@@ -100,20 +103,21 @@
 
 			<% else %>
 				<!-- unless aucun entretien -->
+				<div class="proposition-entretien">
 				<% unless @agendas.nil? %>
 					<!-- condition pour afficher si la date est passé ou non? -->
 					<!-- if date entretien future -->
 					<% if @agendas.entretien_date > DateTime.now.utc %>
 						<% show = true %>
-						<p>
-							Nouvelle proposition d'entretien: <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+						<p class="new-proposition">
+							<span class="title-entretien">Nouvelle proposition d'entretien le </span> <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
 						</p>
 
 						<!-- candidat a accepter l'entretien -->
 						<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
-							<p>
+							<div class="entretien-accepted">
 								Vous avez accepté la demande d'entretien.
-							</p>
+							</div>
 						<!-- candidat a accepter l'entretien sous condition -->
 						<% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
 							<% date = DateTime.parse(@agendas.alternative) %>
@@ -140,8 +144,27 @@
 						<% end %>
 
 						<% if show %> <!-- afficher ce petit compte à rebours mandona -->
-							<div style="font-size: 50px" id="futureTimeClock" data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>">
-								Il vous reste <span id="js-days"></span>j : <span id="js-hours"></span>h : <span id="js-minutes"></span>m : <span id="js-seconds">0</span>s avant la date de l'entretien.
+							<div id="futureTimeClock" data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="entretien-hours">
+								<p class="entretien-info">Temps restant avant entretien</p>
+								<div class="hours-entretien-info">
+									<div class="entretien-days-left">
+										<p id="js-days" class="days-number"></p>
+										<span class="days-letter">jours</span>
+									</div>
+									<div class="entretien-days-left">
+										<span id="js-hours" class="days-number"></span>
+										<span class="days-letter">heures</span>
+									</div>
+									<div class="entretien-days-left">
+										<span id="js-minutes" class="days-number"></span> 
+										<span class="days-letter">minute</span>
+									</div>
+									<div class="entretien-days-left">
+										<span id="js-seconds" class="days-number">0</span>
+										<span class="days-letter">seconde</span>
+									</div>
+								</div>
+								
 							</div>
 						<% end %>
 
@@ -198,11 +221,11 @@
 
 					<% end %> <!-- fin if date entretien future -->
 				<% end %> <!-- fin unless aucun entretien -->
+				</div>
 			<% end %> <!-- fin if etapes -->
 		<% end %> <!-- fin if candidature refusé -->
 
 		</div> <!-- fin container element -->
-
 	</div>
 
 </div>

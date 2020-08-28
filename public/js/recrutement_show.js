@@ -1,16 +1,17 @@
 let $attente = $('#js-show_ca_confirmchoice');
+$(document).ready(function () {
+  $('#js-ca_confirmchoice').click(function () {
+    $attente.show(500);
+  });
 
-$('#js-ca_confirmchoice').click(function () {
-  $attente.show(500);
-});
-
-$('.js-retour-choice').click(function () {
-  $attente.hide(500);
+  $('.js-retour-choice').click(function () {
+    $attente.hide(500);
+  });
 });
 
 if ($('#futureTimeClock')[0]) {
-  let dateUTC = moment.utc($('#futureTimeClock').data().times)
-  let objectifTime = new Date(dateUTC.local())
+  let dateUTC = moment.utc($('#futureTimeClock').data().times);
+  let objectifTime = new Date(dateUTC.local());
 
   let $dd = $('#js-days');
   let $hh = $('#js-hours');
@@ -49,17 +50,16 @@ if ($('#futureTimeClock')[0]) {
   var timeinterval = setInterval(updateTimeInOneSecond, 1000);
 }
 
-var month = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]
-var day = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"]
-let $elementDate = $('.currentDateEntretien')
+var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+let $elementDate = $('.currentDateEntretien');
 
-$elementDate.each(function() {
-  let dateUTC = moment.utc($(this).data().times)
-  let dateGet = new Date(dateUTC.local())
-  let dateString = day[dateGet.getDay()] +" "+ dateGet.getDate()+" "+month[dateGet.getMonth()]+" "+dateGet.getFullYear()
-  $(this).html(dateString + " à " + dateGet.getHours() + "h:00")
+$elementDate.each(function () {
+  let dateUTC = moment.utc($(this).data().times);
+  let dateGet = new Date(dateUTC.local());
+  let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+  $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:00');
 });
-
 
 /*
 

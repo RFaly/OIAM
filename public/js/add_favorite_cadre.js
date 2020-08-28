@@ -11,6 +11,7 @@ $('.add-js-toFavorite').click(function () {
     $('.rmv-js-toFavorite[data-info=' + number + ']').show();
     $(this).hide();
     $('#input_cadre_ids').val(actualiseValueInArray());
+    $(this).parent().css('border-top', '67px solid white');
   }
 });
 
@@ -25,9 +26,14 @@ $('.rmv-js-toFavorite').click(function () {
     $('.add-js-toFavorite[data-info=' + number + ']').show();
     $(this).hide();
     $('#input_cadre_ids').val(actualiseValueInArray());
+    $(this).parent().css('border-top', '67px solid #d6b36a');
   }
 });
-
+$(document).ready(function () {
+  if ($('.alreadyFavorite').length) {
+    $('.alreadyFavorite').parent().css('border-top', '67px solid white');
+  }
+});
 function actualiseValueInArray() {
   let listArray = [];
   $('.js-candidates-list[data-info]').each(function () {

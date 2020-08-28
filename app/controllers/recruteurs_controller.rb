@@ -167,7 +167,8 @@ class RecruteursController < ApplicationController
 				if oFc.nil?
 					OffreForCandidate.create(offre_job: @offre, cadre: cadre, accepted_postule:true)
 				else
-					oFc.update(accepted_postule:true)
+					# accepter demande d'entretien en ajoutan au favôries
+					oFc.update(accepted_postule:true,repons_postule:true)
 				end
 			end
 
@@ -182,6 +183,7 @@ class RecruteursController < ApplicationController
 	end
 
 	def save_entretien_client
+
 		name_entretien = params[:name] == "1" ? params[:client_name] : params[:name]
 		name_adresse = params[:adresse] == "on" ? params[:adresse_name] : params[:adresse]
 
@@ -227,6 +229,47 @@ class RecruteursController < ApplicationController
 			format.js { }
 		end
 
+	end
+
+
+	def update_entretien_client
+		# save_entretien_client
+		puts "#"*43
+		puts params.inspect
+		puts "#"*43
+
+		@cadre = Cadre.find_by_id(params[:cadre_id])
+		@offreJob = OffreJob.find_by_id(params[:offre_id])
+    @agendaClient = AgendaClient.find_by_id(params[:ac_id])
+    @oFc = @agendaClient.offre_for_candidate
+
+    case params[:repons]
+    when "0" #REFUSER
+      @agendaClient.update(repons_client: false)
+      @oFc.update(status:"refused")
+    when "1"	#ACCEPTER
+			date = DateTime.parse(@agendaClient.alternative)
+      @agendaClient.update(entretien_date:date.utc,alternative: nil, repons_cadre:true, is_update:true,repons_client: true)
+    when "2"
+      date = params[:date].split("-")
+      time = params[:time].split(":")
+      year = date[0].to_i
+      month = date[1].to_i
+      day = date[2].to_i
+      hour = time[0].to_i
+      min = time[1].to_i
+      date_time = DateTime.new(year,month,day,hour,min).utc
+      @agendaClient.update(entretien_date: date_time, alternative: nil, repons_cadre:nil, is_update:true)
+    else
+      flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
+      redirect_to root_path
+    end
+
+		respond_to do |format|
+			format.html { redirect_back(fallback_location: root_path) }
+			format.js { }
+		end
+		
 	end
 
 #Mes candidats favoris
