@@ -72,6 +72,7 @@
         margin: 30px 0;
         height: 430px;
         position: relative;
+        overflow: hidden;
         .cadre-box-image {
           position: relative;
           .cbi-photo {
@@ -83,11 +84,18 @@
           .icone {
             position: absolute;
             cursor: pointer;
-            top: 12px;
-            right: 12px;
-            width: 30px;
+            text-align: left;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-top: 67px solid $main_theme_color;
+            border-left: 70px solid transparent;
             img {
-              width: 100%;
+              position: absolute;
+              top: -58px;
+              right: 7px;
+              width: 30px;
             }
           }
         }
