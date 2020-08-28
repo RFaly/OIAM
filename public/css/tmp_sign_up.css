@@ -62,7 +62,7 @@ body {
   text-align: center;
   padding: 8px;
   margin: auto;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   width: 420px;
   height: 40px;
   background: #f0f2f4;
@@ -123,6 +123,8 @@ body {
   display: flex;
   margin: auto;
   width: 440px;
+  height: 57px;
+  margin-bottom: 50px;
 }
 
 .code_postal{
