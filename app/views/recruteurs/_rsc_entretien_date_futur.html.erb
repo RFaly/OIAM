@@ -5,25 +5,22 @@
     </div>
     <div class="rscdf-content">
         <div class="rscdf-item1">
-
             <!-- candidat a accepter l'entretien -->
             <% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
-            
-                <%= @cadre.cadre_info.first_name.capitalize %> <%= @cadre.cadre_info.last_name.capitalize %> a accepté votre demande d'entretien.
-            
+                Le rendez-vous pour l'entretien avec <%= @cadre.cadre_info.first_name.capitalize %> <%= @cadre.cadre_info.last_name.capitalize %> a été validé.
             <!-- candidat a accepter l'entretien sous condition -->
             <% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
                 <% date = DateTime.parse(@agendas.alternative) %>
                 <div class="new-date">
                     Le candidat a accepter la demande d'entretien à condition de changer la date <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
                     <div class="link">
-                        <a >ACCEPTER SA PROPOSTION</a> 
+                        <%= link_to "ACCEPTER SA PROPOSTION", update_entretien_client_path(repons: '1', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
                     </div>
                     <div class="link2">
-                        <a>REFUSER SA PROPOSTION ET SA CANDIDATURE</a>
+                        <%= link_to "REFUSER SA PROPOSTION ET SA CANDIDATURE", update_entretien_client_path(repons: '0', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
                     </div>
                     <div class="link ssc-btn ssc-pe" id="dateEntretien">
-                        Proposer une nouvelle date
+                        PROPOSER UNE NOUVELLE DATE
                     </div>
                 </div>
 
@@ -33,7 +30,7 @@
 
 <div class="ssc-planification">
     <div class="hiddenDate" style="display: none;" id="js-form-show">
-      <%= form_tag(save_entretien_client_path, remote: true, id:"send-data-form") do %>
+      <%= form_tag(update_entretien_client_path, remote: true, id:"send-data-form") do %>
 
       <div class="date">
         <input type="text" name="date" id="datepicker" />
@@ -67,6 +64,8 @@
           <input type="hidden" name="cadre_id" value="<%= @cadre.id %>" />
           <input type="hidden" name="offre_id" value="<%= @offre.id %>" />
           <input type="hidden" name="ac_id" value="<%= @agendas.id %>" />
+          <input type="hidden" name="repons" value="2" />
+          
 
           <div class="planQ-btn">
             <%= submit_tag("VALIDER", id:"valid-submit", disabled:"disabled" )%>

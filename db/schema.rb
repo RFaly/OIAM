@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_26_072959) do
+ActiveRecord::Schema.define(version: 2020_08_28_065827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 2020_08_26_072959) do
     t.datetime "entretien_date"
     t.boolean "repons_client", default: true
     t.boolean "repons_cadre"
+    t.boolean "is_update"
+    t.text "message"
     t.index ["offre_for_candidate_id"], name: "index_agenda_clients_on_offre_for_candidate_id"
   end
 
