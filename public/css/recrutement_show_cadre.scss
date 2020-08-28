@@ -339,5 +339,68 @@
         }
       }
     }
+    // candidat refusé
+    .rsc-body-refuse {
+      .rscr-form-box {
+        font: $ffsentence;
+        width: 80%;
+        margin: 0 auto;
+        .rscr-head {
+          padding: 20px;
+          width: 180px;
+          border: 2px solid $main_theme_color;
+          img {
+            display: block;
+            width: 35px;
+            height: 35px;
+          }
+          p {
+            margin: 0;
+          }
+        }
+        .label {
+          margin: 30px;
+          text-align: center;
+        }
+        .text-area {
+          width: 80%;
+          margin: 0 auto;
+          textarea {
+            border: none;
+            border-radius: 0;
+            background: $secondary_element_color;
+            &:focus {
+              outline: 2px solid $main_theme_color;
+              box-shadow: 1px 1px 5px 1px $main_theme_color;
+            }
+          }
+        }
+        .submit {
+          input {
+            border-radius: 0;
+            border: 2px solid $main_theme_color;
+            color: $main_theme_color;
+            font: $ffbtn;
+            width: 100%;
+            padding: 10px;
+            &:hover,
+            &:active {
+              background: $main_theme_color;
+              color: white;
+            }
+          }
+          margin: 30px auto;
+          width: 150px;
+        }
+      }
+      .rscr-result {
+        padding: 20px;
+        font: $ffsentence;
+        border: 2px solid $main_theme_color;
+        width: 80%;
+        margin: 50px auto;
+        text-align: center;
+      }
+    }
   }
 }
