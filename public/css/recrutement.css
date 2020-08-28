@@ -105,16 +105,30 @@ body{
 	color: #D6B36A;
 }
 
+	
 
+	.refused{
+		position: relative;
+		bottom:70px;
+		width: auto;
+	}
+
+
+
+	.refused-image{
+		display: block;
+		margin: auto;
+	}
 
 	.offre-items{
 		display: block;
 		margin: auto;
 		border: 2px solid #D6B36A;
-		padding: 20px;
+		padding: 10px;
 		margin-bottom: 50px;
 		max-width: 300px;
-		height: 360px;
+		font-size: 14px;
+		height: 400px;
 	}
 	.photo_ako{
 		width: 200px;
@@ -124,8 +138,16 @@ body{
 
 	.container-flex{
 		display: block;
+		margin: auto;
+		justify-content: center;
 	}
 
+	.job-name{
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+	
 
 	.etape{
 		color: #000;
@@ -133,12 +155,14 @@ body{
 
 	.etape:hover{
 		color: #000;
-		text-decoration: underline;
+		text-decoration: none;
 	}
 
 
 
 	.etape1{
+		position: relative;
+		bottom: 40px;
 		display: block;
 		border: 1px solid #D6B36A;
 		width: 100%;
@@ -150,6 +174,8 @@ body{
 	}
 
 	.etape2{
+		position: relative;
+		bottom: 40px;
 		display: block;
 		border: 1px solid #D6B36A;
 		width: 100%;
@@ -160,6 +186,8 @@ body{
 	}
 
 	.etape3{
+		position: relative;
+		bottom: 40px;
 		display: block;
 		border: 1px solid #D6B36A;
 		width: 100%;
@@ -170,6 +198,8 @@ body{
 	}
 
 	.etape4{
+		position: relative;
+		bottom: 40px;
 		display: block;
 		border: 1px solid #D6B36A;
 		width: 100%;
@@ -179,18 +209,6 @@ body{
 		clear: both;
 	}
 
-	.paragraphe{
-		float: left;
-		width: 100%;
-	}
-
-	.paragraphe span{
-		float: right;
-	}
-
-	.poste{
-		float: left;
-	}
 
 	.post-title{
 		display: block;
@@ -198,9 +216,7 @@ body{
 		width: 100%;
 	}
 
-	.job-name{
-		float: right;
-	}
+
 
 	.job-info{
 		display: block;
@@ -257,11 +273,3 @@ body{
 		margin-bottom: 100px;
 	}
 }
-
-<% if   %>
-	Candidature réfusé
-<% else %>
-	<p class="paragraphe">Vous êtes à l'étape n° : <span><%= oFc.etapes %></span></p>
-	<p class="paragraphe">Nombre d'étape totale : <span><%= oFc.offre_job.numberEntretien + 1 %></span></p>
-	<i>petit image loading</i>
-<% end %>

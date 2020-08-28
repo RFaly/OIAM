@@ -21,42 +21,46 @@
 			<div class="container-flex">
 
 			<% @oFcs.each do |oFc| %>
+				<%= link_to show_recrutment_monitoring_path(oFc.id), class:'etape' do %>
 				<% offre_job = oFc.offre_job %>
 				<div class="offre-items">
 					<div class="job-info">
 						<center>
 							<%= image_tag(offre_job.image, alt: 'photo de job', class:'photo_ako')%>
 							<br>
-							<h2><%= offre_job.client.entreprise.name %></h2>
-							<h3 class="post-title"><span class="poste">Poste:</span> <span class="job-name"><%= offre_job.intitule_pote %></span></h3>
+							<h2 class="job-name"><%= offre_job.client.entreprise.name %></h2>
+							<h3 class="post-title"><span>Poste: </span> <span class=><%= offre_job.intitule_pote %></span></h3>
 						</center>
 					</div>
 
 					<% if oFc.accepted_postule == true %>
 						<% if oFc.etapes == 0 %>
 							Vous êtes selectioner parmi les 5 candidats favoris pour ce poste.
-						<% elsif oFc.etapes == 1%>
+						<% elsif oFc.etapes == 1 || oFc.status == "refused"%>
 							<% if oFc.status == "refused" %>
-								<p>Candidature réfusé</p>
+								<div class="refused">
+									<img src="/image/unvalid.png" width="35px" height="35px" class="refused-image">
+									<center><span class="candidature">Candidature réfusé</span></center>
+								</div>
 							<% else %>
-								<%= link_to show_recrutment_monitoring_path(oFc.id), class:'etape' do %>
+								
 									<div class="etape1">
 									</div>
-								<% end %>
+								
 							<% end %>
 						<% elsif oFc.etapes == 2%>
-							<%= link_to show_recrutment_monitoring_path(oFc.id), class:'etape' do %>
+							
 								<div class="etape2"></div>
-							<% end %>
+							
 						<% else %>
 							<% if (oFc.etapes == oFc.offre_job.numberEntretien + 1)%>
-							<%= link_to show_recrutment_monitoring_path(oFc.id), class:'etape' do %>
+							
 								<div class="etape3"></div>
-							<% end %>
+							
 							<% elsif (oFc.etapes < oFc.offre_job.numberEntretien + 1) %>
-							<%= link_to show_recrutment_monitoring_path(oFc.id), class:'etape' do %>
+							
 								<div class="etape4"></div>
-							<% end %>
+							
 							<% end %>
 						<% end %>
 
@@ -83,7 +87,7 @@
 
 					<% end %>
 				</div>
-
+				<% end %>
 			<% end %> <!-- fin each -->
 
 			</div> <!-- fin container-flex -->
