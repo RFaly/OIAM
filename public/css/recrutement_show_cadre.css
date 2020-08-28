@@ -380,3 +380,74 @@
   color: #d6b36a;
   background: white;
 }
+
+.rsc-box .rsc-body .rsc-body-refuse .rscr-form-box {
+  font: 16px Questrial, sans-serif;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.rsc-box .rsc-body .rsc-body-refuse .rscr-form-box .rscr-head {
+  padding: 20px;
+  width: 180px;
+  border: 2px solid #d6b36a;
+}
+
+.rsc-box .rsc-body .rsc-body-refuse .rscr-form-box .rscr-head img {
+  display: block;
+  width: 35px;
+  height: 35px;
+}
+
+.rsc-box .rsc-body .rsc-body-refuse .rscr-form-box .rscr-head p {
+  margin: 0;
+}
+
+.rsc-box .rsc-body .rsc-body-refuse .rscr-form-box .label {
+  margin: 30px;
+  text-align: center;
+}
+
+.rsc-box .rsc-body .rsc-body-refuse .rscr-form-box .text-area {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.rsc-box .rsc-body .rsc-body-refuse .rscr-form-box .text-area textarea {
+  border: none;
+  border-radius: 0;
+  background: #f0f2f4;
+}
+
+.rsc-box .rsc-body .rsc-body-refuse .rscr-form-box .text-area textarea:focus {
+  outline: 2px solid #d6b36a;
+  box-shadow: 1px 1px 5px 1px #d6b36a;
+}
+
+.rsc-box .rsc-body .rsc-body-refuse .rscr-form-box .submit {
+  margin: 30px auto;
+  width: 150px;
+}
+
+.rsc-box .rsc-body .rsc-body-refuse .rscr-form-box .submit input {
+  border-radius: 0;
+  border: 2px solid #d6b36a;
+  color: #d6b36a;
+  font: 550 18px Raleway, sans-serif;
+  width: 100%;
+  padding: 10px;
+}
+
+.rsc-box .rsc-body .rsc-body-refuse .rscr-form-box .submit input:hover, .rsc-box .rsc-body .rsc-body-refuse .rscr-form-box .submit input:active {
+  background: #d6b36a;
+  color: white;
+}
+
+.rsc-box .rsc-body .rsc-body-refuse .rscr-result {
+  padding: 20px;
+  font: 16px Questrial, sans-serif;
+  border: 2px solid #d6b36a;
+  width: 80%;
+  margin: 50px auto;
+  text-align: center;
+}
