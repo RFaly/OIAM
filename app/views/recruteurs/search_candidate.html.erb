@@ -2,9 +2,7 @@
 <link rel="stylesheet" href="/css/searchcandidat.css" />
 <!-- body html  -->
 <div class="client-column">
-  <div class="client-menu-left">
-    <%= render "recruteurs/left_link_bar" %>
-  </div>
+  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
   <div class="cp-box">
     <div class="select-cadre-box">
       <table class="table">
@@ -18,59 +16,39 @@
       </table>
       <div class="select-cadre-list">
         <div class="flex-candidates">
-
-          <% 5.times do |i| %>
-            <% if @topCinqs[i].nil? %>
-              <div class="js-candidates-list" data-element="" data-info="true"></div>
-            <% else %>
-              <div class="js-candidates-list" data-element="" data-info="false">
-                <%= image_tag(@topCinqs[i].cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px", width:"100px" )%>
-              </div>
+          <% 5.times do |i| %> <% if @topCinqs[i].nil? %>
+          <div class="js-candidates-list" data-element="" data-info="true"></div>
+          <% else %>
+          <div class="js-candidates-list" data-element="" data-info="false"><%= image_tag(@topCinqs[i].cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px", width:"100px" )%></div>
+          <% end %> <% end %> <% if @topCinqs.count < 5 %>
+          <div class="validation">
+            <%= form_tag(add_top_five_candidate_path(@offre.id)) do %>
+            <input type="hidden" name="cadre_ids" value="[]" id="input_cadre_ids" />
+            <div class="submit-validation"><%= submit_tag("VALIDER MA SELECTION", id:'boutton-bottom',class:'validation-bt') %> <%= submit_tag("VALIDER ", id:'boutton-bottom',class:'validation-bt1') %></div>
             <% end %>
+          </div>
           <% end %>
-
-          <% if @topCinqs.count < 5 %>
-            <div class="validation">
-              <%= form_tag(add_top_five_candidate_path(@offre.id)) do %>
-              <input type="hidden" name="cadre_ids" value="[]" id="input_cadre_ids" />
-              <div class="submit-validation">
-                <%= submit_tag("VALIDER MA SELECTION", id:'boutton-bottom',class:'validation-bt') %> <%= submit_tag("VALIDER ", id:'boutton-bottom',class:'validation-bt1') %>
-              </div>
-              <% end %>
-            </div>
-          <% end %>
-
         </div>
         <div class="select-cadre-list-items">
           <% @cadres.each do |cadre| %>
           <div class="cadre-box">
             <div class="cadre-box-image">
-              <div class="cbi-photo">
-                <%= link_to show_search_candidate_path(cadre.id, offre_id: @offre.id), method: :get do %> <%= image_tag(cadre.cadre_info.image, alt: 'photo profil cadre', class:"js-image-#{cadre.id}")%> <% end %>
-              </div>
+              <div class="cbi-photo"><%= link_to show_search_candidate_path(cadre.id, offre_id: @offre.id), method: :get do %> <%= image_tag(cadre.cadre_info.image, alt: 'photo profil cadre', class:"js-image-#{cadre.id}")%> <% end %></div>
               <div class="icone">
-                
-                <% oFc = @offre.is_in_this_job(cadre) %>
-                <% if oFc.nil? || oFc.accepted_postule.nil? || oFc.accepted_postule == false %>
-                  <% if @topCinqs.count < 5 %>
-                    <img class="add-js-toFavorite" data-info="<%= cadre.id %>" src="/image/Vector-22.png" alt="logo oiam non favorie" />
-                  <% end %>
-                <% else %>
-                  <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
+                <% oFc = @offre.is_in_this_job(cadre) %> <% if oFc.nil? || oFc.accepted_postule.nil? || oFc.accepted_postule == false %> <% if @topCinqs.count < 5 %>
+                <img class="add-js-toFavorite" data-info="<%= cadre.id %>" src="/image/Vector-22.png" alt="logo oiam non favorie" />
+                <% end %> <% else %>
+                <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
                 <% end %>
 
-                <img class="rmv-js-toFavorite" data-info="<%= cadre.id %>" src="/image/Vector-24.png" alt="logo oiam favorie" style="display: none;" />
+                <img class="rmv-js-toFavorite" data-info="<%= cadre.id %>" src="/image/Vector-24.png" alt="logo oiam favorie" style="display: none" />
               </div>
             </div>
             <div class="cadre-box-info">
-              <p class="name">
-                <%= cadre.cadre_info.first_name %> <%= cadre.cadre_info.last_name[0].upcase %>
-              </p>
+              <p class="name"><%= cadre.cadre_info.first_name %> <%= cadre.cadre_info.last_name[0].upcase %></p>
               <p class="compatibilite">Compatibilité : <span>60%</span></p>
               <p class="score">Score OIAM : <span>1700</span></p>
-              <p class="poste">
-                Type de poste : Manager Marketing
-              </p>
+              <p class="poste">Type de poste : Manager Marketing</p>
             </div>
           </div>
           <% end %>
