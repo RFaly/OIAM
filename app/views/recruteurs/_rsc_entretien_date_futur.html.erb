@@ -5,27 +5,104 @@
     </div>
     <div class="rscdf-content">
         <div class="rscdf-item1">
-
             <!-- candidat a accepter l'entretien -->
             <% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
-            
-                <%= @cadre.cadre_info.first_name.capitalize %> <%= @cadre.cadre_info.last_name.capitalize %> a accepté votre demande d'entretien.
-            
+                Le rendez-vous pour l'entretien avec <%= @cadre.cadre_info.first_name.capitalize %> <%= @cadre.cadre_info.last_name.capitalize %> a été validé.
             <!-- candidat a accepter l'entretien sous condition -->
             <% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
                 <% date = DateTime.parse(@agendas.alternative) %>
                 <div class="new-date">
                     Le candidat a accepter la demande d'entretien à condition de changer la date <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
                     <div class="link">
-                        <a >ACCEPTER SA PROPOSTION</a> 
+                        <%= link_to "ACCEPTER SA PROPOSTION", update_entretien_client_path(repons: '1', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
                     </div>
                     <div class="link2">
-                        <a>REFUSER SA PROPOSTION ET SA CANDIDATURE</a>
+                        <%= link_to "REFUSER SA PROPOSTION ET SA CANDIDATURE", update_entretien_client_path(repons: '0', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
                     </div>
-                    <div class="link">
-                        <a>Proposer une nouvelle date</a>
+                    <div class="link ssc-btn ssc-pe" id="dateEntretien">
+                        PROPOSER UNE NOUVELLE DATE
                     </div>
                 </div>
+
+<!-- ################################################################# -->
+<!-- ################################################################# -->
+
+
+<div class="ssc-planification">
+    <div class="hiddenDate" style="display: none;" id="js-form-show">
+      <%= form_tag(update_entretien_client_path, remote: true, id:"send-data-form") do %>
+
+      <div class="date">
+        <input type="text" name="date" id="datepicker" />
+      </div>
+
+      <div class="js-timeContainer" style="display: none;">
+        <h4 id="showDateLong"></h4>
+
+        <div class="fselect">
+          <span id="reditDate" class="badge badge-secondary">modifier la date</span>
+          <div class="firstSelection">
+            <div class="js-hoursTime" data-time="08:00">08:00</div>
+            <div class="js-hoursTime" data-time="09:00">09:00</div>
+            <div class="js-hoursTime" data-time="10:00">10:00</div>
+            <div class="js-hoursTime" data-time="11:00">11:00</div>
+          </div>
+          <div class="firstSelection">
+            <div class="js-hoursTime" data-time="12:00">12:00</div>
+            <div class="js-hoursTime" data-time="13:00">13:00</div>
+            <div class="js-hoursTime" data-time="14:00">14:00</div>
+            <div class="js-hoursTime" data-time="15:00">15:00</div>
+          </div>
+          <div class="firstSelection">
+            <div class="js-hoursTime" data-time="16:00">16:00</div>
+            <div class="js-hoursTime" data-time="17:00">17:00</div>
+            <div class="js-hoursTime" data-time="18:00">18:00</div>
+            <div class="js-hoursTime" data-time="19:00">19:00</div>
+          </div>
+
+          <input type="hidden" name="time" id="input-time" />
+          <input type="hidden" name="cadre_id" value="<%= @cadre.id %>" />
+          <input type="hidden" name="offre_id" value="<%= @offre.id %>" />
+          <input type="hidden" name="ac_id" value="<%= @agendas.id %>" />
+          <input type="hidden" name="repons" value="2" />
+          
+
+          <div class="planQ-btn">
+            <%= submit_tag("VALIDER", id:"valid-submit", disabled:"disabled" )%>
+          </div>
+          
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+    <div id="send-data-form-ok-success" class="ssc-send" style="display: none;">
+      <h4>Nouvelle demande d'entretien envoyée</h4>
+      <img src="/image/check.png" alt="OK" />
+      <div>
+        <div class="datetime">
+          <div id="dateShowOk"></div>
+          <div id="timeShowOk"></div>
+        </div>
+        <div class="ssc-send-btn">
+          VALIDER
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- ################################################################# -->
+<!-- ################################################################# -->
+
             <!-- candidat a reffuser l'entretien -->
             <% elsif @agendas.repons_cadre == false %>
                 <% show = false %>

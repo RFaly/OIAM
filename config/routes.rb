@@ -52,8 +52,8 @@ Rails.application.routes.draw do
   post '/recruteurs/favorite/:id/candidate', to:'recruteurs#add_top_five_candidate', as:'add_top_five_candidate'
   post '/recruteurs/envoyer-invitation-entretien', to:'recruteurs#save_entretien_client', as:'save_entretien_client'
   post '/recruteurs/envoyer-reponse-entretien', to:'recruteurs#notice_refused_post', as:'notice_refused_post'
+  post '/recruteurs/candidate-change/reponse-entretien', to:'recruteurs#update_entretien_client', as:'update_entretien_client'
   
-
   # show promesse d'embauche
   get '/recruteur/offre-d-emploi/:id/contrat-d-embauche', to: 'recruteurs#show_promise_to_hire', as: 'show_promise_to_hire'
   #create a promesse d'embauche
