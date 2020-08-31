@@ -17,6 +17,80 @@
   padding: 10px;
 }
 
+.ui-datepicker {
+  font: 550 18px Raleway, sans-serif;
+  background-color: #e3d7bf;
+}
+
+.ui-datepicker-calendar {
+  width: 100%;
+}
+
+.ui-datepicker-calendar td {
+  cursor: pointer;
+  border-radius: 50%;
+  text-align: center;
+  height: 60px;
+}
+
+.ui-datepicker-calendar .ui-state-disabled {
+  cursor: default;
+  background: none;
+  opacity: 0.4;
+}
+
+.ui-datepicker-calendar .ui-state-disabled:hover {
+  background: none;
+}
+
+.ui-datepicker-header {
+  padding-bottom: 10px;
+  color: white;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+  text-indent: -900000px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  overflow: hidden;
+  background: url(/image/left.png) no-repeat center/15px 20px;
+  border: 2px solid white;
+  border-radius: 8px;
+  position: absolute;
+}
+
+.ui-datepicker .ui-datepicker-prev:hover, .ui-datepicker .ui-datepicker-prev:active {
+  box-shadow: 1px 1px 5px 1px #f0f2f4;
+}
+
+.ui-datepicker .ui-datepicker-next {
+  text-indent: -900000px;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  border: 2px solid white;
+  background: url(/image/right.png) no-repeat center/15px 20px;
+}
+
+.ui-datepicker .ui-datepicker-next:hover, .ui-datepicker .ui-datepicker-next:active {
+  box-shadow: 1px 1px 5px 1px #f0f2f4;
+}
+
+.ui-widget-content .ui-state-default {
+  border: 0px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+
+.ui-widget-content .ui-state-active {
+  border: 0px;
+}
+
 .rsc-box {
   width: 95%;
   margin: 0 auto;
@@ -501,4 +575,232 @@
   width: 80%;
   margin: 50px auto;
   text-align: center;
+}
+
+.ssc-planification {
+  margin: 0 auto;
+  position: relative;
+  margin-top: -270px;
+  margin-bottom: 270px;
+  width: 80%;
+  padding: 0 10%;
+  z-index: 200;
+}
+
+.ssc-planification .date {
+  opacity: 0;
+}
+
+.ssc-planification .date input {
+  top: -3px;
+  border-radius: 0;
+  font-size: 0.002px;
+  position: absolute;
+}
+
+.ssc-planification .js-timeContainer {
+  padding: 30px;
+  padding-bottom: 15px;
+  background: #e3d7bf;
+  color: white;
+  font: 550 18px Raleway, sans-serif;
+}
+
+.ssc-planification .js-timeContainer h4 {
+  text-align: center;
+}
+
+.ssc-planification .js-timeContainer .fselect {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.ssc-planification .js-timeContainer .fselect #reditDate {
+  cursor: pointer;
+}
+
+.ssc-planification .js-timeContainer .fselect .firstSelection {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.ssc-planification .js-timeContainer .fselect .js-hoursTime {
+  padding: 5px;
+  background: transparent;
+  border: 2px solid #fff;
+  width: 86px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.ssc-planification .js-timeContainer .fselect .js-hoursTime:hover, .ssc-planification .js-timeContainer .fselect .js-hoursTime:active {
+  background: white;
+  color: #e3d7bf;
+}
+
+.ssc-planification .with-input {
+  align-items: center;
+  display: flex;
+}
+
+.ssc-planification .with-input .with-input-item {
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  padding: 2px;
+  margin-top: -9px;
+  margin-left: 10px;
+  padding-left: 5px;
+  border: none;
+  background: #f0f2f4;
+}
+
+.ssc-planification .with-input .with-input-item:focus {
+  outline: 1px solid white;
+  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+}
+
+.ssc-planification .planQ-btn {
+  text-align: right;
+}
+
+.ssc-planification .planQ-btn input {
+  font: 550 18px Raleway, sans-serif;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 0;
+  color: white;
+  padding: 10px 30px;
+}
+
+.ssc-planification .planQ-btn input:hover, .ssc-planification .planQ-btn input:active {
+  background: white;
+  color: #e3d7bf;
+}
+
+.ssc-planification .ssc-send {
+  color: white;
+  background: #e3d7bf;
+  font: 16px Questrial, sans-serif;
+  text-align: center;
+  padding: 30px;
+  margin-top: 11px;
+}
+
+.ssc-planification .ssc-send img {
+  width: 40px;
+  height: 48px;
+  margin: 10px 0;
+}
+
+.ssc-planification .ssc-send .datetime {
+  background: white;
+  width: 90%;
+  margin: 30px auto;
+  color: #e3d7bf;
+  font: 550 18px Raleway, sans-serif;
+  padding: 20px;
+}
+
+.ssc-planification .ssc-send .ssc-send-btn {
+  cursor: pointer;
+  border: 2px solid white;
+  padding: 10px 30px;
+  font: 550 18px Raleway, sans-serif;
+  width: 150px;
+  margin-top: 30px;
+  margin-left: auto;
+}
+
+.ssc-planification .ssc-send .ssc-send-btn:hover, .ssc-planification .ssc-send .ssc-send-btn:active {
+  background: white;
+  color: #e3d7bf;
+}
+
+.ssc-invite {
+  padding: 10px;
+  color: white;
+  background: #d6b36a;
+}
+
+#ui-datepicker-div {
+  width: 600px;
+  color: white;
+}
+
+.ui-datepicker-calendar {
+  padding: 30px;
+}
+
+.ui-datepicker-calendar td {
+  height: 60px;
+}
+
+.ui-datepicker-calendar td:hover {
+  background: url(/image/cercle.png) no-repeat center/55px 55px;
+}
+
+.ui-datepicker-header {
+  padding: 50px;
+}
+
+.ui-datepicker-next {
+  top: 40px;
+  right: 10%;
+}
+
+.ui-datepicker-prev {
+  top: 40px;
+  right: 20%;
+}
+
+#conditioncheck {
+  font: 16px Questrial, sans-serif;
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#conditioncheck input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+#conditioncheck .checkmark {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 2px solid white;
+}
+
+#conditioncheck:hover input ~ .checkmark {
+  background-color: #e3d7bf;
+}
+
+#conditioncheck .checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+#conditioncheck input:checked ~ .checkmark:after {
+  display: block;
+}
+
+#conditioncheck .checkmark:after {
+  left: 6px;
+  top: -7px;
+  width: 10px;
+  height: 20px;
+  border: solid white;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
 }
