@@ -160,13 +160,13 @@ ActiveRecord::Schema.define(version: 2020_08_28_111619) do
     t.index ["client_id"], name: "index_entreprises_on_client_id"
   end
 
-  create_table "favotire_jobs", force: :cascade do |t|
+  create_table "favorite_jobs", force: :cascade do |t|
     t.bigint "offre_job_id"
     t.bigint "cadre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cadre_id"], name: "index_favotire_jobs_on_cadre_id"
-    t.index ["offre_job_id"], name: "index_favotire_jobs_on_offre_job_id"
+    t.index ["cadre_id"], name: "index_favorite_jobs_on_cadre_id"
+    t.index ["offre_job_id"], name: "index_favorite_jobs_on_offre_job_id"
   end
 
   create_table "formations", force: :cascade do |t|

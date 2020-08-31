@@ -346,83 +346,147 @@ body{
 
 
 .proposition-entretien{
+	position: relative;
 	background: #D6B36A;
 	width: 100%;
-	height: 320px;
+	height: auto;
 	padding: 50px;
 }
-
-.entretien-hours{
-	float: left;
-	height: auto;
-	width: 500px;
-	border-left: 3px solid #fff;
-	border-right: 3px solid #fff;
-	padding-left: 15px;
-	padding-right: 15px;
-	display: block;
-	margin: auto;
-	padding: 10px;
-	color: #fff;
-}
-
-.entretien-accepted{
-	position: absolute;
-	top: 50%;
-	right: 0;
-	width: 50%;
-	text-align: center;
-	height: auto;
-	color: #fff;
-}
-
-
-.entretien-info{
-	color: #fff;
-	text-align: center;
-	font-size: 25px;
-	font-weight: bold;
-	margin-bottom: 20px;
-}
-
 
 .new-proposition{
 	color: #fff;
 	text-align: center;
-	margin-bottom: 20px;
+	font-size: 16px;
+}
+
+.give-answer{
+	display: block;
+	margin: 0 auto;
+	width: 250px;
+	height: 50px;
+	padding: 12px;
+	margin: 10px auto;
+	font-size: 16px;
+	text-align: center;
+	color: #fff;
+	border: 1px solid #fff;
+}
+
+.give-answer:hover{
+	color: #D6B36A;
+	background: #fff;
+	text-decoration: none;
+}
+
+.entretien-hours{
+	color: #fff;
+	font-size: 16px;
+	border-left: 2px solid #fff;
+	border-right: 2px solid #fff;
+	margin-top: 20px;
+}
+
+.hours-entretien-info{
+	display: flex;
+	flex-wrap: wrap;
+	grid-column-gap: 8%;
+	justify-content: center;
 }
 
 .entretien-days-left{
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
+	width: 62px;
 	text-align: center;
-	padding: 10px 20px;
 	border-left: 2px solid #fff;
 	border-right: 2px solid #fff;
 }
 
-.days-number{
-	font-size: 50px;
+.entretien-info{
 	text-align: center;
-	width: 100%;
+	margin-bottom: 15px;
 }
 
-
-.hours-entretien-info{
-	display: flex;
-	grid-column-gap: 5%;
+.days-number{
+	font-size: 40px;
 }
 
 .days-letter{
+	font-size: 14px;
+}
+
+.entretien-accepted{
+	font-size: 16px;
+	color: #D6B36A;
+	margin-top: 30px;
 	text-align: center;
+	height: 30px;
+	background: #fff;
+	padding: 3px;
 }
 
 
+.rencontred{
+	border: 2px solid #D6B36A;
+	display: block;
+	margin: auto;
+	text-align: center;
+	padding: 20px;
+	width: 450px;
+	height: auto;
+	color: #D6B36A;
+	line-height: 30px;
+}
+
+.contact-recruteur{
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+	margin-bottom: 25px;
+}
+
+.contact-recruteur-img{
+	text-align: center;
+	width: 120px;
+}
+
+.contact-recruteur-img img{
+	display: block;
+	margin: auto;
+}
+
+.contact-recruteur-img a{
+	font-size: 16px;
+	color: #D6B36A;
+}
+
+.candidat-refuse-entretien{
+	display: block;
+	margin: auto;
+	border: 1px solid #D6B36A;
+	width: 500px;
+	height: auto;
+	padding: 20px;
+	text-align: center;
+	font-size: 16px;
+}
+
+.entretien-passer{
+	margin-bottom: 5px;
+}
+
+.new-proposition-date{
+	color: #fff;
+	text-align: center;
+	font-size: 16px;
+}
 
 @media only screen and (min-width: 900px){
 	.content{
 		display: flex;
+	}
+
+	.main{
+		border-left: 1px solid #D6B36A;
+		padding-left: 10px; 
 	}
 
 	#container-element{
@@ -430,6 +494,7 @@ body{
 		left: 0;
 		width: 100%;
 	}
+
 
 	.left_link{
 		margin-top: 20px;
@@ -439,8 +504,81 @@ body{
 
 	.main{
 		display: block;
-		margin: auto;
+		margin: 15px auto;
 		width: 100%;
 
 	}
+}
+
+@media only screen and (min-width: 1024px){
+	.entretien-hours{
+		width: 50%;
+	}
+
+	.hours-entretien-info{
+		grid-column-gap: 2%;
+	}
+
+	.entretien-accepted{
+		float: right;
+		width: 45%;
+		position: relative;
+		font-size: 12px;
+		padding: 5px;
+		top: 34px;
+	}
+
+	.entretien-info{
+		font-size: 25px;
+		font-weight: bold;
+	}
+
+
+	.donne-rep{
+		display: block;
+		margin: auto;
+		width: 50%;
+		position: relative;
+		float: right;
+		height: 100px;
+	}
+
+	.give-answer{
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+	}
+
+	.new-proposition-date{
+		color: #fff;
+		font-size: 18px;
+		float: right;
+		width: 50%;
+		height: 100px;
+		position: relative;
+		top: 60px;
+	}
+
+}
+
+@media only screen and (min-width: 1200px){
+	.hours-entretien-info{
+		grid-column-gap: 8%;
+	}
+
+	.entretien-info{
+		font-size: 25px;
+		font-weight: bold;
+	}
+
+	.entretien-hours{
+		width: 45%;
+	}
+
+	.entretien-accepted{
+		width: 50%;
+	}
+
+	
 }
