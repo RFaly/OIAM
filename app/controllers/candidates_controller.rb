@@ -372,6 +372,19 @@ class CandidatesController < ApplicationController
     end
   end
 
+  def cadre_show_promise_to_hire
+    @promise = PromiseToHire.find_by_id(params[:id])
+    @cadre = current_cadre.cadre_info
+    @job = @promise.offre_job
+    @current_client = @job.client
+  end
+
+  def cadre_update_promise_to_hire
+    puts "~~"*43
+      puts params.inspect
+    puts "~~"*43
+  end
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   private
