@@ -550,6 +550,16 @@
             }
           }
         }
+        .dscdpa-box {
+          width: 95%;
+          padding: 20px 5px;
+          .dscdp-link-item {
+            width: 250px;
+            a {
+              padding: 14px 14px;
+            }
+          }
+        }
       }
     }
     .rscdf-content {
@@ -933,6 +943,10 @@
           padding: 20px;
         }
         .dscdp-validation {
+          width: 70%;
+          padding: 20px 25px;
+        }
+        .dscdpa-box {
           width: 70%;
           padding: 20px 25px;
         }
@@ -1473,6 +1487,16 @@
             }
           }
         }
+        .dscdpa-box {
+          width: 65%;
+          padding: 20px 45px;
+          .dscdp-link-item {
+            width: 280px;
+            a {
+              padding: 14px 28px;
+            }
+          }
+        }
       }
       .rscdf-content {
         .new-date {
@@ -1719,6 +1743,10 @@
           width: 60%;
           padding: 20px 50px;
         }
+        .dscdpa-box {
+          width: 60%;
+          padding: 20px 40px;
+        }
       }
     }
   }
@@ -1800,6 +1828,10 @@
           width: 40%;
         }
         .dscpd-validation {
+          width: 50%;
+        }
+        .dscdpa-box {
+          width: 50%;
         }
       }
     }

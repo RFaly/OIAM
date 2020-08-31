@@ -1,5 +1,5 @@
 <% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %> <% if @oFc.status == "waiting" || @oFc.status == "accepted" %> <% if @oFc.status == "waiting" %>
-<div class="dscdp-waiting"><%= render partial: "recruteurs/repons_waiting" %></div>
+<div class="dscdp-accepted"><%= render partial: "recruteurs/repons_waiting" %></div>
 <% else %>
 <div class="dscdp-accepted"><%= render partial: "recruteurs/repons_accepted" %></div>
 <%end %> <% else %>

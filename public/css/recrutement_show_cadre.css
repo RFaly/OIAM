@@ -321,20 +321,21 @@
   color: white;
 }
 
-.rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-contact {
+.rsc-box .rsc-body .rsc-date-past .dscdp-contact {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 35px;
   justify-content: center;
 }
 
-.rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-contact a {
+.rsc-box .rsc-body .rsc-date-past .dscdp-contact a {
   color: #d6b36a;
   font: 16px Questrial, sans-serif;
   font-weight: 600;
   margin: 10px;
 }
 
-.rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-contact a img {
+.rsc-box .rsc-body .rsc-date-past .dscdp-contact a img {
   width: 55px;
   height: 30px;
 }
@@ -379,6 +380,56 @@
 .rsc-box .rsc-body .rsc-date-past .dscdp-refus .dscdpr-flex div:hover, .rsc-box .rsc-body .rsc-date-past .dscdp-refus .dscdpr-flex div:active {
   color: #d6b36a;
   background: white;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-accepted {
+  padding-bottom: 70px;
+  text-align: center;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-accepted .dscdpa-box {
+  margin: 0 auto;
+  border: 2px solid #d6b36a;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-accepted .dscdpa-box h3 {
+  font: 16px Questrial, sans-serif;
+  color: #d6b36a;
+  text-align: left;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-accepted .dscdpa-box h5 {
+  font: 16px Questrial, sans-serif;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-accepted .dscdp-link {
+  margin-top: 35px;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-accepted .dscdp-link .dscdp-link-item {
+  cursor: pointer;
+  text-transform: uppercase;
+  font: 550 18px Raleway, sans-serif;
+  color: #d6b36a;
+  margin: 20px auto;
+  border: 2px solid #d6b36a;
+  padding: 13px 0;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-accepted .dscdp-link .dscdp-link-item a {
+  color: #d6b36a;
+  text-transform: uppercase;
+  text-decoration: none;
+  font: 550 18px Raleway, sans-serif;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-accepted .dscdp-link .dscdp-link-item:hover, .rsc-box .rsc-body .rsc-date-past .dscdp-accepted .dscdp-link .dscdp-link-item:active {
+  color: white;
+  background: #d6b36a;
+}
+
+.rsc-box .rsc-body .rsc-date-past .dscdp-accepted .dscdp-link .dscdp-link-item:hover a, .rsc-box .rsc-body .rsc-date-past .dscdp-accepted .dscdp-link .dscdp-link-item:active a {
+  color: white;
 }
 
 .rsc-box .rsc-body .rsc-body-refuse .rscr-form-box {
