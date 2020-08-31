@@ -243,6 +243,7 @@
 }
 
 .rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item1 .new-date .link {
+  cursor: pointer;
   font: 550 18px Raleway, sans-serif;
   border: 2px solid white;
   padding: 10px 0;
@@ -258,6 +259,7 @@
 
 .rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item1 .new-date .link:hover, .rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item1 .new-date .link:active {
   background: white;
+  color: #d6b36a;
 }
 
 .rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item1 .new-date .link:hover a, .rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item1 .new-date .link:active a {
@@ -714,6 +716,146 @@
 }
 
 .ssc-planification .ssc-send .ssc-send-btn:hover, .ssc-planification .ssc-send .ssc-send-btn:active {
+  background: white;
+  color: #e3d7bf;
+}
+
+.ssc-planification1 {
+  position: relative;
+  margin-top: -270px;
+  margin-bottom: 270px;
+  width: 60%;
+  z-index: 200;
+}
+
+.ssc-planification1 .date {
+  opacity: 1;
+  text-align: left;
+}
+
+.ssc-planification1 .date input {
+  top: -3px;
+  border-radius: 0;
+  font-size: 0.002px;
+  position: absolute;
+}
+
+.ssc-planification1 .js-timeContainer {
+  padding: 30px;
+  padding-bottom: 15px;
+  background: #e3d7bf;
+  color: white;
+  font: 550 18px Raleway, sans-serif;
+}
+
+.ssc-planification1 .js-timeContainer h4 {
+  text-align: center;
+}
+
+.ssc-planification1 .js-timeContainer .fselect {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.ssc-planification1 .js-timeContainer .fselect #reditDate {
+  cursor: pointer;
+}
+
+.ssc-planification1 .js-timeContainer .fselect .firstSelection {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.ssc-planification1 .js-timeContainer .fselect .js-hoursTime {
+  padding: 5px;
+  background: transparent;
+  border: 2px solid #fff;
+  width: 86px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.ssc-planification1 .js-timeContainer .fselect .js-hoursTime:hover, .ssc-planification1 .js-timeContainer .fselect .js-hoursTime:active {
+  background: white;
+  color: #e3d7bf;
+}
+
+.ssc-planification1 .with-input {
+  align-items: center;
+  display: flex;
+}
+
+.ssc-planification1 .with-input .with-input-item {
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  padding: 2px;
+  margin-top: -9px;
+  margin-left: 10px;
+  padding-left: 5px;
+  border: none;
+  background: #f0f2f4;
+}
+
+.ssc-planification1 .with-input .with-input-item:focus {
+  outline: 1px solid white;
+  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+}
+
+.ssc-planification1 .planQ-btn {
+  text-align: right;
+}
+
+.ssc-planification1 .planQ-btn input {
+  font: 550 18px Raleway, sans-serif;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 0;
+  color: white;
+  padding: 10px 30px;
+}
+
+.ssc-planification1 .planQ-btn input:hover, .ssc-planification1 .planQ-btn input:active {
+  background: white;
+  color: #e3d7bf;
+}
+
+.ssc-planification1 .ssc-send {
+  color: white;
+  background: #e3d7bf;
+  font: 16px Questrial, sans-serif;
+  text-align: center;
+  padding: 30px;
+  margin-top: 11px;
+}
+
+.ssc-planification1 .ssc-send img {
+  width: 40px;
+  height: 48px;
+  margin: 10px 0;
+}
+
+.ssc-planification1 .ssc-send .datetime {
+  background: white;
+  width: 90%;
+  margin: 30px auto;
+  color: #e3d7bf;
+  font: 550 18px Raleway, sans-serif;
+  padding: 20px;
+}
+
+.ssc-planification1 .ssc-send .ssc-send-btn {
+  cursor: pointer;
+  border: 2px solid white;
+  padding: 10px 30px;
+  font: 550 18px Raleway, sans-serif;
+  width: 150px;
+  margin-top: 30px;
+  margin-left: auto;
+}
+
+.ssc-planification1 .ssc-send .ssc-send-btn:hover, .ssc-planification1 .ssc-send .ssc-send-btn:active {
   background: white;
   color: #e3d7bf;
 }
