@@ -224,6 +224,7 @@
           }
         }
       }
+      // css validation candidat
       .dscdp-validation {
         font: $ffsentence;
         position: relative;
@@ -281,22 +282,24 @@
             }
           }
         }
-        .dscdp-contact {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          a {
-            color: $main_theme_color;
-            font: $ffsentence;
-            font-weight: 600;
-            margin: 10px;
-            img {
-              width: 55px;
-              height: 30px;
-            }
+      }
+      .dscdp-contact {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 35px;
+        justify-content: center;
+        a {
+          color: $main_theme_color;
+          font: $ffsentence;
+          font-weight: 600;
+          margin: 10px;
+          img {
+            width: 55px;
+            height: 30px;
           }
         }
       }
+      // css refus candidat
       .dscdp-refus {
         top: 30%;
         background: $main_theme_color;
@@ -334,6 +337,53 @@
             &:active {
               color: $main_theme_color;
               background: white;
+            }
+          }
+        }
+      }
+      // css candidat accepted
+      .dscdp-accepted {
+        padding-bottom: 70px;
+        text-align: center;
+        .dscdpa-box {
+          margin: 0 auto;
+          border: 2px solid $main_theme_color;
+          h3 {
+            font: $ffsentence;
+            color: $main_theme_color;
+            text-align: left;
+          }
+          h5 {
+            font: $ffsentence;
+          }
+        }
+        .dscdp-link {
+          margin-top: 35px;
+          .dscdp-link-item {
+            cursor: pointer;
+            text-transform: uppercase;
+            // width: 280px;
+            font: $ffbtn;
+            color: $main_theme_color;
+            margin: 20px auto;
+            border: 2px solid $main_theme_color;
+            padding: 13px 0;
+            .link {
+              // padding: 12px 35px;
+            }
+            a {
+              color: $main_theme_color;
+              text-transform: uppercase;
+              text-decoration: none;
+              font: $ffbtn;
+            }
+            &:hover,
+            &:active {
+              color: white;
+              background: $main_theme_color;
+              a {
+                color: white;
+              }
             }
           }
         }

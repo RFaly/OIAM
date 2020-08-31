@@ -462,6 +462,16 @@
   .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link-item span {
     padding: 16px 40px;
   }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box {
+    width: 95%;
+    padding: 20px 5px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box .dscdp-link-item {
+    width: 250px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box .dscdp-link-item a {
+    padding: 14px 14px;
+  }
   .rsc-box .rscdf-content .new-date {
     width: 90%;
   }
@@ -754,6 +764,10 @@
     padding: 20px;
   }
   .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
+    width: 70%;
+    padding: 20px 25px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box {
     width: 70%;
     padding: 20px 25px;
   }
@@ -1180,6 +1194,16 @@
   .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link-item span {
     padding: 16px 55px;
   }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box {
+    width: 65%;
+    padding: 20px 45px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box .dscdp-link-item {
+    width: 280px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box .dscdp-link-item a {
+    padding: 14px 28px;
+  }
   .rsc-box .rsc-body .rscdf-content .new-date {
     width: 450px;
   }
@@ -1352,6 +1376,10 @@
     width: 60%;
     padding: 20px 50px;
   }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box {
+    width: 60%;
+    padding: 20px 40px;
+  }
 }
 
 @media screen and (min-width: 1500px) {
@@ -1397,6 +1425,12 @@
   }
   .rsc-box .rsc-body .rsc-date-past .rscdp-empty {
     width: 40%;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscpd-validation {
+    width: 50%;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box {
+    width: 50%;
   }
 }
 
