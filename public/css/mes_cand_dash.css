@@ -1,0 +1,186 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+  border-left: 1px solid #d6b36a;
+}
+
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.fcp-box {
+  width: 90%;
+  margin: 0 auto;
+  font: 16px Questrial, sans-serif;
+  text-align: center;
+}
+
+.fcp-box .title {
+  font-size: 20px;
+}
+
+.fcp-box .title.t2 {
+  text-transform: uppercase;
+  font: 550 18px Raleway, sans-serif;
+}
+
+.fcp-box h3 {
+  font: 16px Questrial, sans-serif;
+}
+
+.fcp-box .fc-item-empty {
+  border: 2px solid #d6b36a;
+  width: 50%;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.fcp-box .fc-item-empty p {
+  margin: 30px;
+}
+
+.fcp-box .fc-item-empty .fc-item-btn {
+  margin: 50px auto;
+  width: 250px;
+  color: #d6b36a;
+  border: 2px solid #d6b36a;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px 0;
+  font: 550 18px Raleway, sans-serif;
+}
+
+.fcp-box .fc-item-empty .fc-item-btn:hover, .fcp-box .fc-item-empty .fc-item-btn:active {
+  background: #d6b36a;
+}
+
+.fcp-box .fc-item-empty .fc-item-btn:hover a, .fcp-box .fc-item-empty .fc-item-btn:active a {
+  color: white;
+}
+
+.fcp-box .fc-item-empty .fc-item-btn a {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  color: #d6b36a;
+}
+
+.fcp-box .fc-item-all {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.fcp-box .fc-item-all a {
+  text-decoration: none;
+  color: black;
+}
+
+.fcp-box .fc-item-all .list-candidat {
+  position: relative;
+  width: 300px;
+  margin: 30px 0;
+  height: 450px;
+}
+
+.fcp-box .fc-item-all .list-candidat .fci-image img {
+  width: 100%;
+  height: 350px;
+}
+
+.fcp-box .fc-item-all .list-candidat .fci-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+}
+
+.fcp-box .fc-item-all .list-candidat .fci-icon img {
+  width: 100%;
+}
+
+.fcp-box .fc-item-all .list-candidat .fci-infos {
+  background: white;
+  position: absolute;
+  bottom: 0;
+  padding: 15px 0;
+  width: 100%;
+  overflow: hidden;
+  transition: all 500ms ease-in-out;
+}
+
+.fcp-box .fc-item-all .list-candidat .fci-infos .name {
+  text-transform: capitalize;
+}
+
+.fcp-box .fc-item-all .list-candidat .fci-infos span {
+  color: #d6b36a;
+}
+
+.fcp-box .fc-item-all .list-candidat:hover .fci-infos, .fcp-box .fc-item-all .list-candidat:active .fci-infos {
+  height: 170px;
+  transition: all 500ms ease-in-out;
+}
+
+.fcp-box .fc-item-btn2 a {
+  text-decoration: none;
+  color: black;
+  font: 550 18px Raleway, sans-serif;
+}
+
+.fcp-box .fc-item-btn2 a b {
+  color: #d6b36a;
+  font-size: 25px;
+}
+
+.fcp-box .fc-item-btn2 a span {
+  color: #d6b36a;
+}
+
+.fcp-box .fc-item-btn2 a span:hover, .fcp-box .fc-item-btn2 a span:active {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+.ico-cand {
+  cursor: pointer;
+}
+
+.ico {
+  color: #d6b36a !important;
+}
+
+.ico:hover {
+  color: #d6b36a !important;
+}
+
+.ico1 {
+  padding-right: 10px !important;
+}
+
+.ico2 {
+  padding-left: 10px !important;
+}
+
+.btn-see {
+  color: white !important;
+  padding: 10px 50px;
+  background: #d6b36a;
+  border: 1px solid #d6b36a;
+}
+
+.btn-see:hover {
+  color: #d6b36a !important;
+  padding: 10px 50px;
+  background: white;
+  border: 1px solid #d6b36a;
+}
