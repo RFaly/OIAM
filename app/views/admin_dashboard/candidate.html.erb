@@ -1,12 +1,76 @@
 <link rel="stylesheet" href="/css/client_profil.css" />
+<link rel="stylesheet" href="/css/mes_cand_dash.css" />
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <div class="client-column">
-	<div class="client-menu-left">
-		<%= render partial: "admin_dashboard/left_menu_link" %>
-	</div>
+  <div class="client-menu-left">
+    <%= render partial: "admin_dashboard/left_menu_link" %>
+  </div>
 
-	<div class="cp-box">
-		<div>
-			<h2>CANDIDATS A SUIVRE</h2>
-		</div>
-	</div>
+  <div class="cp-box">
+  	<div>
+  		<div class="fcp-box">
+      <h3 class="title">CANDIDATS A SUIVRE</h3>
+      <div class="fc-item">
+        <div class="fc-item-all">
+
+<!--         	CANDIDATS  -->
+
+          <div class="list-candidat">
+            <div class="fci-image">
+					<img src="/image/cand.jpg" alt="photo profil candidats">
+            </div>
+            <div class="fci-icon">
+              <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
+            </div>
+            <div class="fci-infos">
+              <p class="name">Pierre LEVALLLET</p>
+              <p class="poste">Poste : Directeur Commercial</p>
+              <p class="score">Score OIAM : <span>70%</span></p>
+              <div class="ico-cand">
+              	<a href="#" class="btn-see">Voir</a>
+              </div>
+            </div>
+          </div>
+
+         <!--  ---------------------------- -->
+
+          <div class="list-candidat">
+            <div class="fci-image">
+					<img src="/image/cand2.jpg" alt="photo profil candidats">
+            </div>
+            <div class="fci-icon">
+              <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
+            </div>
+            <div class="fci-infos">
+              <p class="name">Jonathan DUROCHE</p>
+              <p class="poste">Poste : Responsable Juridique</p>
+              <p class="score">Score OIAM : <span>60%</span></p>
+              <div class="ico-cand">
+                <a href="#" class="btn-see">Voir</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="list-candidat">
+            <div class="fci-image">
+					<img src="/image/cand3.jpg" alt="photo profil candidats">
+            </div>
+            <div class="fci-icon">
+              <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
+            </div>
+            <div class="fci-infos">
+              <p class="name">Sophie LOPEZ</p>
+              <p class="poste">Poste : Directrice Technique</p>
+              <p class="score">Score OIAM : <span>50%</span></p>
+              <div class="ico-cand">
+                <a href="#" class="btn-see">Voir</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  	</div>
+  </div>
 </div>
