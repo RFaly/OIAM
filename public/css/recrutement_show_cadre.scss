@@ -133,6 +133,7 @@
             // width: 450px;
             .link {
               // width: 70%;
+              cursor: pointer;
               font: $ffbtn;
               border: 2px solid white;
               padding: 10px 0;
@@ -147,6 +148,7 @@
               &:hover,
               &:active {
                 background: white;
+                color: $main_theme_color;
                 a {
                   color: $main_theme_color;
                 }
@@ -467,6 +469,130 @@
   // date validation
   .date {
     opacity: 0;
+    input {
+      top: -3px;
+      border-radius: 0;
+      font-size: 0.002px;
+      position: absolute;
+    }
+  }
+  // hour validation
+  .js-timeContainer {
+    padding: 30px;
+    padding-bottom: 15px;
+    background: $secondary_text_color_button;
+    color: white;
+    font: $ffbtn;
+    h4 {
+      text-align: center;
+    }
+    .fselect {
+      width: 95%;
+      margin: 0 auto;
+      #reditDate {
+        cursor: pointer;
+      }
+      .firstSelection {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+      }
+      .js-hoursTime {
+        padding: 5px;
+        background: transparent;
+        border: 2px solid #fff;
+        width: 86px;
+        text-align: center;
+        cursor: pointer;
+        &:hover,
+        &:active {
+          background: white;
+          color: $secondary_text_color_button;
+        }
+      }
+    }
+  }
+  .with-input {
+    align-items: center;
+    display: flex;
+    .with-input-item {
+      border-radius: 0;
+      outline: none;
+      box-shadow: none;
+      padding: 2px;
+      margin-top: -9px;
+      margin-left: 10px;
+      padding-left: 5px;
+      border: none;
+      background: $secondary_element_color;
+      &:focus {
+        outline: 1px solid white;
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+  .planQ-btn {
+    text-align: right;
+    input {
+      font: $ffbtn;
+      background: transparent;
+      border: 2px solid white;
+      border-radius: 0;
+      color: white;
+      padding: 10px 30px;
+      &:hover,
+      &:active {
+        background: white;
+        color: $secondary_text_color_button;
+      }
+    }
+  }
+  .ssc-send {
+    color: white;
+    background: $secondary_text_color_button;
+    font: $ffsentence;
+    text-align: center;
+    padding: 30px;
+    margin-top: 11px;
+    img {
+      width: 40px;
+      height: 48px;
+      margin: 10px 0;
+    }
+    .datetime {
+      background: white;
+      width: 90%;
+      margin: 30px auto;
+      color: $secondary_text_color_button;
+      font: $ffbtn;
+      padding: 20px;
+    }
+    .ssc-send-btn {
+      cursor: pointer;
+      border: 2px solid white;
+      padding: 10px 30px;
+      font: $ffbtn;
+      width: 150px;
+      margin-top: 30px;
+      margin-left: auto;
+      &:hover,
+      &:active {
+        background: white;
+        color: $secondary_text_color_button;
+      }
+    }
+  }
+}
+.ssc-planification1 {
+  position: relative;
+  margin-top: -270px;
+  margin-bottom: 270px;
+  width: 60%;
+  z-index: 200;
+  // date validation
+  .date {
+    opacity: 1;
+    text-align: left;
     input {
       top: -3px;
       border-radius: 0;
