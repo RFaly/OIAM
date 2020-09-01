@@ -74,8 +74,16 @@ $('.js-reditDate').click(function () {
 });
 
 $('.js-hoursTime').click(function () {
+  let dateTime = new Date($('#datepicker').val());
+  let datahours = $(this).data().time;
+  let times = datahours.split(':');
+  dateTime.setHours(times[0]);
+  dateTime.setMinutes(times[1]);
+  utcDate = moment.utc(dateTime);
   let items_id = $(this).data().items;
-  $('#input-time-js-' + items_id).val($(this).data().time);
+  $('#input-time-js-' + items_id).val(utcDate.hours() + ':' + utcDate.minutes());
+  $('#datepicker').val(utcDate.format('YYYY-MM-DD'))
+  
   $('#valid-submit-' + items_id).prop('disabled', false);
   $('.js-hoursTime[data-items=' + items_id + ']').css('background-color', 'transparent');
   $('.js-hoursTime[data-items=' + items_id + ']').css('border', '2px solid #fff');
