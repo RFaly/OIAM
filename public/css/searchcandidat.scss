@@ -10,12 +10,61 @@
     justify-content: space-between;
     td {
       border: none;
+      padding: 0;
+      margin: 10px 0;
+      .co-input {
+        // width: 180px;
+        text-align: center;
+        select {
+          font: $ffsentence;
+          // text-align: center;
+          border: none;
+          width: 100%;
+          padding: 10px 5px;
+          border-radius: 0;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          background: $secondary_element_color url('/image/dropdown.png') no-repeat right 1rem center/17px 15px;
+          // text-align: center;
+          // -moz-text-align-last: center;
+          // -ms-text-align-last: center;
+          // text-align-last: center;
+          option {
+            text-align: center;
+            -moz-text-align-last: center;
+            -ms-text-align-last: center;
+            text-align-last: center;
+          }
+          &:focus {
+            border-radius: none;
+            outline: 1px solid $main_theme_color;
+            box-shadow: 1px 1px 5px 1px $main_theme_color;
+          }
+        }
+      }
+      .hide-right {
+        position: relative;
+        &::before {
+          content: ' ';
+          position: absolute;
+          right: 0;
+          background: $secondary_element_color;
+          width: 14px;
+          height: 100%;
+        }
+      }
     }
     .td-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       border: 2px solid $main_theme_color;
       padding: 10px 20px;
+      margin: 10px 0;
       text-transform: uppercase;
       font: $ffbtn;
+      font-size: 15px;
       color: $main_theme_color;
       cursor: pointer;
     }

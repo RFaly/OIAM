@@ -1092,6 +1092,9 @@
   .show-job-box .show-pb2 a {
     width: 45%;
   }
+  .select-cadre-box td .co-input {
+    width: 169px;
+  }
   .select-cadre-box .select-cadre-list .validation .submit-validation .validation-bt1 {
     display: none;
   }
@@ -1327,6 +1330,9 @@
     width: 664px;
     margin-left: -7%;
   }
+  .select-cadre-box td .co-input {
+    width: 180px;
+  }
   .ssc-box .ssc-all-infos .ssc-infos {
     width: 350px;
   }
@@ -1399,6 +1405,9 @@
   }
   .bg-accueil1 {
     height: 750px;
+  }
+  .select-cadre-box td .co-input {
+    width: 200px;
   }
   .ssc-box .ssc-all-infos .ssc-infos {
     width: 380px;
