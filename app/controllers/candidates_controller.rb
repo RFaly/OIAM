@@ -391,12 +391,13 @@ class CandidatesController < ApplicationController
     if validate_nil?(params[:promise_to_hire][:birthday_cadre]) || validate_nil?(params[:promise_to_hire][:birthplace_cadre]) || validate_nil?(params[:promise_to_hire][:ns_sociale_cadre])
       flash[:alert] = "Tous les champs sont obligatoires."
       redirect_back(fallback_location: root_path)
+      return
     end
 
-    if validate_nil?(sinc) || validate_nil?(cin) || validate_nil?(s_c) || validate_nil?(rib)
+    if sinc.nil? || cin.nil? || s_c.nil? || rib.nil?
       flash[:alert] = "Importer tous les fichiers demandés."
       redirect_back(fallback_location: root_path)
-
+      return
     end
 
     file_sinc = ImageUploader.new
@@ -425,7 +426,8 @@ class CandidatesController < ApplicationController
     end
 
     if errorMessage.empty?
-      @promise.update(birthday_cadre: params[:promise_to_hire][:birthday_cadre], birthplace_cadre: params[:promise_to_hire][:birthplace_cadre], ns_sociale_cadre: params[:promise_to_hire][:ns_sociale_cadre], signature_candidat: file_sinc.url, cin_pass_port: file_cin.url, security_certificate: file_sc.url, rib: filerib.url)
+      @promise.update(birthday_cadre: params[:promise_to_hire][:birthday_cadre], birthplace_cadre: params[:promise_to_hire][:birthplace_cadre], ns_sociale_cadre: params[:promise_to_hire][:ns_sociale_cadre], signature_candidat: file_sinc.url, cin_pass_port: file_cin.url, security_certificate: file_sc.url, rib: filerib.url, repons_cadre:true)
+      redirect_to congratulations_cadre_path(@promise.id)
     else
       flash[:alert] = errorMessage
       redirect_back(fallback_location: root_path)
@@ -433,6 +435,22 @@ class CandidatesController < ApplicationController
 
   end
 
+  def congratulations_cadre
+    @promise = PromiseToHire.find_by_id(params[:id])
+    if @promise.nil?
+      flash[:alert] = "Page introuvable"
+      redirect_back(fallback_location: root_path)
+    else
+      unless @promise.repons_cadre
+        flash[:alert] = "Page introuvable"
+        redirect_back(fallback_location: root_path)
+      end
+    end
+  end
+
+  def save_coordinate_banking #formularie pour enregistrer la coordonné bancaire
+    # gem wiked_pdf
+  end
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   private
@@ -473,13 +491,13 @@ class CandidatesController < ApplicationController
   end
 
   def validate_nil?(date_value)
-    if date_value.nil?
+    unless date_value.nil?
       if date_value.empty?
         return true
       end
-      return true
-    else
       return false
+    else
+      return true
     end
   end
 

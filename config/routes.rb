@@ -98,6 +98,10 @@ Rails.application.routes.draw do
   
   get '/cadre/suivi-recrutement/:id/promesse-d-embauche', to: 'candidates#cadre_show_promise_to_hire', as: 'cadre_show_promise_to_hire'
   patch '/cadre/suivi-recrutement/:id_pdm/validate-promesse-d-embauche', to: 'candidates#cadre_update_promise_to_hire', as: 'cadre_update_promise_to_hire'
+  
+  # reclamer la prime et message de felicitation
+  get '/cadre/suivi-recrutement/:id/félicitations', to: 'candidates#congratulations_cadre', as: 'congratulations_cadre'  
+  post '/cadre/suivi-recrutement/félicitations/prime', to: 'candidates#save_coordinate_banking', as: 'save_coordinate_banking'
 
   get '/cadre/mes-notifications', to: 'candidates#notifications', as: 'cadres_notifications'
   # les 3 test a faire

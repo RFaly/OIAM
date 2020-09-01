@@ -109,7 +109,7 @@
 				<tr>
 					<td>Signature électronique entreprise</td>
 					<td class="form-group">
-						<%= image_tag(@promise.signature_entreprise, alt: 'signature entreprise', class:'photo_ako', id:"addImage", height:'150px')%>
+						<%= image_tag(@promise.signature_entreprise, alt: 'signature entreprise', class:'photo_ako',height:'150px')%>
 					</td>
 				</tr>
 				<tr>
@@ -118,8 +118,25 @@
 						<% unless @promise.signature_candidat.nil? %>
 							<%= image_tag(@promise.signature_candidat, alt: 'signature candidat', class:'photo_ako', width:'250px')%>
 						<% else %>
-							<img id="addImage" src="#" alt="signature candidat" height="150px" class="hidden">
+							<img id="addImage" src="#" alt="signature candidat" height="150px" style="display: none;">
 							<%= f.file_field :signature_candidat, required:true, class:"form-control", accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+
+							<script type="text/javascript">
+								function shwoMyImage(input) {
+									if (input.files && input.files[0]) {
+										var reader = new FileReader();
+										reader.onload = function(e) {
+											$('#addImage').attr('src', e.target.result);
+											$("#addImage").show();
+										}
+										reader.readAsDataURL(input.files[0]);
+									}
+								}
+								$("#promise_to_hire_signature_candidat").change(function() {
+									shwoMyImage(this);
+								});
+							</script>
+							
 						<% end %>
 					</td>
 				</tr>
