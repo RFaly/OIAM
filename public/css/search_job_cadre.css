@@ -173,6 +173,7 @@ body{
 
 
 
+
 .hidden { display: none; }
 .readmore { margin: 0 5px;cursor: pointer; color: #000; text-decoration: none;cursor: default; pointer-events: none;text-decoration: none; col}
 @media only screen and (min-width: 900px){
@@ -235,6 +236,10 @@ body{
 
   .btn-voir{
     float: right;
+  }
+
+  .add-favorite img{
+    background: #fff;
   }
 
   .main{
