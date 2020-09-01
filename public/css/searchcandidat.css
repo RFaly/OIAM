@@ -30,13 +30,59 @@
 
 .select-cadre-box tr td {
   border: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.select-cadre-box tr td .co-input {
+  text-align: center;
+}
+
+.select-cadre-box tr td .co-input select {
+  font: 16px Questrial, sans-serif;
+  border: none;
+  width: 100%;
+  padding: 10px 5px;
+  border-radius: 0;
+  appearance: none;
+  background: #f0f2f4 url("/image/dropdown.png") no-repeat right 1rem center/17px 15px;
+}
+
+.select-cadre-box tr td .co-input select option {
+  text-align: center;
+  -ms-text-align-last: center;
+  text-align-last: center;
+}
+
+.select-cadre-box tr td .co-input select:focus {
+  border-radius: none;
+  outline: 1px solid #d6b36a;
+  box-shadow: 1px 1px 5px 1px #d6b36a;
+}
+
+.select-cadre-box tr td .hide-right {
+  position: relative;
+}
+
+.select-cadre-box tr td .hide-right::before {
+  content: ' ';
+  position: absolute;
+  right: 0;
+  background: #f0f2f4;
+  width: 14px;
+  height: 100%;
 }
 
 .select-cadre-box tr .td-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 2px solid #d6b36a;
   padding: 10px 20px;
+  margin: 10px 0;
   text-transform: uppercase;
   font: 550 18px Raleway, sans-serif;
+  font-size: 15px;
   color: #d6b36a;
   cursor: pointer;
 }
