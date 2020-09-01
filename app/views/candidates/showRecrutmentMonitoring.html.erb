@@ -19,22 +19,22 @@
 				<% etape += 1 %>
 				<% if i == 0 %>
 					<div class="etape1">
-						<div class="list-etapes">1er entretien <span class="badge-success"><%= etape %></span></div>	
+						<div class="list-etapes"><span class="text">1er entretien</span><span class="badge-success"><%= etape %></span></div>
 					</div>
 				<% elsif @oFc.etapes == 2 %>
 					<div class="etape1">
-						<div class="list-etapes"><%= i+1 %>e entretien <span class="<% if i == 1 %>badge-success<% else %>badge-wait<% end %>"><%= etape %></span></div>	
+						<div class="list-etapes"><span class="text"><%= i+1 %>e entretien</span><span class="<% if i == 1 %>badge-success<% else %>badge-wait<% end %>"><%= etape %></span></div>
 					</div>
 				<% elsif @oFc.etapes == 3 %>
 					<div class="etape1">
-						<div class="list-etapes"><%= i+1 %>e entretien <span class="<% if i < 3 %>badge-success<% else %>badge-wait<% end %>"><%= etape %></span></div>	
+						<div class="list-etapes"><span class="text"><%= i+1 %>e entretien</span><span class="<% if i < 3 %>badge-success<% else %>badge-wait<% end %>"><%= etape %></span></div>
 					</div>
 				<% elsif @oFc.etapes == 4 %>
 					<div class="etape1">
-						<div class="list-etapes"><%= i+1 %>e entretien <span class="<% if i < 3 %>badge-success<% else %>badge-wait<% end %>"><%= etape %></span></div>	
-					</div>	
+						<div class="list-etapes"><span class="text"><%= i+1 %>e entretien</span><span class="<% if i < 3 %>badge-success<% else %>badge-wait<% end %>"><%= etape %></span></div>
+					</div>
 				<% else %>
-					<div class="list-etapes"><%= i+1 %>e entretien <span class="badge-wait"><%= etape %></span></div>
+					<div class="list-etapes"><span class="text"><%= i+1 %>e entretien</span><span class="badge-wait"><%= etape %></span></div>
 				<% end %>
 			<% end %>
 			<div class="list-etapes">
@@ -156,7 +156,7 @@
 										<span class="days-letter">heures</span>
 									</div>
 									<div class="entretien-days-left">
-										<span id="js-minutes" class="days-number"></span> 
+										<span id="js-minutes" class="days-number"></span>
 										<span class="days-letter">minute</span>
 									</div>
 									<div class="entretien-days-left">
@@ -164,7 +164,7 @@
 										<span class="days-letter">seconde</span>
 									</div>
 								</div>
-								
+
 							</div>
 						<% end %>
 
@@ -174,7 +174,7 @@
 							<div id="js-main-bloc-information" class="rencontre">
 								<p>Vous avez rencontré <%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %> le <%= @agendas.entretien_date.strftime("%d/%m/%Y") %></p>
 							</div>
-							
+
 							<% if @oFc.status == "accepted" %>
 								<%= @offreJob.client.entreprise.name %> a validé votre candidature pour la première étape.
 							<% else %>
