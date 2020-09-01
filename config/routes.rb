@@ -96,6 +96,13 @@ Rails.application.routes.draw do
   get '/cadre/suivi-recrutement', to: 'candidates#recrutmentMonitoring', as: 'recrutment_monitoring'
   get '/cadre/suivi-recrutement/:ofc_id/mon-progression', to: 'candidates#showRecrutmentMonitoring', as: 'show_recrutment_monitoring'
   
+  get '/cadre/suivi-recrutement/:id/promesse-d-embauche', to: 'candidates#cadre_show_promise_to_hire', as: 'cadre_show_promise_to_hire'
+  patch '/cadre/suivi-recrutement/:id_pdm/validate-promesse-d-embauche', to: 'candidates#cadre_update_promise_to_hire', as: 'cadre_update_promise_to_hire'
+  
+  # reclamer la prime et message de felicitation
+  get '/cadre/suivi-recrutement/:id/félicitations', to: 'candidates#congratulations_cadre', as: 'congratulations_cadre'  
+  post '/cadre/suivi-recrutement/félicitations/prime', to: 'candidates#save_coordinate_banking', as: 'save_coordinate_banking'
+
   get '/cadre/mes-notifications', to: 'candidates#notifications', as: 'cadres_notifications'
   # les 3 test a faire
   get '/cadre/welcome-to-test', to: 'candidates#my_tests', as: 'my_tests'
@@ -106,6 +113,8 @@ Rails.application.routes.draw do
   # tokony post ito
   get '/cadre/resultat-test', to: 'candidates#resultatsTest', as: 'resultatsTest'
   post '/cadre/save-entretien-date', to:'candidates#saveEntretientDate',as:'saveEntretientDate'
+
+
 
   #~~~~~~~~~~ LINK fo MESSAGE ~~~~~ TEST CANDIDAT
   get '/cadre/messages', to: 'candidates#my_messages', as: 'my_messages_cadre'
