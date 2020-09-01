@@ -72,3 +72,20 @@ nav {
   width: 100%;
 }
 
+.dropup-btn1 a {
+  color: #fff;
+}
+
+.dropup-btn1 a:hover {
+  color: #e3d7bf;
+}
+
+.navbar-content .dropup1 .dropup-btn1:hover {
+  color: #e3d7bf !important; 
+}
+/*
+.active, .navbar-item:hover {
+  color: #d6b36a !important;
+}*/
+
+.navbar-ul a.active {color: #d6b36a !important;}
