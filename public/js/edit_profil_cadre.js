@@ -11,14 +11,14 @@ $(document).ready(function() {
 var slider = document.getElementById("slide");
 var output = document.getElementById("value");
 
-output.style.left = ((slider.value-62)*97)/290 + "%";
+output.style.left = ((slider.value-65)*96.5)/290 + "%";
 
 
 output.innerHTML = slide.value;
 
 slider.oninput = function(){
     output.innerHTML = this.value;
-    output.style.left = ((this.value-62)*97)/290 + "%";
+    output.style.left = ((this.value-65)*96.5)/290 + "%";
 }
 
 

@@ -109,8 +109,15 @@ $('.js-repons-send-post').bind('ajax:complete', function () {
 
 $('.alternatives').hide();
 
+let here = true;
+
 $('.alternative').click(function () {
-  if ($('.alternatives').hide()) {
+  if (here == true) {
     $('.alternatives').show();
+    here = false;
+  }
+  else {
+    $('.alternatives').hide();
+    here = true;
   }
 });
