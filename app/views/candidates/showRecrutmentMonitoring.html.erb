@@ -48,26 +48,38 @@
 			</div>
 		</div>
 
-
 	<div id="container-element">
 
 		<% if @oFc.status == "refused" %> <!-- if candidature refusé -->
-			CANDIDATURE REFUSÉ
-			// motif
+			<h4>CANDIDAT REFUSE</h4>
+			<% unless @oFc.refused_info.nil? %>
+			<div class="rscr-result">
+			  <dl>
+			    <dt>motif</dt>
+			    <dd>"<%= @oFc.refused_info %>"</dd>
+			  </dl>
+			</div>
+			<% end %>
 		<% else %>
 			<!-- if candidate in a laste stape namely "promesse d'embauche" -->
 			<!-- if etapes -->
 			<% if @oFc.etapes == @offreJob.numberEntretien + 1 %>
 				<% if @promise.repons_cadre.nil? %>
-					<% unless @promise.payed %>
-						<center>
-							<h1>FELICITATIONS !</h1>
-							<p>Le cadre vient d'accepter votre proposition d'embauche !</p>
-							<p>Blà blà blà bdb</p>
-							<p class="btn btn-primary">PROCÉDER AU RÈGLEMENT</p>
-						</center>
-					<% end %>
+					Félicitations, vous avez réussi la dernière étape de recrutement !
+					<%= @offreJob.client.entreprise.name %> vous a envoyé une promesse d'embauche.
+					<br>
+					<%= link_to "OUVRIR", cadre_show_promise_to_hire_path(@promise.id), class:"btn btn-success" %>
+				<% else %>
 
+					<% if true %>
+						<div>
+							<h2>One in a million tient à vous féliciter en vous offrant une prime de 1000€.</h2>
+							<%= link_to "Recevoir la prime", congratulations_cadre_path(@promise.id), class:"btn btn-success" %>
+						</div>
+					<% else %>
+						Demande de prime envoyer
+					<% end %>
+					
 					<table>
 						<tr>
 							<td>Promesse d'embauche</td>
@@ -90,17 +102,12 @@
 							<td><%= link_to "TELECHARGER", @cadre.cadre_info.cv %></td>
 						</tr>
 					</table>
-				<% else %>
-					Promesse d'embauche envoyer
-					En attente du réponse du client
-					<%= link_to "Voir", show_promise_to_hire_path(@promise.id), class:"btn btn-success" %>
-					<div>
-						<a href="<%= show_my_messages_client_path(@cadre.id) %>">Chat en ligne</a>
-						<a href = "mailto: <%= @cadre.cadre_info.mail %>">Mail</a>
-						<a href="">Compte rendu</a>
-					</div>
-				<% end %>
 
+				<% end %>
+				<div>
+					<a href="<%= show_my_messages_cadre_path(@offreJob.client.id) %>">Chat en ligne</a>
+					<a href = "mailto: <%= @offreJob.client.mail %>">Mail</a>
+				</div>
 			<% else %>
 				<!-- unless aucun entretien -->
 				<div class=" <% if @agendas.entretien_date > DateTime.now.utc %> proposition-entretien <% elsif @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil?%> rencontred <% end %>">
@@ -185,7 +192,7 @@
 
 							<div class="contact-recruteur">
 								<div class="contact-recruteur-img">
-									<img src="/image/chatS.png" height="36px" width="36px"><a href ="<%= show_my_messages_cadre_path(@offreJob.client.id) %>">Chat en ligne</a>
+									<img src="/image/chatS.png" height="36px" width="36px"><a href="<%= show_my_messages_cadre_path(@offreJob.client.id) %>">Chat en ligne</a>
 								</div>
 								<div class="contact-recruteur-img">
 									<img src="/image/mailS.png" height="36px" width="45px"><a href = "mailto: <%= @offreJob.client.mail %>">Chat par Email</a>
@@ -222,7 +229,7 @@
 								<p class="entretien-passer">L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> est passé.</p>
 								<img src="/image/unvalid.png" width="36px" height="36px" class="unvalid">
 								<p class="motif">Vous n'avez donner aucune réponse</p>
-							</p>
+							</div>
 						<% end %>
 
 					<% end %> <!-- fin if date entretien future -->
@@ -235,5 +242,6 @@
 	</div>
 
 </div>
-		<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
-		<script type="text/javascript" src="/js/recrutement_show.js"></script>
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
+<script type="text/javascript" src="/js/recrutement_show.js"></script>
+

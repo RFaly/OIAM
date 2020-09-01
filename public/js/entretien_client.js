@@ -70,6 +70,7 @@ $('.js-hoursTime').click(function () {
 
   utcDate = moment.utc(dateTime);
   $('#input-time').val(utcDate.hours() + ':' + utcDate.minutes());
+  $('#datepicker').val(utcDate.format('YYYY-MM-DD'))
 
   $('#timeShowOk').html($(this).data().time);
   $('#valid-submit').prop('disabled', false);
