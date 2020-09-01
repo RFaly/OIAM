@@ -324,6 +324,7 @@ class RecruteursController < ApplicationController
 			@oFc.update(status:params[:repons])
 			@oFc.update(refused_info:params[:notifier])
 		end
+		
 		respond_to do |format|
 			format.html { redirect_to root_path }
 			format.js { }

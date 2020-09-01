@@ -1,8 +1,14 @@
-<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %> <% if @oFc.status == "waiting" || @oFc.status == "accepted" %> <% if @oFc.status == "waiting" %>
-<div class="dscdp-accepted" id="dscdp-waiting"><%= render partial: "recruteurs/repons_waiting" %></div>
-<% else %>
-<div class="dscdp-accepted" id="dscdp-accepted"><%= render partial: "recruteurs/repons_accepted" %></div>
-<%end %> <% else %>
+<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %> <% if @oFc.status == "waiting" || @oFc.status == "accepted" %>
+    <% if @oFc.status == "waiting" %>
+      <div class="dscdp-accepted" id="dscdp-waiting">
+        <%= render partial: "recruteurs/repons_waiting" %>
+      </div>
+    <% else %>
+      <div class="dscdp-accepted" id="dscdp-accepted">
+        <%= render partial: "recruteurs/repons_accepted" %>
+      </div>
+    <%end %>
+  <% else %>
 
 <div id="js-main-bloc-information" class="dscdp-validation">
   <h3>Suivi recrutement</h3>
@@ -10,11 +16,12 @@
   <p>Vous avez rencontré <a href="#"><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %></a> le <strong> <%= @agendas.entretien_date.strftime("%d/%m/%Y") %></strong> , comment s'est déroulé votre entretien ?</p>
 
   <div class="dscdp-link">
-    <div class="dscdp-link-item">
+    <div class="dscdp-link-item" id="accepted-js">
       <%= link_to notice_refused_post_path(repons: 'accepted', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true do %>CANDIDAT RETENU <br />
       POUR LA PROCHAINE ETAPE<%end%>
     </div>
-    <div class="dscdp-link-item"><%= link_to "CANDIDAT EN ATTENTE", notice_refused_post_path(repons: 'waiting', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true, class:'link' %></div>
+    <div class="dscdp-link-item" id="waiting-js">
+      <%= link_to "CANDIDAT EN ATTENTE", notice_refused_post_path(repons: 'waiting', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true, class:'link' %></div>
     <div class="dscdp-link-item"><span id="js-ca_confirmchoice">CANDIDAT REFUSE</span></div>
 
     <br />
@@ -54,3 +61,25 @@
   <a href="#">5 candidats maximum</a>.
 </div>
 <% end %>
+
+<div class="dscdp-accepted" id="dscdp-waiting" style="display: none;">
+  <%= render partial: "recruteurs/repons_waiting" %>
+</div>
+
+<div class="dscdp-accepted" id="dscdp-accepted" style="display: none;">
+  <%= render partial: "recruteurs/repons_accepted" %>
+</div>
+
+<script type="text/javascript">
+
+  $('#accepted-js a').bind('ajax:complete', function() {
+    $("#dscdp-accepted").show(500)
+    $("#js-main-bloc-information").remove()
+  });
+
+  $("#waiting-js a").bind('ajax:complete', function() {
+    $("#dscdp-waiting").show(500)
+    $("#js-main-bloc-information").remove()
+  });
+
+</script>

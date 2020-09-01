@@ -1,8 +1,0 @@
-<% case @oFc.status %>
-<% when "accepted" %>
-  $("#container-element").html("<%= j render 'repons_accepted', offre: @offre, is_add: true %>")
-<% when "waiting" %>
-  $("#container-element").html("<%= j render 'repons_waiting', offre: @offre, is_add: true %>")
-<% when "refused" %>
-  $("#container-element").html("<%= j render 'repons_refused', offre: @offre, is_add: true %>")
-<% end %>
