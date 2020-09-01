@@ -95,6 +95,7 @@
 
 .co-with-job .coj-box .cjo-content {
   font: 16px Questrial, sans-serif;
+  font-size: 18px;
   color: #d6b36a;
 }
 
@@ -102,6 +103,7 @@
   display: flex;
   align-items: center;
   font: 550 18px Raleway, sans-serif;
+  font-size: 16px;
   padding: 2px 6px;
   border: 2px solid #d6b36a;
 }
@@ -130,7 +132,8 @@
 }
 
 .co-with-job .cjo-link-items .cjo-delete {
-  width: 35px;
+  align-self: center;
+  width: 25px;
 }
 
 .co-with-job .cjo-link-items .cjo-delete img {

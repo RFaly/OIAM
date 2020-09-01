@@ -3,9 +3,7 @@
 <link rel="stylesheet" href="/css/show_search_candidate.css" />
 <!-- body html  -->
 <div class="client-column">
-  <div class="client-menu-left">
-    <%= render "recruteurs/left_link_bar" %>
-  </div>
+  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
   <div class="cp-box">
     <div class="ssc-box">
       <div class="ssc-all-infos">
@@ -16,9 +14,7 @@
           </div>
           <div class="infos">
             <div class="score">
-              <p class="name">
-                <%= @cadre.last_name %> <%= @cadre.first_name[0].upcase %>.
-              </p>
+              <p class="name"><%= @cadre.last_name %> <%= @cadre.first_name[0].upcase %>.</p>
               <p>
                 Score de test : <span>1005</span><br />
                 Compatibilité : <span>90%</span>
@@ -31,15 +27,11 @@
               <p>Salaire : <%= @cadre.question4 %>k€</p>
               <p>Mobilité : Ile de France</p>
             </div>
-            <div class="ssc-btn">
-              <%= link_to "VISUALISER LE CV", @cadre.cv %>
-            </div>
+            <div class="ssc-btn"><%= link_to "VISUALISER LE CV", @cadre.cv %></div>
           </div>
         </div>
         <div class="ssc-question">
-          <div class="title">
-            5 questions clés
-          </div>
+          <div class="title">5 questions clés</div>
           <div class="questionnaire">
             <h5 class="questionnaire-title">Que faites-vous actuellement et que recherchez-vous comme type de poste ?</h5>
             <p><%= @cadre.question1 %></p>
@@ -54,7 +46,7 @@
           </div>
           <div class="questionnaire">
             <h5 class="questionnaire-title">Quel est le minimum salarial en dessous duquel il n’est pas nécessaire de vous contacter ?</h5>
-            <p><%= @cadre.question4 %></p>
+            <p><%= @cadre.question4 %> k€</p>
           </div>
           <div class="questionnaire">
             <h5 class="questionnaire-title">Parlez-nous de vous</h5>
@@ -65,20 +57,14 @@
 
       <div class="ssc-rest">
         <div class="ssc-rest-btn">
-          <div class="ssc-btn ssc-message">
-            <%= link_to "MESSAGERIE", show_my_messages_client_path(@cadre.cadre.id)%>
-          </div>
+          <div class="ssc-btn ssc-message"><%= link_to "MESSAGERIE", show_my_messages_client_path(@cadre.cadre.id)%></div>
 
           <!-- misy condition mbôla tokony aiditra -->
 
           <% unless @offre.my_top_five_candidates.where(cadre:@cadre.cadre.id).empty? %> <% if @offre.in_list_entretien(@cadre.cadre).nil? %>
-          <div class="ssc-btn ssc-pe" id="dateEntretien">
-            PLANIFIER UN ENTRETIEN
-          </div>
+          <div class="ssc-btn ssc-pe" id="dateEntretien">PLANIFIER UN ENTRETIEN</div>
           <% else %>
-          <div class="ssc-btn ssc-pe" id="ssc-btn2">
-            <%= link_to "SUIVI RECRUTEMENT", recruitment_show_cadre_path(@offre.is_in_this_job(@cadre.cadre))%>
-          </div>
+          <div class="ssc-btn ssc-pe" id="ssc-btn2"><%= link_to "SUIVI RECRUTEMENT", recruitment_show_cadre_path(@offre.is_in_this_job(@cadre.cadre))%></div>
           <% end %> <% end %>
         </div>
         <div class="ssc-oiam">
@@ -91,12 +77,12 @@
       </div>
 
       <div class="ssc-planification">
-        <div class="hiddenDate" style="display: none;" id="js-form-show">
+        <div class="hiddenDate" style="display: none" id="js-form-show">
           <%= form_tag(save_entretien_client_path, remote: true, id:"send-data-form") do %>
 
           <div class="date"><input type="text" name="date" id="datepicker" /></div>
 
-          <div class="js-timeContainer" style="display: none;">
+          <div class="js-timeContainer" style="display: none">
             <h4 id="showDateLong"></h4>
             <div class="fselect">
               <span id="reditDate" class="badge badge-secondary">modifier la date</span>
@@ -131,7 +117,7 @@
                   <input type="radio" required name="adresse" id="adresse2" data-value="autre" class="js-input-adresse" />
                   <span class="checkmark"></span>
                 </label>
-                <input type="text" name="adresse_name" id="js-adresse_name_input" style="display: none;" disabled="disabled" placeholder="L'adresse ..." class="with-input-item" />
+                <input type="text" name="adresse_name" id="js-adresse_name_input" style="display: none" disabled="disabled" placeholder="L'adresse ..." class="with-input-item" />
               </div>
               <div>
                 <label id="conditioncheck">
@@ -146,7 +132,7 @@
                   <input type="radio" required name="name" id="autre_personne" value="1" class="js-input-name" />
                   <span class="checkmark"></span>
                 </label>
-                <input type="text" name="client_name" id="client_name_input" style="display: none;" disabled="disabled" placeholder="Nom et prénoms" class="with-input-item" />
+                <input type="text" name="client_name" id="client_name_input" style="display: none" disabled="disabled" placeholder="Nom et prénoms" class="with-input-item" />
               </div>
 
               <input type="hidden" name="time" id="input-time" />
@@ -155,15 +141,13 @@
 
               <input type="hidden" name="offre_id" value="<%= @offre.id %>" />
 
-              <div class="planQ-btn">
-                <%= submit_tag("VALIDER", id:"valid-submit", disabled:"disabled" )%>
-              </div>
+              <div class="planQ-btn"><%= submit_tag("VALIDER", id:"valid-submit", disabled:"disabled" )%></div>
             </div>
           </div>
           <% end %>
         </div>
 
-        <div id="send-data-form-ok-success" class="ssc-send" style="display: none;">
+        <div id="send-data-form-ok-success" class="ssc-send" style="display: none">
           <h4>Demande d'entretien envoyée</h4>
           <img src="/image/check.png" alt="OK" />
           <div>
@@ -177,13 +161,9 @@
                 <%= current_client.entreprise.city %>
               </span>
               <br />
-              <span id="nameShowOk">
-                <%= current_client.fonction %> : <%= current_client.first_name %> <%= current_client.last_name %>
-              </span>
+              <span id="nameShowOk"> <%= current_client.fonction %> : <%= current_client.first_name %> <%= current_client.last_name %> </span>
             </div>
-            <div class="ssc-send-btn">
-              VALIDER
-            </div>
+            <div class="ssc-send-btn">VALIDER</div>
           </div>
         </div>
       </div>

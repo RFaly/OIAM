@@ -2,9 +2,7 @@
 <link rel="stylesheet" href="/css/my_job_offre.css" />
 <!-- body html  -->
 <div class="client-column">
-  <div class="client-menu-left">
-    <%= render "recruteurs/left_link_bar" %>
-  </div>
+  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
   <div class="cp-box">
     <div class="box-inside">
       <% if @offres.empty? %>
@@ -23,18 +21,14 @@
           </div>
           <div class="cjo-content"><%= offre.intitule_pote %></div>
           <div class="cjo-link-items">
-            <div class="cjo-link">
-              <%= link_to "VOIR L'OFFRE", showNewJob_path(offre.id)%>
-            </div>
+            <div class="cjo-link"><%= link_to "VOIR L'OFFRE", showNewJob_path(offre.id)%></div>
             <div class="cjo-delete">
-              <a href=" <%=destroyJob_path(offre.id)%>" data-method="delete" data-remote="true" class="delete" id="<%= i%>"> <img src="/image/trash.png" alt="Delete" /></a>
+              <a href=" <%=destroyJob_path(offre.id)%>" data-method="delete" data-remote="true" data-confirm="Êtes-vous sure de supprimer cette offre ??" class="delete" title="Supprimer" id="<%= i%>"> <img src="/image/trash.png" alt="Delete" /></a>
             </div>
           </div>
         </div>
         <% i+= 1%> <% end %>
-        <div class="btn-newjob-div">
-          <%= link_to "PUBLIER UNE OFFRE", newJob_path, class:'btn-newjob' %>
-        </div>
+        <div class="btn-newjob-div"><%= link_to "PUBLIER UNE OFFRE", newJob_path, class:'btn-newjob' %></div>
         <% end %>
       </div>
     </div>
