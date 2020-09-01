@@ -103,6 +103,7 @@ body{
 	padding: 5px;
 	margin-left: 10px;
 	margin-top: -5px;
+	height: 80px;
 	z-index: 1;
 }
 
@@ -486,7 +487,7 @@ body{
 
 	.main{
 		border-left: 1px solid #D6B36A;
-		padding-left: 10px; 
+		padding-left: 10px;
 	}
 
 	#container-element{
@@ -580,5 +581,5 @@ body{
 		width: 50%;
 	}
 
-	
+
 }
