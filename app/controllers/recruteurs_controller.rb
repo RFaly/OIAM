@@ -401,12 +401,22 @@ class RecruteursController < ApplicationController
 
 	def edit_promise_to_hire
 		@promise = PromiseToHire.find_by_id(params[:id])
+		if @promise.repons_cadre
+			flash[:alert] = "Vous ne pouvez plus modifier la promesse d'embauche."
+			redirect_back(fallback_location: root_path)
+			return
+		end
 		@job = @promise.offre_job
 		@cadre = @promise.cadre.cadre_info
 	end
 
 	def update_promise_to_hire
 		@promise = PromiseToHire.find_by_id(params[:id])
+		if @promise.repons_cadre
+			flash[:alert] = "Vous ne pouvez plus modifier la promesse d'embauche."
+			redirect_back(fallback_location: root_path)
+			return
+		end
 		my_parameters = params.require(:promise_to_hire).permit(:date_poste, :remuneration_fixe, :remuneration_fixe_date, :remuneration_variable, :remuneration_avantage, :date_de_validite)
 		uploader = ImageUploader.new
 		errorMessage = ""

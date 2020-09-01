@@ -82,7 +82,11 @@
 			</tr>
 		</table>
 		<center>
-			<%= link_to "MODIFIER", edit_promise_to_hire_path(@promise.id), class: 'btn btn-primary' %>
+			<% if @promise.repons_cadre == true  %>
+				<span class="btn btn-primary">TELECHARGER</span>
+			<% else %>
+				<%= link_to "MODIFIER", edit_promise_to_hire_path(@promise.id), class: 'btn btn-primary' %>
+			<% end %>
 		</center>
 	</div>
 </div>
