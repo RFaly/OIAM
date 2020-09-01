@@ -1,5 +1,5 @@
 <!-- appel css user-menu.css  -->
-<link rel="stylesheet" href="/css/user_menu.css" />
+<link rel="stylesheet" href="/css/admin_main_menu.css" />
 <!-- html body  -->
 <div class="left-menu-r">
   <div class="btn-menu-r">
@@ -11,13 +11,14 @@
     <% end %>
   </div>
   <ul class="left-menu-content">
-    <li><%= link_to "AGENDA", admin_dashboard_agenda_path %></li>
-    <li><%= link_to "OFFRES EN COURS", admin_dashboard_offer_path %></li>
-    <li><%= link_to "CANDIDATS A SUIVRE", admin_dashboard_candidate_path %></li>
-    <li><%= link_to "TACHES", admin_dashboard_tache_path %></li>
-    <li><%= link_to "MES NOTIFICATIONS", admin_main_notification_path %></li>
-    <li><%= link_to "MA MESSAGERIE", admin_main_messaging_path %></li>
+    <li><a href="<%= admin_dashboard_agenda_path %>">AGENDA</a></li>
+    <li><a href="<%= admin_dashboard_offer_path %>">OFFRES EN COURES</a></li>
+    <li><a href="<%= admin_dashboard_candidate_path %>">CANDIDATS A SUIVRE</a></li>
+    <li><a href="<%= admin_dashboard_tache_path %>">TÂCHES</a></li>
+    <li><a href="<%= admin_main_notification_path %>">MES NOTIFICATIONS</a></li>
+    <li><a href="<%= admin_main_messaging_path %>">MA MESSAGERIE</a></li>
   </ul>
 </div>
 <!-- appel js menu_recruteur.js  -->
+<script data-turbolinks-track="reload" src="/js/admin_main_menu.js"></script>
 <script data-turbolinks-track="reload" src="/js/menu_recruteur.js"></script>
