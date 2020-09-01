@@ -97,7 +97,7 @@ Rails.application.routes.draw do
   get '/cadre/suivi-recrutement/:ofc_id/mon-progression', to: 'candidates#showRecrutmentMonitoring', as: 'show_recrutment_monitoring'
   
   get '/cadre/suivi-recrutement/:id/promesse-d-embauche', to: 'candidates#cadre_show_promise_to_hire', as: 'cadre_show_promise_to_hire'
-  patch '/cadre/suivi-recrutement/:id_pdm/validate-promesse-d-embauche', to: 'recruteurs#cadre_update_promise_to_hire', as: 'cadre_update_promise_to_hire'
+  patch '/cadre/suivi-recrutement/:id_pdm/validate-promesse-d-embauche', to: 'candidates#cadre_update_promise_to_hire', as: 'cadre_update_promise_to_hire'
 
   get '/cadre/mes-notifications', to: 'candidates#notifications', as: 'cadres_notifications'
   # les 3 test a faire

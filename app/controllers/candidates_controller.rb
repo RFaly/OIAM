@@ -380,9 +380,57 @@ class CandidatesController < ApplicationController
   end
 
   def cadre_update_promise_to_hire
-    puts "~~"*43
-      puts params.inspect
-    puts "~~"*43
+    @promise = PromiseToHire.find_by_id(params[:id_pdm])
+    errorMessage = ""
+
+    sinc = params[:promise_to_hire][:signature_candidat]
+    cin = params[:promise_to_hire][:cin_pass_port]
+    s_c = params[:promise_to_hire][:security_certificate]
+    rib = params[:promise_to_hire][:rib]
+
+    if validate_nil?(params[:promise_to_hire][:birthday_cadre]) || validate_nil?(params[:promise_to_hire][:birthplace_cadre]) || validate_nil?(params[:promise_to_hire][:ns_sociale_cadre])
+      flash[:alert] = "Tous les champs sont obligatoires."
+      redirect_back(fallback_location: root_path)
+    end
+
+    if validate_nil?(sinc) || validate_nil?(cin) || validate_nil?(s_c) || validate_nil?(rib)
+      flash[:alert] = "Importer tous les fichiers demandés."
+      redirect_back(fallback_location: root_path)
+
+    end
+
+    file_sinc = ImageUploader.new
+    begin
+      file_sinc.store!(sinc)
+    rescue StandardError => e
+      errorMessage += " [ Signature Candidate: #{e.message} ] "
+    end
+    file_cin = AllUploader.new
+    begin
+      file_cin.store!(cin)
+    rescue StandardError => e
+      errorMessage += " [ CIN ou Passeport: #{e.message} ] "
+    end
+    file_sc = AllUploader.new
+    begin
+      file_sc.store!(s_c)
+    rescue StandardError => e
+      errorMessage += " [ Attestation de sécurité sociale: #{e.message} ] "
+    end
+    filerib = AllUploader.new
+    begin
+      filerib.store!(rib)
+    rescue StandardError => e
+      errorMessage += " [ RIB: #{e.message} ] "
+    end
+
+    if errorMessage.empty?
+      @promise.update(birthday_cadre: params[:promise_to_hire][:birthday_cadre], birthplace_cadre: params[:promise_to_hire][:birthplace_cadre], ns_sociale_cadre: params[:promise_to_hire][:ns_sociale_cadre], signature_candidat: file_sinc.url, cin_pass_port: file_cin.url, security_certificate: file_sc.url, rib: filerib.url)
+    else
+      flash[:alert] = errorMessage
+      redirect_back(fallback_location: root_path)
+    end
+
   end
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -423,4 +471,16 @@ class CandidatesController < ApplicationController
       redirect_to edit_profil_path
     end
   end
+
+  def validate_nil?(date_value)
+    if date_value.nil?
+      if date_value.empty?
+        return true
+      end
+      return true
+    else
+      return false
+    end
+  end
+
 end

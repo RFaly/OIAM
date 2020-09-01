@@ -119,7 +119,7 @@
 							<%= image_tag(@promise.signature_candidat, alt: 'signature candidat', class:'photo_ako', width:'250px')%>
 						<% else %>
 							<img id="addImage" src="#" alt="signature candidat" height="150px" class="hidden">
-							<%= f.file_field :signature_candidat, required:true, class:"form-control" %>
+							<%= f.file_field :signature_candidat, required:true, class:"form-control", accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
 						<% end %>
 					</td>
 				</tr>
@@ -131,7 +131,7 @@
 						<td>CIN ou Passeport</td>
 						<td>
 							<% if @promise.cin_pass_port.nil? %>
-								<%= f.file_field :cin_pass_port, required:true, class:"form-control" %>
+								<%= f.file_field :cin_pass_port, required:true, class:"form-control", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
 							<% else %>
 								<%= link_to "TELECHARGER", @promise.cin_pass_port %>
 							<% end %>
@@ -143,7 +143,7 @@
 						<td>Attestation de sécurité sociale</td>
 						<td>
 							<% if @promise.security_certificate.nil? %>
-								<%= f.file_field :security_certificate, required:true, class:"form-control" %>
+								<%= f.file_field :security_certificate, required:true, class:"form-control", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
 							<% else %>
 								<%= link_to "TELECHARGER", @promise.security_certificate %>
 							<% end %>
@@ -155,7 +155,7 @@
 						<td>RIB</td>
 						<td>
 							<% if @promise.rib.nil? %>
-								<%= f.file_field :rib, required:true, class:"form-control" %>
+								<%= f.file_field :rib, required:true, class:"form-control", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
 							<% else %>
 								<%= link_to "TELECHARGER", @promise.rib %>
 							<% end %>
