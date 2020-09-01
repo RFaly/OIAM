@@ -91,6 +91,22 @@
   color: white;
 }
 
+.btn-success{
+  position: absolute;
+  top: 55%;
+  left: 35%;
+  font-size: 16px;
+  text-align: center;
+  background: #d6b36a;
+  padding: 15px;
+  width: 300px;
+  cursor: pointer;
+}
+
+.btn-success:hover{
+  background: #d6b36a;
+}
+
 .ui-widget-content .ui-state-active {
   border: 0px;
 }
@@ -601,6 +617,7 @@ body {
     cursor: pointer;
   }
   .main {
+    position: relative;
     border-left: 1px solid #d6b36a;
     padding-left: 15px;
   }

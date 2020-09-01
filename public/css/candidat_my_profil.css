@@ -237,7 +237,7 @@ body{
 
   .block-left{
     padding-right: 50px;
-		width: 100%;
+		width: 60%;
   }
 
   .block-left p{
@@ -247,6 +247,9 @@ body{
   .block-button{
     align-items: flex-end;
     width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		flex-flow: unset;
   }
 
   .block-left{
@@ -318,6 +321,8 @@ body{
 }
 
 	.block-image{
+		display: block;
+		margin: auto;
 		max-width: 300px;
 		max-height: 350px;
 	}
@@ -331,7 +336,7 @@ body{
   }
 
 .btn-modif{
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 
 .block-right{
