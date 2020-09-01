@@ -81,23 +81,23 @@
 </div>
 
 <script>
-$(function () { 
-    var maxL = 50;  
+$(function () {
+    var maxL = 50;
     $('.description').each(function (i, div) {
-        
+
         var text = $(div).text();
         if(text.length > maxL) {
-            
+
             var begin = text.substr(0, maxL),
                 end = text.substr(maxL);
 
             $(this).html(begin)
                 .append($('<a class="readmore"/>').attr('href', '').html('...'))
-                .append($('<div class="hidden" />').html(end));                           
+                .append($('<div class="hidden" />').html(end));
         }
-    });           
+    });
     $(document).on('click', '.readmore', function () {
         $(this).next('.hidden').slideDown(750);
-    })          
+    })
 })
 </script>
