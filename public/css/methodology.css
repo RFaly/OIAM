@@ -152,11 +152,17 @@ p{
     order: -1;
   }
 
-  .notice{
+  .notice-content{
     display: flex;
-    width: 760px;
+    grid-column-gap: 5%;
     margin: 0 auto;
   }
+  .notice{
+    display: flex;
+    width: 45%;
+    margin: 0 auto;
+  }
+
 
   .cote-candidat{
     margin-bottom: 0;

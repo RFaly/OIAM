@@ -67,22 +67,27 @@
 					<% elsif oFc.accepted_postule == false  %>
 
 						<%= link_to showSearchJob_path(oFc.offre_job.id), class:'btn btn-success' do %>
-							<center>
-								Demande d'entretien envoyer <br>
-								<span class="btn-info">Le recruteur a refusé votre candidature</span>
-							</center>
+							<div class="refused">
+								<center>
+									Demande d'entretien envoyer <br>
+									<img src="/image/unvalid.png" width="35px" height="35px" class="refused-image">
+									<span class="candidature">Le recruteur a refusé votre candidature</span>
+								</center>
+							</div>
 						<% end %>
-
 					<% else %>
 						<%= link_to showSearchJob_path(oFc.offre_job.id), class:'etapes1' do %>
+						<div class="refused">
 							<center>
 								Demande d'entretien envoyer <br>
 								<% if oFc.repons_postule==false %>
-									<span class="btn-info">Demande refuser</span>
+									<img src="/image/unvalid.png" width="35px" height="35px" class="refused-image">
+									<span class="candidature">Demande refuser</span>
 								<% else %>
-									<span class="btn-info">En attente de réponse</span>
+									<span class="candidature">En attente de réponse</span>
 								<% end %>
 							</center>
+						</div>
 						<% end %>
 
 					<% end %>

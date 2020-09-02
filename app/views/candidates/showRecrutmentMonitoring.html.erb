@@ -49,17 +49,20 @@
 		</div>
 
 	<div id="container-element">
-
 		<% if @oFc.status == "refused" %> <!-- if candidature refusé -->
+		<div class="<% if @oFc.status == "refused" %> rencontred <% end %>">
 			<h4>CANDIDAT REFUSE</h4>
 			<% unless @oFc.refused_info.nil? %>
 			<div class="rscr-result">
 			  <dl>
-			    <dt>motif</dt>
-			    <dd>"<%= @oFc.refused_info %>"</dd>
+			    <dt class="motif">Motif</dt>
+			    <img src="/image/unvalid.png" height="36px" width="36px">
+			    <dd class="motif-refused"><%= @oFc.refused_info %></dd>
 			  </dl>
 			</div>
+		</div>
 			<% end %>
+		
 		<% else %>
 			<!-- if candidate in a laste stape namely "promesse d'embauche" -->
 			<!-- if etapes -->
