@@ -24,7 +24,7 @@
 }
 
 .fc-box .title {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   text-transform: uppercase;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .fc-box h2 {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 .fc-box .co-any-job {
@@ -54,7 +54,7 @@
   text-decoration: none;
   text-transform: uppercase;
   padding: 10px 30px;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 .fc-box .co-any-job a:hover, .fc-box .co-any-job a:active {
@@ -67,14 +67,13 @@
 }
 
 .fc-box .fc-body h2 a {
-  color: black;
-  font: 550 18px Raleway, sans-serif;
-  text-decoration: none;
+  color: #d6b36a;
+  font: 500 18px Raleway, sans-serif;
   font-size: 20px;
 }
 
 .fc-box .fc-body h2 a:hover, .fc-box .fc-body h2 a:active {
-  color: #d6b36a;
+  color: #d6b46ab7;
 }
 
 .fc-box .fc-body h2 a img {
@@ -111,7 +110,7 @@
   text-decoration: none;
   text-transform: uppercase;
   padding: 10px 30px;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 .fc-box .fc-body .fc-body-empty .show-pb2-btn a:hover, .fc-box .fc-body .fc-body-empty .show-pb2-btn a:active {

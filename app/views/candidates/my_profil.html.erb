@@ -19,32 +19,34 @@
 				<p>Salaire : <span><%= @cadre.question4 %>k€</span></p>
 			</div>
 		<div class="block-right">
-			<div class="questionnaire">
-				<h2 class="questionnaire-title">Que faites-vous actuellement et que recherchez-vous comme type de poste ?</h2>
-				<p><%= @cadre.question1 %></p>
-			</div>
-			<div class="questionnaire">
-				<h2 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h2>
-				<p><%= @cadre.question2 %></p>
-			</div>
-			<div class="questionnaire">
-				<h2 class="questionnaire-title">Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?</h2>
-				<p><%= @cadre.question3 %></p>
-			</div>
-			<div class="questionnaire">
-				<h2 class="questionnaire-title">Quel est le minimum salarial en dessous duquel il n’est pas nécessaire de vous contacter ?</h2>
-				<p><%= @cadre.question4 %> k€</p>
-			</div>
-			<div class="questionnaire">
-				<h2 class="questionnaire-title">Parlez-nous de vous</h2>
-				<p><%= @cadre.question5 %></p>
+			<div class="block-right-content">
+				<div class="questionnaire">
+					<h2 class="questionnaire-title">Que faites-vous actuellement et que recherchez-vous comme type de poste ?</h2>
+					<p><%= @cadre.question1 %></p>
+				</div>
+				<div class="questionnaire">
+					<h2 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h2>
+					<p><%= @cadre.question2 %></p>
+				</div>
+				<div class="questionnaire">
+					<h2 class="questionnaire-title">Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?</h2>
+					<p><%= @cadre.question3 %></p>
+				</div>
+				<div class="questionnaire">
+					<h2 class="questionnaire-title">Quel est le minimum salarial en dessous duquel il n’est pas nécessaire de vous contacter ?</h2>
+					<p><%= @cadre.question4 %> k€</p>
+				</div>
+				<div class="questionnaire">
+					<h2 class="questionnaire-title">Parlez-nous de vous</h2>
+					<p><%= @cadre.question5 %></p>
+				</div>
 			</div>
 			<div class="block-button" id="js-body-element">
 				<%= link_to "MODIFIER", edit_profil_path, class:"btn-edit btn-modif" %>
 				<% if @cadre.is_validate %>
 					<div class="offre-perso">
 						<%= link_to "VOIR NOTRE SELECTION PERSONNALISÉE", jobsPersonalized_path ,class:"btn-edit btn-dispo"%>
-						<%= link_to "VOIR LES OPPORTUNITÉS DISPONIBLES", searchJob_path ,class:"btn-edit btn-dispo btn-orange"%>
+						<%= link_to "VOIR LES OPPORTUNITÉS DISPONIBLES", searchJob_path ,class:"btn-edit btn-dispo"%>
 					</div>
 				<% else %>
 					<%= link_to "VALIDER", validate_profil_path(id:current_cadre.id), method: :post, remote: true, id:'send-validation', class:'btn-edit' %>

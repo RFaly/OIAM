@@ -29,9 +29,7 @@
 
       <div class="dropup1">
         <% if client_signed_in? %>
-        <div class="dropup-btn1" data-toggle="dropdown">
-          Mon profil
-        </div>
+        <div class="dropup-btn1" data-toggle="dropdown">Mon profil</div>
         <div class="dropup-content1">
           <a href="<%= client_my_profil_path %>">
             <div class="dropup-item1">Mon profil</div>
@@ -41,9 +39,7 @@
           <% end %>
         </div>
         <% elsif cadre_signed_in? %>
-        <div class="dropup-btn1" data-toggle="dropdown">
-          Mon profil
-        </div>
+        <div class="dropup-btn1" data-toggle="dropdown">Mon profil</div>
         <div class="dropup-content1">
           <a href="<%= my_profil_path %>">
             <div class="dropup-item1">Mon profil</div>
@@ -54,14 +50,10 @@
         </div>
         <% elsif !cookies.encrypted[:oiam_cadre].nil? %>
         <a href="<%= my_tests_path %>">
-          <div class="dropup-btn1">
-            Mon profil
-          </div>
+          <div class="dropup-btn1">Mon profil</div>
         </a>
         <% else %>
-        <div class="dropup-btn1" data-toggle="dropdown">
-          Se connecter
-        </div>
+        <div class="dropup-btn1" data-toggle="dropdown">Se connecter</div>
         <div class="dropup-content1">
           <a href="<%= new_cadre_session_path %>">
             <div class="dropup-item1">cadre</div>
@@ -78,6 +70,7 @@
     <img src="/image/OIAM_Logo.png" alt="logo général" />
   </div>
 </div>
+<div id="elementtoScroll"></div>
 <!-- //*********************************// -->
 <!-- javascript navbar  -->
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/navbar.js"></script>

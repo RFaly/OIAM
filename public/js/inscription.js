@@ -94,6 +94,12 @@ $(document).ready(function () {
       $('.ir-c1').addClass('color-bg');
       $('.dr-1').hide();
       $('.dr-2').fadeIn(800);
+      $('html, body').animate(
+        {
+          scrollTop: $('#elementtoScrollToID').offset().top,
+        },
+        500
+      );
     } else {
       $('#submit-error').html('(Veuillez corriger les erreurs dans le remplissage des champs.)');
       $('#submit-error').show();
@@ -109,6 +115,12 @@ $(document).ready(function () {
       $('.ir-c2').addClass('color-bg');
       $('.dr-2').hide();
       $('.dr-3').fadeIn(800);
+      $('html, body').animate(
+        {
+          scrollTop: $('#elementtoScrollToID').offset().top,
+        },
+        500
+      );
     } else {
       $('#submit-error2').html('(Veuillez corriger les erreurs dans le remplissage des champs.)');
       $('#submit-error2').show();
@@ -123,6 +135,12 @@ $(document).ready(function () {
       $('.ir-c3').addClass('color-bg');
       $('.dr-3').hide();
       $('.details-r-condition').fadeIn(800);
+      $('html, body').animate(
+        {
+          scrollTop: $('#elementtoScrollToID').offset().top,
+        },
+        500
+      );
     } else {
       $('#submit-error3').html('(Veuillez corriger les erreurs dans le remplissage des champs.)');
       $('#submit-error3').show();

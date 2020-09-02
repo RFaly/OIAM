@@ -567,6 +567,11 @@
       font: $ffbtn;
       padding: 20px;
     }
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+      color: $main_theme_color;
+    }
     .ssc-send-btn {
       cursor: pointer;
       border: 2px solid white;

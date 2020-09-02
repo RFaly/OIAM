@@ -7,7 +7,7 @@
         Vous retrouverez la proposition signée dans votre profil. Nous sommes certains que votre collaboration sera couronnée de succès, mais dans tous les cas, une période de garantie de 12 semaines prend effet à compter de son démarrage. Vous pouvez désormais régler la prestation One in a Million et
         commencer un nouveau recrutement !
       </p>
-      <p class="btn btn-primary">PROCÉDER AU RÈGLEMENT</p>
+      <p><%= link_to "PROCÉDER AU RÈGLEMENT", paye_my_bills_path(@promise.facture.id), class:"btn btn-primary" %></p>
     </center>
   <% end %>
   <table>

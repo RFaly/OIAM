@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col-sm-3">
+		<%= render partial: "recruteurs/left_link_bar" %>
+	</div>
+
+	<div class="col-sm-9">
+		
+		<center>
+			<h2>Factures à payer</h2>
+		</center>
+
+		<div>
+			<strong>RIB</strong> <br>
+			<div style="border: 2px solid red;">
+				<br><br><br><br><br><br>
+			</div>
+			<span class="btn btn-primary">TÉLÉCHARGER</span>
+		</div>
+
+		<table>
+			<tr>
+				<td><%= @facture.promise_to_hire.offre_job.intitule_pote.upcase! %></td>
+				<td><span class="btn btn-primary">TÉLÉCHARGER</span></td>
+			</tr>
+		</table>
+
+		<center>
+			<input type="checkbox" id="check1" name="value">
+			<label for="check1">J'atteste régler cette facture par virement dans les 15jours.</label>
+
+			<br>
+		
+			<input type="submit" name="cont" value="VALIDER">
+		</center>
+			
+
+	</div>
+</div>
+

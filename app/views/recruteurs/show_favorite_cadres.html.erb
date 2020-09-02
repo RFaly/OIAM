@@ -2,9 +2,7 @@
 <link rel="stylesheet" href="/css/fc_post.css" />
 <!-- body html  -->
 <div class="client-column">
-  <div class="client-menu-left">
-    <%= render "recruteurs/left_link_bar" %>
-  </div>
+  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
   <div class="cp-box">
     <div class="fcp-box">
       <h3 class="title"><%= @offre.intitule_pote %></h3>
@@ -12,22 +10,16 @@
       <div class="fc-item">
         <% if @oFcs.count == 0 %>
         <div class="fc-item-empty">
-          <p>Aucun candidat selectionner pour cette offre:</p>
-          <div class="fc-item-btn">
-            <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id) %>
-          </div>
-          <div class="fc-item-btn">
-            <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %>
-          </div>
+          <p>Vous n'avez pas encore sélectionné de candidats pour cette offre.</p>
+          <div class="fc-item-btn"><%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id) %></div>
+          <div class="fc-item-btn"><%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %></div>
         </div>
         <% else %>
 
         <div class="fc-item-all">
           <% @oFcs.each do |ofc| %> <%= link_to show_search_candidate_path(ofc.cadre.id, offre_id: @offre.id), method: :get do %>
           <div class="list-candidat">
-            <div class="fci-image">
-              <%= image_tag(ofc.cadre.cadre_info.image, alt: 'photo profil cadre')%>
-            </div>
+            <div class="fci-image"><%= image_tag(ofc.cadre.cadre_info.image, alt: 'photo profil cadre')%></div>
             <div class="fci-icon">
               <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
             </div>

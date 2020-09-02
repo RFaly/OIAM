@@ -4,6 +4,8 @@ class Client < ApplicationRecord
 	has_one :entreprise
 	has_many :offre_jobs
 
+  has_many :factures
+
 	has_many :contact_client_cadres
   has_many :cadres, through: :contact_client_cadres
 

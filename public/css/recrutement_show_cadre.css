@@ -18,7 +18,7 @@
 }
 
 .ui-datepicker {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   background-color: #e3d7bf;
 }
 
@@ -165,7 +165,7 @@
 .rsc-box .rsc-header .rsc-header-travel .rsch-item .content {
   margin-top: 5px;
   align-self: center;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   font-size: 16px;
 }
 
@@ -199,7 +199,7 @@
 
 .rsc-box .rsc-body .rsc-body-empty .link a {
   color: #d6b36a;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -244,7 +244,7 @@
 
 .rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item1 .new-date .link {
   cursor: pointer;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   border: 2px solid white;
   padding: 10px 0;
   margin: 10px auto;
@@ -267,7 +267,7 @@
 }
 
 .rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item1 .new-date .link2 {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   border: 2px solid white;
   padding: 10px 0;
   margin: 10px auto;
@@ -333,7 +333,7 @@
 }
 
 .rsc-box .rsc-body .rsc-date-past .rscdp-empty a {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   color: #d6b36a;
 }
 
@@ -374,14 +374,14 @@
   color: #d6b36a;
   text-transform: uppercase;
   text-decoration: none;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link .dscdp-link-item span {
   cursor: pointer;
   text-transform: uppercase;
   text-decoration: none;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   color: #d6b36a;
 }
 
@@ -433,7 +433,7 @@
   color: white;
   text-transform: uppercase;
   text-decoration: none;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 .rsc-box .rsc-body .rsc-date-past .dscdp-refus .dscdpr-flex a:hover, .rsc-box .rsc-body .rsc-date-past .dscdp-refus .dscdpr-flex a:active {
@@ -450,7 +450,7 @@
   color: white;
   text-transform: uppercase;
   text-decoration: none;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 .rsc-box .rsc-body .rsc-date-past .dscdp-refus .dscdpr-flex div:hover, .rsc-box .rsc-body .rsc-date-past .dscdp-refus .dscdpr-flex div:active {
@@ -485,7 +485,7 @@
 .rsc-box .rsc-body .rsc-date-past .dscdp-accepted .dscdp-link .dscdp-link-item {
   cursor: pointer;
   text-transform: uppercase;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   color: #d6b36a;
   margin: 20px auto;
   border: 2px solid #d6b36a;
@@ -496,7 +496,7 @@
   color: #d6b36a;
   text-transform: uppercase;
   text-decoration: none;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 .rsc-box .rsc-body .rsc-date-past .dscdp-accepted .dscdp-link .dscdp-link-item:hover, .rsc-box .rsc-body .rsc-date-past .dscdp-accepted .dscdp-link .dscdp-link-item:active {
@@ -560,7 +560,7 @@
   border-radius: 0;
   border: 2px solid #d6b36a;
   color: #d6b36a;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   width: 100%;
   padding: 10px;
 }
@@ -605,7 +605,7 @@
   padding-bottom: 15px;
   background: #e3d7bf;
   color: white;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 .ssc-planification .js-timeContainer h4 {
@@ -668,7 +668,7 @@
 }
 
 .ssc-planification .planQ-btn input {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   background: transparent;
   border: 2px solid white;
   border-radius: 0;
@@ -701,15 +701,21 @@
   width: 90%;
   margin: 30px auto;
   color: #e3d7bf;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   padding: 20px;
+}
+
+.ssc-planification .ssc-send a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #d6b36a;
 }
 
 .ssc-planification .ssc-send .ssc-send-btn {
   cursor: pointer;
   border: 2px solid white;
   padding: 10px 30px;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   width: 150px;
   margin-top: 30px;
   margin-left: auto;
@@ -745,7 +751,7 @@
   padding-bottom: 15px;
   background: #e3d7bf;
   color: white;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 .ssc-planification1 .js-timeContainer h4 {
@@ -808,7 +814,7 @@
 }
 
 .ssc-planification1 .planQ-btn input {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   background: transparent;
   border: 2px solid white;
   border-radius: 0;
@@ -841,7 +847,7 @@
   width: 90%;
   margin: 30px auto;
   color: #e3d7bf;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   padding: 20px;
 }
 
@@ -849,7 +855,7 @@
   cursor: pointer;
   border: 2px solid white;
   padding: 10px 30px;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   width: 150px;
   margin-top: 30px;
   margin-left: auto;

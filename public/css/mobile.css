@@ -26,7 +26,7 @@
   display: flex;
   align-items: center;
   color: white;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   font-size: 15px;
 }
 
@@ -155,7 +155,7 @@
     width: 90%;
   }
   .accueil-recruteur .title-ar {
-    font: 550 18px Raleway, sans-serif;
+    font: 500 18px Raleway, sans-serif;
   }
   .accueil-recruteur .ar-item p {
     text-align: justify;
@@ -175,7 +175,7 @@
   }
   .travel-parcours ol {
     width: 400px;
-    font: 550 18px Raleway, sans-serif;
+    font: 500 18px Raleway, sans-serif;
     font-size: 12px;
   }
   .phone-number-add .before-number {
@@ -401,6 +401,9 @@
   .ssc-box .ssc-rest .ssc-oiam {
     width: 85%;
   }
+  .fc-item-all .list-candidat {
+    margin: 30px 0;
+  }
   .fc-item-all .list-candidat .fci-infos {
     height: 170px;
   }
@@ -425,6 +428,9 @@
   .rlc-box .rlc-empty {
     width: 90%;
     margin: 0 auto;
+  }
+  .rlc-box .rlc-items {
+    margin-bottom: 50px;
   }
   .rsc-box .rsc-header-travel .line {
     width: 69.1%;
@@ -933,7 +939,7 @@
     align-items: flex-end;
   }
   .accueil-recruteur .title-ar {
-    font: 550 18px Raleway, sans-serif;
+    font: 500 18px Raleway, sans-serif;
     font-size: 16px;
   }
   .accueil-recruteur .ar-vertical-line {
@@ -1247,7 +1253,7 @@
     margin: 0 2em;
   }
   .accueilg-btn1 .recruteur-btn1 a {
-    padding: 12px 50px;
+    padding: 12px 44px;
   }
   .accueilg-content1 {
     margin-top: 220px;
@@ -1357,6 +1363,9 @@
   .ssc-box .ssc-rest .ssc-oiam {
     width: 68%;
   }
+  .fc-item-all .list-candidat {
+    margin: 30px 50px;
+  }
   .rf-box .rf-items-flex {
     margin-left: 60px;
   }
@@ -1370,6 +1379,10 @@
   .rlc-box .rlc-empty {
     width: 50%;
     margin-top: 90px;
+  }
+  .rlc-box .rlc-items {
+    margin: 0 50px;
+    margin-bottom: 70px;
   }
   .rsc-box .rsc-body .rsc-body-empty {
     width: 50%;
@@ -1423,11 +1436,15 @@
     width: 380px;
   }
   .ssc-box .ssc-rest .ssc-oiam {
-    width: 80%;
+    width: 68%;
   }
   .rlc-box .rlc-empty {
     width: 40%;
     margin-top: 100px;
+  }
+  .rlc-box .rlc-items {
+    margin: 0 80px;
+    margin-bottom: 80px;
   }
   .rsc-box .rsc-body .rsc-body-empty {
     width: 50%;

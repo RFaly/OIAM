@@ -34,6 +34,11 @@ Rails.application.routes.draw do
   get '/recruteur/mon-suivi-recrutement/liste-cadres/:oFc_id/cadre', to: 'recruteurs#recruitment_show_cadre', as: 'recruitment_show_cadre'
 
   get '/recruteur/mes-factures', to: 'recruteurs#my_bills', as: 'my_bills'
+  get '/recruteur/mes-factures/:id/paye', to: 'recruteurs#paye_my_bills', as: 'paye_my_bills'
+  get '/recruteur/mes-factures/:id', to: 'recruteurs#show_my_bills', as: 'show_my_bills'
+
+
+
   get '/recruteur/mes-notifications', to: 'recruteurs#notifications', as: 'client_notifications'
 
   get '/recruteur/nouvelle-offre', to: 'recruteurs#newJob', as: 'newJob'

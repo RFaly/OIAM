@@ -331,8 +331,20 @@ class RecruteursController < ApplicationController
 		end
 	end
 
+
+# Une fois terminé, réglez les horaires de 15% de la rémunération annuelle brute de votre candidat retenu.
+
 #Mes factures
 	def my_bills
+		@factures = Facture.all
+	end
+
+	def show_my_bills
+		@facture = Facture.find_by_id(params[:id])
+	end
+
+	def paye_my_bills
+		@facture = Facture.find_by_id(params[:id])
 	end
 
 #Mes notifications
@@ -385,7 +397,7 @@ class RecruteursController < ApplicationController
     	@promise.remuneration_var_info = remuneration_info
       @promise.signature_entreprise = uploader.url
       @promise.save
-      flash[:notice] = "Promesse d'embauche bien sauvegarder"
+      flash[:notice] = "Promesse d'embauche envoyer."
 
       #mettre à jour l'etap au dernière étape
 			oFc = @job.my_top_five_candidates.find_by(cadre:@cadre)

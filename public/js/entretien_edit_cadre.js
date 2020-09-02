@@ -102,7 +102,7 @@ $('.send-data-form').bind('ajax:beforeSend', function () {
 
 $('.send-data-form').bind('ajax:complete', function () {
   let items_id = $(this).data().items;
-  $('#agenda-' + items_id + '-yes').replaceWith("<div class='btn btn-primary'>VOTRE RÉPONSE EST ENVOYER AVEC SUCCESS</div>");
+  $('#agenda-' + items_id + '-yes').replaceWith("<div class='btn btn-primary'>VOTRE RÉPONSE EST ENVOYER AVEC SUCCÈS</div>");
 });
 
 $('.js-repons-send-post').bind('ajax:beforeSend', function () {
@@ -112,7 +112,7 @@ $('.js-repons-send-post').bind('ajax:beforeSend', function () {
 
 $('.js-repons-send-post').bind('ajax:complete', function () {
   let items_id = $(this).data().items;
-  $('#agenda-' + items_id + '-yes').replaceWith("<div class='btn btn-primary'>VOTRE RÉPONSE EST ENVOYER AVEC SUCCESS</div>");
+  $('#agenda-' + items_id + '-yes').replaceWith("<div class='btn btn-primary'>VOTRE RÉPONSE EST ENVOYER AVEC SUCCÈS</div>");
 });
 
 $('.alternatives').hide();

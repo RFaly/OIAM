@@ -20,6 +20,15 @@ $(document).ready(function () {
   if (path == 'welcome' || path == 'equipe' || path == 'potential-test' || path == 'skills-test' || path == 'fit-test') {
     $('.navbar-controll').removeClass('bg-inside');
   }
+  // scroll all
+  if (!(path == 'welcome' || path == 'equipe' || path == ' ' || path == 'méthodologie')) {
+    $('html, body').animate(
+      {
+        scrollTop: $('#elementtoScroll').offset().top,
+      },
+      800
+    );
+  }
 
   // check menu navbar
   $('nav a[href="/' + path + '"]').addClass('act');
