@@ -51,7 +51,12 @@
 		</table>
 
 		<center>
-			<div>Précalcul honoraires OIAM<br>11550€</div>
+			<div>
+				<center>Précalcul honoraires OIAM<br>
+					<%= (@promise.offre_job.remuneration * 1000 * 15)/100 %> €
+				</center><!-- price -->
+			</div>
+
 			<div>
 				Avantages ou autre précision sur la rénumération:<br>
 				<%= @promise.remuneration_avantage %>
