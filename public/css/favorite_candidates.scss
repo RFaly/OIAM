@@ -43,13 +43,12 @@
       text-align: left;
 
       a {
-        color: black;
+        color: $main_theme_color;
         font: $ffbtn;
-        text-decoration: none;
         font-size: 20px;
         &:hover,
         &:active {
-          color: $main_theme_color;
+          color: #d6b46ab7;
         }
         img {
           width: 30px;

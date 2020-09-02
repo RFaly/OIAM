@@ -705,6 +705,12 @@
   padding: 20px;
 }
 
+.ssc-planification .ssc-send a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #d6b36a;
+}
+
 .ssc-planification .ssc-send .ssc-send-btn {
   cursor: pointer;
   border: 2px solid white;

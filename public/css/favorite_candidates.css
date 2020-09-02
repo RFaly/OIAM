@@ -67,14 +67,13 @@
 }
 
 .fc-box .fc-body h2 a {
-  color: black;
+  color: #d6b36a;
   font: 500 18px Raleway, sans-serif;
-  text-decoration: none;
   font-size: 20px;
 }
 
 .fc-box .fc-body h2 a:hover, .fc-box .fc-body h2 a:active {
-  color: #d6b36a;
+  color: #d6b46ab7;
 }
 
 .fc-box .fc-body h2 a img {
