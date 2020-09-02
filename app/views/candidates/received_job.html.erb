@@ -10,7 +10,7 @@
 			<h1 class="favorite-offre-title">DEMANDES D'ENTRETIEN</h1>
 
 			<% if @agendaClients.empty? %>
-				<p>Aucun demande d'entretien reçu ... </p>
+				<p>Vous n'avez pas encore reçu de demandes d'entretien ... </p>
 			<% else %>
 				<div id="list-resultats" class="post-info">
 				<% @agendaClients.each do |aClient| %>
