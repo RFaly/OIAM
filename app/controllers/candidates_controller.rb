@@ -196,11 +196,16 @@ class CandidatesController < ApplicationController
   def post_repons_received_job
     @offreJob = OffreJob.find_by_id(params[:offre_id])
     @agendaClient = AgendaClient.find_by_id(params[:agenda_id])
+    @oFc = OffreForCandidate.find_by(offre_job: @offreJob, cadre: current_cadre)
     case params[:reponse]
     when "0"
       @agendaClient.update(alternative:params[:alternative],repons_cadre: false)
+      flash[:notice] = "Votre réponse est envoyé avec succes."
+      redirect_to show_recrutment_monitoring_path(@oFc.id)
     when "1"
       @agendaClient.update(repons_cadre:true)
+      flash[:notice] = "Votre réponse est envoyé avec succes."
+      redirect_to show_recrutment_monitoring_path(@oFc.id)
     when "2"
       date = params[:date].split("-")
       time = params[:time].split(":")
@@ -211,6 +216,8 @@ class CandidatesController < ApplicationController
       min = time[1].to_i
       date_time = DateTime.new(year,month,day,hour,min).utc
       @agendaClient.update(alternative: date_time.to_s, repons_cadre:true)
+      flash[:notice] = "Votre réponse est envoyé avec succes."
+      redirect_to show_recrutment_monitoring_path(@oFc.id)
     else
       flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
       redirect_to root_path
