@@ -31,7 +31,7 @@
 }
 
 .cp-edit-table-box h5 {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   font-size: 20px;
 }
 
@@ -68,7 +68,7 @@
 
 .cp-edit-table-box .cp-icone {
   width: 18px;
-  height: 22px;
+  height: 17px;
 }
 
 .cp-edit-table-box .cp-flex {
@@ -120,7 +120,7 @@
   border: 2px solid #d6b36a;
   padding: 10px 0;
   text-align: center;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   font-size: 16px;
 }
 
@@ -143,7 +143,7 @@
 }
 
 .cp-edit-table-box .table-td .cp-infos-r .cpr-name {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   margin-bottom: 20px;
 }
 
@@ -198,7 +198,7 @@
   color: #d6b36a;
   border: 2px solid #d6b36a;
   padding: 12px 30px;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 .cp-edit-table-box .cp-link input:hover, .cp-edit-table-box .cp-link input:active {
@@ -212,7 +212,7 @@
 
 .cp-edit-table-box .input-error {
   color: #ff0000;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   font-size: 14px;
 }
 

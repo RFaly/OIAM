@@ -9,36 +9,24 @@
   <% etape = 0 %> <% @offre.numberEntretien.times do |i| %> <% etape += 1 %> <% if i == 0 %>
   <div class="rsch-item">
     <div class="cl">
-      <div class="circle <% if @oFc.etapes >= etape %>color<% end %>">
-        <%= etape %>
-      </div>
+      <div class="circle <% if @oFc.etapes >= etape %>color<% end %>"><%= etape %></div>
       <div class="line <% if @oFc.etapes >= etape + 1 %>color<% end %>"></div>
     </div>
-    <div class="content">
-      1er entretien
-    </div>
+    <div class="content">1er entretien</div>
   </div>
   <% else %>
   <div class="rsch-item">
     <div class="cl">
-      <div class="circle <% if @oFc.etapes >= etape %>color<% end %>">
-        <%= etape %>
-      </div>
+      <div class="circle <% if @oFc.etapes >= etape %>color<% end %>"><%= etape %></div>
       <div class="line <% if @oFc.etapes >= etape + 1 %>color<% end %>"></div>
     </div>
-    <div class="content">
-      <%= i+1 %>er entretien
-    </div>
+    <div class="content"><%= i+1 %>ème entretien</div>
   </div>
   <% end %> <% end %>
   <div class="rsch-item">
     <div class="cl">
-      <div class="circle circle-last <% if @oFc.etapes >= etape + 1 %>color<% end %>">
-        <%= etape + 1 %>
-      </div>
+      <div class="circle circle-last <% if @oFc.etapes >= etape + 1 %>color<% end %>"><%= etape + 1 %></div>
     </div>
-    <div class="content content-last">
-      Promesse d'embauche
-    </div>
+    <div class="content content-last">Promesse d'embauche</div>
   </div>
 </div>

@@ -40,7 +40,7 @@
   text-decoration: none;
   display: inline-block;
   margin-bottom: 20px;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   border-radius: 0;
   padding: 10px 30px;
   border: 2px solid #d6b36a;
@@ -63,7 +63,6 @@
 }
 
 .rlc-box .rlc-content .rlc-items {
-  margin-bottom: 50px;
   border: 2px solid #d6b36a;
   background: white;
   text-align: center;
@@ -75,7 +74,7 @@
 }
 
 .rlc-box .rlc-content .rlc-items h5 {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   margin: 10px 0;
 }
 

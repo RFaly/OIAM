@@ -33,7 +33,7 @@
 .details-r .details-btn {
   width: 150px;
   margin: 30px auto;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   cursor: pointer;
   text-align: center;
   border: 2px solid #d6b36a;
@@ -104,7 +104,7 @@
 }
 
 .details-r-condition .condition-content .dc-1 h4 {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   margin: 10px 0;
 }
 
@@ -124,7 +124,7 @@
 
 .dr-btn .dr-btn-btn {
   cursor: pointer;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   text-transform: uppercase;
   text-decoration: none;
   padding: 10px 30px;
@@ -183,13 +183,13 @@
 
 .input-error {
   color: #ff0000;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   font-size: 13px;
 }
 
 .password-r,
 .cpass-r {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 #recruteur-phone {

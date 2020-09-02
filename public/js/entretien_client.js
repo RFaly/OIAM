@@ -70,7 +70,7 @@ $('.js-hoursTime').click(function () {
 
   utcDate = moment.utc(dateTime);
   $('#input-time').val(utcDate.hours() + ':' + utcDate.minutes());
-  $('#datepicker').val(utcDate.format('YYYY-MM-DD'))
+  $('#datepicker').val(utcDate.format('YYYY-MM-DD'));
 
   $('#timeShowOk').html($(this).data().time);
   $('#valid-submit').prop('disabled', false);
@@ -90,7 +90,7 @@ $('#js-adresse_name_input').on('input', function () {
 $('#send-data-form').bind('ajax:complete', function () {
   $('#send-data-form-ok-success').show(800);
   $('.ssc-planification').height(535);
-  $('#dateEntretien').replaceWith("<div class='ssc-btn ssc-pe ssc-invite'>INVITATION D'ENTRETIEN ENVOYÉ</div>");
+  $('#dateEntretien').replaceWith("<div class='ssc-btn ssc-pe ssc-invite'>INVITATION D'ENTRETIEN ENVOYÉE</div>");
 });
 
 $('#js-valid-first').click(function () {

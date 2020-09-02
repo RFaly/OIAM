@@ -21,7 +21,7 @@
 .footer-oiam .footer-btn {
   display: flex;
   justify-content: flex-end;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   font-size: 14px;
   text-transform: uppercase;
   margin-bottom: 5px;
@@ -41,7 +41,7 @@
 
 .footer-oiam .footer-bottom .footer-c,
 .footer-oiam .footer-bottom .copyright {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   font-size: 12px;
 }
 
