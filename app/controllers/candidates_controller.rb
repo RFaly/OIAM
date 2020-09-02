@@ -427,7 +427,10 @@ class CandidatesController < ApplicationController
 
     if errorMessage.empty?
       @promise.update(birthday_cadre: params[:promise_to_hire][:birthday_cadre], birthplace_cadre: params[:promise_to_hire][:birthplace_cadre], ns_sociale_cadre: params[:promise_to_hire][:ns_sociale_cadre], signature_candidat: file_sinc.url, cin_pass_port: file_cin.url, security_certificate: file_sc.url, rib: filerib.url, repons_cadre:true)
-      @promise.offre_job.next_stape
+      @offreJob = @promise.offre_job
+      @offreJob.next_stape
+      Facture.create(prix:(@offreJob.remuneration * 1000 * 15)/100,promise_to_hire:@promise,client:@promise.offre_job.client)
+      #créé un cacture rib:"/image/OIAM_DIAMOND.png",
       redirect_to congratulations_cadre_path(@promise.id)
     else
       flash[:alert] = errorMessage

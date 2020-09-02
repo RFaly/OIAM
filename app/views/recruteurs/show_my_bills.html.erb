@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="col-sm-3">
+		<%= render partial: "recruteurs/left_link_bar" %>
+	</div>
+
+	<div class="col-sm-9">
+		<center>
+			<h2>Factures</h2>
+		</center>
+		<h2><%= @facture.promise_to_hire.offre_job.intitule_pote.upcase! %></h2>
+	</div>
+</div>
+

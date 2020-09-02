@@ -4,6 +4,33 @@
 	</div>
 
 	<div class="col-sm-9">
-		<h5>Factures</h5>
+		<center>
+			<h2>Factures</h2>
+		</center>
+
+		<% unless @factures.empty? %>
+			<table class="table">
+				<% @factures.each do |facture| %>
+				<tr>
+					<td>
+						<%= facture.promise_to_hire.offre_job.intitule_pote.upcase! %>
+					</td>
+					<% if facture.is_payed %>
+						<td>
+							<%= link_to "VOIR LES DÉTAILS", show_my_bills_path(facture.id), class:"btn btn-primary"%>
+						</td>
+					<% else %>
+						<td>
+							<%= link_to "RÉGLER EN LIGNE", paye_my_bills_path(facture.id), class:"btn btn-primary"%>
+						</td>
+					<% end %>
+				</tr>
+				<% end %>
+			</table>
+
+		<% else %>
+			AUCUNE FACTURE
+		<% end %>
 	</div>
 </div>
+

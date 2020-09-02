@@ -37,7 +37,7 @@
 			<td>Rémunération fixe <br>(k€ bruts mensuels)</td>
 			<td>
 				<div>
-	<% payFix =  @promise.remuneration_fixe ? @promise.remuneration_fixe : @job.remuneration %>
+					<% payFix =  @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %>
 					<%= f.number_field :remuneration_fixe, required:true, class:"form-control", value: payFix, required:true %>
 				</div>
 				<div>
@@ -77,7 +77,8 @@
 
 	<div class="form-group">
 		<center>Précalcul honoraires OIAM<br>
-		11550€</center> <!-- price -->
+			<%= (@job.remuneration * 1000 * 15)/100 %> €
+		</center><!-- price -->
 	</div>
 
 	<div class="form-group">
