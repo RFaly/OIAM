@@ -209,6 +209,12 @@ $('#co-dp-btn').click(function () {
     $('.ir-c1').addClass('color-bg');
     $('.detail-post-box').hide();
     $('.context-offre-box').fadeIn(800);
+    $('html, body').animate(
+      {
+        scrollTop: $('#elementtoScrollToID').offset().top,
+      },
+      500
+    );
   } else {
     $('#co-dp-btn-error').html('(Veuillez corriger les erreurs dans le remplissage des champs.)');
     $('#co-dp-btn-error').show();

@@ -18,7 +18,7 @@
 }
 
 .ui-datepicker {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   background-color: #e3d7bf;
 }
 
@@ -107,7 +107,7 @@
 
 .ssc-box .ssc-btn a {
   padding: 10px 43px;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   color: #d6b36a;
   text-transform: uppercase;
   text-decoration: none;
@@ -173,7 +173,7 @@
 }
 
 .ssc-box .ssc-all-infos .ssc-question .questionnaire-title {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   font-size: 20px;
 }
 
@@ -198,7 +198,7 @@
   cursor: pointer;
   margin-top: 20px;
   padding: 12px 0;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   color: #d6b36a;
 }
 
@@ -218,7 +218,7 @@
 }
 
 .ssc-box .ssc-rest .ssc-oiam h5 {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   font-size: 20px;
 }
 
@@ -248,7 +248,7 @@
   padding-bottom: 15px;
   background: #e3d7bf;
   color: white;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 .ssc-box .ssc-planification .js-timeContainer h4 {
@@ -311,7 +311,7 @@
 }
 
 .ssc-box .ssc-planification .planQ-btn input {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   background: transparent;
   border: 2px solid white;
   border-radius: 0;
@@ -344,15 +344,21 @@
   width: 90%;
   margin: 30px auto;
   color: #e3d7bf;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   padding: 20px;
+}
+
+.ssc-box .ssc-planification .ssc-send a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
 }
 
 .ssc-box .ssc-planification .ssc-send .ssc-send-btn {
   cursor: pointer;
   border: 2px solid white;
   padding: 10px 30px;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   width: 150px;
   margin-top: 30px;
   margin-left: auto;

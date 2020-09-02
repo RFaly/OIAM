@@ -471,6 +471,7 @@
   // show candidat favorit
   .fc-item-all {
     .list-candidat {
+      margin: 30px 0;
       .fci-infos {
         height: 170px;
       }
@@ -506,6 +507,9 @@
     .rlc-empty {
       width: 90%;
       margin: 0 auto;
+    }
+    .rlc-items {
+      margin-bottom: 50px;
     }
   }
   // recrutement show cadre
@@ -1556,7 +1560,7 @@
     .recruteur-btn1 {
       margin: 0 2em;
       a {
-        padding: 12px 50px;
+        padding: 12px 44px;
       }
     }
   }
@@ -1719,6 +1723,12 @@
       }
     }
   }
+  // show candidat favorit
+  .fc-item-all {
+    .list-candidat {
+      margin: 30px 50px;
+    }
+  }
   // suivi de recrutement index
   .rf-box {
     .rf-items-flex {
@@ -1739,6 +1749,10 @@
     .rlc-empty {
       width: 50%;
       margin-top: 90px;
+    }
+    .rlc-items {
+      margin: 0 50px;
+      margin-bottom: 70px;
     }
   }
   // recrutement show cadre
@@ -1827,7 +1841,7 @@
         width: 380px;
       }
       .ssc-oiam {
-        width: 80%;
+        width: 68%;
       }
     }
   }
@@ -1836,6 +1850,10 @@
     .rlc-empty {
       width: 40%;
       margin-top: 100px;
+    }
+    .rlc-items {
+      margin: 0 80px;
+      margin-bottom: 80px;
     }
   }
   // recrutement show cadre

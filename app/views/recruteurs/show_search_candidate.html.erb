@@ -16,8 +16,8 @@
             <div class="score">
               <p class="name"><%= @cadre.last_name %> <%= @cadre.first_name[0].upcase %>.</p>
               <p>
-                Score de test : <span>1005</span><br />
-                Compatibilité : <span>90%</span>
+                Score de test : <span>1700</span><br />
+                Compatibilité : <span>60%</span>
               </p>
             </div>
 
@@ -61,11 +61,11 @@
 
           <!-- misy condition mbôla tokony aiditra -->
 
-          <% unless @offre.my_top_five_candidates.where(cadre:@cadre.cadre.id).empty? %> <% if @offre.in_list_entretien(@cadre.cadre).nil? %>
+          <% if @offre.in_list_entretien(@cadre.cadre).nil? %>
           <div class="ssc-btn ssc-pe" id="dateEntretien">PLANIFIER UN ENTRETIEN</div>
           <% else %>
           <div class="ssc-btn ssc-pe" id="ssc-btn2"><%= link_to "SUIVI RECRUTEMENT", recruitment_show_cadre_path(@offre.is_in_this_job(@cadre.cadre))%></div>
-          <% end %> <% end %>
+          <% end %>
         </div>
         <div class="ssc-oiam">
           <h5>L'avis de One in a million</h5>
@@ -163,7 +163,9 @@
               <br />
               <span id="nameShowOk"> <%= current_client.fonction %> : <%= current_client.first_name %> <%= current_client.last_name %> </span>
             </div>
+            <%= link_to recruitment_show_cadre_path(@offre.is_in_this_job(@cadre.cadre)) do%>
             <div class="ssc-send-btn">VALIDER</div>
+            <% end %>
           </div>
         </div>
       </div>

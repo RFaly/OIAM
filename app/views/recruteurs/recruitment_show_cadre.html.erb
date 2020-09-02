@@ -19,7 +19,7 @@
         <!-- if aucun entretien -->
         <% if @agendas.nil? %>
         <div class="rsc-body-empty">
-          <p>Vous n'avez pas encore planifié aucun entretien avec ce candidat.</p>
+          <p>Vous n'avez pas encore planifié d'entretien avec ce candidat.</p>
           <div class="link"><%= link_to "PLANIFIER UN ENTRETIEN", show_search_candidate_path(@cadre.id, offre_id: @offre.id)%></div>
         </div>
 
@@ -137,12 +137,23 @@
     </div>
   </div>
 </div>
-<!-- call js  -->
-<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
+<script>
+  if ($('#futureTimeClock')[0]) {
+    if (document.URL.indexOf('#') == -1) {
+      // Set the URL to whatever it was plus "#".
+      url = document.URL + '#';
+      location = '#';
 
+      //Reload the page
+      location.reload(true);
+    }
+  }
+</script>
+<!-- call js  -->
 <script type="text/javascript" src="/js/recrutement_show.js"></script>
 
 <script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/entretien_client.js"></script>
 

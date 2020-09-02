@@ -38,7 +38,7 @@
 }
 
 .cp-table-box h5 {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   font-size: 20px;
 }
 
@@ -103,7 +103,7 @@
 }
 
 .cp-table-box .table-td .cp-infos-r .cpr-name {
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
   margin-bottom: 20px;
 }
 
@@ -124,7 +124,7 @@
 }
 
 .cp-table-box .cp-entreprise-name h5 {
-  font-size: 30px;
+  font-size: 25px;
   margin-bottom: 25px;
 }
 
@@ -157,7 +157,7 @@
   color: #d6b36a;
   border: 2px solid #d6b36a;
   padding: 12px 50px;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 .cp-table-box .cp-link a:hover, .cp-table-box .cp-link a:active {

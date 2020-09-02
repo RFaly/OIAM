@@ -229,6 +229,11 @@
         font: $ffbtn;
         padding: 20px;
       }
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: white;
+      }
       .ssc-send-btn {
         cursor: pointer;
         border: 2px solid white;

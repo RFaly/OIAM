@@ -30,7 +30,7 @@
 
 .fcp-box .title.t2 {
   text-transform: uppercase;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 .fcp-box h3 {
@@ -56,7 +56,7 @@
   text-decoration: none;
   text-transform: uppercase;
   padding: 10px 0;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 .fcp-box .fc-item-empty .fc-item-btn:hover, .fcp-box .fc-item-empty .fc-item-btn:active {
@@ -87,8 +87,7 @@
 
 .fcp-box .fc-item-all .list-candidat {
   position: relative;
-  width: 300px;
-  margin: 30px 0;
+  width: 250px;
   height: 450px;
 }
 
@@ -134,7 +133,7 @@
 .fcp-box .fc-item-btn2 a {
   text-decoration: none;
   color: black;
-  font: 550 18px Raleway, sans-serif;
+  font: 500 18px Raleway, sans-serif;
 }
 
 .fcp-box .fc-item-btn2 a b {
