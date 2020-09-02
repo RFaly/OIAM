@@ -153,7 +153,7 @@ body{
 .block-button{
   display: block;
   margin: auto;
-  margin-top: 80px;
+  margin-top: auto;
   margin-bottom: 0;
   text-align: center;
 }
@@ -188,7 +188,7 @@ body{
   height: 200px;
   padding: 20px;
   position: relative;
-  
+
 }
 
 .recrutement h4{
@@ -228,15 +228,16 @@ body{
 
   .main{
     display: flex;
+		height: 1150px;
   }
 
   .left_link{
   margin-top: 15px;
-  border-right: 1px solid #D6B36A;
 }
 
   .block-left{
     padding-right: 50px;
+		width: 60%;
   }
 
   .block-left p{
@@ -246,6 +247,9 @@ body{
   .block-button{
     align-items: flex-end;
     width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		flex-flow: unset;
   }
 
   .block-left{
@@ -253,7 +257,9 @@ body{
   }
 
   .main{
+		margin-top: 28px;
     margin-left: 0;
+		border-left: 1px solid #D6B36A;
   }
 
   .btn-dispo{
@@ -282,10 +288,6 @@ body{
   .content{
     padding-right: 50px;
   }
-
-
-
-
 
   .btn-edit{
     display: inline-block;
@@ -319,6 +321,8 @@ body{
 }
 
 	.block-image{
+		display: block;
+		margin: auto;
 		max-width: 300px;
 		max-height: 350px;
 	}
@@ -332,7 +336,7 @@ body{
   }
 
 .btn-modif{
-  margin-bottom: 100px;
+  margin-bottom: 70px;
 }
 
 .block-right{
@@ -341,7 +345,7 @@ body{
 }
 
   .block-button{
-    position: absolute;
+    position: relative;
     bottom:0;
   }
 
@@ -349,7 +353,7 @@ body{
     display: block;
     margin: auto;
     padding-top: 100px;
-    padding-bottom: 100px; 
+    padding-bottom: 100px;
   }
 
   #js-show-in-validate-profil{

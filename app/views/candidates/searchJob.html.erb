@@ -52,10 +52,12 @@
 					</div>
 					<div class="action">
 						<% if offre.is_in_my_favorite(current_cadre).nil? %>
-						<div id="image-<%=offre.id%>-logo-link" >
+						<div id="image-<%=offre.id%>-logo-link">
 							<%= link_to addToFavoriteJob_path(id:offre.id), method: :post, remote: true do %>
-									<img src="/image/Vector-22.png" alt="logo oiam non favorie" width="30px" style="background-color: #b7bdc3ed;">
-									<% end %>
+							<div class="add-favorite">
+								<img src="/image/Vector-22.png" alt="logo oiam non favorie" width="30px" style="background-color: #b7bdc3ed;">
+								<% end %>
+							</div>
 						</div>
 
 						<% else %>
@@ -81,23 +83,23 @@
 </div>
 
 <script>
-$(function () { 
-    var maxL = 50;  
+$(function () {
+    var maxL = 50;
     $('.description').each(function (i, div) {
-        
+
         var text = $(div).text();
         if(text.length > maxL) {
-            
+
             var begin = text.substr(0, maxL),
                 end = text.substr(maxL);
 
             $(this).html(begin)
                 .append($('<a class="readmore"/>').attr('href', '').html('...'))
-                .append($('<div class="hidden" />').html(end));                           
+                .append($('<div class="hidden" />').html(end));
         }
-    });           
+    });
     $(document).on('click', '.readmore', function () {
         $(this).next('.hidden').slideDown(750);
-    })          
+    })
 })
 </script>

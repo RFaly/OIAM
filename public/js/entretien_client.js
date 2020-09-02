@@ -10,6 +10,18 @@ $('#dateEntretien').click(function () {
     $('.ssc-planification').css('margin-bottom', 0);
   }
 });
+$('#dateEntretien1').click(function () {
+  if ($('.hiddenDate1').is(':visible')) {
+    $('.hiddenDate1').hide();
+    $('.ssc-planification1').height(0);
+    $('.ssc-planification1').css('margin-bottom', 270);
+  } else {
+    $('.hiddenDate1').show();
+    $('#datepicker').focus();
+    $('.ssc-planification1').height(500);
+    $('.ssc-planification1').css('margin-bottom', 0);
+  }
+});
 
 $('.js-input-adresse').click(function () {
   let $input = $('#js-adresse_name_input');
@@ -49,16 +61,16 @@ $('#reditDate').click(function () {
 });
 
 $('.js-hoursTime').click(function () {
+  let dateTime = new Date($('#datepicker').val());
+  let datahours = $(this).data().time;
+  let times = datahours.split(':');
 
-  let dateTime = new Date($("#datepicker").val())
-  let datahours = $(this).data().time
-  let times = datahours.split(":")
-
-  dateTime.setHours(times[0])
-  dateTime.setMinutes(times[1])
+  dateTime.setHours(times[0]);
+  dateTime.setMinutes(times[1]);
 
   utcDate = moment.utc(dateTime);
-  $('#input-time').val(utcDate.hours()+":"+utcDate.minutes());
+  $('#input-time').val(utcDate.hours() + ':' + utcDate.minutes());
+  $('#datepicker').val(utcDate.format('YYYY-MM-DD'))
 
   $('#timeShowOk').html($(this).data().time);
   $('#valid-submit').prop('disabled', false);
@@ -78,7 +90,7 @@ $('#js-adresse_name_input').on('input', function () {
 $('#send-data-form').bind('ajax:complete', function () {
   $('#send-data-form-ok-success').show(800);
   $('.ssc-planification').height(535);
-  $('#dateEntretien').replaceWith("<div class='ssc-btn ssc-pe ssc-invite'>INVITATION D'ENTRETIEN ENVOYER</div>");
+  $('#dateEntretien').replaceWith("<div class='ssc-btn ssc-pe ssc-invite'>INVITATION D'ENTRETIEN ENVOYÉ</div>");
 });
 
 $('#js-valid-first').click(function () {

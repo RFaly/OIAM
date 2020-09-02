@@ -104,7 +104,7 @@ $(document).ready(function () {
   // submit 2 validation
   $('.dr-btn2').click(function () {
     var pattern = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    if ($('#recruteur-last-name').val().length > 1 && $('#recruteur-first-name').val().length > 1 && $('#recruteur-fonction').val().length > 1 && $('#recruteur-phone').val().length == 9 && pattern.test($('#recruteur-mail').val())) {
+    if ($('#recruteur-last-name').val().length > 1 && $('#recruteur-first-name').val().length > 1 && $('#recruteur-fonction').val().length > 1 && $('#recruteur-phone').val().split(' ').join('').length == 9 && pattern.test($('#recruteur-mail').val())) {
       $('.ir-l2').addClass('color-bg');
       $('.ir-c2').addClass('color-bg');
       $('.dr-2').hide();
@@ -147,15 +147,7 @@ $('#cpe-submit').hover(function () {
 var pattern = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
 $('#cadre-submit').hover(function () {
-  if (
-    $('#recruteur-last-name').val().length > 1 &&
-    $('#recruteur-first-name').val().length > 1 &&
-    $('#entreprise_adresse').val().length > 1 &&
-    $('#recruteur-phone').val().length == 9 &&
-    pattern.test($('#recruteur-mail').val()) &&
-    $('#city').val() != 'Aucune ville correspondante!!' &&
-    $('#postal_code').val().length > 1
-  ) {
+  if ($('#recruteur-last-name').val().length > 1 && $('#recruteur-first-name').val().length > 1 && $('#entreprise_adresse').val().length > 1 && $('#recruteur-phone').val().split(' ').join('').length == 9 && $('#city').val() != 'Aucune ville correspondante!!' && $('#postal_code').val().length > 1) {
     $('#cadre-submit').prop('disabled', false);
     $('#submit-error4').hide();
   } else {

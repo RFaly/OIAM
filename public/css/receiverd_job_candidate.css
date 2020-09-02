@@ -91,6 +91,22 @@
   color: white;
 }
 
+.btn-success{
+  position: absolute;
+  top: 55%;
+  left: 35%;
+  font-size: 16px;
+  text-align: center;
+  background: #d6b36a;
+  padding: 15px;
+  width: 300px;
+  cursor: pointer;
+}
+
+.btn-success:hover{
+  background: #d6b36a;
+}
+
 .ui-widget-content .ui-state-active {
   border: 0px;
 }
@@ -368,7 +384,7 @@ body {
 
 .alternatives {
   position: absolute;
-  top: 50px;
+  top: 55px;
   right: 0;
   width: 200px;
   padding: 10px;
@@ -381,6 +397,23 @@ body {
   text-align: center;
   background-color: #f0f2f4;
 }
+
+
+
+.alternatives::after{
+  content: "";
+  position: absolute;
+  top: -15px;;
+  right: 15px;
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-right-width: 15px;
+  border-left-width: 15px;
+  border-bottom: 15px solid #f0f2f4;
+}
+
 
 .engage {
   text-decoration: none;
@@ -584,6 +617,7 @@ body {
     cursor: pointer;
   }
   .main {
+    position: relative;
     border-left: 1px solid #d6b36a;
     padding-left: 15px;
   }

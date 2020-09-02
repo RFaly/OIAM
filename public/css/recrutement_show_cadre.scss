@@ -1,5 +1,6 @@
 @import 'config';
 @import 'pagemenu';
+@import 'datepicker';
 
 .rsc-box {
   width: 95%;
@@ -132,6 +133,7 @@
             // width: 450px;
             .link {
               // width: 70%;
+              cursor: pointer;
               font: $ffbtn;
               border: 2px solid white;
               padding: 10px 0;
@@ -146,6 +148,7 @@
               &:hover,
               &:active {
                 background: white;
+                color: $main_theme_color;
                 a {
                   color: $main_theme_color;
                 }
@@ -224,6 +227,7 @@
           }
         }
       }
+      // css validation candidat
       .dscdp-validation {
         font: $ffsentence;
         position: relative;
@@ -281,22 +285,24 @@
             }
           }
         }
-        .dscdp-contact {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          a {
-            color: $main_theme_color;
-            font: $ffsentence;
-            font-weight: 600;
-            margin: 10px;
-            img {
-              width: 55px;
-              height: 30px;
-            }
+      }
+      .dscdp-contact {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 35px;
+        justify-content: center;
+        a {
+          color: $main_theme_color;
+          font: $ffsentence;
+          font-weight: 600;
+          margin: 10px;
+          img {
+            width: 55px;
+            height: 30px;
           }
         }
       }
+      // css refus candidat
       .dscdp-refus {
         top: 30%;
         background: $main_theme_color;
@@ -334,6 +340,53 @@
             &:active {
               color: $main_theme_color;
               background: white;
+            }
+          }
+        }
+      }
+      // css candidat accepted
+      .dscdp-accepted {
+        padding-bottom: 70px;
+        text-align: center;
+        .dscdpa-box {
+          margin: 0 auto;
+          border: 2px solid $main_theme_color;
+          h3 {
+            font: $ffsentence;
+            color: $main_theme_color;
+            text-align: left;
+          }
+          h5 {
+            font: $ffsentence;
+          }
+        }
+        .dscdp-link {
+          margin-top: 35px;
+          .dscdp-link-item {
+            cursor: pointer;
+            text-transform: uppercase;
+            // width: 280px;
+            font: $ffbtn;
+            color: $main_theme_color;
+            margin: 20px auto;
+            border: 2px solid $main_theme_color;
+            padding: 13px 0;
+            .link {
+              // padding: 12px 35px;
+            }
+            a {
+              color: $main_theme_color;
+              text-transform: uppercase;
+              text-decoration: none;
+              font: $ffbtn;
+            }
+            &:hover,
+            &:active {
+              color: white;
+              background: $main_theme_color;
+              a {
+                color: white;
+              }
             }
           }
         }
@@ -402,5 +455,337 @@
         text-align: center;
       }
     }
+  }
+}
+// planification entretien
+.ssc-planification {
+  margin: 0 auto;
+  position: relative;
+  margin-top: -270px;
+  margin-bottom: 270px;
+  width: 80%;
+  padding: 0 10%;
+  z-index: 200;
+  // date validation
+  .date {
+    opacity: 0;
+    input {
+      top: -3px;
+      border-radius: 0;
+      font-size: 0.002px;
+      position: absolute;
+    }
+  }
+  // hour validation
+  .js-timeContainer {
+    padding: 30px;
+    padding-bottom: 15px;
+    background: $secondary_text_color_button;
+    color: white;
+    font: $ffbtn;
+    h4 {
+      text-align: center;
+    }
+    .fselect {
+      width: 95%;
+      margin: 0 auto;
+      #reditDate {
+        cursor: pointer;
+      }
+      .firstSelection {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+      }
+      .js-hoursTime {
+        padding: 5px;
+        background: transparent;
+        border: 2px solid #fff;
+        width: 86px;
+        text-align: center;
+        cursor: pointer;
+        &:hover,
+        &:active {
+          background: white;
+          color: $secondary_text_color_button;
+        }
+      }
+    }
+  }
+  .with-input {
+    align-items: center;
+    display: flex;
+    .with-input-item {
+      border-radius: 0;
+      outline: none;
+      box-shadow: none;
+      padding: 2px;
+      margin-top: -9px;
+      margin-left: 10px;
+      padding-left: 5px;
+      border: none;
+      background: $secondary_element_color;
+      &:focus {
+        outline: 1px solid white;
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+  .planQ-btn {
+    text-align: right;
+    input {
+      font: $ffbtn;
+      background: transparent;
+      border: 2px solid white;
+      border-radius: 0;
+      color: white;
+      padding: 10px 30px;
+      &:hover,
+      &:active {
+        background: white;
+        color: $secondary_text_color_button;
+      }
+    }
+  }
+  .ssc-send {
+    color: white;
+    background: $secondary_text_color_button;
+    font: $ffsentence;
+    text-align: center;
+    padding: 30px;
+    margin-top: 11px;
+    img {
+      width: 40px;
+      height: 48px;
+      margin: 10px 0;
+    }
+    .datetime {
+      background: white;
+      width: 90%;
+      margin: 30px auto;
+      color: $secondary_text_color_button;
+      font: $ffbtn;
+      padding: 20px;
+    }
+    .ssc-send-btn {
+      cursor: pointer;
+      border: 2px solid white;
+      padding: 10px 30px;
+      font: $ffbtn;
+      width: 150px;
+      margin-top: 30px;
+      margin-left: auto;
+      &:hover,
+      &:active {
+        background: white;
+        color: $secondary_text_color_button;
+      }
+    }
+  }
+}
+.ssc-planification1 {
+  position: relative;
+  margin-top: -270px;
+  margin-bottom: 270px;
+  width: 60%;
+  z-index: 200;
+  // date validation
+  .date {
+    opacity: 1;
+    text-align: left;
+    input {
+      top: -3px;
+      border-radius: 0;
+      font-size: 0.002px;
+      position: absolute;
+    }
+  }
+  // hour validation
+  .js-timeContainer {
+    padding: 30px;
+    padding-bottom: 15px;
+    background: $secondary_text_color_button;
+    color: white;
+    font: $ffbtn;
+    h4 {
+      text-align: center;
+    }
+    .fselect {
+      width: 95%;
+      margin: 0 auto;
+      #reditDate {
+        cursor: pointer;
+      }
+      .firstSelection {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+      }
+      .js-hoursTime {
+        padding: 5px;
+        background: transparent;
+        border: 2px solid #fff;
+        width: 86px;
+        text-align: center;
+        cursor: pointer;
+        &:hover,
+        &:active {
+          background: white;
+          color: $secondary_text_color_button;
+        }
+      }
+    }
+  }
+  .with-input {
+    align-items: center;
+    display: flex;
+    .with-input-item {
+      border-radius: 0;
+      outline: none;
+      box-shadow: none;
+      padding: 2px;
+      margin-top: -9px;
+      margin-left: 10px;
+      padding-left: 5px;
+      border: none;
+      background: $secondary_element_color;
+      &:focus {
+        outline: 1px solid white;
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+  .planQ-btn {
+    text-align: right;
+    input {
+      font: $ffbtn;
+      background: transparent;
+      border: 2px solid white;
+      border-radius: 0;
+      color: white;
+      padding: 10px 30px;
+      &:hover,
+      &:active {
+        background: white;
+        color: $secondary_text_color_button;
+      }
+    }
+  }
+  .ssc-send {
+    color: white;
+    background: $secondary_text_color_button;
+    font: $ffsentence;
+    text-align: center;
+    padding: 30px;
+    margin-top: 11px;
+    img {
+      width: 40px;
+      height: 48px;
+      margin: 10px 0;
+    }
+    .datetime {
+      background: white;
+      width: 90%;
+      margin: 30px auto;
+      color: $secondary_text_color_button;
+      font: $ffbtn;
+      padding: 20px;
+    }
+    .ssc-send-btn {
+      cursor: pointer;
+      border: 2px solid white;
+      padding: 10px 30px;
+      font: $ffbtn;
+      width: 150px;
+      margin-top: 30px;
+      margin-left: auto;
+      &:hover,
+      &:active {
+        background: white;
+        color: $secondary_text_color_button;
+      }
+    }
+  }
+}
+.ssc-invite {
+  padding: 10px;
+  color: white;
+  background: $main_theme_color;
+}
+// date picker
+#ui-datepicker-div {
+  width: 600px;
+  color: white;
+}
+.ui-datepicker {
+  &-calendar {
+    padding: 30px;
+    td {
+      height: 60px;
+
+      &:hover {
+        background: url(/image/cercle.png) no-repeat center/55px 55px;
+      }
+    }
+  }
+  &-header {
+    padding: 50px;
+  }
+  &-next {
+    top: 40px;
+    right: 10%;
+  }
+  &-prev {
+    top: 40px;
+    right: 20%;
+  }
+}
+// check box
+#conditioncheck {
+  font: $ffsentence;
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkmark {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border: 2px solid white;
+  }
+  &:hover input ~ .checkmark {
+    background-color: $secondary_text_color_button;
+  }
+  .checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+  .checkmark:after {
+    left: 6px;
+    top: -7px;
+    width: 10px;
+    height: 20px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
   }
 }

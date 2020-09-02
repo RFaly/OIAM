@@ -462,6 +462,16 @@
   .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link-item span {
     padding: 16px 40px;
   }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box {
+    width: 95%;
+    padding: 20px 5px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box .dscdp-link-item {
+    width: 250px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box .dscdp-link-item a {
+    padding: 14px 14px;
+  }
   .rsc-box .rscdf-content .new-date {
     width: 90%;
   }
@@ -754,6 +764,10 @@
     padding: 20px;
   }
   .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
+    width: 70%;
+    padding: 20px 25px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box {
     width: 70%;
     padding: 20px 25px;
   }
@@ -1078,6 +1092,9 @@
   .show-job-box .show-pb2 a {
     width: 45%;
   }
+  .select-cadre-box td .co-input {
+    width: 169px;
+  }
   .select-cadre-box .select-cadre-list .validation .submit-validation .validation-bt1 {
     display: none;
   }
@@ -1085,7 +1102,7 @@
     display: block;
   }
   .select-cadre-box .select-cadre-list-items .cadre-box {
-    width: 250px;
+    width: 235px;
   }
   .select-cadre-box .select-cadre-list-items .cadre-box:hover .cadre-box-info, .select-cadre-box .select-cadre-list-items .cadre-box:active .cadre-box-info {
     height: 170px;
@@ -1179,6 +1196,16 @@
   }
   .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link-item span {
     padding: 16px 55px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box {
+    width: 65%;
+    padding: 20px 45px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box .dscdp-link-item {
+    width: 280px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box .dscdp-link-item a {
+    padding: 14px 28px;
   }
   .rsc-box .rsc-body .rscdf-content .new-date {
     width: 450px;
@@ -1303,12 +1330,15 @@
     width: 664px;
     margin-left: -7%;
   }
+  .select-cadre-box td .co-input {
+    width: 180px;
+  }
   .ssc-box .ssc-all-infos .ssc-infos {
     width: 350px;
   }
   .ssc-box .ssc-all-infos .ssc-infos .image {
     margin: 0 auto;
-    width: 90%;
+    width: 80%;
   }
   .ssc-box .ssc-all-infos .ssc-infos .image img {
     width: 88%;
@@ -1352,6 +1382,10 @@
     width: 60%;
     padding: 20px 50px;
   }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box {
+    width: 60%;
+    padding: 20px 40px;
+  }
 }
 
 @media screen and (min-width: 1500px) {
@@ -1371,6 +1405,9 @@
   }
   .bg-accueil1 {
     height: 750px;
+  }
+  .select-cadre-box td .co-input {
+    width: 200px;
   }
   .ssc-box .ssc-all-infos .ssc-infos {
     width: 380px;
@@ -1397,6 +1434,12 @@
   }
   .rsc-box .rsc-body .rsc-date-past .rscdp-empty {
     width: 40%;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscpd-validation {
+    width: 50%;
+  }
+  .rsc-box .rsc-body .rsc-date-past .dscdpa-box {
+    width: 50%;
   }
 }
 

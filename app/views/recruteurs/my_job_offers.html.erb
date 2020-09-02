@@ -2,9 +2,7 @@
 <link rel="stylesheet" href="/css/my_job_offre.css" />
 <!-- body html  -->
 <div class="client-column">
-  <div class="client-menu-left">
-    <%= render "recruteurs/left_link_bar" %>
-  </div>
+  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
   <div class="cp-box">
     <div class="box-inside">
       <% if @offres.empty? %>
@@ -15,29 +13,46 @@
       <% else %>
       <div class="co-with-job">
         <h5>Mes offres d'emploi</h5>
-        <% i = 0%> <% @offres.each do |offre| %>
 
-        <div class="coj-box">
-          <div class="cjo-image">
-            <img src="/image/work.png" alt="icone work" />
-          </div>
-          <div class="cjo-content"><%= offre.intitule_pote %></div>
-          <div class="cjo-link-items">
-            <div class="cjo-link">
-              <%= link_to "VOIR L'OFFRE", showNewJob_path(offre.id)%>
+
+        <% @offres.each do |offre| %>
+
+          <div class="coj-box" id="offre<%= offre.id %>">
+            <div class="cjo-image">
+              <img src="/image/work.png" alt="icone work" />
             </div>
-            <div class="cjo-delete">
-              <a href=" <%=destroyJob_path(offre.id)%>" data-method="delete" data-remote="true" class="delete" id="<%= i%>"> <img src="/image/trash.png" alt="Delete" /></a>
+            <div class="cjo-content"><%= offre.intitule_pote %></div>
+            <div class="cjo-link-items">
+              <div class="cjo-link"><%= link_to "VOIR L'OFFRE", showNewJob_path(offre.id)%></div>
+              <div class="cjo-delete">
+                <a href=" <%=destroyJob_path(offre.id)%>" data-method="delete" data-remote="true" data-confirm="Êtes-vous sure de supprimer cette offre ??" class="delete delete-element-jobs" data-id="<%= offre.id %>" title="Supprimer"> <img src="/image/trash.png" alt="Delete" /></a>
+              </div>
             </div>
           </div>
-        </div>
-        <% i+= 1%> <% end %>
-        <div class="btn-newjob-div">
-          <%= link_to "PUBLIER UNE OFFRE", newJob_path, class:'btn-newjob' %>
-        </div>
+
+
+        <% end %>
+
+          <div class="btn-newjob-div">
+            <%= link_to "PUBLIER UNE OFFRE", newJob_path, class:'btn-newjob' %>
+          </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-<script data-turbolinks-track="reload" type="text/javascript" src="/js/myoffre.js"></script>
+
+
+
+
+<script type="text/javascript">
+
+  $('.delete-element-jobs').bind('ajax:complete', function() {
+    $("#offre"+$(this).data().id).hide(500);
+  });
+
+</script>
+
+
+
+<!-- <script data-turbolinks-track="reload" type="text/javascript" src="/js/myoffre.js"></script> -->

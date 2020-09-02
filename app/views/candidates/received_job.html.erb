@@ -8,16 +8,16 @@
 
 		<div class="main">
 			<h1 class="favorite-offre-title">DEMANDES D'ENTRETIEN</h1>
-			
+
 			<% if @agendaClients.empty? %>
-				<p>Aucun demande d'entretien réçu ... </p>
+				<p>Aucun demande d'entretien reçu ... </p>
 			<% else %>
 				<div id="list-resultats" class="post-info">
 				<% @agendaClients.each do |aClient| %>
 					<div id="agenda-<%= aClient[:agenda_client].id %>-yes" class="post_info_content">
 						<div class="logo">
 							<% if aClient[:image].nil? %>
-								<img src="/image/profie.png" width="250px">	
+								<img src="/image/profie.png" width="250px">
 							<% else %>
 								<%= image_tag(aClient[:image], alt: 'logo entreprise',width:"250px")%>
 							<% end %>
@@ -47,7 +47,7 @@
 										<span class="js-proposer-date" id="dateEntretien" data-items="<%= aClient[:agenda_client].id %>">PROPOSER UNE AUTRE DATE</span>
 									</span>
 								<% end %>
-							</div>	
+							</div>
 						</div>
 					</div>
 					<div class="date-picker-f">
@@ -84,7 +84,7 @@
 									  <input type="hidden" name="reponse" value="2">
 
 										<input type="hidden" name="time" id="input-time-js-<%= aClient[:agenda_client].id %>">
-										
+
 										<input type="hidden" name="offre_id" value="<%= aClient[:offre_id] %>">
 										<input type="hidden" name="agenda_id" value="<%= aClient[:agenda_client].id %>">
 									  <div class="planQ-btn">
@@ -103,5 +103,7 @@
 </div>
 
 <!-- appel js  -->
+<script type="text/javascript" src="/js/moment-js.js"></script>
+
 <script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript" src="/js/entretien_edit_cadre.js"></script>
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/entretien_edit_cadre.js"></script>

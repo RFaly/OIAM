@@ -550,6 +550,16 @@
             }
           }
         }
+        .dscdpa-box {
+          width: 95%;
+          padding: 20px 5px;
+          .dscdp-link-item {
+            width: 250px;
+            a {
+              padding: 14px 14px;
+            }
+          }
+        }
       }
     }
     .rscdf-content {
@@ -933,6 +943,10 @@
           padding: 20px;
         }
         .dscdp-validation {
+          width: 70%;
+          padding: 20px 25px;
+        }
+        .dscdpa-box {
           width: 70%;
           padding: 20px 25px;
         }
@@ -1337,6 +1351,11 @@
   }
   // search cadre
   .select-cadre-box {
+    td {
+      .co-input {
+        width: 169px;
+      }
+    }
     .select-cadre-list {
       .validation {
         .submit-validation {
@@ -1351,7 +1370,7 @@
     }
     .select-cadre-list-items {
       .cadre-box {
-        width: 250px;
+        width: 235px;
         &:hover,
         &:active {
           .cadre-box-info {
@@ -1470,6 +1489,16 @@
             }
             span {
               padding: 16px 55px;
+            }
+          }
+        }
+        .dscdpa-box {
+          width: 65%;
+          padding: 20px 45px;
+          .dscdp-link-item {
+            width: 280px;
+            a {
+              padding: 14px 28px;
             }
           }
         }
@@ -1653,13 +1682,21 @@
     //   width: 50%;
     // }
   }
+  // search cadre
+  .select-cadre-box {
+    td {
+      .co-input {
+        width: 180px;
+      }
+    }
+  }
   // show search candidate
   .ssc-box {
     .ssc-all-infos {
       .ssc-infos {
         .image {
           margin: 0 auto;
-          width: 90%;
+          width: 80%;
           img {
             width: 88%;
             height: 300px;
@@ -1719,6 +1756,10 @@
           width: 60%;
           padding: 20px 50px;
         }
+        .dscdpa-box {
+          width: 60%;
+          padding: 20px 40px;
+        }
       }
     }
   }
@@ -1757,6 +1798,14 @@
 
   // // inscription recruteur
   // ///////////////////////////////////////@
+  // search cadre
+  .select-cadre-box {
+    td {
+      .co-input {
+        width: 200px;
+      }
+    }
+  }
   // show search candidate
   .ssc-box {
     .ssc-all-infos {
@@ -1800,6 +1849,10 @@
           width: 40%;
         }
         .dscpd-validation {
+          width: 50%;
+        }
+        .dscdpa-box {
+          width: 50%;
         }
       }
     }
