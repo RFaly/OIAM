@@ -9,7 +9,8 @@
       <div class="ssc-all-infos">
         <div class="ssc-infos">
           <div class="image">
-            <% unless @cadre.image.nil? %> <%= image_tag(@cadre.image, alt: 'photo de profil',class:"pdp" )%> <br />
+            <% unless @cadre.image.nil? %>
+            <div class="c" style="background: url(<%= @cadre.image%>) center no-repeat; background-size: cover"></div>
             <% end %>
           </div>
           <div class="infos">
@@ -163,9 +164,9 @@
               <br />
               <span id="nameShowOk"> <%= current_client.fonction %> : <%= current_client.first_name %> <%= current_client.last_name %> </span>
             </div>
-            <%= link_to recruitment_show_cadre_path(@offre.is_in_this_job(@cadre.cadre)) do%>
+            <% unless @offre.in_list_entretien(@cadre.cadre).nil? %> <%= link_to recruitment_show_cadre_path(@offre.is_in_this_job(@cadre.cadre)) do %>
             <div class="ssc-send-btn">VALIDER</div>
-            <% end %>
+            <% end %> <% end %>
           </div>
         </div>
       </div>

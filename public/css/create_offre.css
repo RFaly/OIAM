@@ -402,6 +402,11 @@
   margin: 50px auto;
 }
 
+.create-offre-box .context-offre-box .co-input-image .c {
+  width: 100%;
+  height: 100%;
+}
+
 .create-offre-box .context-offre-box .co-input-image label {
   font: 500 18px Raleway, sans-serif;
   text-align: center;

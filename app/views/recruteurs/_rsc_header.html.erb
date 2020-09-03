@@ -1,5 +1,6 @@
 <div class="rsc-header-image">
-  <%= link_to show_search_candidate_path(@cadre.id, offre_id: @offre.id) do %> <%= image_tag(@cadre.cadre_info.image, alt: 'photo de profil')%>
+  <%= link_to show_search_candidate_path(@cadre.id, offre_id: @offre.id) do %>
+  <div class="c" style="background: url(<%= @cadre.cadre_info.image%>) center no-repeat; background-size: cover"></div>
 
   <h4><%= @cadre.cadre_info.first_name.capitalize %> <%= @cadre.cadre_info.last_name.capitalize %></h4>
   <% end %>

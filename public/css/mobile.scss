@@ -426,7 +426,8 @@
           position: relative;
           .cbi-photo {
             width: 100%;
-            img {
+            img,
+            .c {
               height: 280px;
             }
           }
@@ -444,7 +445,9 @@
       .image {
         margin: 0 auto;
         width: 90%;
-        img {
+        img,
+        .c {
+          margin: 0 auto;
           width: 90%;
           height: 300px;
         }
@@ -875,7 +878,8 @@
       .image {
         margin: 0 auto;
         width: 90%;
-        img {
+        img,
+        .c {
           width: 90%;
           height: 300px;
         }
@@ -1386,7 +1390,8 @@
           position: relative;
           .cbi-photo {
             width: 100%;
-            img {
+            img,
+            .c {
               height: 350px;
             }
           }
@@ -1701,7 +1706,8 @@
         .image {
           margin: 0 auto;
           width: 80%;
-          img {
+          img,
+          .c {
             width: 88%;
             height: 300px;
           }
@@ -1826,7 +1832,8 @@
       .ssc-infos {
         width: 380px;
         .image {
-          img {
+          img,
+          .c {
             width: 70%;
             height: 300px;
           }
@@ -1910,7 +1917,8 @@
       .ssc-infos {
         width: 400px;
         .image {
-          img {
+          img,
+          .c {
             width: 70%;
             height: 300px;
           }

@@ -105,7 +105,9 @@
   padding: 20px 0;
 }
 
-.rsc-box .rsc-header .rsc-header-image img {
+.rsc-box .rsc-header .rsc-header-image img,
+.rsc-box .rsc-header .rsc-header-image .c {
+  margin: 0 auto;
   width: 200px;
   height: 200px;
   border-radius: 50%;

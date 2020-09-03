@@ -11,7 +11,7 @@
   <center>
     <div class="rscr-head">
       <p>
-        poste : <strong><%= @offre.intitule_pote %></strong> <br />
+        Poste : <strong><%= @offre.intitule_pote %></strong> <br />
         <img src="/image/unvalid.png" alt="icon" />
         Candidat refusé
       </p>
@@ -19,7 +19,7 @@
   </center>
 
   <%= form_tag(notice_refused_post_path, remote: :true) do %>
-  <div for="send-notice" class="label">Envoyer une raison de la refus au candidat</div>
+  <div for="send-notice" class="label">Envoyer une raison du refus au candidat</div>
   <input type="hidden" name="repons" value="refused" />
   <input type="hidden" name="oFc_id" value="<%= @oFc.id %>" />
   <input type="hidden" name="offre_id" value="<%= @offre.id %>" />

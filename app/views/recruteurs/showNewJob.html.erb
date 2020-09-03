@@ -35,7 +35,9 @@
         <div class="sjb-content">
           <div class="show-einfos">
             <div class="logo">
-              <% unless @offre.image.nil? %> <%= image_tag(@offre.image, alt: 'photo de profil', class:'photo_ako')%> <% end %>
+              <% unless @offre.image.nil? %>
+                <div class="c" style="background: url(<%= @offre.image%>) center no-repeat; background-size: cover"></div>
+               <% end %>
             </div>
             <div class="local">
               <p><%= @offre.intitule_pote %></p>

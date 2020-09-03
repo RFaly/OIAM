@@ -161,7 +161,7 @@
   width: 100%;
 }
 
-.select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo img {
+.select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo img, .select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo .c {
   width: 100%;
 }
 

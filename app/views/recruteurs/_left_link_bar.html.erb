@@ -6,7 +6,9 @@
     <span class="btn-menu-burger open"> </span>
   </div>
   <div class="left-menu-photo">
-    <% unless current_client.image.nil? %> <%= image_tag(current_client.image, alt: 'photo logo')%> <% else %>
+    <% unless current_client.image.nil? %>
+    <div class="c" style="background: url(<%= current_client.image%>) center no-repeat; background-size: cover"></div>
+    <% else %>
     <img src="/image/profie.png" alt="logo entreprise" />
     <% end %>
   </div>

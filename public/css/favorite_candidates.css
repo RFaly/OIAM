@@ -92,6 +92,11 @@
   margin: 10px;
 }
 
+.fc-box .fc-body .cadre-items .c {
+  width: 100px;
+  height: 150px;
+}
+
 .fc-box .fc-body .name {
   text-transform: capitalize;
 }
