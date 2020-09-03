@@ -132,7 +132,7 @@
 						<% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
 							<% date = DateTime.parse(@agendas.alternative) %>
 							<p class="new-proposition-date">
-								<span class="title-entretien">Changement de date d'entretien envoyer pour le </span><span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>, en attende de réponse.
+								<span class="title-entretien">Changement de date d'entretien envoyé pour le </span><span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>, en attende de réponse.
 							</p>
 						<!-- candidat a reffuser l'entretien -->
 						<% elsif @agendas.repons_cadre == false %>
