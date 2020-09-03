@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_115920) do
+ActiveRecord::Schema.define(version: 2020_09_03_121417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 2020_09_03_115920) do
     t.bigint "country_id"
     t.bigint "region_id"
     t.bigint "city_id"
+    t.boolean "deplacement"
+    t.text "frequency"
     t.index ["cadre_id"], name: "index_cadre_infos_on_cadre_id"
     t.index ["city_id"], name: "index_cadre_infos_on_city_id"
     t.index ["country_id"], name: "index_cadre_infos_on_country_id"
