@@ -2,9 +2,7 @@
 <link rel="stylesheet" href="/css/recrutement_follow.css" />
 <!-- body html  -->
 <div class="client-column">
-  <div class="client-menu-left">
-    <%= render "recruteurs/left_link_bar" %>
-  </div>
+  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
   <div class="cp-box">
     <div class="r-follow-box">
       <h3 class="title">Mon suivi recrutement</h3>
@@ -16,54 +14,37 @@
       <% else %>
       <div class="rf-box">
         <% @offres.each do |offre| %>
+        <hr />
         <div class="rf-items">
           <h2 class="rf-items-title"><%= link_to recruitment_liste_cadre_path(offre.id) do%> <img src="/image/work.png" alt="icone work" /><%= offre.intitule_pote%><%end%></h2>
           <i> <% offre.etapes %></i>
           <div class="rf-items-flex">
             <div class="timeline">
-              <div class="number <%if offre.etapes >= 1 %>color <%end%>">
-                1
-              </div>
+              <div class="number <%if offre.etapes >= 1 %>color <%end%>">1</div>
               <div class="line <%if offre.etapes >= 2 %>color <%end%>"></div>
-              <div class="content">
-                Publication
-              </div>
+              <div class="content">Publication</div>
             </div>
             <div class="timeline">
-              <div class="number <%if offre.etapes >= 2 %>color <%end%>">
-                2
-              </div>
+              <div class="number <%if offre.etapes >= 2 %>color <%end%>">2</div>
               <div class="line <%if offre.etapes >= 3 %>color <%end%>"></div>
-              <div class="content content2">
-                Sélection
-              </div>
+              <div class="content content2">Sélection</div>
             </div>
             <% etape = 2 %> <% offre.numberEntretien.times do |i| %> <% etape += 1 %> <% if i == 0 %>
             <div class="timeline">
-              <div class="number <%if offre.etapes >= etape %>color <%end%>">
-                <%= etape %>
-              </div>
+              <div class="number <%if offre.etapes >= etape %>color <%end%>"><%= etape %></div>
               <div class="line <%if offre.etapes >= etape + 1 %>color <%end%>"></div>
-              <div class="content">
-                1er entretien
-              </div>
+              <div class="content">1er entretien</div>
             </div>
             <% else %>
             <div class="timeline">
-              <div class="number <%if offre.etapes >= etape %>color <%end%>">
-                <%= etape %>
-              </div>
+              <div class="number <%if offre.etapes >= etape %>color <%end%>"><%= etape %></div>
               <div class="line <%if offre.etapes>= etape + 1 %>color <%end%>"></div>
-              <div class="content content<%= etape %>">
-                <%=i+1%>e entretien
-              </div>
+              <div class="content content<%= etape %>"><%=i+1%>e entretien</div>
             </div>
 
             <% end %> <% end %>
             <div class="timeline">
-              <div class="number <%if offre.etapes >= etape + 1 %>color <%end%>">
-                <%= etape + 1 %>
-              </div>
+              <div class="number <%if offre.etapes >= etape + 1 %>color <%end%>"><%= etape + 1 %></div>
               <div class="line <%if offre.etapes >= etape + 2 %>color <%end%>"></div>
               <div class="content content<%= etape + 1 %>">
                 Promesse <br />
@@ -71,15 +52,12 @@
               </div>
             </div>
             <div class="timeline">
-              <div class="number <%if offre.etapes >= etape + 2 %>color <%end%>">
-                <%= etape + 2 %>
-              </div>
-              <div class="content content<%= etape + 2 %>">
-                Recrutement
-              </div>
+              <div class="number <%if offre.etapes >= etape + 2 %>color <%end%>"><%= etape + 2 %></div>
+              <div class="content content<%= etape + 2 %>">Recrutement</div>
             </div>
           </div>
         </div>
+        <hr />
         <% end %>
       </div>
       <% end %>

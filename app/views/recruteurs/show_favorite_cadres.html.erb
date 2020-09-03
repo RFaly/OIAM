@@ -19,7 +19,9 @@
         <div class="fc-item-all">
           <% @oFcs.each do |ofc| %> <%= link_to show_search_candidate_path(ofc.cadre.id, offre_id: @offre.id), method: :get do %>
           <div class="list-candidat">
-            <div class="fci-image"><%= image_tag(ofc.cadre.cadre_info.image, alt: 'photo profil cadre')%></div>
+            <div class="fci-image">
+              <div class="c" style="background: url(<%= ofc.cadre.cadre_info.image%>) center no-repeat; background-size: cover"></div>
+            </div>
             <div class="fci-icon">
               <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
             </div>

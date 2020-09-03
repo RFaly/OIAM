@@ -370,7 +370,8 @@
   .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo {
     width: 100%;
   }
-  .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo img {
+  .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo img,
+  .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo .c {
     height: 280px;
   }
   .ssc-box .ssc-all-infos {
@@ -381,7 +382,9 @@
     margin: 0 auto;
     width: 90%;
   }
-  .ssc-box .ssc-all-infos .image img {
+  .ssc-box .ssc-all-infos .image img,
+  .ssc-box .ssc-all-infos .image .c {
+    margin: 0 auto;
     width: 90%;
     height: 300px;
   }
@@ -717,7 +720,8 @@
     margin: 0 auto;
     width: 90%;
   }
-  .ssc-box .ssc-all-infos .image img {
+  .ssc-box .ssc-all-infos .image img,
+  .ssc-box .ssc-all-infos .image .c {
     width: 90%;
     height: 300px;
   }
@@ -1120,7 +1124,8 @@
   .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo {
     width: 100%;
   }
-  .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo img {
+  .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo img,
+  .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo .c {
     height: 350px;
   }
   .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-info {
@@ -1346,7 +1351,8 @@
     margin: 0 auto;
     width: 80%;
   }
-  .ssc-box .ssc-all-infos .ssc-infos .image img {
+  .ssc-box .ssc-all-infos .ssc-infos .image img,
+  .ssc-box .ssc-all-infos .ssc-infos .image .c {
     width: 88%;
     height: 300px;
   }
@@ -1425,7 +1431,8 @@
   .ssc-box .ssc-all-infos .ssc-infos {
     width: 380px;
   }
-  .ssc-box .ssc-all-infos .ssc-infos .image img {
+  .ssc-box .ssc-all-infos .ssc-infos .image img,
+  .ssc-box .ssc-all-infos .ssc-infos .image .c {
     width: 70%;
     height: 300px;
   }
@@ -1476,7 +1483,8 @@
   .ssc-box .ssc-all-infos .ssc-infos {
     width: 400px;
   }
-  .ssc-box .ssc-all-infos .ssc-infos .image img {
+  .ssc-box .ssc-all-infos .ssc-infos .image img,
+  .ssc-box .ssc-all-infos .ssc-infos .image .c {
     width: 70%;
     height: 300px;
   }

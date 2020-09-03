@@ -7,6 +7,7 @@
   text-align: center;
   .title {
     font: $ffbtn;
+    color: $main_theme_color;
     text-transform: uppercase;
   }
   h3 {
@@ -64,6 +65,10 @@
     .cadre-items {
       border: 3px solid #d6b36a;
       margin: 10px;
+      .c {
+        width: 100px;
+        height: 150px;
+      }
     }
     .name {
       text-transform: capitalize;

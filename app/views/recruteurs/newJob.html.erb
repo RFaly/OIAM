@@ -62,7 +62,7 @@
 
         <label class="dp-input dp-input-checkbox1">
           Contrat CDI
-          <input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi" autofocus="true" required />
+          <input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi" autofocus="true" required checked readonly />
           <span class="checkmark"></span>
         </label>
 
@@ -97,7 +97,7 @@
         <span class="input-error" id="question2-error"></span>
 
         <%= f.label :numberEntretien, "QUEL SERA VOTRE PROCESSUS DE RECRUTEMENT ?", class:"ggag" %>
-        <div class="co-input hide-right"><%= f.select :numberEntretien, options_for_select([[ "1 entretien RH","1"],[ "1 entretien RH + 1 entretien manager","2"],[ "1 entretien RH + 2 entretiens Manager","3"]]),{}, class:'co-select', required:true,id:'question3',autofocus:true %></div>
+        <div class="co-input hide-right"><%= f.select :numberEntretien, options_for_select([[ "1 entretien RH","1"],[ "1 entretien RH + 1 entretien Manager","2"],[ "1 entretien RH + 2 entretiens Manager","3"]]),{}, class:'co-select', required:true,id:'question3',autofocus:true %></div>
         <span class="input-error" id="question3-error"></span>
 
         <label>POURRIEZ-VOUS SUPPORTER UN PRÉAVIS SUR CE POSTE ?</label>
@@ -117,7 +117,7 @@
         <span class="input-error" id="question5-error"></span>
 
         <div class="co-input co-input-image">
-          <img id="addImage" src="/image/picture.png" alt="logo entreprise" />
+          <div class="c" id="addImage" style="background: url(/image/picture.png) center no-repeat; background-size: cover"></div>
           <label>
             <p class="first-p">Logo entreprise</p>
             <p class="last-p">Télécharger une image</p>

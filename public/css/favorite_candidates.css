@@ -25,6 +25,7 @@
 
 .fc-box .title {
   font: 500 18px Raleway, sans-serif;
+  color: #d6b36a;
   text-transform: uppercase;
 }
 
@@ -90,6 +91,11 @@
 .fc-box .fc-body .cadre-items {
   border: 3px solid #d6b36a;
   margin: 10px;
+}
+
+.fc-box .fc-body .cadre-items .c {
+  width: 100px;
+  height: 150px;
 }
 
 .fc-box .fc-body .name {

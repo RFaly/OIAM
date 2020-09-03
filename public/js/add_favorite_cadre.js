@@ -4,7 +4,7 @@ $('.add-js-toFavorite').click(function () {
     let number = $(this).data().info;
     let currentDiv = $('.js-candidates-list[data-info=true]')[0];
     let image1 = $('.js-image-' + number);
-    var image = image1.first().clone();
+    var image = image1.first().clone().show();
     $(currentDiv).html(image);
     currentDiv.dataset.info = false;
     currentDiv.dataset.element = number;

@@ -78,7 +78,9 @@
   margin: 10px 0;
 }
 
-.rlc-box .rlc-content .rlc-items img {
+.rlc-box .rlc-content .rlc-items img,
+.rlc-box .rlc-content .rlc-items .c {
+  margin: 0 auto;
   width: 200px;
   height: 200px;
   border-radius: 50%;

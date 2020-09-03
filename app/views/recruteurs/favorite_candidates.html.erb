@@ -2,9 +2,7 @@
 <link rel="stylesheet" href="/css/favorite_candidates.css" />
 <!-- body html  -->
 <div class="client-column">
-  <div class="client-menu-left">
-    <%= render "recruteurs/left_link_bar" %>
-  </div>
+  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
   <div class="cp-box">
     <div class="fc-box">
       <h3 class="title">MES CANDIDATS FAVORIS</h3>
@@ -22,18 +20,17 @@
 
         <% if offre.my_top_five_candidates.empty? %>
         <div class="fc-body-empty">
-          <h3>Aucun candidat selectionner pour cette offre</h3>
-          <div class="show-pb2-btn">
-            <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(offre.id) %> <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(offre.id) %>
-          </div>
+          <h3>Aucun candidat selectionné pour cette offre</h3>
+          <div class="show-pb2-btn"><%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(offre.id) %> <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(offre.id) %></div>
         </div>
         <% else %>
 
         <div class="my_five_candidates">
           <% offre.my_top_five_candidates.each do |oFc| %>
           <div class="cadre-items">
-            <%= link_to show_search_candidate_path(oFc.cadre.id, offre_id: offre.id), method: :get do %> <%= image_tag(oFc.cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px", width:"100px" )%> <% end %>
-            <br />
+            <%= link_to show_search_candidate_path(oFc.cadre.id, offre_id: offre.id), method: :get do %>
+            <div class="c" style="background: url(<%= oFc.cadre.cadre_info.image%>) center no-repeat; background-size: cover"></div>
+            <% end %>
             <h3 class="name"><%= oFc.cadre.cadre_info.first_name %> <%= oFc.cadre.cadre_info.last_name[0] %>.</h3>
           </div>
           <% end %>

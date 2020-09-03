@@ -29,7 +29,8 @@
           </td>
           <td>
             <div class="co-input hide-right">
-              <select name="Rémunération" id="cars" class:'co-select' disabled selected>
+              <select name="Rémunération" id="cars" class:'co-select'  >
+                <option value="Rémunération" disabled selected>Rémunération</option>
                 <option value="60 k€">60 k€</option>
                 <option value="70 k€">70 k€</option>
                 <option value="80 k€">80 k€</option>
@@ -65,7 +66,8 @@
           </td>
           <td>
             <div class="co-input hide-right">
-              <select name="Disponibilité" id="cars" class:'co-select' disabled selected>
+              <select name="Disponibilité" id="cars" class:'co-select'  >
+                <option value="Disponibilité" disabled selected>Disponibilité</option>
                 <option value="IMMÉDIATE">IMMÉDIATE</option>
                 <option value="PRÉAVIS 1 MOIS">PRÉAVIS 1 MOIS</option>
                 <option value="PRÉAVIS 3 MOIS">PRÉAVIS 3 MOIS</option>
@@ -96,7 +98,12 @@
           <% @cadres.each do |cadre| %>
           <div class="cadre-box">
             <div class="cadre-box-image">
-              <div class="cbi-photo"><%= link_to show_search_candidate_path(cadre.id, offre_id: @offre.id), method: :get do %> <%= image_tag(cadre.cadre_info.image, alt: 'photo profil cadre', class:"js-image-#{cadre.id}")%> <% end %></div>
+              <div class="cbi-photo">
+                <%= link_to show_search_candidate_path(cadre.id, offre_id: @offre.id), method: :get do %>
+                  <div class="c " style="background: url(<%= cadre.cadre_info.image%>) center no-repeat; background-size: cover"></div>
+                <% end %>
+                  <%= image_tag(cadre.cadre_info.image, alt: 'photo profil cadre', class:"js-image-#{cadre.id} " ,style:'display:none')%> 
+                </div>
               <div class="icone">
                 <% oFc = @offre.is_in_this_job(cadre) %> <% if oFc.nil? || oFc.accepted_postule.nil? || oFc.accepted_postule == false %> <% if @topCinqs.count < 5 %>
                 <img class="add-js-toFavorite" data-info="<%= cadre.id %>" src="/image/Vector-22.png" alt="logo oiam non favorie" />

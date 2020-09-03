@@ -41,7 +41,8 @@
       font: $ffsentence;
       text-align: center;
       .image {
-        img {
+        img,
+        .c {
           height: 300px;
         }
       }

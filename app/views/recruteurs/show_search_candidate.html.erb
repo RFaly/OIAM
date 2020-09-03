@@ -9,7 +9,8 @@
       <div class="ssc-all-infos">
         <div class="ssc-infos">
           <div class="image">
-            <% unless @cadre.image.nil? %> <%= image_tag(@cadre.image, alt: 'photo de profil',class:"pdp" )%> <br />
+            <% unless @cadre.image.nil? %>
+            <div class="c" style="background: url(<%= @cadre.image%>) center no-repeat; background-size: cover"></div>
             <% end %>
           </div>
           <div class="infos">
@@ -38,7 +39,26 @@
           </div>
           <div class="questionnaire">
             <h5 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h5>
-            <p><%= @cadre.question2 %></p>
+            <p>
+              <% unless @cadre.country.nil? %>
+                Pays: <%= @cadre.country.name %> <br>
+              <% end %>
+
+              <% unless @cadre.region.nil? %>
+                Région: <%= @cadre.region.name %> <br>
+              <% end %>
+
+              <% unless @cadre.ville.nil? %>
+                Ville: <%= @cadre.ville.name %> <br>
+              <% end %>
+
+
+              <% if @cadre.deplacement %>
+                Fréquence de déplacement: <%=  @cadre.frequency %>
+              <% else %>
+                Pas de déplacement.
+              <% end %>
+          </p>
           </div>
           <div class="questionnaire">
             <h5 class="questionnaire-title">Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?</h5>
@@ -163,9 +183,9 @@
               <br />
               <span id="nameShowOk"> <%= current_client.fonction %> : <%= current_client.first_name %> <%= current_client.last_name %> </span>
             </div>
-            <%= link_to recruitment_show_cadre_path(@offre.is_in_this_job(@cadre.cadre)) do%>
+            <% unless @offre.in_list_entretien(@cadre.cadre).nil? %> <%= link_to recruitment_show_cadre_path(@offre.is_in_this_job(@cadre.cadre)) do %>
             <div class="ssc-send-btn">VALIDER</div>
-            <% end %>
+            <% end %> <% end %>
           </div>
         </div>
       </div>

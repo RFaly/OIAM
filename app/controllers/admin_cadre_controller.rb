@@ -14,4 +14,16 @@ class AdminCadreController < ApplicationAdminController
 
   def events
   end
+
+  def message
+  end
+
+  def message_fit
+  end
+
+  def accept_workshop
+  end
+
+  def cancel_workshop
+  end
 end

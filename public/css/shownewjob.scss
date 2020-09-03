@@ -47,7 +47,8 @@
         display: flex;
         .logo {
           width: 150px;
-          img {
+          img,.c {
+            height: 150px;
             width: 100%;
           }
         }
@@ -67,7 +68,7 @@
       .so-content {
         text-align: center;
         margin: 25px 0;
-        &.first-content {
+        .first-content {
           font: $ffbtn;
           font-size: 20px;
         }

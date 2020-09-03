@@ -8,9 +8,8 @@
 }
 
   
-.dash-box {
+.dash-cont {
     background: #fff;
-    border: 2px solid #d6b36a;
     display: inline-block;
     height: 300px;
     margin: 20px;
@@ -20,6 +19,29 @@
     text-transform: uppercase;
     justify-content: center;
     
+}
+.dash-box1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.dash-box {
+    border: 2px solid #d6b36a;
+    height: 300px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.box-bt {
+  margin-bottom: 100px;
+}
+
+.dash-cont h6 {
+  text-align: center;
+  justify-content: center;
+  font-family: Raleway, sans-serif;
+  font-size: 16px;
+  color: #d6b36a;
 }
 
 .dash-box a {
