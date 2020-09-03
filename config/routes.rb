@@ -149,6 +149,11 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/cadre/coaching-workshop', to: 'admin_cadre#coaching_workshop', as: 'admin_cadre_coaching_workshop'
   get 'secret-oiam-page/admin/cadre/events', to: 'admin_cadre#events', as: 'admin_cadre_events'
 
+  get 'secret-oiam-page/admin/cadre/envoyer-un-message/envoyer', to: 'admin_cadre#message', as: 'message_candidats'
+  get 'secret-oiam-page/admin/cadre/entretien-fit/avis-recruteur', to: 'admin_cadre#message_fit', as: 'message_candidats_fit'
+  get 'secret-oiam-page/admin/cadre/coaching-workshop/accept_workshop', to: 'admin_cadre#accept_workshop', as: 'accept_workshop'
+  get 'secret-oiam-page/admin/cadre/coaching-workshop/cancel_workshop', to: 'admin_cadre#cancel_workshop', as: 'cancel_workshop'
+
   # route admin client
   get 'secret-oiam-page/admin/client/recrutement-en-cours', to: 'admin_client#main', as: 'admin_client_main'
   get 'secret-oiam-page/admin/client/offres-d-emploi', to: 'admin_client#offer', as: 'admin_client_offer'
