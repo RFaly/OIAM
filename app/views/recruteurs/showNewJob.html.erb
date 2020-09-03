@@ -49,15 +49,19 @@
             </div>
           </div>
           <hr />
-          <div class="so-content first-content">
-            <%= @offre.question2 %>
-          </div>
           <div class="so-content">
             <p>DESCRIPTIF DES MISSIONS</p>
             <div class="description">
               <%= @offre.descriptif_mission %>
             </div>
           </div>
+          <div class="so-content">
+            <p>Pourquoi travailler chez eux ?</p>
+            <div class="first-content">
+              <%= @offre.question2 %>
+            </div>
+          </div>
+         
           <div class="so-content">
             <p>RATTACHEMENT HIÉRARCHIQUE</p>
             <div><%= @offre.rattachement %></div>
@@ -82,9 +86,9 @@
               <% when 1 %>
                 1 entretien RH
               <% when 2 %>
-                1 entretien RH + 1 entretien manager
+                1 entretien RH + 1 entretien Manager
               <% when 3 %>
-                1 entretien RH + 2 entretien manager
+                1 entretien RH + 2 entretiens Manager
               <% end %>
             </div>
           </div>

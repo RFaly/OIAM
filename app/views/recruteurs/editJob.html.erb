@@ -137,6 +137,32 @@
             <option value="70 k€ bruts annuels">70 k€ bruts annuels</option>
             <option value="80 k€ bruts annuels">80 k€ bruts annuels</option>
             <option value="90 k€ bruts annuels">90 k€ bruts annuels</option>
+            <option value="100 k€ bruts annuels">100 k€ bruts annuels</option>
+            <option value="110 k€ bruts annuels">110 k€ bruts annuels</option>
+            <option value="120 k€ bruts annuels">120 k€ bruts annuels</option>
+            <option value="130 k€ bruts annuels">130 k€ bruts annuels</option>
+            <option value="140 k€ bruts annuels">140 k€ bruts annuels</option>
+            <option value="150 k€ bruts annuels">150 k€ bruts annuels</option>
+            <option value="160 k€ bruts annuels">160 k€ bruts annuels</option>
+            <option value="170 k€ bruts annuels">170 k€ bruts annuels</option>
+            <option value="180 k€ bruts annuels">180 k€ bruts annuels</option>
+            <option value="190 k€ bruts annuels">190 k€ bruts annuels</option>
+            <option value="200 k€ bruts annuels">90 k€ bruts annuels</option>
+            <option value="210 k€ bruts annuels">210 k€ bruts annuels</option>
+            <option value="220 k€ bruts annuels">220 k€ bruts annuels</option>
+            <option value="230 k€ bruts annuels">230 k€ bruts annuels</option>
+            <option value="240 k€ bruts annuels">240 k€ bruts annuels</option>
+            <option value="250 k€ bruts annuels">250 k€ bruts annuels</option>
+            <option value="260 k€ bruts annuels">260 k€ bruts annuels</option>
+            <option value="270 k€ bruts annuels">270 k€ bruts annuels</option>
+            <option value="280 k€ bruts annuels">280 k€ bruts annuels</option>
+            <option value="290 k€ bruts annuels">290 k€ bruts annuels</option>
+            <option value="300 k€ bruts annuels">300 k€ bruts annuels</option>
+            <option value="310 k€ bruts annuels">310 k€ bruts annuels</option>
+            <option value="320 k€ bruts annuels">320 k€ bruts annuels</option>
+            <option value="330 k€ bruts annuels">330 k€ bruts annuels</option>
+            <option value="340 k€ bruts annuels">340 k€ bruts annuels</option>
+            <option value="350 k€ bruts annuels">350 k€ bruts annuels</option>            
           </select>
         </div>
         <span class="input-error" id="question1-error"></span>
@@ -151,7 +177,7 @@
         <div class="co-input hide-right">
           <select id="question3" name="offre_job[numberEntretien]" class="co-select">
             <option value="<%= @offre.numberEntretien %>" selected hidden>
-              <% case @offre.numberEntretien.to_i %><% when 1 %>1 entretien RH<% when 2 %>1 entretien RH + 1 entretien manager<% when 3 %>1 entretien RH + 2 ntretien manager<% end %>
+              <% case @offre.numberEntretien.to_i %><% when 1 %>1 entretien RH<% when 2 %>1 entretien RH + 1 entretien Manager<% when 3 %>1 entretien RH + 2 entretiens Manager<% end %>
             </option>
             <option value="1">1 entretien RH</option>
             <option value="2">1 entretien RH + 1 entretien manager</option>
@@ -179,8 +205,9 @@
               <%= @offre.question5 %>
             </option>
             <option value="Remplacement">Remplacement</option>
-            <option value="Changement">Changement</option>
-            <option value="Départ">Départ</option>
+            <option value="Départ à la retraite">Départ à la retraite</option>
+            <option value="Création de poste">Création de poste</option>
+            <option value="Croissance de l'entreprise">Croissance de l'entreprise</option>
           </select>
         </div>
         <span class="input-error" id="question5-error"></span>
