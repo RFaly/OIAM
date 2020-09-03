@@ -4,7 +4,7 @@
 
 Country.destroy_all
 Region.destroy_all
-City.destroy_all
+Ville.destroy_all
 Admin.destroy_all
 Formation.destroy_all
 
@@ -46,7 +46,7 @@ country = Country.create(name:"France")
 franceData.each do |data|
 	region = Region.create(name: data[:region], country: country)
 	data[:departement].each do |dptm|
-		City.create(name: dptm, region: region)
+		Ville.create(name: dptm, region: region)
 	end
 end
 

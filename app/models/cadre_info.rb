@@ -3,6 +3,6 @@ class CadreInfo < ApplicationRecord
 	has_one :agenda_admin
 	belongs_to :region, optional: true
 	belongs_to :country, optional: true
-	belongs_to :city, optional: true
+	belongs_to :ville, optional: true
 end
 

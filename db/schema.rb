@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_115920) do
+ActiveRecord::Schema.define(version: 2020_09_03_123443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,13 +83,15 @@ ActiveRecord::Schema.define(version: 2020_09_03_115920) do
     t.string "disponibilite"
     t.string "mobilite"
     t.boolean "is_validate", default: false
+    t.boolean "deplacement"
+    t.text "frequency"
     t.bigint "country_id"
     t.bigint "region_id"
-    t.bigint "city_id"
+    t.bigint "ville_id"
     t.index ["cadre_id"], name: "index_cadre_infos_on_cadre_id"
-    t.index ["city_id"], name: "index_cadre_infos_on_city_id"
     t.index ["country_id"], name: "index_cadre_infos_on_country_id"
     t.index ["region_id"], name: "index_cadre_infos_on_region_id"
+    t.index ["ville_id"], name: "index_cadre_infos_on_ville_id"
   end
 
   create_table "cadres", force: :cascade do |t|
@@ -103,14 +105,6 @@ ActiveRecord::Schema.define(version: 2020_09_03_115920) do
     t.datetime "online_time"
     t.index ["email"], name: "index_cadres_on_email", unique: true
     t.index ["reset_password_token"], name: "index_cadres_on_reset_password_token", unique: true
-  end
-
-  create_table "cities", force: :cascade do |t|
-    t.string "name"
-    t.bigint "region_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["region_id"], name: "index_cities_on_region_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -320,7 +314,15 @@ ActiveRecord::Schema.define(version: 2020_09_03_115920) do
     t.index ["country_id"], name: "index_regions_on_country_id"
   end
 
-  add_foreign_key "cadre_infos", "cities"
+  create_table "villes", force: :cascade do |t|
+    t.string "name"
+    t.bigint "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["region_id"], name: "index_villes_on_region_id"
+  end
+
   add_foreign_key "cadre_infos", "countries"
   add_foreign_key "cadre_infos", "regions"
+  add_foreign_key "cadre_infos", "villes"
 end
