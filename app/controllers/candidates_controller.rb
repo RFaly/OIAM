@@ -46,7 +46,7 @@ class CandidatesController < ApplicationController
   def confirmedProfil
     errorMessage = ""
 
-    is_error = params[:cadre_info][:question1].empty? || params[:cadre_info][:question2].empty? || params[:cadre_info][:question3].empty? || params[:cadre_info][:question4].empty? || params[:cadre_info][:question5].empty? || params[:cadre_info][:status].empty? || params[:cadre_info][:disponibilite].empty? || params[:cadre_info][:mobilite].empty?
+    is_error = params[:cadre_info][:question1].empty? || params[:cadre_info][:question3].empty? || params[:cadre_info][:question4].empty? || params[:cadre_info][:question5].empty? || params[:cadre_info][:status].empty? || params[:cadre_info][:disponibilite].empty? || params[:cadre_info][:mobilite].empty?
     if is_error
       errorMessage += " [ Tous les champs sont obligatoire ] "
     end
@@ -64,7 +64,6 @@ class CandidatesController < ApplicationController
       end
       if is_cv
         @cadre.cv = fileCv.url
-        @cadre.save
       end
     end
 
@@ -81,11 +80,27 @@ class CandidatesController < ApplicationController
       end
       if is_img
         @cadre.image = uploader.url
-        @cadre.save
       end
     end
 
     if errorMessage.empty?
+      if params[:cadre_info][:deplacement] == 1
+        @cadre.frequency = params[:cadre_info][:frequency]
+        @cadre.deplacement = true
+      else
+        @cadre.deplacement = false
+      end
+
+      c = Country.find_by(name:params[:cadre_info][:country])
+      r = Region.find_by(name:params[:cadre_info][:region])
+      v = Ville.find_by(name:params[:cadre_info][:ville])
+
+      @cadre.country = c
+      @cadre.region = r
+      @cadre.ville = v
+
+      @cadre.save
+
       @cadre.update(post_params)
       @cadre.update(empty:false)
       redirect_to my_profil_path
@@ -487,7 +502,7 @@ class CandidatesController < ApplicationController
   end
 
   def post_params
-    params.require(:cadre_info).permit(:question1,:question2,:question3,:question4,:question5,:status,:disponibilite,:mobilite)
+    params.require(:cadre_info).permit(:question1,:question3,:question4,:question5,:status,:disponibilite,:mobilite)
   end
 
   def current_info_cadre
