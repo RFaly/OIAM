@@ -7,8 +7,21 @@
 			<%= f.text_area :question1, required:true, rows:3, class:"champs" %>
 
 			<%= f.label :question2, "Où souhaitez-vous travailler et acceptez-vous les déplacements ?",class:"label-content" %>
-			<%= f.text_area :question2, required:true, rows:3, class:"champs" %>
+			<div class="depl-content">
+				<div class="dp-input hide-right"><%= f.select :question1 , options_for_select([["France", "France"]]),{}, class:'co-select', required:true, id:'paysInput', title:'Pays',autofocus:true, class:"champ"%></div>
+	        	<span class="input-error country-error"></span>
 
+	        	<div class="dp-input hide-right"><%= f.select :question1, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région',autofocus:true, class:"champ"%></div>
+	        	<span class="input-error region-error"></span>
+
+	        	<div class="dp-input hide-right"><%= f.select :question1, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autofocus:true, class:"champ"%></div>
+	       		<span class="input-error departement-error"></span>
+	       		<div class="check">
+	       			<div class="accepter-container"> <%= f.label "Accepter deplacement", class:"accepter" %> </div>
+        			<%= f.check_box :question1, class:"checkbox" %>
+	       			<%= f.select :question1 , options_for_select([["une à plusieurs fois par semaine", "Une à plusieurs fois par semaine"],["une à plusieurs fois par mois"],["ponctuellement"],["aucun déplacement"]]),{}, class:'co-select', required:true, id:'paysInput', title:'Pays',autofocus:true,prompt:"Placeholder",class:"champ frequence"%></div>
+
+			</div>
 			<%= f.label :question3, "Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?", class:"label-content" %>
 			<%= f.text_area :question3, required:true, rows:3, class:"champs" %>
 
@@ -92,6 +105,23 @@
 	$("#cadre_info_image").change(function() {
 		shwoMyImage(this);
 	});
+
+	$(".frequence").hide();
+	let here = false;
+	$(".checkbox").click(function(){
+		if (here != true) {
+			$(".frequence").show();
+			here = true;
+		}
+		else{
+			$(".frequence").hide();
+			here = false;	
+		}
+	})
 </script>
 
 <script type="text/javascript" src="/js/edit_profil_cadre.js"></script>
+<!-- call js  -->
+<script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- date picker jquery  -->
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/event_input_offre_job.js"></script>
