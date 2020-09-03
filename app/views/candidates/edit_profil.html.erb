@@ -26,7 +26,7 @@
 			<%= f.label :question3, "Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?", class:"label-content" %>
 			<%= f.text_area :question3, required:true, rows:3, class:"champs" %>
 
-			<%= f.label :question4, "Quel est le minimum salarial en dessous duquel il n’est pas nécessaire de vous contacter ?", class:"label-content" %>
+			<%= f.label :question4, "Quel est le minimum salarial FIXE en dessous duquel il n’est pas nécessaire de vous contacter ?", class:"label-content" %>
 			<div class="slide">
 				<%=f.range_field :question4, :min=>60, :max=>350,required:true, class:"intervalle", id:"slide" %><span id="value" class="value"></span>
 			</div>
