@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_02_070039) do
+ActiveRecord::Schema.define(version: 2020_09_03_115920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,7 +83,13 @@ ActiveRecord::Schema.define(version: 2020_09_02_070039) do
     t.string "disponibilite"
     t.string "mobilite"
     t.boolean "is_validate", default: false
+    t.bigint "country_id"
+    t.bigint "region_id"
+    t.bigint "city_id"
     t.index ["cadre_id"], name: "index_cadre_infos_on_cadre_id"
+    t.index ["city_id"], name: "index_cadre_infos_on_city_id"
+    t.index ["country_id"], name: "index_cadre_infos_on_country_id"
+    t.index ["region_id"], name: "index_cadre_infos_on_region_id"
   end
 
   create_table "cadres", force: :cascade do |t|
@@ -97,6 +103,14 @@ ActiveRecord::Schema.define(version: 2020_09_02_070039) do
     t.datetime "online_time"
     t.index ["email"], name: "index_cadres_on_email", unique: true
     t.index ["reset_password_token"], name: "index_cadres_on_reset_password_token", unique: true
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.bigint "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["region_id"], name: "index_cities_on_region_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -143,6 +157,12 @@ ActiveRecord::Schema.define(version: 2020_09_02_070039) do
     t.datetime "updated_at", null: false
     t.index ["cadre_id"], name: "index_contact_client_cadres_on_cadre_id"
     t.index ["client_id"], name: "index_contact_client_cadres_on_client_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "entreprises", force: :cascade do |t|
@@ -292,4 +312,15 @@ ActiveRecord::Schema.define(version: 2020_09_02_070039) do
     t.index ["offre_job_id"], name: "index_promise_to_hires_on_offre_job_id"
   end
 
+  create_table "regions", force: :cascade do |t|
+    t.string "name"
+    t.bigint "country_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_regions_on_country_id"
+  end
+
+  add_foreign_key "cadre_infos", "cities"
+  add_foreign_key "cadre_infos", "countries"
+  add_foreign_key "cadre_infos", "regions"
 end
