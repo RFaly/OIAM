@@ -84,7 +84,7 @@ class CandidatesController < ApplicationController
     end
 
     if errorMessage.empty?
-      if params[:cadre_info][:deplacement] == 1
+      if params[:cadre_info][:deplacement] == "1"
         @cadre.frequency = params[:cadre_info][:frequency]
         @cadre.deplacement = true
       else
