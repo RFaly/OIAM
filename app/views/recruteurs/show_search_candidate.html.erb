@@ -39,7 +39,26 @@
           </div>
           <div class="questionnaire">
             <h5 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h5>
-            <p><%= @cadre.question2 %></p>
+            <p>
+              <% unless @cadre.country.nil? %>
+                Pays: <%= @cadre.country.name %> <br>
+              <% end %>
+
+              <% unless @cadre.region.nil? %>
+                Région: <%= @cadre.region.name %> <br>
+              <% end %>
+
+              <% unless @cadre.ville.nil? %>
+                Ville: <%= @cadre.ville.name %> <br>
+              <% end %>
+
+
+              <% if @cadre.deplacement %>
+                Fréquence de déplacement: <%=  @cadre.frequency %>
+              <% else %>
+                Pas de déplacement.
+              <% end %>
+          </p>
           </div>
           <div class="questionnaire">
             <h5 class="questionnaire-title">Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?</h5>
