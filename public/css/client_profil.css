@@ -37,6 +37,10 @@
   padding-top: 20px;
 }
 
+.cp-table-box td .cp-entreprise-content {
+  padding-right: 10px;
+}
+
 .cp-table-box h5 {
   font: 500 18px Raleway, sans-serif;
   font-size: 20px;
@@ -51,6 +55,10 @@
   height: 22px;
 }
 
+.cp-table-box .cp-icone.web {
+  height: 18px;
+}
+
 .cp-table-box .cpr-i-mail {
   width: 20px;
   height: 16px;
@@ -60,8 +68,22 @@
   display: flex;
 }
 
+.cp-table-box .cpe-description {
+  padding-right: 10px;
+}
+
+.cp-table-box .code-naf-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .cp-table-box .cp-flex-t {
   text-align: center;
+}
+
+.cp-table-box .cpe-adress h5 {
+  text-align: left;
 }
 
 .cp-table-box .cp-icon-text {
@@ -81,6 +103,11 @@
   padding: 10px;
   background-color: white;
   box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+}
+
+.cp-table-box .cp-pprofil .c {
+  width: 100%;
+  height: 100%;
 }
 
 .cp-table-box .cp-pprofil img {

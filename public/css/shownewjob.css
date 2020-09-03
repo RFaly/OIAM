@@ -76,7 +76,8 @@
   width: 150px;
 }
 
-.show-job-box .show-publication .sjb-content .show-einfos .logo img {
+.show-job-box .show-publication .sjb-content .show-einfos .logo img, .show-job-box .show-publication .sjb-content .show-einfos .logo .c {
+  height: 150px;
   width: 100%;
 }
 

@@ -136,7 +136,8 @@
   text-align: center;
 }
 
-.ssc-box .ssc-all-infos .ssc-infos .image img {
+.ssc-box .ssc-all-infos .ssc-infos .image img,
+.ssc-box .ssc-all-infos .ssc-infos .image .c {
   height: 300px;
 }
 

@@ -186,7 +186,7 @@
         <span class="input-error" id="question5-error"></span>
 
         <div class="co-input co-input-image">
-          <%= image_tag(@offre.image, alt: 'photo logo',id:"addImage" )%>
+          <div class="c" id="addImage" style="background: url(<%= @offre.image%>) center no-repeat; background-size: cover"></div>
           <label>
             <p class="first-p">Logo entreprise</p>
             <p class="last-p">Télécharger une image</p>

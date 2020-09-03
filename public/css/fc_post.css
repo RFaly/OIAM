@@ -91,7 +91,8 @@
   height: 450px;
 }
 
-.fcp-box .fc-item-all .list-candidat .fci-image img {
+.fcp-box .fc-item-all .list-candidat .fci-image img,
+.fcp-box .fc-item-all .list-candidat .fci-image .c {
   width: 100%;
   height: 350px;
 }

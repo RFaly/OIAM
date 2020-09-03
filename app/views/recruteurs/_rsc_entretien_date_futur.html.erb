@@ -12,9 +12,9 @@
             <% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
                 <% date = DateTime.parse(@agendas.alternative) %>
                 <div class="new-date">
-                    Le candidat a accepter la demande d'entretien à condition de changer la date <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+                    Le candidat a accepté la demande d'entretien à condition de changer la date <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
                     <div class="link">
-                        <%= link_to "ACCEPTER SA PROPOSTION", update_entretien_client_path(repons: '1', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
+                        <%= link_to "ACCEPTER SA PROPOSITION", update_entretien_client_path(repons: '1', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
                     </div>
                     
                     <div class="link ssc-btn ssc-pe" id="dateEntretien1">
