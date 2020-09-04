@@ -222,10 +222,53 @@
   text-align: center;
   text-transform: uppercase;
   font: 16px Questrial, sans-serif;
-  color: #000;
+  color: #d6b36a;
 }
 
 .pin {
   color: #d6b36a;
   margin-right: 10px;
 }
+
+@media only screen and (max-width: 1200px){
+  .box{
+    display: block;
+    text-align: center;
+    justify-content: center;    
+    clear: both;
+  }
+  .box-mess {
+    text-align: center;
+    justify-content: center;
+    margin-left: 75px;
+  }
+
+  .event-btn {
+    text-align: center;
+    justify-content: center;  
+    margin-top: 150px;
+    margin-right: 150px;
+  }
+}
+
+/*@media only screen and (max-width: 600px){
+  .box{
+    display: block;
+    text-align: center;
+    justify-content: center;    
+    clear: both;
+  }
+  .box-mess {
+    text-align: center;
+    justify-content: center;
+    margin-left: 500px;
+  }
+
+  .event-btn {
+    text-align: center;
+    justify-content: center;
+    margin-top: 150px;
+    margin-right: 500px;
+  }
+
+}*/
