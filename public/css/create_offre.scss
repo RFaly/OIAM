@@ -92,7 +92,8 @@
         background: $secondary_element_color;
       }
       textarea {
-        height: 70px;
+        resize: both;
+        height: 300px;
       }
     }
     // custom check box

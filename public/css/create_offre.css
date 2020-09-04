@@ -196,7 +196,8 @@
 }
 
 .create-offre-box .detail-post-box .dp-input textarea {
-  height: 70px;
+  resize: both;
+  height: 300px;
 }
 
 .create-offre-box .detail-post-box .dp-input-checkbox1 {
