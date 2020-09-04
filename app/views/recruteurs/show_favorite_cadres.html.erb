@@ -29,7 +29,13 @@
               <p class="name"><%= ofc.cadre.cadre_info.first_name %> <%= ofc.cadre.cadre_info.last_name[0].upcase %>.</p>
               <p class="compatibilite">Compatibilité : <span>60%</span></p>
               <p class="score">Score OIAM : <span>1700</span></p>
-              <p class="poste">Type de poste : Manager Marketing</p>
+              <p class="poste">Type de poste : 
+                <% if ofc.cadre.cadre_info.metier.nil? %>
+                  Manager marketing
+                <% else %>
+                  <%= ofc.cadre.cadre_info.metier.name %>
+                <% end %>
+              </p>
             </div>
           </div>
           <% end %> <% end %>
