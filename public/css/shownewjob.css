@@ -76,7 +76,8 @@
   width: 150px;
 }
 
-.show-job-box .show-publication .sjb-content .show-einfos .logo img, .show-job-box .show-publication .sjb-content .show-einfos .logo .c {
+.show-job-box .show-publication .sjb-content .show-einfos .logo img,
+.show-job-box .show-publication .sjb-content .show-einfos .logo .c {
   height: 150px;
   width: 100%;
 }
@@ -103,7 +104,6 @@
 
 .show-job-box .show-publication .sjb-content .so-content .first-content {
   font: 500 18px Raleway, sans-serif;
-  font-size: 20px;
 }
 
 .show-job-box .show-publication .sjb-content .so-content div {

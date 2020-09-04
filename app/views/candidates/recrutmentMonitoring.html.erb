@@ -9,7 +9,7 @@
 		<% if @oFcs.empty? %>
 		<div class="recrutement-content">
 			<div class="recrutement">
-				<center><h4>Vous n'avez aucun récrutement en cours pour l'instant.</h4></center>
+				<center><h4>Vous n'avez aucune récrutement en cours pour l'instant.</h4></center>
 				<div class="offre-perso">
 					<%= link_to "TROUVER UNE OFFRES", searchJob_path, class:"btn-edit" %>
 				</div>
@@ -40,7 +40,7 @@
 							<% if oFc.status == "refused" %>
 								<div class="refused">
 									<img src="/image/unvalid.png" width="35px" height="35px" class="refused-image">
-									<center><span class="candidature">Candidature réfusé</span></center>
+									<center><span class="candidature">Candidature réfusée</span></center>
 								</div>
 							<% else %>
 								
@@ -82,7 +82,7 @@
 								Demande d'entretien envoyer <br>
 								<% if oFc.repons_postule==false %>
 									<img src="/image/unvalid.png" width="35px" height="35px" class="refused-image">
-									<span class="candidature">Demande refuser</span>
+									<span class="candidature">Demande refusée</span>
 								<% else %>
 									<span class="candidature">En attente de réponse</span>
 								<% end %>

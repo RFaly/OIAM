@@ -393,6 +393,8 @@ html{
       margin:  80px;
     }
 
+   
+
     .btn-recherche{
       display: inline;
     }
@@ -450,6 +452,8 @@ html{
 
     .add-image{
       display: inline;
+      width: 360px;
+      height: 360px;
     }
 
     .add-image-label{

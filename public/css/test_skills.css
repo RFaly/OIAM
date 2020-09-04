@@ -184,10 +184,10 @@ h2{
 }
 
 
-.directeur-marketing{
+#cadre_info_metier_id{
   display: block;
   margin: auto;
-  width: 288px;
+  width: auto;
   height: 47px;
   border: 1px solid #D6B36A;
   background: none;

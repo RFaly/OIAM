@@ -143,7 +143,7 @@ class RecruteursController < ApplicationController
 	def search_candidate
 		@offre = OffreJob.find_by_id(params[:id])
 		@topCinqs = @offre.my_top_five_candidates
-		
+		@metiers = Metier.all
 		#afficher tous les cadre dans la bdd
 		@cadres = Cadre.joins(:cadre_info).where("cadre_infos.empty = ?",false)
 	end

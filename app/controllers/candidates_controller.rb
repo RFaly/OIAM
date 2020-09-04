@@ -114,6 +114,7 @@ class CandidatesController < ApplicationController
 
 	def searchJob
     validate_info_cadre
+    @metiers = Metier.all
     @offres = OffreJob.where(is_publish:true)
 	end
 
