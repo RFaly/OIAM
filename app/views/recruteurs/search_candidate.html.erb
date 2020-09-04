@@ -9,25 +9,37 @@
         <tr>
           <td>
             <div class="co-input hide-right">
-              <select name="Localisation" id="cars" class:'co-select'>
+              <select name="Localisation" id="cars" class='co-select'>
                 <option value="Localisation" disabled selected>Localisation</option>
-                
+                <option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
+                <option value="Bourgogne-Franche-Comté">Bourgogne-Franche-Comté</option>
+                <option value="Bretagne">Bretagne</option>
+                <option value="Centre-Val de Loire">Centre-Val de Loire</option>
+                <option value="Corse">Corse</option>
+                <option value="Grand Est">Grand Est</option>
+                <option value="Hauts-de-France">Hauts-de-France</option>
+                <option value="Île-de-France">Île-de-France</option>
+                <option value="Normandie">Normandie</option>
+                <option value="Nouvelle-Aquitaine">Nouvelle-Aquitaine</option>
+                <option value="Occitanie">Occitanie</option>
+                <option value="Pays de la Loire">Pays de la Loire</option>
+                <option value="Provence-Alpes-Côte d'Azur">Provence-Alpes-Côte d'Azur</option>
               </select>
             </div>
           </td>
           <td>
             <div class="co-input hide-right">
-              <select name="Fonction" id="cars" class:'co-select'>
+              <select name="Fonction" id="cars" class='co-select'>
                 <option value="Fonction" disabled selected>Fonction</option>
-                <option value="Directeur Marketing">Directeur Marketing</option>
-                <option value="Manager">Manager</option>
-                <option value="exemple">exemple</option>
+                <% @metiers.each do |metier| %>
+                  <option value="<%= metier.id %>"><%= metier.name %></option>
+                <% end %>
               </select>
             </div>
           </td>
           <td>
             <div class="co-input hide-right">
-              <select name="Rémunération" id="cars" class:'co-select'  >
+              <select name="Rémunération" id="cars" class='co-select'  >
                 <option value="Rémunération" disabled selected>Rémunération</option>
                 <option value="60 k€">60 k€</option>
                 <option value="70 k€">70 k€</option>
@@ -64,7 +76,7 @@
           </td>
           <td>
             <div class="co-input hide-right">
-              <select name="Disponibilité" id="cars" class:'co-select'  >
+              <select name="Disponibilité" id="cars" class='co-select'  >
                 <option value="Disponibilité" disabled selected>Disponibilité</option>
                 <option value="IMMÉDIATE">IMMÉDIATE</option>
                 <option value="PRÉAVIS 1 MOIS">PRÉAVIS 1 MOIS</option>
