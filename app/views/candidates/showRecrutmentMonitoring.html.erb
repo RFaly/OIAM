@@ -51,7 +51,7 @@
 	<div id="container-element">
 		<% if @oFc.status == "refused" %> <!-- if candidature refusé -->
 		<div class="<% if @oFc.status == "refused" %> rencontred <% end %>">
-			<h4>CANDIDAT REFUSE</h4>
+			<h4>CANDIDAT REFUSÉ</h4>
 			<% unless @oFc.refused_info.nil? %>
 			<div class="rscr-result">
 			  <dl>
@@ -68,7 +68,7 @@
 			<!-- if etapes -->
 			<% if @oFc.etapes == @offreJob.numberEntretien + 1 %>
 				<% if @promise.repons_cadre.nil? %>
-					Félicitations, vous avez réussi la dernière étape de recrutement !
+					Félicitations, vous avez réussi la dernière étape du recrutement !
 					<%= @offreJob.client.entreprise.name %> vous a envoyé une promesse d'embauche.
 					<br>
 					<%= link_to "OUVRIR", cadre_show_promise_to_hire_path(@promise.id), class:"btn btn-success" %>
@@ -132,7 +132,7 @@
 						<% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
 							<% date = DateTime.parse(@agendas.alternative) %>
 							<p class="new-proposition-date">
-								<span class="title-entretien">Changement de date d'entretien envoyé pour le </span><span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>, en attende de réponse.
+								<span class="title-entretien">Changement de la date d'entretien envoyée pour le </span><span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>, en attente de réponse.
 							</p>
 						<!-- candidat a reffuser l'entretien -->
 						<% elsif @agendas.repons_cadre == false %>
@@ -189,7 +189,7 @@
 								<%= @offreJob.client.entreprise.name %> a validé votre candidature pour la première étape.
 							<% else %>
 								<p>
-									<b>En attente du retour du recruteur.</b>
+									<b>En attente du retour du récruteur.</b>
 								</p>
 							<% end %>
 
@@ -209,17 +209,17 @@
 							<h2 class="entretien-passer">L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> est passé.</h2>
 
 								<p>
-									Vous avez demander à changer la date de l'entretien pour <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>;
+									Vous avez demandé à changer la date de l'entretien pour <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>;
 								</p>
 
 								<p>
-									<b>En attente du retour du recruteur.</b>
+									<b>En attente du retour du récruteur.</b>
 								</p>
 							</div>
 						<% elsif @agendas.repons_cadre == false %>
 							<div class="candidat-refuse-entretien">
 								<p class="entretien-passer">L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> est passé.</p>
-								<p>Vous avez refuser de faire l'entretien.</p>
+								<p>Vous avez refusé de faire l'entretien.</p>
 								<img src="/image/unvalid.png" width="36px" height="36px" class="unvalid">
 								<% unless @agendas.alternative.nil? %>
 									<p class="motif"><%= @agendas.alternative %></p>
@@ -229,7 +229,7 @@
 							<!-- si le recruteur a refuser la proposition du nouvelle date de l'entretien  -->
 						<% else %>
 							<div class="candidat-refuse-entretien">
-								<p class="entretien-passer">L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> est passé.</p>
+								<p class="entretien-passer">L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> est passée.</p>
 								<img src="/image/unvalid.png" width="36px" height="36px" class="unvalid">
 								<p class="motif">Vous n'avez donner aucune réponse</p>
 							</div>

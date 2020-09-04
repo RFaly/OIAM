@@ -104,6 +104,10 @@ body{
   text-decoration: none;
 }
 
+.add-img-favorite{
+  background-color: #b7bdc3ed; 
+}
+
 .job_info_title{
   color: #D6B36A;
   text-transform: capitalize;
@@ -159,12 +163,6 @@ body{
   margin-bottom: 50px;
 }
 
-.action img{
-  position: relative;
-  float: right;
-  top: 7px;
-}
-
 .post_info_content{
   padding: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -213,11 +211,7 @@ body{
     top: 30%;
   }
 
-  .action img{
-    position: absolute;
-    top: -70px;
-    right: 0;
-  }
+
 
   .logo{
     padding: 10px;
@@ -238,6 +232,10 @@ body{
     float: right;
   }
 
+  .add-favorite {
+    background-color: #000;
+  }
+
   .add-favorite img{
     background: #fff;
   }
@@ -246,6 +244,14 @@ body{
     border-left: 1px solid #D6B36A;
     padding-left: 15px;
   }
+
+.action img{
+  position: absolute;
+  float: right;
+  top: -65px;
+  right: 15px;
+}
+
 }
 
 @media only screen and (min-width: 1024px){
@@ -267,6 +273,7 @@ body{
 
   .action{
     width: 20%;
+    position: relative;
   }
 
   .main{
