@@ -202,3 +202,19 @@
   padding-left: 10px !important;
 }
 
+@media only screen and (max-width: 1200px){
+  .mess_candidat {
+    display: inline-block;
+    transform: translate(-50%, 90%);
+    margin-left: 50px;
+  }
+
+  .mess_candidat .mess_input {
+    width: 700px;
+    height: 200px;
+  }
+
+  .mess_candidat .env-btn {
+    margin-right: 0;
+  }
+}
