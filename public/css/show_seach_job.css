@@ -81,6 +81,7 @@ html{
   .post-title{
     display: flex;
     justify-content: center;
+    grid-column-gap: 15%;
   }
 
 .trait{
@@ -92,11 +93,16 @@ html{
   background: #000;
 }
 
+.post-logo{
+ border-radius: 50%;
+ width: 150px;
+}
+
 
   .photo_ako{
     display: block;
     margin: 0 auto;
-    width: 200px;
+    width: auto;
     height: 100px;
   }
 
@@ -172,6 +178,10 @@ html{
   padding: 12px;
 }
 
+.width-extend{
+  width: 500px;
+}
+
 .modal{
   position: absolute;
   top: 50%;
@@ -219,7 +229,12 @@ html{
   display: block;
   margin: auto;
   max-width: 500px;
+  background: #f0f2f4;
+  padding: 20px;
+  width: 100%;
 }
+
+
   .content{
     margin-top: 30px;
   }

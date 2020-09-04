@@ -450,6 +450,8 @@ html{
 
     .add-image{
       display: inline;
+      width: 360px;
+      height: 360px;
     }
 
     .add-image-label{

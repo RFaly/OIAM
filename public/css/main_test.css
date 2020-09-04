@@ -89,6 +89,7 @@ body{
 
 .paragraphe{
 	position: relative;
+	top: 10px;
 	left: 0;
 	right: 0;
 	width: 220px;
@@ -132,6 +133,8 @@ body{
 p span{
 	float: right;
 }
+
+
 
 @media only screen and (min-width: 500px){
 	.certificat p{

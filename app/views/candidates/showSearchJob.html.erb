@@ -25,15 +25,16 @@
 			</div>
 		</div>
 		<div class="trait"></div>
-		<div class="post-title-descrption">
-			<p><%= @offre.question2 %></p>
-		</div>
 
 		<div class="description-title">
 			<h3>DESCRIPTIF DES MISSIONS</h3>
 			<p>
 				<%= @offre.descriptif_mission %>
 			</p>
+		</div>
+		<div class="description-title">
+			<h3>POURQUOI TRAVAILLER CHEZ EUX ?</h3>
+			<p><%= @offre.question2 %></p>
 		</div>
 		<div class="description-title">
 			<h3>RATTACHEMENT HIÉRARCHIQUE</h3>
@@ -90,7 +91,7 @@
 		<% else %>
 			<% if @ofc.accepted_postule == true %>
 				<% if @agendat_client.nil? %>
-					<span class="btn btn-primare">
+					<span class="btn btn-primare width-extend">
 					Vous êtes selectioner parmi les 5 candidats favoris pour ce poste.
 					</span>
 				<% else %>
