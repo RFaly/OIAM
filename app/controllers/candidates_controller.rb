@@ -1,6 +1,6 @@
 class CandidatesController < ApplicationController
-  before_action :authenticate_cadre!, except: [:main,:my_tests,:testpotential,:testskills,:testfit,:saveEntretientDate,:resultatsTest,:tmp_sign_up,:tmp_create_sign_up]
-  before_action :validate_cadre, only: [:my_tests, :testpotential, :testskills, :testfit, :resultatsTest]
+  before_action :authenticate_cadre!, except: [:postMetierSkills,:main,:my_tests,:testpotential,:testskills,:testfit,:saveEntretientDate,:resultatsTest,:tmp_sign_up,:tmp_create_sign_up]
+  before_action :validate_cadre, only: [:my_tests, :testpotential, :testskills, :testfit, :resultatsTest, :postMetierSkills]
   before_action :current_info_cadre, only: [:my_profil, :edit_profil, :confirmedProfil]
 
   def main
@@ -284,6 +284,12 @@ class CandidatesController < ApplicationController
 
   def testskills
     @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+  end
+
+  def postMetierSkills
+    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+    @metier = Metier.find_by_id(params[:cadre_info][:metier_id])
+    @cadreInfo.update(metier:@metier)
   end
 
   def testfit
