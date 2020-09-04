@@ -1,0 +1,2 @@
+class Metier < ApplicationRecord
+end
