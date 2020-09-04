@@ -209,6 +209,16 @@ $('#co-dp-btn').click(function () {
     $('.ir-c1').addClass('color-bg');
     $('.detail-post-box').hide();
     $('.context-offre-box').fadeIn(800);
+    var html = '';
+    function round(x) {
+      return Math.ceil(x / 5) * 5;
+    }
+    for (i = round(parseInt($('#remuneration').val())); i <= 350; i += 10) {
+      let a = i + 5;
+      html += '<option value=' + a + '>' + a + 'k€ bruts annuels </option>';
+    }
+    $('#remuneration-max').html(html);
+
     $('html, body').animate(
       {
         scrollTop: $('#elementtoScrollToID').offset().top,
