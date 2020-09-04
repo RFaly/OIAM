@@ -12,15 +12,30 @@
 		<img src="/image/skills.png" height="60" width="60">
 	</div>
 		<p class="notice">Prenez quelques minutes pour lire attentivement ce qui suit.</p>
-	<p>Ce  test  est  réservé  aux candidats se destinant à  l’exercice de profession de niveau Top Management.</p>
-	<p>Notre test évalue vos compétences techniques pour les métiers suivants :</p>
-<div id="directeur-marketing">
-	<select name="dropdown" id="" class="directeur-marketing">
-		<option value="">Directeur marketing</option>
-		<option value="">Agent immobilier</option>
-		<option value="">Directeur commercial</option>
-	</select>
-</div>
+
+		<p>Ce  test  est  réservé  aux candidats se destinant à  l’exercice de profession de niveau Top Management.</p>
+
+		<p>Notre test évalue vos compétences techniques pour les métiers suivants :</p>
+	
+	<div id="directeur-marketing">
+		<%= form_for CadreInfo.new , url: postMetierSkills_path, remote:true do |f| %>
+		  <div class="field">
+		  	<f class="hidden"></f>
+		    <%= f.collection_select :metier_id, Metier.all, :id, :name %>
+		  </div>
+		<% end %>
+	</div>
+
+	<script type="text/javascript">
+		$("#cadre_info_metier_id").prepend("<option value=\"\" disabled selected>Choisissez votre métiers</option>")
+
+		$("#cadre_info_metier_id").change(function () {
+			$("#new_cadre_info").submit()
+			$("#link-to-next").show()
+			$("#link-to-top").hide()
+		})
+	</script>
+
 	<h2>CONSIGNES</h2>
 
 	<p>Notre test est entièrement sécurisé, et chronométré. Il dure environ 15 minutes. Veuillez à disposer au moins de ce laps de temps, et à ne pas être interrompu.<br>
@@ -41,7 +56,22 @@
 	<p>En souhaitant de tout coeur de pouvoir vous rencontrer de l’autre côté de la force,</p>
 	<p>Le staff One in a  Million</p>
 
-	<%= link_to "PASSER LE TEST", testfit_path, class:'pass-test'%>
+
+	<%= link_to "PASSER LE TEST", testfit_path, class:'pass-test', id:'link-to-next', style:'display:none;'%>
+
+	<span href="#cadre_info_metier_id" id="link-to-top" class="pass-test">PASSER LE TEST</span>
+
+	<script type="text/javascript">
+		$("#link-to-top").click(function(){
+			$('html, body').animate(
+		      {
+		        scrollTop: $('#elementtoScroll').offset().top,
+		      },
+		      500
+		    );
+		})
+	</script>
+
 
 	<br>
 

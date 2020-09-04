@@ -23,7 +23,13 @@
             </div>
 
             <div class="local">
-              <p>Type de poste : Manager marketing</p>
+              <p>Type de poste : 
+                <% if @cadre.metier.nil? %>
+                  Manager marketing
+                <% else %>
+                  <%= @cadre.metier.name %>
+                <% end %>
+              </p>
               <p>Disponibilité : Maintenant</p>
               <p>Salaire : <%= @cadre.question4 %>k€</p>
               <p>Mobilité : Ile de France</p>
