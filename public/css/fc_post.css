@@ -127,7 +127,7 @@
 }
 
 .fcp-box .fc-item-all .list-candidat:hover .fci-infos, .fcp-box .fc-item-all .list-candidat:active .fci-infos {
-  height: 170px;
+  height: 200px;
   transition: all 500ms ease-in-out;
 }
 
