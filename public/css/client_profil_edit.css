@@ -57,9 +57,12 @@
 }
 
 .cp-edit-table-box #entreprise_description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 70px;
-  padding-top: 15px;
+  height: 40px;
+  text-align: center;
 }
 
 .cp-edit-table-box #entreprise_description:focus {
