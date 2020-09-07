@@ -55,12 +55,22 @@ class RecruteursController < ApplicationController
 
 	def newJob
 		@offre = OffreJob.new
+		@metiers = Metier.all
 	end
 
 ##validation
 	def createJob
 		@offre = OffreJob.new(post_params)
+		@metier = Metier.find_by_name(params[:offre_job][:intitule_pote])
+		
+		if @metier.nil?
+			@metier = Metier.create(name:params[:offre_job][:intitule_pote])
+		end
+
+		@offre.update(metier:@metier)
+
 		@offre.client = current_client
+		
 		uploader = ImageUploader.new
 		errorMessage = ""
 		image_entreprise = params[:offre_job][:image]
@@ -542,7 +552,7 @@ class RecruteursController < ApplicationController
 	private
 
 	def post_params
-		params.require(:offre_job).permit(:country,:region,:department,:intitule_pote,:descriptif_mission,:rattachement,:remuneration,:remuneration_anne,:contrat_cdi,:type_deplacement,:date_poste,:question1,:question2,:numberEntretien,:question4,:question5)
+		params.require(:offre_job).permit(:intitule_pote,:country,:region,:department,:descriptif_mission,:rattachement,:remuneration,:remuneration_anne,:contrat_cdi,:type_deplacement,:date_poste,:question1,:question2,:numberEntretien,:question4,:question5)
 	end
 
 	def remuneration_variable_valid?(remuneration_variable,remuneration_info)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_04_060335) do
+ActiveRecord::Schema.define(version: 2020_09_07_110502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -283,7 +283,9 @@ ActiveRecord::Schema.define(version: 2020_09_04_060335) do
     t.integer "etapes", default: 0
     t.integer "numberEntretien"
     t.boolean "repons_cadre"
+    t.bigint "metier_id"
     t.index ["client_id"], name: "index_offre_jobs_on_client_id"
+    t.index ["metier_id"], name: "index_offre_jobs_on_metier_id"
   end
 
   create_table "promise_to_hires", force: :cascade do |t|
@@ -334,4 +336,5 @@ ActiveRecord::Schema.define(version: 2020_09_04_060335) do
   add_foreign_key "cadre_infos", "metiers"
   add_foreign_key "cadre_infos", "regions"
   add_foreign_key "cadre_infos", "villes"
+  add_foreign_key "offre_jobs", "metiers"
 end
