@@ -182,14 +182,14 @@
 
 						<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
 							<div id="js-main-bloc-information" class="rencontre">
-								<p>Vous avez rencontré <%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %> le <%= @agendas.entretien_date.strftime("%d/%m/%Y") %></p>
+								<p>Vous avez rencontré <%= @offreJob.client.first_name %> <%= @offreJob.client.last_name %> le <%= @agendas.entretien_date.strftime("%d/%m/%Y") %></p>
 							</div>
 
 							<% if @oFc.status == "accepted" %>
 								<%= @offreJob.client.entreprise.name %> a validé votre candidature pour la première étape.
 							<% else %>
 								<p>
-									<b>En attente du retour du récruteur.</b>
+									<b>En attente du retour du recruteur.</b>
 								</p>
 							<% end %>
 
@@ -213,7 +213,7 @@
 								</p>
 
 								<p>
-									<b>En attente du retour du récruteur.</b>
+									<b>En attente du retour du recruteur.</b>
 								</p>
 							</div>
 						<% elsif @agendas.repons_cadre == false %>
