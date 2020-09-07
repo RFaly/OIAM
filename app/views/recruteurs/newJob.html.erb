@@ -31,6 +31,18 @@
         <div class="dp-input hide-right"><%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autofocus:true %></div>
         <span class="input-error departement-error"></span>
 
+
+<!-- Liste de tous les metiers en ligne -->
+      <% array = [] %>
+      <% @metiers.each do |metier| %>
+        <% array.push(metier.name) %>
+      <% end %>
+      <div id="metier-js" data-list="<%= array %>"></div>
+      <script type="text/javascript">
+        array = $("#metier-js").data().list
+      </script>
+<!-- ---------------------------------- -->
+
         <%= f.label :intitule_pote, "INTITULÉ DU POSTE" %>
         <div class="dp-input"><%= f.text_field :intitule_pote, required:true , id:'intitule-pote',autofocus:true%></div>
         <span class="input-error intitule-pote-error"></span>
