@@ -87,7 +87,7 @@
               </div>
               <div>
                 <label id="conditioncheck">
-                  <%= current_client.first_name %> <%= current_client.last_name %>, <%= current_client.fonction %>
+                  <%= current_client.last_name %> <%= current_client.first_name %>, <%= current_client.fonction %>
                   <input type="radio" checked="checked" required name="name" value="<%= current_client.first_name %> <%= current_client.last_name %>" id="name_client" class="js-input-name" />
                   <span class="checkmark"></span>
                 </label>
@@ -127,9 +127,9 @@
                 <%= current_client.entreprise.city %>
               </span>
               <br />
-              <span id="nameShowOk"> <%= current_client.fonction %> : <%= current_client.first_name %> <%= current_client.last_name %> </span>
+              <span id="nameShowOk"> <%= current_client.fonction %> : <%= current_client.last_name %> <%= current_client.first_name %></span>
             </div>
-            <div class="ssc-send-btn">VALIDER</div>
+            <div class="ssc-send-btn" id="last-validation">VALIDER</div>
           </div>
         </div>
       </div>
@@ -148,6 +148,11 @@
       location.reload(true);
     }
   }
+
+  $('#last-validation').click(function() {
+    location.reload(true);
+  });
+
 </script>
 <!-- call js  -->
 <script type="text/javascript" src="/js/recrutement_show.js"></script>

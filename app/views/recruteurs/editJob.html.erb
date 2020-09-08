@@ -2,24 +2,16 @@
 <link rel="stylesheet" href="/css/create_offre.css" />
 <!-- body html  -->
 <div class="client-column">
-  <div class="client-menu-left">
-    <%= render "recruteurs/left_link_bar" %>
-  </div>
+  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
   <div class="cp-box">
     <div class="create-offre-box">
       <div class="travel-creation">
         <div class="travelc-image">
-          <div class="circle color-bg">
-            1
-          </div>
+          <div class="circle color-bg">1</div>
           <div class="line ir-l1"></div>
-          <div class="circle ir-c1">
-            2
-          </div>
+          <div class="circle ir-c1">2</div>
           <div class="line ir-l2"></div>
-          <div class="circle ir-c2">
-            3
-          </div>
+          <div class="circle ir-c2">3</div>
         </div>
         <ol>
           <li>Détails du poste</li>
@@ -37,32 +29,22 @@
         </div>
         <span class="input-error country-error"></span>
 
-        <div class="dp-input hide-right">
-          <%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région',autocomplete: "region" %>
-        </div>
+        <div class="dp-input hide-right"><%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région',autocomplete: "region" %></div>
         <span class="input-error region-error"></span>
 
-        <div class="dp-input hide-right">
-          <%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autocomplete: "departement" %>
-        </div>
+        <div class="dp-input hide-right"><%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autocomplete: "departement" %></div>
         <span class="input-error departement-error"></span>
 
         <%= f.label :intitule_pote, "INTITULÉ DU POSTE" %>
-        <div class="dp-input">
-          <%= f.text_field :intitule_pote, required:true , id:'intitule-pote'%>
-        </div>
+        <div class="dp-input"><%= f.text_field :intitule_pote, required:true , id:'intitule-pote'%></div>
         <span class="input-error intitule-pote-error"></span>
 
         <%= f.label :descriptif_mission, "DESCRIPTIF DES MISSIONS" %>
-        <div class="dp-input">
-          <%= f.text_area :descriptif_mission, required:true,id:'descriptif-mission' %>
-        </div>
+        <div class="dp-input"><%= f.text_area :descriptif_mission, required:true,id:'descriptif-mission' %></div>
         <span class="input-error descriptif-mission-error"></span>
 
         <%= f.label :rattachement, "RATTACHEMENT HIÉRARCHIQUE" %>
-        <div class="dp-input">
-          <%= f.text_field :rattachement, required:true,id:'rattachement' %>
-        </div>
+        <div class="dp-input"><%= f.text_field :rattachement, required:true,id:'rattachement' %></div>
         <span class="input-error rattachement-error"></span>
 
         <%= f.label :remuneration, "RÉMUNÉRATION PROPOSÉE FIXE (K€ BRUTS ANNUELS)" %>
@@ -162,23 +144,19 @@
             <option value="320 k€ bruts annuels">320 k€ bruts annuels</option>
             <option value="330 k€ bruts annuels">330 k€ bruts annuels</option>
             <option value="340 k€ bruts annuels">340 k€ bruts annuels</option>
-            <option value="350 k€ bruts annuels">350 k€ bruts annuels</option>            
+            <option value="350 k€ bruts annuels">350 k€ bruts annuels</option>
           </select>
         </div>
         <span class="input-error" id="question1-error"></span>
 
         <%= f.label :question2, "QUE POUVEZ-VOUS DIRE AUX CANDIDATS POUR LEUR DONNER L’ENVIE DE TRAVAILLER CHEZ VOUS ?", class:"ggag" %>
-        <div class="co-input">
-          <%= f.text_area :question2, required:true,id:'question2' %>
-        </div>
+        <div class="co-input"><%= f.text_area :question2, required:true,id:'question2' %></div>
         <span class="input-error" id="question2-error"></span>
 
         <%= f.label :numberEntretien, "QUEL SERA VOTRE PROCESSUS DE RECRUTEMENT ?", class:"ggag" %>
         <div class="co-input hide-right">
           <select id="question3" name="offre_job[numberEntretien]" class="co-select">
-            <option value="<%= @offre.numberEntretien %>" selected hidden>
-              <% case @offre.numberEntretien.to_i %><% when 1 %>1 entretien RH<% when 2 %>1 entretien RH + 1 entretien Manager<% when 3 %>1 entretien RH + 2 entretiens Manager<% end %>
-            </option>
+            <option value="<%= @offre.numberEntretien %>" selected hidden><% case @offre.numberEntretien.to_i %><% when 1 %>1 entretien RH<% when 2 %>1 entretien RH + 1 entretien Manager<% when 3 %>1 entretien RH + 2 entretiens Manager<% end %></option>
             <option value="1">1 entretien RH</option>
             <option value="2">1 entretien RH + 1 entretien manager</option>
             <option value="3">1 entretien RH + 2 entretiens manager</option>
@@ -201,9 +179,7 @@
         <%= f.label :question5, "PRÉSENTER LE CONTEXTE D’OUVERTURE DE CE POSTE.", class:"ggag" %>
         <div class="co-input hide-right">
           <select id="question5" name="offre_job[question5]" class="co-select">
-            <option value="<%= @offre.question5 %>" selected hidden>
-              <%= @offre.question5 %>
-            </option>
+            <option value="<%= @offre.question5 %>" selected hidden><%= @offre.question5 %></option>
             <option value="Remplacement">Remplacement</option>
             <option value="Départ à la retraite">Départ à la retraite</option>
             <option value="Création de poste">Création de poste</option>
@@ -217,23 +193,17 @@
           <label>
             <p class="first-p">Logo entreprise</p>
             <p class="last-p">Télécharger une image</p>
-            <span style="display: none;">
-              <%= f.file_field :image , class:'input_fied', accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
-            </span>
+            <span style="display: none"> <%= f.file_field :image , class:'input_fied', accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %> </span>
           </label>
         </div>
 
-        <div class="co-input co-input-submit co-input-submit2" id="co-input-submit3">
-          <%= f.submit("VALIDER") %>
-        </div>
+        <div class="co-input co-input-submit co-input-submit2" id="co-input-submit3"><%= f.submit("VALIDER") %></div>
         <br />
         <span class="input-error" id="co-dp-btn1-error"></span>
       </div>
 
       <% end %>
-      <p>
-        *Ces détails seront visibles par les candidats.
-      </p>
+      <p>*Ces détails seront visibles par les candidats.</p>
     </div>
   </div>
 </div>

@@ -102,25 +102,38 @@ class RecruteursController < ApplicationController
 	end
 
 	def updateJob
+		puts "zerty"*65
+		puts params.inspect
+		puts "zerty"*65
+
+		
+		
 		uploader = ImageUploader.new
 		@offre = OffreJob.find(params[:id])
 		image_entreprise = params[:offre_job][:image]
 		unless image_entreprise.nil?
-	    begin
-	      uploader.store!(image_entreprise)
-	    rescue StandardError => e
-	      flash[:alert] = " [ #{e.message} ] "
+			begin
+				uploader.store!(image_entreprise)
+			rescue StandardError => e
+				flash[:alert] = " [ #{e.message} ] "
 				return render :editJob
-	    end
+			end
 		end
 		unless image_entreprise.nil?
 			@offre.update(image:uploader.url)
 		end
+		@metier = Metier.find_by_name(params[:offre_job][:intitule_pote])
+		
+		if @metier.nil?
+			@metier = Metier.create(name:params[:offre_job][:intitule_pote])
+		end
+	
+		@offre.update(metier:@metier)
 		@offre.update(post_params)
 		flash[:notice] = "Votre offre d'emploi a bien été mise à jour !"
 		redirect_to showNewJob_path(@offre)
 	end
-
+	
 	def showNewJob
 		@offre = OffreJob.find_by_id(params[:id])
 		if @offre.client != current_client

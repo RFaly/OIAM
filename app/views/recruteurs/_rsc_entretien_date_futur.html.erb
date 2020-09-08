@@ -7,7 +7,7 @@
         <div class="rscdf-item1">
             <!-- candidat a accepter l'entretien -->
             <% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
-                Le rendez-vous pour l'entretien avec <%= @cadre.cadre_info.first_name.capitalize %> <%= @cadre.cadre_info.last_name.capitalize %> a été validé.
+                Le rendez-vous pour l'entretien avec <%= @cadre.cadre_info.last_name.capitalize %> <%= @cadre.cadre_info.first_name.capitalize %> a été validé.
             <!-- candidat a accepter l'entretien sous condition -->
             <% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
                 <% date = DateTime.parse(@agendas.alternative) %>
