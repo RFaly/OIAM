@@ -7,8 +7,16 @@
     <div class="promise">
       <h5 class="title">PROMESSE D'EMBAUCHE</h5>
       <div class="promise-content">
-        <%= form_for @promise , url: url_path do |f| %>
-        <div class="pc-head"></div>
+        <%= form_for @promise , url: save_promise_to_hire_path(@job.id, @cadre.cadre.id) do |f| %>
+        <div class="pc-head">
+          <div class="pch-left">
+            <div class="pchl-image">
+              <div class="c" id="addImage" style="background: url(<%= @job.image%>) center no-repeat; background-size: cover"></div>
+              <% unless @job.image.nil? %> <%= image_tag(@job.image, alt: 'photo de profil', class:'photo_ako', width:'250px')%> <% end %>
+            </div>
+          </div>
+          <div class="pch-right"></div>
+        </div>
         <% end %>
       </div>
     </div>

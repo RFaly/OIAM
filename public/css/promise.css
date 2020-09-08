@@ -29,3 +29,13 @@
   text-transform: uppercase;
   margin-bottom: 50px;
 }
+
+.promise .promise-content .pc-head .pch-left .pchl-image {
+  width: 250px;
+  height: 200px;
+}
+
+.promise .promise-content .pc-head .pch-left .pchl-image .c {
+  width: 100%;
+  height: 100%;
+}
