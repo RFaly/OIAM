@@ -15,7 +15,7 @@
           </div>
           <div class="infos">
             <div class="score">
-              <p class="name"><%= @cadre.last_name %> <%= @cadre.first_name[0].upcase %>.</p>
+              <p class="name"><%= @cadre.first_name %> <%= @cadre.last_name[0].upcase %>.</p>
               <p>
                 Score de test : <span>1700</span><br />
                 Compatibilité : <span>60%</span>
@@ -147,8 +147,8 @@
               </div>
               <div>
                 <label id="conditioncheck">
-                  <%= current_client.first_name %> <%= current_client.last_name %>, <%= current_client.fonction %>
-                  <input type="radio" checked="checked" required name="name" value="<%= current_client.first_name %> <%= current_client.last_name %>" id="name_client" class="js-input-name" />
+                  <%= current_client.last_name %> <%= current_client.first_name %>, <%= current_client.fonction %>
+                  <input type="radio" checked="checked" required name="name" value="<%= current_client.last_name %> <%= current_client.first_name %>" id="name_client" class="js-input-name" />
                   <span class="checkmark"></span>
                 </label>
               </div>
@@ -187,7 +187,7 @@
                 <%= current_client.entreprise.city %>
               </span>
               <br />
-              <span id="nameShowOk"> <%= current_client.fonction %> : <%= current_client.first_name %> <%= current_client.last_name %> </span>
+              <span id="nameShowOk"> <%= current_client.fonction %> : <%= current_client.last_name %> <%= current_client.first_name %></span>
             </div>
             <%= link_to recruitment_show_cadre_path(@offre.is_in_this_job(@cadre.cadre)) do %>
             <div class="ssc-send-btn">VALIDER</div>

@@ -23,8 +23,8 @@
 				</div>
 				
 				<div class="col-sm-6">
-					<div><%= @cadre.first_name %></div>
 					<div><%= @cadre.last_name %></div>
+					<div><%= @cadre.first_name %></div>
 					<div>
 						<% if @promise.birthday_cadre.nil? %>
 							<%= f.text_field :birthday_cadre, required:true, placeholder:"Date de naissance" %>
