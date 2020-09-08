@@ -189,9 +189,17 @@
               <br />
               <span id="nameShowOk"> <%= current_client.fonction %> : <%= current_client.last_name %> <%= current_client.first_name %></span>
             </div>
-            <%= link_to recruitment_show_cadre_path(@offre.is_in_this_job(@cadre.cadre)) do %>
-            <div class="ssc-send-btn">VALIDER</div>
-            <% end %>
+
+            <div id="valide-js-send-link">
+              <% unless @offre.in_list_entretien(@cadre.cadre).nil? %>
+                <%= link_to recruitment_show_cadre_path(@offre.is_in_this_job(@cadre.cadre)) do %>
+                <div class="ssc-send-btn">VALIDER</div>
+                <% end %>
+              <% else %>
+                <div class="ssc-send-btn">VALIDER</div>
+              <% end %>
+            </div>
+
           </div>
         </div>
       </div>
