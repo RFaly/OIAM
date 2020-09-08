@@ -325,8 +325,8 @@ body{
 	.block-image{
 		display: block;
 		margin: auto;
-		max-width: 300px;
-		max-height: 350px;
+		width: 300px;
+		height: 320px;
 	}
 
 	.block-right{
