@@ -129,7 +129,7 @@
               <br />
               <span id="nameShowOk"> <%= current_client.fonction %> : <%= current_client.first_name %> <%= current_client.last_name %> </span>
             </div>
-            <div class="ssc-send-btn">VALIDER</div>
+            <div class="ssc-send-btn" id="last-validation">VALIDER</div>
           </div>
         </div>
       </div>
@@ -148,6 +148,11 @@
       location.reload(true);
     }
   }
+
+  $('#last-validation').click(function() {
+    location.reload(true);
+  });
+
 </script>
 <!-- call js  -->
 <script type="text/javascript" src="/js/recrutement_show.js"></script>
