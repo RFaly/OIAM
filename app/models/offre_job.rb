@@ -1,5 +1,6 @@
 class OffreJob < ApplicationRecord
 	belongs_to :client
+	belongs_to :metier
 	
 	has_many :promise_to_hires
   has_many :cadres, through: :promise_to_hires

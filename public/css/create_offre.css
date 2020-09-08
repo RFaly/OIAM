@@ -197,7 +197,7 @@
 
 .create-offre-box .detail-post-box .dp-input textarea {
   resize: both;
-  height: 300px;
+  height: 150px;
 }
 
 .create-offre-box .detail-post-box .dp-input-checkbox1 {
@@ -567,6 +567,15 @@
 #ui-datepicker-div {
   width: 300px;
   color: white;
+}
+
+.ui-datepicker thead {
+  background: #000;
+}
+
+.ui-datepicker thead tr {
+  background: #e90a0a;
+  width: 80%;
 }
 
 .ui-datepicker-calendar {
