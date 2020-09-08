@@ -569,6 +569,15 @@
   color: white;
 }
 
+.ui-datepicker thead {
+  background: #000;
+}
+
+.ui-datepicker thead tr {
+  background: #e90a0a;
+  width: 80%;
+}
+
 .ui-datepicker-calendar {
   padding: 20px;
 }

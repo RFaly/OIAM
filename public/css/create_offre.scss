@@ -445,6 +445,13 @@
   color: white;
 }
 .ui-datepicker {
+  thead {
+    background: #000;
+    tr {
+      background: rgb(233, 10, 10);
+      width: 80%;
+    }
+  }
   &-calendar {
     padding: 20px;
     td {
