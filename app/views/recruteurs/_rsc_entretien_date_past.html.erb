@@ -62,11 +62,11 @@
 </div>
 <% end %>
 
-<div class="dscdp-accepted" id="dscdp-waiting" style="display: none;">
+<div class="dscdp-accepted js-uniq-waiting" id="dscdp-waiting" style="display: none;">
   <%= render partial: "recruteurs/repons_waiting" %>
 </div>
 
-<div class="dscdp-accepted" id="dscdp-accepted" style="display: none;">
+<div class="dscdp-accepted js-uniq-accepted" id="dscdp-accepted" style="display: none;">
   <%= render partial: "recruteurs/repons_accepted" %>
 </div>
 
@@ -75,11 +75,14 @@
   $('#accepted-js a').bind('ajax:complete', function() {
     $("#dscdp-accepted").show(500)
     $("#js-main-bloc-information").remove()
+    $(".js-uniq-waiting").remove()
+    location.reload(true);
   });
 
   $("#waiting-js a").bind('ajax:complete', function() {
     $("#dscdp-waiting").show(500)
     $("#js-main-bloc-information").remove()
+    $(".js-uniq-accepted").remove()
   });
 
 </script>
