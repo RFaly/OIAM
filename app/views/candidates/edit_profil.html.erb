@@ -20,7 +20,21 @@
 	       		<div class="check">
 	       			<div class="accepter-container"> <%= f.label :deplacement, "Accepter déplacement", class:"accepter" %> </div>
         			<%= f.check_box :deplacement, class:"checkbox" %>
-	       			<%= f.select :frequency , options_for_select([["une à plusieurs fois par semaine", "Une à plusieurs fois par semaine"],["une à plusieurs fois par mois"],["ponctuellement"],["aucun déplacement"]]),{}, class:'co-select', id:'paysInput', title:'Pays',autofocus:true,prompt:"Placeholder",class:"champ frequence"%></div>
+        			<% if @cadre.deplacement %>
+        				<select class="champ frequence" id="paysInput" title="Pays" autofocus="autofocus" prompt="Placeholder" name="cadre_info[frequency]">
+        				<% unless @cadre.disponibilite.nil? %>
+							<option value="<%= @cadre.frequency %>" selected hidden><%= @cadre.frequency %></option>
+						<% end %>
+        					<option value="Une à plusieurs fois par semaine">une à plusieurs fois par semaine</option>
+							<option value="une à plusieurs fois par mois">une à plusieurs fois par mois</option>
+							<option value="ponctuellement">ponctuellement</option>
+							<option value="aucun déplacement">aucun déplacement</option>
+						</select>
+        			<% else %>
+        				<%= f.select :frequency , options_for_select([["une à plusieurs fois par semaine", "Une à plusieurs fois par semaine"],["une à plusieurs fois par mois"],["ponctuellement"],["aucun déplacement"]]),{}, class:'co-select', id:'paysInput', title:'Pays',autofocus:true,prompt:"Placeholder",class:"champ frequence", style:"display: none;" %>
+        			<% end %>
+
+	       		</div>
 
 			</div>
 			<%= f.label :question3, "Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?", class:"label-content" %>
@@ -109,16 +123,12 @@
 		shwoMyImage(this);
 	});
 
-	$(".frequence").hide();
-	let here = false;
 	$(".checkbox").click(function(){
-		if (here != true) {
+		if ($(this).prop("checked") == true) {
 			$(".frequence").show();
-			here = true;
 		}
 		else{
 			$(".frequence").hide();
-			here = false;	
 		}
 	})
 
