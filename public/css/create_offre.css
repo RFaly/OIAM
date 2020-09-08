@@ -22,6 +22,10 @@
   background-color: #e3d7bf;
 }
 
+.ui-datepicker thead {
+  text-align: center;
+}
+
 .ui-datepicker-calendar {
   width: 100%;
 }
@@ -567,15 +571,6 @@
 #ui-datepicker-div {
   width: 300px;
   color: white;
-}
-
-.ui-datepicker thead {
-  background: #000;
-}
-
-.ui-datepicker thead tr {
-  background: #e90a0a;
-  width: 80%;
 }
 
 .ui-datepicker-calendar {

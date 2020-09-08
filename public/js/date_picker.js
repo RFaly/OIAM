@@ -4,7 +4,7 @@ $(document).ready(function () {
     inline: true,
     minDate: 0,
     showOtherMonths: true,
-    dayNamesMin: ['', '', '', '', '', '', ''],
+    dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
     monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
     monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
     onSelect: function (date) {

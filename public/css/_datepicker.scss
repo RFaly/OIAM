@@ -1,6 +1,9 @@
 .ui-datepicker {
   font: $ffbtn;
   background-color: $secondary_text_color_button;
+  thead {
+    text-align: center;
+  }
   &-calendar {
     width: 100%;
 
