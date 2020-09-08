@@ -1,0 +1,31 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+  border-left: 1px solid #d6b36a;
+}
+
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.promise {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.promise .title {
+  text-align: center;
+  font: 500 18px Raleway, sans-serif;
+  color: #d6b36a;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}

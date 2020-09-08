@@ -1,0 +1,14 @@
+@import 'config';
+@import 'pagemenu';
+
+.promise {
+  width: 90%;
+  margin: 0 auto;
+  .title {
+    text-align: center;
+    font: $ffbtn;
+    color: $main_theme_color;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+}
