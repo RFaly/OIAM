@@ -1,4 +1,7 @@
-<link rel="stylesheet" type="text/css" href="/css/main_test.css">
+<% content_for :head_style do %>
+	<link rel="stylesheet" type="text/css" href="/css/main_test.css">
+<% end %>
+
 <div class="all-content">
 	<div class="left-link">
 		<%= render partial: "candidates/left_link_bar" %>

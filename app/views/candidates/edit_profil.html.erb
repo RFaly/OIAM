@@ -1,6 +1,8 @@
-<link rel="stylesheet" href="/css/edit_cadre_profil.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+<% content_for :head_style do %>
+	<link rel="stylesheet" href="/css/edit_cadre_profil.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	      rel="stylesheet">
+<% end %>
 <div class="main">
 	<%= form_for @cadre , url: confirmedProfil_path do |f| %>
 			<%= f.label :question1, "Que faites-vous actuellement et que recherchez-vous comme type de poste ?", class:"label-content" %>

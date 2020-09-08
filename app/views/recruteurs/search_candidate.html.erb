@@ -1,5 +1,7 @@
 <!-- call css  -->
-<link rel="stylesheet" href="/css/searchcandidat.css" />
+<% content_for :head_style do %>
+  <link rel="stylesheet" href="/css/searchcandidat.css" />
+<% end %>
 <!-- body html  -->
 <div class="client-column">
   <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>

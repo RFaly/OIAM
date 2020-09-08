@@ -1,6 +1,8 @@
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 <!-- call css  -->
-<link rel="stylesheet" href="/css/show_search_candidate.css" />
+<% content_for :head_style do %>
+  <link rel="stylesheet" href="/css/show_search_candidate.css" />
+<% end %>
 <!-- body html  -->
 <div class="client-column">
   <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
