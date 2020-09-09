@@ -1,8 +1,4 @@
-<% content_for :head_style do %>
-	<link rel="stylesheet" href="/css/edit_cadre_profil.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	      rel="stylesheet">
-<% end %>
+<link rel="stylesheet" href="/css/edit_cadre_profil.css">
 <div class="main">
 	<%= form_for @cadre , url: confirmedProfil_path do |f| %>
 			<%= f.label :question1, "Que faites-vous actuellement et que recherchez-vous comme type de poste ?", class:"label-content" %>
@@ -24,16 +20,16 @@
         			<%= f.check_box :deplacement, class:"checkbox" %>
         			<% if @cadre.deplacement %>
         				<select class="champ frequence" id="paysInput" title="Pays" autofocus="autofocus" prompt="Placeholder" name="cadre_info[frequency]">
-        				<% unless @cadre.disponibilite.nil? %>
-							<option value="<%= @cadre.frequency %>" selected hidden><%= @cadre.frequency %></option>
-						<% end %>
-        					<option value="Une à plusieurs fois par semaine">une à plusieurs fois par semaine</option>
-							<option value="une à plusieurs fois par mois">une à plusieurs fois par mois</option>
-							<option value="ponctuellement">ponctuellement</option>
-							<option value="aucun déplacement">aucun déplacement</option>
-						</select>
+		        				<% unless @cadre.disponibilite.nil? %>
+											<option value="<%= @cadre.frequency %>" selected hidden><%= @cadre.frequency %></option>
+										<% end %>
+		        				<option value="Une à plusieurs fois par semaine">Une à plusieurs fois par semaine</option>
+										<option value="une à plusieurs fois par mois">Une à plusieurs fois par mois</option>
+										<option value="ponctuellement">Ponctuellement</option>
+										<option value="aucun déplacement">Aucun déplacement</option>
+								</select>
         			<% else %>
-        				<%= f.select :frequency , options_for_select([["une à plusieurs fois par semaine", "Une à plusieurs fois par semaine"],["une à plusieurs fois par mois"],["ponctuellement"],["aucun déplacement"]]),{}, class:'co-select', id:'paysInput', title:'Pays',autofocus:true,prompt:"Placeholder",class:"champ frequence", style:"display: none;" %>
+        				<%= f.select :frequency , options_for_select([["Une à plusieurs fois par semaine", "Une à plusieurs fois par semaine"],["Une à plusieurs fois par mois"],["Ponctuellement"],["Aucun déplacement"]]),{}, class:'co-select', id:'paysInput', title:'Pays',autofocus:true,prompt:"Placeholder",class:"champ frequence", style:"display: none;" %>
         			<% end %>
 
 	       		</div>
@@ -47,7 +43,7 @@
 				<%=f.range_field :question4, :min=>60, :max=>350,required:true, class:"intervalle", id:"slide" %><span id="value" class="value"></span>
 			</div>
 
-			<%= f.label :question5, "Parlez-nous de vous ?", class:"label-content" %>
+			<%= f.label :question5, "Parlez-nous de vous", class:"label-content" %>
 			<%= f.text_area :question5, required:true, rows:3, class:"champs" %>
 
 			<select class="btn-recherche" required="required" name="cadre_info[status]" id="cadre_info_status">
