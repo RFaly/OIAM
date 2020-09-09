@@ -206,11 +206,11 @@ body {
   background-color: #e3d7bf;
   text-decoration: none;
   text-align: center;
-  font-size: 14px;
+  font-size: 18px;
   color: #fff;
-  width: 152px;
-  height: 45.74px;
-  padding: 13px;
+  width: 160px;
+  height: 45px;
+  padding: 10px;
   margin-bottom: 200px;
 }
 
@@ -320,7 +320,7 @@ body {
   }
 
   .btn-inscrire {
-    margin-top: 1000px;
+    margin-top: 900px;
   }
 }
 

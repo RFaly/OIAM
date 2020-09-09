@@ -180,7 +180,7 @@ $('#cadre-submit').hover(function () {
 function check_name(test, value) {
   var name0 = test.val().length;
   if (name0 < 3 || name0 > 80) {
-    value.html('(doit avoir 3 à 80 caractères)');
+    value.html('(Champ obligatoire)');
     value.show();
 
     test.css('outline', '.2px solid red');
@@ -195,7 +195,7 @@ function check_pass(test, value) {
   var name = test.val().length;
   if (name < 6 || name > 80) {
     test.css('outline', '.2px solid red');
-    value.html('(doit avoir 6 à 80 caractères)');
+    value.html('(Champ obligatoire)');
     value.show();
   } else {
     test.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
