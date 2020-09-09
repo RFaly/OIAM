@@ -1,14 +1,17 @@
-<div class="row">
-  <div class="col-sm-3">
-    <%= render partial: "recruteurs/left_link_bar" %>
-  </div>
-
-  <div class="col-sm-9">
-    <center>PROMESSE D'EMBAUCHE</center>
-    <%= render partial: "recruteurs/form_promise_to_hire", locals: {url_path: update_promise_to_hire_path(@promise.id)} %>
+<!-- call css  -->
+<link rel="stylesheet" href="/css/promise.css" />
+<!-- body html  -->
+<div class="client-column">
+  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
+  <div class="cp-box">
+    <div class="promise">
+      <h5 class="title">PROMESSE D'EMBAUCHE</h5>
+      <div class="promise-content"><%= render partial: "recruteurs/form_promise_to_hire", locals: {url_path: update_promise_to_hire_path(@promise.id)} %></div>
+    </div>
   </div>
 </div>
-
+<!-- call js  -->
+<script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/contrat_dembauche.js"></script>
 <script type="text/javascript">
   var fixe_date = <%= @promise.remuneration_fixe_date %>
