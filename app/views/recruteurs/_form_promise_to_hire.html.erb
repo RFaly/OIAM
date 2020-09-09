@@ -27,10 +27,7 @@
       <div><% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <%= f.number_field :remuneration_fixe, required:true, class:"form-control", value: payFix, required:true %></div>
       <div><%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois', required:true %> <%= f.label :remuneration_fixe_date, "12 mois", for:'post_12' %></div>
       <div><%= f.radio_button :remuneration_fixe_date, "13", id:'post_13', class:'js-post-mois', required:true %> <%= f.label :remuneration_fixe_date, "13 mois", for:'post_13' %></div>
-      <div>
-        <%= f.radio_button :remuneration_fixe_date, "Personnalisé", id:'post_perso', class:'js-post-mois', required:true %> <%= f.label :remuneration_fixe_date, "Personnalisé", for:'post_perso' %> <%= f.number_field :remuneration_fixe_date, placeholder:'nombre de
-        mois',style:'display:none;',id:'input-perso' %>
-      </div>
+      <div><%= f.radio_button :remuneration_fixe_date, "Personnalisé", id:'post_perso', class:'js-post-mois', required:true %> <%= f.label :remuneration_fixe_date, "Personnalisé", for:'post_perso' %> <%= f.number_field :remuneration_fixe_date, placeholder:'nombre de mois',style:'display:none;',id:'input-perso' %></div>
     </td>
   </tr>
   <tr>
@@ -38,10 +35,7 @@
     <td>
       <table class="table">
         <tr>
-          <div>
-            <%= f.radio_button :remuneration_variable, "true", id:'post_oui', class:'js-post-choix', required:true %> <%= f.label :remuneration_variable, "Oui", for:'post_oui' %> <%= f.number_field :remuneration_var_info, placeholder:'ex: 10%', id:'js-input-choix', style:'display:none',
-            disabled:true %>
-          </div>
+          <div><%= f.radio_button :remuneration_variable, "true", id:'post_oui', class:'js-post-choix', required:true %> <%= f.label :remuneration_variable, "Oui", for:'post_oui' %> <%= f.number_field :remuneration_var_info, placeholder:'ex: 10%', id:'js-input-choix', style:'display:none', disabled:true %></div>
           <div><%= f.radio_button :remuneration_variable, "false", id:'post_nom', class:'js-post-choix', required:true %> <%= f.label :remuneration_variable, "Non", for:'post_nom' %></div>
         </tr>
       </table>

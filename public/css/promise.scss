@@ -1,7 +1,9 @@
 @import 'config';
 @import 'pagemenu';
+@import 'datepicker';
 
 .promise {
+  font: $ffsentence;
   width: 90%;
   margin: 0 auto;
   .title {
@@ -11,18 +13,252 @@
     text-transform: uppercase;
     margin-bottom: 50px;
   }
+  .pc-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
   .promise-content {
+    #datepicker,
+    #datepicker2,
+    #date {
+      cursor: pointer;
+      background: $secondary_element_color url('/image/calendar.png') no-repeat right 0.5rem center/21px 24px;
+    }
+    .pc-form3 {
+      .hidden {
+        height: 0.01px;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
     .pc-head {
       .pch-left {
+        width: 40%;
+        text-align: center;
         .pchl-image {
-          width: 250px;
-          height: 200px;
+          width: 150px;
+          height: 150px;
+          margin: 10px auto;
           .c {
             width: 100%;
             height: 100%;
           }
         }
+        .pchl-content {
+          margin: 10px 0;
+          div {
+            margin: 10px auto;
+            width: 80%;
+          }
+        }
+      }
+      .pch-right {
+        input {
+          opacity: 0.7;
+          margin: 10px;
+          padding: 8px;
+          text-align: center;
+          display: block;
+          border: none;
+          outline: none;
+          border-radius: 0;
+          background: $secondary_element_color;
+          &:focus {
+            outline: none;
+          }
+        }
       }
     }
+    .pc-form {
+      label {
+        width: 40%;
+        text-align: center;
+        // background: green;
+      }
+      input {
+        margin: 10px;
+        padding: 8px;
+        text-align: center;
+        border: none;
+        outline: none;
+        border-radius: 0;
+        background: $secondary_element_color;
+        &:focus {
+          box-shadow: rgb(227, 215, 191) 0px 1px 5px 1px;
+          outline: 2px solid $main_theme_color;
+        }
+      }
+    }
+    .pc-calcul {
+      padding: 20px;
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+      color: white;
+      background: $main_theme_color;
+    }
+    .pc-avantage {
+      text-align: center;
+      margin: 10px auto;
+      width: 80%;
+      textarea {
+        width: 100%;
+        padding: 8px;
+        text-align: center;
+        border: none;
+        outline: none;
+        border-radius: 0;
+        background: $secondary_element_color;
+        &:focus {
+          border: none;
+          box-shadow: rgb(227, 215, 191) 0px 1px 5px 1px;
+          outline: 2px solid $main_theme_color;
+        }
+      }
+    }
+    .p-sign {
+      .signature {
+        margin: 10px;
+        width: 212px;
+        height: 150px;
+        background: $secondary_element_color;
+        position: relative;
+        .c {
+          content: ' ';
+          width: 212px;
+          height: 150px;
+        }
+        label {
+          content: ' ';
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 212px;
+          height: 150px;
+          // background: purple;
+          &:hover,
+          &:active {
+            box-shadow: rgb(227, 215, 191) 0px 1px 5px 1px;
+            outline: 2px solid $main_theme_color;
+          }
+        }
+      }
+    }
+    .pc-sign-cadre {
+      .image {
+        opacity: 0.5;
+        margin: 10px;
+        width: 212px;
+        height: 150px;
+        background: $secondary_element_color;
+        .c {
+          content: ' ';
+          width: 212px;
+          height: 150px;
+        }
+      }
+    }
+    .pc-submit {
+      input {
+        margin: 30px 0;
+        padding: 10px 30px;
+        font: $ffbtn;
+        color: $main_theme_color;
+        border: none;
+        outline: none;
+        border-radius: 0;
+        border: 2px solid $main_theme_color;
+        background: transparent;
+        &:focus {
+          outline: none;
+        }
+        &:active,
+        &:hover {
+          color: white;
+          background: $main_theme_color;
+        }
+      }
+    }
+  }
+}
+// check box
+#conditioncheck {
+  font: $ffsentence;
+  position: relative;
+  margin-left: 20%;
+  padding-left: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkmark {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: $secondary_element_color;
+    border: 2px solid #c4c4c4;
+  }
+  &:hover input ~ .checkmark {
+    background-color: $secondary_text_color_button;
+  }
+  .checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+  .checkmark:after {
+    left: 6px;
+    top: -7px;
+    width: 10px;
+    height: 20px;
+    border: solid black;
+    border-width: 0 4px 4px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+// date picker scss
+#ui-datepicker-div {
+  width: 300px;
+  color: white;
+}
+.ui-datepicker {
+  &-calendar {
+    padding: 20px;
+    td {
+      height: 40px;
+
+      &:hover,
+      &:active {
+        background: $secondary_element_color;
+      }
+    }
+  }
+  &-header {
+    text-align: center;
+    padding: 30px;
+  }
+  &-next {
+    top: 28px;
+    right: 5%;
+  }
+  &-prev {
+    top: 28px;
+    left: 5%;
   }
 }
