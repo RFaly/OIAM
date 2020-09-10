@@ -1,6 +1,4 @@
-<% content_for :head_style do %>
-	<link rel="stylesheet" type="text/css" href="/css/receiverd_job_candidate.css">
-<% end %>
+<link rel="stylesheet" type="text/css" href="/css/receiverd_job_candidate.css">
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 <div class="all-content">
@@ -13,7 +11,7 @@
 			<h1 class="favorite-offre-title">DEMANDES D'ENTRETIEN</h1>
 
 			<% if @agendaClients.empty? %>
-				<p>Vous n'avez pas encore reçu de demandes d'entretien ... </p>
+				<p>Vous n'avez pas encore reçu de demande d'entretien ... </p>
 			<% else %>
 				<div id="list-resultats" class="post-info">
 				<% @agendaClients.each do |aClient| %>
