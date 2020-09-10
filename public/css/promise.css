@@ -189,6 +189,11 @@
   outline: 2px solid #d6b36a;
 }
 
+.promise .promise-content .pc-form input:read-only:focus {
+  box-shadow: none;
+  outline: none;
+}
+
 .promise .promise-content .pc-calcul {
   padding: 20px;
   width: 80%;
@@ -214,6 +219,11 @@
   background: #f0f2f4;
 }
 
+.promise .promise-content .pc-avantage textarea:read-only:focus {
+  box-shadow: none;
+  outline: none;
+}
+
 .promise .promise-content .pc-avantage textarea:focus {
   border: none;
   box-shadow: #e3d7bf 0px 1px 5px 1px;
@@ -235,6 +245,7 @@
 }
 
 .promise .promise-content .p-sign .signature label {
+  cursor: pointer;
   content: ' ';
   position: absolute;
   top: 0;
@@ -314,6 +325,10 @@
   background-color: #e3d7bf;
 }
 
+#conditioncheck:hover input:disabled ~ .checkmark {
+  background-color: #f0f2f4;
+}
+
 #conditioncheck .checkmark:after {
   content: '';
   position: absolute;
@@ -332,6 +347,42 @@
   border: solid black;
   border-width: 0 4px 4px 0;
   transform: rotate(45deg);
+}
+
+.show-promise-btn {
+  text-align: center;
+}
+
+.show-promise-btn .spb-div {
+  width: 150px;
+  margin: 30px auto;
+  padding: 10px 0;
+  border: 2px solid #d6b36a;
+}
+
+.show-promise-btn .spb-div:hover {
+  background: #d6b36a;
+}
+
+.show-promise-btn .spb-div:hover a {
+  color: white;
+}
+
+.show-promise-btn .spb-div1 {
+  width: 180px;
+}
+
+.show-promise-btn a {
+  padding: 10px 30px;
+  font: 500 18px Raleway, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #d6b36a;
+  border-radius: 0;
+}
+
+.show-promise-btn .a-down {
+  padding: 10px 25px;
 }
 
 #ui-datepicker-div {

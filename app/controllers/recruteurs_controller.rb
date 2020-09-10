@@ -376,6 +376,8 @@ class RecruteursController < ApplicationController
 
 	def show_promise_to_hire
 		@promise = PromiseToHire.find_by_id(params[:id])
+		@job = @promise.offre_job
+		@cadre = @promise.cadre.cadre_info
 	end
 
 #Promesse d'embauche
