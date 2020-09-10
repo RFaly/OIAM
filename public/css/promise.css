@@ -219,6 +219,11 @@
   background: #f0f2f4;
 }
 
+.promise .promise-content .pc-avantage textarea:read-only:focus {
+  box-shadow: none;
+  outline: none;
+}
+
 .promise .promise-content .pc-avantage textarea:focus {
   border: none;
   box-shadow: #e3d7bf 0px 1px 5px 1px;

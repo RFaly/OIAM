@@ -59,6 +59,14 @@
   height: 18px;
 }
 
+.cp-table-box .cp-icone.map {
+  width: 22px;
+}
+
+.cp-table-box .cpe-site h5 {
+  text-align: left;
+}
+
 .cp-table-box .cpr-i-mail {
   width: 20px;
   height: 16px;
@@ -70,6 +78,8 @@
 
 .cp-table-box .cpe-description {
   padding-right: 10px;
+  border-right: 2px solid white;
+  width: 50%;
 }
 
 .cp-table-box .code-naf-flex {

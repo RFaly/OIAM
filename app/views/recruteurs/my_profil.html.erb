@@ -1,6 +1,6 @@
 <!-- appel du css client profil  -->
 <% content_for :head_style do %>
-  <link rel="stylesheet" href="/css/client_profil.css" />
+<link rel="stylesheet" href="/css/client_profil.css" />
 <% end %>
 <!-- body html  -->
 <div class="client-column">
@@ -38,7 +38,7 @@
             <div class="cp-entreprise-name"><h5><%= @entreprise.name %></h5></div>
             <div class="cp-flex cp-flex-t cp-entreprise-content">
               <div class="cpe-adress">
-                <h5 class="cp-icon-text"><img src="/image/map.png" alt="map icon" class="cp-icone" /> Adresse</h5>
+                <h5 class="cp-icon-text"><img src="/image/map.png" alt="map icon" class="map cp-icone" /> Adresse</h5>
                 <p><%= @entreprise.adresse %></p>
               </div>
               <div class="cpe-ville">
@@ -46,7 +46,7 @@
                 <p><%= @entreprise.city %></p>
               </div>
               <div class="cpe-postal">
-                <h5 class="cp-icon-text"><img src="/image/map.png" alt="map icon" class="cp-icone" /> Code postal</h5>
+                <h5 class="cp-icon-text"><img src="/image/map.png" alt="map icon" class="map cp-icone" /> Code postal</h5>
                 <p><%= @entreprise.postal_code %></p>
               </div>
             </div>
@@ -61,7 +61,7 @@
                 <p><%= @entreprise.siret %></p>
               </div>
               <div class="cpe-site">
-                <h5 class="cp-icon-text"><img src="/image/web.png" alt="web icon" class="cp-icone web" />Site</h5>
+                <h5 class="cp-icon-text"><img src="/image/web.png" alt="web icon" class="cp-icone web" />Site web</h5>
                 <p><%= @entreprise.site %></p>
               </div>
             </div>
@@ -70,14 +70,13 @@
         <tr>
           <td>
             <div class="code-naf-flex">
-              <div class="cpe-naf">
-                <h5 class="cp-icon-text"><img src="/image/code.png" alt="code icon" class="cp-icone number" />Code NAF</h5>
-                <p><%= @entreprise.code_naf %></p>
-              </div>
-
               <div class="cpe-description">
                 <h5 class="cp-icon-text"><img src="/image/description.png" alt="description icon" class="cp-icone number" />Description</h5>
                 <p><%= @entreprise.description %></p>
+              </div>
+              <div class="cpe-naf">
+                <h5 class="cp-icon-text"><img src="/image/code.png" alt="code icon" class="cp-icone number map" />Code NAF</h5>
+                <p><%= @entreprise.code_naf %></p>
               </div>
             </div>
           </td>

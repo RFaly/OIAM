@@ -31,6 +31,14 @@
     &.web {
       height: 18px;
     }
+    &.map {
+      width: 22px;
+    }
+  }
+  .cpe-site {
+    h5 {
+      text-align: left;
+    }
   }
   .cpr-i-mail {
     width: 20px;
@@ -41,6 +49,8 @@
   }
   .cpe-description {
     padding-right: 10px;
+    border-right: 2px solid white;
+    width: 50%;
   }
   .code-naf-flex {
     display: flex;

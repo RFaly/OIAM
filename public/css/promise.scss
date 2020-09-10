@@ -116,6 +116,12 @@
         outline: none;
         border-radius: 0;
         background: $secondary_element_color;
+        &:read-only {
+          &:focus {
+            box-shadow: none;
+            outline: none;
+          }
+        }
         &:focus {
           border: none;
           box-shadow: rgb(227, 215, 191) 0px 1px 5px 1px;
