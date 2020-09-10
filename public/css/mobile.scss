@@ -593,6 +593,13 @@
       }
     }
   }
+  // promesse suivi recrutement
+  .rsc-body-promise {
+    .dscdpa-box {
+      width: 80%;
+      padding: 10px;
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -1555,6 +1562,16 @@
       }
     }
   }
+  // promesse suivi recrutement
+  .rsc-body-promise {
+    .dscdpa-box {
+      width: 60%;
+      padding: 20px;
+      p {
+        padding: 0 10px;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -1813,6 +1830,16 @@
       }
     }
   }
+  // promesse suivi recrutement
+  .rsc-body-promise {
+    .dscdpa-box {
+      width: 50%;
+      padding: 30px;
+      p {
+        padding: 0 30px;
+      }
+    }
+  }
 }
 @media screen and (min-width: 1500px) {
   // bg unique
@@ -1910,6 +1937,12 @@
           width: 50%;
         }
       }
+    }
+  }
+  // promesse suivi recrutement
+  .rsc-body-promise {
+    .dscdpa-box {
+      width: 40%;
     }
   }
 }
