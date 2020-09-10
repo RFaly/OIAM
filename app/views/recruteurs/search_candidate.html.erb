@@ -1,6 +1,6 @@
 <!-- call css  -->
 <% content_for :head_style do %>
-  <link rel="stylesheet" href="/css/searchcandidat.css" />
+<link rel="stylesheet" href="/css/searchcandidat.css" />
 <% end %>
 <!-- body html  -->
 <div class="client-column">
@@ -11,7 +11,7 @@
         <tr>
           <td>
             <div class="co-input hide-right">
-              <select name="Localisation" id="cars" class='co-select'>
+              <select name="Localisation" id="cars" class="co-select">
                 <option value="Localisation" disabled selected>Localisation</option>
                 <option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
                 <option value="Bourgogne-Franche-Comté">Bourgogne-Franche-Comté</option>
@@ -31,17 +31,17 @@
           </td>
           <td>
             <div class="co-input hide-right">
-              <select name="Fonction" id="cars" class='co-select'>
+              <select name="Fonction" id="cars" class="co-select">
                 <option value="Fonction" disabled selected>Fonction</option>
                 <% @metiers.each do |metier| %>
-                  <option value="<%= metier.id %>"><%= metier.name %></option>
+                <option value="<%= metier.id %>"><%= metier.name %></option>
                 <% end %>
               </select>
             </div>
           </td>
           <td>
             <div class="co-input hide-right">
-              <select name="Rémunération" id="cars" class='co-select'  >
+              <select name="Rémunération" id="cars" class="co-select">
                 <option value="" disabled selected>Rémunération</option>
                 <option value="60 k€">60 k€</option>
                 <option value="70 k€">70 k€</option>
@@ -78,7 +78,7 @@
           </td>
           <td>
             <div class="co-input hide-right">
-              <select name="Disponibilité" id="cars" class='co-select'  >
+              <select name="Disponibilité" id="cars" class="co-select">
                 <option value="Disponibilité" disabled selected>Disponibilité</option>
                 <option value="IMMÉDIATE">IMMÉDIATE</option>
                 <option value="PRÉAVIS 1 MOIS">PRÉAVIS 1 MOIS</option>
@@ -94,9 +94,10 @@
       <div class="select-cadre-list">
         <div class="flex-candidates">
           <% 5.times do |i| %> <% if @topCinqs[i].nil? %>
-          <div class="js-candidates-list" data-element="" data-info="true"></div>
+          <div class="js-candidates-list" data-element="" data-info="true" style="background: center no-repeat; background-size: cover"></div>
           <% else %>
-          <div class="js-candidates-list" data-element="" data-info="false"><%= image_tag(@topCinqs[i].cadre.cadre_info.image, alt: 'photo profil cadre', height:"150px", width:"100px" )%></div>
+          <div class="js-candidates-list" data-element="" data-info="false" style="background: url(<%= @topCinqs[i].cadre.cadre_info.image %>) center no-repeat; background-size: cover"></div>
+
           <% end %> <% end %> <% if @topCinqs.count < 5 %>
           <div class="validation">
             <%= form_tag(add_top_five_candidate_path(@offre.id)) do %>
@@ -112,10 +113,9 @@
             <div class="cadre-box-image">
               <div class="cbi-photo">
                 <%= link_to show_search_candidate_path(cadre.id, offre_id: @offre.id), method: :get do %>
-                  <div class="c " style="background: url(<%= cadre.cadre_info.image%>) center no-repeat; background-size: cover"></div>
-                <% end %>
-                  <%= image_tag(cadre.cadre_info.image, alt: 'photo profil cadre', class:"js-image-#{cadre.id} " ,style:'display:none')%> 
-                </div>
+                <div class="c" style="background: url(<%= cadre.cadre_info.image%>) center no-repeat; background-size: cover"></div>
+                <% end %> <%= image_tag(cadre.cadre_info.image, alt: 'photo profil cadre', class:"js-image-#{cadre.id} " ,style:'display:none')%>
+              </div>
               <div class="icone">
                 <% oFc = @offre.is_in_this_job(cadre) %> <% if oFc.nil? || oFc.accepted_postule.nil? || oFc.accepted_postule == false %> <% if @topCinqs.count < 5 %>
                 <img class="add-js-toFavorite" data-info="<%= cadre.id %>" src="/image/Vector-22.png" alt="logo oiam non favorie" />
@@ -130,13 +130,7 @@
               <p class="name"><%= cadre.cadre_info.first_name %> <%= cadre.cadre_info.last_name[0].upcase %>.</p>
               <p class="compatibilite">Compatibilité : <span>60%</span></p>
               <p class="score">Score OIAM : <span>1700</span></p>
-              <p class="poste">Type de poste : 
-                <% if cadre.cadre_info.metier.nil? %>
-                  Manager marketing
-                <% else %>
-                  <%= cadre.cadre_info.metier.name %>
-                <% end %>
-              </p>
+              <p class="poste">Type de poste : <% if cadre.cadre_info.metier.nil? %> Manager marketing <% else %> <%= cadre.cadre_info.metier.name %> <% end %></p>
             </div>
           </div>
           <% end %>
