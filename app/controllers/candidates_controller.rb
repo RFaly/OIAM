@@ -347,6 +347,7 @@ class CandidatesController < ApplicationController
 
   def show_my_messages
     @client = Client.find_by_id(params[:id])
+    @img = @client.image
     @contact = ContactClientCadre.where(client: @client, cadre:current_cadre)
     if @contact.count == 0
       @contact = ContactClientCadre.create(client: @client, cadre:current_cadre)
