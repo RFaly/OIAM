@@ -214,7 +214,7 @@ $('#co-dp-btn').click(function () {
       return Math.ceil(x / 5) * 5;
     }
     for (i = round(parseInt($('#remuneration').val())); i <= 350; i += 10) {
-      let a = i + 5;
+      let a = i + 10;
       html += '<option value=' + a + '>' + a + 'k€ bruts annuels </option>';
     }
     $('#remuneration-max').html(html);
