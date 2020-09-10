@@ -35,11 +35,11 @@
       width: 22px;
     }
   }
-  .cpe-site {
-    h5 {
-      text-align: left;
-    }
-  }
+  // .cpe-site {
+  //   h5 {
+  //     text-align: right;
+  //   }
+  // }
   .cpr-i-mail {
     width: 20px;
     height: 16px;
@@ -49,22 +49,34 @@
   }
   .cpe-description {
     padding-right: 10px;
-    border-right: 2px solid white;
-    width: 50%;
+    // width: 50%;
   }
   .code-naf-flex {
     display: flex;
+    position: relative;
     flex-wrap: wrap;
     justify-content: space-between;
+    .cpe-naf {
+      p {
+        text-align: center;
+      }
+    }
+    .line-white2 {
+      width: 3px;
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      background-color: white;
+    }
   }
   .cp-flex-t {
     text-align: center;
   }
-  .cpe-adress {
-    h5 {
-      text-align: left;
-    }
-  }
+  // .cpe-adress {
+  //   h5 {
+  //     text-align: left;
+  //   }
+  // }
   .cp-icon-text {
     font-size: 18px;
     color: rgba(#000000, 0.35);

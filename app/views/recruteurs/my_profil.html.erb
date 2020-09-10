@@ -61,8 +61,8 @@
                 <p><%= @entreprise.siret %></p>
               </div>
               <div class="cpe-site">
-                <h5 class="cp-icon-text"><img src="/image/web.png" alt="web icon" class="cp-icone web" />Site web</h5>
-                <p><%= @entreprise.site %></p>
+                <h5 class="cp-icon-text"><img src="/image/web.png" alt="web icon" class="cp-icone web site" />Site web</h5>
+                <p><%= @entreprise.site %> <%= @entreprise.site %></p>
               </div>
             </div>
           </td>
@@ -74,8 +74,9 @@
                 <h5 class="cp-icon-text"><img src="/image/description.png" alt="description icon" class="cp-icone number" />Description</h5>
                 <p><%= @entreprise.description %></p>
               </div>
+              <div class="line-white2"></div>
               <div class="cpe-naf">
-                <h5 class="cp-icon-text"><img src="/image/code.png" alt="code icon" class="cp-icone number map" />Code NAF</h5>
+                <h5 class="cp-icon-text"><img src="/image/code.png" alt="code icon" class="cp-icone number map" />Code NAF<span style="opacity: 0">naf</span></h5>
                 <p><%= @entreprise.code_naf %></p>
               </div>
             </div>
