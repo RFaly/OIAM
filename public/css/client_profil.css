@@ -63,6 +63,10 @@
   width: 22px;
 }
 
+.cp-table-box .cpe-site {
+  word-wrap: break-word;
+}
+
 .cp-table-box .cpr-i-mail {
   width: 20px;
   height: 16px;
