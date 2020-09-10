@@ -246,14 +246,15 @@
       }
       .cpr-r {
         img {
-          left: 6%;
+          left: -7%;
         }
       }
     }
     .cp-flex-t {
       flex-direction: column;
     }
-    .line-white {
+    .line-white,
+    .line-white2 {
       display: none;
     }
     .cp-icon-text {
@@ -262,8 +263,13 @@
       }
     }
     .cpe-description,
-    .cpe-naf {
+    .cpe-naf,
+    .cpe-adress,
+    .cpe-site {
       text-align: center;
+    }
+    .cpe-naf {
+      width: 100%;
     }
   }
   // client edit profil
@@ -719,7 +725,8 @@
       flex-wrap: wrap;
       justify-content: space-between;
     }
-    .line-white {
+    .line-white,
+    .line-white2 {
       display: block;
     }
     .cp-icon-text {
@@ -730,6 +737,23 @@
     .cpe-description,
     .cpe-naf {
       text-align: left;
+    }
+    .cpe-description,
+    .cpe-site {
+      width: 50%;
+    }
+    .cpe-site {
+      text-align: right;
+      .site {
+        left: inherit;
+        right: 123px;
+      }
+      h5 {
+        padding-right: 40px;
+      }
+    }
+    .cpe-naf {
+      width: auto;
     }
   }
   // client edit profil
@@ -1255,6 +1279,12 @@
     .cp-icon-text {
       img {
         left: -40px;
+      }
+    }
+    .cpe-site {
+      .site {
+        left: inherit;
+        right: 133px;
       }
     }
   }

@@ -88,6 +88,12 @@
           box-shadow: rgb(227, 215, 191) 0px 1px 5px 1px;
           outline: 2px solid $main_theme_color;
         }
+        &:read-only {
+          &:focus {
+            box-shadow: none;
+            outline: none;
+          }
+        }
       }
     }
     .pc-calcul {
@@ -110,6 +116,12 @@
         outline: none;
         border-radius: 0;
         background: $secondary_element_color;
+        &:read-only {
+          &:focus {
+            box-shadow: none;
+            outline: none;
+          }
+        }
         &:focus {
           border: none;
           box-shadow: rgb(227, 215, 191) 0px 1px 5px 1px;
@@ -130,6 +142,7 @@
           height: 150px;
         }
         label {
+          cursor: pointer;
           content: ' ';
           position: absolute;
           top: 0;
@@ -212,6 +225,9 @@
   &:hover input ~ .checkmark {
     background-color: $secondary_text_color_button;
   }
+  &:hover input:disabled ~ .checkmark {
+    background-color: $secondary_element_color;
+  }
   .checkmark:after {
     content: '';
     position: absolute;
@@ -230,6 +246,35 @@
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+  }
+}
+.show-promise-btn {
+  text-align: center;
+  .spb-div {
+    width: 150px;
+    margin: 30px auto;
+    padding: 10px 0;
+    border: 2px solid $main_theme_color;
+    &:hover {
+      background: $main_theme_color;
+      a {
+        color: white;
+      }
+    }
+  }
+  .spb-div1 {
+    width: 180px;
+  }
+  a {
+    padding: 10px 30px;
+    font: $ffbtn;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $main_theme_color;
+    border-radius: 0;
+  }
+  .a-down {
+    padding: 10px 25px;
   }
 }
 // date picker scss

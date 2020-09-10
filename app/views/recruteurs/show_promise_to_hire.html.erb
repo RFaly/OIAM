@@ -1,97 +1,130 @@
-<div class="row">
-	<div class="col-sm-3">
-		<%= render partial: "recruteurs/left_link_bar" %>
-	</div>
+<% content_for :head_style do %>
+<link rel="stylesheet" href="/css/promise.css" />
+<% end %>
+<!-- body html  -->
+<div class="client-column">
+  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
+  <div class="cp-box">
+    <div class="promise">
+      <h5 class="title">PROMESSE D'EMBAUCHE</h5>
+      <div class="promise-content">
+        <%= form_for @promise , url: root_path do |f| %>
+        <div class="pc-head pc-flex">
+          <div class="pch-left">
+            <div class="pchl-image">
+              <% unless @job.image.nil? %>
+              <div class="c" style="background: url(<%= @job.image%>) center no-repeat; background-size: cover"></div>
+              <% end %>
+            </div>
+            <div class="pchl-content">
+              <%= @job.intitule_pote %>
+              <div><%= @job.contrat_cdi ? "Contrat à durée indéterminée" : "Contrat à durée déterminée" %></div>
+            </div>
+          </div>
+          <div class="pch-right">
+            <input type="text" value="<%= @cadre.last_name %>" readonly />
+            <input type="text" value="<%= @cadre.first_name %>" readonly />
+            <input type="text" id="date" value="<%= @promise.birthday_cadre ? @promise.birthday_cadre : "Date de naissance" %>" readonly/> <input type="text" value="<%= @promise.birthplace_cadre ? @promise.birthplace_cadre : "Lieu de naissance" %>" readonly/> <input type="text" value="<%= @promise.ns_sociale_cadre ? @promise.ns_sociale_cadre : "N°
+            sécurité sociale" %>" readonly/>
+          </div>
+        </div>
+        <hr />
+        <div class="pc-form pc-form1 pc-flex"><%= f.label :date_poste, "Date de prise de poste" %> <% priseDate = @promise.date_poste ? @promise.date_poste : @job.date_poste %> <%= f.text_field :date_poste,readonly:'true',id:'datepicker' %></div>
+        <hr />
+        <div class="pc-form pc-form2 pc-flex">
+          <label>Rémunération fixe <br />(k€ bruts mensuels)</label>
 
-	<div class="col-sm-9">
-		<center>PROMESSE D'EMBAUCHE</center>
-		<div class="row">
-			<div class="col-sm-6">
-				<div>
-					<% unless current_client.image.nil? %>
-						<%= image_tag(current_client.image, alt: 'photo de profil', class:'photo_ako', width:'250px')%>
-					<% end %>
-				</div>
-				<div><%= @promise.offre_job.intitule_pote %></div>
-				<div>
-					<%= @promise.offre_job.contrat_cdi ? "CONTRAT À DURÉE INDÉTERMINÉE" : "CONTRAT À DURÉE DÉTERMINÉE" %>
-				</div>
-			</div>
+          <div class="right">
+            <div><% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <%= f.text_field :remuneration_fixe, value: payFix,readonly:'true' %></div>
+            <div>
+              <label id="conditioncheck">
+                12 mois <%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois',disabled:'true'%>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div>
+              <label id="conditioncheck">
+                13 mois <%= f.radio_button :remuneration_fixe_date, "13", id:'post_13', class:'js-post-mois',disabled:'true' %>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div>
+              <label id="conditioncheck">
+                <%if (@promise.remuneration_fixe_date == '13' || @promise.remuneration_fixe_date == '12') %> Personnalisé <input type="radio" disabled /><% else %><%= @promise.remuneration_fixe_date %> mois <input type="radio" checked disabled /><%end %>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="pc-form pc-form3 pc-flex">
+          <label> Rénumération variable <br />(k€ bruts annuels)</label>
 
-			<div class="col-sm-6">
-				<div><%= @promise.cadre.cadre_info.last_name %></div>
-				<div><%= @promise.cadre.cadre_info.first_name %></div>
-				<div>
-					<%= @promise.birthday_cadre ? @promise.birthday_cadre : "Date de naissance" %>
-				</div>
-				<div>
-					<%= @promise.birthplace_cadre ? @promise.birthplace_cadre : "Lieu de naissance" %>
-				</div>
-				<div>
-					<%= @promise.ns_sociale_cadre ? @promise.ns_sociale_cadre : "N° sécurité sociale" %>
-				</div>
-			</div>
-		</div>
+          <div class="right">
+            <input type="text" class="hidden" />
+            <div>
+              <label id="conditioncheck">
+                Oui <%= f.radio_button :remuneration_variable, "true", id:'post_oui', class:'js-post-choix',disabled:true%>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div><%if (@promise.remuneration_variable) %> <input type="text" value="variation de <%=@promise.remuneration_var_info %>%" /> <%end%></div>
+            <div>
+              <label id="conditioncheck">
+                Non <%= f.radio_button :remuneration_variable, "false", id:'post_nom', class:'js-post-choix',disabled:true%>
 
-		<table class="table">
-			<tr>
-				<td>Date de prise de poste</td>
-				<td><%= @promise.date_poste %></td>
-			</tr>
-			<tr>
-				<td>Rémunération fixe<br>(k€ bruts mensuels)</td>
-				<td><%= @promise.remuneration_fixe %>k€ bruts mensuels pendants <%= @promise.remuneration_fixe_date %> mois</td>
-			</tr>
-			<tr>
-				<td>Rénumération variable<br>(k€ bruts annuels)</td>
-				<td>
-					<%= @promise.remuneration_variable ? "variation de #{@promise.remuneration_var_info}% " : "NON" %>
-				</td>
-			</tr>
-		</table>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="pc-calcul">
+          Précalcul honoraires OIAM<br />
+          <%= (@job.remuneration * 1000 * 15)/100 %> €
+        </div>
+        <hr />
+        <div class="pc-avantage">
+          <div><%= f.label :remuneration_avantage, "Avantages ou autre précision sur la rénumération" %></div>
+          <div><%= f.text_area :remuneration_avantage, readonly:true%></div>
+        </div>
+        <hr />
+        <div class="pc-form pc-validite pc-flex"><%= f.label :date_de_validite, "Date de validité" %> <%= f.text_field :date_de_validite, readonly:true, value:@promise.date_de_validite,id:'datepicker2' %></div>
+        <hr />
+        <div class="pc-form p-sign pc-flex">
+          <%= f.label :signature_entreprise, "Signature électronique entreprise" %>
+          <div class="signature">
+            <% unless @promise.signature_entreprise.nil? %>
+            <div class="c" id="addImage" style="background: url(<%= @promise.signature_entreprise%>) center no-repeat; background-size: cover"></div>
+            <% else %>
+            <div class="c" id="addImage" style="background: url() center no-repeat; background-size: cover"></div>
+            <% end %>
+            <label>
+              <span style="display: none"> <%= f.file_field :signature_entreprise , class:'input_fied', disabled:true %> </span>
+            </label>
+            <!-- Télécharger une image -->
+          </div>
+        </div>
+        <hr />
+        <div class="pc-form pc-sign-cadre pc-flex">
+          <label> Signature électronique candidat</label>
 
-		<center>
-			<div>
-				<center>Précalcul honoraires OIAM<br>
-					<%= (@promise.offre_job.remuneration * 1000 * 15)/100 %> €
-				</center><!-- price -->
-			</div>
-
-			<div>
-				Avantages ou autre précision sur la rénumération:<br>
-				<%= @promise.remuneration_avantage %>
-			</div>
-		</center>
-
-
-		<table class="table">
-			<tr>
-				<td>Date de validité</td>
-				<td><%= @promise.date_de_validite %></td>
-			</tr>
-			<tr>
-				<td>Signature électronique entreprise</td>
-				<td>
-					<%= image_tag(@promise.signature_entreprise, alt: 'signature entreprise', class:'photo_ako', width:'250px')%>
-				</td>
-			</tr>
-			<tr>
-				<td>Signature électronique candidat</td>
-				<td>
-					<% unless @promise.signature_candidat.nil? %>
-						<%= image_tag(@promise.signature_candidat, alt: 'signature candidat', class:'photo_ako', width:'250px')%>
-					<% else %>
-						<div><i>Signature candidat</i></div>
-					<% end %>
-				</td>
-			</tr>
-		</table>
-		<center>
-			<% if @promise.repons_cadre == true  %>
-				<span class="btn btn-primary">TELECHARGER</span>
-			<% else %>
-				<%= link_to "MODIFIER", edit_promise_to_hire_path(@promise.id), class: 'btn btn-primary' %>
-			<% end %>
-		</center>
-	</div>
+          <div class="image">
+            <% unless @promise.signature_candidat.nil? %>
+            <div class="c" style="background: url(<%= @promise.signature_candidat%>) center no-repeat; background-size: cover"></div>
+            <% end %>
+          </div>
+        </div>
+        <hr />
+        <% end %>
+        <div class="show-promise-btn">
+          <% if @promise.repons_cadre == true %>
+          <div class="spb-div spb-div1"><a class="a-down">TELECHARGER</a></div>
+          <% else %>
+          <div class="spb-div"><%= link_to "MODIFIER", edit_promise_to_hire_path(@promise.id) %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

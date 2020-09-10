@@ -36,6 +36,7 @@ $(document).ready(function () {
   // check path menu recruteur
   $('.left-menu-r a[href="/recruteur/' + path + '"]').addClass('color-this');
   $('.line-white').css('height', $('.cpe-si-td').height() + 25);
+  $('.line-white2').css('height', $('.code-naf-flex').height() + 25);
   // check path menu cadre
   $('.left-menu-r a[href="/cadre/' + path + '"]').addClass('color-this');
   // check path menu recruteur suit
