@@ -42,35 +42,5 @@ function getMyMessage(){
 
 setInterval(getMyMessage, 10000);
 
-//avoir les nombre des messages disponible
-function numberMessage(){
-	var herMessage = document.getElementsByClassName('her-message');
-	var myMessage = document.getElementsByClassName('my-message');
-
-	var nombre = herMessage.length + myMessage.length;
-
-	return nombre;
-}
-
-//cacher les messages
-function hideMessage(){
-	//variable contenant le nombre des messages
-	var nombreMessage = numberMessage();
-
-	//verification si les nombre des messages est superieur à 10
-	if(nombreMessage){
-		
-	}
-}
-
-
-var myMessage = document.getElementsByClassName('my-message');
-
-for(let i = 0; i < myMessage.length; i++){
-	console.log(myMessage[i]);
-}
-
-
-
 
 
