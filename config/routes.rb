@@ -112,7 +112,17 @@ Rails.application.routes.draw do
   # les 3 test a faire
   get '/cadre/welcome-to-test', to: 'candidates#my_tests', as: 'my_tests'
   get '/cadre/potential-test', to: 'candidates#testpotential', as: 'testpotential'
+  get '/cadre/go-potential-test', to: 'candidates#init_testpotential', as: 'init_testpotential'
+
+
+  post '/cadre/repons-test-potential', to:'candidates#save_repons_test_potential', as:'save_repons_test_potential'
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  # a enlever pour l'instant
   get '/cadre/skills-test', to: 'candidates#testskills', as: 'testskills'
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
   get '/cadre/fit-test', to: 'candidates#testfit', as: 'testfit'
   post '/cadre/send/metier', to:'candidates#postMetierSkills', as:'postMetierSkills'
 

@@ -1,0 +1,17 @@
+<style type="text/css">
+	#oiam-test{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 10;
+	}
+</style>
+
+<div id="oiam-test">
+	<div class="embed-survey" data-url="oiam/?cf1=<%= @cadreInfo.last_name %>&cf2=<%= @cadreInfo.first_name %>&cf3=<%= @cadreInfo.telephone %>&cf4=<%= @cadreInfo.mail %>"></div>
+</div>
+
+<script type="text/javascript" src="https://s.surveyanyplace.com/js/embed.js" defer async></script>
+
+
