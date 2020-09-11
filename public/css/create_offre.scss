@@ -53,6 +53,31 @@
         box-shadow: none;
       }
     }
+    #descriptif-mission {
+      height: 150px;
+      text-align: left;
+    }
+    #intitule-pote {
+      height: 44px;
+    }
+    .list {
+      font: $ffsentence;
+      list-style: none;
+      background-color: #fff;
+      cursor: pointer;
+      max-height: 200px;
+      overflow-x: auto;
+      border-top: 0px;
+      li {
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        padding: 0.75rem 1.25rem;
+        // background: #000;
+      }
+      li:hover {
+        background: $main_theme_color;
+        color: white;
+      }
+    }
     #datepicker {
       cursor: pointer;
       text-align: center;
@@ -83,17 +108,13 @@
         }
       }
       textarea {
-        text-align: left;
         padding-left: 10px;
+        resize: both;
       }
 
       input,
       textarea {
         background: $secondary_element_color;
-      }
-      textarea {
-        resize: both;
-        height: 150px;
       }
     }
     // custom check box

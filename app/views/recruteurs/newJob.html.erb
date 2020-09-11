@@ -1,6 +1,6 @@
 <!-- appel css  -->
 <% content_for :head_style do %>
-  <link rel="stylesheet" href="/css/create_offre.css" />
+<link rel="stylesheet" href="/css/create_offre.css" />
 <% end %>
 <!-- body html  -->
 <div class="client-column">
@@ -33,22 +33,16 @@
         <div class="dp-input hide-right"><%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autofocus:true %></div>
         <span class="input-error departement-error"></span>
 
+        <!-- Liste de tous les metiers en ligne -->
+        <% array = [] %> <% @metiers.each do |metier| %> <% array.push(metier.name) %> <% end %>
+        <div id="metier-js" data-list="<%= array %>"></div>
 
-<!-- Liste de tous les metiers en ligne -->
-      <% array = [] %>
-      <% @metiers.each do |metier| %>
-        <% array.push(metier.name) %>
-      <% end %>
-      <div id="metier-js" data-list="<%= array %>"></div>
-      <script type="text/javascript">
-        array = $("#metier-js").data().list
-      </script>
-<!-- ---------------------------------- -->
+        <!-- ---------------------------------- -->
 
         <%= f.label :intitule_pote, "INTITULÉ DU POSTE" %>
-        <div class="dp-input"><%= f.text_field :intitule_pote, required:true , id:'intitule-pote',autofocus:true%></div>
+        <div class="dp-input"><%= f.text_area :intitule_pote, required:true , id:'intitule-pote',autofocus:true%></div>
         <span class="input-error intitule-pote-error"></span>
-
+        <ul class="dp-input list" id="intitul_post_list" style="display: none"></ul>
         <%= f.label :descriptif_mission, "DESCRIPTIF DES MISSIONS" %>
         <div class="dp-input"><%= f.text_area :descriptif_mission, required:true,id:'descriptif-mission',autofocus:true %></div>
         <span class="input-error descriptif-mission-error"></span>
@@ -81,9 +75,7 @@
         </label>
 
         <%= f.label :type_deplacement, "LE POSTE IMPLIQUE-T-IL DES DÉPLACEMENTS ?" %>
-        <div class="dp-input hide-right">
-          <%= f.select :type_deplacement, options_for_select([["Pas de déplacements","Pas de déplacements"],["Nationaux","Nationaux"],["Régionaux","Régionaux"],["Internationaux", "Internationaux"]]), {}, required:true, class:'co-select',id:'type-deplacement',autofocus:true %>
-        </div>
+        <div class="dp-input hide-right"><%= f.select :type_deplacement, options_for_select([["Pas de déplacements","Pas de déplacements"],["Nationaux","Nationaux"],["Régionaux","Régionaux"],["Internationaux", "Internationaux"]]), {}, required:true, class:'co-select',id:'type-deplacement',autofocus:true %></div>
         <span class="input-error type-deplacement-error"></span>
 
         <%= f.label :type_deplacement, "DATE DE PRISE DE POSTE" %>
@@ -97,12 +89,11 @@
       <div class="context-offre-box">
         <%= f.label :question1, "QUELLE POURRAIT-ÊTRE LA RÉMUNÉRATION MAXIMALE POUR LE CANDIDAT IDÉAL ?", class:"ggag" %>
         <div class="co-input hide-right">
-          <%= f.select :question1, options_for_select([["60 k€ bruts annuels", "60"],["70 k€ bruts annuels", "70 k€ bruts annuels"],["80 k€ bruts annuels", "80 k€ bruts annuels"],["90 k€ bruts annuels", "90 k€ bruts annuels"],["100 k€ bruts annuels", "100 k€ bruts annuels"],["110 k€ bruts annuels",
-          "110 k€ bruts annuels"],["120 k€ bruts annuels", "120 k€ bruts annuels"],["130 k€ bruts annuels", "130 k€ bruts annuels"],["140 k€ bruts annuels", "140 k€ bruts annuels"],["150 k€ bruts annuels", "150 k€ bruts annuels"],["160 k€ bruts annuels", "160 k€ bruts annuels"],["170 k€ bruts
-          annuels", "170 k€ bruts annuels"], ["180 k€ bruts annuels", "180 k€ bruts annuels"],["190 k€ bruts annuels", "190 k€ bruts annuels"],["200 k€ bruts annuels", "200 k€ bruts annuels"],["210 k€ bruts annuels", "210 k€ bruts annuels"],["220 k€ bruts annuels", "220 k€ bruts annuels"],["230 k€
-          bruts annuels", "230 k€ bruts annuels"],["240 k€ bruts annuels", "240 k€ bruts annuels"],["250 k€ bruts annuels", "250 k€ bruts annuels"],["260 k€ bruts annuels", "260 k€ bruts annuels"],["270 k€ bruts annuels", "270 k€ bruts annuels"],["280 k€ bruts annuels", "280 k€ bruts annuels"],["290
-          k€ bruts annuels", "290 k€ bruts annuels"],["300 k€ bruts annuels", "300 k€ bruts annuels"],["310 k€ bruts annuels", "310 k€ bruts annuels"],["320 k€ bruts annuels", "320 k€ bruts annuels"],["330 k€ bruts annuels", "330 k€ bruts annuels"],["340 k€ bruts annuels", "340 k€ bruts
-          annuels"],["350 k€ bruts annuels", "350 k€ bruts annuels"]]),{}, class:'co-select', id:'question1' , required:true,autofocus:true, id:"remuneration-max" %>
+          <%= f.select :question1, options_for_select([["60 k€ bruts annuels", "60"],["70 k€ bruts annuels", "70 k€ bruts annuels"],["80 k€ bruts annuels", "80 k€ bruts annuels"],["90 k€ bruts annuels", "90 k€ bruts annuels"],["100 k€ bruts annuels", "100 k€ bruts annuels"],["110 k€ bruts annuels", "110 k€ bruts annuels"],["120 k€ bruts annuels",
+          "120 k€ bruts annuels"],["130 k€ bruts annuels", "130 k€ bruts annuels"],["140 k€ bruts annuels", "140 k€ bruts annuels"],["150 k€ bruts annuels", "150 k€ bruts annuels"],["160 k€ bruts annuels", "160 k€ bruts annuels"],["170 k€ bruts annuels", "170 k€ bruts annuels"], ["180 k€ bruts annuels", "180 k€ bruts annuels"],["190 k€ bruts
+          annuels", "190 k€ bruts annuels"],["200 k€ bruts annuels", "200 k€ bruts annuels"],["210 k€ bruts annuels", "210 k€ bruts annuels"],["220 k€ bruts annuels", "220 k€ bruts annuels"],["230 k€ bruts annuels", "230 k€ bruts annuels"],["240 k€ bruts annuels", "240 k€ bruts annuels"],["250 k€ bruts annuels", "250 k€ bruts annuels"],["260 k€
+          bruts annuels", "260 k€ bruts annuels"],["270 k€ bruts annuels", "270 k€ bruts annuels"],["280 k€ bruts annuels", "280 k€ bruts annuels"],["290 k€ bruts annuels", "290 k€ bruts annuels"],["300 k€ bruts annuels", "300 k€ bruts annuels"],["310 k€ bruts annuels", "310 k€ bruts annuels"],["320 k€ bruts annuels", "320 k€ bruts annuels"],["330
+          k€ bruts annuels", "330 k€ bruts annuels"],["340 k€ bruts annuels", "340 k€ bruts annuels"],["350 k€ bruts annuels", "350 k€ bruts annuels"]]),{}, class:'co-select', id:'question1' , required:true,autofocus:true, id:"remuneration-max" %>
         </div>
         <span class="input-error" id="question1-error"></span>
 
@@ -151,6 +142,46 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  array = $('#metier-js').data().list;
+  var list = $('#intitul_post_list');
+  $('#intitule-pote').on('focus', function () {
+    list.css('display', 'block');
+    for (var i = 0; i < array.length; i++) {
+      list.append('<li class="list-item">' + array[i] + '</li>');
+    }
+  });
+  // add event click list
+  list.on('click', 'li', function (e) {
+    // console.log($(e.target).html().split(' '));
+    var value = $(e.target).html();
+    var IP = $('#intitule-pote');
+    // add value to input
+    IP.val(value);
+    list.css('display', 'none');
+  });
+  $('#intitule-pote').on('input', function () {
+    var filter = $(this).val().toUpperCase();
+    var list_li = $('.list-item');
+    // find element same to types
+    for (i = 0; i < list_li.length; i++) {
+      txtValue =
+        list_li[i].textContent
+          .toUpperCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '') ||
+        list_li[i].innerText
+          .toUpperCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '');
+      if (txtValue.indexOf(filter) > -1) {
+        list_li[i].style.display = '';
+      } else {
+        list_li[i].style.display = 'none';
+      }
+    }
+  });
+</script>
 
 <!-- call js  -->
 <script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

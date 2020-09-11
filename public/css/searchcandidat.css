@@ -22,49 +22,46 @@
   margin: 0 auto;
 }
 
-.select-cadre-box tr {
+.select-cadre-box .search {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.select-cadre-box tr td {
-  border: none;
-  padding: 0;
-  margin: 10px 0;
-}
-
-.select-cadre-box tr td .co-input {
+.select-cadre-box .search .co-input {
   text-align: center;
 }
 
-.select-cadre-box tr td .co-input select {
+.select-cadre-box .search .co-input select {
   font: 16px Questrial, sans-serif;
+  text-align: center;
   border: none;
   width: 100%;
   padding: 10px 5px;
   border-radius: 0;
   appearance: none;
   background: #f0f2f4 url("/image/dropdown.png") no-repeat right 1rem center/17px 15px;
+  padding-right: 33px;
 }
 
-.select-cadre-box tr td .co-input select option {
+.select-cadre-box .search .co-input select option {
   text-align: center;
   -ms-text-align-last: center;
   text-align-last: center;
 }
 
-.select-cadre-box tr td .co-input select:focus {
+.select-cadre-box .search .co-input select:focus {
   border-radius: none;
   outline: 1px solid #d6b36a;
   box-shadow: 1px 1px 5px 1px #d6b36a;
 }
 
-.select-cadre-box tr td .hide-right {
+.select-cadre-box .search .hide-right {
   position: relative;
 }
 
-.select-cadre-box tr td .hide-right::before {
+.select-cadre-box .search .hide-right::before {
   content: ' ';
   position: absolute;
   right: 0;
@@ -73,13 +70,12 @@
   height: 100%;
 }
 
-.select-cadre-box tr .td-button {
+.select-cadre-box .search .td-button {
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid #d6b36a;
   padding: 10px 20px;
-  margin: 10px 0;
   text-transform: uppercase;
   font: 500 18px Raleway, sans-serif;
   font-size: 15px;
@@ -161,7 +157,8 @@
   width: 100%;
 }
 
-.select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo img, .select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo .c {
+.select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo img,
+.select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo .c {
   width: 100%;
 }
 
