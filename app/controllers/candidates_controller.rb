@@ -1,7 +1,9 @@
 class CandidatesController < ApplicationController
-  before_action :authenticate_cadre!, except: [:postMetierSkills,:main,:my_tests,:testpotential,:testskills,:testfit,:saveEntretientDate,:resultatsTest,:tmp_sign_up,:tmp_create_sign_up]
-  before_action :validate_cadre, only: [:my_tests, :testpotential, :testskills, :testfit, :resultatsTest, :postMetierSkills]
+  before_action :authenticate_cadre!, except: [:postMetierSkills,:main,:my_tests,:testpotential,:init_testpotential,:testskills,:testfit,:saveEntretientDate,:resultatsTest,:tmp_sign_up,:tmp_create_sign_up,:save_repons_test_potential]
+  before_action :validate_cadre, only: [:init_testpotential, :my_tests, :testpotential, :testskills, :testfit, :resultatsTest, :postMetierSkills]
   before_action :current_info_cadre, only: [:my_profil, :edit_profil, :confirmedProfil]
+
+  protect_from_forgery except: :save_repons_test_potential
 
   def main
   end
@@ -281,6 +283,39 @@ class CandidatesController < ApplicationController
 
   def testpotential
     @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+  end
+
+  def init_testpotential
+    @header = true
+    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+  end
+
+  def save_repons_test_potential
+ 
+    puts "#"*34
+
+    puts "score: #{params[:score]}"
+
+    puts "max_score: #{params[:max_score]}"
+
+    puts "custom_score: #{params[:custom_score]}"
+
+    puts "max_custom_score: #{params[:max_custom_score]}"
+
+    puts "custom_score_as_percentage: #{params[:custom_score_as_percentage]}"
+
+    puts "quiz_score_as_percentage: #{params[:quiz_score_as_percentage]}"
+
+    puts "respondent: #{params[:respondent]}"
+
+    puts "#"*34
+
+    puts "question_blocks: #{params[:question_blocks]}"
+
+    puts "formula_results: #{params[:formula_results]}"
+
+    puts "#"*34
+
   end
 
   def testskills

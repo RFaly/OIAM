@@ -4,55 +4,58 @@
 .select-cadre-box {
   width: 95%;
   margin: 0 auto;
-  tr {
+  .search {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
-    td {
-      border: none;
-      padding: 0;
-      margin: 10px 0;
-      .co-input {
-        // width: 180px;
+    flex-wrap: wrap;
+    .search-large {
+      // width: 50%;
+    }
+    .search-short {
+      // width: 25%;
+    }
+    .co-input {
+      // margin-bottom: 30px;
+      text-align: center;
+      select {
+        font: $ffsentence;
         text-align: center;
-        select {
-          font: $ffsentence;
-          // text-align: center;
-          border: none;
-          width: 100%;
-          padding: 10px 5px;
-          border-radius: 0;
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-          background: $secondary_element_color url('/image/dropdown.png') no-repeat right 1rem center/17px 15px;
-          // text-align: center;
-          // -moz-text-align-last: center;
-          // -ms-text-align-last: center;
-          // text-align-last: center;
-          option {
-            text-align: center;
-            -moz-text-align-last: center;
-            -ms-text-align-last: center;
-            text-align-last: center;
-          }
-          &:focus {
-            border-radius: none;
-            outline: 1px solid $main_theme_color;
-            box-shadow: 1px 1px 5px 1px $main_theme_color;
-          }
+        border: none;
+        width: 100%;
+        padding: 10px 5px;
+        border-radius: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: $secondary_element_color url('/image/dropdown.png') no-repeat right 1rem center/17px 15px;
+        // text-align: center;
+        // -moz-text-align-last: center;
+        // -ms-text-align-last: center;
+        // text-align-last: center;
+        padding-right: 33px;
+        option {
+          text-align: center;
+          -moz-text-align-last: center;
+          -ms-text-align-last: center;
+          text-align-last: center;
+        }
+        &:focus {
+          border-radius: none;
+          outline: 1px solid $main_theme_color;
+          box-shadow: 1px 1px 5px 1px $main_theme_color;
         }
       }
-      .hide-right {
-        position: relative;
-        &::before {
-          content: ' ';
-          position: absolute;
-          right: 0;
-          background: $secondary_element_color;
-          width: 14px;
-          height: 100%;
-        }
+    }
+    .hide-right {
+      position: relative;
+      &::before {
+        content: ' ';
+        position: absolute;
+        right: 0;
+        background: $secondary_element_color;
+        width: 14px;
+        height: 100%;
       }
     }
     .td-button {
@@ -61,7 +64,7 @@
       align-items: center;
       border: 2px solid $main_theme_color;
       padding: 10px 20px;
-      margin: 10px 0;
+      // margin: 10px auto;
       text-transform: uppercase;
       font: $ffbtn;
       font-size: 15px;
@@ -126,7 +129,8 @@
           position: relative;
           .cbi-photo {
             width: 100%;
-            img,.c {
+            img,
+            .c {
               width: 100%;
             }
           }
