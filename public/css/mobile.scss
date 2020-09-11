@@ -416,6 +416,19 @@
   }
   // search cadre
   .select-cadre-box {
+    .search {
+      &-large,
+      &-short {
+        width: 95%;
+        margin: 0 auto;
+      }
+      .td-button {
+        margin: 10px auto;
+      }
+      .co-input {
+        margin-bottom: 30px;
+      }
+    }
     .select-cadre-list {
       .validation {
         .submit-validation {
@@ -1035,7 +1048,7 @@
   }
   .box-2 {
     display: block;
-    // width: 50%;
+    width: 50%;
     height: 99.5vh;
     background: url(/image/picture_photo_0ae4b3.jpg) no-repeat center;
     background-size: cover;
@@ -1396,9 +1409,21 @@
   }
   // search cadre
   .select-cadre-box {
-    td {
+    .search {
+      &-large {
+        width: 412px;
+        margin: 0;
+        margin-right: 20px;
+      }
+      &-short {
+        width: 220px;
+        margin: 0;
+      }
+      .td-button {
+        margin-right: 0;
+      }
       .co-input {
-        width: 169px;
+        margin: 10px 0;
       }
     }
     .select-cadre-list {
@@ -1740,9 +1765,16 @@
   }
   // search cadre
   .select-cadre-box {
-    td {
-      .co-input {
-        width: 180px;
+    .search {
+      .search-large {
+        margin: 0;
+        width: 50%;
+      }
+      .search-short {
+        width: 25%;
+      }
+      .td-button {
+        margin: 0;
       }
     }
   }
@@ -1847,6 +1879,7 @@
     margin-top: -605px;
   }
   // landing page
+
   // navbar
   // /////////////////////
   .navdiv {
@@ -1877,9 +1910,22 @@
   // ///////////////////////////////////////@
   // search cadre
   .select-cadre-box {
-    td {
-      .co-input {
-        width: 200px;
+    .search {
+      .search-large {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        .co-input {
+          width: 49%;
+        }
+      }
+      .search-short {
+        width: 37%;
+        display: flex;
+        justify-content: space-between;
+        .co-input {
+          width: 49%;
+        }
       }
     }
   }
@@ -1973,7 +2019,27 @@
 
   // // inscription recruteur
   // ///////////////////////////////////////@extend
-
+  // search cadre
+  .select-cadre-box {
+    .search {
+      .search-large {
+        display: flex;
+        justify-content: space-between;
+        width: 55%;
+        .co-input {
+          width: 49%;
+        }
+      }
+      .search-short {
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+        .co-input {
+          width: 49%;
+        }
+      }
+    }
+  }
   // show search candidate
   .ssc-box {
     .ssc-all-infos {

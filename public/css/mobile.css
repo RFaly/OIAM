@@ -364,6 +364,16 @@
   .show-pb2 {
     width: 70%;
   }
+  .select-cadre-box .search-large, .select-cadre-box .search-short {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .select-cadre-box .search .td-button {
+    margin: 10px auto;
+  }
+  .select-cadre-box .search .co-input {
+    margin-bottom: 30px;
+  }
   .select-cadre-box .select-cadre-list .validation .submit-validation .validation-bt {
     display: none;
   }
@@ -846,6 +856,7 @@
   }
   .box-2 {
     display: block;
+    width: 50%;
     height: 99.5vh;
     background: url(/image/picture_photo_0ae4b3.jpg) no-repeat center;
     background-size: cover;
@@ -1134,8 +1145,20 @@
   .show-job-box .show-pb2 a {
     width: 45%;
   }
-  .select-cadre-box td .co-input {
-    width: 169px;
+  .select-cadre-box .search-large {
+    width: 412px;
+    margin: 0;
+    margin-right: 20px;
+  }
+  .select-cadre-box .search-short {
+    width: 220px;
+    margin: 0;
+  }
+  .select-cadre-box .search .td-button {
+    margin-right: 0;
+  }
+  .select-cadre-box .search .co-input {
+    margin: 10px 0;
   }
   .select-cadre-box .select-cadre-list .validation .submit-validation .validation-bt1 {
     display: none;
@@ -1380,8 +1403,15 @@
     width: 664px;
     margin-left: -7%;
   }
-  .select-cadre-box td .co-input {
-    width: 180px;
+  .select-cadre-box .search .search-large {
+    margin: 0;
+    width: 50%;
+  }
+  .select-cadre-box .search .search-short {
+    width: 25%;
+  }
+  .select-cadre-box .search .td-button {
+    margin: 0;
   }
   .ssc-box .ssc-all-infos .ssc-infos {
     width: 350px;
@@ -1471,8 +1501,21 @@
   .bg-accueil1 {
     height: 750px;
   }
-  .select-cadre-box td .co-input {
-    width: 200px;
+  .select-cadre-box .search .search-large {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+  }
+  .select-cadre-box .search .search-large .co-input {
+    width: 49%;
+  }
+  .select-cadre-box .search .search-short {
+    width: 37%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .select-cadre-box .search .search-short .co-input {
+    width: 49%;
   }
   .ssc-box .ssc-all-infos .ssc-infos {
     width: 380px;
@@ -1528,6 +1571,22 @@
   }
   .bg-accueil1 {
     height: 800px;
+  }
+  .select-cadre-box .search .search-large {
+    display: flex;
+    justify-content: space-between;
+    width: 55%;
+  }
+  .select-cadre-box .search .search-large .co-input {
+    width: 49%;
+  }
+  .select-cadre-box .search .search-short {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .select-cadre-box .search .search-short .co-input {
+    width: 49%;
   }
   .ssc-box .ssc-all-infos .ssc-infos {
     width: 400px;
