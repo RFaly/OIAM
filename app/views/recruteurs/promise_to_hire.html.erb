@@ -1,34 +1,17 @@
 <!-- call css  -->
-<link rel="stylesheet" href="/css/promise.css" />
+<% content_for :head_style do %>
+  <link rel="stylesheet" href="/css/promise.css" />
+<% end %>
 <!-- body html  -->
 <div class="client-column">
   <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
   <div class="cp-box">
     <div class="promise">
       <h5 class="title">PROMESSE D'EMBAUCHE</h5>
-      <div class="promise-content">
-        <%= form_for @promise , url: save_promise_to_hire_path(@job.id, @cadre.cadre.id) do |f| %>
-        <div class="pc-head">
-          <div class="pch-left">
-            <div class="pchl-image">
-              <div class="c" id="addImage" style="background: url(<%= @job.image%>) center no-repeat; background-size: cover"></div>
-              <% unless @job.image.nil? %> <%= image_tag(@job.image, alt: 'photo de profil', class:'photo_ako', width:'250px')%> <% end %>
-            </div>
-          </div>
-          <div class="pch-right"></div>
-        </div>
-        <% end %>
-      </div>
+      <div class="promise-content"><%= render partial: "recruteurs/form_promise_to_hire", locals: {url_path: save_promise_to_hire_path(@job.id, @cadre.cadre.id)} %></div>
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-sm-3"><%= render partial: "recruteurs/left_link_bar" %></div>
-
-  <div class="col-sm-9">
-    <center>PROMESSE D'EMBAUCHE</center>
-    <%= render partial: "recruteurs/form_promise_to_hire", locals: {url_path: save_promise_to_hire_path(@job.id, @cadre.cadre.id)} %>
-  </div>
-</div>
-
+<!-- call js  -->
+<script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/contrat_dembauche.js"></script>

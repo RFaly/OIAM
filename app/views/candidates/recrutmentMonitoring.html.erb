@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="/css/recrutement.css" />
+
 <div class="content">
 	<div class="left_link">
 		<%= render partial: "candidates/left_link_bar" %>
@@ -43,24 +44,24 @@
 									<center><span class="candidature">Candidature réfusée</span></center>
 								</div>
 							<% else %>
-								
+
 									<div class="etape1">
 									</div>
-								
+
 							<% end %>
 						<% elsif oFc.etapes == 2%>
-							
+
 								<div class="etape2"></div>
-							
+
 						<% else %>
 							<% if (oFc.etapes == oFc.offre_job.numberEntretien + 1)%>
-							
+
 								<div class="etape3"></div>
-							
+
 							<% elsif (oFc.etapes < oFc.offre_job.numberEntretien + 1) %>
-							
+
 								<div class="etape4"></div>
-							
+
 							<% end %>
 						<% end %>
 
@@ -101,4 +102,3 @@
 
 	</div>
 </div>
-

@@ -86,6 +86,7 @@ html{
       outline: none;
   }
 
+
 .btn-dispo{
   margin-top: 15px;
   margin-bottom: 15px;
@@ -216,7 +217,7 @@ html{
     cursor: pointer;
   }
 
-  
+
 
   .cv-champs{
     display: none;
@@ -312,6 +313,10 @@ html{
   }
 
 
+	.frequence option{
+		text-transform: capitalize;
+	}
+
   .checkbox{
     position: relative;
     padding-left: 35px;
@@ -393,7 +398,7 @@ html{
       margin:  80px;
     }
 
-   
+
 
     .btn-recherche{
       display: inline;

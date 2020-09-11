@@ -176,7 +176,7 @@
   ///////////////////////////////////////@extend
   .details-r {
     .dr-item {
-      margin: 20px 0;
+      margin-top: 40px;
       width: 100%;
     }
   }
@@ -246,14 +246,15 @@
       }
       .cpr-r {
         img {
-          left: 6%;
+          left: -7%;
         }
       }
     }
     .cp-flex-t {
       flex-direction: column;
     }
-    .line-white {
+    .line-white,
+    .line-white2 {
       display: none;
     }
     .cp-icon-text {
@@ -262,8 +263,13 @@
       }
     }
     .cpe-description,
-    .cpe-naf {
+    .cpe-naf,
+    .cpe-adress,
+    .cpe-site {
       text-align: center;
+    }
+    .cpe-naf {
+      width: 100%;
     }
   }
   // client edit profil
@@ -587,6 +593,13 @@
       }
     }
   }
+  // promesse suivi recrutement
+  .rsc-body-promise {
+    .dscdpa-box {
+      width: 80%;
+      padding: 10px;
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -719,7 +732,8 @@
       flex-wrap: wrap;
       justify-content: space-between;
     }
-    .line-white {
+    .line-white,
+    .line-white2 {
       display: block;
     }
     .cp-icon-text {
@@ -730,6 +744,23 @@
     .cpe-description,
     .cpe-naf {
       text-align: left;
+    }
+    .cpe-description,
+    .cpe-site {
+      width: 50%;
+    }
+    .cpe-site {
+      text-align: right;
+      .site {
+        left: inherit;
+        right: 123px;
+      }
+      h5 {
+        padding-right: 40px;
+      }
+    }
+    .cpe-naf {
+      width: auto;
     }
   }
   // client edit profil
@@ -1257,6 +1288,12 @@
         left: -40px;
       }
     }
+    .cpe-site {
+      .site {
+        left: inherit;
+        right: 133px;
+      }
+    }
   }
   // client edit profil
   .cp-edit-table-box {
@@ -1525,6 +1562,16 @@
       }
     }
   }
+  // promesse suivi recrutement
+  .rsc-body-promise {
+    .dscdpa-box {
+      width: 60%;
+      padding: 20px;
+      p {
+        padding: 0 10px;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -1783,6 +1830,16 @@
       }
     }
   }
+  // promesse suivi recrutement
+  .rsc-body-promise {
+    .dscdpa-box {
+      width: 50%;
+      padding: 30px;
+      p {
+        padding: 0 30px;
+      }
+    }
+  }
 }
 @media screen and (min-width: 1500px) {
   // bg unique
@@ -1880,6 +1937,12 @@
           width: 50%;
         }
       }
+    }
+  }
+  // promesse suivi recrutement
+  .rsc-body-promise {
+    .dscdpa-box {
+      width: 40%;
     }
   }
 }

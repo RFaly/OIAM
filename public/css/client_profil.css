@@ -59,6 +59,14 @@
   height: 18px;
 }
 
+.cp-table-box .cp-icone.map {
+  width: 22px;
+}
+
+.cp-table-box .cpe-site {
+  word-wrap: break-word;
+}
+
 .cp-table-box .cpr-i-mail {
   width: 20px;
   height: 16px;
@@ -74,16 +82,25 @@
 
 .cp-table-box .code-naf-flex {
   display: flex;
+  position: relative;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.cp-table-box .cp-flex-t {
+.cp-table-box .code-naf-flex .cpe-naf p {
   text-align: center;
 }
 
-.cp-table-box .cpe-adress h5 {
-  text-align: left;
+.cp-table-box .code-naf-flex .line-white2 {
+  width: 3px;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  background-color: white;
+}
+
+.cp-table-box .cp-flex-t {
+  text-align: center;
 }
 
 .cp-table-box .cp-icon-text {

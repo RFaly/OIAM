@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="/css/favorite_job_cadre.css">
+
 <div class="all-content">
 	<div class="content">
 	<div class="left_link">
@@ -14,7 +15,7 @@
 					<div class="logo">
 						<% unless offre.image.nil? %>
 							<%= image_tag(offre.image, alt: 'logo entreprise', width:"250px")%>
-						<% end %>		
+						<% end %>
 					</div>
 					<div class="job_info">
 						<h2 class="job_info_title"><%= offre.intitule_pote %></h2>
@@ -40,23 +41,23 @@
 
 
 <script>
-$(function () { 
-    var maxL = 50;  
+$(function () {
+    var maxL = 50;
     $('.description').each(function (i, div) {
-        
+
         var text = $(div).text();
         if(text.length > maxL) {
-            
+
             var begin = text.substr(0, maxL),
                 end = text.substr(maxL);
 
             $(this).html(begin)
                 .append($('<a class="readmore"/>').attr('href', '').html('...'))
-                .append($('<div class="hidden" />').html(end));                           
+                .append($('<div class="hidden" />').html(end));
         }
-    });           
+    });
     $(document).on('click', '.readmore', function () {
         $(this).next('.hidden').slideDown(750);
-    })          
+    })
 })
 </script>

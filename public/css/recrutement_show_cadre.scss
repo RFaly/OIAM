@@ -394,6 +394,65 @@
         }
       }
     }
+    // promesse d embauche
+    .rsc-body-promise {
+      padding: 20px 0;
+      .dscdpa-box {
+        font: $ffsentence;
+        border: 2px solid $main_theme_color;
+        // padding: 30px;
+        // width: 50%;
+        margin: 20px auto;
+        h3 {
+          color: $main_theme_color;
+        }
+        p {
+          text-align: center;
+          font: $ffsentence;
+          margin: 10px 0;
+          // padding: 0 30px;
+        }
+        .dscdp-link {
+          &-item {
+            width: 150px;
+            margin: 30px auto;
+            border: 2px solid $main_theme_color;
+            text-align: center;
+            padding: 10px 0;
+            a {
+              padding: 10px 50px;
+              font: $ffbtn;
+              text-transform: uppercase;
+              text-decoration: none;
+              color: $main_theme_color;
+            }
+            &:hover {
+              background: $main_theme_color;
+              a {
+                color: white;
+              }
+            }
+          }
+          .dscdp-contact {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            margin-top: 20px;
+            a {
+              margin: 10px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              color: $main_theme_color;
+              img {
+                width: 55px;
+                height: 30px;
+              }
+            }
+          }
+        }
+      }
+    }
     // candidat refusé
     .rsc-body-refuse {
       .rscr-form-box {

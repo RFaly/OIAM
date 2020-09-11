@@ -1,4 +1,7 @@
+
 <link rel="stylesheet" type="text/css" href="/css/showRecrutementCandidat.css">
+
+
 <div class="content">
 	<div class="left_linl">
 		<%= render partial: "candidates/left_link_bar" %>
@@ -62,7 +65,7 @@
 			</div>
 		</div>
 			<% end %>
-		
+
 		<% else %>
 			<!-- if candidate in a laste stape namely "promesse d'embauche" -->
 			<!-- if etapes -->
@@ -82,7 +85,7 @@
 					<% else %>
 						Demande de prime envoyer
 					<% end %>
-					
+
 					<table>
 						<tr>
 							<td>Promesse d'embauche</td>
@@ -251,7 +254,7 @@
 		// Set the URL to whatever it was plus "#".
 		url = document.URL + '#';
 		location = '#';
-  
+
 		//Reload the page
 		location.reload(true);
 	  }
@@ -259,4 +262,3 @@
   </script>
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 <script type="text/javascript" src="/js/recrutement_show.js"></script>
-

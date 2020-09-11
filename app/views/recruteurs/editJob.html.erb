@@ -1,5 +1,8 @@
 <!-- appel css  -->
-<link rel="stylesheet" href="/css/create_offre.css" />
+<% content_for :head_style do %>
+  <link rel="stylesheet" href="/css/create_offre.css" />
+<% end %>
+
 <!-- body html  -->
 <div class="client-column">
   <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>

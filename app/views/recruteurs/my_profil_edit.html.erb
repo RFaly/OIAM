@@ -1,5 +1,7 @@
 <!-- appel css  -->
+<% content_for :head_style do %>
 <link rel="stylesheet" href="/css/client_profil_edit.css" />
+<% end %>
 <!-- body html  -->
 <div class="client-column">
   <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
@@ -63,7 +65,6 @@
               </div>
               <div class="cpe-ville">
                 <h5 class="cp-icon-text"><img src="/image/city.png" alt="ville icon" class="cp-icone" /> Ville</h5>
-                background-image
                 <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="city" type="text" name="city" id="city" value="<%= @entreprise.city %>" placeholder="Ville" readonly style="opacity: 0.5" />
               </div>
             </div>

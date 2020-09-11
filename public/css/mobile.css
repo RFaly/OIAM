@@ -161,7 +161,7 @@
     text-align: justify;
   }
   .details-r .dr-item {
-    margin: 20px 0;
+    margin-top: 40px;
     width: 100%;
   }
   .inscription-r {
@@ -220,20 +220,26 @@
     width: 80%;
   }
   .cp-table-box .table-td .cpr-r img {
-    left: 6%;
+    left: -7%;
   }
   .cp-table-box .cp-flex-t {
     flex-direction: column;
   }
-  .cp-table-box .line-white {
+  .cp-table-box .line-white,
+  .cp-table-box .line-white2 {
     display: none;
   }
   .cp-table-box .cp-icon-text img {
     left: 35px;
   }
   .cp-table-box .cpe-description,
-  .cp-table-box .cpe-naf {
+  .cp-table-box .cpe-naf,
+  .cp-table-box .cpe-adress,
+  .cp-table-box .cpe-site {
     text-align: center;
+  }
+  .cp-table-box .cpe-naf {
+    width: 100%;
   }
   .cp-edit-table-box .cp-edit-form {
     width: 100%;
@@ -496,6 +502,10 @@
   .rsc-box .rscdf-content .new-date .link2 a {
     padding: 10px 0;
   }
+  .rsc-body-promise .dscdpa-box {
+    width: 80%;
+    padding: 10px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -602,7 +612,8 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  .cp-table-box .line-white {
+  .cp-table-box .line-white,
+  .cp-table-box .line-white2 {
     display: block;
   }
   .cp-table-box .cp-icon-text img {
@@ -611,6 +622,23 @@
   .cp-table-box .cpe-description,
   .cp-table-box .cpe-naf {
     text-align: left;
+  }
+  .cp-table-box .cpe-description,
+  .cp-table-box .cpe-site {
+    width: 50%;
+  }
+  .cp-table-box .cpe-site {
+    text-align: right;
+  }
+  .cp-table-box .cpe-site .site {
+    left: inherit;
+    right: 123px;
+  }
+  .cp-table-box .cpe-site h5 {
+    padding-right: 40px;
+  }
+  .cp-table-box .cpe-naf {
+    width: auto;
   }
   .cp-edit-table-box .table-td {
     flex-wrap: nowrap;
@@ -1025,6 +1053,10 @@
   .cp-table-box .cp-icon-text img {
     left: -40px;
   }
+  .cp-table-box .cpe-site .site {
+    left: inherit;
+    right: 133px;
+  }
   .cp-edit-table-box .table-td {
     justify-content: flex-start;
     flex-wrap: nowrap;
@@ -1227,6 +1259,13 @@
   .rsc-box .rsc-body .rscdf-content .new-date .link2 a {
     padding: 10px 15px;
   }
+  .rsc-body-promise .dscdpa-box {
+    width: 60%;
+    padding: 20px;
+  }
+  .rsc-body-promise .dscdpa-box p {
+    padding: 0 10px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -1405,6 +1444,13 @@
     width: 60%;
     padding: 20px 40px;
   }
+  .rsc-body-promise .dscdpa-box {
+    width: 50%;
+    padding: 30px;
+  }
+  .rsc-body-promise .dscdpa-box p {
+    padding: 0 30px;
+  }
 }
 
 @media screen and (min-width: 1500px) {
@@ -1464,6 +1510,9 @@
   }
   .rsc-box .rsc-body .rsc-date-past .dscdpa-box {
     width: 50%;
+  }
+  .rsc-body-promise .dscdpa-box {
+    width: 40%;
   }
 }
 

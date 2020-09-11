@@ -17,7 +17,86 @@
   padding: 10px;
 }
 
+.ui-datepicker {
+  font: 500 18px Raleway, sans-serif;
+  background-color: #e3d7bf;
+}
+
+.ui-datepicker thead {
+  text-align: center;
+}
+
+.ui-datepicker-calendar {
+  width: 100%;
+}
+
+.ui-datepicker-calendar td {
+  cursor: pointer;
+  border-radius: 50%;
+  text-align: center;
+  height: 60px;
+}
+
+.ui-datepicker-calendar .ui-state-disabled {
+  cursor: default;
+  background: none;
+  opacity: 0.4;
+}
+
+.ui-datepicker-calendar .ui-state-disabled:hover {
+  background: none;
+}
+
+.ui-datepicker-header {
+  padding-bottom: 10px;
+  color: white;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+  text-indent: -900000px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  overflow: hidden;
+  background: url(/image/left.png) no-repeat center/15px 20px;
+  border: 2px solid white;
+  border-radius: 8px;
+  position: absolute;
+}
+
+.ui-datepicker .ui-datepicker-prev:hover, .ui-datepicker .ui-datepicker-prev:active {
+  box-shadow: 1px 1px 5px 1px #f0f2f4;
+}
+
+.ui-datepicker .ui-datepicker-next {
+  text-indent: -900000px;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  border: 2px solid white;
+  background: url(/image/right.png) no-repeat center/15px 20px;
+}
+
+.ui-datepicker .ui-datepicker-next:hover, .ui-datepicker .ui-datepicker-next:active {
+  box-shadow: 1px 1px 5px 1px #f0f2f4;
+}
+
+.ui-widget-content .ui-state-default {
+  border: 0px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+
+.ui-widget-content .ui-state-active {
+  border: 0px;
+}
+
 .promise {
+  font: 16px Questrial, sans-serif;
   width: 90%;
   margin: 0 auto;
 }
@@ -30,12 +109,310 @@
   margin-bottom: 50px;
 }
 
+.promise .pc-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.promise .promise-content #datepicker,
+.promise .promise-content #datepicker2,
+.promise .promise-content #date {
+  cursor: pointer;
+  background: #f0f2f4 url("/image/calendar.png") no-repeat right 0.5rem center/21px 24px;
+}
+
+.promise .promise-content .pc-form3 .hidden {
+  height: 0.01px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.promise .promise-content .pc-head .pch-left {
+  width: 40%;
+  text-align: center;
+}
+
 .promise .promise-content .pc-head .pch-left .pchl-image {
-  width: 250px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
+  margin: 10px auto;
 }
 
 .promise .promise-content .pc-head .pch-left .pchl-image .c {
   width: 100%;
   height: 100%;
+}
+
+.promise .promise-content .pc-head .pch-left .pchl-content {
+  margin: 10px 0;
+}
+
+.promise .promise-content .pc-head .pch-left .pchl-content div {
+  margin: 10px auto;
+  width: 80%;
+}
+
+.promise .promise-content .pc-head .pch-right input {
+  opacity: 0.7;
+  margin: 10px;
+  padding: 8px;
+  text-align: center;
+  display: block;
+  border: none;
+  outline: none;
+  border-radius: 0;
+  background: #f0f2f4;
+}
+
+.promise .promise-content .pc-head .pch-right input:focus {
+  outline: none;
+}
+
+.promise .promise-content .pc-form label {
+  width: 40%;
+  text-align: center;
+}
+
+.promise .promise-content .pc-form input {
+  margin: 10px;
+  padding: 8px;
+  text-align: center;
+  border: none;
+  outline: none;
+  border-radius: 0;
+  background: #f0f2f4;
+}
+
+.promise .promise-content .pc-form input:focus {
+  box-shadow: #e3d7bf 0px 1px 5px 1px;
+  outline: 2px solid #d6b36a;
+}
+
+.promise .promise-content .pc-form input:read-only:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.promise .promise-content .pc-calcul {
+  padding: 20px;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  background: #d6b36a;
+}
+
+.promise .promise-content .pc-avantage {
+  text-align: center;
+  margin: 10px auto;
+  width: 80%;
+}
+
+.promise .promise-content .pc-avantage textarea {
+  width: 100%;
+  padding: 8px;
+  text-align: center;
+  border: none;
+  outline: none;
+  border-radius: 0;
+  background: #f0f2f4;
+}
+
+.promise .promise-content .pc-avantage textarea:read-only:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.promise .promise-content .pc-avantage textarea:focus {
+  border: none;
+  box-shadow: #e3d7bf 0px 1px 5px 1px;
+  outline: 2px solid #d6b36a;
+}
+
+.promise .promise-content .p-sign .signature {
+  margin: 10px;
+  width: 212px;
+  height: 150px;
+  background: #f0f2f4;
+  position: relative;
+}
+
+.promise .promise-content .p-sign .signature .c {
+  content: ' ';
+  width: 212px;
+  height: 150px;
+}
+
+.promise .promise-content .p-sign .signature label {
+  cursor: pointer;
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 212px;
+  height: 150px;
+}
+
+.promise .promise-content .p-sign .signature label:hover, .promise .promise-content .p-sign .signature label:active {
+  box-shadow: #e3d7bf 0px 1px 5px 1px;
+  outline: 2px solid #d6b36a;
+}
+
+.promise .promise-content .pc-sign-cadre .image {
+  opacity: 0.5;
+  margin: 10px;
+  width: 212px;
+  height: 150px;
+  background: #f0f2f4;
+}
+
+.promise .promise-content .pc-sign-cadre .image .c {
+  content: ' ';
+  width: 212px;
+  height: 150px;
+}
+
+.promise .promise-content .pc-submit input {
+  margin: 30px 0;
+  padding: 10px 30px;
+  font: 500 18px Raleway, sans-serif;
+  color: #d6b36a;
+  border: none;
+  outline: none;
+  border-radius: 0;
+  border: 2px solid #d6b36a;
+  background: transparent;
+}
+
+.promise .promise-content .pc-submit input:focus {
+  outline: none;
+}
+
+.promise .promise-content .pc-submit input:active, .promise .promise-content .pc-submit input:hover {
+  color: white;
+  background: #d6b36a;
+}
+
+#conditioncheck {
+  font: 16px Questrial, sans-serif;
+  position: relative;
+  margin-left: 20%;
+  padding-left: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#conditioncheck input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+#conditioncheck .checkmark {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: #f0f2f4;
+  border: 2px solid #c4c4c4;
+}
+
+#conditioncheck:hover input ~ .checkmark {
+  background-color: #e3d7bf;
+}
+
+#conditioncheck:hover input:disabled ~ .checkmark {
+  background-color: #f0f2f4;
+}
+
+#conditioncheck .checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+#conditioncheck input:checked ~ .checkmark:after {
+  display: block;
+}
+
+#conditioncheck .checkmark:after {
+  left: 6px;
+  top: -7px;
+  width: 10px;
+  height: 20px;
+  border: solid black;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
+}
+
+.show-promise-btn {
+  text-align: center;
+}
+
+.show-promise-btn .spb-div {
+  width: 150px;
+  margin: 30px auto;
+  padding: 10px 0;
+  border: 2px solid #d6b36a;
+}
+
+.show-promise-btn .spb-div:hover {
+  background: #d6b36a;
+}
+
+.show-promise-btn .spb-div:hover a {
+  color: white;
+}
+
+.show-promise-btn .spb-div1 {
+  width: 180px;
+}
+
+.show-promise-btn a {
+  padding: 10px 30px;
+  font: 500 18px Raleway, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #d6b36a;
+  border-radius: 0;
+}
+
+.show-promise-btn .a-down {
+  padding: 10px 25px;
+}
+
+#ui-datepicker-div {
+  width: 300px;
+  color: white;
+}
+
+.ui-datepicker-calendar {
+  padding: 20px;
+}
+
+.ui-datepicker-calendar td {
+  height: 40px;
+}
+
+.ui-datepicker-calendar td:hover, .ui-datepicker-calendar td:active {
+  background: #f0f2f4;
+}
+
+.ui-datepicker-header {
+  text-align: center;
+  padding: 30px;
+}
+
+.ui-datepicker-next {
+  top: 28px;
+  right: 5%;
+}
+
+.ui-datepicker-prev {
+  top: 28px;
+  left: 5%;
 }

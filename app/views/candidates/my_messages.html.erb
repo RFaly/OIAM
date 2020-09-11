@@ -1,45 +1,30 @@
-<link rel="stylesheet" type="text/css" href="/css/my_messages.css">
-<style type="text/css">
-	.connected{
-		color: green;
-	}
-	.not-connected{
-		color: red;
-	}
-
-	h2{
-		color: #d6b36a;
-		font-size: 30px;
-		text-align: center;
-		margin-top: 50px;
-		text-transform: uppercase;
-	}
-</style>
-
-<div class="row">
-	<div class="col-sm-3">
+	<link rel="stylesheet" type="text/css" href="/css/my_messages.css">
+<div class="all-content">
+	<div class="left-content">
 		<%= render partial: "candidates/left_link_bar" %>
 	</div>
 
-	<div class="col-sm-9">
-		<h2>Liste de mes contacts</h2>
+	<div class="main">
+		<h2 class="main-title">Liste de mes contacts</h2>
 		<% @contactListes.each do |contact| %>
 			<% nbr = contact.mp_cadre_not_see %>
-			<div>
-				<a href="<%= show_my_messages_cadre_path(contact.client.id) %>">
-				<%= contact.client.last_name %> <%= contact.client.first_name %>
-				<div class="block-image">
-					<%= image_tag(contact.client.image, alt: 'photo de profil', class:"pdp" )%>
+			<div class="message">
+				<div class="message-content">
+					<a href="<%= show_my_messages_cadre_path(contact.client.id) %>">
+					<span class="recruteur-name"><%= contact.client.last_name %> <%= contact.client.first_name %></span>
+					<div class="block-image">
+						<%= image_tag(contact.client.image, alt: 'photo de profil', class:"pdp" )%>
+					</div>
+					</a>
+					<% unless nbr == 0 %>
+						<span class="alert-info"><%= nbr %></span>
+					<% end %>
+					<% if contact.client.is_online? %>
+						<span class="connected"></span>
+					<% else %>
+						<span class="not-connected">Connectée il y a <%= time_ago_in_words(contact.client.online_time) %></span>
+					<% end %>
 				</div>
-				</a>
-				<% unless nbr == 0 %>
-					<span class="alert-info"><%= nbr %></span>
-				<% end %>
-				<% if contact.client.is_online? %>
-					<span class="connected">connectée</span>
-				<% else %>
-					<span class="not-connected">connectée il y a <%= time_ago_in_words(contact.client.online_time) %></span>
-				<% end %>
 			</div>
 		<% end %>
 	</div>

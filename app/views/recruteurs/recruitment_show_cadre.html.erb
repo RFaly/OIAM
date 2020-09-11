@@ -1,5 +1,7 @@
 <!-- call css  -->
+<% content_for :head_style do %>
 <link rel="stylesheet" href="/css/recrutement_show_cadre.css" />
+<% end %>
 <!-- body html   -->
 <div class="client-column">
   <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
@@ -149,10 +151,9 @@
     }
   }
 
-  $('#last-validation').click(function() {
+  $('#last-validation').click(function () {
     location.reload(true);
   });
-
 </script>
 <!-- call js  -->
 <script type="text/javascript" src="/js/recrutement_show.js"></script>

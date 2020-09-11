@@ -1,6 +1,7 @@
 <!-- call css  -->
-
-<link rel="stylesheet" href="/css/shownewjob.css" />
+<% content_for :head_style do %>
+  <link rel="stylesheet" href="/css/shownewjob.css" />
+<% end %>
 
 <!-- body html  -->
 <div class="client-column">
@@ -70,7 +71,7 @@
             <p>RÉMUNÉRATION (K€ BRUTS ANNUELS)</p>
             <div>
               Fixe : <%= @offre.remuneration.to_i %>k€ <br />
-              Variable : <%= @offre.remuneration_anne.to_i %>
+              Variable : <%= @offre.remuneration_anne.to_i %>k€
             </div>
           </div>
           <div class="so-content">

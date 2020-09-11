@@ -542,6 +542,8 @@
 }
 
 .create-offre-box .co-select option {
+  font: 16px Questrial, sans-serif;
+  font-size: 15px;
   text-align: center;
   -ms-text-align-last: center;
   text-align-last: center;
