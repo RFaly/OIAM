@@ -1,12 +1,78 @@
-<link rel="stylesheet" href="/css/client_profil.css" />
+<link rel="stylesheet" href="/css/offer_client_admin.css" />
+<link rel="stylesheet" href="/css/mes_cand_dash.css" />
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <div class="client-column">
-	<div class="client-menu-left">
-		<%= render partial: "admin_client/left_menu_link" %>
-	</div>
+  <div class="client-menu-left">
+    <%= render partial: "admin_client/left_menu_link" %>
+  </div>
 
-	<div class="cp-box">
-		<div>
-			<h2>OFFRES D'EMPLOIS</h2>
-		</div>
-	</div>
+  <div class="cp-box">
+  	<div>
+  		<div class="fcp-box">
+      <h3 class="title" style="color: #d6b36a !important">OFFRES EN COURS</h3>
+      <div class="fc-item">
+        <div class="fc-item-all">
+
+<!--         	CANDIDATS  -->
+
+          <div class="list-candidat">
+            <div class="fci-image">
+					<img src="/image/asus.jpg" alt="photo entreprise">
+            </div>
+            <div class="fci-icon">
+              <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
+            </div>
+            <div class="fci-infos">
+              <p class="name">ASUS</p>
+              <p>À proposer une offre</p>
+              <p class="poste">Poste : Directeur Commercial</p>
+              <div class="ico-cand">
+              	<a href="#" class="btn-see">Voir L'offre</a>
+              </div>
+            </div>
+          </div>
+
+         <!--  ---------------------------- -->
+
+           <div class="list-candidat">
+            <div class="fci-image">
+          <img src="/image/asus.jpg" alt="photo entreprise">
+            </div>
+            <div class="fci-icon">
+              <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
+            </div>
+            <div class="fci-infos">
+              <p class="name">ASUS</p>
+              <p>À proposer une offre</p>
+              <p class="poste">Poste : Responsable Marketing</p>
+              <div class="ico-cand">
+                <a href="#" class="btn-see">Voir L'offre</a>
+              </div>
+            </div>
+          </div>
+
+            <div class="list-candidat">
+            <div class="fci-image">
+          <img src="/image/asus.jpg" alt="photo entreprise">
+            </div>
+            <div class="fci-icon">
+              <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
+            </div>
+            <div class="fci-infos">
+              <p class="name">ASUS</p>
+              <p>À proposer une offre</p>
+              <p class="poste">Poste : Chef De Projet</p>
+              <div class="ico-cand">
+                <a href="#" class="btn-see">Voir L'offre</a>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  	</div>
+  </div>
 </div>
