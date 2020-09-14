@@ -485,6 +485,34 @@ body{
 	text-transform: capitalize;
 }
 
+.felicitation{
+	display: block;
+	margin: 0 auto;
+	width: 600px;
+	text-align: center;
+	height: auto;
+	border: 1px solid #D6B36A;
+	padding: 20px;
+}
+
+.btn-open{
+	background: #D6B36A;
+	color: #fff;
+	padding: 11px;
+	border-radius: 0;
+	width: 200px;
+	height: 50px;
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+.btn-open:hover{
+	background: none;
+	border: 1px solid #D6B36A;
+	color: #D6B36A;
+}
+
 @media only screen and (min-width: 900px){
 	.content{
 		display: flex;
