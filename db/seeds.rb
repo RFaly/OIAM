@@ -17,6 +17,7 @@ if Country.count == 0 && Region.count == 0 && Ville.count == 0
     { region: 'Occitanie', departement: ['Ariège', 'Aude', 'Aveyron', 'Gard', 'Haute-Garonne', 'Gers', 'Hérault', 'Lot', 'Lozère', 'Hautes-Pyrénées', 'Pyrénées-Orientales', 'Tarn', 'Tarn-et-Garonne'] },
     { region: 'Pays de la Loire', departement: ['Loire-Atlantique', 'Maine-et-Loire', 'Mayenne', 'Sarthe', 'Vendée'] },
     { region: "Provence-Alpes-Côte d'Azur", departement: ['Alpes-de-Haute-Provence', 'Hautes-Alpes', 'Alpes-Maritimes', 'Bouches-du-Rhône', 'Var', 'Vaucluse'] },
+    { region: "Toutes les régions", departement: ['Tous les départements']}
   ];
 
   country = Country.create(name:"France")
