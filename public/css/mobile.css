@@ -61,16 +61,6 @@
   background-size: cover;
 }
 
-.felicitation {
-  background: linear-gradient(#ffffff, #f4e8ca);
-  position: fixed;
-  z-index: 400;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-}
-
 @media screen and (min-width: 320px) {
   .bg-uniq {
     margin-top: -450px;
