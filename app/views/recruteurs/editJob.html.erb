@@ -38,6 +38,17 @@
         <div class="dp-input hide-right"><%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autocomplete: "departement" %></div>
         <span class="input-error departement-error"></span>
 
+        <label for="metier-input">Fonction</label>
+        <div class="dp-input">
+          <select class="co-select" id="metier-input" name="metier_name" required>
+            <option value="<%= @offre.metier.name %>" selected hidden><%= @offre.metier.name %></option>
+            <% @metiers.each do |metier| %>
+              <option value="<%= metier.name %>"><%= metier.name %></option>
+            <% end %>
+          </select>
+        </div>
+        <span class="input-error intitule-pote-error"></span>
+
         <%= f.label :intitule_pote, "INTITULÉ DU POSTE" %>
         <div class="dp-input"><%= f.text_field :intitule_pote, required:true , id:'intitule-pote'%></div>
         <span class="input-error intitule-pote-error"></span>

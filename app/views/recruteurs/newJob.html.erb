@@ -33,16 +33,27 @@
         <div class="dp-input hide-right"><%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autofocus:true %></div>
         <span class="input-error departement-error"></span>
 
-        <!-- Liste de tous les metiers en ligne -->
-        <% array = [] %> <% @metiers.each do |metier| %> <% array.push(metier.name) %> <% end %>
-        <div id="metier-js" data-list="<%= array %>"></div>
+<!-- -------------------------------------------------------------------- -->
 
-        <!-- ---------------------------------- -->
+        <label for="metier-input">Fonction</label>
+        <div class="dp-input">
+          <select class="co-select" id="metier-input" name="metier_name" required>
+            <option value=""></option>
+            <% @metiers.each do |metier| %>
+              <option value="<%= metier.name %>"><%= metier.name %></option>
+            <% end %>
+          </select>
+        </div>
+        <span class="input-error intitule-pote-error"></span>
 
         <%= f.label :intitule_pote, "INTITULÉ DU POSTE" %>
-        <div class="dp-input"><%= f.text_area :intitule_pote, required:true , id:'intitule-pote',autofocus:true%></div>
+        <div class="dp-input">
+          <%= f.text_area :intitule_pote, required:true , id:'intitule-pote',autofocus:true%>
+        </div>
         <span class="input-error intitule-pote-error"></span>
-        <ul class="dp-input list" id="intitul_post_list" style="display: none"></ul>
+
+<!-- -------------------------------------------------------------------- -->
+
         <%= f.label :descriptif_mission, "DESCRIPTIF DES MISSIONS" %>
         <div class="dp-input"><%= f.text_area :descriptif_mission, required:true,id:'descriptif-mission',autofocus:true %></div>
         <span class="input-error descriptif-mission-error"></span>
@@ -56,7 +67,6 @@
           <div class="dp-input-flex">
             <span class="span1">60</span>
             <%= f.range_field :remuneration, min:60, max:350,required:true, id:"remuneration"%>
-
             <span class="span1">350</span>
           </div>
           <div class="value-renum" id="value-renum">
