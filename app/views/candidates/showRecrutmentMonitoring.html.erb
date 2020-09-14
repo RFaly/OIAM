@@ -67,14 +67,15 @@
 			<% end %>
 
 		<% else %>
-			<!-- if candidate in a laste stape namely "promesse d'embauche" -->
+			<!-- if candidate is in a last step namely "promesse d'embauche" -->
 			<!-- if etapes -->
 			<% if @oFc.etapes == @offreJob.numberEntretien + 1 %>
 				<% if @promise.repons_cadre.nil? %>
-					Félicitations, vous avez réussi la dernière étape du recrutement !
-					<%= @offreJob.client.entreprise.name %> vous a envoyé une promesse d'embauche.
-					<br>
-					<%= link_to "OUVRIR", cadre_show_promise_to_hire_path(@promise.id), class:"btn btn-success" %>
+				<div class="felicitation">
+					<p>Félicitations, vous avez réussi la dernière étape du recrutement !</p>
+					<p><%= @offreJob.client.entreprise.name %> vous a envoyé une promesse d'embauche.</p>
+					<p><%= link_to "OUVRIR", cadre_show_promise_to_hire_path(@promise.id), class:"btn btn-open" %></p>
+				</div>
 				<% else %>
 
 					<% if true %>
