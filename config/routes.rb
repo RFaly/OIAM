@@ -119,9 +119,8 @@ Rails.application.routes.draw do
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # a enlever pour l'instant
-  get '/cadre/skills-test', to: 'candidates#testskills', as: 'testskills'
+  # get '/cadre/skills-test', to: 'candidates#testskills', as: 'testskills'
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
   get '/cadre/fit-test', to: 'candidates#testfit', as: 'testfit'
   post '/cadre/send/metier', to:'candidates#postMetierSkills', as:'postMetierSkills'
