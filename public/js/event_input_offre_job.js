@@ -160,9 +160,9 @@ $('#regionInput').focusout(function () {
 $('#departmentInput').focusout(function () {
   check_nil($(this), $('.departement-error'));
 });
-$('#intitule-pote').focusout(function () {
-  check_nil($(this), $('.intitule-pote-error'));
-});
+// $('#intitule-pote').focusout(function () {
+//   check_nil($(this), $('.intitule-pote-error'));
+// });
 $('#descriptif-mission').focusout(function () {
   check_nil($(this), $('.descriptif-mission-error'));
 });
@@ -194,6 +194,9 @@ $('#question5').focusout(function () {
 /////////////////////////////////////////////////
 // submit validation
 $('#co-dp-btn').click(function () {
+  check_nil($('#intitule-pote'), $('.intitule-pote-error'));
+  check_nil($('#descriptif-mission'), $('.descriptif-mission-error'));
+  check_nil($('#rattachement'), $('.rattachement-error'));
   if (
     $('#paysInput').val().length >= 1 &&
     $('#regionInput').val().length >= 1 &&
@@ -232,6 +235,10 @@ $('#co-dp-btn').click(function () {
 });
 // submit validation
 $('.co-input-submit1').click(function () {
+  check_nil($('#question1'), $('#question1-error'));
+  check_nil($('#question2'), $('#question2-error'));
+  check_nil($('#question3'), $('#question3-error'));
+  check_nil($('#question5'), $('#question5-error'));
   if ($('#question1').val().length >= 1 && $('#question2').val().length >= 1 && $('#question3').val().length >= 1 && $('#question5').val().length >= 1 && $('.input_fied').val().length >= 1) {
     return true;
   } else {
