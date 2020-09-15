@@ -1,39 +1,54 @@
-<div class="row">
-	<div class="col-sm-3">
-		<%= render partial: "recruteurs/left_link_bar" %>
-	</div>
-
-	<div class="col-sm-9">
-		
-		<center>
-			<h2>Factures à payer</h2>
-		</center>
-
-		<div>
-			<strong>RIB</strong> <br>
-			<div style="border: 2px solid red;">
-				<br><br><br><br><br><br>
-			</div>
-			<span class="btn btn-primary">TÉLÉCHARGER</span>
-		</div>
-
-		<table>
-			<tr>
-				<td><%= @facture.promise_to_hire.offre_job.intitule_pote.upcase! %></td>
-				<td><span class="btn btn-primary">TÉLÉCHARGER</span></td>
-			</tr>
-		</table>
-
-		<center>
-			<input type="checkbox" id="check1" name="value">
-			<label for="check1">J'atteste régler cette facture par virement dans les 15jours.</label>
-
-			<br>
-		
-			<input type="submit" name="cont" value="VALIDER">
-		</center>
-			
-
-	</div>
+<% content_for :head_style do %>
+<link rel="stylesheet" href="/css/pay_bill.css" />
+<% end %>
+<div class="client-column">
+  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
+  <div class="cp-box">
+    <div class="pay-bill-box">
+      <h5 class="title">Factures à payer</h5>
+      <div class="pb-content">
+        <div class="pb-flex">
+          <div class="left">
+            RIB
+            <div class="c" id="addimage" style="background: center no-repeat; background-size: cover"></div>
+          </div>
+          <div class="pb-btn">
+            <label>
+              TÉLÉCHARGER
+              <span style="display: none">
+                <input type="file" id="image" />
+              </span>
+            </label>
+          </div>
+        </div>
+        <div class="pb-flex">
+          <div class="left">
+            FACTURE MARKETING MANAGER
+            <div class="c" id="addImage" style="background: center no-repeat; background-size: cover"></div>
+          </div>
+          <div class="pb-btn">
+            <label>
+              TÉLÉCHARGER
+              <span style="display: none">
+                <input type="file" id="imagetag1" />
+              </span>
+            </label>
+          </div>
+        </div>
+        <label id="checkbox1">
+          J'atteste régler cette facture par virement dans les 15jours.
+          <input type="checkbox" id="check1" name="value" autofocus="true" required />
+          <span class="checkmark"></span>
+        </label>
+        <div class="submit">
+          <input type="submit" name="cont" value="VALIDER" id="valide" />
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
+<!-- call js 
+ -->
+<!-- javascript facturation  -->
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/facture.js"></script>
+<!-- javascript facturation  -->

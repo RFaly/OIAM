@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2020_09_15_013352) do
     t.boolean "potential_test", default: false
     t.boolean "fit_test", default: false
     t.boolean "is_recrute"
+    t.string "job"
     t.index ["cadre_id"], name: "index_cadre_infos_on_cadre_id"
     t.index ["country_id"], name: "index_cadre_infos_on_country_id"
     t.index ["metier_id"], name: "index_cadre_infos_on_metier_id"
