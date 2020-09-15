@@ -21,14 +21,24 @@
 					    <img src="/image/cand.jpg" alt="photo profil candidats">
             </div>
             <div class="fci-icon">
-              <%= link_to rmv_favorite_cadre_path(id:@cadre.id), method: :delete do %>
-                <img src="/image/Vector-24.png" alt="logo oiam favorie" width="30px">
+              <% unless @cadre.admin.nil? %>
+                <% if @cadre.admin == current_admin %>
+                  <%= link_to rmv_favorite_cadre_path(id:@cadre.id), method: :delete do %>
+                    <img src="/image/Vector-24.png" alt="logo oiam favorie" title="retirer" width="30px">
+                  <% end %>
+                <% else %>
+                  <img src="/image/Vector-24.png" alt="logo oiam favorie" title="retirer" width="30px">
+                <% end %>
+              <% else %>
+                <%= link_to add_favorite_cadre_path(id:@cadre.id), method: :post do %>
+                  <img src="/image/Vector-22.png" alt="logo oiam non favorie" width="30px" title="suivre">
+                <% end %>
               <% end %>
             </div>
             <div class="fci-infos">
-              <p class="name">Pierre LEVALLLET</p>
-              <p class="poste">Poste : Directeur Commercial</p>
-              <p class="score">Score OIAM : <span>70</span></p>
+              <p class="name"><%= @cadre.last_name %> <%= @cadre.first_name %></p>
+              <p class="poste">Poste : <%= @cadre.job %></p>
+              <p class="score">Score OIAM : <span><%= @cadre.score_potential %></span></p>
               </div>
             </div>
           </div>
@@ -38,7 +48,6 @@
          <div class="mess_candidat">
             <textarea class="mess_input" name="message"></textarea>
             <a href="#" class="env-btn">Envoyer</a>
-
          </div>
 
         </div>

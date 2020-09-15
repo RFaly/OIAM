@@ -15,9 +15,8 @@
 
 <!--         	CANDIDATS  -->
             <% if @cadres.empty? %>
-              TSISY VE
+              Aucun nouveau candidat libre.
             <% else %>
-
               <% @cadres.each do |cadre| %>
                 <div class="list-candidat">
                   <div class="fci-image">
@@ -25,15 +24,15 @@
                   </div>
                   <div class="fci-icon">
                     <%= link_to add_favorite_cadre_path(id:cadre.id), method: :post do %>
-                      <img src="/image/Vector-22.png" alt="logo oiam non favorie" width="30px" style="background-color: #b7bdc3ed;">
-                      <% end %>
+                      <img src="/image/Vector-22.png" alt="logo oiam non favorie" width="30px" title="suivre">
+                    <% end %>
                   </div>
                   <div class="fci-infos">
                     <p class="name"><%= cadre.last_name %> <%= cadre.first_name %></p>
                     <p class="poste">Poste : <%= cadre.job %></p>
                     <p class="score">Score OIAM : <span><%= cadre.score_potential %></span></p>
                     <div class="ico-cand">
-                    	<a href="#" class="btn-see">Voir</a>
+                    	<a href="<%= post_avis_candidats_fit_path(cadre.id) %>" class="btn-see">Voir</a>
                     </div>
                   </div>
                 </div>
@@ -41,41 +40,7 @@
 
             <% end %>
 
-         <!--  ---------------------------- -->
-
-          <div class="list-candidat">
-            <div class="fci-image">
-					<img src="/image/cand2.jpg" alt="photo profil candidats">
-            </div>
-            <div class="fci-icon">
-              <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
-            </div>
-            <div class="fci-infos">
-              <p class="name">Jonathan DUROCHE</p>
-              <p class="poste">Poste : Responsable Juridique</p>
-              <p class="score">Score OIAM : <span>60</span></p>
-              <div class="ico-cand">
-                <a href="#" class="btn-see">Voir</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="list-candidat">
-            <div class="fci-image">
-					<img src="/image/cand3.jpg" alt="photo profil candidats">
-            </div>
-            <div class="fci-icon">
-              <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
-            </div>
-            <div class="fci-infos">
-              <p class="name">Sophie LOPEZ</p>
-              <p class="poste">Poste : Directrice Technique</p>
-              <p class="score">Score OIAM : <span>50</span></p>
-              <div class="ico-cand">
-                <a href="#" class="btn-see">Voir</a>
-              </div>
-            </div>
-          </div>
+<!--  ---------------------------- -->
 
         </div>
       </div>
