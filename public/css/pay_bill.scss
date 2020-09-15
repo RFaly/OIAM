@@ -1,0 +1,119 @@
+@import 'config';
+@import 'pagemenu';
+
+.pay-bill-box {
+  width: 80%;
+  margin: 0 auto;
+  font: $ffsentence;
+  .title {
+    text-align: center;
+    font: 500 18px Raleway, sans-serif;
+    color: #d6b36a;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+  .pb-flex {
+    display: flex;
+    justify-content: space-between;
+    // align-items: center;
+    flex-wrap: wrap;
+    .left {
+      align-self: center;
+      color: $main_theme_color;
+    }
+    .pb-btn {
+      align-self: flex-end;
+      label {
+        cursor: pointer;
+        margin-top: 15px;
+        width: 190px;
+        text-decoration: none;
+        text-transform: uppercase;
+        background: transparent;
+        color: $main_theme_color;
+        border: 2px solid $main_theme_color;
+        padding: 10px 0;
+        text-align: center;
+        font: $ffbtn;
+        font-size: 16px;
+        &:hover,
+        &:active {
+          color: white;
+          background-color: $main_theme_color;
+        }
+      }
+    }
+  }
+  .submit {
+    margin-top: 50px;
+    text-align: center;
+    input {
+      border-radius: 0;
+      border: 2px solid $main_theme_color;
+      padding: 10px 30px;
+      font: $ffbtn;
+      background: transparent;
+      color: $main_theme_color;
+      &:hover,
+      &:active {
+        background: $main_theme_color;
+        color: white;
+      }
+    }
+  }
+}
+// / custom check box
+#checkbox1 {
+  margin: 50px 0;
+  font: $ffbtn;
+  font-size: 16px;
+  display: block;
+  position: relative;
+  padding-left: 65px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkmark {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #c4c4c4;
+  }
+  &:hover input ~ .checkmark {
+    background-color: $main_theme_color;
+  }
+  input:checked ~ .checkmark {
+    background-color: $secondary_element_color;
+  }
+  .checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+  .checkmark:after {
+    left: 5px;
+    top: -7px;
+    width: 15px;
+    height: 25px;
+    border: solid black;
+    border-width: 0 5px 5px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
