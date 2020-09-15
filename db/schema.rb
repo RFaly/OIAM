@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_15_013352) do
+ActiveRecord::Schema.define(version: 2020_09_15_090224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,9 @@ ActiveRecord::Schema.define(version: 2020_09_15_013352) do
     t.boolean "potential_test", default: false
     t.boolean "fit_test", default: false
     t.boolean "is_recrute"
+    t.string "job"
+    t.bigint "admin_id"
+    t.index ["admin_id"], name: "index_cadre_infos_on_admin_id"
     t.index ["cadre_id"], name: "index_cadre_infos_on_cadre_id"
     t.index ["country_id"], name: "index_cadre_infos_on_country_id"
     t.index ["metier_id"], name: "index_cadre_infos_on_metier_id"
@@ -334,6 +337,7 @@ ActiveRecord::Schema.define(version: 2020_09_15_013352) do
     t.index ["region_id"], name: "index_villes_on_region_id"
   end
 
+  add_foreign_key "cadre_infos", "admins"
   add_foreign_key "cadre_infos", "countries"
   add_foreign_key "cadre_infos", "metiers"
   add_foreign_key "cadre_infos", "regions"

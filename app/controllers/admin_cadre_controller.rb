@@ -11,7 +11,7 @@ class AdminCadreController < ApplicationAdminController
   end
 
   def show_entretien_cadre
-    @cadres = CadreInfo.find_by(id:params[:id])
+    @cadre = CadreInfo.find_by(id:params[:id])
   end
 
   def coaching_workshop

@@ -14,14 +14,16 @@
       <div class="fc-item" style="display: flex;">
         <div class="fc-item-all">
 
-<!--         	CANDIDATS  -->
+<!-- CANDIDATS  -->
 
           <div class="list-candidat">
             <div class="fci-image">
-					<img src="/image/cand.jpg" alt="photo profil candidats">
+					    <img src="/image/cand.jpg" alt="photo profil candidats">
             </div>
             <div class="fci-icon">
-              <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
+              <%= link_to rmv_favorite_cadre_path(id:@cadre.id), method: :delete do %>
+                <img src="/image/Vector-24.png" alt="logo oiam favorie" width="30px">
+              <% end %>
             </div>
             <div class="fci-infos">
               <p class="name">Pierre LEVALLLET</p>
