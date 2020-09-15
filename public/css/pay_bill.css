@@ -1,0 +1,143 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+  border-left: 1px solid #d6b36a;
+}
+
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.pay-bill-box {
+  width: 80%;
+  margin: 0 auto;
+  font: 16px Questrial, sans-serif;
+}
+
+.pay-bill-box .title {
+  text-align: center;
+  font: 500 18px Raleway, sans-serif;
+  color: #d6b36a;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+.pay-bill-box .pb-flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.pay-bill-box .pb-flex .left {
+  align-self: center;
+  color: #d6b36a;
+}
+
+.pay-bill-box .pb-flex .pb-btn {
+  align-self: flex-end;
+}
+
+.pay-bill-box .pb-flex .pb-btn label {
+  cursor: pointer;
+  margin-top: 15px;
+  width: 190px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: transparent;
+  color: #d6b36a;
+  border: 2px solid #d6b36a;
+  padding: 10px 0;
+  text-align: center;
+  font: 500 18px Raleway, sans-serif;
+  font-size: 16px;
+}
+
+.pay-bill-box .pb-flex .pb-btn label:hover, .pay-bill-box .pb-flex .pb-btn label:active {
+  color: white;
+  background-color: #d6b36a;
+}
+
+.pay-bill-box .submit {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.pay-bill-box .submit input {
+  border-radius: 0;
+  border: 2px solid #d6b36a;
+  padding: 10px 30px;
+  font: 500 18px Raleway, sans-serif;
+  background: transparent;
+  color: #d6b36a;
+}
+
+.pay-bill-box .submit input:hover, .pay-bill-box .submit input:active {
+  background: #d6b36a;
+  color: white;
+}
+
+#checkbox1 {
+  margin: 50px 0;
+  font: 500 18px Raleway, sans-serif;
+  font-size: 16px;
+  display: block;
+  position: relative;
+  padding-left: 65px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#checkbox1 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+#checkbox1 .checkmark {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #c4c4c4;
+}
+
+#checkbox1:hover input ~ .checkmark {
+  background-color: #d6b36a;
+}
+
+#checkbox1 input:checked ~ .checkmark {
+  background-color: #f0f2f4;
+}
+
+#checkbox1 .checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+#checkbox1 input:checked ~ .checkmark:after {
+  display: block;
+}
+
+#checkbox1 .checkmark:after {
+  left: 5px;
+  top: -7px;
+  width: 15px;
+  height: 25px;
+  border: solid black;
+  border-width: 0 5px 5px 0;
+  transform: rotate(45deg);
+}
