@@ -161,7 +161,7 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/cadre/envoyer-un-message', to: 'admin_cadre#main', as: 'admin_cadre_main'
   # get 'secret-oiam-page/admin/cadre/envoyer-un-message', to: 'admin_cadre#send_message', as: 'admin_cadre_send_message'
   get 'secret-oiam-page/admin/cadre/entretien-fit', to: 'admin_cadre#entretien_fit', as: 'admin_cadre_entretien_fit'
-  get 'secret-oiam-page/admin/cadre/entretien-fit/:id/avis-recruteur', to: 'admin_cadre#show_entretien_cadre', as: 'post_avis_candidats_fit'
+  get 'secret-oiam-page/admin/cadre/entretien-fit/:id/avis-recruteur', to: 'admin_cadre#show_accepted_cadre', as: 'post_avis_candidats_fit'
 
   get 'secret-oiam-page/admin/cadre/coaching-workshop', to: 'admin_cadre#coaching_workshop', as: 'admin_cadre_coaching_workshop'
   get 'secret-oiam-page/admin/cadre/events', to: 'admin_cadre#events', as: 'admin_cadre_events'
@@ -176,6 +176,10 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/client/factures-client', to: 'admin_client#factures', as: 'admin_client_factures'
 
   # routes dans le dashboard
+
+  post 'secret-oiam-page/admin/:id/suivre-candidate', to:'admin_dashboard#add_favorite_cadre', as:'add_favorite_cadre'
+  delete 'secret-oiam-page/admin/:id/remove-candidate', to:'admin_dashboard#rmv_favorite_cadre', as:'rmv_favorite_cadre'
+
   get 'secret-oiam-page/admin/dashboard', to: 'admin_dashboard#main', as: 'admin_dashboard_main'
   get 'secret-oiam-page/admin/dashboard/agenda', to: 'admin_dashboard#agenda', as: 'admin_dashboard_agenda'
   get 'secret-oiam-page/admin/dashboard/offres-en-cours', to: 'admin_dashboard#offer', as: 'admin_dashboard_offer'

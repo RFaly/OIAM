@@ -7,13 +7,18 @@ class AdminCadreController < ApplicationAdminController
   end
 
   def entretien_fit
-    @cadres = CadreInfo.where(cadre_id:nil,is_recrute:nil,score_fit:nil)
+    @cadres = current_admin.cadre_infos
+    # @cadres = CadreInfo.where(cadre_id:nil,is_recrute:nil,score_fit:nil)
   end
 
-  def show_entretien_cadre
-    @cadres = CadreInfo.find_by(id:params[:id])
+  def show_accepted_cadre
+    @cadre = CadreInfo.find_by(id:params[:id])
   end
 
+  def show_refused_cadre
+    
+  end
+  
   def coaching_workshop
   end
 
