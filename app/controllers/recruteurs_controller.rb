@@ -60,21 +60,18 @@ class RecruteursController < ApplicationController
 
 ##validation
 	def createJob
+		
 		@offre = OffreJob.new(post_params)
-		@metier = Metier.find_by_name(params[:offre_job][:intitule_pote])
-		
-		if @metier.nil?
-			@metier = Metier.create(name:params[:offre_job][:intitule_pote])
-		end
+		@metier = Metier.find_by_name(params[:metier_name])
 
-		@offre.update(metier:@metier)
-
+		@offre.metier = @metier
 		@offre.client = current_client
-		
+
 		uploader = ImageUploader.new
 		errorMessage = ""
 		image_entreprise = params[:offre_job][:image]
 		is_image = true
+
 		unless image_entreprise.nil?
 	    begin
 	      uploader.store!(image_entreprise)
@@ -86,6 +83,7 @@ class RecruteursController < ApplicationController
 			errorMessage += " [ Importer un logo ] "
 			return render :newJob
 		end
+
 		if is_image && @offre.valid? && errorMessage.empty?
     	@offre.image = uploader.url
     	@offre.save
@@ -95,19 +93,15 @@ class RecruteursController < ApplicationController
     	flash[:alert] = @offre.errors.details
     	return render :newJob
 		end
+
 	end
 
 	def editJob
 		@offre = OffreJob.find(params[:id])
+		@metiers = Metier.all
 	end
 
 	def updateJob
-		puts "zerty"*65
-		puts params.inspect
-		puts "zerty"*65
-
-		
-		
 		uploader = ImageUploader.new
 		@offre = OffreJob.find(params[:id])
 		image_entreprise = params[:offre_job][:image]
@@ -122,11 +116,8 @@ class RecruteursController < ApplicationController
 		unless image_entreprise.nil?
 			@offre.update(image:uploader.url)
 		end
-		@metier = Metier.find_by_name(params[:offre_job][:intitule_pote])
-		
-		if @metier.nil?
-			@metier = Metier.create(name:params[:offre_job][:intitule_pote])
-		end
+
+		@metier = Metier.find_by_name(params[:metier_name])
 	
 		@offre.update(metier:@metier)
 		@offre.update(post_params)

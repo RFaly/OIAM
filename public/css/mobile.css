@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   line-height: 1.5;
-  z-index: 1;
 }
 
 .flash {
@@ -81,9 +80,6 @@
   }
   .box-1 .box-1-logo {
     width: 65%;
-  }
-  .box-2 {
-    display: none;
   }
   .navb {
     padding: 5px 50px;
@@ -845,7 +841,6 @@
     width: 50%;
   }
   .box-1 .box-1-btn {
-    align-self: flex-end;
     margin-right: 10%;
   }
   .box-1 .box-1-logo {
@@ -854,12 +849,9 @@
   .box-1 .box-1-content {
     text-align: left;
   }
-  .box-2 {
-    display: block;
-    width: 50%;
-    height: 99.5vh;
-    background: url(/image/picture_photo_0ae4b3.jpg) no-repeat center;
-    background-size: cover;
+  .box {
+    background: #fcfcfc url(/image/picture_photo_0ae4b3.png) no-repeat right;
+    background-size: 110% 100%;
   }
   .navdiv {
     height: 500px;
@@ -1292,6 +1284,13 @@
 }
 
 @media screen and (min-width: 1200px) {
+  .box-1 .box-1-btn {
+    align-self: flex-end;
+  }
+  .box {
+    background: #fcfcfc url(/image/picture_photo_0ae4b3.png) no-repeat right;
+    background-size: 85% 100%;
+  }
   .navbar-content {
     justify-content: space-between;
     width: 70%;

@@ -516,6 +516,48 @@
         text-align: center;
       }
     }
+    // after promise
+    .after-promise {
+      color: $main_theme_color;
+      width: 70%;
+      margin: 0 auto;
+      .ap-left {
+        a {
+          color: $main_theme_color;
+        }
+      }
+      .ap-right {
+        padding: 8px 0;
+        border: 2px solid $main_theme_color;
+        a {
+          font: $ffbtn;
+          font-size: 16px;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: $main_theme_color;
+          padding: 10px 30px;
+        }
+        &:hover,
+        &:active {
+          background: $main_theme_color;
+          a {
+            color: white;
+          }
+        }
+      }
+      .ap-box {
+        margin: 30px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        img {
+          margin-right: 10px;
+          width: 55px;
+          height: 50px;
+        }
+      }
+    }
   }
 }
 // planification entretien

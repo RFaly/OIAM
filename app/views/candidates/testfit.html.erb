@@ -1,17 +1,15 @@
-	<link rel="stylesheet" type="text/css" href="/css/test_fit.css">
-
+<link rel="stylesheet" type="text/css" href="/css/test_fit.css">
 
 <div class="bg-uniq">
 	<div class="cadre">
 		<% if @agendaAdmin.nil? %>
 		<div class="content">
 				<div class="numero un">1<span class="potential">Potential</span></div>
-				<div class="numero deux">2<span class="skills">Skills</span></div>
-				<div class="numero trois">3<span class="fit">Fit</span></div>
+				<div class="numero trois">2<span class="fit">Fit</span></div>
 		</div>
 		<% end %>
 		<div class="potential-title" id="potential-title-hide">
-			<h1>3ème partie : FIT</h1>
+			<h1>2ème partie : FIT</h1>
 			<img src="/image/fit.png" height="60" width="60">
 		</div>
 		<div id="para-show">
@@ -84,9 +82,7 @@
 			<img src="/image/checkWhite.png" alt="" class="iconify">
 			<center id="dateSkype" class="skype-time"></center>
 			<center id="timeSkype" class="skype-time"></center>
-
 			<span class="pass-test past-test-menu" id="btn-menu">MENU</span>
-
 		</div>
 	</div>
 	<% end %>
@@ -95,9 +91,7 @@
 		<h2 class="entretien-confirme">Entretien Skype confirmé</h2>
 		<img src="/image/checkWhite.png" alt="">
 		<center id="dateSkype" class="skype-time"><%= @dates %></center>
-
 		<span class="pass-test past-test-menu" id="btn-menu">MENU</span>
-
 	</div>
 <% end %>
 	</div>
@@ -121,6 +115,17 @@
 
 		$(this).css("background-color","#fff")
 		$(this).css("color","#e3d7bf")
+
+// let dateTime = new Date($('#datepicker').val());
+// let datahours = $(this).data().time;
+// let times = datahours.split(':');
+
+// dateTime.setHours(times[0]);
+// dateTime.setMinutes(times[1]);
+
+// utcDate = moment.utc(dateTime);
+// $('#input-time').val(utcDate.hours() + ':' + utcDate.minutes());
+// $('#datepicker').val(utcDate.format('YYYY-MM-DD'));
 
 		let time = $(this).data().time
 		$("#input-date").val($(this).data().date)

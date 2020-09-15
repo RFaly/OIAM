@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   line-height: 1.5;
-  z-index: 1;
+  // z-index: 1;
 }
 .flash {
   position: fixed;
@@ -55,7 +55,23 @@
   background: url(/image/background2.jpg) no-repeat center;
   background-size: cover;
 }
-
+// .felicitation-box {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100vh;
+//   background: rgba(red, 0.5);
+// }
+// .felicitation {
+//   background: linear-gradient(#ffffff, #f4e8ca);
+//   position: absolute;
+//   z-index: 4;
+//   top: 2.5vh;
+//   left: 2.5vw;
+//   width: 95%;
+//   height: 95vh;
+// }
 @media screen and (min-width: 320px) {
   // bg unique
   .bg-uniq {
@@ -77,9 +93,6 @@
     .box-1-logo {
       width: 65%;
     }
-  }
-  .box-2 {
-    display: none;
   }
   // navbar's elements
   ///////////////////////////////////////////
@@ -1035,7 +1048,7 @@
   .box-1 {
     width: 50%;
     .box-1-btn {
-      align-self: flex-end;
+      // align-self: flex-end;
       margin-right: 10%;
     }
     .box-1-logo {
@@ -1046,15 +1059,19 @@
       text-align: left;
     }
   }
-  .box-2 {
-    display: block;
-    width: 50%;
-    height: 99.5vh;
-    background: url(/image/picture_photo_0ae4b3.jpg) no-repeat center;
-    background-size: cover;
-    // img {
-    //   width: 100%;
-    // }
+  // .box-2 {
+  //   display: block;
+  //   width: 50%;
+  //   height: 99.5vh;
+  //   background: url(/image/picture_photo_0ae4b3.jpg) no-repeat center;
+  //   background-size: cover;
+  //   // img {
+  //   //   width: 100%;
+  //   // }
+  // }
+  .box {
+    background: #fcfcfc url(/image/picture_photo_0ae4b3.png) no-repeat right;
+    background-size: 110% 100%;
   }
   // navbar
   ////////////////////////
@@ -1600,6 +1617,16 @@
 }
 
 @media screen and (min-width: 1200px) {
+  // landing page
+  .box-1 {
+    .box-1-btn {
+      align-self: flex-end;
+    }
+  }
+  .box {
+    background: #fcfcfc url(/image/picture_photo_0ae4b3.png) no-repeat right;
+    background-size: 85% 100%;
+  }
   // navbar
   /////////////////////
   .navbar-content {

@@ -649,6 +649,52 @@
   text-align: center;
 }
 
+.rsc-box .rsc-body .after-promise {
+  color: #d6b36a;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.rsc-box .rsc-body .after-promise .ap-left a {
+  color: #d6b36a;
+}
+
+.rsc-box .rsc-body .after-promise .ap-right {
+  padding: 8px 0;
+  border: 2px solid #d6b36a;
+}
+
+.rsc-box .rsc-body .after-promise .ap-right a {
+  font: 500 18px Raleway, sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #d6b36a;
+  padding: 10px 30px;
+}
+
+.rsc-box .rsc-body .after-promise .ap-right:hover, .rsc-box .rsc-body .after-promise .ap-right:active {
+  background: #d6b36a;
+}
+
+.rsc-box .rsc-body .after-promise .ap-right:hover a, .rsc-box .rsc-body .after-promise .ap-right:active a {
+  color: white;
+}
+
+.rsc-box .rsc-body .after-promise .ap-box {
+  margin: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.rsc-box .rsc-body .after-promise .ap-box img {
+  margin-right: 10px;
+  width: 55px;
+  height: 50px;
+}
+
 .ssc-planification {
   margin: 0 auto;
   position: relative;

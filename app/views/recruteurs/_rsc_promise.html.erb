@@ -1,33 +1,56 @@
 <% if @promise.repons_cadre %> <% unless @promise.payed %>
-<center>
+<div class="felicitation-box">
+  <div class="felicitation">
+    <h1>FELICITATIONS !</h1>
+    <p>Le cadre vient d'accepter votre proposition d'embauche !</p>
+    <p>Vous retrouverez la proposition signée dans votre profil. Nous sommes certains que votre collaboration sera couronnée de succès, mais dans tous les cas, une période de garantie de 12 semaines prend effet à compter de son démarrage. Vous pouvez désormais régler la prestation One in a Million et commencer un nouveau recrutement !</p>
+    <p><%= link_to "PROCÉDER AU RÈGLEMENT", paye_my_bills_path(@promise.facture.id), class:"btn btn-primary" %></p>
+  </div>
+</div>
+<!-- <center>
   <h1>FELICITATIONS !</h1>
   <p>Le cadre vient d'accepter votre proposition d'embauche !</p>
   <p>Vous retrouverez la proposition signée dans votre profil. Nous sommes certains que votre collaboration sera couronnée de succès, mais dans tous les cas, une période de garantie de 12 semaines prend effet à compter de son démarrage. Vous pouvez désormais régler la prestation One in a Million et commencer un nouveau recrutement !</p>
   <p><%= link_to "PROCÉDER AU RÈGLEMENT", paye_my_bills_path(@promise.facture.id), class:"btn btn-primary" %></p>
-</center>
+</center> -->
 <% end %>
-<table>
-  <tr>
-    <td><%= link_to "Promesse d'embauche", show_promise_to_hire_path(@promise.id) %></td>
-    <td>TELECHARGER</td>
-  </tr>
-  <tr>
-    <td>CIN ou Passeport</td>
-    <td><%= link_to "TELECHARGER", @promise.cin_pass_port %></td>
-  </tr>
-  <tr>
-    <td>Attestation de sécurité sociale</td>
-    <td><%= link_to "TELECHARGER", @promise.security_certificate %></td>
-  </tr>
-  <tr>
-    <td>RIB</td>
-    <td><%= link_to "TELECHARGER", @promise.rib %></td>
-  </tr>
-  <tr>
-    <td>CV</td>
-    <td><%= link_to "TELECHARGER", @cadre.cadre_info.cv %></td>
-  </tr>
-</table>
+<div class="after-promise">
+  <div class="ap-box">
+    <div class="ap-left">
+      <img src="/image/compteR.png" alt="icone" />
+      <%= link_to "Promesse d'embauche", show_promise_to_hire_path(@promise.id) %>
+    </div>
+    <div class="ap-right"><%= link_to "TELECHARGER"%></div>
+  </div>
+  <div class="ap-box">
+    <div class="ap-left">
+      <img src="/image/compteR.png" alt="icone" />
+      CIN ou Passeport
+    </div>
+    <div class="ap-right"><%= link_to "TELECHARGER", @promise.cin_pass_port %></div>
+  </div>
+  <div class="ap-box">
+    <div class="ap-left">
+      <img src="/image/compteR.png" alt="icone" />
+      Attestation de sécurité sociale
+    </div>
+    <div class="ap-right"><%= link_to "TELECHARGER", @promise.security_certificate %></div>
+  </div>
+  <div class="ap-box">
+    <div class="ap-left">
+      <img src="/image/compteR.png" alt="icone" />
+      RIB
+    </div>
+    <div class="ap-right"><%= link_to "TELECHARGER", @promise.rib %></div>
+  </div>
+  <div class="ap-box">
+    <div class="ap-left">
+      <img src="/image/compteR.png" alt="icone" />
+      CV
+    </div>
+    <div class="ap-right"><%= link_to "TELECHARGER", @cadre.cadre_info.cv %></div>
+  </div>
+</div>
 <% else %>
 
 <div class="dscdpa-box">
