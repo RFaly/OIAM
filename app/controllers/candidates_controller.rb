@@ -8,28 +8,6 @@ class CandidatesController < ApplicationController
   def main
   end
 
-  def tmp_sign_up
-    unless cookies.encrypted[:oiam_cadre].nil?
-      # @cadre = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
-      flash[:notice] = "Vous pouvez continuer votre test."
-      redirect_to my_tests_path
-    end
-    @cadreInfo = CadreInfo.new
-  end
-
-  def tmp_create_sign_up
-    @cadreInfo = CadreInfo.new(post_params_tmp)
-    if @cadreInfo.save
-      cookies.encrypted[:oiam_cadre] = {
-        value: @cadreInfo.id,
-        expires: Time.now + 172800
-      }
-      redirect_to my_tests_path
-    else
-      render :tmp_sign_up
-    end
-  end
-
   def my_profil
     validate_info_cadre
   end
@@ -254,7 +232,7 @@ class CandidatesController < ApplicationController
 
   def showRecrutmentMonitoring
     @oFc = OffreForCandidate.find_by_id(params[:ofc_id])
-    
+
     if @oFc.nil?
       redirect_back(fallback_location: root_path)
       return
@@ -264,7 +242,7 @@ class CandidatesController < ApplicationController
       redirect_back(fallback_location: root_path)
       return
     end
-    
+
     @offreJob = @oFc.offre_job
     @cadre = current_cadre
     @agendas = @oFc.agenda_clients.order('created_at DESC')[0]
@@ -274,6 +252,28 @@ class CandidatesController < ApplicationController
 
   def notifications
 
+  end
+
+  def tmp_sign_up
+    unless cookies.encrypted[:oiam_cadre].nil?
+      # @cadre = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+      flash[:notice] = "Vous pouvez continuer votre test."
+      redirect_to my_tests_path
+    end
+    @cadreInfo = CadreInfo.new
+  end
+
+  def tmp_create_sign_up
+    @cadreInfo = CadreInfo.new(post_params_tmp)
+    if @cadreInfo.save
+      cookies.encrypted[:oiam_cadre] = {
+        value: @cadreInfo.id,
+        expires: Time.now + 172800
+      }
+      redirect_to my_tests_path
+    else
+      render :tmp_sign_up
+    end
   end
 
 # 3 test de recrutement
@@ -291,7 +291,9 @@ class CandidatesController < ApplicationController
   end
 
   def save_repons_test_potential
- 
+    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+    @cadreInfo.update(potential_test:true)
+
     puts "#"*34
 
     puts "score: #{params[:score]}"
@@ -332,7 +334,7 @@ class CandidatesController < ApplicationController
     @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
     @agendaAdmin = @cadreInfo.agenda_admin
     if @agendaAdmin.nil?
-      date = @cadreInfo.created_at.to_datetime
+      date = @cadreInfo.created_at.to_datetime.utc
       @dates = []
       @datesShorts = []
       i = 1
@@ -362,9 +364,8 @@ class CandidatesController < ApplicationController
     @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
     @agenda = AgendaAdmin.new(entretien_date:DateTime.new(year,month,day,hour,min).utc,cadre_info:@cadreInfo)
     if @agenda.save
-      puts "vô sôvy e"
+      @cadreInfo.update(fit_test:true)
     else
-      puts "tsy vô sovy e"
       flash[:alert] = @agenda.errors.details
     end
   end
