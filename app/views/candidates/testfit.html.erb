@@ -97,16 +97,23 @@
 	</div>
 </div>
 
-
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 <script type="text/javascript">
+
+
+	var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+	var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+
+
 	$("#hide-js").hide();
 	$("#para-hide").hide();
 	$("#potential-title-show").hide();
+
 	$("p").css("text-align", "center")
+
 	$("#show-selected-date").click(function () {
 		$("#hide-js").show();
 		$(".content").hide();
-
 	});
 
 	$('.js-hours').click(function(){
@@ -116,24 +123,29 @@
 		$(this).css("background-color","#fff")
 		$(this).css("color","#e3d7bf")
 
-// let dateTime = new Date($('#datepicker').val());
-// let datahours = $(this).data().time;
-// let times = datahours.split(':');
+		// jj-mm-yyyy
+		date = $(this).data().date.split("-")
+		// yyyy-mm-jj
+		let dateTime = new Date(date[2]+"-"+date[1]+"-"+date[0]);
+		let datahours = $(this).data().time;
+		let times = datahours.split(':');
+		dateTime.setHours(times[0]);
+		dateTime.setMinutes(times[1]);
+		utcDate = moment.utc(dateTime);
 
-// dateTime.setHours(times[0]);
-// dateTime.setMinutes(times[1]);
+		$("#input-time").val(utcDate.hours() + ':' + utcDate.minutes())
+		$("#input-date").val(utcDate.format('DD-MM-YYYY'))
 
-// utcDate = moment.utc(dateTime);
-// $('#input-time').val(utcDate.hours() + ':' + utcDate.minutes());
-// $('#datepicker').val(utcDate.format('YYYY-MM-DD'));
+	    let dateGet = new Date(utcDate.local());
+	    let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
 
-		let time = $(this).data().time
-		$("#input-date").val($(this).data().date)
-		$("#input-time").val(time)
-		$("#dateSkype").html($(this).data().longdate)
-		time = time.split("")
-		time[2] = "h"
-		$("#timeSkype").html(time.join(""))
+		$("#dateSkype").html(dateString)
+
+		let heur = (""+dateGet.getHours()).length == 1 ? ("0"+dateGet.getHours()) : dateGet.getHours()
+		let min = (""+dateGet.getMinutes()).length == 1 ? ("0"+dateGet.getMinutes()) : dateGet.getMinutes()
+
+		$("#timeSkype").html(heur+'h:'+min)
+
 	});
 
 	$("#send-data-form").bind('ajax:beforeSend', function(){
