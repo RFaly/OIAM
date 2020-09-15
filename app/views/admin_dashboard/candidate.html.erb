@@ -23,7 +23,7 @@
       					    <img src="/image/cand.jpg" alt="photo profil candidats">
                   </div>
                   <div class="fci-icon">
-                    <%= link_to add_favorite_cadre_path(id:cadre.id), method: :post do %>
+                    <%= link_to add_favorite_cadre_path(id:cadre.id), method: :post, "data-confirm":"Êtes-vous sure de suivre cet(te) candidat(e)?"  do %>
                       <img src="/image/Vector-22.png" alt="logo oiam non favorie" width="30px" title="suivre">
                     <% end %>
                   </div>

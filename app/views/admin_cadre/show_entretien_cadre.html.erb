@@ -11,7 +11,8 @@
   		<div class="fcp-box">
       <h3 class="title" style="color: #d6b36a !important">ENTRETIEN FIT</h3>
       <h3 class="title t2">Choisissez la suite a donner a ces candidats et rediger votre avis recruteur</h3>
-      <div class="fc-item" style="display: flex;">
+
+      <div class="fc-item" style="display: flex; margin-top: 40px;">
         <div class="fc-item-all">
 
 <!-- CANDIDATS  -->
@@ -23,7 +24,7 @@
             <div class="fci-icon">
               <% unless @cadre.admin.nil? %>
                 <% if @cadre.admin == current_admin %>
-                  <%= link_to rmv_favorite_cadre_path(id:@cadre.id), method: :delete do %>
+                  <%= link_to rmv_favorite_cadre_path(id:@cadre.id), method: :delete, "data-confirm":"Êtes-vous sure de retirer cet(te) cadre de votre liste de candidat à suivre ?" do %>
                     <img src="/image/Vector-24.png" alt="logo oiam favorie" title="retirer" width="30px">
                   <% end %>
                 <% else %>
@@ -46,8 +47,19 @@
          <!--  ---------------------------- -->
 
          <div class="mess_candidat">
+
+          <% unless @cadre.agenda_admin.nil? %>
+            <p>
+              <strong>Entretien fit avec ce cadre le : </strong>
+              <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+            </p>
+
             <textarea class="mess_input" name="message"></textarea>
             <a href="#" class="env-btn">Envoyer</a>
+          <% else %>
+
+          <% end %>
+
          </div>
 
         </div>
@@ -56,3 +68,18 @@
   	</div>
   </div>
 </div>
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
+
+<script type="text/javascript">
+  var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+  var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+  let $elementDate = $('.currentDateEntretien');
+
+  $elementDate.each(function () {
+    let dateUTC = moment.utc($(this).data().times);
+    let dateGet = new Date(dateUTC.local());
+    let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:00');
+  });
+</script>
