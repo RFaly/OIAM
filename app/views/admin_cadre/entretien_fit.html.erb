@@ -25,9 +25,11 @@
           <% @cadres.each do |cadre| %>
             <div class="list-candidat">
               <div class="fci-image">
-                <img src="/image/cand3.jpg" alt="photo profil candidats">
+                <%= link_to post_avis_candidats_fit_path(cadre.id) do %>
+                  <img src="/image/cand3.jpg" alt="photo profil candidats">
+                <% end %>
               </div>
-               <div class="fci-icon">
+              <div class="fci-icon">
                 <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
               </div>
               <div class="fci-infos">

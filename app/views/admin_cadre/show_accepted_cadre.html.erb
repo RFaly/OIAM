@@ -40,9 +40,9 @@
               <p class="name"><%= @cadre.last_name %> <%= @cadre.first_name %></p>
               <p class="poste">Poste : <%= @cadre.job %></p>
               <p class="score">Score OIAM : <span><%= @cadre.score_potential %></span></p>
-              </div>
             </div>
           </div>
+        </div>
 
          <!--  ---------------------------- -->
 
@@ -53,13 +53,12 @@
               <strong>Entretien fit avec ce cadre le : </strong>
               <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
             </p>
-
             <textarea class="mess_input" name="message"></textarea>
             <a href="#" class="env-btn">Envoyer</a>
           <% else %>
-
+            En attente de la proposition du date de l'entretien par le cadre.
           <% end %>
-
+          
          </div>
 
         </div>
