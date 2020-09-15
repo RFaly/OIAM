@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_07_110502) do
+ActiveRecord::Schema.define(version: 2020_09_15_013352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,9 +67,6 @@ ActiveRecord::Schema.define(version: 2020_09_07_110502) do
     t.string "status"
     t.string "situation"
     t.string "telephone"
-    t.integer "potential_test"
-    t.integer "skils_test"
-    t.boolean "fit_test"
     t.boolean "empty", default: true
     t.text "avis_recruteur"
     t.text "question1"
@@ -89,6 +86,11 @@ ActiveRecord::Schema.define(version: 2020_09_07_110502) do
     t.bigint "region_id"
     t.bigint "ville_id"
     t.bigint "metier_id"
+    t.integer "score_potential"
+    t.integer "score_fit"
+    t.boolean "potential_test", default: false
+    t.boolean "fit_test", default: false
+    t.boolean "is_recrute"
     t.index ["cadre_id"], name: "index_cadre_infos_on_cadre_id"
     t.index ["country_id"], name: "index_cadre_infos_on_country_id"
     t.index ["metier_id"], name: "index_cadre_infos_on_metier_id"

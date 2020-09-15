@@ -27,7 +27,7 @@
               <p class="name">Pierre LEVALLLET</p>
               <p class="poste">Poste : Directeur Commercial</p>
               <div class="ico-cand">
-              	<a href="<%= message_candidats_fit_path %>" class="ico ico1"><i class="fas fa-check-circle fa-lg"></i></a>
+              	<a href="<%= post_avis_candidats_fit_path(1) %>" class="ico ico1"><i class="fas fa-check-circle fa-lg"></i></a>
               	<a href="#" class="ico ico2"><i class="fas fa-times-circle fa-lg"></i></a>
               </div>
               <div style="padding-top: 15px">
@@ -78,9 +78,54 @@
             </div>
           </div>
 
+        <% if @cadres.empty? %>
+        
+        <% else %>
+          <% @cadres.each do |cadre| %>
+            <div class="list-candidat">
+              <div class="fci-image">
+            <img src="/image/cand3.jpg" alt="photo profil candidats">
+              </div>
+              <div class="fci-icon">
+                <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
+              </div>
+              <div class="fci-infos">
+                <p class="name"><%= cadre.last_name %> <%= cadre.first_name %></p>
+                <p class="poste">Poste : <!-- < #cadre.job > --></p>
+                <div class="ico-cand">
+                  <a href="<%= post_avis_candidats_fit_path(cadre.id) %>" class="ico ico1"><i class="fas fa-check-circle fa-lg"></i></a>
+                  <a href="#" class="ico ico2"><i class="fas fa-times-circle fa-lg"></i></a>
+                </div>
+                <div style="padding-top: 15px">
+                  <p>
+                    <i class="fas fa-edit fa-lg"></i>Entretien fit le:
+                    <span data-times="<%= cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+
+                  </p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+
         </div>
       </div>
     </div>
   	</div>
   </div>
 </div>
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
+
+<script type="text/javascript">
+  var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+  var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+  let $elementDate = $('.currentDateEntretien');
+
+  $elementDate.each(function () {
+    let dateUTC = moment.utc($(this).data().times);
+    let dateGet = new Date(dateUTC.local());
+    let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:00');
+  });
+</script>
