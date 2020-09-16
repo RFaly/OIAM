@@ -1,3 +1,38 @@
+<% content_for :head_style do %>
+<link rel="stylesheet" href="/css/show_message.css" />
+<% end %>
+<!-- body html  -->
+<div class="client-column">
+  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
+  <div class="cp-box">
+    <div class="show-message-box">
+      <h2><%= @cadre.cadre_info.last_name %> <%= @cadre.cadre_info.first_name %></h2>
+
+      <div class="boit-reception" id="js-add-new-message">
+        <% @messages.each do |message| %> <% if message.is_client %>
+        <div class="my-message" data-store-id="<%= message.id %>">
+          <% else %>
+          <div class="her-message" data-store-id="<%= message.id %>"><% end %> <%= message.content %></div>
+          <div class="clear"></div>
+          <% end %>
+        </div>
+
+        <hr />
+
+        <%= form_tag(post_my_message_client_path, id:"form-promo-code", 'data-path':getClientLastMessage_path(cadre_id:@cadre.id,contact_id:@contact.id), remote: true) do %>
+        <input type="hidden" name="message_client_cadre[cadre_id]" value="<%=@cadre.id%>" id="is_client_session" data-client="true" />
+        <input type="hidden" name="message_client_cadre[contact_id]" value="<%=@contact.id%>" />
+        <div class="form-group">
+          <textarea required="required" rows="3" class="form-control" name="message_client_cadre[content]" id="message_client_cadre_content"></textarea>
+        </div>
+        <div class="form-group"><%= submit_tag("ENVOYER") %></div>
+        <script data-turbolinks-track="reload" type="text/javascript" src="/js/synchrone_message.js"></script>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <style type="text/css">
   .my-message {
     color: grey;
@@ -13,39 +48,3 @@
     clear: both;
   }
 </style>
-
-<div class="row">
-  <div class="col-sm-3">
-    <%= render partial: "recruteurs/left_link_bar" %>
-  </div>
-
-  <div class="col-sm-9">
-    <h2><%= @cadre.cadre_info.last_name %> <%= @cadre.cadre_info.first_name %></h2>
-
-    <div class="boit-reception" id="js-add-new-message">
-      <% @messages.each do |message| %> <% if message.is_client %>
-      <div class="my-message" data-store-id="<%= message.id %>">
-        <% else %>
-        <div class="her-message" data-store-id="<%= message.id %>">
-          <% end %> <%= message.content %>
-        </div>
-        <div class="clear"></div>
-        <% end %>
-      </div>
-
-      <hr />
-
-      <%= form_tag(post_my_message_client_path, id:"form-promo-code", 'data-path':getClientLastMessage_path(cadre_id:@cadre.id,contact_id:@contact.id), remote: true) do %>
-      <input type="hidden" name="message_client_cadre[cadre_id]" value="<%=@cadre.id%>" id="is_client_session" data-client="true" />
-      <input type="hidden" name="message_client_cadre[contact_id]" value="<%=@contact.id%>" />
-      <div class="form-group">
-        <textarea required="required" rows="3" class="form-control" name="message_client_cadre[content]" id="message_client_cadre_content"></textarea>
-      </div>
-      <div class="form-group">
-        <%= submit_tag("ENVOYER") %>
-      </div>
-      <script data-turbolinks-track="reload" type="text/javascript" src="/js/synchrone_message.js"></script>
-      <% end %>
-    </div>
-  </div>
-</div>

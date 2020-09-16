@@ -1,9 +1,12 @@
-<div class="row">
-	<div class="col-sm-3">
-		<%= render partial: "recruteurs/left_link_bar" %>
-	</div>
-
-	<div class="col-sm-9">
-		<h5>NOTIFICATIONS</h5>
-	</div>
+<% content_for :head_style do %>
+<link rel="stylesheet" href="/css/notification.css" />
+<% end %>
+<!-- body html  -->
+<div class="client-column">
+  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
+  <div class="cp-box">
+    <div class="notification-box">
+      <h5 class="title">NOTIFICATIONS</h5>
+    </div>
+  </div>
 </div>
