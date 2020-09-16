@@ -841,7 +841,8 @@
     width: 50%;
   }
   .box-1 .box-1-btn {
-    margin-right: 10%;
+    align-self: flex-start;
+    margin-left: 10%;
   }
   .box-1 .box-1-logo {
     width: 70%;
@@ -1284,9 +1285,6 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .box-1 .box-1-btn {
-    align-self: flex-end;
-  }
   .box {
     background: #fcfcfc url(/image/picture_photo_0ae4b3.png) no-repeat right;
     background-size: 85% 100%;
