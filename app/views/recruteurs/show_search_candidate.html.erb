@@ -32,9 +32,10 @@
                   <%= @cadre.metier.name %>
                 <% end %>
               </p>
-              <p>Disponibilité : Maintenant</p>
+              <p>Profession : <%= @cadre.job %></p>
+              <p>Disponibilité : <%= @cadre.disponibilite %></p>
               <p>Salaire : <%= @cadre.question4 %>k€</p>
-              <p>Mobilité : Ile de France</p>
+              <p>Mobilité : <%= @cadre.mobilite %></p>
             </div>
             <div class="ssc-btn"><%= link_to "VISUALISER LE CV", @cadre.cv %></div>
           </div>
@@ -59,7 +60,6 @@
               <% unless @cadre.ville.nil? %>
                 Ville: <%= @cadre.ville.name %> <br>
               <% end %>
-
 
               <% if @cadre.deplacement %>
                 Fréquence de déplacement: <%=  @cadre.frequency %>

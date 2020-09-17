@@ -1,0 +1,282 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html{
+  font-size: 18px;
+}
+
+body{
+  font-family: 'Questrial', sans-serif;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.content{
+  display: flex;
+  margin-top: 15px;
+}
+
+.main{
+  border-left: 1px solid #d6b36a;
+  margin-top: 16px;
+  width: 100%;
+  margin-left: -3px;
+}
+
+
+.job-info{
+  display: flex;
+  width: 100%;
+  grid-column-gap: 20%;
+  text-align: center;
+  justify-content: center;
+}
+
+.job-i{
+  font-size: 16px;
+  text-align: center;
+}
+
+.job-info-content{
+  width: 210px;
+}
+
+.down{
+  text-transform: lowercase;
+}
+
+.cadre-info-content input{
+  width: 225px;
+  height: 35px;
+  border-radius: 0;
+  border: none;
+  background-color:#f0f2f4;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.disable{
+  width: 225px;
+  height: 35px;
+  border-radius: 0;
+  border: none;
+  background-color:#f0f2f4;
+  text-align: center;
+  margin-top: 15px;
+  padding: 2px;
+  opacity: .5;
+}
+
+.calendar{
+  background: no-repeat right 10px center url(/image/calendar.png);
+  background-size: 25px;
+}
+
+.date-prise{
+  width: 225px;
+  height: 35px;
+  border-radius: 0;
+  border: none;
+  background-color:#f0f2f4;
+  text-align: center;
+  margin-top: 15px;
+  padding: 5px;
+  opacity: .5;
+}
+
+.promese-info{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  grid-column-gap: 20%;
+  margin-bottom: 20px;
+}
+
+.date-prise-label{
+  font-size: 16px;
+  text-align: center;
+  width: 210px;
+}
+
+.promese-info-check{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  grid-column-gap: 20%;
+  margin-top: 20px;
+}
+
+.transparent{
+  text-align:center;
+  width: 210px;
+  color: transparent;
+}
+
+.mounth{
+  font-size: 16px;
+  width: 225px;
+  cursor: po
+}
+
+.renum{
+  font-size: 16px;
+  width: 210px;
+  text-align: center;
+}
+
+.bool{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.avantages{
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.avantage-input{
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  background-color: #f0f2f4;
+  width: 500px;
+  height: auto;
+  padding: 20px;
+}
+
+
+.promese-all{
+  margin-top: 20px;
+  height: auto;
+}
+
+.date-valid{
+    width: 225px;
+  height: 35px;
+  border-radius: 0;
+  border: none;
+  background-color:#f0f2f4;
+  text-align: center;
+  padding: 5px;
+  opacity: .5;
+}
+
+
+.import{
+  color: transparent;
+  width: 225px;
+  height: 76px;
+}
+
+.btn-valid input{
+  display: block;
+  margin: 0 auto;
+  border: none;
+  width: 200px;
+  height: 50px;
+  background-color: #d6b36a;
+  color: #fff;
+  text-align: center;
+  margin-top: 135px;
+  margin-bottom: 100px;
+}
+
+.btn-valid input:hover{
+  background-color: #fff;
+  border: 1px solid #d6b36a;
+  color: #d6b36a;
+}
+
+.input-import{
+  display: none;
+}
+
+.file{
+  background-color: #fff;
+  width: 225px;
+  height: 50px;
+  color: #d6b36a;
+  text-align:center;
+  padding:10px;
+  border: 1px solid #d6b36a;
+  cursor: pointer;
+}
+
+.file:hover{
+  background-color: #d6b36a;
+  color: white;
+}
+
+input[type="radio"]{
+  position: relative;
+  top: 7px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background-clip: content-box;
+  border: 2px solid #bbb;
+  background-color: #f0f2f4;
+  border-radius: 0;
+}
+
+
+input[type="radio"]:checked {
+  background: no-repeat center url(/image/check.png);
+  background-size: 15px;
+  background-position: absolute;
+}
+
+.renum-perso{
+  display: none;
+}

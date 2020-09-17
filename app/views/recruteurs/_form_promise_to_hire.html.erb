@@ -23,9 +23,8 @@
 <hr />
 <div class="pc-form pc-form2 pc-flex">
   <label>Rémunération fixe <br />(k€ bruts mensuels)</label>
-
   <div class="right">
-    <div><% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <%= f.text_field :remuneration_fixe, required:true, value: payFix, required:true %></div>
+    <div><% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <% if valeur%> <%= f.text_field :remuneration_fixe, required:true, value: (((@job.remuneration.to_f)*100)/12).round(2), required:true %> <%else%> <%= f.text_field :remuneration_fixe, required:true, value: payFix, required:true %> <%end%></div>
     <div>
       <label id="conditioncheck">
         12 mois <%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois', required:true %>
@@ -59,7 +58,7 @@
         <span class="checkmark"></span>
       </label>
     </div>
-    <div><%= f.text_field :remuneration_var_info, placeholder:'ex: 10%', id:'js-input-choix', style:'display:none', disabled:true %></div>
+    <div><%= f.text_field :remuneration_var_info, placeholder:'ex: 10', id:'js-input-choix', style:'display:none', disabled:true %></div>
     <div>
       <label id="conditioncheck">
         Non <%= f.radio_button :remuneration_variable, "false", id:'post_nom', class:'js-post-choix', required:true %>

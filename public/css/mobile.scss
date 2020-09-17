@@ -1048,8 +1048,8 @@
   .box-1 {
     width: 50%;
     .box-1-btn {
-      // align-self: flex-end;
-      margin-right: 10%;
+      align-self: flex-start;
+      margin-left: 10%;
     }
     .box-1-logo {
       width: 70%;
@@ -1620,7 +1620,7 @@
   // landing page
   .box-1 {
     .box-1-btn {
-      align-self: flex-end;
+      // align-self: flex-end;
     }
   }
   .box {

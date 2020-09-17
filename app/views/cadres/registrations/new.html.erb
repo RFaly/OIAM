@@ -12,6 +12,7 @@
       <% end %><br />
       <%= f.password_field :password, autocomplete: "new-password", required: true, class:"champs", placeholder: 'MOT DE PASSE' %>
 
+      <input type="hidden" name="confirm_token" value="<%= @confirm_token %>">
 
       <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true, class:"champs", placeholder:"CONFIRMATION DU MOT DE PASSE" %>
 

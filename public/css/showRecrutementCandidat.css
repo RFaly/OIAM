@@ -540,7 +540,55 @@ body{
 		display: block;
 		margin: 15px auto;
 		width: 100%;
+	}
 
+	.prime{
+		display: block;
+		margin:0 auto;
+		width: 600px;
+		text-align: center;
+		border: 1px solid #D6B36A;
+		padding: 30px;
+		margin-bottom: 50px;
+	}
+
+	.btn-recevoir{
+		display: block;
+		margin: 0 auto;
+		width: 200px;
+		height: 50px;
+		background-color: #D6B36A;
+		color: #fff;
+		padding: 10px;
+		margin-top: 20px;
+	}
+
+	.btn-recevoir:hover{
+		color: #D6B36A;
+		border: 1px solid #D6B36A;
+		background-color: #fff;
+		text-decoration: none;
+	}
+
+	.promese-emb{
+		display: block;
+		margin: 0 auto;
+		width: 600px;
+	}
+
+	.promeser-emb-content{
+		display: flex;
+		grid-column-gap: 15%;
+		width: 100%;
+		justify-content: center;
+	}
+
+	.promese-label{
+		width: 225px;
+	}
+
+	.promese-file{
+		width: 225px;
 	}
 }
 

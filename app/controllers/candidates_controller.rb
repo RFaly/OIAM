@@ -291,32 +291,33 @@ class CandidatesController < ApplicationController
   end
 
   def save_repons_test_potential
-    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
-    @cadreInfo.update(potential_test:true)
+    puts "~"*34
+    puts cookies.encrypted[:oiam_cadre]
+    puts "~"*34
 
-    puts "#"*34
+    @cadreInfo = CadreInfo.find_by(mail:params[:custom_fields][3]["value"])
+    @metier = Metier.find_by(name:params[:custom_fields][5]["value"])
+    @cadreInfo.update(score_potential:1005,job:params[:custom_fields][6]["value"],potential_test:true,metier:@metier)
 
-    puts "score: #{params[:score]}"
 
-    puts "max_score: #{params[:max_score]}"
+# puts "~"*34
+#     puts "mail: #{params[:custom_fields][3]["value"]}"
+#     puts "fonction: #{params[:custom_fields][5]["value"]}"
+#     puts "profession: #{params[:custom_fields][6]["value"]}"
+# puts "~"*34
 
-    puts "custom_score: #{params[:custom_score]}"
 
-    puts "max_custom_score: #{params[:max_custom_score]}"
+# params[:custom_fields][0] #nom
+# params[:custom_fields][1] #prenom
+# params[:custom_fields][2] #telephone
+# params[:custom_fields][3] #email
+# params[:custom_fields][4] #date_de_naissance
+# params[:custom_fields][5] #fonction
+# params[:custom_fields][6] #profession
+# params[:custom_fields][7] #situation actuel
+# params[:custom_fields][8] #niveau de rémunération
+# params[:custom_fields][9] #vous êtes1
 
-    puts "custom_score_as_percentage: #{params[:custom_score_as_percentage]}"
-
-    puts "quiz_score_as_percentage: #{params[:quiz_score_as_percentage]}"
-
-    puts "respondent: #{params[:respondent]}"
-
-    puts "#"*34
-
-    puts "question_blocks: #{params[:question_blocks]}"
-
-    puts "formula_results: #{params[:formula_results]}"
-
-    puts "#"*34
 
   end
 
