@@ -11,17 +11,24 @@ class Cadres::RegistrationsController < Devise::RegistrationsController
     @confirm_token = params[:comfirm]
     @cadreInfo = CadreInfo.find_by_confirm_token(@confirm_token)
     if @cadreInfo.nil?
-      
+      flash[:alert] = "Vous devez vous inscrire pour faire les tests!"
+      redirect_to tmp_sign_up_path
+    else
+      @email = @cadreInfo.mail
+      super
     end
-    @email = @cadreInfo.mail
-    super
   end
 
   # POST /resource
   def create
     @cadreInfo = CadreInfo.find_by_confirm_token(params[:confirm_token])
-    super
-    @cadreInfo.update(cadre:current_cadre)
+    if @cadreInfo.nil?
+      flash[:alert] = "Vous devez vous inscrire pour faire les tests!"
+      redirect_to tmp_sign_up_path
+    else
+      super
+      @cadreInfo.update(cadre:current_cadre)
+    end
     # cookies.delete :oiam_cadre
   end
 
