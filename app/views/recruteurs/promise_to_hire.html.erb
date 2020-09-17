@@ -1,6 +1,6 @@
 <!-- call css  -->
 <% content_for :head_style do %>
-  <link rel="stylesheet" href="/css/promise.css" />
+<link rel="stylesheet" href="/css/promise.css" />
 <% end %>
 <!-- body html  -->
 <div class="client-column">
@@ -8,7 +8,7 @@
   <div class="cp-box">
     <div class="promise">
       <h5 class="title">PROMESSE D'EMBAUCHE</h5>
-      <div class="promise-content"><%= render partial: "recruteurs/form_promise_to_hire", locals: {url_path: save_promise_to_hire_path(@job.id, @cadre.cadre.id)} %></div>
+      <div class="promise-content"><%= render partial: "recruteurs/form_promise_to_hire", locals: {url_path: save_promise_to_hire_path(@job.id, @cadre.cadre.id),valeur: true} %></div>
     </div>
   </div>
 </div>

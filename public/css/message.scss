@@ -1,0 +1,14 @@
+@import 'config';
+@import 'pagemenu';
+
+.message-box {
+  width: 90%;
+  margin: 0 auto;
+  .title {
+    text-align: center;
+    font: 500 18px Raleway, sans-serif;
+    color: #d6b36a;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+}

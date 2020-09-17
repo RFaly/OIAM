@@ -1,40 +1,39 @@
-<style type="text/css">
-	.connected{ /* marké user connecté */
-		color: green;
-	}
-	.not-connected{ /* marké user non connecté */
-		color: red;
-	}
-</style>
-
-<div class="row">
-	<div class="col-sm-3">
-		<%= render partial: "recruteurs/left_link_bar" %>
-	</div>
-
-	<div class="col-sm-9">
-
-	<h2>Liste de mes contactes</h2>
-	<% unless @contactListes.empty? %>
-	<% @contactListes.each do |contact| %>
-		<% nbr = contact.mp_client_not_see %>
-		<div>
-			<a href="<%= show_my_messages_client_path(contact.cadre.id) %>">
-			<%= contact.cadre.cadre_info.last_name %> <%= contact.cadre.cadre_info.first_name %>
-			</a>
-			<% unless nbr == 0 %>
-				<span class="alert-info"><%= nbr %></span>
-			<% end %>
-			<% if contact.cadre.is_online? %>
-				<span class="connected">connectée</span>
-			<% else %>
-				<span class="not-connected">connectée il y a <%= time_ago_in_words(contact.cadre.online_time) %></span>
-			<% end %>
-		</div>
-	<% end %>
-	<% else %>
-		<p>Aucun nouveau message</p>
-	<% end %>
-
-	</div>
+<% content_for :head_style do %>
+<link rel="stylesheet" href="/css/message.css" />
+<% end %>
+<!-- body html  -->
+<div class="client-column">
+  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
+  <div class="cp-box">
+    <div class="message-box">
+      <h5 class="title">Chats</h5>
+      <div class="message-content">
+        <% unless @contactListes.empty? %> <% @contactListes.each do |contact| %> <% nbr = contact.mp_client_not_see %>
+        <div>
+          <a href="<%= show_my_messages_client_path(contact.cadre.id) %>"> <%= contact.cadre.cadre_info.last_name %> <%= contact.cadre.cadre_info.first_name %> </a>
+          <% unless nbr == 0 %>
+          <span class="alert-info"><%= nbr %></span>
+          <% end %> <% if contact.cadre.is_online? %>
+          <span class="connected">connectée</span>
+          <% else %>
+          <span class="not-connected">connectée il y a <%= time_ago_in_words(contact.cadre.online_time) %></span>
+          <% end %>
+        </div>
+        <% end %> <% else %>
+        <p>Aucun nouveau message</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
+
+<style type="text/css">
+  .connected {
+    /* marké user connecté */
+    color: green;
+  }
+  .not-connected {
+    /* marké user non connecté */
+    color: red;
+  }
+</style>
