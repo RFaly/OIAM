@@ -157,8 +157,6 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/notifications', to: 'admin_main#notification', as: 'admin_main_notification'
   get 'secret-oiam-page/admin/mon-profil', to: 'admin_main#my_profil', as: 'admin_main_my_profil'
 
-
-
   # route admin cadre
   get 'secret-oiam-page/admin/cadre/entretien-fit', to: 'admin_cadre#entretien_fit', as: 'admin_cadre_entretien_fit'
 
