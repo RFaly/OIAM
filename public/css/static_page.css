@@ -23,10 +23,11 @@
   justify-self: start;
   font: 500 18px Raleway, sans-serif;
   background-color: #e3d7bf;
-  padding: 15px 30px;
-  margin-bottom: 30px;
+  padding: 25px 40px;
+  margin-top: -30px;
+  margin-bottom: 60px;
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 .box-1-btn:hover {

@@ -308,6 +308,9 @@ class RecruteursController < ApplicationController
 	end
 
 	def recruitment_show_cadre
+		puts "~~"*34
+		puts params[:oFc_id]
+		puts "~~"*34
 		@oFc = OffreForCandidate.find_by_id(params[:oFc_id])
 		@offre = @oFc.offre_job
 		@cadre = @oFc.cadre
@@ -413,7 +416,7 @@ class RecruteursController < ApplicationController
     	@promise.remuneration_var_info = remuneration_info
       @promise.signature_entreprise = uploader.url
       @promise.save
-      flash[:notice] = "Promesse d'embauche envoyer."
+      flash[:notice] = "Promesse d'embauche envoyée."
 
       #mettre à jour l'etap au dernière étape
 			oFc = @job.my_top_five_candidates.find_by(cadre:@cadre)

@@ -13,6 +13,10 @@ class AdminDashboardController < ApplicationAdminController
     @cadres = CadreInfo.where(admin_id:nil)
   end
 
+  def show_candidate
+    @cadre = CadreInfo.find_by(id:params[:id])
+  end
+
   def tache
   end
 

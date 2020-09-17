@@ -28,10 +28,11 @@
   justify-self: start;
   font: $ffbtn;
   background-color: $secondary_text_color_button;
-  padding: 15px 30px;
-  margin-bottom: 30px;
+  padding: 25px 40px;
+  margin-top: -30px;
+  margin-bottom: 60px;
   text-decoration: none;
-  color: white;
+  color: black;
   &:hover {
     box-shadow: 1px 1px 3px 1px rgb(230, 225, 225);
     background-color: rgba(255, 255, 255, 0.8);
