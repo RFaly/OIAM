@@ -166,8 +166,7 @@
 }
 
 .box {
-  border: 2px solid #d6b36a;
-  text-transform: uppercase;
+  background: #f0f2f4;
   color: #d6b36a;
   text-decoration: none;
   align-content: center;
@@ -176,35 +175,100 @@
   width: 75%;
   transform: translateX(15%);
   font-size: 16px !important;
+  height: 300px;
+  margin-top: 30px; 
+  border: 1px solid #d6b36a;
+  grid-column: 1;
 }
 
-.box2 {
-  margin-top: 50px;
-}
-
-.box3 {
-  margin-top: 50px;
-}
-
-.box-link {
-  color: #d6b36a;
+.event-btn {
+  background: #d6b36a;
+  color: #fff;
+  font: 16px Questrial, sans-serif;
+  padding: 20px 40px;
   text-decoration: none;
-  background: #fff !important;
+  border: 1px solid #d6b36a;
+  float: right;
+  margin-top: 80px;
+  margin-right: 40px;
 }
 
-.box-link:hover {
+.event-btn:hover {
+  background: #fff;
   color: #d6b36a;
+  font: 16px Questrial, sans-serif;
   text-decoration: none;
 }
 
-@media screen and (min-width: 1200px) {
-  .box {
-    background: #fff !important;
+.box h6 {
+  color: black;
+  font-weight: 350;
+}
+
+.box .box-nm {
+  color: #d6b36a;
+  font-weight: 400;
+  font: 16px Questrial, sans-serif;
+}
+
+.box-mess {
+  text-align: center;
+  transform: translateY(400%);
+  float: left;
+  margin-left: 40px;
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  font: 16px Questrial, sans-serif;
+  color: #d6b36a;
+}
+
+.pin {
+  color: #d6b36a;
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 1200px){
+  .box{
+    display: block;
+    text-align: center;
+    justify-content: center;    
+    clear: both;
+  }
+  .box-mess {
+    text-align: center;
+    justify-content: center;
+    margin-left: 75px;
+  }
+
+  .event-btn {
+    text-align: center;
+    justify-content: center;  
+    margin-top: 150px;
+    margin-right: 150px;
   }
 }
 
-@media screen and (min-width: 992px) {
-  .box {
-    background: #fff !important;
+/*@media only screen and (max-width: 600px){
+  .box{
+    display: block;
+    text-align: center;
+    justify-content: center;    
+    clear: both;
   }
-}
+  .box-mess {
+    text-align: center;
+    justify-content: center;
+    margin-left: 500px;
+  }
+
+  .event-btn {
+    text-align: center;
+    justify-content: center;
+    margin-top: 150px;
+    margin-right: 500px;
+  }
+
+}*/
