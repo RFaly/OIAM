@@ -308,6 +308,9 @@ class RecruteursController < ApplicationController
 	end
 
 	def recruitment_show_cadre
+		puts "~~"*34
+		puts params[:oFc_id]
+		puts "~~"*34
 		@oFc = OffreForCandidate.find_by_id(params[:oFc_id])
 		@offre = @oFc.offre_job
 		@cadre = @oFc.cadre
