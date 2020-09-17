@@ -68,7 +68,7 @@
                 <span class="checkmark"></span>
               </label>
             </div>
-            <div><%if (@promise.remuneration_variable) %> <input type="text" value="variation de <%=@promise.remuneration_var_info %>k€  " /> <%end%></div>
+            <div><%if (@promise.remuneration_variable) %> <input type="text" value=" <%=@promise.remuneration_var_info %>k€ annuels " readonly /> <%end%></div>
             <div>
               <label id="conditioncheck">
                 Non <%= f.radio_button :remuneration_variable, "false", id:'post_nom', class:'js-post-choix',disabled:true%>
