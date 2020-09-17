@@ -11,7 +11,7 @@
 						<%= image_tag(@cadre.image, alt: 'photo de profil', width:"150px", class:"pdp" )%> <br>
 					<% end %>
 				</div>
-				<div class="user_name"><%= @cadre.last_name %> <%= @cadre.first_name %> <br></div>
+				<div class="user_name"><%= @cadre.first_name %> <%= @cadre.last_name %> <br></div>
 				<p>Score du test : <span>1005</span></p>
 				<p>Type de poste :<br> <span style="text-transform:uppercase;">
 				<% if @cadre.metier.nil? %>

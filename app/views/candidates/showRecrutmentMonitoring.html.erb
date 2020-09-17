@@ -79,42 +79,42 @@
 				<% else %>
 
 					<% if true %>
-						<div>
+						<div class="prime">
 							<h2>One in a million tient à vous féliciter en vous offrant une prime de 1000€.</h2>
-							<%= link_to "Recevoir la prime", congratulations_cadre_path(@promise.id), class:"btn btn-success" %>
+							<%= link_to "RECEVOIR LA PRIME", congratulations_cadre_path(@promise.id), class:"btn-recevoir" %>
 						</div>
 					<% else %>
 						Demande de prime envoyer
 					<% end %>
 
-					<table>
-						<tr>
-							<td>Promesse d'embauche</td>
-							<td>TELECHARGER</td>
-						</tr>
-						<tr>
-							<td>CIN ou Passeport</td>
-							<td><%= link_to "TELECHARGER", @promise.cin_pass_port %></td>
-						</tr>
-						<tr>
-							<td>Attestation de sécurité sociale</td>
-							<td><%= link_to "TELECHARGER", @promise.security_certificate %></td>
-						</tr>
-						<tr>
-							<td>RIB</td>
-							<td><%= link_to "TELECHARGER", @promise.rib %></td>
-						</tr>
-						<tr>
-							<td>CV</td>
-							<td><%= link_to "TELECHARGER", @cadre.cadre_info.cv %></td>
-						</tr>
-					</table>
+					<!-- <div class="promese-emb">
+						<div class="promeser-emb-content">
+							<div class="promese-label">Promesse d'embauche</div>
+							<div class="promese-file">TELECHARGER</div>
+						</div>
+						<div class="promeser-emb-content">
+							<div class="promese-label">CIN ou Passeport</div>
+							<div class="promese-file"><%= link_to "TELECHARGER", @promise.cin_pass_port, class:"telecherger" %></div>
+						</div>
+						<div class="promeser-emb-content">
+							<div class="promese-label">Attestation de sécurité sociale</div>
+							<div class="promese-file"><%= link_to "TELECHARGER", @promise.security_certificate, class:"telecherger" %></div>
+						</div>
+						<div class="promeser-emb-content">
+							<div class="promese-label">RIB</div>
+							<div class="promese-file"><%= link_to "TELECHARGER", @promise.rib, class:"telecherger" %></div>
+						</div>
+						<div class="promeser-emb-content">
+							<div class="promese-label">CV</div>
+							<div class="promese-file"><%= link_to "TELECHARGER", @cadre.cadre_info.cv, class:"telecherger" %></div>
+						</div>
+					</div> -->
 
 				<% end %>
-				<div>
+				<!-- <div>
 					<a href="<%= show_my_messages_cadre_path(@offreJob.client.id) %>">Chat en ligne</a>
 					<a href = "mailto: <%= @offreJob.client.mail %>">Mail</a>
-				</div>
+				</div> -->
 			<% else %>
 				<!-- unless aucun entretien -->
 				<div class=" <% if @agendas.entretien_date > DateTime.now.utc %> proposition-entretien <% elsif @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil?%> rencontred <% end %>">
@@ -190,7 +190,7 @@
 							</div>
 
 							<% if @oFc.status == "accepted" %>
-								<%= @offreJob.client.entreprise.name %> a validé votre candidature pour la première étape.
+								<%= @offreJob.client.entreprise.name %> a validé votre candidature pour la prochaine étape.
 							<% else %>
 								<p>
 									<b>En attente du retour du recruteur.</b>
