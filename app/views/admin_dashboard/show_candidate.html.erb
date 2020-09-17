@@ -3,7 +3,7 @@
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <div class="client-column">
   <div class="client-menu-left">
-    <%= render partial: "admin_cadre/left_menu_link" %>
+    <%= render partial: "admin_dashboard/left_menu_link" %>
   </div>
 
   <div class="cp-box">
@@ -53,14 +53,10 @@
               <strong>Entretien fit avec ce cadre le : </strong>
               <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
             </p>
-            <textarea class="mess_input" name="message"></textarea>
-            <a href="#" class="env-btn">Envoyer</a>
           <% else %>
             En attente de la proposition du date de l'entretien par le cadre.
           <% end %>
-
-          <%= @cadre.confirm_token %>
-
+          
          </div>
 
         </div>

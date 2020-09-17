@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_15_090224) do
+ActiveRecord::Schema.define(version: 2020_09_17_111027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2020_09_15_090224) do
     t.boolean "is_recrute"
     t.string "job"
     t.bigint "admin_id"
+    t.string "confirm_token"
     t.index ["admin_id"], name: "index_cadre_infos_on_admin_id"
     t.index ["cadre_id"], name: "index_cadre_infos_on_cadre_id"
     t.index ["country_id"], name: "index_cadre_infos_on_country_id"
