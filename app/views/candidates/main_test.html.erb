@@ -8,14 +8,14 @@
 	<div class="main">
 		<h2 class="resultat-title">RÉSULTATS DE MES TESTS</h2>
 		<div class="resultat">
-			<p>Potential <span>1005</span></p>
+			<p>Potential <span><%= @cadre.score_potential %></span></p>
 		<!-- <p>Skills/Direction Marketing <span>60%</span></p> -->
-			<p>Fit <span>70%</span></p>
+			<p>Fit <span><%= @cadre.score_fit %>%</span></p>
 		</div>
 		<div class="certificat">
-			<p class="paragraphe"><img src="/image/importer_CV.png" class="image">Nom du fichier</p>
+			<p class="paragraphe"><img src="/image/importer_CV.png" class="image">Compte rendu</p>
 			<span class="button">
-				<button class="btn-download">Télécharger</button>
+				<%= link_to "TELECHARGER", @cadre.compte_rendu, class:"btn-download" %>
 			</span>
 		</div>
 
