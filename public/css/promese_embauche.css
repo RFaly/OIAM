@@ -67,6 +67,8 @@ body{
   margin-top: 16px;
   width: 100%;
   margin-left: -3px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 
@@ -76,6 +78,9 @@ body{
   grid-column-gap: 20%;
   text-align: center;
   justify-content: center;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #f0f2f4;
+  margin-bottom: 20px;
 }
 
 .job-i{
@@ -84,7 +89,7 @@ body{
 }
 
 .job-info-content{
-  width: 210px;
+  width: 250px;
 }
 
 .down{
@@ -136,12 +141,24 @@ body{
   justify-content: center;
   grid-column-gap: 20%;
   margin-bottom: 20px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #f0f2f4;
+  margin-bottom: 20px;
+}
+
+.pro-info{
+  padding-bottom: 30px;
+  border-bottom: 2px solid #f0f2f4;
+  margin-bottom: 20px;
 }
 
 .date-prise-label{
+  position: relative;
+  top: 15px;
   font-size: 16px;
   text-align: center;
-  width: 210px;
+  width: 250px;
+  height: 100%;
 }
 
 .promese-info-check{
@@ -150,23 +167,24 @@ body{
   justify-content: center;
   grid-column-gap: 20%;
   margin-top: 20px;
+
 }
 
 .transparent{
   text-align:center;
-  width: 210px;
+  width: 250px;
   color: transparent;
 }
 
 .mounth{
   font-size: 16px;
   width: 225px;
-  cursor: po
+  cursor: pointer;
 }
 
 .renum{
   font-size: 16px;
-  width: 210px;
+  width: 260px;
   text-align: center;
 }
 
@@ -188,7 +206,7 @@ body{
   margin: 0 auto;
   margin-top: 15px;
   background-color: #f0f2f4;
-  width: 500px;
+  width: 80%;
   height: auto;
   padding: 20px;
 }
@@ -270,6 +288,10 @@ input[type="radio"]{
   border-radius: 0;
 }
 
+.remove{
+  border: none;
+}
+
 
 input[type="radio"]:checked {
   background: no-repeat center url(/image/check.png);
@@ -279,4 +301,12 @@ input[type="radio"]:checked {
 
 .renum-perso{
   display: none;
+}
+
+.dis-me{
+  border: none;
+}
+
+.go-right{
+  margin-left: 10px;
 }
