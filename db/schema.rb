@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_17_111027) do
+ActiveRecord::Schema.define(version: 2020_09_18_094738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(version: 2020_09_17_111027) do
     t.string "job"
     t.bigint "admin_id"
     t.string "confirm_token"
+    t.string "compte_rendu"
+    t.text "avis"
     t.index ["admin_id"], name: "index_cadre_infos_on_admin_id"
     t.index ["cadre_id"], name: "index_cadre_infos_on_cadre_id"
     t.index ["country_id"], name: "index_cadre_infos_on_country_id"
@@ -110,25 +112,6 @@ ActiveRecord::Schema.define(version: 2020_09_17_111027) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "adresse"
-    t.string "postal_code"
-    t.string "city"
-    t.string "mail"
-    t.string "status"
-    t.string "situation"
-    t.string "telephone"
-    t.integer "potential_test"
-    t.integer "skils_test"
-    t.boolean "fit_test"
-    t.text "avis_recruteur"
-    t.text "question1"
-    t.text "question2"
-    t.text "question3"
-    t.text "question4"
-    t.text "question5"
     t.datetime "online_time"
     t.index ["email"], name: "index_cadres_on_email", unique: true
     t.index ["reset_password_token"], name: "index_cadres_on_reset_password_token", unique: true
@@ -294,6 +277,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_111027) do
     t.float "remuneration"
     t.float "remuneration_anne"
     t.boolean "contrat_cdi", default: false
+    t.boolean "is_publish", default: false
     t.string "type_deplacement"
     t.string "date_poste"
     t.text "question1"
