@@ -13,7 +13,10 @@
 			<p>Fit <span><%= @cadre.score_fit %>%</span></p>
 		</div>
 		<div class="certificat">
-			<p class="paragraphe"><img src="/image/importer_CV.png" class="image">Compte rendu</p>
+			<p class="paragraphe" style="top: 10px;">
+				<img src="/image/importer_CV.png" class="image">
+				<i id="compte" style="position: relative;top: -8px;">Compte rendu</i> 
+			</p>
 			<span class="button">
 				<%= link_to "TELECHARGER", @cadre.compte_rendu, class:"btn-download" %>
 			</span>
