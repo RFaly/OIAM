@@ -185,7 +185,7 @@ body{
 
   .seacrh-drop{
     display: inline;
-    width: 180px;
+    width: 250px;
   }
 
   .post_info_content{
@@ -224,9 +224,6 @@ body{
     top: 15px;
   }
 
-  .btn-recherche{
-    margin-top: 20px;
-  }
 
   .btn-voir{
     float: right;
@@ -252,15 +249,37 @@ body{
   right: 15px;
 }
 
+
+.seach-bar{
+  display: flex;
+  position: relative;
+  margin-bottom: 30px;
+  grid-column-gap: 2%;
+}
+
+.bar-long{
+  width: 430px;
+}
+
+.bar-long select{
+  width: 100%;
+}
+
+.bar-court{
+  width: 300px;
+}
+
+.btn-recherche{
+  position: absolute;
+  top: -10px;
+  right: 0;
+}
+
 }
 
 @media only screen and (min-width: 1024px){
   .post_info{
     clear: both;
-  }
-  .btn-recherche{
-    margin-top: 2px;
-    float: right;
   }
 
   .logo{

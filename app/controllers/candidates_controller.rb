@@ -18,6 +18,7 @@ class CandidatesController < ApplicationController
 
   def main_test
     validate_info_cadre
+    @cadre = current_cadre.cadre_info
   end
 
   def edit_profil

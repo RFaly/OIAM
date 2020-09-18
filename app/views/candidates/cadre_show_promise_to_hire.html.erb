@@ -47,17 +47,18 @@
 				<span class="date-prise-label">Date de prise de poste</span>
 				<div class="date-prise"><%= @promise.date_poste %></div>
 			</div>
-			<div class="promese-info">
+			<div class="promese-info dis-me">
 				<div class="date-prise-label">Rémunération fixe <br>(k€ bruts mensuels)</div>
 				<div class="date-prise"><%= @promise.remuneration_fixe %>€</div>
 			</div>
+			<div class="pro-info">
 			<div class="promese-info-check">
 				<div class="transparent">fandeany</div>
 				<div class="mounth">
 					<label for="promise_to_hire_remuneration_fixe_date" class="check-me" id="poste_12">
 						<img src="/image/check.png" width="25px" height="25px" style="display: none;">
 					</label>
-					<%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois'%>12 mois
+					<%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois', disabled: true%><span class="go-right">12 mois</span> 
 				</div>
 			</div>
 			<div class="promese-info-check">
@@ -66,43 +67,32 @@
 					<label for="promise_to_hire_remuneration_fixe_date" class="check-me" id="poste_13">
 						<img src="/image/check.png" width="25px" height="25px" style="display: none;">
 					</label>
-					<%= f.radio_button :remuneration_fixe_date, "13", id:'post_13', class:'js-post-mois'%>13 mois
+					<%= f.radio_button :remuneration_fixe_date, "13", id:'post_13', class:'js-post-mois', disabled: true%><span class="go-right">13 mois</span> 
 				</div>
 			</div>
 			<div class="promese-info-check">
 				<div class="transparent">fandeany</div>
-				<div class="checkbox">
-					<% if @promise.remuneration_fixe > 12 || @promise.remuneration_fixe < 13 %>
-						<div class="mounth">
-							<label for="promise_to_hire_remuneration_fixe_date" class="check-me">
-								<img src="/image/check.png" width="25px" height="25px" style="display: none;">
-							</label>
-							<span class="fandeany"><%= f.radio_button :remuneration_fixe_date, id:'perso-renum', class:'js-post-mois'%></span>Personalisé<br>
-						</div>
-						<div class="cadre-info-content">
-							<span class="renum-perso" id="fandeany"><%= f.text_field :remuneration_fixe%></span> 
-						</div>
-					<% else %>
-						<label for="promise_to_hire_remuneration_fixe_date" class="check-me">
-							<img src="/image/check.png" width="25px" height="25px" style="display: none;">
-						</label>
-						<input type="radio" name="" value="<% @promise.remuneration_fixe %>">Personalisé<br>
-					<% end %>
+				<div class="mounth">
+					<label for="promise_to_hire_remuneration_fixe_date" class="check-me" id="poste_13">
+						<img src="/image/check.png" width="25px" height="25px" style="display: none;">
+					</label>
+					<%if (@promise.remuneration_fixe_date == '13' || @promise.remuneration_fixe_date == '12') %><input type="radio" class="js-post-mois" disabled /> <span class="go-right">Personnalisé</span> <% else %><input type="radio" class="js-post-mois" checked disabled /> <span class="go-right"> <%= @promise.remuneration_fixe_date %></span> mois <%end %>	
 				</div>
+			</div>
 			</div>
 			<div class="promese-info bool">
 				<div class="renum">Rénumération variable <br>(k€ bruts annuels)</div>
 				<div class="mounth">
 					<% if @promise.remuneration_variable %>
-						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois" checked="">OUI  <%= @promise.remuneration_var_info %><br>
-						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois">NON
+						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois" checked=""> <span class="go-right">OUI</span><%= @promise.remuneration_var_info %><br>
+						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois"> <span class="go-right">NON</span>
 					<% else %>
-						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois">OUI <br>
-						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois" checked="">NON
+						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois" disabled> <span class="go-right">OUI</span><br>
+						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois" checked="" disabled> <span class="go-right">NON</span>
 					<% end %>
 				</div>
 			</div>
-			<div class="avantages">
+			<div class="avantages pro-info">
 				<div class="avantage-label">Avantages ou autre précision sur la rénumération</div>
 				<div class="avantage-input"><%= @promise.remuneration_avantage %></div>
 			</div>
@@ -111,11 +101,11 @@
 					<div class="date-prise-label">Date de validité</div>
 					<div class="date-valid"><%= @promise.date_de_validite %></div>
 				</div>
-				<div class="promese-info">
+				<div class="promese-info remove">
 					<div class="date-prise-label">Signature électronique entreprise</div>
 					<div class="date-valid0"><%= image_tag(@promise.signature_entreprise, alt: 'signature entreprise', class:'photo_ako', width:'225px', height:'76px')%></div>
 				</div>
-				<div class="promese-info">
+				<div class="promese-info remove">
 					<div class="date-prise-label">Signature électronique candidat</div>
 					<div class="date-valid0">
 						<% unless @promise.signature_candidat.nil? %>
@@ -144,34 +134,42 @@
 						<% end %>
 					</div>
 				</div>
-				<div class="promese-info">
-					<div class="date-prise-label">CIN ou Passeport</div>
+				<div class="promese-info remove">
+					<div class="date-prise-label" id="cin-label">CIN ou Passeport
+						<span id="file-cin-content"	><br>Votre fichier : <span id="cin-filename"></span></span>
+					</div>
 					<div class="fichier">
 						<% if @promise.cin_pass_port.nil? %>
-							<label class="file" for="promise_to_hire_cin_pass_port">IMPORTER</label>
-							<%= f.file_field :cin_pass_port, required:true, class:"input-import", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+							<label class="file cin-file" for="promise_to_hire_cin_pass_port">
+								IMPORTER <br>
+							</label>
+							<%= f.file_field :cin_pass_port, required:true, class:"input-import cin", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
 						<% else %>
 								<%= link_to "TELECHARGER", @promise.cin_pass_port %>
 						<% end %>
 					</div>
 				</div>
-				<div class="promese-info">
-					<div class="date-prise-label">Attestation de sécurité sociale</div>
+				<div class="promese-info remove">
+					<div class="date-prise-label">Attestation de sécurité sociale
+						<span id="file-atest-content"><br>Votre fichier : <span id="atest-filename"></span></span>
+					</div>
 					<div class="fichier">
 						<% if @promise.security_certificate.nil? %>
 							<label class="file" for="promise_to_hire_security_certificate">IMPORTER</label>
-							<%= f.file_field :security_certificate, required:true, class:"input-import", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+							<%= f.file_field :security_certificate, required:true, class:"input-import atest", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
 						<% else %>
 								<%= link_to "TELECHARGER", @promise.cin_pass_port %>
 						<% end %>
 					</div>
 				</div>
-				<div class="promese-info">
-					<div class="date-prise-label">RIB</div>
+				<div class="promese-info remove">
+					<div class="date-prise-label">RIB
+						<span id="file-rib-content"	><br>Votre fichier : <span id="rib-filename"></span>
+					</div>
 					<div class="fichier">
 						<% if @promise.cin_pass_port.nil? %>
 							<label class="file" placeholder="Importer CIN" for="promise_to_hire_rib">IMPORTER</label>
-							<%= f.file_field :rib, required:true, class:"input-import", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+							<%= f.file_field :rib, required:true, class:"input-import rib", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
 						<% else %>
 								<%= link_to "TELECHARGER", @promise.cin_pass_port %>
 						<% end %>
@@ -191,3 +189,29 @@
 </div>
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/candidate_promise_hire.js"></script>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	  $('#file-cin-content').hide()
+	    $('.cin').change(function(e) {
+	        var file = e.target.files[0].name;
+	        $('#cin-filename').text(file);
+	        $('#file-cin-content').show()
+	    });
+
+	   $('#file-atest-content').hide()
+	    $('.atest').change(function(e) {
+	        var file = e.target.files[0].name;
+	        $('#atest-filename').text(file);
+	        $('#file-atest-content').show()
+	    });
+
+	    $('#file-rib-content').hide()
+	    $('.rib').change(function(e) {
+	        var file = e.target.files[0].name;
+	        $('#rib-filename').text(file);
+	        $('#file-rib-content').show()
+	    });
+});
+</script>

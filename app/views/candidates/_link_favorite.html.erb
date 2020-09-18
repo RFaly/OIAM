@@ -1,9 +1,9 @@
 <% if is_add %>
 	<%= link_to removeToFavoriteJob_path(id:offre.id), method: :delete, remote: true do %>
-		<img src="/image/Vector-24.png" alt="logo oiam favorie" width="30px">
+		<img src="/image/Vector-24.png" alt="logo oiam favorie" width="30px" height="30px">
 	<% end %>
 <% else %>
 	<%= link_to addToFavoriteJob_path(id:offre.id), method: :post, remote: true do %>
-		<img src="/image/Vector-22.png" alt="logo oiam non favorie" width="30px" style="background-color: #b7bdc3ed;">
+		<img src="/image/Vector-22.png" alt="logo oiam non favorie" width="30px" height="30px">
 	<% end %>
 <% end %>
