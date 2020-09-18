@@ -61,6 +61,36 @@
   background-size: cover;
 }
 
+.felicitation {
+  text-align: center;
+  padding: 50px;
+  background: linear-gradient(#ffffff, #f4e8ca);
+}
+
+.felicitation-btn {
+  width: 255px;
+  margin: 50px auto;
+  padding: 10px 0;
+  border: 2px solid #d6b36a;
+}
+
+.felicitation-btn a {
+  padding: 10px 5px;
+  font: 500 18px Raleway, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #d6b36a;
+}
+
+.felicitation-btn:hover, .felicitation-btn:active {
+  background: #d6b36a;
+}
+
+.felicitation-btn:hover a, .felicitation-btn:active a {
+  text-decoration: none;
+  color: white;
+}
+
 @media screen and (min-width: 320px) {
   .bg-uniq {
     margin-top: -450px;
