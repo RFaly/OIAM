@@ -79,7 +79,13 @@
 <hr />
 <div class="pc-avantage">
   <div><%= f.label :remuneration_avantage, "Avantages ou autre précision sur la rénumération" %></div>
-  <div><%= f.text_area :remuneration_avantage, required:true, required:true %></div>
+  <div>
+    <textarea id="pc-advantage-form" required>
+<%if (@promise.remuneration_avantage)%><%=@promise.remuneration_avantage.gsub('[sp]', ' ').gsub('[nl]', '
+    ')%><%end%></textarea
+    >
+  </div>
+  <div><%= f.text_area :remuneration_avantage,required:true,id:"pc-advantage-form1", style:'display: none;' %></div>
 </div>
 <hr />
 <div class="pc-form pc-validite pc-flex"><%= f.label :date_de_validite, "Date de validité" %> <%= f.text_field :date_de_validite, required:true, required:true, value:@promise.date_de_validite,id:'datepicker2' %></div>
@@ -119,4 +125,12 @@
 <% end %>
 
 <!-- call js  -->
+<script>
+  $('#pc-advantage-form').on('input', function () {
+    let text = $(this).val();
+    text = text.replace(/ /g, '[sp]');
+    text = text.replace(/\n/g, '[nl]');
+    $('#pc-advantage-form1').val(text);
+  });
+</script>
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/promise.js"></script>

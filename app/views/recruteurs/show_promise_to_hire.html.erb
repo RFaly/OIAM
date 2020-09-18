@@ -24,8 +24,8 @@
           <div class="pch-right">
             <input type="text" value="<%= @cadre.last_name %>" readonly />
             <input type="text" value="<%= @cadre.first_name %>" readonly />
-            <input type="text" id="date" value="<%= @promise.birthday_cadre ? @promise.birthday_cadre : "Date de naissance" %>" readonly/> <input type="text" value="<%= @promise.birthplace_cadre ? @promise.birthplace_cadre : "Lieu de naissance" %>" readonly/> <input type="text" value="<%= @promise.ns_sociale_cadre ? @promise.ns_sociale_cadre : "N°
-            sécurité sociale" %>" readonly/>
+            <input type="text" id="date" value="<%= @promise.birthday_cadre ? @promise.birthday_cadre : "Date de naissance" %>" readonly/> <input type="text" value="<%= @promise.birthplace_cadre ? @promise.birthplace_cadre : "Lieu de naissance" %>" readonly/> <input type="text" value="<%= @promise.ns_sociale_cadre ? @promise.ns_sociale_cadre :
+            "N°sécurité sociale" %>" readonly/>
           </div>
         </div>
         <hr />
@@ -87,7 +87,7 @@
         <hr />
         <div class="pc-avantage">
           <div><%= f.label :remuneration_avantage, "Avantages ou autre précision sur la rénumération" %></div>
-          <div><%= f.text_area :remuneration_avantage, readonly:true%></div>
+          <div class="textarea"><%if (@promise.remuneration_avantage)%><%=@promise.remuneration_avantage.gsub('[sp]', ' ').gsub('[nl]', ' ')%><%end%></div>
         </div>
         <hr />
         <div class="pc-form pc-validite pc-flex"><%= f.label :date_de_validite, "Date de validité" %> <%= f.text_field :date_de_validite, readonly:true, value:@promise.date_de_validite,id:'datepicker2' %></div>

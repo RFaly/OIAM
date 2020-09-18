@@ -108,25 +108,11 @@
       text-align: center;
       margin: 10px auto;
       width: 80%;
-      textarea {
-        width: 100%;
-        padding: 8px;
-        text-align: center;
-        border: none;
-        outline: none;
-        border-radius: 0;
+      .textarea {
+        text-align: left;
         background: $secondary_element_color;
-        &:read-only {
-          &:focus {
-            box-shadow: none;
-            outline: none;
-          }
-        }
-        &:focus {
-          border: none;
-          box-shadow: rgb(227, 215, 191) 0px 1px 5px 1px;
-          outline: 2px solid $main_theme_color;
-        }
+        width: 100%;
+        padding: 10px;
       }
     }
     .p-sign {

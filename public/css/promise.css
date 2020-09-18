@@ -209,25 +209,11 @@
   width: 80%;
 }
 
-.promise .promise-content .pc-avantage textarea {
-  width: 100%;
-  padding: 8px;
-  text-align: center;
-  border: none;
-  outline: none;
-  border-radius: 0;
+.promise .promise-content .pc-avantage .textarea {
+  text-align: left;
   background: #f0f2f4;
-}
-
-.promise .promise-content .pc-avantage textarea:read-only:focus {
-  box-shadow: none;
-  outline: none;
-}
-
-.promise .promise-content .pc-avantage textarea:focus {
-  border: none;
-  box-shadow: #e3d7bf 0px 1px 5px 1px;
-  outline: 2px solid #d6b36a;
+  width: 100%;
+  padding: 10px;
 }
 
 .promise .promise-content .p-sign .signature {

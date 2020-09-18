@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 2020_09_18_094738) do
     t.string "situation"
     t.string "telephone"
     t.boolean "empty", default: true
-    t.text "avis_recruteur"
     t.text "question1"
     t.text "question2"
     t.text "question3"
