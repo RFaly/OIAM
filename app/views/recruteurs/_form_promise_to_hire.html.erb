@@ -24,7 +24,10 @@
 <div class="pc-form pc-form2 pc-flex">
   <label>Rémunération fixe <br />(k€ bruts mensuels)</label>
   <div class="right">
-    <div><% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <% if valeur%> <%= f.text_field :remuneration_fixe, required:true, value: (((@job.remuneration.to_f)*100)/12).round(2), required:true %> <%else%> <%= f.text_field :remuneration_fixe, required:true, value: payFix, required:true %> <%end%></div>
+    <div>
+      <% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <% if valeur%> <%= f.text_field :remuneration_fixe, required:true, value: ((@job.remuneration.to_f)/12).round(2), required:true,id:'renumeration-fixe' %> <%else%> <%= f.text_field :remuneration_fixe, required:true, value: payFix,
+      required:true,id:'renumeration-fixe'%> <%end%>
+    </div>
     <div>
       <label id="conditioncheck">
         12 mois <%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois', required:true %>
@@ -71,7 +74,7 @@
 <hr />
 <div class="pc-calcul">
   Précalcul honoraires OIAM<br />
-  <%= (@job.remuneration * 1000 * 15)/100 %> €
+  <div id="pc-calcul"></div>
 </div>
 <hr />
 <div class="pc-avantage">
@@ -114,3 +117,6 @@
   <% end %>
 </div>
 <% end %>
+
+<!-- call js  -->
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/promise.js"></script>
