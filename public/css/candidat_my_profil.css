@@ -257,10 +257,14 @@ body{
     padding-left: 20px;
   }
 
+  .left_link{
+    margin-top: 20px;
+    border-right: 1px solid #D6B36A;
+  }
+
   .main{
 		margin-top: 28px;
     margin-left: 0;
-		border-left: 1px solid #D6B36A;
   }
 
 
@@ -371,6 +375,7 @@ body{
     width: 500px;
     height: 400px;
     padding: 50px;
+    transition: all 500ms ease-in-out;
   }
 
   #js-show-in-validate-profil h4{

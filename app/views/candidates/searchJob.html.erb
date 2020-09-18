@@ -8,69 +8,73 @@
 	</div>
 	<div class="main">
 		<div class="seach-bar">
-			<select name="dropdown" id="" class="seacrh-drop">
-				<option value="Localisation" disabled selected>Localisation</option>
-			    <option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
-			    <option value="Bourgogne-Franche-Comté">Bourgogne-Franche-Comté</option>
-			    <option value="Bretagne">Bretagne</option>
-			    <option value="Centre-Val de Loire">Centre-Val de Loire</option>
-			    <option value="Corse">Corse</option>
-			    <option value="Grand Est">Grand Est</option>
-			    <option value="Hauts-de-France">Hauts-de-France</option>
-			    <option value="Île-de-France">Île-de-France</option>
-			    <option value="Normandie">Normandie</option>
-			    <option value="Nouvelle-Aquitaine">Nouvelle-Aquitaine</option>
-			    <option value="Occitanie">Occitanie</option>
-			    <option value="Pays de la Loire">Pays de la Loire</option>
-				<option value="Provence-Alpes-Côte d'Azur">Provence-Alpes-Côte d'Azur</option>
-				<option value="France entière">France entière</option>
-			</select>
-			<select name="dropdown" id="" class="seacrh-drop">
-				<option value="" disabled selected>Fonction</option>
-				<% @metiers.each do |metier| %>
-                  <option value="<%= metier.id %>"><%= metier.name %></option>
-                <% end %>
-			</select>
-			<select name="dropdown" id="" class="seacrh-drop">
-				<option value="" disabled selected>Rémunération</option>
-                <option value="60 k€">60 k€</option>
-                <option value="70 k€">70 k€</option>
-                <option value="80 k€">80 k€</option>
-                <option value="90 k€">90 k€</option>
-                <option value="100 k€">100 k€</option>
-                <option value="110 k€">110 k€</option>
-                <option value="120 k€">120 k€</option>
-                <option value="130 k€">130 k€</option>
-                <option value="140 k€">140 k€</option>
-                <option value="150 k€">150 k€</option>
-                <option value="160 k€">160 k€</option>
-                <option value="170 k€">170 k€</option>
-                <option value="180 k€">180 k€</option>
-                <option value="190 k€">190 k€</option>
-                <option value="200 k€">200 k€</option>
-                <option value="210 k€">210 k€</option>
-                <option value="220 k€">220 k€</option>
-                <option value="230 k€">230 k€</option>
-                <option value="240 k€">240 k€</option>
-                <option value="250 k€">250 k€</option>
-                <option value="260 k€">260 k€</option>
-                <option value="270 k€">270 k€</option>
-                <option value="280 k€">280 k€</option>
-                <option value="290 k€">290 k€</option>
-                <option value="300 k€">300 k€</option>
-                <option value="310 k€">310 k€</option>
-                <option value="320 k€">320 k€</option>
-                <option value="330 k€">330 k€</option>
-                <option value="340 k€">340 k€</option>
-                <option value="350 k€">350 k€</option>
-			</select>
-			<select name="dropdown" id="" class="seacrh-drop">
-				<option value="" disabled selected>Déplacement</option>
-				<option value="">Régional</option>
-				<option value="">National</option>
-				<option value="">International</option>
-				<option value="">Pas de déplacement</option>
-			</select>
+			<div class="bar-long">	
+				<select name="dropdown" id="" class="seacrh-drop">
+					<option value="Localisation" disabled selected>Localisation</option>
+				    <option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
+				    <option value="Bourgogne-Franche-Comté">Bourgogne-Franche-Comté</option>
+				    <option value="Bretagne">Bretagne</option>
+				    <option value="Centre-Val de Loire">Centre-Val de Loire</option>
+				    <option value="Corse">Corse</option>
+				    <option value="Grand Est">Grand Est</option>
+				    <option value="Hauts-de-France">Hauts-de-France</option>
+				    <option value="Île-de-France">Île-de-France</option>
+				    <option value="Normandie">Normandie</option>
+				    <option value="Nouvelle-Aquitaine">Nouvelle-Aquitaine</option>
+				    <option value="Occitanie">Occitanie</option>
+				    <option value="Pays de la Loire">Pays de la Loire</option>
+					<option value="Provence-Alpes-Côte d'Azur">Provence-Alpes-Côte d'Azur</option>
+					<option value="France entière">France entière</option>
+				</select>
+				<select name="dropdown" id="" class="seacrh-drop">
+					<option value="" disabled selected>Rémunération</option>
+		            <option value="60 k€">60 k€</option>
+		            <option value="70 k€">70 k€</option>
+		            <option value="80 k€">80 k€</option>
+		            <option value="90 k€">90 k€</option>
+		            <option value="100 k€">100 k€</option>
+		            <option value="110 k€">110 k€</option>
+		            <option value="120 k€">120 k€</option>
+		            <option value="130 k€">130 k€</option>
+		            <option value="140 k€">140 k€</option>
+		            <option value="150 k€">150 k€</option>
+		            <option value="160 k€">160 k€</option>
+		            <option value="170 k€">170 k€</option>
+		            <option value="180 k€">180 k€</option>
+		            <option value="190 k€">190 k€</option>
+		            <option value="200 k€">200 k€</option>
+		            <option value="210 k€">210 k€</option>
+		            <option value="220 k€">220 k€</option>
+		            <option value="230 k€">230 k€</option>
+		            <option value="240 k€">240 k€</option>
+		            <option value="250 k€">250 k€</option>
+		            <option value="260 k€">260 k€</option>
+		            <option value="270 k€">270 k€</option>
+		            <option value="280 k€">280 k€</option>
+		            <option value="290 k€">290 k€</option>
+		            <option value="300 k€">300 k€</option>
+		            <option value="310 k€">310 k€</option>
+		            <option value="320 k€">320 k€</option>
+		            <option value="330 k€">330 k€</option>
+		            <option value="340 k€">340 k€</option>
+		            <option value="350 k€">350 k€</option>
+				</select>
+			</div>
+			<div class="bar-court">
+				<select name="dropdown" id="" class="seacrh-drop">
+					<option value="" disabled selected>Fonction</option>
+					<% @metiers.each do |metier| %>
+		              <option value="<%= metier.id %>"><%= metier.name %></option>
+		            <% end %>
+				</select>
+				<select name="dropdown" id="" class="seacrh-drop">
+					<option value="" disabled selected>Déplacement</option>
+					<option value="">Régional</option>
+					<option value="">National</option>
+					<option value="">International</option>
+					<option value="">Pas de déplacement</option>
+				</select>
+			</div>
 			<button class="btn-recherche">RECHERCHER</button>
 		</div>
 		<div class="post_info">
