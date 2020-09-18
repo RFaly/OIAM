@@ -54,9 +54,27 @@
               <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
             </p>
           <% else %>
-            En attente de la proposition du date de l'entretien par le cadre.
+            <p>
+              En attente de la proposition du date de l'entretien par le cadre.
+            </p>
           <% end %>
-          
+
+          <div class="btn btn-success">
+            <% unless @cadre.admin.nil? %>
+              <% if @cadre.admin == current_admin %>
+                <%= link_to rmv_favorite_cadre_path(id:@cadre.id), method: :delete, "data-confirm":"Êtes-vous sure de retirer cet(te) cadre de votre liste de candidat à suivre ?" do %>
+                  RETIRER LE CADRE DE VOTRE LISTE DE CANDIDAT À SUIVRE.
+                <% end %>
+              <% else %>
+                DÉJÀ SUIVI PAR <%= @cadre.admin.last_name %> <%= @cadre.admin.first_name %>
+              <% end %>
+            <% else %>
+              <%= link_to add_favorite_cadre_path(id:@cadre.id), method: :post do %>
+                SUIVRE CET(TE) CANDIDAT(E)
+              <% end %>
+            <% end %>
+          </div>
+
          </div>
 
         </div>

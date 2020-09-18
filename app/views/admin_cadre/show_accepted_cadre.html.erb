@@ -15,11 +15,12 @@
       <div class="fc-item" style="display: flex; margin-top: 40px;">
         <div class="fc-item-all" style="margin-top: 40px;">
 
+
 <!-- CANDIDATS  -->
 
           <div class="list-candidat">
             <div class="fci-image">
-					    <img src="/image/cand.jpg" alt="photo profil candidats">
+					    <img src="/image/profie.png" alt="default photo">
             </div>
             <div class="fci-icon">
               <% unless @cadre.admin.nil? %>
@@ -49,17 +50,64 @@
          <div class="mess_candidat">
 
           <% unless @cadre.agenda_admin.nil? %>
+
             <p>
               <strong>Entretien fit avec ce cadre le : </strong>
               <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
             </p>
-            <textarea class="mess_input" name="message"></textarea>
-            <a href="#" class="env-btn">Envoyer</a>
+
+            <% if @cadre.is_recrute.nil? %>
+              <div style="margin-left: 200px; margin-top: 150px;">
+                <center>
+                <span style='font-size: 30px;' id="accepted-js" class="btn btn-primary btn-to-hidden-js">CANDIDATURE ACCEPTER</span><br><br>
+                <span style='font-size: 30px;' id="refused-js" class="btn btn-primary btn-to-hidden-js">CANDIDATURE REFFUSER</span>
+                </center>
+              </div>
+
+              <div id="show_if_accepted_js" style="display: none;">
+                <%= form_for Cadre.new , url: candidate_to_cadre_path do |f| %>
+                  <input type="hidden" name="cadre_id" value="<%=@cadre.id%>" >
+                  <input type="hidden" name="is_recrute" value="1" id="accept-js-wa">
+
+                  <label for="avi_id_js">Avis de One in a million</label>
+                  <div class="form-group">
+                    <textarea id="avi_id_js" required="required" rows="3" class="form-control" name="avis" placeholder="avis visible par le client ..."></textarea>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label>Scors Fit</label>
+                      <input type="number" name="score_fit">
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <%= f.label :compte_rendu, "Importer le compte rendu", class:"cv-label"%>
+                        <%= f.file_field :compte_rendu, class:"form-control", accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <%= f.submit 'ENVOYER', :class => 'apercu' %>
+                  </div>  
+                <% end %>
+              </div>
+            <% else %>
+              <% if @cadre.is_recrute == true %>
+                <h2>CANDIDATURE ACCEPTER</h2>
+                <span class="btn btn-secondary">NOTIFIER PAR EMAIL</span>
+                <span id="generate-js" class="btn btn-secondary">Générer un lien</span>
+                <center id="show-link-js" style="display: none;">
+                  Lien unique pour l'inscription du candidat: <br>
+                  <strong><%= new_cadre_registration_path(comfirm:@cadre.confirm_token) %></strong>
+                </center>
+              <% else %>
+                <h2>CANDIDATURE REFFUSER</h2>
+                <span class="btn btn-secondary">NOTIFIER PAR EMAIL</span>
+              <% end %>
+            <% end %>
           <% else %>
             En attente de la proposition du date de l'entretien par le cadre.
           <% end %>
-
-          <%= @cadre.confirm_token %>
 
          </div>
 
@@ -87,4 +135,20 @@
 
     $(this).html(dateString + ' à ' + heur + 'h:'+min);
   });
+
+  $("#accepted-js").click(function(){
+    $("#show_if_accepted_js").show(500);
+    $(".btn-to-hidden-js").hide(500);
+  });
+
+  $("#refused-js").click(function(){
+    $("#show_if_accepted_js").show(500);
+    $(".btn-to-hidden-js").hide(500);
+    $("#accept-js-wa").remove()
+  });
+
+  $("#generate-js").click(function(){
+    $("#show-link-js").show(300);
+  });
+
 </script>

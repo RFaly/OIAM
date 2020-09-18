@@ -17,45 +17,48 @@
 
 <!--  CANDIDATS  -->
 
-        <% if @cadres.empty? %>
-          <a href="<%= admin_dashboard_candidate_path %>" class="btn-choose">
-            SÉLECTIONNER DES CANDIDATS À SUIVRE
-          </a>
-        <% else %>
+        <% unless @cadres.empty? %>
           <% @cadres.each do |cadre| %>
             <div class="list-candidat">
               <div class="fci-image">
-                  <img src="/image/cand3.jpg" alt="photo profil candidats">
-              </div>
-              <div class="fci-icon">
-                <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
+                  <img src="/image/profie.png" alt="default photo">
               </div>
               <div class="fci-infos">
                 <p class="name"><%= cadre.last_name %> <%= cadre.first_name %></p>
                 <p class="poste">Poste : <%= cadre.job %></p>
                 <p class="score">Score OIAM : <span><%= cadre.score_potential %></span></p>
+
                 <div class="ico-cand">
                   <a href="<%= post_avis_candidats_fit_path(cadre.id) %>" class="ico ico1">GERER</a>
                 </div>
 
-                <div style="padding-top: 5px;">
-                  <p>
-                    <i class="fas fa-edit fa-lg"></i>Entretien fit le:
-                    <span data-times="<%= cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
-                  </p>
-
-                <div style="padding-top: 15px">
-                  
-
+                <div>
+                  <% unless cadre.agenda_admin.nil? %>
+                    <p>
+                      <i class="fas fa-edit fa-lg"></i>Entretien fit le:
+                      <span data-times="<%= cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+                    </p>
+                  <% else %>
+                    <p>
+                      <i class="fas fa-edit fa-lg"></i>Entretien fit en attente.
+                    </p>
+                  <% end %>
                 </div>
               </div>
             </div>
           <% end %>
         <% end %>
 
+        <div style="margin-top: 30px;">
+          <a href="<%= admin_dashboard_candidate_path %>" class="btn-choose">
+            SÉLECTIONNER DES CANDIDATS À SUIVRE
+          </a>
         </div>
+
       </div>
+
     </div>
+
   	</div>
   </div>
 </div>

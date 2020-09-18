@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_17_111027) do
+ActiveRecord::Schema.define(version: 2020_09_18_094738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(version: 2020_09_17_111027) do
     t.string "job"
     t.bigint "admin_id"
     t.string "confirm_token"
+    t.string "compte_rendu"
+    t.text "avis"
     t.index ["admin_id"], name: "index_cadre_infos_on_admin_id"
     t.index ["cadre_id"], name: "index_cadre_infos_on_cadre_id"
     t.index ["country_id"], name: "index_cadre_infos_on_country_id"

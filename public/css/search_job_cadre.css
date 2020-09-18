@@ -254,14 +254,15 @@ body{
   display: flex;
   position: relative;
   margin-bottom: 30px;
+  grid-column-gap: 2%;
 }
 
 .bar-long{
-  width: 385px;
+  width: 430px;
 }
 
 .bar-long select{
-  width: 350px;
+  width: 100%;
 }
 
 .bar-court{

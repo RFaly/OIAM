@@ -19,7 +19,7 @@
             <div class="score">
               <p class="name"><%= @cadre.first_name %> <%= @cadre.last_name[0].upcase %>.</p>
               <p>
-                Score de test : <span>1700</span><br />
+                Score de test : <span><%= @cadre.score_potential %></span><br />
                 Compatibilité : <span>60%</span>
               </p>
             </div>
@@ -97,10 +97,7 @@
         </div>
         <div class="ssc-oiam">
           <h5>L'avis de One in a million</h5>
-          <p><%= @cadre.avis_recruteur %></p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque officia nesciunt ipsum officiis hic, adipisci nam commodi porro quod alias fugit saepe blanditiis facere reiciendis placeat cumque repellat deserunt. Omnis est aliquam assumenda, consectetur eum eaque quis libero dolorum,
-          quia voluptas veritatis commodi nesciunt, a magnam? Eveniet excepturi possimus aut nulla mollitia maiores laudantium sunt maxime. Saepe nulla, deleniti laborum modi, exercitationem dolores reiciendis aut aperiam repudiandae fugit est adipisci illo voluptatem. Dicta impedit obcaecati cum
-          rem modi placeat in ea accusamus totam. Autem iure maxime consequatur nostrum unde quasi.
+          <p><%= @cadre.avis %></p>
         </div>
       </div>
 
