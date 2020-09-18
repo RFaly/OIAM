@@ -20,7 +20,11 @@
               <% @cadres.each do |cadre| %>
                 <div class="list-candidat">
                   <div class="fci-image">
-      					    <img src="/image/cand.jpg" alt="photo profil candidats">
+                    <% unless cadre.image.nil? %>
+                      <%= image_tag(cadre.image, alt: 'photo de profil', width:"150px", class:"pdp" )%>
+                    <% else %>
+      					     <img src="/image/profie.png" alt="photo profil candidats">
+                    <% end %>
                   </div>
                   <div class="fci-icon">
                     <%= link_to add_favorite_cadre_path(id:cadre.id), method: :post, "data-confirm":"Êtes-vous sure de suivre cet(te) candidat(e)?"  do %>
