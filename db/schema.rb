@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_18_094738) do
+ActiveRecord::Schema.define(version: 2020_09_18_125310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_09_18_094738) do
     t.bigint "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "accepted"
     t.index ["admin_id"], name: "index_agenda_admins_on_admin_id"
     t.index ["cadre_info_id"], name: "index_agenda_admins_on_cadre_info_id"
   end
@@ -68,7 +69,6 @@ ActiveRecord::Schema.define(version: 2020_09_18_094738) do
     t.string "situation"
     t.string "telephone"
     t.boolean "empty", default: true
-    t.text "avis_recruteur"
     t.text "question1"
     t.text "question2"
     t.text "question3"

@@ -15,6 +15,12 @@ class AdminCadreController < ApplicationAdminController
     @cadre = CadreInfo.find_by(id:params[:id])
   end
 
+  def accepted_or_reffused
+    @cadre = CadreInfo.find_by(id:params[:id])
+    @cadre.agenda_admin.update(accepted:true)
+    redirect_to post_avis_candidats_fit_path(@cadre.id)
+  end
+
   def candidate_to_cadre
     errorMessage = ""
     fileCv = FileUploader.new
