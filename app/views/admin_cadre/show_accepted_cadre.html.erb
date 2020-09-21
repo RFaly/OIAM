@@ -1,6 +1,26 @@
 <link rel="stylesheet" href="/css/client_profil.css" />
 <link rel="stylesheet" href="/css/send_mess_cand.css" />
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
+<style>
+  .btn-fit {
+    color: #fff;
+    background: #d6b36a;
+    cursor: pointer;
+    padding: 15px 30px;
+    border: 1px solid #d6b36a;
+    text-decoration: none;
+  }
+
+  .btn-fit:hover {
+    color: #d6b36a;
+    background: #fff;
+  }
+
+  .desc-suiv {
+    margin-left: 200px;
+  }
+
+</style>
 <div class="client-column">
   <div class="client-menu-left">
     <%= render partial: "admin_cadre/left_menu_link" %>
@@ -50,18 +70,17 @@
          <div class="mess_candidat">
 
           <% unless @cadre.agenda_admin.nil? %>
-
+            <div class="desc-suiv">
             <p>
               <strong>Entretien fit avec ce cadre le : </strong>
               <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
             </p>
+            </div>
 
             <% if @cadre.is_recrute.nil? %>
               <div style="margin-left: 200px; margin-top: 150px;">
-                <center>
-                <span style='font-size: 30px;' id="accepted-js" class="btn btn-primary btn-to-hidden-js">CANDIDATURE ACCEPTER</span><br><br>
-                <span style='font-size: 30px;' id="refused-js" class="btn btn-primary btn-to-hidden-js">CANDIDATURE REFFUSER</span>
-                </center>
+                <span style='font-size: 20px;' id="accepted-js" class="btn-fit btn-acc btn-to-hidden-js">CANDIDATURE ACCEPTÉE</span><br><br><br>
+                <span style='font-size: 20px;' id="refused-js" class="btn-fit btn-ref btn-to-hidden-js">CANDIDATURE REFFUSÉE</span>
               </div>
 
               <div id="show_if_accepted_js" style="display: none;">
