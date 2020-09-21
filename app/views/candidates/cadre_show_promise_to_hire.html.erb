@@ -84,10 +84,8 @@
 				<div class="renum">Rénumération variable <br>(k€ bruts annuels)</div>
 				<div class="mounth">
 					<% if @promise.remuneration_variable %>
-						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois" checked=""> <span class="go-right">OUI</span><%= @promise.remuneration_var_info %><br>
-						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois"> <span class="go-right">NON</span>
+						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois" checked=""> <span class="go-right">OUI </span><%= @promise.remuneration_var_info %><br>
 					<% else %>
-						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois" disabled> <span class="go-right">OUI</span><br>
 						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois" checked="" disabled> <span class="go-right">NON</span>
 					<% end %>
 				</div>
