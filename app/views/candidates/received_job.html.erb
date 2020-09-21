@@ -26,7 +26,8 @@
 						<div class="job_info">
 								<h2 class="job_info_title"> <a href="<%=showSearchJob_path(aClient[:offre_id])%>"></a> <%= aClient[:intitule_pote] %></h2>
 								<img src="/image/gg_time.png" alt="logo oiam favorie" width="25px" height="25px" class="indic"><span class="dateShowGo" data-times="<%= aClient[:agenda_client].entretien_date.strftime("%Y-%m-%d %H:%M") %>"></span>
-								<p><img src="/image/map.png" alt="logo oiam favorie" width="22px" height="25px" class="indic"><%= aClient[:agenda_client].adresse %> <br>
+
+								<p><img src="/image/map.png" alt="logo oiam favorie" width="22px" height="25px" class="indic"><%= aClient[:agenda_client].adresse %><br>
 									<% if aClient[:agenda_client].is_update %>
 										Le recruteur à modifier la date de votre entretien.
 									<% end %>
