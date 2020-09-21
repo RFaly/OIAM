@@ -1,0 +1,144 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+  }
+
+  body{
+    font-family: 'Questrial', sans-serif;
+    margin: 0;
+  }
+
+.all-content{
+	margin-top: 20px;	
+}
+
+
+
+  	.btn-recevoir{
+		border: 1px solid #d6b36a;
+		width: 200px;
+		height: 50px;
+		background: transparent;
+		padding: 12px;
+		color: #d6b36a;
+		border-radius: 0;
+		text-transform: uppercase;
+	}
+
+	.btn-recevoir:hover{
+		border: none;
+		background-color: #d6b36a;
+		color: #fff;	
+		border: none;
+	}
+
+	#modal-unique{
+		position: fixed;
+		top: 5px;
+		bottom: 5px;
+		right: 10px;
+		left: 10px;
+		background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 48.44%), linear-gradient(180deg, #F4E8CA 99.99%, #D8BD86 100%);
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+		text-align: center;
+		padding: 50px;
+		z-index: 1;
+	}
+
+	.felicitation-title{
+		font-size: 30px;
+		text-transform: uppercase;
+		margin-top: 1%;
+		margin-bottom: 5%;
+	}
+
+	.felicitation-content{
+		display: block;
+		margin: 0 auto;
+		width: 64%;
+		margin-bottom: 100px;
+		line-height: 20px;
+	}
+
+	.bold{
+		font-weight: bold;
+	}
+
+	
+	.diamond{
+		position: fixed;
+		top: -1vh;
+		transform: translateY(0);
+		color: transparent;
+		animation: pluie 3s linear forwards;
+		z-index: -1;
+	}
+
+	.diamond img{
+		opacity: .8;
+		min-width: 20px;
+		width: 100%;
+		height: auto;
+	}
+
+	@keyframes pluie{
+		to{
+			transform: translateY(105vh);
+		}
+	}

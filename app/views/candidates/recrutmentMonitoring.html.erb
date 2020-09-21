@@ -10,9 +10,9 @@
 		<% if @oFcs.empty? %>
 		<div class="recrutement-content">
 			<div class="recrutement">
-				<center><h4>Vous n'avez aucune récrutement en cours pour l'instant.</h4></center>
+				<center><h4>Vous n'avez aucun recrutement en cours pour l'instant.</h4></center>
 				<div class="offre-perso">
-					<%= link_to "TROUVER UNE OFFRES", searchJob_path, class:"btn-edit" %>
+					<%= link_to "TROUVER UNE OFFRE", searchJob_path, class:"btn-edit" %>
 				</div>
 			</div>
 		</div>
@@ -49,12 +49,13 @@
 									</div>
 
 							<% end %>
-						<% elsif oFc.etapes == 2%>
+						<% elsif oFc.etapes == 2 %>
 
-								<div class="etape2"></div>
-
+								<div class="etape3"></div>
 						<% else %>
-							<% if (oFc.etapes == oFc.offre_job.numberEntretien + 1)%>
+							<% if oFc.etapes == 2 && oFc.etapes == oFc.offre_job.numberEntretien + 1 %>
+								<div class="etape3"></div>
+							<% elsif (oFc.etapes == oFc.offre_job.numberEntretien + 1)%>
 
 								<div class="etape3"></div>
 

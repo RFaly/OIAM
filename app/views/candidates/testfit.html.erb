@@ -106,15 +106,15 @@
 	var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
 
 
-	$("#hide-js").hide();
-	$("#para-hide").hide();
-	$("#potential-title-show").hide();
+	$("#hide-js").hide(300);
+	$("#para-hide").hide(300);
+	$("#potential-title-show").hide(300);
 
 	$("p").css("text-align", "center")
 
 	$("#show-selected-date").click(function () {
-		$("#hide-js").show();
-		$(".content").hide();
+		$("#hide-js").show(300);
+		$(".content").hide(300);
 	});
 
 	$('.js-hours').click(function(){
@@ -150,25 +150,25 @@
 	});
 
 	$("#send-data-form").bind('ajax:beforeSend', function(){
-		$("#hide-js").hide();
+		$("#hide-js").hide(300);
 	});
 
 	$("#send-data-form").bind('ajax:complete', function(){
-		$('#validate-date-time').show();
-		$("#show-selected-date").hide();
+		$('#validate-date-time').show(300);
+		$("#show-selected-date").hide(300);
 	});
 
 	$(".btn-valider").click(function(){
-		$(".show-selected-date").hide();
-		$(".content").hide();
+		$(".show-selected-date").hide(300);
+		$(".content").hide(300);
 	})
 
 
 	$("#btn-menu").click(function(){
-		$("#para-show").hide();
-		$("#para-hide").show();
+		$("#para-show").hide(300);
+		$("#para-hide").show(300);
 		$(".show-default-value-date").hide();
-		$("#potential-title-hide").hide();
-		$("#potential-title-show").show();
+		$("#potential-title-hide").hide(300);
+		$("#potential-title-show").show(300);
 	})
 </script>

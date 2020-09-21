@@ -135,33 +135,41 @@
 					</div>
 				</div>
 				<div class="promese-info remove">
-					<div class="date-prise-label">CIN ou Passeport</div>
+					<div class="date-prise-label" id="cin-label">CIN ou Passeport
+						<span id="file-cin-content"	><br>Votre fichier : <span id="cin-filename"></span></span>
+					</div>
 					<div class="fichier">
 						<% if @promise.cin_pass_port.nil? %>
-							<label class="file" for="promise_to_hire_cin_pass_port">IMPORTER</label>
-							<%= f.file_field :cin_pass_port, required:true, class:"input-import", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+							<label class="file cin-file" for="promise_to_hire_cin_pass_port">
+								IMPORTER <br>
+							</label>
+							<%= f.file_field :cin_pass_port, required:true, class:"input-import cin", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
 						<% else %>
 								<%= link_to "TELECHARGER", @promise.cin_pass_port %>
 						<% end %>
 					</div>
 				</div>
 				<div class="promese-info remove">
-					<div class="date-prise-label">Attestation de sécurité sociale</div>
+					<div class="date-prise-label">Attestation de sécurité sociale
+						<span id="file-atest-content"><br>Votre fichier : <span id="atest-filename"></span></span>
+					</div>
 					<div class="fichier">
 						<% if @promise.security_certificate.nil? %>
 							<label class="file" for="promise_to_hire_security_certificate">IMPORTER</label>
-							<%= f.file_field :security_certificate, required:true, class:"input-import", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+							<%= f.file_field :security_certificate, required:true, class:"input-import atest", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
 						<% else %>
 								<%= link_to "TELECHARGER", @promise.cin_pass_port %>
 						<% end %>
 					</div>
 				</div>
 				<div class="promese-info remove">
-					<div class="date-prise-label">RIB</div>
+					<div class="date-prise-label">RIB
+						<span id="file-rib-content"	><br>Votre fichier : <span id="rib-filename"></span>
+					</div>
 					<div class="fichier">
 						<% if @promise.cin_pass_port.nil? %>
 							<label class="file" placeholder="Importer CIN" for="promise_to_hire_rib">IMPORTER</label>
-							<%= f.file_field :rib, required:true, class:"input-import", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+							<%= f.file_field :rib, required:true, class:"input-import rib", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
 						<% else %>
 								<%= link_to "TELECHARGER", @promise.cin_pass_port %>
 						<% end %>
@@ -181,3 +189,29 @@
 </div>
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/candidate_promise_hire.js"></script>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	  $('#file-cin-content').hide()
+	    $('.cin').change(function(e) {
+	        var file = e.target.files[0].name;
+	        $('#cin-filename').text(file);
+	        $('#file-cin-content').show()
+	    });
+
+	   $('#file-atest-content').hide()
+	    $('.atest').change(function(e) {
+	        var file = e.target.files[0].name;
+	        $('#atest-filename').text(file);
+	        $('#file-atest-content').show()
+	    });
+
+	    $('#file-rib-content').hide()
+	    $('.rib').change(function(e) {
+	        var file = e.target.files[0].name;
+	        $('#rib-filename').text(file);
+	        $('#file-rib-content').show()
+	    });
+});
+</script>

@@ -117,3 +117,7 @@
   transition: all 500ms ease-in-out;
   transform: rotate(-45deg) translate(12px, -5px);
 }
+
+.pdp{
+  object-fit: cover;
+}
