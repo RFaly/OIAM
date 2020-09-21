@@ -42,7 +42,6 @@
   .fc-body {
     h2 {
       text-align: left;
-
       a {
         color: $main_theme_color;
         font: $ffbtn;
@@ -71,6 +70,7 @@
       }
     }
     .name {
+      margin: 5px 0;
       text-transform: capitalize;
     }
     .fc-body-empty {

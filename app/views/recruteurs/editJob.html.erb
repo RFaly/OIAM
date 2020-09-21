@@ -54,7 +54,11 @@
         <span class="input-error intitule-pote-error"></span>
 
         <%= f.label :descriptif_mission, "DESCRIPTIF DES MISSIONS" %>
-        <div class="dp-input"><%= f.text_area :descriptif_mission, required:true,id:'descriptif-mission' %></div>
+        <div class="dp-input">
+          <textarea id="descriptif-mission" ><%= @offre.descriptif_mission.gsub('[sp]', ' &#160; ').gsub('[nl]', '
+            ').html_safe%> </textarea>
+          <%= f.text_area :descriptif_mission, required:true,id:'descriptif-mission2', style:'display: none' %>
+        </div>
         <span class="input-error descriptif-mission-error"></span>
 
         <%= f.label :rattachement, "RATTACHEMENT HIÉRARCHIQUE" %>
@@ -222,6 +226,15 @@
   </div>
 </div>
 <!-- call js  -->
+<script>
+   //fixed form description
+   $('#descriptif-mission').on('input', function () {
+    let text = $(this).val();
+    text = text.replace(/ /g, '[sp]');
+    text = text.replace(/\n/g, '[nl]');
+    $('#descriptif-mission2').val(text);
+  });
+</script>
 <script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- date picker jquery  -->
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/event_input_offre_job.js"></script>

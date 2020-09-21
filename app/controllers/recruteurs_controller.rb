@@ -197,14 +197,13 @@ class RecruteursController < ApplicationController
 	end
 
 	def save_entretien_client
-
-		name_entretien = params[:name] == "1" ? params[:client_name] : params[:name]
-		name_adresse = params[:adresse] == "on" ? params[:adresse_name] : params[:adresse]
-
 		@offre = OffreJob.find_by_id(params[:offre_id].to_i)
 		@cadre = Cadre.find_by_id(params[:cadre_id].to_i)
-
 		@oFc = OffreForCandidate.find_by(offre_job_id: @offre.id, cadre_id: @cadre.id)
+		
+		name_entretien = params[:name] == "1" ? params[:client_name] : params[:name]
+		name_adresse = params[:adresse] == "on" ? params[:adresse_name] : params[:adresse]+", #{@offre.client.entreprise.city}"
+
 		if @oFc.nil?
 			@oFc = OffreForCandidate.create(offre_job: @offre, cadre: @cadre, accepted_postule:true)
 		else

@@ -179,8 +179,10 @@ class CandidatesController < ApplicationController
     @oFcs = OffreForCandidate.where(cadre:current_cadre,accepted_postule:true)
     @agendaClients = []
     @oFcs.each do |oFc|
+      current_agenda = oFc.agenda_clients.where(repons_client: true, repons_cadre: nil, alternative: nil).order('created_at DESC')[0]
+      next if current_agenda.entretien_date < DateTime.now.utc
       agendaItems = {}
-      agendaItems[:agenda_client] = oFc.agenda_clients.where(repons_client: true, repons_cadre: nil, alternative: nil).order('created_at DESC')[0]
+      agendaItems[:agenda_client] = current_agenda
       unless agendaItems[:agenda_client].nil?
         agendaItems[:intitule_pote] = oFc.offre_job.intitule_pote
         agendaItems[:offre_id] = oFc.offre_job.id
@@ -318,7 +320,6 @@ class CandidatesController < ApplicationController
 # params[:custom_fields][7] #situation actuel
 # params[:custom_fields][8] #niveau de rémunération
 # params[:custom_fields][9] #vous êtes1
-
 
   end
 

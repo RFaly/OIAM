@@ -53,7 +53,7 @@
           <div class="so-content">
             <p>DESCRIPTIF DES MISSIONS</p>
             <div class="description">
-              <%= @offre.descriptif_mission %>
+              <%= @offre.descriptif_mission.gsub('[sp]', ' &#160; ').gsub('[nl]', ' <br />').html_safe %>
             </div>
           </div>
           <div class="so-content">

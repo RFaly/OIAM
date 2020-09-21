@@ -1,6 +1,22 @@
 <link rel="stylesheet" href="/css/client_profil.css" />
 <link rel="stylesheet" href="/css/mes_cand_admin.css" />
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
+<style>
+  .ico-cand a {
+    background: #d6b36a;
+    color: #fff !important;
+    border:1px solid #d6b36a;
+    padding: 5px 20px;
+    margin-bottom: 10px;
+  }
+  .ico-cand a:hover {
+    background: #fff;
+    color: #d6b36a !important;
+  }
+  .ico-cand a:focus {
+    color: #fff;
+  }
+</style>
 <div class="client-column">
   <div class="client-menu-left">
     <%= render partial: "admin_cadre/left_menu_link" %>
@@ -33,10 +49,10 @@
                 <p class="score">Score OIAM : <span><%= cadre.score_potential %></span></p>
 
                 <div class="ico-cand">
-                  <a href="<%= post_avis_candidats_fit_path(cadre.id) %>" class="ico ico1">GERER</a>
+                  <a href="<%= post_avis_candidats_fit_path(cadre.id) %>">GERER</a>
                 </div>
 
-                <div>
+                <div style="margin-top: 5px">
                   <% unless cadre.agenda_admin.nil? %>
                     <p>
                       <i class="fas fa-edit fa-lg"></i>Entretien fit le:
@@ -53,12 +69,13 @@
           <% end %>
         <% end %>
 
-        <div style="margin-top: 30px;">
+        <div style="margin-top: 600px; left: 0; margin-right: 250px;">
           <a href="<%= admin_dashboard_candidate_path %>" class="btn-choose">
             SÉLECTIONNER DES CANDIDATS À SUIVRE
           </a>
         </div>
 
+      </div>
       </div>
 
     </div>
