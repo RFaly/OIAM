@@ -214,6 +214,24 @@
   background: #f0f2f4;
   width: 100%;
   padding: 10px;
+  padding-left: 30px;
+}
+
+.promise .promise-content .pc-avantage textarea {
+  text-align: left;
+  background: #f0f2f4;
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  padding-left: 30px;
+  border: none;
+  outline: none;
+  border-radius: 0;
+}
+
+.promise .promise-content .pc-avantage textarea:focus {
+  box-shadow: #e3d7bf 0px 1px 5px 1px;
+  outline: 2px solid #d6b36a;
 }
 
 .promise .promise-content .p-sign .signature {
