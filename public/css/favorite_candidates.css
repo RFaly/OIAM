@@ -99,6 +99,7 @@
 }
 
 .fc-box .fc-body .name {
+  margin: 5px 0;
   text-transform: capitalize;
 }
 
