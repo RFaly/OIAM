@@ -462,6 +462,7 @@ class CandidatesController < ApplicationController
   end
 
   def cadre_show_promise_to_hire
+    helpers.updateNotification(params[:secure])
     @promise = PromiseToHire.find_by_id(params[:id])
     @cadre = current_cadre.cadre_info
     @job = @promise.offre_job

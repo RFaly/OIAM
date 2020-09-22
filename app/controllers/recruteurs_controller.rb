@@ -439,7 +439,8 @@ class RecruteursController < ApplicationController
       @promise.signature_entreprise = uploader.url
       @promise.save
       flash[:notice] = "Promesse d'embauche envoyée."
-
+      name_entreprise = current_client.entreprise.name
+			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une promesse d'embauche.",link: "#{cadre_show_promise_to_hire_path(@promise.id,notification:"entretien")}",genre: 3,medel_id: @job.id,view: false)
       #mettre à jour l'etap au dernière étape
 			oFc = @job.my_top_five_candidates.find_by(cadre:@cadre)
 			oFc.update(etapes:@job.numberEntretien + 1,status:nil)
@@ -466,6 +467,8 @@ class RecruteursController < ApplicationController
 
 	def update_promise_to_hire
 		@promise = PromiseToHire.find_by_id(params[:id])
+		@job = @promise.offre_job
+		@cadre = @promise.cadre
 		if @promise.repons_cadre
 			flash[:alert] = "Vous ne pouvez plus modifier la promesse d'embauche."
 			redirect_back(fallback_location: root_path)
@@ -499,6 +502,10 @@ class RecruteursController < ApplicationController
 			end
       @promise.save
       flash[:notice] = "Mise à jour promesse d'embauche bien sauvegarder"
+
+      name_entreprise = current_client.entreprise.name
+			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a modifié sa promesse d'embauche.",link: "#{cadre_show_promise_to_hire_path(@promise.id,notification:"entretien")}",genre: 3,medel_id: @job.id,view: false)
+
       redirect_to show_promise_to_hire_path(@promise.id)
 		else
 			@promise.errors.details[:signature_entreprise] = errorMessage

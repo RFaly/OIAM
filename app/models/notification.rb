@@ -29,7 +29,7 @@ link: link to redirect on click notice
 genre: { type of notice
 	=== CADRE ====
 	1: [medel_id: offre_job ] add to received job
-	2: [medel_id: promise_to_hire] add to suivi recrutement
+	2: [medel_id: offre_job] add to suivi recrutement
 	3: [medel_id: offre_job ] add to suivi_recrutement
 	=== CLIENT ===
 	1: suivi recrutement [medel_id: cadre ] accepte suivi recrutement
