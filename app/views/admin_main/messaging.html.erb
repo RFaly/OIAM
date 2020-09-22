@@ -1,12 +1,28 @@
-<link rel="stylesheet" href="/css/client_profil.css" />
+<link rel="stylesheet" href="/css/admin_admin.css" />
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
+<style>
+  .box-mess h6 {
+    font-size: 14px;
+  }
+</style>
 <div class="client-column">
-  <div class="client-menu-left">
-    <%= render partial: "admin_main/left_menu_link" %>
-  </div>
+	<div class="client-menu-left">
+		<%= render partial: "admin_main/left_menu_link" %>
+	</div>
 
-  <div class="cp-box">
-    <div>
-      <h2>MESSAGE</h2>
-    </div>
-  </div>
+	<div class="cp-box">
+		<div>
+			<h3 class="title" style="color: #d6b36a !important">MA MESSAGERIE</h3>
+
+			<!-- -------------------- -->
+			<div class="box">
+				<div class="box-mess">
+					<h6><i class="fas fa-envelope pin"></i>Vous avez recu un message de <span class="box-nm">Pierre VALLET</span></h6>
+				</div>
+				<a href="#" class="event-btn">Voir Le Message</a>
+			</div>
+			<!-- ---------------- -->
+			
+		</div>
+	</div>
 </div>
