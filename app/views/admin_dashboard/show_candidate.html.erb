@@ -42,7 +42,11 @@
 
           <div class="list-candidat">
             <div class="fci-image">
-					    <img src="/image/cand.jpg" alt="photo profil candidats">
+					    <% unless @cadre.image.nil? %>
+                <%= image_tag(@cadre.image, alt: 'photo de profil')%>
+              <% else %>
+                <img src="/image/profie.png" alt="photo profil candidats">
+              <% end %>
             </div>
             <div class="fci-icon">
               <% unless @cadre.admin.nil? %>

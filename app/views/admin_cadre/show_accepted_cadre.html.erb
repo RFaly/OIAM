@@ -40,7 +40,11 @@
 
           <div class="list-candidat">
             <div class="fci-image">
-					    <img src="/image/profie.png" alt="default photo">
+					    <% unless @cadre.image.nil? %>
+                <%= image_tag(@cadre.image, alt: 'photo de profil')%>
+              <% else %>
+                <img src="/image/profie.png" alt="photo profil candidats">
+              <% end %>
             </div>
             <div class="fci-icon">
               <% unless @cadre.admin.nil? %>
@@ -67,61 +71,71 @@
 
          <!--  ---------------------------- -->
 
+
          <div class="mess_candidat">
 
-          <% unless @cadre.agenda_admin.nil? %>
-            <div class="desc-suiv">
-            <p>
-              <strong>Entretien fit avec ce cadre le : </strong>
-              <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
-            </p>
-            </div>
+          <% unless @cadre.agenda_admin.nil? %>          
+            <% if @cadre.agenda_admin.entretien_date > DateTime.now.utc %>
+              <p>
+                <strong>Entretien fit avec ce cadre le : </strong>
+                <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+              </p>
+              <p id="time-to-down" class="btn btn-info" style="font-size: 40px;"></p>
+              <% if @cadre.agenda_admin.accepted.nil? %>
+                <%= link_to accepted_or_reffused_path(id:@cadre.id), method: :post do %><br>ACCEPTER LE RENDEZ-VOUS<% end %>
+              <% else %>
+                <br>RENDEZ-VOUS ACCEPTER
+              <% end %>
 
-            <% if @cadre.is_recrute.nil? %>
-              <div style="margin-left: 200px; margin-top: 150px;">
-                <span style='font-size: 20px;' id="accepted-js" class="btn-fit btn-acc btn-to-hidden-js">CANDIDATURE ACCEPTÉE</span><br><br><br>
-                <span style='font-size: 20px;' id="refused-js" class="btn-fit btn-ref btn-to-hidden-js">CANDIDATURE REFFUSÉE</span>
-              </div>
+            <% else %>
+              <% if @cadre.is_recrute.nil? %>
+                <div style="margin-left: 200px; margin-top: 150px;">
+                  <center>
+                  <span style='font-size: 30px;' id="accepted-js" class="btn btn-primary btn-to-hidden-js">CANDIDATURE ACCEPTER</span><br><br>
+                  <span style='font-size: 30px;' id="refused-js" class="btn btn-primary btn-to-hidden-js">CANDIDATURE REFFUSER</span>
+                  </center>
+                </div>
 
-              <div id="show_if_accepted_js" style="display: none;">
-                <%= form_for Cadre.new , url: candidate_to_cadre_path do |f| %>
-                  <input type="hidden" name="cadre_id" value="<%=@cadre.id%>" >
-                  <input type="hidden" name="is_recrute" value="1" id="accept-js-wa">
+                <div id="show_if_accepted_js" style="display: none;">
+                  <%= form_for Cadre.new , url: candidate_to_cadre_path do |f| %>
+                    <input type="hidden" name="cadre_id" value="<%=@cadre.id%>" >
+                    <input type="hidden" name="is_recrute" value="1" id="accept-js-wa">
 
-                  <label for="avi_id_js">Avis de One in a million</label>
-                  <div class="form-group">
-                    <textarea id="avi_id_js" required="required" rows="3" class="form-control" name="avis" placeholder="avis visible par le client ..."></textarea>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <label>Scors Fit</label>
-                      <input type="number" name="score_fit">
+                    <label for="avi_id_js">Avis de One in a million</label>
+                    <div class="form-group">
+                      <textarea id="avi_id_js" required="required" rows="3" class="form-control" name="avis" placeholder="avis visible par le client ..."></textarea>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <%= f.label :compte_rendu, "Importer le compte rendu", class:"cv-label"%>
-                        <%= f.file_field :compte_rendu, class:"form-control", accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <label>Scors Fit</label>
+                        <input type="number" name="score_fit">
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <%= f.label :compte_rendu, "Importer le compte rendu", class:"cv-label"%>
+                          <%= f.file_field :compte_rendu, class:"form-control", accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <%= f.submit 'ENVOYER', :class => 'apercu' %>
-                  </div>  
-                <% end %>
-              </div>
-            <% else %>
-              <% if @cadre.is_recrute == true %>
-                <h2>CANDIDATURE ACCEPTER</h2>
-                <span class="btn btn-secondary">NOTIFIER PAR EMAIL</span>
-                <span id="generate-js" class="btn btn-secondary">Générer un lien</span>
-                <center id="show-link-js" style="display: none;">
-                  Lien unique pour l'inscription du candidat: <br>
-                  <strong><%= new_cadre_registration_path(comfirm:@cadre.confirm_token) %></strong>
-                </center>
+                    <div class="form-group">
+                      <%= f.submit 'ENVOYER', :class => 'apercu' %>
+                    </div>  
+                  <% end %>
+                </div>
               <% else %>
-                <h2>CANDIDATURE REFFUSER</h2>
-                <span class="btn btn-secondary">NOTIFIER PAR EMAIL</span>
+                <% if @cadre.is_recrute == true %>
+                  <h2>CANDIDATURE ACCEPTER</h2>
+                  <span class="btn btn-secondary">NOTIFIER PAR EMAIL</span>
+                  <span id="generate-js" class="btn btn-secondary">Générer un lien</span>
+                  <center id="show-link-js" style="display: none;">
+                    Lien unique pour l'inscription du candidat: <br>
+                    <strong><%= new_cadre_registration_path(comfirm:@cadre.confirm_token) %></strong>
+                  </center>
+                <% else %>
+                  <h2>CANDIDATURE REFFUSER</h2>
+                  <span class="btn btn-secondary">NOTIFIER PAR EMAIL</span>
+                <% end %>
               <% end %>
             <% end %>
           <% else %>
@@ -136,6 +150,16 @@
   	</div>
   </div>
 </div>
+
+<script type="text/javascript">
+/*----------------------------------------------*/
+  if (document.URL.indexOf('#') == -1) {
+    url = document.URL + '#';
+    location = '#';
+    location.reload(true);
+  }
+/*----------------------------------------------*/
+</script>
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 
@@ -170,4 +194,24 @@
     $("#show-link-js").show(300);
   });
 
+/*********************************************/
+  let elementDate = $('.currentDateEntretien')[0];
+  let dateUTC = moment.utc($(elementDate).data().times);
+  let countDownDate = new Date(dateUTC.local()).getTime();
+  var nodeTime = document.getElementById("time-to-down")
+  var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    nodeTime.innerHTML = days + "j:" + hours + "h:"
+    + minutes + "m:" + seconds + "s";
+    if (distance < 0) {
+      clearInterval(x);
+      nodeTime.innerHTML = "EXPIRED";
+    }
+  }, 1000);
+/*********************************************/
 </script>
