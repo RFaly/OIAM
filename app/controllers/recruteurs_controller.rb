@@ -165,6 +165,10 @@ class RecruteursController < ApplicationController
 	def show_search_candidate
 		@offre = OffreJob.find_by_id(params[:offre_id])
 		@cadre = Cadre.find_by_id(params[:id]).cadre_info
+		notice = Notification.find_by_confirm_token(params[:secure])
+		unless notice.nil?
+			notice.update(view:true)
+		end
 	end
 
 	def add_top_five_candidate
@@ -365,6 +369,7 @@ class RecruteursController < ApplicationController
 
 #Mes notifications
 	def notifications
+		@notifications = current_client.notifications.order("created_at ASC")
 	end
 
 	def show_promise_to_hire

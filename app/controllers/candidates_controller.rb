@@ -169,7 +169,11 @@ class CandidatesController < ApplicationController
     else
       offre_for_candidate = OffreForCandidate.find_by(offre_job:offre,cadre:current_cadre)
       if offre_for_candidate.nil?
+        first_name = current_cadre.cadre_info.first_name
+        last_name = current_cadre.cadre_info.last_name
         OffreForCandidate.create(offre_job:offre,cadre:current_cadre)
+        #notifaka
+        Notification.create(client:offre.client,object: "#{first_name} #{last_name}", message: "#{first_name} #{last_name[0].upcase}. a postulé sur le poste : #{offre.intitule_pote}.", link: "#{show_search_candidate_path(current_cadre.id, offre_id: offre.id)}", genre: 3, medel_id: current_cadre.id, view: false)
       end
     end
   end

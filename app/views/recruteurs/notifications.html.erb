@@ -7,6 +7,38 @@
   <div class="cp-box">
     <div class="notification-box">
       <h5 class="title">NOTIFICATIONS</h5>
+
+      <% unless @notifications.empty?%>
+      	<% @notifications.each do |noficication| %>
+      		<% if noficication.view %>
+      			<span class="badge">hita</span>
+      		<% else %>
+      			<span class="badge">tsy hita</span>
+      		<% end %>
+      		<div class="alert alert-warning" role="alert">
+      			<div class="row">
+      				<div class="col-sm-3">
+      					<img src="<%= noficication.cadre_info.image %>" width="200px">
+      				</div>
+      				<div class="col-sm-9">
+      					<h4 class="alert-heading"><%= noficication.object %></h4>
+				  		<p><%= noficication.message %></p>
+				  		<hr>
+				  		<p class="mb-0">
+				  			<a href="<%= noficication.link %>" class="btn btn-warning">VOIR</a>
+				  		</p>
+					</div>
+      			</div>
+			</div>
+      	<% end %>
+      <% else %>
+      	Aucune notification
+      <% end %>
+
     </div>
   </div>
 </div>
+
+
+
+=> Notification(id: integer, object: string, message: text, link: string, genre: integer, medel_id: integer, view: boolean, client_id: integer, cadre_id: integer, created_at: datetime, updated_at: datetime)
