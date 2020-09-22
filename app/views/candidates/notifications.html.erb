@@ -11,9 +11,57 @@
 	<div class="col-sm-3">
 		<%= render partial: "candidates/left_link_bar" %>
 	</div>
-
 	<div class="col-sm-9">
-		<h2>LISTE DE TOUTES MES NOTIFICATIONS</h2>
+		<h5 class="title">NOTIFICATIONS</h5>
+	      <% unless @notifications.empty?%>
+	      	<% @notifications.each do |noficication| %>
+	      		<div class="alert alert-warning" role="alert">
+		      		<span data-times="<%= noficication.created_at.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+		      		<% if noficication.view %>
+		      			<span class="badge">hita</span>
+		      		<% else %>
+		      			<span class="badge">tsy hita</span>
+		      		<% end %>
+	      			<div class="row">
+	      				<div class="col-sm-3">
+	      					<img src="<%= noficication.offre_job.image %>" width="200px">
+	      				</div>
+	      				<div class="col-sm-9">
+	      					<h4 class="alert-heading"><%= noficication.object %></h4>
+					  		<p><%= noficication.message %></p>
+					  		<hr>
+					  		<p class="mb-0">
+					  			<a href="<%= noficication.link %>" class="btn btn-warning">VOIR</a>
+					  		</p>
+						</div>
+	      			</div>
+				</div>
+	      	<% end %>
+	      <% else %>
+	      	Aucune notification
+	      <% end %>
 	</div>
-
 </div>
+
+<script type="text/javascript">
+	if (document.URL.indexOf('#') == -1) {
+      url = document.URL + '#';
+      location = '#';
+      location.reload(true);
+    }
+</script>
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
+
+<script type="text/javascript">
+  var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+  var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+  let $elementDate = $('.currentDateEntretien');
+
+  $elementDate.each(function () {
+    let dateUTC = moment.utc($(this).data().times);
+    let dateGet = new Date(dateUTC.local());
+    let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ dateGet.getMinutes());
+  });
+</script>

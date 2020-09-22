@@ -209,6 +209,7 @@ body{
   width: 80%;
   height: auto;
   padding: 20px;
+  text-align: left;
 }
 
 
@@ -235,7 +236,7 @@ body{
   height: 76px;
 }
 
-.btn-valid input{
+.btn-valide{
   display: block;
   margin: 0 auto;
   border: none;
@@ -244,11 +245,10 @@ body{
   background-color: #d6b36a;
   color: #fff;
   text-align: center;
-  margin-top: 135px;
   margin-bottom: 100px;
 }
 
-.btn-valid input:hover{
+.btn-valide:hover{
   background-color: #fff;
   border: 1px solid #d6b36a;
   color: #d6b36a;
@@ -310,3 +310,44 @@ input[type="radio"]:checked {
 .go-right{
   margin-left: 10px;
 }
+
+
+.mes-error{
+  font-size: 14px;
+  color: red;
+  float: left;
+  margin-top: 15px;
+}
+
+.number-only{
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+
+#btn-valid-error{
+  width: 500px;
+  height: 50px;
+  position: fixed;
+  top: 16px;
+  right: 0;
+  padding-top: 10px;
+  padding-left: 45px; 
+  color: #fff;
+  text-transform: capitalize;
+  background: no-repeat left 10px center url(/image/flash-unvalid.png);
+  background-color: red;
+  background-size: 30px;
+  border-right: 5px solid  #f0f2f4;
+  margin-right: 20px;
+}
+
+.error{
+  color: red;
+  font-size: 12px;
+  font-weight: bold;
+  float: left;
+  margin-top: 14px;
+}
+

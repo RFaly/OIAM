@@ -318,7 +318,7 @@ body{
 	left: 0px;
 	display: block;
 	margin: auto;
-	width: 390px;
+	width: 365px;
 	height: 3px;
 	background: no-repeat right 100px center url(/image/orange.png);
 	background-color: #f0f2f4;
@@ -485,7 +485,7 @@ body{
 	text-transform: capitalize;
 }
 
-.felicitation{
+.felicitations{
 	display: block;
 	margin: 0 auto;
 	width: 600px;
