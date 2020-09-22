@@ -25,8 +25,8 @@
   <label>Rémunération fixe <br />(k€ bruts mensuels)</label>
   <div class="right">
     <div>
-      <% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <% if valeur%> <%= f.text_field :remuneration_fixe, required:true, value: ((@job.remuneration.to_f)/12).round(2), required:true,id:'renumeration-fixe' %> <%else%> <%= f.text_field :remuneration_fixe, required:true, value: payFix,
-      required:true,id:'renumeration-fixe'%> <%end%>
+      <% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <% if valeur%> <%= f.text_field :remuneration_fixe, required:true, value: ((@job.remuneration.to_f)/12).round(2), required:true,id:'renumeration-fixe',onkeypress:"return event.charCode>=46 && event.charCode<=57" %> <%else%> <%= f.text_field :remuneration_fixe,
+      required:true, value: payFix, required:true,id:'renumeration-fixe',onkeypress:"return event.charCode>=46 && event.charCode<=57"%> <%end%>
     </div>
     <div>
       <label id="conditioncheck">
@@ -46,7 +46,7 @@
         <span class="checkmark"></span>
       </label>
     </div>
-    <%= f.text_field :remuneration_fixe_date, placeholder:'nombre de mois',style:'display:none;',id:'input-perso' %>
+    <%= f.text_field :remuneration_fixe_date, placeholder:'nombre de mois',style:'display:none;',id:'input-perso',onkeypress:"return event.charCode>=46 && event.charCode<=57" %>
   </div>
 </div>
 <hr />
@@ -61,7 +61,7 @@
         <span class="checkmark"></span>
       </label>
     </div>
-    <div><%= f.text_field :remuneration_var_info, placeholder:'ex: 10', id:'js-input-choix', style:'display:none', disabled:true %></div>
+    <div><%= f.text_field :remuneration_var_info, placeholder:'ex: 10', id:'js-input-choix', style:'display:none', disabled:true ,onkeypress:"return event.charCode>=46 && event.charCode<=57"%></div>
     <div>
       <label id="conditioncheck">
         Non <%= f.radio_button :remuneration_variable, "false", id:'post_nom', class:'js-post-choix', required:true %>

@@ -63,8 +63,15 @@
 
 .felicitation {
   text-align: center;
-  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(#ffffff, #f4e8ca);
+}
+
+.felicitation h1 {
+  margin-bottom: 50px;
 }
 
 .felicitation-btn {
@@ -89,6 +96,28 @@
 .felicitation-btn:hover a, .felicitation-btn:active a {
   text-decoration: none;
   color: white;
+}
+
+.felicitation .diamond {
+  position: fixed;
+  top: -1vh;
+  transform: translateY(0);
+  color: transparent;
+  animation: pluie 3s linear forwards;
+  z-index: 5555;
+}
+
+.felicitation .diamond img {
+  opacity: 0.8;
+  min-width: 20px;
+  width: 100%;
+  height: auto;
+}
+
+@keyframes pluie {
+  to {
+    transform: translateY(105vh);
+  }
 }
 
 @media screen and (min-width: 320px) {
@@ -225,6 +254,15 @@
   }
   .equipe-box .eq-box-eq .eq-image {
     width: 150px;
+  }
+  .big-box {
+    top: 150px;
+  }
+  .emmanuel-profil .emmanuel-box {
+    width: 100%;
+  }
+  .emmanuel-profil .emmanuel-box .about .content {
+    padding: 10px;
   }
   .left-menu-r.open {
     width: 50px;
@@ -620,6 +658,12 @@
   }
   .equipe-box .eq-box-eq .eq-image {
     width: 180px;
+  }
+  .big-box {
+    top: 100px;
+  }
+  .emmanuel-profil .emmanuel-box .about .content {
+    padding: 10px 25px;
   }
   .left-menu-r.open {
     width: 100px;
@@ -1058,6 +1102,21 @@
   .equipe-box .eq-box-eq .eq-image {
     width: 250px;
   }
+  .big-box {
+    top: 540px;
+  }
+  .emmanuel-profil {
+    padding: 50px;
+  }
+  .emmanuel-profil .profil {
+    align-self: flex-start;
+  }
+  .emmanuel-profil .emmanuel-box {
+    width: 50%;
+  }
+  .emmanuel-profil .emmanuel-box .about .content {
+    padding: 20px 50px;
+  }
   .left-menu-r.open {
     width: 120px;
   }
@@ -1370,6 +1429,12 @@
   }
   .table-td .cpr-r img {
     left: 30%;
+  }
+  .emmanuel-profil .profil {
+    align-self: auto;
+  }
+  .emmanuel-profil .emmanuel-box {
+    width: 65%;
   }
   .cp-table-box td {
     padding: 5px 60px;

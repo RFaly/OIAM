@@ -74,3 +74,131 @@
 .equipe-box .box-spec:hover a, .equipe-box .box-spec:active a {
   color: #d6b36a;
 }
+
+.big-box {
+  padding: 10px 0;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  z-index: 3000;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+}
+
+.emmanuel-profil {
+  font: 16px Questrial, sans-serif;
+  background: white;
+  width: 90%;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.emmanuel-profil .bg-border {
+  border-radius: 10px;
+  background: #f0f2f4;
+}
+
+.emmanuel-profil .closed {
+  cursor: pointer;
+  top: 0;
+  right: 15px;
+  z-index: 5000;
+  position: absolute;
+  font: 16px Questrial, sans-serif;
+  font-size: 60px;
+  transform: rotate(45deg);
+  color: #d6b36a;
+}
+
+.emmanuel-profil .title {
+  border-bottom: 2px solid white;
+  padding: 18px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 500 18px Raleway, sans-serif;
+  text-transform: uppercase;
+  color: #d6b36a;
+}
+
+.emmanuel-profil .title img {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+}
+
+.emmanuel-profil .profil {
+  margin: 10px;
+  width: 300px;
+}
+
+.emmanuel-profil .profil .photo {
+  content: ' ';
+  width: 260px;
+  height: 360px;
+  margin: 20px auto;
+  margin-bottom: 30px;
+  background: url(/image/emma1.jpg) top;
+  background-size: cover;
+}
+
+.emmanuel-profil .profil .content-item {
+  width: 90%;
+  padding-bottom: 5px;
+  margin: 15px auto;
+  margin-bottom: 20px;
+  border-bottom: 2px solid white;
+}
+
+.emmanuel-profil .profil .name,
+.emmanuel-profil .profil .post {
+  font: 500 18px Raleway, sans-serif;
+}
+
+.emmanuel-profil .profil .localisation img {
+  width: 15px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.emmanuel-profil .emmanuel-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.emmanuel-profil .emmanuel-box .about {
+  margin: 10px;
+}
+
+.emmanuel-profil .emmanuel-box .about .content {
+  text-align: justify;
+}
+
+.emmanuel-profil .emmanuel-box .about .content p {
+  margin-top: 20px;
+}
+
+.emmanuel-profil .emmanuel-box .contact {
+  margin: 10px;
+}
+
+.emmanuel-profil .emmanuel-box .contact .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 30px 10px;
+}
+
+.emmanuel-profil .emmanuel-box .contact .content a:hover,
+.emmanuel-profil .emmanuel-box .contact .content a:active {
+  text-decoration: none;
+}
+
+.emmanuel-profil .emmanuel-box .contact .content img {
+  height: 34px;
+}
