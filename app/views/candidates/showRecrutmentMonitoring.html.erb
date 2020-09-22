@@ -71,7 +71,7 @@
 			<!-- if etapes -->
 			<% if @oFc.etapes == @offreJob.numberEntretien + 1 %>
 				<% if @promise.repons_cadre.nil? %>
-				<div class="felicitation">
+				<div class="felicitations">
 					<p>Félicitations, vous avez réussi la dernière étape du recrutement !</p>
 					<p><%= @offreJob.client.entreprise.name %> vous a envoyé une promesse d'embauche.</p>
 					<p><%= link_to "OUVRIR", cadre_show_promise_to_hire_path(@promise.id), class:"btn btn-open" %></p>
@@ -199,10 +199,10 @@
 
 							<div class="contact-recruteur">
 								<div class="contact-recruteur-img">
-									<img src="/image/chatS.png" height="36px" width="36px"><a href="<%= show_my_messages_cadre_path(@offreJob.client.id) %>">Chat en ligne</a>
+									<a href="<%= show_my_messages_cadre_path(@offreJob.client.id) %>"><img src="/image/chatS.png" height="36px" width="36px">Chat en ligne</a>
 								</div>
 								<div class="contact-recruteur-img">
-									<img src="/image/mailS.png" height="36px" width="45px"><a href = "mailto: <%= @offreJob.client.mail %>">Chat par Email</a>
+									<a href = "mailto: <%= @offreJob.client.mail %>"><img src="/image/mailS.png" height="36px" width="45px">Chat par Email</a>
 								</div>
 							</div>
 

@@ -20,7 +20,7 @@ function addDiamond(){
 	}, 5000);
 }
 
-var interval = Math.random() * 300;
+var interval = Math.random() * 800;
 
 setInterval(addDiamond, interval);
 
