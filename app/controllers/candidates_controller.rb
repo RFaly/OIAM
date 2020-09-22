@@ -180,14 +180,15 @@ class CandidatesController < ApplicationController
 
 #mes offre réçues
   def received_job
+    helpers.updateNotification(params[:secure])
     @oFcs = OffreForCandidate.where(cadre:current_cadre,accepted_postule:true)
     @agendaClients = []
     @oFcs.each do |oFc|
       current_agenda = oFc.agenda_clients.where(repons_client: true, repons_cadre: nil, alternative: nil).order('created_at DESC')[0]
-      next if current_agenda.entretien_date < DateTime.now.utc
       agendaItems = {}
-      agendaItems[:agenda_client] = current_agenda
-      unless agendaItems[:agenda_client].nil?
+      unless current_agenda.nil?
+        next if current_agenda.entretien_date < DateTime.now.utc
+        agendaItems[:agenda_client] = current_agenda
         agendaItems[:intitule_pote] = oFc.offre_job.intitule_pote
         agendaItems[:offre_id] = oFc.offre_job.id
         agendaItems[:image] = oFc.offre_job.image
@@ -200,13 +201,23 @@ class CandidatesController < ApplicationController
     @offreJob = OffreJob.find_by_id(params[:offre_id])
     @agendaClient = AgendaClient.find_by_id(params[:agenda_id])
     @oFc = OffreForCandidate.find_by(offre_job: @offreJob, cadre: current_cadre)
+
+    first_name = current_cadre.cadre_info.first_name
+    last_name = current_cadre.cadre_info.last_name
+
     case params[:reponse]
     when "0"
       @agendaClient.update(alternative:params[:alternative],repons_cadre: false)
+      #notifaka
+      Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a refusé votre demande d'entretien.",link: "#{recruitment_show_cadre_path(@oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
+
       flash[:notice] = "Votre réponse est envoyé avec succes."
       redirect_to show_recrutment_monitoring_path(@oFc.id)
     when "1"
       @agendaClient.update(repons_cadre:true)
+      #notifaka
+      Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a accepté votre demande d'entretien.",link: "#{recruitment_show_cadre_path(@oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
+
       flash[:notice] = "Votre réponse est envoyé avec succes."
       redirect_to show_recrutment_monitoring_path(@oFc.id)
     when "2"
@@ -220,6 +231,10 @@ class CandidatesController < ApplicationController
       date_time = DateTime.new(year,month,day,hour,min).utc
       @agendaClient.update(alternative: date_time.to_s, repons_cadre:true)
       flash[:notice] = "Votre réponse est envoyé avec succes."
+
+      #notifaka
+      Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a proposé une autre date pour l'entretien.",link: "#{recruitment_show_cadre_path(@oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
+
       redirect_to show_recrutment_monitoring_path(@oFc.id)
     else
       flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
@@ -238,6 +253,7 @@ class CandidatesController < ApplicationController
 	end
 
   def showRecrutmentMonitoring
+    helpers.updateNotification(params[:secure])
     @oFc = OffreForCandidate.find_by_id(params[:ofc_id])
 
     if @oFc.nil?
@@ -258,7 +274,7 @@ class CandidatesController < ApplicationController
   end
 
   def notifications
-
+    @notifications = current_cadre.notifications.order("created_at DESC")
   end
 
   def tmp_sign_up

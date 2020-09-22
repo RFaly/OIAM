@@ -7,15 +7,15 @@
   <div class="cp-box">
     <div class="notification-box">
       <h5 class="title">NOTIFICATIONS</h5>
-
       <% unless @notifications.empty?%>
       	<% @notifications.each do |noficication| %>
-      		<% if noficication.view %>
-      			<span class="badge">hita</span>
-      		<% else %>
-      			<span class="badge">tsy hita</span>
-      		<% end %>
       		<div class="alert alert-warning" role="alert">
+            <span data-times="<%= noficication.created_at.strftime("%Y-%m-%d %H:%M") %>" class="badge currentDateEntretien"></span>
+            <% if noficication.view %>
+              <span class="badge">hita</span>
+            <% else %>
+              <span class="badge">tsy hita</span>
+            <% end %>
       			<div class="row">
       				<div class="col-sm-3">
       					<img src="<%= noficication.cadre_info.image %>" width="200px">
@@ -34,11 +34,21 @@
       <% else %>
       	Aucune notification
       <% end %>
-
     </div>
   </div>
 </div>
 
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 
+<script type="text/javascript">
+  var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+  var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+  let $elementDate = $('.currentDateEntretien');
 
-=> Notification(id: integer, object: string, message: text, link: string, genre: integer, medel_id: integer, view: boolean, client_id: integer, cadre_id: integer, created_at: datetime, updated_at: datetime)
+  $elementDate.each(function () {
+    let dateUTC = moment.utc($(this).data().times);
+    let dateGet = new Date(dateUTC.local());
+    let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:00');
+  });
+</script>
