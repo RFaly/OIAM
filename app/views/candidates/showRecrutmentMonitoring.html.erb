@@ -186,7 +186,7 @@
 
 						<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
 							<div id="js-main-bloc-information" class="rencontre">
-								<p>Vous avez rencontré <%= @offreJob.client.last_name %> <%= @offreJob.client.first_name %> le <%= @agendas.entretien_date.strftime("%d/%m/%Y") %></p>
+								<p>Vous avez rencontré <%= @offreJob.client.first_name %> <%= @offreJob.client.last_name %>  le <%= @agendas.entretien_date.strftime("%d/%m/%Y") %></p>
 							</div>
 
 							<% if @oFc.status == "accepted" %>

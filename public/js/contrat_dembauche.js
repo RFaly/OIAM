@@ -66,6 +66,21 @@ $('#datepicker').datepicker({
     $('#datepicker').css('outline', '2px solid #e3d7bf ');
   },
 });
+
+// custom date picker
+$('#datepicker1').datepicker({
+  dateFormat: 'dd/mm/yy',
+  inline: true,
+  minDate: 0,
+  showOtherMonths: true,
+  dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+  monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+  monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+  onSelect: function (date) {
+    $('#datepicker1').css('box-shadow', '0px 1px 5px 1px #e3d7bf');
+    $('#datepicker1').css('outline', '2px solid #e3d7bf ');
+  },
+});
 // custom date picker
 $('#datepicker2').datepicker({
   dateFormat: 'dd/mm/yy',

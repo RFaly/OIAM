@@ -64,7 +64,7 @@
               <% end %>
             </div>
             <div class="fci-infos">
-              <p class="name"><%= @cadre.last_name %> <%= @cadre.first_name %></p>
+              <p class="name"><%= @cadre.first_name %> <%= @cadre.last_name %> </p>
               <p class="poste">Poste : <%= @cadre.job %></p>
               <p class="score">Score OIAM : <span><%= @cadre.score_potential %></span></p>
             </div>
@@ -94,7 +94,7 @@
                   RETIRER LE CADRE DE VOTRE LISTE DE CANDIDAT À SUIVRE.
                 <% end %>
               <% else %>
-                DÉJÀ SUIVI PAR <%= @cadre.admin.last_name %> <%= @cadre.admin.first_name %>
+                DÉJÀ SUIVI PAR <%= @cadre.admin.first_name %> <%= @cadre.admin.last_name %> 
               <% end %>
             <% else %>
               <%= link_to add_favorite_cadre_path(id:@cadre.id), method: :post do %>
