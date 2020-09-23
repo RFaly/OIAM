@@ -64,6 +64,15 @@ $('#datepicker').datepicker({
   onSelect: function (date) {
     $('#datepicker').css('box-shadow', '0px 1px 5px 1px #e3d7bf');
     $('#datepicker').css('outline', '2px solid #e3d7bf ');
+    var date = $('#datepicker').val();
+    from = date.split('/');
+    f = new Date(from[2], from[1] - 1, from[0]);
+    f.setMonth(f.getMonth() + 4);
+    (month = '' + (f.getMonth() + 1)), (day = '' + f.getDate()), (year = f.getFullYear());
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+    $('.datepicker1').val([day, month, year].join('/'));
   },
 });
 
