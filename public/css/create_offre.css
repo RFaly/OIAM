@@ -561,14 +561,19 @@
   appearance: none;
   background: #f0f2f4 url("/image/dropdown.png") no-repeat right 1rem center/21px 18px;
   text-align: center;
+  -webkit-text-align-last: center;
+  -moz-text-align-last: center;
   -ms-text-align-last: center;
+  text-align: -webkit-center;
   text-align-last: center;
 }
 
 .create-offre-box .co-select option {
   font: 16px Questrial, sans-serif;
+  text-align: -webkit-center;
   font-size: 15px;
   text-align: center;
+  -webkit-text-align-last: center;
   -ms-text-align-last: center;
   text-align-last: center;
 }

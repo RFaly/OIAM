@@ -6,7 +6,7 @@
   <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
   <div class="cp-box">
     <div class="show-message-box">
-      <h2><%= @cadre.cadre_info.last_name %> <%= @cadre.cadre_info.first_name %></h2>
+      <h2><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %> </h2>
 
       <div class="boit-reception" id="js-add-new-message">
         <% @messages.each do |message| %> <% if message.is_client %>
