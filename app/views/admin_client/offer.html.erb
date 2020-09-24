@@ -14,62 +14,24 @@
         <div class="fc-item-all">
 
 <!--         	CANDIDATS  -->
-
+        <% @offre.each do |offre| %>
           <div class="list-candidat">
             <div class="fci-image">
-					<img src="/image/asus.jpg" alt="photo entreprise">
+					<img src="<%= offre.image %>" alt="photo entreprise"> 
             </div>
             <div class="fci-icon">
               <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
             </div>
             <div class="fci-infos">
-              <p class="name">ASUS</p>
+              <p class="name"><%= offre.client.entreprise.name %></p>
               <p>À proposer une offre</p>
-              <p class="poste">Poste : Directeur Commercial</p>
+              <p class="poste">Poste : <%= offre.intitule_pote %></p>
               <div class="ico-cand">
-              	<a href="#" class="btn-see">Voir L'offre</a>
+              	<a href="<%= admin_client_show_offer_path(offre.id) %>" class="btn-see">Voir L'offre</a>
               </div>
             </div>
           </div>
-
-         <!--  ---------------------------- -->
-
-           <div class="list-candidat">
-            <div class="fci-image">
-          <img src="/image/asus.jpg" alt="photo entreprise">
-            </div>
-            <div class="fci-icon">
-              <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
-            </div>
-            <div class="fci-infos">
-              <p class="name">ASUS</p>
-              <p>À proposer une offre</p>
-              <p class="poste">Poste : Responsable Marketing</p>
-              <div class="ico-cand">
-                <a href="#" class="btn-see">Voir L'offre</a>
-              </div>
-            </div>
-          </div>
-
-            <div class="list-candidat">
-            <div class="fci-image">
-          <img src="/image/asus.jpg" alt="photo entreprise">
-            </div>
-            <div class="fci-icon">
-              <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
-            </div>
-            <div class="fci-infos">
-              <p class="name">ASUS</p>
-              <p>À proposer une offre</p>
-              <p class="poste">Poste : Chef De Projet</p>
-              <div class="ico-cand">
-                <a href="#" class="btn-see">Voir L'offre</a>
-              </div>
-            </div>
-          </div>
-
-
-
+        <% end %>
         </div>
       </div>
     </div>

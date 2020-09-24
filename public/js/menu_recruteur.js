@@ -16,6 +16,9 @@ $(document).ready(function () {
       $('.left-menu-content').fadeOut(500);
       if ($(window).width() < 1200) {
         $('.line-white2').css('height', $('.code-naf-flex').height() + 5);
+      } else {
+        $('.line-white2').css('height', $('.code-naf-flex').height() + 14);
+        
       }
       check = false;
     } else {
@@ -25,6 +28,9 @@ $(document).ready(function () {
       $('.left-menu-content').fadeIn(800);
       if ($(window).width() < 1200) {
         $('.line-white2').css('height', $('.code-naf-flex').height() + 45);
+      } else {
+        $('.line-white2').css('height', $('.code-naf-flex').height() + 40);
+        
       }
       check = true;
     }

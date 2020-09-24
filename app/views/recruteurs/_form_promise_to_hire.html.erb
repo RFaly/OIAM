@@ -21,12 +21,14 @@
 <hr />
 <div class="pc-form pc-form1 pc-flex"><%= f.label :date_poste, "Date de prise de poste" %> <% priseDate = @promise.date_poste ? @promise.date_poste : @job.date_poste %> <%= f.text_field :date_poste, value: priseDate, required:true,id:"datepicker" %></div>
 <hr />
+<div class="pc-form pc-form1 pc-flex"><%= f.label :time_trying, "Période d'essai" %> <% periodessay = @promise.time_trying ? @promise.time_trying : (@job.date_poste.to_date + 120 ).strftime("%d/%m/%Y") %> <%= f.text_field :time_trying, value: periodessay, required:true,id:"datepicker1",class:"datepicker1" %></div>
+<hr />
 <div class="pc-form pc-form2 pc-flex">
-  <label>Rémunération fixe <br />(k€ bruts mensuels)</label>
+  <label>Rémunération fixe <br />(€ bruts mensuels)</label>
   <div class="right">
     <div>
-      <% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <% if valeur%> <%= f.text_field :remuneration_fixe, required:true, value: ((@job.remuneration.to_f)/12).round(2), required:true,id:'renumeration-fixe',onkeypress:"return event.charCode>=46 && event.charCode<=57" %> <%else%> <%= f.text_field :remuneration_fixe,
-      required:true, value: payFix, required:true,id:'renumeration-fixe',onkeypress:"return event.charCode>=46 && event.charCode<=57"%> <%end%>
+      <% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <% if valeur%> <%= f.text_field :remuneration_fixe, required:true, value: ((@job.remuneration.to_f * 1000)/12).round(2), required:true,id:'renumeration-fixe',onkeypress:"return event.charCode>=46 && event.charCode<=57" %> <%else%> <%= f.text_field :remuneration_fixe,
+      required:true, value: (payFix ), required:true,id:'renumeration-fixe',onkeypress:"return event.charCode>=46 && event.charCode<=57"%> <%end%>
     </div>
     <div>
       <label id="conditioncheck">
@@ -61,7 +63,10 @@
         <span class="checkmark"></span>
       </label>
     </div>
-    <div><%= f.text_field :remuneration_var_info, placeholder:'ex: 10', id:'js-input-choix', style:'display:none', disabled:true ,onkeypress:"return event.charCode>=46 && event.charCode<=57"%></div>
+    <div>
+      <% if (valeur)%> <%= f.text_field :remuneration_var_info, placeholder:'ex: 10', id:'js-input-choix', style:'display:none', disabled:true ,onkeypress:"return event.charCode>=46 && event.charCode<=57"%> <%else%> <%= f.text_field :remuneration_var_info, placeholder:'ex: 10', id:'js-input-choix' ,onkeypress:"return event.charCode>=46 &&
+      event.charCode<=57"%> <%end%>
+    </div>
     <div>
       <label id="conditioncheck">
         Non <%= f.radio_button :remuneration_variable, "false", id:'post_nom', class:'js-post-choix', required:true %>

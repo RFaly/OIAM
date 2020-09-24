@@ -116,9 +116,10 @@ body{
 }
 
 .questionnaire-title{
-  font-size: 16px;
+  font-size: 18px;
   text-transform: uppercase;
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .questionnaire{
@@ -353,6 +354,8 @@ body{
 }
 
 .block-right-content{
+  background: #f0f2f4;
+  padding: 20px;
   height: auto;
   margin-bottom: 100px;
 }

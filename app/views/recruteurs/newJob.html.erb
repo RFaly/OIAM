@@ -44,8 +44,6 @@
             <% end %>
           </select>
         </div>
-        <span class="input-error intitule-pote-error"></span>
-
         <%= f.label :intitule_pote, "INTITULÉ DU POSTE" %>
         <div class="dp-input"><%= f.text_area :intitule_pote, required:true , id:'intitule-pote',autofocus:true%></div>
         <span class="input-error intitule-pote-error"></span>
@@ -75,7 +73,7 @@
           </div>
         </div>
 
-        <%= f.label :remuneration_anne, "RÉMUNÉRATION PROPOSÉE VARIABLE (K€ BRUTS ANNUELS)" %> <% i = 0 %> <%array = [] %> <%20.times do %> <% array << "#{i}" %> <%i += 5 %><% end %>
+        <%= f.label :remuneration_anne, "RÉMUNÉRATION PROPOSÉE VARIABLE (K€ BRUTS ANNUELS)" %> <% i = 0 %> <%array = [] %> <%21.times do %> <% array << "#{i}" %> <%i += 5 %><% end %>
         <div class="dp-input hide-right"><%= f.select :remuneration_anne, options_for_select(array),{}, class:'co-select', required:true, id:'remuneration-anne',autofocus:true %></div>
         <span class="input-error remuneration-anne-error"></span>
 
