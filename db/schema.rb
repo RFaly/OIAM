@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_065349) do
+ActiveRecord::Schema.define(version: 2020_09_24_064053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -336,6 +336,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_065349) do
     t.string "cin_pass_port"
     t.string "security_certificate"
     t.string "rib"
+    t.string "time_trying"
     t.index ["cadre_id"], name: "index_promise_to_hires_on_cadre_id"
     t.index ["offre_job_id"], name: "index_promise_to_hires_on_offre_job_id"
   end

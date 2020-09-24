@@ -21,7 +21,7 @@
 <hr />
 <div class="pc-form pc-form1 pc-flex"><%= f.label :date_poste, "Date de prise de poste" %> <% priseDate = @promise.date_poste ? @promise.date_poste : @job.date_poste %> <%= f.text_field :date_poste, value: priseDate, required:true,id:"datepicker" %></div>
 <hr />
-<div class="pc-form pc-form1 pc-flex"><%= f.label :date_poste, "Période d'essai" %> <input type="text" class="datepicker1" id="datepicker1" value="<%= (@promise.date_poste.to_date + 120 ).strftime("%d/%m/%Y") %>"></div>
+<div class="pc-form pc-form1 pc-flex"><%= f.label :time_trying, "Période d'essai" %> <% periodessay = @promise.time_trying ? @promise.time_trying : (@job.date_poste.to_date + 120 ).strftime("%d/%m/%Y") %> <%= f.text_field :time_trying, value: periodessay, required:true,id:"datepicker1",class:"datepicker1" %></div>
 <hr />
 <div class="pc-form pc-form2 pc-flex">
   <label>Rémunération fixe <br />(€ bruts mensuels)</label>

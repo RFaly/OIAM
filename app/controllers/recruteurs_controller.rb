@@ -411,7 +411,7 @@ class RecruteursController < ApplicationController
 		errorMessage = ""
 		@job = OffreJob.find_by_id(params[:id_offre_job])
 		@cadre = Cadre.find_by_id(params[:id_cadre])
-		@promise = PromiseToHire.new(params.require(:promise_to_hire).permit(:date_poste, :remuneration_fixe, :remuneration_fixe_date, :remuneration_variable, :remuneration_avantage, :date_de_validite))
+		@promise = PromiseToHire.new(params.require(:promise_to_hire).permit(:date_poste, :remuneration_fixe, :remuneration_fixe_date, :remuneration_variable, :remuneration_avantage, :date_de_validite , :time_trying))
 		@promise.offre_job = @job
 		@promise.cadre = @cadre
 		uploader = ImageUploader.new
@@ -474,7 +474,7 @@ class RecruteursController < ApplicationController
 			redirect_back(fallback_location: root_path)
 			return
 		end
-		my_parameters = params.require(:promise_to_hire).permit(:date_poste, :remuneration_fixe, :remuneration_fixe_date, :remuneration_variable, :remuneration_avantage, :date_de_validite)
+		my_parameters = params.require(:promise_to_hire).permit(:date_poste, :remuneration_fixe, :remuneration_fixe_date, :remuneration_variable, :remuneration_avantage, :date_de_validite, :time_trying)
 		uploader = ImageUploader.new
 		errorMessage = ""
 
