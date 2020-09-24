@@ -145,7 +145,7 @@
 							<%= f.file_field :cin_pass_port, required:true, class:"input-import cin", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %><br>
 							<span class="cin-error error"></span>
 						<% else %>
-								<%= link_to "TELECHARGER", @promise.cin_pass_port %>
+								<%= link_to "TELECHARGER", @promise.cin_pass_port, class:"telecharger" %>
 						<% end %>
 					</div>
 				</div>
@@ -159,7 +159,7 @@
 							<%= f.file_field :security_certificate, required:true, class:"input-import atest", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %><br>
 							<span class="attest-err error"></span>
 						<% else %>
-								<%= link_to "TELECHARGER", @promise.cin_pass_port %>
+								<%= link_to "TELECHARGER", @promise.cin_pass_port, class:"telecharger" %>
 						<% end %>
 					</div>
 				</div>
@@ -173,7 +173,7 @@
 							<%= f.file_field :rib, required:true, class:"input-import rib", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %><br>
 							<span class="rib-err error"></span>
 						<% else %>
-								<%= link_to "TELECHARGER", @promise.cin_pass_port %>
+								<%= link_to "TELECHARGER", @promise.cin_pass_port, class:"telecharger" %>
 						<% end %>
 					</div>
 				</div>
@@ -181,8 +181,6 @@
 					<div id="btn-valid-error" style="display: none;"></div>
 				<% if @promise.repons_cadre.nil? %>
 					<%= f.submit 'VALIDER', :class => 'btn-valide' %>
-				<% else %>
-					<center>TELECHARGER</center>
 				<% end %>
 			</div>
 			</div>
@@ -221,6 +219,7 @@
 	    $('.calen input').focusout(function(){
 	    	if ($('#calendar').val() <= 0) {
 	    		$('.calendar-err').html('Champs obligatoire');
+
 	    		return false;
 	    	}else{
 	    		$('.calendar-err').hide();
@@ -262,23 +261,41 @@
 
 	    $('.btn-valide').click(function(){
 
-/*
+
+
+
 	    	var form = document.forms.formulaire;
 
 	    	for (var i = 0; i < form.length; i++) {
-	    		alert(form[i].value);
+	    		if(form[i].value == 0 || form[i].value.length == 0){
+	    			form[i].style.outline = "1px solid red";
+	    			form[i].nextSibling.nextSibling.innerHTML = "Champs Obligatoire";
+	    			$('#btn-valid-error').html("*Verifier que vous avez remplis tous les formulaires");
+	    			$('#btn-valid-error').show(300);
+		    		setTimeout(function(){
+		    			$('#btn-valid-error').hide(500);
+		    		}, 5000);
+		    		return false;
+	    			console.log(form[i].nextSibling.nextSibling);
+	    		}
+	    		else{
+	    			form[i].style.outline = 'none';
+	    			return true;
+	    		}
 	    	}
-
-*/
-
+	 
 	    	
-	    	if ($('.calendar').val() <= 0 || $('.nombre-only').val() <= 0 || $('.lieu-naiss').val() <= 0) {
+	    	if ($('#signature').val().length() <= 0 || $('.cin').val().length() <= 0 || $('.atest').val().length() <= 0 || $('.rib').val().length()) {
+	    		console.log('fandeany');
 	    		$('#btn-valid-error').html("*Verifier que vous avez remplis tous les formulaires");
 	    		$('#btn-valid-error').show(300);
 	    		setTimeout(function(){
 	    			$('#btn-valid-error').hide(300);
 	    		}, 5000);
 	    		return false;
+	    	}
+	    	else{
+	    		return true;
 	    	}
 	    })
 
