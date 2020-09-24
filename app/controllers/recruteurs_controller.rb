@@ -356,7 +356,11 @@ class RecruteursController < ApplicationController
 			  when "accepted" #REFUSER
 			  	message = "#{name_entreprise} a validé votre candidature pour la #{etapes} étape."
 			  when "refused"	#ACCEPTER
-			  	message = "#{name_entreprise} a refusé votre candidature."
+			  	if params[:notifier].nil?
+			  		message = "#{name_entreprise} a refusé votre candidature."
+			  	else
+						message = "#{name_entreprise} a envoyé la raison du refus de votre candidature."
+					end
 			end
 			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: message,link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 3,medel_id: @offre.id,view: false)
 			@oFc.update(status:params[:repons])
@@ -440,9 +444,15 @@ class RecruteursController < ApplicationController
       @promise.save
       flash[:notice] = "Promesse d'embauche envoyée."
       name_entreprise = current_client.entreprise.name
-			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une promesse d'embauche.",link: "#{cadre_show_promise_to_hire_path(@promise.id,notification:"entretien")}",genre: 3,medel_id: @job.id,view: false)
-      #mettre à jour l'etap au dernière étape
+			
+
 			oFc = @job.my_top_five_candidates.find_by(cadre:@cadre)
+			#notifaka
+			# Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une promesse d'embauche.",link: "#{cadre_show_promise_to_hire_path(@promise.id,notification:"entretien")}",genre: 3,medel_id: @job.id,view: false)
+
+			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une promesse d'embauche.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"entretien")}",genre: 3, medel_id: @job.id, view:false)
+
+      #mettre à jour l'etap au dernière étape
 			oFc.update(etapes:@job.numberEntretien + 1,status:nil)
 			@job.update(etapes: 2 + @job.numberEntretien + 1)
 

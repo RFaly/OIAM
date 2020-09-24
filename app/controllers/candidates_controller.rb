@@ -521,6 +521,13 @@ class CandidatesController < ApplicationController
       @offreJob.next_stape
       Facture.create(prix:(@offreJob.remuneration * 1000 * 15)/100,promise_to_hire:@promise,client:@promise.offre_job.client)
       #créé un cacture rib:"/image/OIAM_DIAMOND.png",
+
+      oFc = @offreJob.my_top_five_candidates.find_by(cadre:current_cadre)
+      first_name = current_cadre.cadre_info.first_name
+      last_name = current_cadre.cadre_info.last_name
+      # notifaka eto
+      Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. vient d'accepter votre proposition d'embauche !",link: "#{recruitment_show_cadre_path(oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
+
       redirect_to congratulations_cadre_path(@promise.id)
     else
       flash[:alert] = errorMessage
