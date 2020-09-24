@@ -46,7 +46,16 @@
     </div>
     <div class="description-title">
       <h3>PROCESSUS RH</h3>
-      <p><% case @offre.numberEntretien.to_i %> <% when 1 %> 1 entretien RH <% when 2 %> 1 entretien RH + 1 entretien manager <% when 3 %> 1 entretien RH + 2 entretien manager <% end %></p>
+      <p>
+        <% case @offre.numberEntretien.to_i %> 
+          <% when 1 %> 
+        1 entretien RH 
+          <% when 2 %> 
+        1 entretien RH + 1 entretien manager 
+          <% when 3 %> 
+        1 entretien RH + 2 entretien manager 
+        <% end %>
+      </p>
     </div>
     <div class="description-title">
       <h3>CONTEXTE D'OUVERTURE DE CE POSTE</h3>

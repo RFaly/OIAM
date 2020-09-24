@@ -37,7 +37,7 @@
           <label>Rémunération fixe <br />(€ bruts mensuels)</label>
 
           <div class="right">
-            <div><% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <%= f.text_field :remuneration_fixe, value: (payFix ) ,readonly:'true' %></div>
+            <div><% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <%= f.text_field :remuneration_fixe, value: (payFix) ,readonly:'true' %></div>
             <div>
               <label id="conditioncheck">
                 12 mois <%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois',disabled:'true'%>
