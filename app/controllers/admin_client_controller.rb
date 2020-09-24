@@ -3,6 +3,11 @@ class AdminClientController < ApplicationAdminController
   def main
   end
   def offer
+  	@offre = OffreJob.all
+  end
+
+  def show_offer
+  	@offre = OffreJob.find_by(id: params[:id])
   end
   def factures
   end
