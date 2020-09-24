@@ -261,12 +261,12 @@ class RecruteursController < ApplicationController
       @agendaClient.update(repons_client: false)
       @oFc.update(status:"refused")
       #notifaka
-			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a refusé votre proposition pour la date de l'entretien.",link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 3,medel_id: @offreJob.id,view: false)
+			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a refusé votre proposition pour la date de l'entretien.",link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offreJob.id,view: false)
     when "1"	#ACCEPTER
 			date = DateTime.parse(@agendaClient.alternative)
       @agendaClient.update(entretien_date:date.utc,alternative: nil, repons_cadre:true, is_update:true,repons_client: true)
     	#notifaka
-			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a accepté votre proposition pour la date d'entretien.",link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 3,medel_id: @offreJob.id,view: false)
+			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a accepté votre proposition pour la date d'entretien.",link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offreJob.id,view: false)
     when "2"
       date = params[:date].split("-")
       time = params[:time].split(":")
@@ -362,7 +362,7 @@ class RecruteursController < ApplicationController
 						message = "#{name_entreprise} a envoyé la raison du refus de votre candidature."
 					end
 			end
-			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: message,link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 3,medel_id: @offre.id,view: false)
+			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: message,link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offre.id,view: false)
 			@oFc.update(status:params[:repons])
 			@oFc.update(refused_info:params[:notifier])
 			redirect_to recruitment_show_cadre_path(@oFc.id)
@@ -448,9 +448,9 @@ class RecruteursController < ApplicationController
 
 			oFc = @job.my_top_five_candidates.find_by(cadre:@cadre)
 			#notifaka
-			# Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une promesse d'embauche.",link: "#{cadre_show_promise_to_hire_path(@promise.id,notification:"entretien")}",genre: 3,medel_id: @job.id,view: false)
+			# Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une promesse d'embauche.",link: "#{cadre_show_promise_to_hire_path(@promise.id,notification:"entretien")}",genre: 2,medel_id: @job.id,view: false)
 
-			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une promesse d'embauche.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"entretien")}",genre: 3, medel_id: @job.id, view:false)
+			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une promesse d'embauche.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"entretien")}",genre: 2, medel_id: @job.id, view:false)
 
       #mettre à jour l'etap au dernière étape
 			oFc.update(etapes:@job.numberEntretien + 1,status:nil)
@@ -514,7 +514,7 @@ class RecruteursController < ApplicationController
       flash[:notice] = "Mise à jour promesse d'embauche bien sauvegarder"
 
       name_entreprise = current_client.entreprise.name
-			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a modifié sa promesse d'embauche.",link: "#{cadre_show_promise_to_hire_path(@promise.id,notification:"entretien")}",genre: 3,medel_id: @job.id,view: false)
+			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a modifié sa promesse d'embauche.",link: "#{cadre_show_promise_to_hire_path(@promise.id,notification:"entretien")}",genre: 2,medel_id: @job.id,view: false)
 
       redirect_to show_promise_to_hire_path(@promise.id)
 		else
