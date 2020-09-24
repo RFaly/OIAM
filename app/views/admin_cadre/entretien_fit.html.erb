@@ -2,6 +2,10 @@
 <link rel="stylesheet" href="/css/mes_cand_admin.css" />
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <style>
+  * {
+    line-height: 1;
+  }
+  
   .ico-cand a {
     background: #d6b36a;
     color: #fff !important;
@@ -52,7 +56,7 @@
                   <a href="<%= post_avis_candidats_fit_path(cadre.id) %>">GERER</a>
                 </div>
 
-                <div style="margin-top: 5px">
+                <div style="margin-top: 10px">
                   <% unless cadre.agenda_admin.nil? %>
                     <p>
                       <i class="fas fa-edit fa-lg"></i>Entretien fit le:
