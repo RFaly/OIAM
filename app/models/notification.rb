@@ -22,21 +22,22 @@ class Notification < ApplicationRecord
   end
 
 =begin
+
 #notifaka (FOR search code to create a notification)
 object: title of notification
 message: content of notification
 link: link to redirect on click notice
+
 genre: { type of notice
 	=== CADRE ====
-	1: [medel_id: offre_job ] add to received job
-	2: [medel_id: offre_job] add to suivi recrutement
-	3: [medel_id: offre_job ] add to suivi_recrutement
+	1: [medel_id: offre_job ] add to (received job +1)
+	2: [medel_id: offre_job] add to (suivi recrutement +1)
 	=== CLIENT ===
-	1: suivi recrutement [medel_id: cadre ] accepte suivi recrutement
-	2: suivi recrutement [medel_id: cadre] promesse validé
-	3: postule candidat [medel_id: cadre]
-	4: facture
+	1: suivi recrutement [medel_id: cadre ] (suivi recrutement +1)
+	2: pour la facture ne pas afficher (facture +1)
+	3: postule candidat [medel_id: cadre] (tsy apina aiza aiza)
 }
+
 view: false if not view
 
 helpers.updateNotification(params[:secure])
@@ -45,8 +46,6 @@ notice = Notification.find_by_confirm_token(params[:secure])
 unless notice.nil?
 	notice.update(view:true)
 end
-
-
 =end
 
 end

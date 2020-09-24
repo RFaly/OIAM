@@ -46,7 +46,7 @@ if Formation.count == 0
 end
 
 if Metier.count == 0
-  typeMetier = ["Administration - Services généraux","Audit","Commercial-Vente","Communication-Création","Conseil","Direction générale - Direction centre de profits","Etudes - Recherche","Export","Gestion - Comptabilité - Finance","Internet - E-commerce","Juridique - Fiscal","Logistique - Achats - Stocks - Transport","Marketing","Production - Maintenance - Qualité - Sécurité - Environnement","RH - Personnel - Formation","Santé (Industrie)","Santé (Médical) - Social","Systèmes d'information - Telecom"]
+  typeMetier = ["Administration - Services généraux","Services Généraux","Audit","Commercial - Vente","Communication - Création","Conseil","Direction générale - Direction centre de profits","Etudes - Recherche","Export","Gestion - Comptabilité - Finance","Internet - e-Commerce","Juridique Fiscal","Logistique - Achat - Stock - Transport","Marketing","Production - Maintenance - Qualité - Sécurité - Environnement","Ressources Humaines - Personnel - Formation","Santé (Industrie)","Santé (Médical) - Social","Systèmes d'informations - Télécom"]
   typeMetier.each do |dataName|
     Metier.create(name: dataName)
   end
