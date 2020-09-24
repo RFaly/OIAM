@@ -31,11 +31,13 @@
         <hr />
         <div class="pc-form pc-form1 pc-flex"><%= f.label :date_poste, "Date de prise de poste" %> <% priseDate = @promise.date_poste ? @promise.date_poste : @job.date_poste %> <%= f.text_field :date_poste,readonly:'true',id:'datepicker' %></div>
         <hr />
+        <div class="pc-form pc-form1 pc-flex"><%= f.label :time_trying, "Période d'essai" %> <% periodessay = @promise.time_trying ? @promise.time_trying : (@promise.date_poste.to_date + 120 ).strftime("%d/%m/%Y") %> <input type="text" value="<%= periodessay %>" id="date" readonly /></div>
+        <hr />
         <div class="pc-form pc-form2 pc-flex">
-          <label>Rémunération fixe <br />(k€ bruts mensuels)</label>
+          <label>Rémunération fixe <br />(€ bruts mensuels)</label>
 
           <div class="right">
-            <div><% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <%= f.text_field :remuneration_fixe, value: payFix,readonly:'true' %></div>
+            <div><% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <%= f.text_field :remuneration_fixe, value: (payFix) ,readonly:'true' %></div>
             <div>
               <label id="conditioncheck">
                 12 mois <%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois',disabled:'true'%>
@@ -81,8 +83,8 @@
         <hr />
         <div class="pc-calcul">
           Précalcul honoraires OIAM<br />
-          <div id="pc-calcul"><%test = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2)) + @promise.remuneration_var_info.to_f.round(2)) * 10 * 15%> <%= test.round(2)%> €</div>
-          <div id="pc-calcul2"><%test = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2))) * 10 * 15%> <%= test.round(2)%> €</div>
+          <div id="pc-calcul"><%test = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2)) + @promise.remuneration_var_info.to_f.round(2)*1000) * 10 * 15%> <%= (test/1000).round(2)%> €</div>
+          <div id="pc-calcul2"><%test = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2))) * 10 * 15%> <%= (test/1000).round(2)%> €</div>
         </div>
         <hr />
         <div class="pc-avantage">

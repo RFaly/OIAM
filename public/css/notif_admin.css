@@ -159,7 +159,7 @@
   padding: 12px 50px;
   font: 550 18px Raleway, sans-serif;
 }
-
+.cp-table-box .cp-link a:hover,
 .cp-table-box .cp-link a:hover,
 .cp-table-box .cp-link a:active {
   color: white;

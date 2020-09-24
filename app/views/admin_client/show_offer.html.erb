@@ -1,0 +1,39 @@
+
+<div>
+  <div class="fcp-box">
+    <h3 class="title" style="color: #d6b36a !important">OFFRES DE <%= @offre.client.entreprise.name.upcase %> </h3>
+    <div class="fc-item">
+        <div class="fc-item-all">
+          <div class="list-candidat">
+            <div class="fci-image">
+        			<img src="<%= @offre.image %>" alt="photo entreprise"> 
+            </div>
+            <div class="fci-infos">
+              <p class="poste">Poste : <%= @offre.intitule_pote %></p>
+              <p>PAYS : <%= @offre.country %></p>
+              <p>REGION : <%= @offre.region%></p>
+              <p>DEPARTEMENT : <%= @offre.department%></p>
+              <p>DESCRIPTIF DES MISSIONS : <%= @offre.descriptif_mission %></p>
+              <p>Pourquoi travailler chez eux ? : <%= @offre.question2 %></p>
+              <p>RATTACHEMENT HIÉRARCHIQUE : <%= @offre.rattachement %></p>
+              <p>RÉMUNÉRATION (K€ BRUTS ANNUELS) : Fixe : <%= @offre.remuneration.to_i %>k€, Variable: <%= @offre.remuneration_anne.to_i %>k€ </p>
+              <p>DÉPLACEMENTS : <%= @offre.type_deplacement %></p>
+              <p>PROCESSUS RH : 
+                <% case @offre.numberEntretien.to_i %>
+                <% when 1 %>
+                  1 entretien RH
+                <% when 2 %>
+                  1 entretien RH avec 1 entretien Manager
+                <% when 3 %>
+                  1 entretien RH avec 2 entretiens Manager
+                <% end %>
+              </p>
+              <p>CONTEXTE D'OUVERTURE DE CE POSTE : <%= @offre.question5 %></p>
+              <p>DATE DE PRISE DE POSTE : <%= @offre.date_poste %></p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+

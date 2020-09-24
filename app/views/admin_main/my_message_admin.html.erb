@@ -1,4 +1,4 @@
-	<link rel="stylesheet" type="text/css" href="/css/admin_message.css">
+<link rel="stylesheet" type="text/css" href="/css/admin_message.css">
 <div class="all-content">
 	<div class="left-content">
 		<%= render partial: "admin_main/left_menu_link" %>
@@ -11,7 +11,7 @@
 			<div class="message">
 				<div class="message-content">
 					<a href="<%= show_my_messages_cadre_path(contact.client.id) %>">
-					<span class="recruteur-name"><%= contact.client.last_name %> <%= contact.client.first_name %></span>
+					<span class="recruteur-name"><%= contact.client.first_name %> <%= contact.client.last_name %> </span>
 					<div class="block-image">
 						<%= image_tag(contact.client.image, alt: 'photo de profil', class:"pdp" )%>
 					</div>

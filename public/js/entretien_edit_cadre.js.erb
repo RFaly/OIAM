@@ -121,11 +121,13 @@ let here = true;
 
 $('.alternative').click(function () {
   if (here == true) {
-    $('.alternatives').show();
+  
+   $('.alternatives').parent('div').attr('id').show();
     here = false;
   }
   else {
-    $('.alternatives').hide();
+    
+    $('.alternatives').parent('div').attr('id').hide();
     here = true;
   }
 });

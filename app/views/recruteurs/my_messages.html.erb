@@ -10,7 +10,7 @@
       <div class="message-content">
         <% unless @contactListes.empty? %> <% @contactListes.each do |contact| %> <% nbr = contact.mp_client_not_see %>
         <div>
-          <a href="<%= show_my_messages_client_path(contact.cadre.id) %>"> <%= contact.cadre.cadre_info.last_name %> <%= contact.cadre.cadre_info.first_name %> </a>
+          <a href="<%= show_my_messages_client_path(contact.cadre.id) %>"> <%= contact.cadre.cadre_info.first_name %>  <%= contact.cadre.cadre_info.last_name %>  </a>
           <% unless nbr == 0 %>
           <span class="alert-info"><%= nbr %></span>
           <% end %> <% if contact.cadre.is_online? %>

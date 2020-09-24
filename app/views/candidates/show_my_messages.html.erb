@@ -6,7 +6,7 @@
 
 	<div class="main-content">
 		<div class="main-container">
-			<h2 class="sender-name"><%= @client.last_name %> <%= @client.first_name %></h2>
+			<h2 class="sender-name"><%= @client.first_name %> <%= @client.last_name %> </h2>
 		<div class="boit-reception" id="js-add-new-message">
 			<% @messages.each do |message| %>
 				<% if message.is_client %>

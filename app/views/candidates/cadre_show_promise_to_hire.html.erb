@@ -36,7 +36,7 @@
 					</div>
 					<div class="cadre-info-content">
 						<% if @promise.ns_sociale_cadre.nil? %>
-							<input placeholder="N° sécurité sociale" class="number-only" type="number" name="promise_to_hire[ns_sociale_cadre]" id="promise_to_hire_ns_sociale_cadre" step="2" ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57"><br><span class="secur-social-err error"></span>
+							<input placeholder="N° sécurité sociale" class="number-only" type="number" name="promise_to_hire[ns_sociale_cadre]" id="promise_to_hire_ns_sociale_cadre" ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57"><br><span class="secur-social-err error"></span>
 						<% else %>
 							<%= @promise.ns_sociale_cadre %>
 						<% end %>
@@ -112,8 +112,8 @@
 						<div>
 							<img id="addImage" class="addImage" src="#" alt="signature candidat" height="150px" style="display: none;">
 							<%= f.label :signature_candidat, class:"import", id:"signature", style:"background: url() center no-repeat; background-size: cover; background-color: #f0f2f4;"%><br>
-							<span class="signature-err error"></span>
-							<%= f.file_field :signature_candidat, required:true, class:"form-control", accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document", style:"display:none;" %>
+							<span class="signature-err error" style="display: none;"></span>
+							<%= f.file_field :signature_candidat, required:true, class:"form-control signat", accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document", style:"display:none;" %>
 						</div>
 							<script type="text/javascript">
 								function shwoMyImage(input) {
@@ -145,7 +145,7 @@
 							<%= f.file_field :cin_pass_port, required:true, class:"input-import cin", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %><br>
 							<span class="cin-error error"></span>
 						<% else %>
-								<%= link_to "TELECHARGER", @promise.cin_pass_port %>
+								<%= link_to "TELECHARGER", @promise.cin_pass_port, class:"telecharger" %>
 						<% end %>
 					</div>
 				</div>
@@ -159,7 +159,7 @@
 							<%= f.file_field :security_certificate, required:true, class:"input-import atest", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %><br>
 							<span class="attest-err error"></span>
 						<% else %>
-								<%= link_to "TELECHARGER", @promise.cin_pass_port %>
+								<%= link_to "TELECHARGER", @promise.cin_pass_port, class:"telecharger" %>
 						<% end %>
 					</div>
 				</div>
@@ -173,7 +173,7 @@
 							<%= f.file_field :rib, required:true, class:"input-import rib", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %><br>
 							<span class="rib-err error"></span>
 						<% else %>
-								<%= link_to "TELECHARGER", @promise.cin_pass_port %>
+								<%= link_to "TELECHARGER", @promise.cin_pass_port, class:"telecharger" %>
 						<% end %>
 					</div>
 				</div>
@@ -181,8 +181,6 @@
 					<div id="btn-valid-error" style="display: none;"></div>
 				<% if @promise.repons_cadre.nil? %>
 					<%= f.submit 'VALIDER', :class => 'btn-valide' %>
-				<% else %>
-					<center>TELECHARGER</center>
 				<% end %>
 			</div>
 			</div>
@@ -220,7 +218,8 @@
 
 	    $('.calen input').focusout(function(){
 	    	if ($('#calendar').val() <= 0) {
-	    		$('.calendar-err').html('Veuillez remplir ce champs');
+	    		$('.calendar-err').html('Champs obligatoire');
+
 	    		return false;
 	    	}else{
 	    		$('.calendar-err').hide();
@@ -230,7 +229,7 @@
 
 	    $('.lieu-naiss').focusout(function(){
 	    	if ($(this).val() <= 0) {
-	    		$('.lieu-naiss-err').html('Veuillez remplir ce champs');
+	    		$('.lieu-naiss-err').html('Champs obligatoire');
 	    		return false;	
 	    	}else{
 	    		$('.lieu-naiss-err').hide();
@@ -238,29 +237,65 @@
 	    	}
 	    })
 
+
 	    $('.number-only').focusout(function(){
-	    	if ($(this).val() <= 0) {
-	    		$('.secur-social-err').html('Veuillez remplir ce champs');
+	    	var value = $(this).val();
+	    	if (value <= 0) {
+	    		console.log(value.length)
+	    		$('.secur-social-err').html('Champs obligatoire');
 	    		return false;
 	    	}
-	    	else {
+	    	else if (value.length !== 13){
+	    		$('.secur-social-err').show();
+	    		$('.secur-social-err').html('Numero de securité invalide (13 chiffres)');
+	    		return false;
+	    	} else {
 	    		$('.secur-social-err').hide();
 	    		return true;
 	    	}
 	    })
 
 
-
+	    $('.edit_promise_to_hire').attr("name","formulaire");
 
 
 	    $('.btn-valide').click(function(){
-	    	if ($('.calendar').val() <= 0 || $('.nombre-only').val() <= 0 || $('.lieu-naiss').val() <= 0) {
+
+
+
+
+	    	var form = document.forms.formulaire;
+
+	    	for (var i = 0; i < form.length; i++) {
+	    		if(form[i].value == 0 || form[i].value.length == 0){
+	    			form[i].style.outline = "1px solid red";
+	    			form[i].nextSibling.nextSibling.innerHTML = "Champs Obligatoire";
+	    			$('#btn-valid-error').html("*Verifier que vous avez remplis tous les formulaires");
+	    			$('#btn-valid-error').show(300);
+		    		setTimeout(function(){
+		    			$('#btn-valid-error').hide(500);
+		    		}, 5000);
+		    		return false;
+	    			console.log(form[i].nextSibling.nextSibling);
+	    		}
+	    		else{
+	    			form[i].style.outline = 'none';
+	    			return true;
+	    		}
+	    	}
+	 
+	    	
+	    	if ($('#signature').val().length() <= 0 || $('.cin').val().length() <= 0 || $('.atest').val().length() <= 0 || $('.rib').val().length()) {
+	    		console.log('fandeany');
 	    		$('#btn-valid-error').html("*Verifier que vous avez remplis tous les formulaires");
 	    		$('#btn-valid-error').show(300);
 	    		setTimeout(function(){
 	    			$('#btn-valid-error').hide(300);
 	    		}, 5000);
 	    		return false;
+	    	}
+	    	else{
+	    		return true;
 	    	}
 	    })
 
@@ -269,3 +304,4 @@
 
 	});
 </script>
+

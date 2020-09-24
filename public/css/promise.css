@@ -116,6 +116,7 @@
 }
 
 .promise .promise-content #datepicker,
+.promise .promise-content #datepicker1,
 .promise .promise-content #datepicker2,
 .promise .promise-content #date {
   cursor: pointer;

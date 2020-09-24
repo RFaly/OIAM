@@ -21,7 +21,7 @@ var franceData = [
   { region: 'Occitanie', departement: ['Ariège', 'Aude', 'Aveyron', 'Gard', 'Haute-Garonne', 'Gers', 'Hérault', 'Lot', 'Lozère', 'Hautes-Pyrénées', 'Pyrénées-Orientales', 'Tarn', 'Tarn-et-Garonne'] },
   { region: 'Pays de la Loire', departement: ['Loire-Atlantique', 'Maine-et-Loire', 'Mayenne', 'Sarthe', 'Vendée'] },
   { region: "Provence-Alpes-Côte d'Azur", departement: ['Alpes-de-Haute-Provence', 'Hautes-Alpes', 'Alpes-Maritimes', 'Bouches-du-Rhône', 'Var', 'Vaucluse'] },
-  { region: "Toutes les régions", departement: ['Tous les départements']},
+  { region: 'Toutes les régions', departement: ['Tous les départements'] },
 ];
 var listOptionRegion = '';
 var listOptionDepartment = '';
@@ -161,9 +161,9 @@ $('#regionInput').focusout(function () {
 $('#departmentInput').focusout(function () {
   check_nil($(this), $('.departement-error'));
 });
-// $('#intitule-pote').focusout(function () {
-//   check_nil($(this), $('.intitule-pote-error'));
-// });
+$('#intitule-pote').focusout(function () {
+  check_nil($(this), $('.intitule-pote-error'));
+});
 $('#descriptif-mission').focusout(function () {
   check_nil($(this), $('.descriptif-mission-error'));
 });
