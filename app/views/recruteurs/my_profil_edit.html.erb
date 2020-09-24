@@ -27,7 +27,7 @@
             <div class="cp-infos-r">
               <h5>MON PROFIL</h5>
               <p class="cpr-name">
-                <input type="text" autofocus="autofocus" class="cp-edit-form cp-full-name" required placeholder="Nom prénoms" value="<%= @client.last_name %> <%= @client.first_name %>" id="cp-full-name" />
+                <input type="text" autofocus="autofocus" class="cp-edit-form cp-full-name" required placeholder="Nom prénoms" value="<%= @client.last_name %> <%= @client.first_name %>  " id="cp-full-name" />
                 <%= f.hidden_field :first_name, autofocus: true, autocomplete: "first_name", required: true,id:"cp-first-name" %> <%= f.hidden_field :last_name, autofocus: true, autocomplete: "last_name", required: true,id:"cp-last-name" %>
               </p>
 

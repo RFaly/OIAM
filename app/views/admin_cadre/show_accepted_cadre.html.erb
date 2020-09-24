@@ -168,7 +168,11 @@
 
           <div class="list-candidat">
             <div class="fci-image">
-					    <img src="/image/profie.png" alt="default photo">
+					    <% unless @cadre.image.nil? %>
+                <%= image_tag(@cadre.image, alt: 'photo de profil')%>
+              <% else %>
+                <img src="/image/profie.png" alt="photo profil candidats">
+              <% end %>
             </div>
             <div class="fci-icon">
               <% unless @cadre.admin.nil? %>
@@ -186,7 +190,7 @@
               <% end %>
             </div>
             <div class="fci-infos">
-              <p class="name"><%= @cadre.last_name %> <%= @cadre.first_name %></p>
+              <p class="name"><%= @cadre.first_name %> <%= @cadre.last_name %> </p>
               <p class="poste">Poste : <%= @cadre.job %></p>
               <p class="score">Score OIAM : <span><%= @cadre.score_potential %></span></p>
             </div>
@@ -195,16 +199,21 @@
 
          <!--  ---------------------------- -->
 
+
          <div class="mess_candidat">
 
-          <% unless @cadre.agenda_admin.nil? %>
-            <div class="desc-suiv">
-            <p>
-              <strong>Entretien fit avec ce cadre le : </strong>
-              <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
-            </p>
-            </div>
-
+          <% unless @cadre.agenda_admin.nil? %>          
+            <% if @cadre.agenda_admin.entretien_date > DateTime.now.utc %>
+              <p>
+                <strong>Entretien fit avec ce cadre le : </strong>
+                <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+              </p>
+              <p id="time-to-down" class="btn btn-info" style="font-size: 40px;"></p>
+              <% if @cadre.agenda_admin.accepted.nil? %>
+                <%= link_to accepted_or_reffused_path(id:@cadre.id), method: :post do %><br>ACCEPTER LE RENDEZ-VOUS<% end %>
+              <% else %>
+                <br>RENDEZ-VOUS ACCEPTER
+              <% end %>
             <% if @cadre.is_recrute.nil? %>
               <div style="margin-left: 200px; margin-top: 150px;">
                 <span style='font-size: 20px;' id="accepted-js" class="btn-fit btn-acc btn-to-hidden-js">CANDIDATURE ACCEPTÉE</span><br><br><br>
@@ -305,6 +314,16 @@
   </div>
 </div>
 
+<script type="text/javascript">
+/*----------------------------------------------*/
+  if (document.URL.indexOf('#') == -1) {
+    url = document.URL + '#';
+    location = '#';
+    location.reload(true);
+  }
+/*----------------------------------------------*/
+</script>
+
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 
 <script type="text/javascript">
@@ -338,4 +357,24 @@
     $("#show-link-js").show(300);
   });
 
+/*********************************************/
+  let elementDate = $('.currentDateEntretien')[0];
+  let dateUTC = moment.utc($(elementDate).data().times);
+  let countDownDate = new Date(dateUTC.local()).getTime();
+  var nodeTime = document.getElementById("time-to-down")
+  var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    nodeTime.innerHTML = days + "j:" + hours + "h:"
+    + minutes + "m:" + seconds + "s";
+    if (distance < 0) {
+      clearInterval(x);
+      nodeTime.innerHTML = "EXPIRED";
+    }
+  }, 1000);
+/*********************************************/
 </script>

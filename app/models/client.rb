@@ -12,6 +12,8 @@ class Client < ApplicationRecord
 	has_many :contact_admin_clients
   has_many :admins, through: :contact_admin_clients
 
+  has_many :notifications
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

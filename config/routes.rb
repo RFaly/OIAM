@@ -164,6 +164,8 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/cadre/entretien-fit/:id/avis-recruteur', to: 'admin_cadre#show_accepted_cadre', as: 'post_avis_candidats_fit'
   
   post 'secret-oiam-page/admin/cadre/entretien-fit', to: 'admin_cadre#candidate_to_cadre', as: 'candidate_to_cadre'
+  post 'secret-oiam-page/admin/cadre/entretien-fit/ok', to: 'admin_cadre#accepted_or_reffused', as: 'accepted_or_reffused'
+  
 
   # get 'secret-oiam-page/admin/cadre/envoyer-un-message', to: 'admin_cadre#send_message', as: 'admin_cadre_send_message'
 

@@ -41,10 +41,14 @@
           <% @cadres.each do |cadre| %>
             <div class="list-candidat">
               <div class="fci-image">
-                  <img src="/image/profie.png" alt="default photo">
+                <% unless cadre.image.nil? %>
+                  <%= image_tag(cadre.image, alt: 'photo de profil')%>
+                <% else %>
+                  <img src="/image/profie.png" alt="photo profil candidats">
+                <% end %>
               </div>
               <div class="fci-infos">
-                <p class="name" style="margin-top: 0px;"><%= cadre.last_name %> <%= cadre.first_name %></p>
+                <p class="name"><%= cadre.first_name %> <%= cadre.last_name %> </p>
                 <p class="poste">Poste : <%= cadre.job %></p>
                 <p class="score">Score OIAM : <span><%= cadre.score_potential %></span></p>
 
@@ -83,6 +87,16 @@
   	</div>
   </div>
 </div>
+
+<script type="text/javascript">
+/*----------------------------------------------*/
+  if (document.URL.indexOf('#') == -1) {
+    url = document.URL + '#';
+    location = '#';
+    location.reload(true);
+  }
+/*----------------------------------------------*/
+</script>
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 

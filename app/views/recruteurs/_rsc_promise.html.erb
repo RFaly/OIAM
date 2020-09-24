@@ -1,6 +1,7 @@
+
 <% if @promise.repons_cadre %> <% unless @promise.payed %>
 <div class="felicitation-box">
-  <div class="felicitation">
+  <div class="felicitation" id="modal-unique">
     <h1>FELICITATIONS !</h1>
     <p>Le cadre vient d'accepter votre proposition d'embauche !</p>
     <p>Vous retrouverez la proposition signée dans votre profil. Nous sommes certains que votre collaboration sera couronnée de succès, mais dans tous les cas, une période de garantie de 12 semaines prend effet à compter de son démarrage. Vous pouvez désormais régler la prestation One in a Million et commencer un nouveau recrutement !</p>
@@ -77,3 +78,4 @@
 </div>
 
 <% end %>
+<script data-turbolinks-track="reload" src="/js/congratulation_cadre.js"></script>

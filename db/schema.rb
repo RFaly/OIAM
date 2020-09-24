@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_18_094738) do
+ActiveRecord::Schema.define(version: 2020_09_24_064053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_09_18_094738) do
     t.bigint "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "accepted"
     t.index ["admin_id"], name: "index_agenda_admins_on_admin_id"
     t.index ["cadre_info_id"], name: "index_agenda_admins_on_cadre_info_id"
   end
@@ -251,6 +252,22 @@ ActiveRecord::Schema.define(version: 2020_09_18_094738) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.string "object"
+    t.text "message"
+    t.string "link"
+    t.integer "genre"
+    t.integer "medel_id"
+    t.boolean "view"
+    t.string "confirm_token"
+    t.bigint "client_id"
+    t.bigint "cadre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cadre_id"], name: "index_notifications_on_cadre_id"
+    t.index ["client_id"], name: "index_notifications_on_client_id"
+  end
+
   create_table "offre_for_candidates", force: :cascade do |t|
     t.string "status"
     t.boolean "is_recrute", default: false
@@ -319,6 +336,7 @@ ActiveRecord::Schema.define(version: 2020_09_18_094738) do
     t.string "cin_pass_port"
     t.string "security_certificate"
     t.string "rib"
+    t.string "time_trying"
     t.index ["cadre_id"], name: "index_promise_to_hires_on_cadre_id"
     t.index ["offre_job_id"], name: "index_promise_to_hires_on_offre_job_id"
   end
