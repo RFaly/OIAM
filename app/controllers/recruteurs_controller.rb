@@ -391,7 +391,7 @@ class RecruteursController < ApplicationController
 
 #Mes notifications
 	def notifications
-		@notifications = current_client.notifications.order("created_at DESC")
+		@notifications = current_client.notifications.where.not(genre:2).order("created_at DESC")
 	end
 
 	def show_promise_to_hire
