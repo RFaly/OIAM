@@ -29,3 +29,53 @@
   text-transform: uppercase;
   margin-bottom: 50px;
 }
+
+.notification-box .notif-link {
+  color: black;
+}
+
+.notification-box .notif-link.seen {
+  color: #d6b36a;
+}
+
+.notification-box .notif-link:hover, .notification-box .notif-link:active {
+  text-decoration: none;
+}
+
+.notification-box .notif-link:hover .notif, .notification-box .notif-link:active .notif {
+  text-decoration: underline;
+}
+
+.notification-box .notification-content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.notification-box .notification-content .nc-item {
+  width: 80%;
+  font: 16px Questrial, sans-serif;
+}
+
+.notification-box .notification-content .nc-item .name {
+  font: 500 18px Raleway, sans-serif;
+}
+
+.notification-box .notification-content .nc-item p {
+  margin-bottom: 6px;
+}
+
+.notification-box .notification-content .nc-item .currentDateEntretien {
+  opacity: 0.5;
+  color: black;
+  font-size: 11px;
+  margin-top: 10px;
+  text-align: right;
+}
+
+.notification-box .notification-content .c {
+  margin-right: 5px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
