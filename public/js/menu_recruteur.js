@@ -17,7 +17,7 @@ $(document).ready(function () {
       if ($(window).width() < 1200) {
         $('.line-white2').css('height', $('.code-naf-flex').height() + 5);
       } else {
-        $('.line-white2').css('height', $('.code-naf-flex').height() + 14);
+        $('.line-white2').css('height', $('.code-naf-flex').height() + 25);
         
       }
       check = false;
@@ -29,7 +29,7 @@ $(document).ready(function () {
       if ($(window).width() < 1200) {
         $('.line-white2').css('height', $('.code-naf-flex').height() + 45);
       } else {
-        $('.line-white2').css('height', $('.code-naf-flex').height() + 40);
+        $('.line-white2').css('height', $('.code-naf-flex').height() + 25);
         
       }
       check = true;

@@ -12,27 +12,54 @@
     </div>
   </div>
   <div class="pch-right">
-    <input type="text" value="<%= @cadre.last_name %>" readonly />
-    <input type="text" value="<%= @cadre.first_name %>" readonly />
-    <input type="text" id="date" value="<%= @promise.birthday_cadre ? @promise.birthday_cadre : "Date de naissance" %>" readonly/> <input type="text" value="<%= @promise.birthplace_cadre ? @promise.birthplace_cadre : "Lieu de naissance" %>" readonly/> <input type="text" value="<%= @promise.ns_sociale_cadre ? @promise.ns_sociale_cadre : "N° sécurité
-    sociale" %>" readonly/>
+    <div class="pch-div">
+      <label> Nom </label>
+      <input type="text" value="<%= @cadre.last_name %>" readonly class="input" />
+    </div>
+    <div class="pch-div">
+      <label>Prénoms</label>
+      <input type="text" value="<%= @cadre.first_name %>" readonly class="input" />
+    </div>
+    <div class="pch-div">
+      <% if (@promise.birthday_cadre == '')%>
+      <label>Date de naissance</label>
+      <% end%> <input type="text" id="date" value="<%= @promise.birthday_cadre ? @promise.birthday_cadre : "Date de naissance" %>" readonly class="<% if (@promise.birthday_cadre == '')%> input <% end%>"/>
+    </div>
+    <div class="pch-div">
+      <% if (@promise.birthplace_cadre == '')%>
+      <label>Lieu de naissance</label>
+      <% end%> <input type="text" value="<%= @promise.birthplace_cadre ? @promise.birthplace_cadre : "Lieu de naissance" %>" readonly class="<% if (@promise.birthplace_cadre == '')%>input<% end%>"/>
+    </div>
+    <div class="pch-div">
+      <% if (@promise.ns_sociale_cadre == '')%>
+      <label>N°sécurité sociale</label>
+      <% end%> <input type="text" value="<%= @promise.ns_sociale_cadre ? @promise.ns_sociale_cadre : "N°sécurité sociale" %>" readonly class="<% if (@promise.ns_sociale_cadre == '')%>input<% end%>"/>
+    </div>
   </div>
 </div>
 <hr />
 <div class="pc-form pc-form1 pc-flex"><%= f.label :date_poste, "Date de prise de poste" %> <% priseDate = @promise.date_poste ? @promise.date_poste : @job.date_poste %> <%= f.text_field :date_poste, value: priseDate, required:true,id:"datepicker" %></div>
 <hr />
-<div class="pc-form pc-form1 pc-flex"><%= f.label :time_trying, "Période d'essai" %> <% periodessay = @promise.time_trying ? @promise.time_trying : (@job.date_poste.to_date + 120 ).strftime("%d/%m/%Y") %> <%= f.text_field :time_trying, value: periodessay, required:true,id:"datepicker1",class:"datepicker1" %></div>
+<div class="pc-form pc-form1 pc-flex"><%= f.label :time_trying, "Fin du période d'essai" %> <% periodessay = @promise.time_trying ? @promise.time_trying : (@job.date_poste.to_date + 120 ).strftime("%d/%m/%Y") %> <%= f.text_field :time_trying, value: periodessay, required:true,id:"datepicker1",class:"datepicker1" %></div>
 <hr />
+<div class="pc-form pc-form1 pc-flex">
+  <label>Rémunération fixe <br />(k€ bruts annuels)</label>
+  <% if valeur%>
+  <input type="text" id="remA" onkeypress="return event.charCode>=46 && event.charCode<=57" value="<%= (@job.remuneration.to_f ).round(2)%> " />
+  <%else%> <% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %>
+  <input type="text" id="remA" onkeypress="return event.charCode>=46 && event.charCode<=57" value="<%= ((payFix.to_f / 1000) * @promise.remuneration_fixe_date.to_f).round(2)%> " />
+  <%end%>
+</div>
 <div class="pc-form pc-form2 pc-flex">
   <label>Rémunération fixe <br />(€ bruts mensuels)</label>
   <div class="right">
     <div>
-      <% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <% if valeur%> <%= f.text_field :remuneration_fixe, required:true, value: ((@job.remuneration.to_f * 1000)/12).round(2), required:true,id:'renumeration-fixe',onkeypress:"return event.charCode>=46 && event.charCode<=57" %> <%else%> <%= f.text_field :remuneration_fixe,
-      required:true, value: (payFix ), required:true,id:'renumeration-fixe',onkeypress:"return event.charCode>=46 && event.charCode<=57"%> <%end%>
+      <% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <% if valeur%> <%= f.text_field :remuneration_fixe, required:true, required:true,id:'renumeration-fixe',onkeypress:"return event.charCode>=46 && event.charCode<=57" %> <%else%> <%= f.text_field :remuneration_fixe, required:true, value: (payFix),
+      required:true,id:'renumeration-fixe',onkeypress:"return event.charCode>=46 && event.charCode<=57"%> <%end%>
     </div>
     <div>
       <label id="conditioncheck">
-        12 mois <%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois', required:true %>
+        12 mois <%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois', required:true, checked:'checked' %>
         <span class="checkmark"></span>
       </label>
     </div>
