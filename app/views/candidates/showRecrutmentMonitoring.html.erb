@@ -121,31 +121,17 @@
 							</center>
 						</div>
 					<% end %>
-					<div class="promeser-emb-content">
-						<div class="promese-label">Promesse d'embauche</div>
-						<div class="promese-file">TELECHARGER</div>
+<!-- -------------------------------------------------- -->
+					<div class="row">
+						<div class="col-sm-9">
+							<img width="30px" src="/image/compteR.png" alt="icone" />
+					      	<%= link_to "Promesse d'embauche", cadre_show_promise_to_hire_path(@promise.id), class:"btn" %>
+						</div>
+						<div class="col-sm-3">
+							<%= link_to "TELECHARGER"%>	
+						</div>
 					</div>
-
-					<!-- <div class="promese-emb">
-						
-						<div class="promeser-emb-content">
-							<div class="promese-label">CIN ou Passeport</div>
-							<div class="promese-file"><%= link_to "TELECHARGER", @promise.cin_pass_port, class:"telecherger" %></div>
-						</div>
-						<div class="promeser-emb-content">
-							<div class="promese-label">Attestation de sécurité sociale</div>
-							<div class="promese-file"><%= link_to "TELECHARGER", @promise.security_certificate, class:"telecherger" %></div>
-						</div>
-						<div class="promeser-emb-content">
-							<div class="promese-label">RIB</div>
-							<div class="promese-file"><%= link_to "TELECHARGER", @promise.rib, class:"telecherger" %></div>
-						</div>
-						<div class="promeser-emb-content">
-							<div class="promese-label">CV</div>
-							<div class="promese-file"><%= link_to "TELECHARGER", @cadre.cadre_info.cv, class:"telecherger" %></div>
-						</div>
-					</div> -->
-
+<!-- -------------------------------------------------- -->
 				<% end %>
 				<!-- <div>
 					<a href="<%= show_my_messages_cadre_path(@offreJob.client.id) %>">Chat en ligne</a>

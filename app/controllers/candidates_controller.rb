@@ -546,22 +546,32 @@ class CandidatesController < ApplicationController
 
   def validate_time_trying_cadre
     @promise = PromiseToHire.find_by_confirm_token(params[:confirm_token])
-    oFc = @promise.offre_job.is_in_this_job(current_cadre)
+    @offreJob = @promise.offre_job
+    oFc = @offreJob.is_in_this_job(current_cadre)
     @promise.update(cadre_time_trying:true)
+
+    first_name = current_cadre.cadre_info.first_name
+    last_name = current_cadre.cadre_info.last_name
+    
+    #notifaka
+    Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a validé sa période d'essai.",link: "#{recruitment_show_cadre_path(oFc.id,notification:"validation")}",genre: 1,medel_id: current_cadre.id,view: false)
+
     redirect_to show_recrutment_monitoring_path(oFc.id)
   end
 
   def congratulations_cadre
-    @header = true
+    @header = true #not show a nav_bar for madal page
     @promise = PromiseToHire.find_by_confirm_token(params[:confirm_token])
     if @promise.nil?
       flash[:alert] = "Page introuvable"
       redirect_back(fallback_location: root_path)
     else
-      @promise.update(ask_salar:true)
       unless @promise.repons_cadre
         flash[:alert] = "Page introuvable"
         redirect_back(fallback_location: root_path)
+      else
+        @promise.update(ask_salar:true)
+        #notifaka admin
       end
     end
   end
