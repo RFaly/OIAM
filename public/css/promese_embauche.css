@@ -71,11 +71,16 @@ body{
   padding-right: 50px;
 }
 
+.main-title{
+  text-align: center;
+  color: #d6b36a;
+  margin-bottom: 50px;
+}
 
 .job-info{
   display: flex;
   width: 100%;
-  grid-column-gap: 20%;
+  grid-column-gap: 35%;
   text-align: center;
   justify-content: center;
   padding-bottom: 30px;
@@ -93,17 +98,23 @@ body{
 }
 
 .down{
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 
 .cadre-info-content input{
+  position: relative;
   width: 225px;
   height: 35px;
   border-radius: 0;
   border: none;
+  font-size: 14px;
   background-color:#f0f2f4;
   text-align: center;
   margin-top: 15px;
+}
+
+.cadre-info-content input:focus{
+  outline: 1px solid #d6b36a;
 }
 
 .disable{
@@ -119,19 +130,28 @@ body{
 }
 
 .calendar{
+  position: relative;
   background: no-repeat right 10px center url(/image/calendar.png);
   background-size: 25px;
 }
+
+
+.dat-p{
+  background: no-repeat right 10px center url(/image/calendar.png);
+  background-size: 25px;
+  opacity: 1!important;
+}
+
 
 .date-prise{
   width: 225px;
   height: 35px;
   border-radius: 0;
   border: none;
-  background-color:#f0f2f4;
   text-align: center;
   margin-top: 15px;
   padding: 5px;
+  background-color:#f0f2f4;
   opacity: .5;
 }
 
@@ -139,7 +159,7 @@ body{
   display: flex;
   width: 100%;
   justify-content: center;
-  grid-column-gap: 20%;
+  grid-column-gap: 35%;
   margin-bottom: 20px;
   padding-bottom: 30px;
   border-bottom: 2px solid #f0f2f4;
@@ -165,7 +185,7 @@ body{
   display: flex;
   width: 100%;
   justify-content: center;
-  grid-column-gap: 20%;
+  grid-column-gap: 35%;
   margin-top: 20px;
 
 }
@@ -370,4 +390,31 @@ input[type="radio"]:checked {
 
 .edit_promise_to_hire{
   margin-bottom: 100px;
+}
+
+.bor-me{
+  position: relative;
+  outline: 1px solid #d6b36a;
+  opacity: .8;
+}
+
+.user-info{
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  font-size: 14px;
+  color: #d6b36a;
+  line-height: 1;
+  opacity: 1;
+  background-color: #fff;
+}
+
+.input-cnt{
+  position: relative;
+  outline: 1px solid #d6b36a;
+}
+
+
+.inpt{
+  top: -15px;
 }
