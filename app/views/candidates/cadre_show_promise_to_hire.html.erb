@@ -23,9 +23,9 @@
 					<div class="cadre-info-content disable bor-me"><%= @cadre.first_name %><span class="user-info">Prénoms</span></div>
 					<div class="cadre-info-content calen">
 						<% if @promise.birthday_cadre.nil? %>
-							<span class="input-cnt"><%= f.text_field :birthday_cadre, type: "date", class:"calendar", id:"calendar" %><div class="user-info inpt" id="dat-nai">Date de naissance</div></span><br><span class="calendar-err error"></span>
+							<span class="input-cnt"><%= f.text_field :birthday_cadre, class:"calendar", id:"calendar" %><div class="user-info inpt" id="dat-nai">Date de naissance</div></span><br><span class="calendar-err error"></span>
 						<% else %>
-							<span class="input-cnt"><%= f.text_field :birthday_cadre, type: "date", class:"calendar", id:"calendar", disabled: true %><span class="user-info inpt">Date de naissance</span></span><br>
+							<span class="input-cnt"><%= f.text_field :birthday_cadre, class:"calendar", id:"calendar", disabled: true %><span class="user-info inpt">Date de naissance</span></span><br>
 						<% end %>
 					</div>
 					<div class="cadre-info-content">
@@ -120,20 +120,6 @@
 							<span class="signature-err error" style="display: none;"></span>
 							<%= f.file_field :signature_candidat, required:true, class:"form-control signat", accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document", style:"display:none;" %>
 						</div>
-							<script type="text/javascript">
-								function shwoMyImage(input) {
-									if (input.files && input.files[0]) {
-										var reader = new FileReader();
-										reader.onload = function(e) {
-											$('#signature').css('background-image', 'url(' + e.target.result + ')');
-										}
-										reader.readAsDataURL(input.files[0]);
-									}
-								}
-								$("#promise_to_hire_signature_candidat").change(function() {
-									shwoMyImage(this);
-								});
-							</script>
 
 						<% end %>
 					</div>
@@ -193,11 +179,23 @@
 	</div>
 
 </div>
-
+<script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/candidate_promise_hire.js"></script>
 
 
 <script type="text/javascript">
+	function shwoMyImage(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$('#signature').css('background-image', 'url(' + e.target.result + ')');
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+	$("#promise_to_hire_signature_candidat").change(function() {
+		shwoMyImage(this);
+	});
 	$(document).ready(function() {
 	  $('#file-cin-content').hide()
 	    $('.cin').change(function(e) {

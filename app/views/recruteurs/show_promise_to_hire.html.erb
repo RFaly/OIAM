@@ -31,19 +31,19 @@
               <input type="text" value="<%= @cadre.first_name %>" readonly class="input" />
             </div>
             <div class="pch-div">
-              <% if (@promise.birthday_cadre == '')%>
+              <% if (@promise.birthday_cadre != nil)%>
               <label>Date de naissance</label>
-              <% end%> <input type="text" id="date" value="<%= @promise.birthday_cadre ? @promise.birthday_cadre : "Date de naissance" %>" readonly class="<% if (@promise.birthday_cadre == '')%> input <% end%>"/>
+              <% end%> <input type="text" id="date" value="<%= @promise.birthday_cadre ? @promise.birthday_cadre : "Date de naissance" %>" readonly class="<% if (@promise.birthday_cadre != nil)%> input <% end%>"/>
             </div>
             <div class="pch-div">
-              <% if (@promise.birthplace_cadre == '')%>
+              <% if (@promise.birthplace_cadre != nil)%>
               <label>Lieu de naissance</label>
-              <% end%> <input type="text" value="<%= @promise.birthplace_cadre ? @promise.birthplace_cadre : "Lieu de naissance" %>" readonly class="<% if (@promise.birthplace_cadre == '')%>input<% end%>"/>
+              <% end%> <input type="text" value="<%= @promise.birthplace_cadre ? @promise.birthplace_cadre : "Lieu de naissance" %>" readonly class="<% if (@promise.birthplace_cadre != nil)%>input<% end%>"/>
             </div>
             <div class="pch-div">
-              <% if (@promise.ns_sociale_cadre == '')%>
+              <% if (@promise.ns_sociale_cadre != nil)%>
               <label>N°sécurité sociale</label>
-              <% end%> <input type="text" value="<%= @promise.ns_sociale_cadre ? @promise.ns_sociale_cadre : "N°sécurité sociale" %>" readonly class="<% if (@promise.ns_sociale_cadre == '')%>input<% end%>"/>
+              <% end%> <input type="text" value="<%= @promise.ns_sociale_cadre ? @promise.ns_sociale_cadre : "N°sécurité sociale" %>" readonly class="<% if (@promise.ns_sociale_cadre != nil)%>input<% end%>"/>
             </div>
           </div>
         </div>
