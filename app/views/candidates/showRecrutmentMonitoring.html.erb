@@ -70,28 +70,64 @@
 			<!-- if candidate is in a last step namely "promesse d'embauche" -->
 			<!-- if etapes -->
 			<% if @oFc.etapes == @offreJob.numberEntretien + 1 %>
-				<% if @promise.repons_cadre.nil? %>
-				<div class="felicitations">
-					<p>Félicitations, vous avez réussi la dernière étape du recrutement !</p>
-					<p><%= @offreJob.client.entreprise.name %> vous a envoyé une promesse d'embauche.</p>
-					<p><%= link_to "OUVRIR", cadre_show_promise_to_hire_path(@promise.id), class:"btn btn-open" %></p>
-				</div>
+				<% if @promise.repons_cadre.nil? %> <!-- demande la validation du promesse d'embauche -->
+					<div class="felicitations">
+						<p>Félicitations, vous avez réussi la dernière étape du recrutement !</p>
+						<p><%= @offreJob.client.entreprise.name %> vous a envoyé une promesse d'embauche.</p>
+						<p><%= link_to "OUVRIR", cadre_show_promise_to_hire_path(@promise.id), class:"btn btn-open" %></p>
+					</div>
 				<% else %>
-
-					<% if true %>
-						<div class="prime">
-							<h2>One in a million tient à vous féliciter en vous offrant une prime de 1000€.</h2>
-							<%= link_to "RECEVOIR LA PRIME", congratulations_cadre_path(@promise.id), class:"btn-recevoir" %>
+					<!-- après validation promesse d'embauche -->
+					<% unless @promise.ask_salar %> <!-- prime non réçue -->
+						<% if @promise.client_time_trying && @promise.cadre_time_trying %> <!-- periode essai validé par cadre et client -->
+							<div class="felicitations">
+								<h2>Bonne nouvelle ! Votre employeur a validé votre période d’essai. Vous pouvez dès à présent recevoir votre prime One in a Million.</h2>
+								<%= link_to "RECEVOIR MA PRIME", congratulations_cadre_path(@promise.confirm_token), class:"btn-recevoir" %>
+							</div>
+						<% else %>
+							<% if @promise.client_time_trying == false %><!-- periode d'essai refusé par le client -->
+								<div class="felicitations">
+									<center>
+										Votre employeur n'a pas validé votre période d’essai. <br>
+ 										Rupture de la période d’essai le <%= @promise.rupture_time_trying %>.
+ 									</center>
+								</div>
+							<% else %>
+								<% if @promise.cadre_time_trying %> <!-- periode essai validé par cadre -->
+									<div class="felicitations">
+										<h2>Bravo, vous avez validé votre période d’essai !<br>Nous attendons maintenant la confirmation de votre employeur pour vous verser votre prime One in a Million.</h2>
+									</div>
+								<% else %> <!-- periode essai NON validé par cadre -->
+									<div class="prime">
+										<h2>Bravo pour la signature de votre promesse d’embauche ! Votre contrat débutera le <strong><%= @promise.date_poste %></strong>. One in a Million tient à vous féliciter en vous offrant une prime de 1000€ dès votre période d’essai validée.</h2>
+										<% if DateTime.strptime("#{@promise.time_trying}", '%j/%m/%Y').future? %> <!-- si non fin periode d'essai -->
+											<span class="btn btn-info" onclick="alert('Validable à la fin de la période d\'essai (<%= @promise.time_trying %>).');">J'AI VALIDÉ MA PÉRIODE D'ESSAI</span>
+										<% else %> <!-- si fin periode d'essai -->
+											<!-- actualise la page -->
+											<%= link_to validate_time_trying_cadre_path(confirm_token:@promise.confirm_token), method: :post, class:"btn btn-info" do %>
+												J'AI VALIDÉ MA PÉRIODE D'ESSAI
+											<% end %>
+										<% end %>
+									</div>
+								<% end %>
+							<% end %>
+						<% end %>
+					<% else %> <!-- recevoir ma prime vao cliky -->
+						<div class="felicitations">
+							<center>
+							Félicitations ! Nous sommes certains ... <br>
+							Parce que nous sommes honorés ... <br>
+							A bientôt sur One in a Million. <br>
+							</center>
 						</div>
-					<% else %>
-						Demande de prime envoyer
 					<% end %>
+					<div class="promeser-emb-content">
+						<div class="promese-label">Promesse d'embauche</div>
+						<div class="promese-file">TELECHARGER</div>
+					</div>
 
 					<!-- <div class="promese-emb">
-						<div class="promeser-emb-content">
-							<div class="promese-label">Promesse d'embauche</div>
-							<div class="promese-file">TELECHARGER</div>
-						</div>
+						
 						<div class="promeser-emb-content">
 							<div class="promese-label">CIN ou Passeport</div>
 							<div class="promese-file"><%= link_to "TELECHARGER", @promise.cin_pass_port, class:"telecherger" %></div>

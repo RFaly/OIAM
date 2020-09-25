@@ -269,7 +269,10 @@ class CandidatesController < ApplicationController
     @offreJob = @oFc.offre_job
     @cadre = current_cadre
     @agendas = @oFc.agenda_clients.order('created_at DESC')[0]
-    @promise = @offreJob.promise_to_hires.find_by(cadre:@cadre)
+
+    # @promise = @offreJob.promise_to_hires.find_by(cadre:@cadre)
+
+    @promise = @offreJob.promise_to_hires.joins(:cadre).find_by(cadre:current_cadre) 
 
   end
 
@@ -530,8 +533,10 @@ class CandidatesController < ApplicationController
       last_name = current_cadre.cadre_info.last_name
       # notifaka eto
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. vient d'accepter votre proposition d'embauche !",link: "#{recruitment_show_cadre_path(oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
+      
+      oFc = @offreJob.is_in_this_job(current_cadre)
 
-      redirect_to congratulations_cadre_path(@promise.id)
+      redirect_to show_recrutment_monitoring_path(oFc.id)
     else
       flash[:alert] = errorMessage
       redirect_back(fallback_location: root_path)
@@ -539,12 +544,21 @@ class CandidatesController < ApplicationController
 
   end
 
+  def validate_time_trying_cadre
+    @promise = PromiseToHire.find_by_confirm_token(params[:confirm_token])
+    oFc = @promise.offre_job.is_in_this_job(current_cadre)
+    @promise.update(cadre_time_trying:true)
+    redirect_to show_recrutment_monitoring_path(oFc.id)
+  end
+
   def congratulations_cadre
-    @promise = PromiseToHire.find_by_id(params[:id])
+    @header = true
+    @promise = PromiseToHire.find_by_confirm_token(params[:confirm_token])
     if @promise.nil?
       flash[:alert] = "Page introuvable"
       redirect_back(fallback_location: root_path)
     else
+      @promise.update(ask_salar:true)
       unless @promise.repons_cadre
         flash[:alert] = "Page introuvable"
         redirect_back(fallback_location: root_path)
