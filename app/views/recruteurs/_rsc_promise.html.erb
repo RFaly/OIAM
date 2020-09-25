@@ -6,7 +6,7 @@
         <h1>FELICITATIONS !</h1>
         <p>Le cadre vient d'accepter votre proposition d'embauche !</p>
         <p>Vous retrouverez la proposition signée dans votre profil. Nous sommes certains que votre collaboration sera couronnée de succès, mais dans tous les cas, une période de garantie de 12 semaines prend effet à compter de son démarrage. Vous pouvez désormais régler la prestation One in a Million et commencer un nouveau recrutement !</p>
-        <p class="felicitation-btn"><%= link_to "PROCÉDER AU RÈGLEMENT", paye_my_bills_path(@promise.facture.id)%></p>
+        <p class="felicitation-btn"><%= link_to "PROCÉDER AU RÈGLEMENT", show_my_bills_path(@promise.facture.id)%></p>
       </div>
     </div>
   <% end %>
@@ -66,7 +66,7 @@
         <img src="/image/compteR.png" alt="icone" />
         <%= link_to "Promesse d'embauche", show_promise_to_hire_path(@promise.id) %>
       </div>
-      <div class="ap-right"><%= link_to "TELECHARGER"%></div>
+      <div class="ap-right"><%= link_to "TELECHARGER", show_promise_to_hire_path(@promise.id) %></div>
     </div>
     <div class="ap-box">
       <div class="ap-left">

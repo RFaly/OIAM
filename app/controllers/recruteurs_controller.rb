@@ -383,10 +383,24 @@ class RecruteursController < ApplicationController
 
 	def show_my_bills
 		@facture = Facture.find_by_id(params[:id])
+		@promise = @facture.promise_to_hire
+		@offre_job = @promise.offre_job
 	end
 
 	def paye_my_bills
-		@facture = Facture.find_by_id(params[:id])
+		# OffreJob.find_by_id(params[:offre_job_id])
+		@facture = Facture.find_by_id(params[:facture_id])
+		@promise = PromiseToHire.find_by_id(params[:promise_id])
+		@offre_job = @facture.promise_to_hire.offre_job
+		@promise.update(payed:true)
+		flash[:notice] = "J'atteste régler cette facture par virement dans les 15jours."
+		redirect_to show_my_bills_path(@facture.id)
+	end
+
+	def ov_my_bills
+		@facture = Facture.find_by_id(params[:facture_id])
+		# @facture.update(is_payed: true)
+		redirect_to show_my_bills_path(@facture.id)
 	end
 
 #Mes notifications
