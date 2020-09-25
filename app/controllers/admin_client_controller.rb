@@ -1,6 +1,8 @@
 class AdminClientController < ApplicationAdminController
   before_action :authenticate_admin!
   def main
+    @offre = OffreJob.all
+    @cadre = Cadre.all
   end
   def offer
   	@offre = OffreJob.all
