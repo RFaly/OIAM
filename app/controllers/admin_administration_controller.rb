@@ -7,5 +7,7 @@ class AdminAdministrationController < ApplicationAdminController
   def test
   end
   def utilisateur
+  	@cadre = Cadre.all
+  	@recruteur = Client.all
   end
 end
