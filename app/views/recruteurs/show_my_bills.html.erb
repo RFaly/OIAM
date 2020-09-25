@@ -10,45 +10,70 @@
         <div class="pb-flex">
           <div class="left">
             RIB
-            <div class="c" id="addimage" style="background: center no-repeat; background-size: cover"></div>
           </div>
           <div class="pb-btn">
-            <label>
+            <a href="/image/rib.jpg">
               TÉLÉCHARGER
-              <span style="display: none">
-                <input type="file" id="image" />
-              </span>
-            </label>
+            </a>
           </div>
         </div>
+
         <div class="pb-flex">
           <div class="left">
-            FACTURE MARKETING MANAGER
-            <div class="c" id="addImage" style="background: center no-repeat; background-size: cover"></div>
+            <%= @offre_job.intitule_pote %>
           </div>
           <div class="pb-btn">
-            <label>
+            <a href="/image/facture_exemple.pdf">
               TÉLÉCHARGER
-              <span style="display: none">
-                <input type="file" id="imagetag1" />
-              </span>
-            </label>
+            </a>
           </div>
         </div>
-        <label id="checkbox1">
-          J'atteste régler cette facture par virement dans les 15jours.
-          <input type="checkbox" id="check1" name="value" autofocus="true" required />
-          <span class="checkmark"></span>
-        </label>
-        <div class="submit">
-          <input type="submit" name="cont" value="VALIDER" id="valide" />
-        </div>
+
+        <% unless @promise.payed %>
+
+          <%= form_tag(paye_my_bills_path, id:'pay_js') do %>
+            <input type="hidden" name="facture_id" value="<%= @facture.id %>">
+            <input type="hidden" name="promise_id" value="<%= @promise.id %>">
+            <input type="hidden" name="offre_job_id" value="<%= @offre_job.id %>">
+            <label id="checkbox1">
+              J'atteste régler cette facture par virement dans les 15jours.
+              <input type="checkbox" id="check1" name="confirm" value="1" autofocus="true" required /><span class="checkmark"></span>
+            </label>  
+            <%= submit_tag("VALIDER",id:"valide") %>
+          <% end %>
+
+        <% else %>
+          Vous avez confirmé de régler la facture par virement dans les 15 jours. <br>
+          <%= form_tag(ov_my_bills_path, id:'ov_js') do %>
+            <input type="hidden" name="facture_id" value="<%= @facture.id %>">
+            <input type="hidden" name="promise_id" value="<%= @promise.id %>">
+            <input type="hidden" name="offre_job_id" value="<%= @offre_job.id %>">
+            
+            <div class="form-group">
+              <label>
+                <span class="btn btn-primary">IMPORTER LE OV</span>
+                <input type="file" name="" style="display: none;" required="true">
+              </label>
+            </div>
+
+            <div class="form-group">
+              <%= submit_tag("VALIDER",id:"valide") %>
+            </div>
+          <% end %>
+
+        <% end %>
+
+
+
+
+
+
       </div>
     </div>
   </div>
 </div>
-<!-- call js 
- -->
+
+
 <!-- javascript facturation  -->
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/facture.js"></script>
 <!-- javascript facturation  -->

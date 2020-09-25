@@ -1,9 +1,5 @@
 <link rel="stylesheet" type="text/css" href="/css/congratulation_cadre.css">
-
 <div class="all-content">
-	<div class="left_link">
-		<%= render partial: "candidates/left_link_bar" %>
-	</div>
 	<div class="all-main">
 		<div id="modal-unique">
 			<h1 class="felicitation-title">Félicitations !</h1>
@@ -11,44 +7,12 @@
 				<p>Vous trouverez la promesse d’embauche signée dans votre profil. <br>
 				Nous sommes certains que cette nouvelle expérience sera couronnée de succès. <br>
 				Parce que nous sommes honorés d’avoir pu vous accompagner dans ce nouveau départ, One in a million tient à vous féliciter en vous offrant une prime de <span class="bold">1000€</span> .<br>
-				Pour la recevoir, n’oubliez pas d’inscrire vos coordonnées bancaires et nous notifier lorsque vous aurez validé votre période d’essai. <br>
 				Encore toutes nos félicitations, et à très bientôt sur One in a Million.</p>
 			</div>
-				<div class="btn-container">
-					<span class="btn btn-recevoir" id="received">Recevoir la prime</span>
-				</div>
+			<div class="btn-container">
+				<a href="<%= my_profil_path %>" class="btn btn-recevoir" id="received">Mon profil</a>
+			</div>
 		</div>
-
-		<div id="banck-info" style="display: none;">
-			<center>
-			<h2>Envoyer les coordonnées bancaires</h2>
-			<form class="form">
-				<div>
-					<textarea class="form-control">
-
-					</textarea>
-				</div>
-				<br><br>
-				<div>
-					<textarea class="form-control">
-
-					</textarea>
-				</div>
-
-				<input type="submit" name="send" value="NOTIFIER">
-			</form>
-			</center>
-		</div>
-
 	</div>
 </div>
-
-
-<script type="text/javascript">
-	$("#received").click(function () {
-		$("#banck-info").show(500);
-		$("#modal-unique").hide(500);
-	})
-</script>
-
 <script data-turbolinks-track="reload" src="/js/congratulation_cadre.js"></script>

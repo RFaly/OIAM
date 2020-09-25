@@ -34,8 +34,10 @@ Rails.application.routes.draw do
   get '/recruteur/mon-suivi-recrutement/liste-cadres/:oFc_id/cadre', to: 'recruteurs#recruitment_show_cadre', as: 'recruitment_show_cadre'
 
   get '/recruteur/mes-factures', to: 'recruteurs#my_bills', as: 'my_bills'
-  get '/recruteur/mes-factures/:id/paye', to: 'recruteurs#paye_my_bills', as: 'paye_my_bills'
-  get '/recruteur/mes-factures/:id', to: 'recruteurs#show_my_bills', as: 'show_my_bills'
+  get '/recruteur/mes-factures/:id/view', to: 'recruteurs#show_my_bills', as: 'show_my_bills'
+
+  post '/recruteur/mes-factures/paye', to: 'recruteurs#paye_my_bills', as: 'paye_my_bills'
+  post '/recruteur/mes-factures/post-ov/paye', to: 'recruteurs#ov_my_bills', as: 'ov_my_bills'
 
 
 
@@ -67,6 +69,9 @@ Rails.application.routes.draw do
   #edit a promesse d'embauche
   get '/recruteur/:id/edit-embauche', to: 'recruteurs#edit_promise_to_hire', as: 'edit_promise_to_hire'
   patch '/recruteur/:id/edit-contrat-embauche', to: 'recruteurs#update_promise_to_hire', as: 'update_promise_to_hire'
+
+  #validate periode d'essai candidate
+  post '/recruteur/suivi-recrutement/confirmation-periode-d-essai', to: 'recruteurs#validate_time_trying_client', as: 'validate_time_trying_client'
 
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :cadres, path: 'cadre', controllers: {
@@ -105,7 +110,9 @@ Rails.application.routes.draw do
   patch '/cadre/suivi-recrutement/:id_pdm/validate-promesse-d-embauche', to: 'candidates#cadre_update_promise_to_hire', as: 'cadre_update_promise_to_hire'
   
   # reclamer la prime et message de felicitation
-  get '/cadre/suivi-recrutement/:id/félicitations', to: 'candidates#congratulations_cadre', as: 'congratulations_cadre'  
+  get '/cadre/suivi-recrutement/:confirm_token/félicitations', to: 'candidates#congratulations_cadre', as: 'congratulations_cadre'
+  post '/cadre/suivi-recrutement/confirmation-periode-d-essai', to: 'candidates#validate_time_trying_cadre', as: 'validate_time_trying_cadre'  
+
   post '/cadre/suivi-recrutement/félicitations/prime', to: 'candidates#save_coordinate_banking', as: 'save_coordinate_banking'
 
   get '/cadre/mes-notifications', to: 'candidates#notifications', as: 'cadres_notifications'

@@ -22,6 +22,7 @@ class CandidatesController < ApplicationController
   end
 
   def edit_profil
+    @meties = Metier.all
   end
 
   def confirmedProfil
@@ -269,7 +270,10 @@ class CandidatesController < ApplicationController
     @offreJob = @oFc.offre_job
     @cadre = current_cadre
     @agendas = @oFc.agenda_clients.order('created_at DESC')[0]
-    @promise = @offreJob.promise_to_hires.find_by(cadre:@cadre)
+
+    # @promise = @offreJob.promise_to_hires.find_by(cadre:@cadre)
+
+    @promise = @offreJob.promise_to_hires.joins(:cadre).find_by(cadre:current_cadre) 
 
   end
 
@@ -519,9 +523,10 @@ class CandidatesController < ApplicationController
       @promise.update(birthday_cadre: params[:promise_to_hire][:birthday_cadre], birthplace_cadre: params[:promise_to_hire][:birthplace_cadre], ns_sociale_cadre: params[:promise_to_hire][:ns_sociale_cadre], signature_candidat: file_sinc.url, cin_pass_port: file_cin.url, security_certificate: file_sc.url, rib: filerib.url, repons_cadre:true)
       @offreJob = @promise.offre_job
       @offreJob.next_stape
-      facture = Facture.create(prix:(@offreJob.remuneration * 1000 * 15)/100,promise_to_hire:@promise,client:@promise.offre_job.client)
+      
       
       #notifaka
+      facture = Facture.create(prix:(@offreJob.remuneration * 1000 * 15)/100,promise_to_hire:@promise,client:@promise.offre_job.client)
       Notification.create(client: facture.client,link: "#{paye_my_bills_path(facture.id,notification:"entretien")}",genre: 2,view: false)
       #créé un cacture rib:"/image/OIAM_DIAMOND.png",
 
@@ -530,8 +535,10 @@ class CandidatesController < ApplicationController
       last_name = current_cadre.cadre_info.last_name
       # notifaka eto
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. vient d'accepter votre proposition d'embauche !",link: "#{recruitment_show_cadre_path(oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
+      
+      oFc = @offreJob.is_in_this_job(current_cadre)
 
-      redirect_to congratulations_cadre_path(@promise.id)
+      redirect_to show_recrutment_monitoring_path(oFc.id)
     else
       flash[:alert] = errorMessage
       redirect_back(fallback_location: root_path)
@@ -539,8 +546,24 @@ class CandidatesController < ApplicationController
 
   end
 
+  def validate_time_trying_cadre
+    @promise = PromiseToHire.find_by_confirm_token(params[:confirm_token])
+    @offreJob = @promise.offre_job
+    oFc = @offreJob.is_in_this_job(current_cadre)
+    @promise.update(cadre_time_trying:true)
+
+    first_name = current_cadre.cadre_info.first_name
+    last_name = current_cadre.cadre_info.last_name
+    flash[:notice] = "Période d'essai bien validé."
+    #notifaka
+    Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a validé sa période d'essai.",link: "#{recruitment_show_cadre_path(oFc.id,notification:"validation")}",genre: 1,medel_id: current_cadre.id,view: false)
+
+    redirect_to show_recrutment_monitoring_path(oFc.id)
+  end
+
   def congratulations_cadre
-    @promise = PromiseToHire.find_by_id(params[:id])
+    @header = true #not show a nav_bar for madal page
+    @promise = PromiseToHire.find_by_confirm_token(params[:confirm_token])
     if @promise.nil?
       flash[:alert] = "Page introuvable"
       redirect_back(fallback_location: root_path)
@@ -548,6 +571,9 @@ class CandidatesController < ApplicationController
       unless @promise.repons_cadre
         flash[:alert] = "Page introuvable"
         redirect_back(fallback_location: root_path)
+      else
+        @promise.update(ask_salar:true)
+        #notifaka admin
       end
     end
   end
