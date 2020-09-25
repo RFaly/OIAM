@@ -14,7 +14,7 @@
 					<% unless @job.image.nil? %>
 						<%= image_tag(@job.image, alt: 'photo de profil', class:'photo_ako', width:'150px', height:'150px')%>
 					<% end %>
-					<div class="job-i"><%= @job.intitule_pote %></div>
+					<div class="job-i down"><%= @job.intitule_pote %></div>
 					<div class="job-i down"><%= @job.contrat_cdi ? "CONTRAT À DURÉE INDÉTERMINÉE" : "CONTRAT À DURÉE DÉTERMINÉE" %></div>
 				</div>
 				<div class="cadre-info">
@@ -24,36 +24,40 @@
 						<% if @promise.birthday_cadre.nil? %>
 							<%= f.text_field :birthday_cadre, type: "date", placeholder:"Date de naissance", class:"calendar", id:"calendar" %><br><span class="calendar-err error"></span>
 						<% else %>
-							<%= @promise.birthday_cadre %>
+							<%= f.text_field :birthday_cadre, type: "date", placeholder:"Date de naissance", class:"calendar", id:"calendar", disabled: true %>
 						<% end %>
 					</div>
 					<div class="cadre-info-content">
 						<% if @promise.birthplace_cadre.nil? %>
 							<%= f.text_field :birthplace_cadre, placeholder:"Lieu de naissance", class:"lieu-naiss" %><br><span class="lieu-naiss-err error"></span>
 						<% else %>
-							<%= @promise.birthplace_cadre %>
+							<%= f.text_field :birthplace_cadre, placeholder:"Lieu de naissance", class:"lieu-naiss", disabled: true %>
 						<% end %>
 					</div>
 					<div class="cadre-info-content">
 						<% if @promise.ns_sociale_cadre.nil? %>
 							<input placeholder="N° sécurité sociale" class="number-only" type="number" name="promise_to_hire[ns_sociale_cadre]" id="promise_to_hire_ns_sociale_cadre" ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57"><br><span class="secur-social-err error"></span>
 						<% else %>
-							<%= @promise.ns_sociale_cadre %>
+						<input placeholder="N° sécurité sociale" class="number-only" type="number" name="promise_to_hire[ns_sociale_cadre]" id="promise_to_hire_ns_sociale_cadre" ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" value="<%= @promise.ns_sociale_cadre %>" readonly>
 						<% end %>
 					</div>
 				</div>
 			</div>
 			<div class="promese-info">
 				<span class="date-prise-label">Date de prise de poste</span>
-				<div class="date-prise"><%= @promise.date_poste %></div>
+				<div class="date-prise dat-p"><%= @promise.date_poste %></div>
+			</div>
+			<div class="promese-info">
+				<span class="date-prise-label">Fin de période d'essai</span>
+				<div class="date-prise dat-p"><%= @promise.time_trying %></div>
 			</div>
 			<div class="promese-info dis-me">
-				<div class="date-prise-label">Rémunération fixe <br>(k€ bruts mensuels)</div>
-				<div class="date-prise"><%= @promise.remuneration_fixe %>€</div>
+				<div class="date-prise-label">Rémunération fixe <br>(€ bruts mensuels)</div>
+				<div class="date-prise"><%= @promise.remuneration_fixe %></div>
 			</div>
 			<div class="pro-info">
 			<div class="promese-info-check">
-				<div class="transparent">fandeany</div>
+				<div class="transparent"></div>
 				<div class="mounth">
 					<label for="promise_to_hire_remuneration_fixe_date" class="check-me" id="poste_12">
 						<img src="/image/check.png" width="25px" height="25px" style="display: none;">
@@ -62,7 +66,7 @@
 				</div>
 			</div>
 			<div class="promese-info-check">
-				<div class="transparent">fandeany</div>
+				<div class="transparent"></div>
 				<div class="mounth">
 					<label for="promise_to_hire_remuneration_fixe_date" class="check-me" id="poste_13">
 						<img src="/image/check.png" width="25px" height="25px" style="display: none;">
@@ -71,7 +75,7 @@
 				</div>
 			</div>
 			<div class="promese-info-check">
-				<div class="transparent">fandeany</div>
+				<div class="transparent"></div>
 				<div class="mounth">
 					<label for="promise_to_hire_remuneration_fixe_date" class="check-me" id="poste_13">
 						<img src="/image/check.png" width="25px" height="25px" style="display: none;">
@@ -97,7 +101,7 @@
 			<div class="promese-all">
 				<div class="promese-info">
 					<div class="date-prise-label">Date de validité</div>
-					<div class="date-valid"><%= @promise.date_de_validite %></div>
+					<div class="date-valid dat-p"><%= @promise.date_de_validite %></div>
 				</div>
 				<div class="promese-info remove">
 					<div class="date-prise-label">Signature électronique entreprise</div>
@@ -222,6 +226,7 @@
 
 	    		return false;
 	    	}else{
+	    		$(this).css("outline", ("none")) ;
 	    		$('.calendar-err').hide();
 	    		return true;
 	    	}
@@ -232,6 +237,7 @@
 	    		$('.lieu-naiss-err').html('Champs obligatoire');
 	    		return false;	
 	    	}else{
+	    		$(this).css("outline", ("none")) ;
 	    		$('.lieu-naiss-err').hide();
 	    		return true;
 	    	}
@@ -250,6 +256,7 @@
 	    		$('.secur-social-err').html('Numero de securité invalide (13 chiffres)');
 	    		return false;
 	    	} else {
+	    		$(this).css("outline", ("none")) ;
 	    		$('.secur-social-err').hide();
 	    		return true;
 	    	}
@@ -260,14 +267,10 @@
 
 
 	    $('.btn-valide').click(function(){
-
-
-
-
 	    	var form = document.forms.formulaire;
-
+	    	var booli = true;
 	    	for (var i = 0; i < form.length; i++) {
-	    		if(form[i].value == 0 || form[i].value.length == 0){
+	    		if((form[i].value == 0 || form[i].value.length == 0 )&& form[i].type != "file"){
 	    			form[i].style.outline = "1px solid red";
 	    			form[i].nextSibling.nextSibling.innerHTML = "Champs Obligatoire";
 	    			$('#btn-valid-error').html("*Verifier que vous avez remplis tous les formulaires");
@@ -275,29 +278,19 @@
 		    		setTimeout(function(){
 		    			$('#btn-valid-error').hide(500);
 		    		}, 5000);
-		    		return false;
-	    			console.log(form[i].nextSibling.nextSibling);
-	    		}
-	    		else{
-	    			form[i].style.outline = 'none';
-	    			return true;
 	    		}
 	    	}
-	 
-	    	
-	    	if ($('#signature').val().length() <= 0 || $('.cin').val().length() <= 0 || $('.atest').val().length() <= 0 || $('.rib').val().length()) {
-	    		console.log('fandeany');
+	    	if ($('#signature').val() <= 0 || $('.cin').val() <= 0 || $('.atest').val() <= 0 || $('.rib').val()) {
 	    		$('#btn-valid-error').html("*Verifier que vous avez remplis tous les formulaires");
 	    		$('#btn-valid-error').show(300);
 	    		setTimeout(function(){
 	    			$('#btn-valid-error').hide(300);
 	    		}, 5000);
-	    		return false;
 	    	}
-	    	else{
-	    		return true;
-	    	}
+	    	return true;
 	    })
+
+
 
 
 
