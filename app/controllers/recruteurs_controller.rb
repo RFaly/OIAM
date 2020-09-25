@@ -525,6 +525,31 @@ class RecruteursController < ApplicationController
 
 	end
 
+	def validate_time_trying_client
+		@promise = PromiseToHire.find_by_confirm_token(params[:confirm_token])
+    @offreJob = @promise.offre_job
+    @cadre = @promise.cadre
+    oFc = @offreJob.is_in_this_job(@cadre)
+		name_entreprise = current_client.entreprise.name
+
+		if @promise.client_time_trying.nil?
+			if params[:date_rupture].nil?
+				flash[:notice] = "Période d'essai bien validé."
+		    @promise.update(client_time_trying:true)
+				Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a validé votre période d’essai.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"prime")}",genre: 2,medel_id: @offreJob.id,view: false)
+			else
+				if params[:date_rupture].empty?
+				else
+					flash[:notice] = "Rupture de la période d’essai ok!"
+					@promise.update(client_time_trying:false,rupture_time_trying:params[:date_rupture])
+					Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} n'a pas validé votre période d'essai.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"prime")}",genre: 2,medel_id: @offreJob.id,view: false)
+				end
+			end
+		end
+
+    redirect_to recruitment_show_cadre_path(oFc.id)
+	end
+
 #~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~~~~~
   def my_messages
     @candidats = Cadre.all

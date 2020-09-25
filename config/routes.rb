@@ -68,6 +68,9 @@ Rails.application.routes.draw do
   get '/recruteur/:id/edit-embauche', to: 'recruteurs#edit_promise_to_hire', as: 'edit_promise_to_hire'
   patch '/recruteur/:id/edit-contrat-embauche', to: 'recruteurs#update_promise_to_hire', as: 'update_promise_to_hire'
 
+  #validate periode d'essai candidate
+  post '/recruteur/suivi-recrutement/confirmation-periode-d-essai', to: 'recruteurs#validate_time_trying_client', as: 'validate_time_trying_client'
+
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :cadres, path: 'cadre', controllers: {
     sessions: 'cadres/sessions',

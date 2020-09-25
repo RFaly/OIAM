@@ -10,6 +10,56 @@
       </div>
     </div>
   <% end %>
+
+  <% if @promise.client_time_trying.nil? %>
+    <div class="row">
+      <% if DateTime.strptime("#{@promise.time_trying}", '%j/%m/%Y').future? %> <!-- si non fin periode d'essai -->
+        <p>
+          Vous devez valider la période d'essai le <%= @promise.time_trying %> 
+          <span class="btn btn-info" onclick="alert('Validable à la fin de la période d\'essai (<%= @promise.time_trying %>).');">VALIDER LA PÉRIODE D'ESSAI</span>
+          <br>
+          <span class="btn btn-info" onclick="alert('Validable à la fin de la période d\'essai (<%= @promise.time_trying %>).');">RUPTURE DE LA PÉRIODE D'ESSAI</span>
+        </p>
+      <% else %> <!-- si fin periode d'essai -->
+        <!-- actualise la page -->
+        <p>
+          Vous devez valider la période d'essai le <%= @promise.time_trying %>. <br>
+          <%= link_to validate_time_trying_client_path(confirm_token:@promise.confirm_token), method: :post, class:"btn btn-info" do %>
+            VALIDER LA PÉRIODE D'ESSAI
+          <% end %>
+        </p>
+
+        <div>
+          <span class="btn btn-primary" id="show-form-js">Rupture de la période d’essai</span>
+        </div>
+
+        <%= form_tag(validate_time_trying_client_path, id:'hide-form-js', style:'display:none;') do %>
+          <input type="hidden" name="confirm_token" value="<%= @promise.confirm_token %>" id="is_client_session" data-client="false">
+          <input type="date" name="date_rupture">
+          <%= submit_tag("VALIDER") %>
+        <% end %>
+
+        <script type="text/javascript">
+          $("#show-form-js").click(function () {
+            if ($("#hide-form-js").is(":visible")){
+              $("#hide-form-js").hide(200);
+            }else{
+              $("#hide-form-js").show(200);
+            }
+          })
+        </script>
+
+      <% end %>
+    </div>
+  <% else %>
+    <% if @promise.client_time_trying %>
+      Période d'essai validé avec succès.
+    <% else %>
+      Rupture de la période d’essai : <%= @promise.rupture_time_trying %>.
+    <% end %>
+  <% end %>
+
+
   <div class="after-promise">
     <div class="ap-box">
       <div class="ap-left">
@@ -47,7 +97,9 @@
       <div class="ap-right"><%= link_to "TELECHARGER", @cadre.cadre_info.cv %></div>
     </div>
   </div>
+
 <% else %>
+
   <div class="dscdpa-box">
     <h3>Suivi recrutement</h3>
     <p>Promesse d'embauche envoyée en attente du réponse du client</p>
