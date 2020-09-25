@@ -16,7 +16,9 @@
           <img src="/image/document1.png" alt="icone" />
           <% end %> <%= facture.promise_to_hire.offre_job.intitule_pote.upcase %>
         </div>
-        <div class="bill-right"><% if facture.is_payed %> <%= link_to "VOIR LES DÉTAILS", show_my_bills_path(facture.id)%> <% else %> <%= link_to "RÉGLER EN LIGNE", paye_my_bills_path(facture.id)%> <% end %></div>
+        <div class="bill-right">
+          <%= link_to "VOIR LES DÉTAILS", show_my_bills_path(facture.id)%>
+        </div>
       </div>
       <hr />
       <% end %> <% else %>

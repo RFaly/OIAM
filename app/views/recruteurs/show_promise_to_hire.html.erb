@@ -22,10 +22,29 @@
             </div>
           </div>
           <div class="pch-right">
-            <input type="text" value="<%= @cadre.last_name %>" readonly />
-            <input type="text" value="<%= @cadre.first_name %>" readonly />
-            <input type="text" id="date" value="<%= @promise.birthday_cadre ? @promise.birthday_cadre : "Date de naissance" %>" readonly/> <input type="text" value="<%= @promise.birthplace_cadre ? @promise.birthplace_cadre : "Lieu de naissance" %>" readonly/> <input type="text" value="<%= @promise.ns_sociale_cadre ? @promise.ns_sociale_cadre :
-            "N°sécurité sociale" %>" readonly/>
+            <div class="pch-div">
+              <label> Nom </label>
+              <input type="text" value="<%= @cadre.last_name %>" readonly class="input" />
+            </div>
+            <div class="pch-div">
+              <label>Prénoms</label>
+              <input type="text" value="<%= @cadre.first_name %>" readonly class="input" />
+            </div>
+            <div class="pch-div">
+              <% if (@promise.birthday_cadre != nil)%>
+              <label>Date de naissance</label>
+              <% end%> <input type="text" id="date" value="<%= @promise.birthday_cadre ? @promise.birthday_cadre : "Date de naissance" %>" readonly class="<% if (@promise.birthday_cadre != nil)%> input <% end%>"/>
+            </div>
+            <div class="pch-div">
+              <% if (@promise.birthplace_cadre != nil)%>
+              <label>Lieu de naissance</label>
+              <% end%> <input type="text" value="<%= @promise.birthplace_cadre ? @promise.birthplace_cadre : "Lieu de naissance" %>" readonly class="<% if (@promise.birthplace_cadre != nil)%>input<% end%>"/>
+            </div>
+            <div class="pch-div">
+              <% if (@promise.ns_sociale_cadre != nil)%>
+              <label>N°sécurité sociale</label>
+              <% end%> <input type="text" value="<%= @promise.ns_sociale_cadre ? @promise.ns_sociale_cadre : "N°sécurité sociale" %>" readonly class="<% if (@promise.ns_sociale_cadre != nil)%>input<% end%>"/>
+            </div>
           </div>
         </div>
         <hr />
@@ -33,6 +52,11 @@
         <hr />
         <div class="pc-form pc-form1 pc-flex"><%= f.label :time_trying, "Période d'essai" %> <% periodessay = @promise.time_trying ? @promise.time_trying : (@promise.date_poste.to_date + 120 ).strftime("%d/%m/%Y") %> <input type="text" value="<%= periodessay %>" id="date" readonly /></div>
         <hr />
+        <div class="pc-form pc-form1 pc-flex">
+          <label>Rémunération fixe <br />(k€ bruts annuels)</label>
+          <% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %>
+          <input type="text" id="remA" onkeypress="return event.charCode>=46 && event.charCode<=57" value="<%= ((payFix.to_f / 1000) * @promise.remuneration_fixe_date.to_f).round(2)%> " readonly />
+        </div>
         <div class="pc-form pc-form2 pc-flex">
           <label>Rémunération fixe <br />(€ bruts mensuels)</label>
 

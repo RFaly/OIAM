@@ -11,6 +11,12 @@ $(document).ready(function () {
   });
   $('#post_12').on('click', function () {
     pop = 12;
+    // calcul remunération
+    $('#renumeration-fixe').val((($('#remA').val() * 1000) / pop).toFixed(2));
+    $('#renumeration-fixe').on('input', function () {
+      $('#remA').val((($(this).val() / 1000) * pop).toFixed(2));
+    });
+    // fin calcul remunération
     if ($('#post_oui').is(':checked')) {
       var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 15) / 100;
       $('#pc-calcul').html(oiam.toFixed(2) + '€');
@@ -21,6 +27,12 @@ $(document).ready(function () {
   });
   $('#post_13').on('click', function () {
     pop = 13;
+    // calcul remunération
+    $('#renumeration-fixe').val((($('#remA').val() * 1000) / pop).toFixed(2));
+    $('#renumeration-fixe').on('input', function () {
+      $('#remA').val((($(this).val() / 1000) * pop).toFixed(2));
+    });
+    // fin calcul remunération
     if ($('#post_oui').is(':checked')) {
       var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 15) / 100;
       $('#pc-calcul').html(oiam.toFixed(2) + '€');
@@ -31,6 +43,12 @@ $(document).ready(function () {
   });
   $('#post_perso').on('click', function () {
     pop = $('#input-perso').val();
+    // calcul remunération
+    $('#renumeration-fixe').val((($('#remA').val() * 1000) / pop).toFixed(2));
+    $('#renumeration-fixe').on('input', function () {
+      $('#remA').val((($(this).val() / 1000) * pop).toFixed(2));
+    });
+    // fin calcul remunération
     if ($('#post_oui').is(':checked')) {
       var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 15) / 100;
       $('#pc-calcul').html(oiam.toFixed(2) + '€');
@@ -42,6 +60,12 @@ $(document).ready(function () {
 
   $('#input-perso').on('input', function () {
     pop = $(this).val();
+    // calcul remunération
+    $('#renumeration-fixe').val((($('#remA').val() * 1000) / pop).toFixed(2));
+    $('#renumeration-fixe').on('input', function () {
+      $('#remA').val((($(this).val() / 1000) * pop).toFixed(2));
+    });
+    // fin calcul remunération
     if ($('#post_oui').is(':checked')) {
       var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 15) / 100;
       $('#pc-calcul').html(oiam.toFixed(2) + '€');
@@ -73,4 +97,20 @@ $(document).ready(function () {
     var oiam = ($('#renumeration-fixe').val() * pop * 15) / 100;
     $('#pc-calcul').html(oiam.toFixed(2) + '€');
   }
+  // js remuneration
+  $('#renumeration-fixe').val((($('#remA').val() * 1000) / pop).toFixed(2));
+  $('#remA').on('input', function () {
+    $('#renumeration-fixe').val((($(this).val() * 1000) / pop).toFixed(2));
+    // calcul oiam %
+    if ($('#post_oui').is(':checked')) {
+      var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 15) / 100;
+      $('#pc-calcul').html(oiam.toFixed(2) + '€');
+    } else {
+      var oiam = ($('#renumeration-fixe').val() * pop * 15) / 100;
+      $('#pc-calcul').html(oiam.toFixed(2) + '€');
+    }
+  });
+  $('#renumeration-fixe').on('input', function () {
+    $('#remA').val((($(this).val() / 1000) * pop).toFixed(2));
+  });
 });

@@ -88,9 +88,9 @@
 					</div>
 					<div class="job_info">
 						<h2 class="job_info_title"><%= offre.intitule_pote %></h2>
-						<p><img src="/image/map.png" alt="logo oiam favorie" width="16px" height="22px" class="indic"><%= offre.client.entreprise.postal_code %>, <%= offre.client.entreprise.city %></p>
+						<p><img src="/image/map.png" alt="logo oiam favorie" width="16px" height="22px" class="indic"><%= offre.client.entreprise.postal_code %>, <%= offre.client.entreprise.city %>, France</p>
 						<p><img src="/image/description.png" alt="logo oiam favorie" width="16px" height="22px" class="indic"><%= offre.contrat_cdi ? "CDI" : "CDD" %> <br><img src="/image/gg_time.png" alt="logo oiam favorie" width="25px" height="25px" class="indic"><span></span><%= offre.date_poste%></span> </p>
-						<p class="description"><%= offre.descriptif_mission %></p>
+						<p class="description"><%= offre.descriptif_mission.gsub('[sp]', ' &#160; ').gsub('[nl]', ' <br />').html_safe %></p>
 					</div>
 					<div class="action">
 						<% if offre.is_in_my_favorite(current_cadre).nil? %>

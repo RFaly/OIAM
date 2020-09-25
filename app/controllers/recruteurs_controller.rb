@@ -383,10 +383,24 @@ class RecruteursController < ApplicationController
 
 	def show_my_bills
 		@facture = Facture.find_by_id(params[:id])
+		@promise = @facture.promise_to_hire
+		@offre_job = @promise.offre_job
 	end
 
 	def paye_my_bills
-		@facture = Facture.find_by_id(params[:id])
+		# OffreJob.find_by_id(params[:offre_job_id])
+		@facture = Facture.find_by_id(params[:facture_id])
+		@promise = PromiseToHire.find_by_id(params[:promise_id])
+		@offre_job = @facture.promise_to_hire.offre_job
+		@promise.update(payed:true)
+		flash[:notice] = "J'atteste régler cette facture par virement dans les 15jours."
+		redirect_to show_my_bills_path(@facture.id)
+	end
+
+	def ov_my_bills
+		@facture = Facture.find_by_id(params[:facture_id])
+		# @facture.update(is_payed: true)
+		redirect_to show_my_bills_path(@facture.id)
 	end
 
 #Mes notifications
@@ -523,6 +537,31 @@ class RecruteursController < ApplicationController
 			redirect_to edit_promise_to_hire_path(@promise.id)
 		end
 
+	end
+
+	def validate_time_trying_client
+		@promise = PromiseToHire.find_by_confirm_token(params[:confirm_token])
+    @offreJob = @promise.offre_job
+    @cadre = @promise.cadre
+    oFc = @offreJob.is_in_this_job(@cadre)
+		name_entreprise = current_client.entreprise.name
+
+		if @promise.client_time_trying.nil?
+			if params[:date_rupture].nil?
+				flash[:notice] = "Période d'essai bien validé."
+		    @promise.update(client_time_trying:true)
+				Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a validé votre période d’essai.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"prime")}",genre: 2,medel_id: @offreJob.id,view: false)
+			else
+				if params[:date_rupture].empty?
+				else
+					flash[:notice] = "Rupture de la période d’essai ok!"
+					@promise.update(client_time_trying:false,rupture_time_trying:params[:date_rupture])
+					Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} n'a pas validé votre période d'essai.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"prime")}",genre: 2,medel_id: @offreJob.id,view: false)
+				end
+			end
+		end
+
+    redirect_to recruitment_show_cadre_path(oFc.id)
 	end
 
 #~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~~~~~
