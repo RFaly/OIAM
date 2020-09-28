@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="/css/edit_cadre_profil.css">
 <div class="main">
 	<%= form_for @cadre , url: confirmedProfil_path do |f| %>
+			<%= f.label :question1, "Que faites-vous actuellement et que recherchez-vous comme type de poste ?", class:"label-content" %>
+			<%= f.text_area :question1, required:true, rows:3, class:"champs" %>
 			<div class="cadre-quest">
 				<div class="type-pos">
 					<label for="" class="label-content">Quel est votre type de poste actuel ?</label>

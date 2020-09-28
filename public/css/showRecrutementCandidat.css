@@ -87,6 +87,11 @@ body{
 	border-radius: 50%;
 }
 
+.mak-bold{
+	font-weight: bold;
+	font-size: 20px;
+}
+
 .container-flex{
 	display: flex;
 	justify-content: center;
@@ -513,6 +518,47 @@ body{
 	color: #D6B36A;
 }
 
+.btn-invalid{
+	background-color: #D6B36A;
+	width: auto;
+	height: auto;
+	color: #fff;
+	padding: 20px;
+	margin-top: 20px;
+	border-radius: 0;
+	margin-top: 20px;
+	cursor: not-allowed;
+	opacity: .7;
+}
+
+
+.btn-valid{
+	background-color: #D6B36A;
+	width: auto;
+	height: auto;
+	color: #fff;
+	padding: 20px;
+	margin-top: 20px;
+	border-radius: 0;
+	margin-bottom: 40px;
+	cursor: pointer;
+}
+
+.btn-valid:hover{
+	color: #D6B36A;
+	border: 1px solid #D6B36A;
+	background-color: #fff;
+	text-decoration: none;
+}
+
+.prime h2{
+	margin-bottom: 40px;
+}
+
+.btn-invalid:hover{
+	color: #fff;
+}
+
 @media only screen and (min-width: 900px){
 	.content{
 		display: flex;
@@ -546,6 +592,7 @@ body{
 		display: block;
 		margin:0 auto;
 		width: 600px;
+		height: 270px;
 		text-align: center;
 		border: 1px solid #D6B36A;
 		padding: 30px;
@@ -590,6 +637,44 @@ body{
 	.promese-file{
 		width: 225px;
 	}
+
+	.prom-hire{
+		display: flex;
+		justify-content: center;
+		grid-column-gap: 23%;
+		margin-top: 80px;
+		margin-bottom: 100px;
+	}
+
+	.prom-hire-down a{
+		width: 250px;
+		height: 50px;
+		font-size: 16px;
+		padding: 20px;
+		color: #D6B36A;
+		border: 1px solid #D6B36A;
+		border-radius: 0;
+	}
+
+	.prom-hire-down a:hover{
+		background-color: #D6B36A;
+		color: #fff;
+		border: 1px solid #D6B36A;
+		text-decoration: none;
+	}
+
+	.btn-prom{
+		color: #000;
+		position: relative;
+		top: -16px;
+		font-size: 16px;
+	}
+
+	.btn-prom:hover{
+		color: #000;
+		text-decoration: underline;
+	}
+
 }
 
 @media only screen and (min-width: 1024px){

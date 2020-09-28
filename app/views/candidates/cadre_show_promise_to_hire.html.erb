@@ -63,7 +63,7 @@
 					<label for="promise_to_hire_remuneration_fixe_date" class="check-me" id="poste_12">
 						<img src="/image/check.png" width="25px" height="25px" style="display: none;">
 					</label>
-					<%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois', disabled: true%><span class="go-right">12 mois</span> 
+					<%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois', disabled: true%><span class="go-right">12 mois</span>
 				</div>
 			</div>
 			<div class="promese-info-check">
@@ -72,7 +72,7 @@
 					<label for="promise_to_hire_remuneration_fixe_date" class="check-me" id="poste_13">
 						<img src="/image/check.png" width="25px" height="25px" style="display: none;">
 					</label>
-					<%= f.radio_button :remuneration_fixe_date, "13", id:'post_13', class:'js-post-mois', disabled: true%><span class="go-right">13 mois</span> 
+					<%= f.radio_button :remuneration_fixe_date, "13", id:'post_13', class:'js-post-mois', disabled: true%><span class="go-right">13 mois</span>
 				</div>
 			</div>
 			<div class="promese-info-check">
@@ -81,7 +81,7 @@
 					<label for="promise_to_hire_remuneration_fixe_date" class="check-me" id="poste_13">
 						<img src="/image/check.png" width="25px" height="25px" style="display: none;">
 					</label>
-					<%if (@promise.remuneration_fixe_date == '13' || @promise.remuneration_fixe_date == '12') %><input type="radio" class="js-post-mois" disabled /> <span class="go-right">Personnalisé</span> <% else %><input type="radio" class="js-post-mois" checked disabled /> <span class="go-right"> <%= @promise.remuneration_fixe_date %></span> mois <%end %>	
+					<%if (@promise.remuneration_fixe_date == '13' || @promise.remuneration_fixe_date == '12') %><input type="radio" class="js-post-mois" disabled /> <span class="go-right">Personnalisé</span> <% else %><input type="radio" class="js-post-mois" checked disabled /> <span class="go-right"> <%= @promise.remuneration_fixe_date %></span> mois <%end %>
 				</div>
 			</div>
 			</div>
@@ -243,7 +243,7 @@
 	    	if ($(this).val() <= 0) {
 	    		$('.lieu-naiss-err').html('Champs obligatoire');
 	    		$('#leu-nai').show();
-	    		return false;	
+	    		return false;
 	    	}else{
 	    		$(this).css("outline", ("none")) ;
 	    		$('#leu-nai').show();
@@ -312,4 +312,3 @@
 
 	});
 </script>
-
