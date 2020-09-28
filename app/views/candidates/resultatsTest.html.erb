@@ -3,7 +3,6 @@
 <div class="bg-uniq">
 	<div class="cadre">
 		<% if @cadreInfo.score_potential.nil? %>
-
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="loader" id="form-js-code" data-path="<%= getScoresPotential_path(@cadreInfo.confirm_token) %>"></div>
@@ -15,7 +14,6 @@
 					</p>
 				</div>
 			</div>
-
 			<script type="text/javascript">
 				window.path_url = $("#form-js-code").data().path
 				function getMyMessage(){
@@ -28,7 +26,6 @@
 				}
 				setInterval(getMyMessage,1000);
 			</script>
-
 		<% else %>
 			<% if @cadreInfo.is_recrute %>
 				<div class="content">
@@ -41,14 +38,12 @@
 				<h1>FIT</h1>
 				<%= link_to "ACCÉDER AU TEST", testfit_path, class:'pass-test', id:'link-to-next' %>
 			<% else %>
-
 				<h2 class="cadre-nom">Chère <%= @cadreInfo.first_name %>,</h2>
 				<p>Merci d’avoir passé notre test !</p>
 				<p>Votre score est de  <span><%= @cadreInfo.score_potential %></span>.</p>
 				<p>Malheureusement, ce score est insuffisant pour vous permettre d’intégrer One in a Million.</p>
 				<p>Nous savons que ces résultats peuvent être frustrants, aussi vous avez la possibilité de passer le test une seconde fois au cours de votre vie, dans un délai minimum de 6 mois.</p>
 				<p>Afin de maximiser vos chances, nous vous proposons des ateliers de coaching.</p>
-
 				<div class="row">
 					<div class="col-sm-6">
 						<%= link_to "RETOUR AU MENU", '#', class:'pass-test', id:'link-to-menu' %>
@@ -57,9 +52,7 @@
 						<%= link_to "AMÉLIORER MES RESULTATS", formation_all_path, class:'pass-test', id:'link-to-resultats' %>
 					</div>
 				</div>
-
 			<% end %>
-
 		<% end %>
 	</div>
 </div>

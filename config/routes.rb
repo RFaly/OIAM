@@ -112,11 +112,8 @@ Rails.application.routes.draw do
   #formation liste
 
   get 'cadres/formation', to: 'formation_candidate#index', as: 'formation_all'
-  get 'cadres/formation/:id', to: 'formation_candidate#date_rdv', as: 'formation_date_rdv'
+  get 'cadres/formation/:id/:name', to: 'formation_candidate#date_rdv', as: 'formation_date_rdv'
   post 'cadres/formation/save', to: 'formation_candidate#save_rdv', as: 'formation_save_rdv'
-
-
-
 
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
