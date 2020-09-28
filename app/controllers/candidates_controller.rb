@@ -1,6 +1,9 @@
 class CandidatesController < ApplicationController
-  before_action :authenticate_cadre!, except: [:postMetierSkills,:main,:my_tests,:testpotential,:init_testpotential,:testskills,:testfit,:saveEntretientDate,:resultatsTest,:tmp_sign_up,:tmp_create_sign_up,:save_repons_test_potential]
-  before_action :validate_cadre, only: [:init_testpotential, :my_tests, :testpotential, :testskills, :testfit, :resultatsTest, :postMetierSkills]
+  #def pas besoin de connexion
+  before_action :authenticate_cadre!, except: [:getScoresPotential,:postMetierSkills,:main,:my_tests,:testpotential,:init_testpotential,:testskills,:testfit,:saveEntretientDate,:resultatsTest,:tmp_sign_up,:tmp_create_sign_up,:save_repons_test_potential]
+  # def valider si tmp signup ok
+  before_action :validate_cadre, only: [:getScoresPotential,:init_testpotential, :my_tests, :testpotential, :testskills, :testfit, :resultatsTest, :postMetierSkills]
+  # if empty info cadre, remplir profil
   before_action :current_info_cadre, only: [:my_profil, :edit_profil, :confirmedProfil]
 
   protect_from_forgery except: :save_repons_test_potential
@@ -281,9 +284,11 @@ class CandidatesController < ApplicationController
     @notifications = current_cadre.notifications.order("created_at DESC")
   end
 
+#BEGIN -----------------------------------------------------------------
+# inscription candidate pour les tests
   def tmp_sign_up
     unless cookies.encrypted[:oiam_cadre].nil?
-      # @cadre = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+      @cadre = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
       flash[:notice] = "Vous pouvez continuer votre test."
       redirect_to my_tests_path
     end
@@ -294,7 +299,7 @@ class CandidatesController < ApplicationController
     @cadreInfo = CadreInfo.new(post_params_tmp)
     if @cadreInfo.save
       cookies.encrypted[:oiam_cadre] = {
-        value: @cadreInfo.id,
+        value: @cadreInfo.confirm_token,
         expires: Time.now + 172800
       }
       redirect_to my_tests_path
@@ -304,57 +309,73 @@ class CandidatesController < ApplicationController
   end
 
 # 3 test de recrutement
-
   def my_tests
   end
 
   def testpotential
-    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+    @cadreInfo = CadreInfo.find_by_confirm_token(cookies.encrypted[:oiam_cadre])
+    if @cadreInfo.potential_test
+      flash[:notice] = "Vous pouvez continuer votre test."
+      redirect_to resultatsTest_path
+    end
   end
 
   def init_testpotential
     @header = true
-    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+    @cadreInfo = CadreInfo.find_by_confirm_token(cookies.encrypted[:oiam_cadre])
+    if @cadreInfo.potential_test
+      flash[:notice] = "Vous pouvez continuer votre test."
+      redirect_to resultatsTest_path
+    end
   end
 
   def save_repons_test_potential
     puts "~"*34
     puts cookies.encrypted[:oiam_cadre]
     puts "~"*34
-
     @cadreInfo = CadreInfo.find_by(mail:params[:custom_fields][3]["value"])
-    @metier = Metier.find_by(name:params[:custom_fields][5]["value"])
-    @cadreInfo.update(score_potential:1005,job:params[:custom_fields][6]["value"],potential_test:true,metier:@metier)
-
-
-# puts "~"*34
-#     puts "mail: #{params[:custom_fields][3]["value"]}"
-#     puts "fonction: #{params[:custom_fields][5]["value"]}"
-#     puts "profession: #{params[:custom_fields][6]["value"]}"
-# puts "~"*34
-
-
-# params[:custom_fields][0] #nom
-# params[:custom_fields][1] #prenom
-# params[:custom_fields][2] #telephone
-# params[:custom_fields][3] #email
-# params[:custom_fields][4] #date_de_naissance
-# params[:custom_fields][5] #fonction
-# params[:custom_fields][6] #profession
-# params[:custom_fields][7] #situation actuel
-# params[:custom_fields][8] #niveau de rémunération
-# params[:custom_fields][9] #vous êtes1
-
+    # @cadreInfo.update(score_potential:1005,potential_test:true)
+    @cadreInfo.update(potential_test:true)
   end
 
+# recupere le score
+  def save_scores_potential_test
+    @cadreInfo = CadreInfo.find_by(mail:params[:email])
+    is_recrute = false
+    if is_recrute > 1005
+      is_recrute = true
+    end
+    @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score])
+  end
+
+#~~~~~~~~~~~ not add to app
   def testskills
-    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+    @cadreInfo = CadreInfo.find_by_confirm_token(cookies.encrypted[:oiam_cadre])
   end
 
   def postMetierSkills
-    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+    @cadreInfo = CadreInfo.find_by_confirm_token(cookies.encrypted[:oiam_cadre])
     @metier = Metier.find_by_id(params[:cadre_info][:metier_id])
     @cadreInfo.update(metier:@metier)
+  end
+#~~~~~~~~~~~ not add to app
+
+  # Resultat test
+  def resultatsTest
+    @cadreInfo = CadreInfo.find_by_confirm_token(cookies.encrypted[:oiam_cadre])
+    unless @cadreInfo.potential_test
+      flash[:notice] = "Vous pouvez continuer votre test."
+      redirect_to my_tests_path
+      # score_potential: nil
+      # score_fit: nil
+      # potential_test: false
+      # fit_test: false
+      # is_recrute: nil
+    end
+  end
+
+  def getScoresPotential
+    @cadreInfo = CadreInfo.find_by_confirm_token(params[:confirm_token])
   end
 
   def testfit
@@ -397,10 +418,8 @@ class CandidatesController < ApplicationController
     end
   end
 
-# Resultat test
-  def resultatsTest
-    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
-  end
+#END ---------------------------------------------------------------------
+
 
 #~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~~~~~
   def my_messages
@@ -591,7 +610,7 @@ class CandidatesController < ApplicationController
         flash[:alert] = "Vous devez vous inscrire pour effectuer les tests."
         redirect_to tmp_sign_up_path
       else
-        @cadre = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+        @cadre = CadreInfo.find_by_confirm_token(cookies.encrypted[:oiam_cadre])
         if @cadre.nil?
           cookies.delete :oiam_cadre
           flash[:alert] = "Vous devez vous inscrire pour effectuer les tests."

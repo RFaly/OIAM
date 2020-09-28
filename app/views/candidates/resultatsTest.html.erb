@@ -2,22 +2,65 @@
 
 <div class="bg-uniq">
 	<div class="cadre">
-		<div class="content">
-				<div class="numero un">1<span class="potential">Potential</span></div>
-				<div class="numero trois">2<span class="fit">Fit</span></div>
-		</div>
-		<h2 class="cadre-nom">Chère <%= @cadreInfo.first_name %>,</h2>
+		<% if @cadreInfo.score_potential.nil? %>
 
-		<p>Félicitations ! Vous avez obtenu un score de <span>1005</span> et êtes donc sélectionné(e) pour l’étape suivante.</p>
+			<div class="loader" id="form-js-code" data-path="<%= getScoresPotential_path(@cadreInfo.confirm_token) %>"></div>
 
-		<p>Vous avez désormais 24 heures pour passer la 2ème partie du test :</p>
+			<script type="text/javascript">
+				window.path_url = $("#form-js-code").data().path
+				function getMyMessage(){
+					$.getJSON(path_url,function(data) {
+						var my_data = data
+						if (my_data.score_potential != null){
+							location.reload(true);
+						}
+					});
+				}
+				setInterval(getMyMessage,1000);
+			</script>
 
-		<h1>FIT</h1>
+		<% else %>
 
-		<%= link_to "ACCÉDER AU TEST", testfit_path, class:'pass-test', id:'link-to-next' %>
+			<% if @cadreInfo.is_recrute %>
+				<div class="content">
+					<div class="numero un">1<span class="potential">Potential</span></div>
+					<div class="numero trois">2<span class="fit">Fit</span></div>
+				</div>
+				<h2 class="cadre-nom">Chère <%= @cadreInfo.first_name %>,</h2>
+				<p>Félicitations ! Vous avez obtenu un score de <span><%= @cadreInfo.score_potential %></span> et êtes donc sélectionné(e) pour l’étape suivante.</p>
+				<p>Vous avez désormais 24 heures pour passer la 2ème partie du test :</p>
+				<h1>FIT</h1>
+				<%= link_to "ACCÉDER AU TEST", testfit_path, class:'pass-test', id:'link-to-next' %>
+			<% else %>
 
+			<% end %>
+			
+		<% end %>
 	</div>
 </div>
+
+<style>
+	.loader {
+	  border: 16px solid #d6b36a;
+	  border-radius: 50%;
+	  border-top: 16px solid white;
+	  border-bottom: 16px solid white;
+	  width: 120px;
+	  height: 120px;
+	  -webkit-animation: spin 2s linear infinite;
+	  animation: spin 2s linear infinite;
+	}
+
+	@-webkit-keyframes spin {
+	  0% { -webkit-transform: rotate(0deg); }
+	  100% { -webkit-transform: rotate(360deg); }
+	}
+
+	@keyframes spin {
+	  0% { transform: rotate(0deg); }
+	  100% { transform: rotate(360deg); }
+	}
+</style>
 
 <!-- 
 [
