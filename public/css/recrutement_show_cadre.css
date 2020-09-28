@@ -649,6 +649,70 @@
   text-align: center;
 }
 
+.rsc-box .rsc-body .validation-cadre-trying {
+  border: 2px solid #d6b36a;
+  padding: 50px 10px;
+  margin: 0 auto;
+  font: 16px Questrial, sans-serif;
+  text-align: center;
+}
+
+.rsc-box .rsc-body .validation-cadre-trying .vct-btn {
+  cursor: pointer;
+  text-transform: uppercase;
+  margin: 0 auto;
+  margin-top: 50px;
+  background: transparent;
+  padding: 10px;
+  font: 500 18px Raleway, sans-serif;
+  color: #d6b36a;
+  border: 2px solid #d6b36a;
+}
+
+.rsc-box .rsc-body .validation-cadre-trying .vct-btn a {
+  text-decoration: none;
+  color: #d6b36a;
+}
+
+.rsc-box .rsc-body .validation-cadre-trying .vct-btn:hover, .rsc-box .rsc-body .validation-cadre-trying .vct-btn:active {
+  background: #d6b36a;
+  color: white;
+}
+
+.rsc-box .rsc-body .validation-cadre-trying .vct-btn:hover a, .rsc-box .rsc-body .validation-cadre-trying .vct-btn:active a {
+  color: white;
+}
+
+.rsc-box .rsc-body .validation-cadre-trying .datte-past input {
+  margin-top: 30px;
+}
+
+.rsc-box .rsc-body .validation-cadre-trying .datte-past input[type='date'] {
+  background: #f0f2f4;
+  border: none;
+  border-radius: 0;
+  padding: 10px 20px;
+  margin: 10px;
+}
+
+.rsc-box .rsc-body .validation-cadre-trying .datte-past input[type='date']:focus {
+  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+  outline: 2px solid #d6b36a;
+}
+
+.rsc-box .rsc-body .validation-cadre-trying .datte-past input[type='submit'] {
+  border: 2px solid #d6b36a;
+  border-radius: 0;
+  padding: 10px 20px;
+  font: 500 18px Raleway, sans-serif;
+  color: #d6b36a;
+}
+
+.rsc-box .rsc-body .validation-cadre-trying .datte-past input[type='submit']:hover, .rsc-box .rsc-body .validation-cadre-trying .datte-past input[type='submit']:active {
+  background: #d6b36a;
+  color: white;
+}
+
 .rsc-box .rsc-body .after-promise {
   color: #d6b36a;
   width: 70%;
