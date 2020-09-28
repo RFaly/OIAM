@@ -71,12 +71,12 @@
   justify-content: center;
 
   background: linear-gradient(#ffffff, #f4e8ca);
-  // position: fixed;
-  // z-index: 4;
-  // top: 1.5vh;
-  // left: 1.5vw;
-  // width: 98%;
-  // height: 98vh;
+  position: fixed;
+  z-index: 4;
+  top: 1.5vh;
+  left: 1.5vw;
+  width: 98%;
+  height: 98vh;
   h1 {
     margin-bottom: 50px;
   }
@@ -665,6 +665,13 @@
           }
         }
       }
+      // VALIDATION Candidat
+      .validation-cadre-trying {
+        width: 90%;
+        .vct-btn {
+          width: 200px;
+        }
+      }
     }
     .rscdf-content {
       .new-date {
@@ -1092,6 +1099,13 @@
         .dscdpa-box {
           width: 70%;
           padding: 20px 25px;
+        }
+      }
+      // VALIDATION Candidat
+      .validation-cadre-trying {
+        width: 80%;
+        .vct-btn {
+          width: 250px;
         }
       }
     }
@@ -1698,6 +1712,10 @@
           }
         }
       }
+      // VALIDATION Candidat
+      .validation-cadre-trying {
+        width: 70%;
+      }
     }
   }
   // promesse suivi recrutement
@@ -1989,6 +2007,13 @@
         .dscdpa-box {
           width: 60%;
           padding: 20px 40px;
+        }
+      }
+      // VALIDATION Candidat
+      .validation-cadre-trying {
+        width: 60%;
+        .vct-btn {
+          width: 350px;
         }
       }
     }

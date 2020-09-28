@@ -54,12 +54,12 @@
   <label>Rémunération fixe <br />(€ bruts mensuels)</label>
   <div class="right">
     <div>
-      <% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <% if valeur%> <%= f.text_field :remuneration_fixe, required:true, required:true,id:'renumeration-fixe',onkeypress:"return event.charCode>=46 && event.charCode<=57" %> <%else%> <%= f.text_field :remuneration_fixe, required:true, value: (payFix),
+      <% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <% if valeur%> <%= f.text_field :remuneration_fixe, required:true, required:true,id:'renumeration-fixe',onkeypress:"return event.charCode>=46 && event.charCode<=57"%> <%else%> <%= f.text_field:remuneration_fixe, required:true, value: (payFix),
       required:true,id:'renumeration-fixe',onkeypress:"return event.charCode>=46 && event.charCode<=57"%> <%end%>
     </div>
     <div>
       <label id="conditioncheck">
-        12 mois <%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois', required:true, checked:'checked' %>
+        12 mois <%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois', required:true %>
         <span class="checkmark"></span>
       </label>
     </div>

@@ -68,6 +68,12 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(#ffffff, #f4e8ca);
+  position: fixed;
+  z-index: 4;
+  top: 1.5vh;
+  left: 1.5vw;
+  width: 98%;
+  height: 98vh;
 }
 
 .felicitation h1 {
@@ -561,6 +567,12 @@
   .rsc-box .rsc-body .rsc-date-past .dscdpa-box .dscdp-link-item a {
     padding: 14px 14px;
   }
+  .rsc-box .rsc-body .validation-cadre-trying {
+    width: 90%;
+  }
+  .rsc-box .rsc-body .validation-cadre-trying .vct-btn {
+    width: 200px;
+  }
   .rsc-box .rscdf-content .new-date {
     width: 90%;
   }
@@ -888,6 +900,12 @@
   .rsc-box .rsc-body .rsc-date-past .dscdpa-box {
     width: 70%;
     padding: 20px 25px;
+  }
+  .rsc-box .rsc-body .validation-cadre-trying {
+    width: 80%;
+  }
+  .rsc-box .rsc-body .validation-cadre-trying .vct-btn {
+    width: 250px;
   }
   .rsc-box .rscdf-content .new-date {
     width: 450px;
@@ -1364,6 +1382,9 @@
   .rsc-box .rsc-body .rscdf-content .new-date .link2 a {
     padding: 10px 15px;
   }
+  .rsc-box .rsc-body .validation-cadre-trying {
+    width: 70%;
+  }
   .rsc-body-promise .dscdpa-box {
     width: 60%;
     padding: 20px;
@@ -1565,6 +1586,12 @@
   .rsc-box .rsc-body .rsc-date-past .dscdpa-box {
     width: 60%;
     padding: 20px 40px;
+  }
+  .rsc-box .rsc-body .validation-cadre-trying {
+    width: 60%;
+  }
+  .rsc-box .rsc-body .validation-cadre-trying .vct-btn {
+    width: 350px;
   }
   .rsc-body-promise .dscdpa-box {
     width: 50%;
