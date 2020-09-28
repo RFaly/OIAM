@@ -23,9 +23,9 @@
 						<div class="box-nm">
 							<h6 class="cad">
 								<% offre.offre_for_candidates.each do |t| %>	
-									<%= t.cadre.cadre_info.first_name %>   <%= t.cadre.cadre_info.last_name %>
+									<%= t.cadre.cadre_info.first_name.upcase %>  <%= t.cadre.cadre_info.last_name.capitalize %>
 							    <% end %> 
-							</h6><span><i class="fas fa-arrow-circle-right"></i></span><h6 class="ent"><%= offre.client.entreprise.name %></h6>
+							</h6><span><i class="fas fa-arrow-circle-right"></i></span><h6 class="ent"><%= offre.client.entreprise.name.upcase %></h6>
 						</div>
 						<div class="see">
 							<a href="#" class="event-btn">Voir Recrutement</a>	
