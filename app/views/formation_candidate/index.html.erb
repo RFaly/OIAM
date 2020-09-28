@@ -8,7 +8,7 @@
 		<h2><%= formation.name %></h2>
 		<p><%= formation.description %></p>
 		<div class="link">
-			<%= link_to "PRENDRE RDV", formation_date_rdv_path(formation.id), class:'btn btn-primary'%>
+			<%= link_to "PRENDRE RDV", formation_date_rdv_path(formation.id,formation.name), class:'btn btn-primary'%>
 		</div>
 		<hr>
 	</div>
