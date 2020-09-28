@@ -342,7 +342,7 @@ class CandidatesController < ApplicationController
   def save_scores_potential_test
     @cadreInfo = CadreInfo.find_by(mail:params[:email])
     is_recrute = false
-    if is_recrute > 1005
+    if is_recrute >= 1005
       is_recrute = true
     end
     @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score])
@@ -351,6 +351,9 @@ class CandidatesController < ApplicationController
 #~~~~~~~~~~~ not add to app
   def testskills
     @cadreInfo = CadreInfo.find_by_confirm_token(cookies.encrypted[:oiam_cadre])
+    unless @cadreInfo.is_recrute
+      redirect_to resultatsTest_path
+    end
   end
 
   def postMetierSkills
@@ -379,7 +382,10 @@ class CandidatesController < ApplicationController
   end
 
   def testfit
-    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
+    @cadreInfo = CadreInfo.find_by_confirm_token(cookies.encrypted[:oiam_cadre])
+    unless @cadreInfo.is_recrute
+      redirect_to resultatsTest_path
+    end
     @agendaAdmin = @cadreInfo.agenda_admin
     if @agendaAdmin.nil?
       date = @cadreInfo.created_at.to_datetime.utc

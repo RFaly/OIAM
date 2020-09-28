@@ -109,6 +109,15 @@ Rails.application.routes.draw do
   get '/cadre/fit-test', to: 'candidates#testfit', as: 'testfit'
   post '/cadre/save-entretien-date', to:'candidates#saveEntretientDate',as:'saveEntretientDate'
 
+  #formation liste
+
+  get 'cadres/formation', to: 'formation_candidate#index', as: 'formation_all'
+  get 'cadres/formation/:id', to: 'formation_candidate#date_rdv', as: 'formation_date_rdv'
+  post 'cadres/formation/save', to: 'formation_candidate#save_rdv', as: 'formation_save_rdv'
+
+
+
+
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	devise_for :cadres, path: 'cadre', controllers: {
@@ -227,14 +236,6 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/administration/les-mails', to: 'admin_administration#mail', as: 'admin_administration_mail'
   get 'secret-oiam-page/admin/administration/les-tests', to: 'admin_administration#test', as: 'admin_administration_test'
   get 'secret-oiam-page/admin/administration/les-utilisateurs', to: 'admin_administration#utilisateur', as: 'admin_administration_utilisateur'
-
-  #formation liste
-
-  get 'cadres/formation', to: 'formation_candidate#index', as: 'formation_all'
-  get 'cadres/formation/:id', to: 'formation_candidate#date_rdv', as: 'formation_date_rdv'
-  post 'cadres/formation/save', to: 'formation_candidate#save_rdv', as: 'formation_save_rdv'
-
-
 
 end
 
