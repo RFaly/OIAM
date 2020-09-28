@@ -432,6 +432,7 @@ body {
   color: transparent;
   width: 225px;
   height: 76px;
+  cursor: pointer;
 }
 
 .btn-valide {
