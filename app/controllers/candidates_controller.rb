@@ -1,6 +1,6 @@
 class CandidatesController < ApplicationController
   #def pas besoin de connexion
-  before_action :authenticate_cadre!, except: [:getScoresPotential,:postMetierSkills,:main,:my_tests,:testpotential,:init_testpotential,:testskills,:testfit,:saveEntretientDate,:resultatsTest,:tmp_sign_up,:tmp_create_sign_up,:save_repons_test_potential]
+  before_action :authenticate_cadre!, except: [:save_scores_potential_test,:getScoresPotential,:postMetierSkills,:main,:my_tests,:testpotential,:init_testpotential,:testskills,:testfit,:saveEntretientDate,:resultatsTest,:tmp_sign_up,:tmp_create_sign_up,:save_repons_test_potential]
   # def valider si tmp signup ok
   before_action :validate_cadre, only: [:getScoresPotential,:init_testpotential, :my_tests, :testpotential, :testskills, :testfit, :resultatsTest, :postMetierSkills]
   # if empty info cadre, remplir profil
@@ -105,7 +105,6 @@ class CandidatesController < ApplicationController
 
   def jobsPersonalized
     validate_info_cadre
-
   end
 
   def showSearchJob
@@ -273,9 +272,7 @@ class CandidatesController < ApplicationController
     @offreJob = @oFc.offre_job
     @cadre = current_cadre
     @agendas = @oFc.agenda_clients.order('created_at DESC')[0]
-
     # @promise = @offreJob.promise_to_hires.find_by(cadre:@cadre)
-
     @promise = @offreJob.promise_to_hires.joins(:cadre).find_by(cadre:current_cadre) 
 
   end
@@ -341,11 +338,17 @@ class CandidatesController < ApplicationController
 # recupere le score
   def save_scores_potential_test
     @cadreInfo = CadreInfo.find_by(mail:params[:email])
-    is_recrute = false
-    if is_recrute >= 1005
-      is_recrute = true
+    if @cadreInfo.nil?
+      flash[:alert] = "Aucun candidat inscrit avec cet email."
+    else
+      is_recrute = false
+      if params[:score].to_i >= 1005
+        is_recrute = true
+      end
+      @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score])
+      flash[:notice] = "Score à jour pour #{@cadreInfo.first_name} #{@cadreInfo.last_name}!"
     end
-    @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score])
+    redirect_to nothing_path
   end
 
 #~~~~~~~~~~~ not add to app
@@ -408,6 +411,11 @@ class CandidatesController < ApplicationController
   end
 
   def saveEntretientDate
+    @cadreInfo = CadreInfo.find_by_confirm_token(cookies.encrypted[:oiam_cadre])
+    unless @cadreInfo.is_recrute
+      redirect_to resultatsTest_path
+    end
+    
     date = params[:date].split("-")
     time = params[:time].split(":")
     day = date[0].to_i
@@ -415,7 +423,6 @@ class CandidatesController < ApplicationController
     year = date[2].to_i
     hour = time[0].to_i
     min = time[1].to_i
-    @cadreInfo = CadreInfo.find_by_id(cookies.encrypted[:oiam_cadre])
     @agenda = AgendaAdmin.new(entretien_date:DateTime.new(year,month,day,hour,min).utc,cadre_info:@cadreInfo)
     if @agenda.save
       @cadreInfo.update(fit_test:true)

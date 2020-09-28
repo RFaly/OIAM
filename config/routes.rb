@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get '/portfolio', to: 'static_page#portfolio', as: 'portfolio'
   get '/contact', to: 'static_page#contact', as: 'contact'
 
+  get '/oiam', to: 'static_page#nothing', as: 'nothing'
+  
+
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Client ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :clients, path: 'clients', controllers: {
     sessions: 'clients/sessions',
@@ -99,7 +102,7 @@ Rails.application.routes.draw do
   #getScoresPotential in ajax
   get '/cadre/score-potential/:confirm_token/ok', to: 'candidates#getScoresPotential', as:'getScoresPotential'
 
-  get '/cadre/email/:email/score/:score', to:'candidates#save_scores_potential_test', as:'save_scores_potential_test'
+  post '/cadre/email/score', to:'candidates#save_scores_potential_test', as:'save_scores_potential_test'
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # a enlever pour l'instant # get '/cadre/skills-test', to: 'candidates#testskills', as: 'testskills'
