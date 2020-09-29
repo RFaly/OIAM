@@ -7,8 +7,8 @@
   font: $ffsentence;
   .title {
     text-align: center;
-    font: 500 18px Raleway, sans-serif;
-    color: #d6b36a;
+    font: $ffbtn;
+    color: $main_theme_color;
     text-transform: uppercase;
     margin-bottom: 50px;
   }
