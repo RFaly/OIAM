@@ -348,8 +348,8 @@ class CandidatesController < ApplicationController
       flash[:alert] = "Aucun candidat inscrit avec cet email."
     else
       is_recrute = false
-      if params[:score].to_i >= 1005
-        is_recrute = true
+      if params[:score].to_i >= CadreInfo.min_score
+        is_recrute = nil
       end
       @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score])
       flash[:notice] = "Score à jour pour #{@cadreInfo.first_name} #{@cadreInfo.last_name}!"
