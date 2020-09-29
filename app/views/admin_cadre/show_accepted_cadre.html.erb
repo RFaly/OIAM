@@ -148,6 +148,26 @@
     margin-left: 40px;
   }
 
+  .time-count {
+    color: #d6b36a;
+    background: #fff;
+    padding: 15px 30px;
+    border: 1px solid #d6b36a;
+    font-size: 30px;
+    margin-left: 30px;
+  }
+
+  .acc-rdv {
+    color: #d6b36a;
+    margin-left: 50px;
+    text-decoration: none;
+  }
+
+  .acc-rdv:hover {
+    text-decoration: none;
+    color: #d6b36a;
+  }
+
 </style>
 <div class="client-column">
   <div class="client-menu-left">
@@ -191,7 +211,6 @@
             </div>
             <div class="fci-infos">
               <p class="name"><%= @cadre.first_name %> <%= @cadre.last_name %> </p>
-              <p class="poste">Poste : <%= @cadre.job %></p>
               <p class="score">Score OIAM : <span><%= @cadre.score_potential %></span></p>
             </div>
           </div>
@@ -208,11 +227,11 @@
                 <strong>Entretien fit avec ce cadre le : </strong>
                 <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
               </p>
-              <p id="time-to-down" class="btn btn-info" style="font-size: 40px;"></p>
+              <p id="time-to-down" class="time-count"></p>
               <% if @cadre.agenda_admin.accepted.nil? %>
-                <%= link_to accepted_or_reffused_path(id:@cadre.id), method: :post do %><br>ACCEPTER LE RENDEZ-VOUS<% end %>
+                <%= link_to accepted_or_reffused_path(id:@cadre.id), method: :post do %><br><p class="acc-rdv">ACCEPTER LE RENDEZ-VOUS</p><% end %>
               <% else %>
-                <br>RENDEZ-VOUS ACCEPTER
+                <br><p class="acc-rdv">RENDEZ-VOUS ACCEPTER</p>
               <% end %>
             <% if @cadre.is_recrute.nil? %>
               <div style="margin-left: 200px; margin-top: 150px;">
