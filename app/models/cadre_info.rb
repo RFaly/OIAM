@@ -10,6 +10,10 @@ class CadreInfo < ApplicationRecord
 	belongs_to :ville, optional: true
 	belongs_to :metier, optional: true
 
+	#constance score minimum test potential
+	def self.min_score
+		1005
+	end
 
   private
 

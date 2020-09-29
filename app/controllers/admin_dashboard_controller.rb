@@ -45,7 +45,9 @@ class AdminDashboardController < ApplicationAdminController
 
   def rmv_favorite_cadre
     @cadre = CadreInfo.find_by(id:params[:id])
-    @cadre.update(admin_id:nil)
+    unless @cadre.admin.nil?
+      @cadre.update(admin_id:nil)
+    end
     flash[:notice] = "Vous n'êtes plus responsable de #{@cadre.last_name} #{@cadre.first_name} maintenant."
     redirect_to admin_dashboard_candidate_path
   end
