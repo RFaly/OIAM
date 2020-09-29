@@ -1,11 +1,15 @@
-<h1><%= @formation.name %></h1>
-<h2>Reserver un coaching</h2>
+<link rel="stylesheet" href="/css/date_rdv_cadre.css">
+
+<h2 class="reserve-title">Reserver un coaching</h2>
+
+<!-- <h1><%= @formation.name %></h1>
+
 <p><%= @formation.description %></p>
 <% unless @formation.prix.nil? %>
 	<%=  @formation.prix %>€
 <% else %>
 	gratuite
-<% end %>
+<% end %> -->
 
 <div class="date-container">
 	<div class="selected-date" id="hide-js">
