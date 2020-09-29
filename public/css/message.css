@@ -29,3 +29,73 @@
   text-transform: uppercase;
   margin-bottom: 50px;
 }
+
+.message-box .message-contact-items {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.message-box .message-contact-items #image {
+  content: '';
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.message-box .message-contact-items #image .connected {
+  position: absolute;
+  content: '';
+  background: #12c712;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  bottom: 0px;
+  right: 12px;
+}
+
+.message-box .message-contact-items .link {
+  font: 16px Questrial, sans-serif;
+  padding: 5px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.message-box .message-contact-items .link .name {
+  font: 500 18px Raleway, sans-serif;
+}
+
+.message-box .message-contact-items .link .name span {
+  font: 16px Questrial, sans-serif;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.message-box .message-contact-items .link .mp {
+  margin-top: 5px;
+}
+
+.message-box .message-contact-items .link .mp .span {
+  opacity: 0.8;
+}
+
+.message-box .message-contact-items .link .not-connected {
+  opacity: 0.5;
+  color: black;
+  font-size: 11px;
+  text-align: right;
+}
+
+.message-box .message-contact-items .link:hover .mp .content {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+.message-box .message-contact-items .link.color {
+  color: #d6b36a;
+  font-weight: bold;
+}
