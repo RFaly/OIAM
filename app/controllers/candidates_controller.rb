@@ -29,9 +29,13 @@ class CandidatesController < ApplicationController
   end
 
   def confirmedProfil
+    puts "~"*45
+    puts params.inspect
+    puts "~"*45
+
     errorMessage = ""
 
-    is_error = params[:cadre_info][:question1].empty? || params[:cadre_info][:question3].empty? || params[:cadre_info][:question4].empty? || params[:cadre_info][:question5].empty? || params[:cadre_info][:status].empty? || params[:cadre_info][:disponibilite].empty? || params[:cadre_info][:mobilite].empty?
+    is_error = params[:cadre_info][:job].empty? || params[:cadre_info][:question3].empty? || params[:cadre_info][:question4].empty? || params[:cadre_info][:question5].empty? || params[:cadre_info][:status].empty? || params[:cadre_info][:disponibilite].empty? || params[:cadre_info][:mobilite].empty?
     if is_error
       errorMessage += " [ Tous les champs sont obligatoire ] "
     end
@@ -76,10 +80,12 @@ class CandidatesController < ApplicationController
         @cadre.deplacement = false
       end
 
+      metier = Metier.find_by_id(params[:cadre_info][:metier_id])
       c = Country.find_by(name:params[:cadre_info][:country])
       r = Region.find_by(name:params[:cadre_info][:region])
       v = Ville.find_by(name:params[:cadre_info][:ville])
 
+      @cadre.metier = metier
       @cadre.country = c
       @cadre.region = r
       @cadre.ville = v
@@ -638,7 +644,7 @@ class CandidatesController < ApplicationController
   end
 
   def post_params
-    params.require(:cadre_info).permit(:question1,:question3,:question4,:question5,:status,:disponibilite,:mobilite)
+    params.require(:cadre_info).permit(:job,:question3,:question4,:question5,:status,:disponibilite,:mobilite)
   end
 
   def current_info_cadre

@@ -1,21 +1,19 @@
 <link rel="stylesheet" href="/css/edit_cadre_profil.css">
 <div class="main">
 	<%= form_for @cadre , url: confirmedProfil_path do |f| %>
-			<%= f.label :question1, "Que faites-vous actuellement et que recherchez-vous comme type de poste ?", class:"label-content" %>
-			<%= f.text_area :question1, required:true, rows:3, class:"champs" %>
 			<div class="cadre-quest">
 				<div class="type-pos">
 					<label for="" class="label-content">Quel est votre type de poste actuel ?</label>
-					<select class="co-select typ-post" id="metier-input" name="metier_name" required>
+					<select class="co-select typ-post" id="metier-input" name="cadre_info[metier_id]" required>
 			            <option value=""></option>
 			            <% @meties.each do |metier| %>
-			            <option value="<%= metier.name %>"><%= metier.name %></option>
+			            <option value="<%= metier.id %>"><%= metier.name %></option>
 			            <% end %>
 		          </select>
 				</div>
 				<div class="act-job">
 					<label for="" class="label-content">Quelle est votre profession actuelle ?</label>
-					<input type="text" name="" class="job-now">
+					<input type="text" name="cadre_info[job]" class="job-now">
 				</div>
 			</div>
 			<%= f.label :question2, "Où souhaitez-vous travailler et acceptez-vous les déplacements ?",class:"label-content" %>
