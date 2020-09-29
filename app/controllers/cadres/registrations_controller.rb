@@ -28,8 +28,9 @@ class Cadres::RegistrationsController < Devise::RegistrationsController
     else
       super
       @cadreInfo.update(cadre:current_cadre)
+      # cookies.encrypted[:oiam_cadre]
+      cookies.delete :oiam_cadre
     end
-    # cookies.delete :oiam_cadre
   end
 
   # GET /resource/edit

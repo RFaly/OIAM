@@ -14,16 +14,14 @@
 				<div class="user_name"><%= @cadre.first_name %> <%= @cadre.last_name %> <br></div>
 				<p>Score du test : <span>1005</span></p>
 				<p>Type de poste :<br> <span style="text-transform:uppercase;">
-				<% if @cadre.metier.nil? %>
-					Manager marketing
-				<% else %>
+				<% unless @cadre.metier.nil? %>
 					<%= @cadre.metier.name %>
 				<% end %>
 				</span><br>
 				Profession :<br> <span style="text-transform:uppercase;">
 					<%= @cadre.job %>
 				</span>
-			</p>
+				</p>
 				<p>Statut :<br> <span><%= @cadre.status %></span></p>
 				<p>Disponibilité :<br> <span><%= @cadre.disponibilite %></span></p>
 				<p>Mobilité :<br> <span><%= @cadre.mobilite %></span></p>
@@ -33,7 +31,7 @@
 			<div class="block-right-content">
 				<div class="questionnaire">
 					<h2 class="questionnaire-title">Que faites-vous actuellement et que recherchez-vous comme type de poste ?</h2>
-					<p><%= @cadre.question2 %></p>
+					<p>Type de poste : <% unless @cadre.metier.nil? %><%= @cadre.metier.name %><% end %><br>Profession : <%= @cadre.job %></p>
 				</div>
 				<div class="questionnaire">
 					<h2 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h2>
@@ -49,7 +47,6 @@
 						<% unless @cadre.ville.nil? %>
 							Ville: <%= @cadre.ville.name %> <br>
 						<% end %>
-
 
 						<% if @cadre.deplacement %>
 							Fréquence de déplacement: <%=  @cadre.frequency %>
