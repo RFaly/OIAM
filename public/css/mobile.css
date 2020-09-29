@@ -592,6 +592,10 @@
     width: 80%;
     padding: 10px;
   }
+  .message-box .message-contact-items .link {
+    width: 70%;
+    margin: 10px 0;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -921,6 +925,10 @@
   }
   .rsc-box .rscdf-content .new-date .link2 a {
     padding: 10px 5px;
+  }
+  .message-box .message-contact-items .link {
+    width: 80%;
+    margin-left: 5px;
   }
 }
 
@@ -1392,6 +1400,10 @@
   .rsc-body-promise .dscdpa-box p {
     padding: 0 10px;
   }
+  .message-box .message-contact-items .link {
+    width: 82%;
+    margin: 0;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -1600,6 +1612,9 @@
   .rsc-body-promise .dscdpa-box p {
     padding: 0 30px;
   }
+  .message-box .message-contact-items .link {
+    width: 85%;
+  }
 }
 
 @media screen and (min-width: 1500px) {
@@ -1675,6 +1690,9 @@
   }
   .rsc-body-promise .dscdpa-box {
     width: 40%;
+  }
+  .message-box .message-contact-items .link {
+    width: 90%;
   }
 }
 
