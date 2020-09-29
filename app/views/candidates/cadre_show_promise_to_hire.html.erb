@@ -39,7 +39,7 @@
 						<% if @promise.ns_sociale_cadre.nil? %>
 							<span class="input-cnt"><input class="number-only" type="number" name="promise_to_hire[ns_sociale_cadre]" id="promise_to_hire_ns_sociale_cadre" ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57"><span class="user-info inpt" id="num-soc">N° sécurité sociale</span></span><br><span class="secur-social-err error"></span>
 						<% else %>
-						<input placeholder="N° sécurité sociale" class="number-only" type="number" name="promise_to_hire[ns_sociale_cadre]" id="promise_to_hire_ns_sociale_cadre" ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" value="<%= @promise.ns_sociale_cadre %>" readonly>
+							<span class="input-cnt"><input placeholder="N° sécurité sociale" class="number-only" type="number" name="promise_to_hire[ns_sociale_cadre]" id="promise_to_hire_ns_sociale_cadre" ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" value="<%= @promise.ns_sociale_cadre %>" readonly><span class="user-info inpt" id="num-soc">N° sécurité sociale</span></span>
 						<% end %>
 					</div>
 				</div>
@@ -126,7 +126,9 @@
 				</div>
 				<div class="promese-info remove">
 					<div class="date-prise-label" id="cin-label">CIN ou Passeport
-						<span id="file-cin-content"	><br>Votre fichier : <span id="cin-filename"></span></span>
+						<% unless @promise.cin_pass_port.nil? %>
+							<span id="file-cin-content"	><br>Votre fichier : <span id="cin-filename"></span></span>
+						<% end %>
 					</div>
 					<div class="fichier">
 						<% if @promise.cin_pass_port.nil? %>
@@ -142,7 +144,9 @@
 				</div>
 				<div class="promese-info remove">
 					<div class="date-prise-label">Attestation de sécurité sociale
-						<span id="file-atest-content"><br>Votre fichier : <span id="atest-filename"></span></span>
+						<% unless @promise.security_certificate.nil? %>
+								<span id="file-atest-content"><br>Votre fichier : <span id="atest-filename"></span></span>
+						<% end %>
 					</div>
 					<div class="fichier">
 						<% if @promise.security_certificate.nil? %>
@@ -150,21 +154,23 @@
 							<%= f.file_field :security_certificate, required:true, class:"input-import atest", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %><br>
 							<span class="attest-err error"></span>
 						<% else %>
-								<%= link_to "TELECHARGER", @promise.cin_pass_port, class:"telecharger" %>
+								<%= link_to "TELECHARGER", @promise.security_certificate, class:"telecharger" %>
 						<% end %>
 					</div>
 				</div>
 				<div class="promese-info remove">
 					<div class="date-prise-label">RIB
+						<% unless @promise.rib.nil? %>
 						<span id="file-rib-content"	><br>Votre fichier : <span id="rib-filename"></span>
+						<% end %>
 					</div>
 					<div class="fichier">
-						<% if @promise.cin_pass_port.nil? %>
+						<% if @promise.rib.nil? %>
 							<label class="file" placeholder="Importer CIN" for="promise_to_hire_rib">IMPORTER</label>
 							<%= f.file_field :rib, required:true, class:"input-import rib", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %><br>
 							<span class="rib-err error"></span>
 						<% else %>
-								<%= link_to "TELECHARGER", @promise.cin_pass_port, class:"telecharger" %>
+								<%= link_to "TELECHARGER", @promise.rib, class:"telecharger" %>
 						<% end %>
 					</div>
 				</div>
