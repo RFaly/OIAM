@@ -392,9 +392,7 @@ class CandidatesController < ApplicationController
 
   def testfit
     @cadreInfo = CadreInfo.find_by_confirm_token(cookies.encrypted[:oiam_cadre])
-    unless @cadreInfo.is_recrute
-      redirect_to resultatsTest_path
-    end
+
     @agendaAdmin = @cadreInfo.agenda_admin
     if @agendaAdmin.nil?
       date = @cadreInfo.created_at.to_datetime.utc
@@ -418,9 +416,6 @@ class CandidatesController < ApplicationController
 
   def saveEntretientDate
     @cadreInfo = CadreInfo.find_by_confirm_token(cookies.encrypted[:oiam_cadre])
-    unless @cadreInfo.is_recrute
-      redirect_to resultatsTest_path
-    end
     
     date = params[:date].split("-")
     time = params[:time].split(":")

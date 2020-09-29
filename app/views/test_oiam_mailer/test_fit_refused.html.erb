@@ -1,5 +1,10 @@
-<h1>TestOiam#test_fit_refused</h1>
-
-<p>
-  <%= @greeting %>, find me in app/views/test_oiam_mailer/test_fit_refused.html.erb
-</p>
+<h2 class="cadre-nom">Chère <%= @cadre_info.first_name %>,</h2>
+<p>Merci d’avoir passé notre test !</p>
+<p>Malheureusement, votre score est insuffisant pour vous permettre d’intégrer One in a Million.</p>
+<p>Nous savons que ces résultats peuvent être frustrants, aussi vous avez la possibilité de passer le test une seconde fois au cours de votre vie, dans un délai minimum de 6 mois.</p>
+<p>Afin de maximiser vos chances, nous vous proposons des ateliers de coaching.</p>
+<div class="row">
+	<div class="col-sm-6">
+		<%= link_to "AMÉLIORER MES RESULTATS", formation_all_path, class:'pass-test', id:'link-to-resultats' %>
+	</div>
+</div>
