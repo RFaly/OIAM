@@ -698,6 +698,15 @@
       padding: 10px;
     }
   }
+  // chat index
+  .message-box {
+    .message-contact-items {
+      .link {
+        width: 70%;
+        margin: 10px 0;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -1124,6 +1133,15 @@
             padding: 10px 5px;
           }
         }
+      }
+    }
+  }
+  // chat index
+  .message-box {
+    .message-contact-items {
+      .link {
+        width: 80%;
+        margin-left: 5px;
       }
     }
   }
@@ -1728,6 +1746,16 @@
       }
     }
   }
+  // chat index
+  .message-box {
+    .message-contact-items {
+      .link {
+        width: 82%;
+        margin: 0;
+        // margin-left: 5px;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -2028,6 +2056,14 @@
       }
     }
   }
+  // chat index
+  .message-box {
+    .message-contact-items {
+      .link {
+        width: 85%;
+      }
+    }
+  }
 }
 @media screen and (min-width: 1500px) {
   // bg unique
@@ -2145,6 +2181,14 @@
   .rsc-body-promise {
     .dscdpa-box {
       width: 40%;
+    }
+  }
+  // chat index
+  .message-box {
+    .message-contact-items {
+      .link {
+        width: 90%;
+      }
     }
   }
 }
