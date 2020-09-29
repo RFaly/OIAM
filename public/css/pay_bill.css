@@ -34,6 +34,7 @@
 .pay-bill-box .pb-flex {
   display: flex;
   justify-content: space-between;
+  margin-top: 15px;
   flex-wrap: wrap;
 }
 
@@ -43,35 +44,35 @@
 }
 
 .pay-bill-box .pb-flex .pb-btn {
-  align-self: flex-end;
+  margin: 20px 0;
 }
 
-.pay-bill-box .pb-flex .pb-btn label {
+.pay-bill-box .pb-flex .pb-btn a {
   cursor: pointer;
-  margin-top: 15px;
   width: 190px;
   text-decoration: none;
   text-transform: uppercase;
   background: transparent;
   color: #d6b36a;
   border: 2px solid #d6b36a;
-  padding: 10px 0;
+  padding: 10px 20px;
   text-align: center;
   font: 500 18px Raleway, sans-serif;
   font-size: 16px;
 }
 
-.pay-bill-box .pb-flex .pb-btn label:hover, .pay-bill-box .pb-flex .pb-btn label:active {
+.pay-bill-box .pb-flex .pb-btn a:hover, .pay-bill-box .pb-flex .pb-btn a:active {
   color: white;
   background-color: #d6b36a;
 }
 
-.pay-bill-box .submit {
-  margin-top: 50px;
+.pay-bill-box .button {
   text-align: center;
 }
 
-.pay-bill-box .submit input {
+.pay-bill-box .button #valide {
+  margin-top: 50px;
+  text-align: center;
   border-radius: 0;
   border: 2px solid #d6b36a;
   padding: 10px 30px;
@@ -80,9 +81,47 @@
   color: #d6b36a;
 }
 
-.pay-bill-box .submit input:hover, .pay-bill-box .submit input:active {
+.pay-bill-box .button #valide:hover, .pay-bill-box .button #valide:active {
   background: #d6b36a;
   color: white;
+}
+
+.pay-bill-box .button-2 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pay-bill-box .button-2 .pb-flex-2 {
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.pay-bill-box .button-2 .c {
+  display: none;
+}
+
+.pay-bill-box .button-2 .import-button {
+  align-self: flex-end;
+  margin: 0 20px;
+}
+
+.pay-bill-box .button-2 .import-button span {
+  cursor: pointer;
+  width: 190px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: transparent;
+  color: #d6b36a;
+  border: 2px solid #d6b36a;
+  padding: 10px 20px;
+  text-align: center;
+  font: 500 18px Raleway, sans-serif;
+  font-size: 16px;
+}
+
+.pay-bill-box .button-2 .import-button span:hover, .pay-bill-box .button-2 .import-button span:active {
+  color: white;
+  background-color: #d6b36a;
 }
 
 #checkbox1 {

@@ -20,16 +20,6 @@
 			<p>Cet  échange  nous  permettra  d’en  savoir  plus  sur vous et de découvrir votre  “ FIT ”  avec  les  nombreuses  opportunités  que nous proposons sur One in a Million.</p>
 		</div>
 
-		<div id="para-hide">
-			<div id="potential-title-show">
-				<h1>Félicitations et Bienvenue !</h1>
-			</div>
-			<p>Vous avez désormais terminé le test d’entrée One in a Million et nous avons le plaisir de vous annoncer que vous faites partie du top 10 des cadres du marché.</p>
-			<p>Remplissez dès maintenant votre profil et rejoignez notre communauté ! Découvrez des offres d’emploi sélectionnées spécialement pour vous, ainsi que nos événements dédiés aux cadres d’élite.</p>
-
-			<%= link_to "COMPLÉTER MON PROFIL", new_cadre_registration_path(comfirm:@cadreInfo.confirm_token),class:'pass-test'%>
-		</div>
-
 <% if @agendaAdmin.nil? %>
 	<span class="pass-test" id="show-selected-date">PLANIFIER UN ENTRETIEN SKYPE</span>
 	<% if @agendaAdmin.nil? %>
@@ -83,7 +73,7 @@
 			<img src="/image/checkWhite.png" alt="" class="iconify">
 			<center id="dateSkype" class="skype-time"></center>
 			<center id="timeSkype" class="skype-time"></center>
-			<span class="pass-test past-test-menu" id="btn-menu">MENU</span>
+			<span class="pass-test past-test-menu">MENU</span>
 		</div>
 	</div>
 	<% end %>
@@ -92,7 +82,7 @@
 		<h2 class="entretien-confirme">Entretien Skype confirmé</h2>
 		<img src="/image/checkWhite.png" alt="">
 		<center id="dateSkype" class="skype-time"><%= @dates %></center>
-		<span class="pass-test past-test-menu" id="btn-menu">MENU</span>
+		<span class="pass-test past-test-menu">MENU</span>
 	</div>
 <% end %>
 	</div>
@@ -161,14 +151,5 @@
 	$(".btn-valider").click(function(){
 		$(".show-selected-date").hide(300);
 		$(".content").hide(300);
-	})
-
-
-	$("#btn-menu").click(function(){
-		$("#para-show").hide(300);
-		$("#para-hide").show(300);
-		$(".show-default-value-date").hide();
-		$("#potential-title-hide").hide(300);
-		$("#potential-title-show").show(300);
 	})
 </script>

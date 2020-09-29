@@ -1,41 +1,47 @@
-<style type="text/css">
-	h2{
-		color: #d6b36a;
-		font-size: 30px;
-		text-align: center;
-		margin-top: 50px;
-	}
-</style>
+<link rel="stylesheet" type="text/css" href="/css/notification_cadre.css">
 
-<div class="row">
-	<div class="col-sm-3">
+
+<div class="all-content">
+	<div class="left-link">
 		<%= render partial: "candidates/left_link_bar" %>
 	</div>
-	<div class="col-sm-9">
+	<div class="right-link">
 		<h5 class="title">NOTIFICATIONS</h5>
 	      <% unless @notifications.empty?%>
 	      	<% @notifications.each do |noficication| %>
-	      		<div class="alert alert-warning" role="alert">
+					<a href="<%= noficication.link %>" class="btn-voir">
+	      		<div class="notif-container" role="alert">
 		      		<span data-times="<%= noficication.created_at.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
 		      		<% if noficication.view %>
-		      			<span class="badge">hita</span>
+									<div class="notif-info no-col">
+										<div class="notif-image">
+											<img src="<%= noficication.offre_job.image %>" width="100px" height="100px">
+										</div>
+										<div class="notif-info-content notif-see">
+											<h4 class="alert-heading"><%= noficication.object %></h4>
+											<p class="notif-mes"><%= noficication.message %></p>
+										</div>
+										<div class="mb-0">
+											<span data-times="<%= noficication.created_at.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+										</div>
+									</div>
 		      		<% else %>
-		      			<span class="badge">tsy hita</span>
+							<div class="notif-info">
+								<div class="notif-image">
+									<img src="<%= noficication.offre_job.image %>" width="100px" height="100px">
+								</div>
+								<div class="notif-info-content">
+									<h4 class="alert-heading"><%= noficication.object %></h4>
+									<p class="notif-mes"><%= noficication.message %></p>
+								</div>
+								<div class="mb-0">
+									<span data-times="<%= noficication.created_at.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+								</div>
+							</div>
 		      		<% end %>
-	      			<div class="row">
-	      				<div class="col-sm-3">
-	      					<img src="<%= noficication.offre_job.image %>" width="200px">
-	      				</div>
-	      				<div class="col-sm-9">
-	      					<h4 class="alert-heading"><%= noficication.object %></h4>
-					  		<p><%= noficication.message %></p>
-					  		<hr>
-					  		<p class="mb-0">
-					  			<a href="<%= noficication.link %>" class="btn btn-warning">VOIR</a>
-					  		</p>
-						</div>
-	      			</div>
+
 				</div>
+				</a>
 	      	<% end %>
 	      <% else %>
 	      	Aucune notification

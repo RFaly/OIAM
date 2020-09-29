@@ -1,4 +1,10 @@
 <link rel="stylesheet" href="/css/admin_client.css" />
+<style>
+	.not-cl {
+		text-align: center;
+		font: 16px Questrial, sans-serif;
+	}
+</style>
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <div class="client-column">
 	<div class="client-menu-left">
@@ -11,7 +17,7 @@
 
 			<!-- -------------------- -->
 			<% if @offre.count == 0 %>
-				<p style="text-align: center;">il n'y  a aucun recrutement </p>
+				<p class="not-cl">il n'y  a aucun recrutement </p>
 			<% else %>
 				<% @offre.each do |offre| %>
 					<div class="box">
@@ -23,9 +29,9 @@
 						<div class="box-nm">
 							<h6 class="cad">
 								<% offre.offre_for_candidates.each do |t| %>	
-									<%= t.cadre.cadre_info.first_name %>   <%= t.cadre.cadre_info.last_name %>
+									<%= t.cadre.cadre_info.first_name.upcase %>  <%= t.cadre.cadre_info.last_name.capitalize %>
 							    <% end %> 
-							</h6><span><i class="fas fa-arrow-circle-right"></i></span><h6 class="ent"><%= offre.client.entreprise.name %></h6>
+							</h6><span><i class="fas fa-arrow-circle-right"></i></span><h6 class="ent"><%= offre.client.entreprise.name.upcase %></h6>
 						</div>
 						<div class="see">
 							<a href="#" class="event-btn">Voir Recrutement</a>	

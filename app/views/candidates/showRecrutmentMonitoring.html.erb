@@ -73,7 +73,7 @@
 				<% if @promise.repons_cadre.nil? %> <!-- demande la validation du promesse d'embauche -->
 					<div class="felicitations">
 						<p>Félicitations, vous avez réussi la dernière étape du recrutement !</p>
-						<p><%= @offreJob.client.entreprise.name %> vous a envoyé une promesse d'embauche.</p>
+						<p><span class="mak-bold"><%= @offreJob.client.entreprise.name %></span> vous a envoyé une promesse d'embauche.</p>
 						<p><%= link_to "OUVRIR", cadre_show_promise_to_hire_path(@promise.id), class:"btn btn-open" %></p>
 					</div>
 				<% else %>
@@ -101,10 +101,10 @@
 									<div class="prime">
 										<h2>Bravo pour la signature de votre promesse d’embauche ! Votre contrat débutera le <strong><%= @promise.date_poste %></strong>. One in a Million tient à vous féliciter en vous offrant une prime de 1000€ dès votre période d’essai validée.</h2>
 										<% if DateTime.strptime("#{@promise.time_trying}", '%j/%m/%Y').future? %> <!-- si non fin periode d'essai -->
-											<span class="btn btn-info" onclick="alert('Validable à la fin de la période d\'essai (<%= @promise.time_trying %>).');">J'AI VALIDÉ MA PÉRIODE D'ESSAI</span>
+											<span class="btn-invalid" id="" onclick="alert('Validable à la fin de la période d\'essai (<%= @promise.time_trying %>).');">J'AI VALIDÉ MA PÉRIODE D'ESSAI</span>
 										<% else %> <!-- si fin periode d'essai -->
 											<!-- actualise la page -->
-											<%= link_to validate_time_trying_cadre_path(confirm_token:@promise.confirm_token), method: :post, class:"btn btn-info" do %>
+											<%= link_to validate_time_trying_cadre_path(confirm_token:@promise.confirm_token), method: :post, class:"btn-valid" do %>
 												J'AI VALIDÉ MA PÉRIODE D'ESSAI
 											<% end %>
 										<% end %>
@@ -118,13 +118,13 @@
 						</div>
 					<% end %>
 <!-- -------------------------------------------------- -->
-					<div class="row">
-						<div class="col-sm-9">
-							<img width="30px" src="/image/compteR.png" alt="icone" />
-					      	<%= link_to "Promesse d'embauche", cadre_show_promise_to_hire_path(@promise.id), class:"btn" %>
+					<div class="prom-hire">
+						<div class="prom-hire-content">
+							<img width="50px" src="/image/compteR.png" alt="icone" />
+					      	<%= link_to "Promesse d'embauche", cadre_show_promise_to_hire_path(@promise.id), :class => "btn-prom" %>
 						</div>
-						<div class="col-sm-3">
-							<%= link_to "TELECHARGER"%>	
+						<div class="prom-hire-down">
+							<%= link_to "TELECHARGER", :class => "btn-down" %>
 						</div>
 					</div>
 <!-- -------------------------------------------------- -->

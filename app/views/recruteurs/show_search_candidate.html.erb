@@ -26,9 +26,7 @@
 
             <div class="local">
               <p>Type de poste : 
-                <% if @cadre.metier.nil? %>
-                  Manager marketing
-                <% else %>
+                <% unless @cadre.metier.nil? %>
                   <%= @cadre.metier.name %>
                 <% end %>
               </p>
@@ -42,27 +40,31 @@
         </div>
         <div class="ssc-question">
           <div class="title">5 questions clés</div>
+
           <div class="questionnaire">
             <h5 class="questionnaire-title">Que faites-vous actuellement et que recherchez-vous comme type de poste ?</h5>
-            <p><%= @cadre.question1 %></p>
+            <p>Type de poste : <% unless @cadre.metier.nil? %><%= @cadre.metier.name %><% end %> <br>
+            Profession : <%= @cadre.job %>
+            </p>
           </div>
+
           <div class="questionnaire">
             <h5 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h5>
             <p>
               <% unless @cadre.country.nil? %>
-                Pays: <%= @cadre.country.name %> <br>
+                Pays : <%= @cadre.country.name %> <br>
               <% end %>
 
               <% unless @cadre.region.nil? %>
-                Région: <%= @cadre.region.name %> <br>
+                Région : <%= @cadre.region.name %> <br>
               <% end %>
 
               <% unless @cadre.ville.nil? %>
-                Ville: <%= @cadre.ville.name %> <br>
+                Ville : <%= @cadre.ville.name %> <br>
               <% end %>
 
               <% if @cadre.deplacement %>
-                Fréquence de déplacement: <%=  @cadre.frequency %>
+                Fréquence de déplacement : <%=  @cadre.frequency %>
               <% else %>
                 Pas de déplacement.
               <% end %>

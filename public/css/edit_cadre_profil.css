@@ -313,6 +313,34 @@ html{
       outline: none;
   }
 
+  .typ-post{
+    width: 100%;
+    height: 47px;
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    background: no-repeat right 10px center url(/image/dropdown.png);
+    background-size: 25px;
+    background-color: #F0F2F4;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    padding-left: 15px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance:none;
+    outline: none;
+  }
+
+  .job-now{
+    width: 100%;
+    height: 47px;
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    background-color: #F0F2F4;
+    margin-bottom: 20px;
+		padding: 15px;
+  }
 
 	.frequence option{
 		text-transform: capitalize;
@@ -480,6 +508,20 @@ html{
     .main{
       margin:  100px 150px;
     }
+
+		.cadre-quest{
+			display: flex;
+			grid-column-gap: 3%;
+			margin-bottom: 20px;
+		}
+
+		.type-pos{
+			width: 55%;
+		}
+
+		.act-job{
+			width: 53%;
+		}
 
     .label-content{
       font-size: 16px;

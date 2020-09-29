@@ -19,6 +19,10 @@ class StaticPageController < ApplicationController
   def contact
   end
 
+  def nothing
+    @header = true
+  end
+
 end
 
 
