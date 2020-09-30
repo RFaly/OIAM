@@ -8,42 +8,56 @@
     <div class="show-message-box">
       <div class="message-m">
         <div class="name"><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %></div>
-        <div class="boit-reception" id="js-add-new-message">
-          <div class="content">
-            <% @messages.each do |message| %> <% if message.is_client %>
-            <div class="my-message" data-store-id="<%= message.id %>">
-              <% else %>
-              <div class="her-message" data-store-id="<%= message.id %>">
-                <div id="image" style="background: url(<%= @cadre.cadre_info.image%>) center no-repeat; background-size: cover">
-                  <% if @cadre.is_online? %>
-                  <span class="connected"></span>
-                  <% end %>
-                </div>
-                <% end %> <%= message.content %>
+        <div class="boit-reception">
+          <div class="content" id="js-add-new-message">
+            <% @messages.each do |message| %>
+            <div class="<% if message.is_client %>my-message <% else %>her-message <% end %>" data-store-id="<%= message.id %>">
+              <% unless message.is_client %>
+              <div id="image" style="background: url(<%= @cadre.cadre_info.image%>) center no-repeat; background-size: cover">
+                <% if @cadre.is_online? %>
+                <span class="connected"></span>
+                <% end %>
               </div>
-              <div class="clear"></div>
               <% end %>
+              <div id="<%if (message.id == @messages.last.id) %> lastmessage<% end %>"><%= message.content %></div>
             </div>
+            <div class="clear"></div>
+            <% end %>
+
+            <div id="scrtop"></div>
           </div>
           <div class="input">
             <%= form_tag(post_my_message_client_path, id:"form-promo-code", 'data-path':getClientLastMessage_path(cadre_id:@cadre.id,contact_id:@contact.id), remote: true) do %>
             <input type="hidden" name="message_client_cadre[cadre_id]" value="<%=@cadre.id%>" id="is_client_session" data-client="true" />
             <input type="hidden" name="message_client_cadre[contact_id]" value="<%=@contact.id%>" />
             <div class="input-items">
-              <input type="text" required="required" class="form-control" name="message_client_cadre[content]" id="message_client_cadre_content" />
+              <input type="text" required="required" class="form-control" name="message_client_cadre[content]" id="message_client_cadre_content" placeholder="répondre ..." />
               <!-- <textarea required="required" rows="3" class="form-control" name="message_client_cadre[content]" id="message_client_cadre_content"></textarea> -->
             </div>
-            <input type="submit" hidden />
+            <button type="submit">
+              <img src="/image/send.png" alt="send" id="sender" />
+            </button>
             <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <!-- call js  -->
+  <script>
+    $(document).ready(function () {
+      if (document.URL.indexOf('#') == -1) {
+        // Set the URL to whatever it was plus "#".
+        url = document.URL + '#';
+        location = '#';
+
+        //Reload the page
+        location.reload(true);
+      }
+      //scroll bottom
+      var container = document.querySelector('#js-add-new-message');
+      container.scrollTop = container.scrollHeight;
+    });
+  </script>
+  <script data-turbolinks-track="reload" type="text/javascript" src="/js/synchrone_message.js"></script>
 </div>
-<script data-turbolinks-track="reload" type="text/javascript" src="/js/synchrone_message.js"></script>
-<style type="text/css">
-  .clear {
-    clear: both;
-  }
-</style>

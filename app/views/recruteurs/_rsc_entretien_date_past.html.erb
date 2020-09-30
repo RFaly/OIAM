@@ -1,14 +1,8 @@
-<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %> <% if @oFc.status == "waiting" || @oFc.status == "accepted" %>
-    <% if @oFc.status == "waiting" %>
-      <div class="dscdp-accepted" id="dscdp-waiting">
-        <%= render partial: "recruteurs/repons_waiting" %>
-      </div>
-    <% else %>
-      <div class="dscdp-accepted" id="dscdp-accepted">
-        <%= render partial: "recruteurs/repons_accepted" %>
-      </div>
-    <%end %>
-  <% else %>
+<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %> <% if @oFc.status == "waiting" || @oFc.status == "accepted" %> <% if @oFc.status == "waiting" %>
+<div class="dscdp-accepted" id="dscdp-waiting"><%= render partial: "recruteurs/repons_waiting" %></div>
+<% else %>
+<div class="dscdp-accepted" id="dscdp-accepted"><%= render partial: "recruteurs/repons_accepted" %></div>
+<%end %> <% else %>
 
 <div id="js-main-bloc-information" class="dscdp-validation">
   <h3>Suivi recrutement</h3>
@@ -20,8 +14,7 @@
       <%= link_to notice_refused_post_path(repons: 'accepted', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true do %>CANDIDAT RETENU <br />
       POUR LA PROCHAINE ETAPE<%end%>
     </div>
-    <div class="dscdp-link-item" id="waiting-js">
-      <%= link_to "CANDIDAT EN ATTENTE", notice_refused_post_path(repons: 'waiting', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true, class:'link' %></div>
+    <div class="dscdp-link-item" id="waiting-js"><%= link_to "CANDIDAT EN ATTENTE", notice_refused_post_path(repons: 'waiting', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true, class:'link' %></div>
     <div class="dscdp-link-item"><span id="js-ca_confirmchoice">CANDIDAT REFUSE</span></div>
 
     <br />
@@ -58,31 +51,25 @@
 <% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %> <% elsif @agendas.repons_cadre == false %> <% elsif @agendas.repons_client == false %> <% else %>
 <div class="rscdp-empty">
   Le candidat n’a pas donné suite à votre demande d’entretien. Vous avez la possibilité de choisir un autre candidat dans la limite des
-  <a href="#">5 candidats maximum</a>.
+  <a>5 candidats maximum</a>.
 </div>
 <% end %>
 
-<div class="dscdp-accepted js-uniq-waiting" id="dscdp-waiting" style="display: none;">
-  <%= render partial: "recruteurs/repons_waiting" %>
-</div>
+<div class="dscdp-accepted js-uniq-waiting" id="dscdp-waiting" style="display: none"><%= render partial: "recruteurs/repons_waiting" %></div>
 
-<div class="dscdp-accepted js-uniq-accepted" id="dscdp-accepted" style="display: none;">
-  <%= render partial: "recruteurs/repons_accepted" %>
-</div>
+<div class="dscdp-accepted js-uniq-accepted" id="dscdp-accepted" style="display: none"><%= render partial: "recruteurs/repons_accepted" %></div>
 
 <script type="text/javascript">
-
-  $('#accepted-js a').bind('ajax:complete', function() {
-    $("#dscdp-accepted").show(500)
-    $("#js-main-bloc-information").remove()
-    $(".js-uniq-waiting").remove()
+  $('#accepted-js a').bind('ajax:complete', function () {
+    $('#dscdp-accepted').show(500);
+    $('#js-main-bloc-information').remove();
+    $('.js-uniq-waiting').remove();
     location.reload(true);
   });
 
-  $("#waiting-js a").bind('ajax:complete', function() {
-    $("#dscdp-waiting").show(500)
-    $("#js-main-bloc-information").remove()
-    $(".js-uniq-accepted").remove()
+  $('#waiting-js a').bind('ajax:complete', function () {
+    $('#dscdp-waiting').show(500);
+    $('#js-main-bloc-information').remove();
+    $('.js-uniq-accepted').remove();
   });
-
 </script>
