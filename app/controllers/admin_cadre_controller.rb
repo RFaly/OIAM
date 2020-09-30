@@ -12,6 +12,7 @@ class AdminCadreController < ApplicationAdminController
   end
 
   def show_accepted_cadre
+    helpers.updateNotification(params[:secure])
     @cadre = CadreInfo.find_by(id:params[:id])
   end
 

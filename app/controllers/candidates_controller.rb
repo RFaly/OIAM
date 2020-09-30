@@ -353,6 +353,7 @@ class CandidatesController < ApplicationController
       end
       @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score].to_i)
 
+      #notifaka
       Admin.all.each do |admin|
         Notification.create(
           admin: admin,
@@ -360,7 +361,6 @@ class CandidatesController < ApplicationController
           message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name[0].upcase}. viens de finir le test potentiel.",
           link: "#{post_avis_candidats_fit_path(@cadreInfo.id,notification:"fit")}",
           genre: 2,
-          medel_id: @cadreInfo.id,
           view: false
         )
       end

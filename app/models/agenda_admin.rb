@@ -17,7 +17,6 @@ class AgendaAdmin < ApplicationRecord
 				message: "#{cadre_info.first_name} #{cadre_info.last_name[0].upcase}. a proposé une date pour l'entretien.",
 				link: "#{url_helpers.post_avis_candidats_fit_path(cadre_info.id,notification:"fit")}",
 				genre: 2,
-				medel_id: cadre_info.id,
 				view: false
 			)	
 			end
@@ -28,7 +27,6 @@ class AgendaAdmin < ApplicationRecord
 				message: "#{cadre_info.first_name} #{cadre_info.last_name[0].upcase}. a proposé une date pour l'entretien.",
 				link: "#{url_helpers.post_avis_candidats_fit_path(cadre_info.id,notification:"fit")}",
 				genre: 2,
-				medel_id: cadre_info.id,
 				view: false
 			)
 		end
