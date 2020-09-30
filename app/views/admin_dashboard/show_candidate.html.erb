@@ -1,15 +1,13 @@
 <link rel="stylesheet" href="/css/client_profil.css" />
-<link rel="stylesheet" href="/css/send_mess_cand.css" />
-<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <style>
   .suiv-btn a {
     color: #d6b36a;
     background: 1;
     text-decoration: none;
-    padding: 15px 30px;
+    padding: 30px 15px; 
     border: 1px solid #d6b36a;
   }
-
+  
   .suiv-btn a:hover {
     background: #fff;
     color: #d6b36a;
@@ -24,6 +22,8 @@
     margin-left: 90px;
   }
 </style>
+<link rel="stylesheet" href="/css/send_mess_cand.css" />
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <div class="client-column">
   <div class="client-menu-left">
     <%= render partial: "admin_dashboard/left_menu_link" %>
@@ -38,7 +38,6 @@
       <div class="fc-item" style="display: flex; margin-top: 40px;">
         <div class="fc-item-all">
 
-<!-- CANDIDATS  -->
 
           <div class="list-candidat">
             <div class="fci-image">
@@ -65,13 +64,10 @@
             </div>
             <div class="fci-infos">
               <p class="name"><%= @cadre.first_name %> <%= @cadre.last_name %> </p>
-              <p class="poste">Poste : <%= @cadre.job %></p>
               <p class="score">Score OIAM : <span><%= @cadre.score_potential %></span></p>
             </div>
           </div>
         </div>
-
-         <!--  ---------------------------- -->
 
          <div class="mess_candidat">
           <div class="desc-suiv">
@@ -94,7 +90,7 @@
                   RETIRER LE CADRE DE VOTRE LISTE DE CANDIDAT À SUIVRE.
                 <% end %>
               <% else %>
-                DÉJÀ SUIVI PAR <%= @cadre.admin.first_name %> <%= @cadre.admin.last_name %> 
+                DÉJÀ SUIVI PAR <%= @cadre.admin.first_name %> <%= @cadre.admin.last_name %>
               <% end %>
             <% else %>
               <%= link_to add_favorite_cadre_path(id:@cadre.id), method: :post do %>
@@ -111,6 +107,16 @@
   	</div>
   </div>
 </div>
+
+<script type="text/javascript">
+/*----------------------------------------------*/
+  if (document.URL.indexOf('#') == -1) {
+    url = document.URL + '#';
+    location = '#';
+    location.reload(true);
+  }
+/*----------------------------------------------*/
+</script>
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 

@@ -1,16 +1,13 @@
-<br>
-<h1>RÉSERVER UN COACHING</h1>
-<hr>
-
-<div style="display: flex;">
-<% @formations.each do |formation| %>
-	<div style="border: 2px solid red; margin: 10px;">
-		<h2><%= formation.name %></h2>
-		<p><%= formation.description %></p>
-		<div class="link">
-			<%= link_to "PRENDRE RDV", formation_date_rdv_path(formation.id), class:'btn btn-primary'%>
+<link rel="stylesheet" href="/css/formation_cadre.css">
+<h1 class="formation-title">RÉSERVER UN COACHING</h1>
+<div class="formation">
+	<% @formations.each do |formation| %>
+		<div class="formation-container bg-<%= formation.id %>">
+			<h2 class="formation-container-title"><%= formation.name %></h2>
+			<p class="formation-description"><%= formation.description %></p>
+			<div class="link">
+				<%= link_to "PRENDRE RDV", formation_date_rdv_path(formation.id,formation.name), class:'btn btn-primary'%>
+			</div>
 		</div>
-		<hr>
-	</div>
-<% end %>
+	<% end %>
 </div>

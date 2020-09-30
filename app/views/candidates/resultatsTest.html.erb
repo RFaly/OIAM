@@ -2,22 +2,97 @@
 
 <div class="bg-uniq">
 	<div class="cadre">
-		<div class="content">
-				<div class="numero un">1<span class="potential">Potential</span></div>
-				<div class="numero trois">2<span class="fit">Fit</span></div>
-		</div>
-		<h2 class="cadre-nom">Chère <%= @cadreInfo.first_name %>,</h2>
+		<% if @cadreInfo.score_potential.nil? %>
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="loader" id="form-js-code" data-path="<%= getScoresPotential_path(@cadreInfo.confirm_token) %>"></div>
+				</div>
+				<div class="col-sm-9">
+					<h2>Chère <%= @cadreInfo.first_name %></h2>
+					<p>Traitement des réponses en cours ...
+						<br><center>ceci peut prendre quelques minutes</center>
+					</p>
+				</div>
+			</div>
+			<script type="text/javascript">
+				window.path_url = $("#form-js-code").data().path
+				function getMyMessage(){
+					$.getJSON(path_url,function(data) {
+						var my_data = data
+						if (my_data.score_potential != null){
+							location.reload(true);
+						}
+					});
+				}
+				setInterval(getMyMessage,1000);
+			</script>
+		<% else %>
+			<% if @cadreInfo.is_recrute == false %>
+				<h2 class="cadre-nom">Chère <%= @cadreInfo.first_name %>,</h2>
+				<p>Merci d’avoir passé notre test !</p>
+				<p>Votre score est de  <span><%= @cadreInfo.score_potential %></span>.</p>
+				<p>Malheureusement, ce score est insuffisant pour vous permettre d’intégrer One in a Million.</p>
+				<p>Nous savons que ces résultats peuvent être frustrants, aussi vous avez la possibilité de passer le test une seconde fois au cours de votre vie, dans un délai minimum de 6 mois.</p>
+				<p>Afin de maximiser vos chances, nous vous proposons des ateliers de coaching.</p>
+				<div class="row">
+					<div class="col-sm-6">
+						<%= link_to "RETOUR AU MENU", '#', class:'pass-test', id:'link-to-menu' %>
+					</div>
+					<div class="col-sm-6">
+						<%= link_to "AMÉLIORER MES RESULTATS", formation_all_path, class:'pass-test', id:'link-to-resultats' %>
+					</div>
+				</div>
+			<% else %>
+				<% if @cadreInfo.score_fit.nil? %>
+					<div class="content">
+						<div class="numero un">1<span class="potential">Potential</span></div>
+						<div class="numero trois">2<span class="fit">Fit</span></div>
+					</div>
+					<h2 class="cadre-nom">Chère <%= @cadreInfo.first_name %>,</h2>
+					<p>Félicitations ! Vous avez obtenu un score de <span><%= @cadreInfo.score_potential %></span> et êtes donc sélectionné(e) pour l’étape suivante.</p>
+					<p>Vous avez désormais 24 heures pour passer la 2ème partie du test :</p>
+					<h1>FIT</h1>
+					<%= link_to "ACCÉDER AU TEST", testfit_path, class:'pass-test', id:'link-to-next' %>
+				<% else %>
+					<div id="para-hide">
+						<div id="potential-title-show">
+							<h1>Félicitations et Bienvenue !</h1>
+						</div>
+						<p>Vous avez désormais terminé le test d’entrée One in a Million et nous avons le plaisir de vous annoncer que vous faites partie du top 10 des cadres du marché.</p>
+						<p>Remplissez dès maintenant votre profil et rejoignez notre communauté ! Découvrez des offres d’emploi sélectionnées spécialement pour vous, ainsi que nos événements dédiés aux cadres d’élite.</p>
+						<%= link_to "COMPLÉTER MON PROFIL", new_cadre_registration_path(comfirm:@cadreInfo.confirm_token),class:'pass-test'%>
+					</div>
+				<% end %>
 
-		<p>Félicitations ! Vous avez obtenu un score de <span>1005</span> et êtes donc sélectionné(e) pour l’étape suivante.</p>
+			<% end %>
 
-		<p>Vous avez désormais 24 heures pour passer la 2ème partie du test :</p>
-
-		<h1>FIT</h1>
-
-		<%= link_to "ACCÉDER AU TEST", testfit_path, class:'pass-test', id:'link-to-next' %>
+		<% end %>
 
 	</div>
 </div>
+
+<style>
+	.loader {
+	  border: 16px solid #d6b36a;
+	  border-radius: 50%;
+	  border-top: 16px solid white;
+	  border-bottom: 16px solid white;
+	  width: 120px;
+	  height: 120px;
+	  -webkit-animation: spin 2s linear infinite;
+	  animation: spin 2s linear infinite;
+	}
+
+	@-webkit-keyframes spin {
+	  0% { -webkit-transform: rotate(0deg); }
+	  100% { -webkit-transform: rotate(360deg); }
+	}
+
+	@keyframes spin {
+	  0% { transform: rotate(0deg); }
+	  100% { transform: rotate(360deg); }
+	}
+</style>
 
 <!-- 
 [

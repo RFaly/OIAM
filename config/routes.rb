@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get '/portfolio', to: 'static_page#portfolio', as: 'portfolio'
   get '/contact', to: 'static_page#contact', as: 'contact'
 
+  get '/oiam', to: 'static_page#nothing', as: 'nothing'
+  
+
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Client ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :clients, path: 'clients', controllers: {
     sessions: 'clients/sessions',
@@ -21,31 +24,36 @@ Rails.application.routes.draw do
 	get '/recruteur', to: 'recruteurs#main', as: 'main_recruiter'
 
   # list menu dans le dashbord client
+  #mon profl
   get '/recruteur/mon-profil', to: 'recruteurs#my_profil', as: 'client_my_profil'
+  #edit profil
   get '/recruteur/mon-profil/edit', to: 'recruteurs#my_profil_edit', as: 'my_profil_edit'
   patch '/recruteur/mon-profil/save', to: 'recruteurs#update_my_profil', as: 'update_my_profil'
 
+  #mes offre d'emploi
   get '/recruteur/mes-offre-d-emploi', to: 'recruteurs#my_job_offers', as: 'my_job_offers'
   get '/recruteur/mes-candidats-favoris', to: 'recruteurs#favorite_candidates', as: 'favorite_candidates'
   get '/recruteur/mes-candidats-favoris/:id/listes', to: 'recruteurs#show_favorite_cadres', as:'show_favorite_cadres'
   get '/recruteur/mon-suivi-recrutement', to: 'recruteurs#my_recruitment_follow', as: 'my_recruitment_follow'
 
+  # mes suvi recrutement
   get '/recruteur/mon-suivi-recrutement/:offre_id/liste-cadres', to: 'recruteurs#recruitment_liste_cadre', as: 'recruitment_liste_cadre'
   get '/recruteur/mon-suivi-recrutement/liste-cadres/:oFc_id/cadre', to: 'recruteurs#recruitment_show_cadre', as: 'recruitment_show_cadre'
 
+  # mes facture
   get '/recruteur/mes-factures', to: 'recruteurs#my_bills', as: 'my_bills'
   get '/recruteur/mes-factures/:id/view', to: 'recruteurs#show_my_bills', as: 'show_my_bills'
 
   post '/recruteur/mes-factures/paye', to: 'recruteurs#paye_my_bills', as: 'paye_my_bills'
   post '/recruteur/mes-factures/post-ov/paye', to: 'recruteurs#ov_my_bills', as: 'ov_my_bills'
 
-
-
+  # notification
   get '/recruteur/mes-notifications', to: 'recruteurs#notifications', as: 'client_notifications'
 
+  # creation offre d'emploi
   get '/recruteur/nouvelle-offre', to: 'recruteurs#newJob', as: 'newJob'
   post '/recruteur/publier-offre', to: 'recruteurs#createJob', as: 'createJob'
-
+  # affichage offre d'emploi
   get '/recruteur/edit/:id/offre', to: 'recruteurs#editJob', as: 'editJob'
   patch '/recruteur/edit/:id/offre', to: 'recruteurs#updateJob', as: 'updateJob'
   delete '/recruteur/supprimer/offre/:id', to: 'recruteurs#destroyJob', as: 'destroyJob'
@@ -74,6 +82,44 @@ Rails.application.routes.draw do
   post '/recruteur/suivi-recrutement/confirmation-periode-d-essai', to: 'recruteurs#validate_time_trying_client', as: 'validate_time_trying_client'
 
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  get '/cadre', to: 'candidates#main', as: 'main_cadre'
+  get '/cadre/inscription-candidat', to: 'candidates#tmp_sign_up', as: 'tmp_sign_up'
+  post '/cadre/go-inscription', to: 'candidates#tmp_create_sign_up', as: 'tmp_create_sign_up'
+
+  # les 3 test a faire
+  get '/cadre/welcome-to-test', to: 'candidates#my_tests', as: 'my_tests'
+  
+  get '/cadre/potential-test', to: 'candidates#testpotential', as: 'testpotential'
+  get '/cadre/go-potential-test', to: 'candidates#init_testpotential', as: 'init_testpotential'
+
+  # repons with api(marquer que le cadre a fait le test potential)
+  post '/cadre/repons-test-potential', to:'candidates#save_repons_test_potential', as:'save_repons_test_potential'
+
+  # resultat test
+  get '/cadre/resultat-test', to: 'candidates#resultatsTest', as: 'resultatsTest'
+
+  #getScoresPotential in ajax
+  get '/cadre/score-potential/:confirm_token/ok', to: 'candidates#getScoresPotential', as:'getScoresPotential'
+
+  post '/cadre/email/score', to:'candidates#save_scores_potential_test', as:'save_scores_potential_test'
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  # a enlever pour l'instant # get '/cadre/skills-test', to: 'candidates#testskills', as: 'testskills'
+  # post '/cadre/send/metier', to:'candidates#postMetierSkills', as:'postMetierSkills'
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  get '/cadre/fit-test', to: 'candidates#testfit', as: 'testfit'
+  post '/cadre/save-entretien-date', to:'candidates#saveEntretientDate',as:'saveEntretientDate'
+
+  #formation liste
+
+  get 'cadres/formation', to: 'formation_candidate#index', as: 'formation_all'
+  get 'cadres/formation/:id/:name', to: 'formation_candidate#date_rdv', as: 'formation_date_rdv'
+  post 'cadres/formation/save', to: 'formation_candidate#save_rdv', as: 'formation_save_rdv'
+
+  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 	devise_for :cadres, path: 'cadre', controllers: {
     sessions: 'cadres/sessions',
     registrations: 'cadres/registrations'
@@ -82,10 +128,6 @@ Rails.application.routes.draw do
     password: 'mot-de-passe', confirmation: 'verification',
     registration: 'inscription', edit: 'editer', sign_up: 'cree-compte'
   }
-
-	get '/cadre', to: 'candidates#main', as: 'main_cadre'
-  get '/cadre/inscription-candidat', to: 'candidates#tmp_sign_up', as: 'tmp_sign_up'
-  post '/cadre/go-inscription', to: 'candidates#tmp_create_sign_up', as: 'tmp_create_sign_up'
 
   # list menu dans le dashbord candidat
   get '/cadre/mon-profil', to: 'candidates#my_profil', as: 'my_profil'
@@ -111,32 +153,12 @@ Rails.application.routes.draw do
   
   # reclamer la prime et message de felicitation
   get '/cadre/suivi-recrutement/:confirm_token/félicitations', to: 'candidates#congratulations_cadre', as: 'congratulations_cadre'
+  
   post '/cadre/suivi-recrutement/confirmation-periode-d-essai', to: 'candidates#validate_time_trying_cadre', as: 'validate_time_trying_cadre'  
-
+  
   post '/cadre/suivi-recrutement/félicitations/prime', to: 'candidates#save_coordinate_banking', as: 'save_coordinate_banking'
 
   get '/cadre/mes-notifications', to: 'candidates#notifications', as: 'cadres_notifications'
-  # les 3 test a faire
-  get '/cadre/welcome-to-test', to: 'candidates#my_tests', as: 'my_tests'
-  get '/cadre/potential-test', to: 'candidates#testpotential', as: 'testpotential'
-  get '/cadre/go-potential-test', to: 'candidates#init_testpotential', as: 'init_testpotential'
-
-
-  post '/cadre/repons-test-potential', to:'candidates#save_repons_test_potential', as:'save_repons_test_potential'
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  # a enlever pour l'instant
-  # get '/cadre/skills-test', to: 'candidates#testskills', as: 'testskills'
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  get '/cadre/fit-test', to: 'candidates#testfit', as: 'testfit'
-  post '/cadre/send/metier', to:'candidates#postMetierSkills', as:'postMetierSkills'
-
-  # tokony post ito
-  get '/cadre/resultat-test', to: 'candidates#resultatsTest', as: 'resultatsTest'
-  post '/cadre/save-entretien-date', to:'candidates#saveEntretientDate',as:'saveEntretientDate'
-
-
 
   #~~~~~~~~~~ LINK fo MESSAGE ~~~~~ TEST CANDIDAT
   get '/cadre/messages', to: 'candidates#my_messages', as: 'my_messages_cadre'
@@ -214,14 +236,6 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/administration/les-mails', to: 'admin_administration#mail', as: 'admin_administration_mail'
   get 'secret-oiam-page/admin/administration/les-tests', to: 'admin_administration#test', as: 'admin_administration_test'
   get 'secret-oiam-page/admin/administration/les-utilisateurs', to: 'admin_administration#utilisateur', as: 'admin_administration_utilisateur'
-
-  #formation liste
-
-  get 'cadres/formation', to: 'formation_candidate#index', as: 'formation_all'
-  get 'cadres/formation/:id', to: 'formation_candidate#date_rdv', as: 'formation_date_rdv'
-  post 'cadres/formation/save', to: 'formation_candidate#save_rdv', as: 'formation_save_rdv'
-
-
 
 end
 

@@ -3,16 +3,17 @@
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <style>
   * {
-    line-height: 1;
+    line-height: 2;
   }
   
   .ico-cand a {
     background: #d6b36a;
     color: #fff !important;
     border:1px solid #d6b36a;
-    padding: 5px 20px;
-    margin-bottom: 10px;
+    padding: 10px 30px;
+    margin-top: 50px;
   }
+
   .ico-cand a:hover {
     background: #fff;
     color: #d6b36a !important;
@@ -20,6 +21,12 @@
   .ico-cand a:focus {
     color: #fff;
   }
+
+.fcp-box .fc-item-all .list-candidat:hover .fci-infos, .fcp-box .fc-item-all .list-candidat:active .fci-infos {
+    height: 200px !important;
+    transition: all 500ms ease-in-out !important;
+}
+
 </style>
 <div class="client-column">
   <div class="client-menu-left">
@@ -49,7 +56,6 @@
               </div>
               <div class="fci-infos">
                 <p class="name"><%= cadre.first_name %> <%= cadre.last_name %> </p>
-                <p class="poste">Poste : <%= cadre.job %></p>
                 <p class="score">Score OIAM : <span><%= cadre.score_potential %></span></p>
 
                 <div class="ico-cand">
@@ -73,7 +79,7 @@
           <% end %>
         <% end %>
 
-        <div style="margin-top: 600px; left: 0; margin-right: 250px;">
+        <div class="selc">
           <a href="<%= admin_dashboard_candidate_path %>" class="btn-choose">
             SÉLECTIONNER DES CANDIDATS À SUIVRE
           </a>

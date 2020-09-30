@@ -42,12 +42,15 @@ class AdminCadreController < ApplicationAdminController
     @cadre_infos.avis = params[:avis]
     @cadre_infos.score_fit = params[:score_fit].to_i
     if params[:is_recrute].nil?
+      flash[:notice] = "Candidature refusée."
+      TestOiamMailer.test_fit_refused(@cadre_infos).deliver_now
       @cadre_infos.is_recrute = false
     else
+      flash[:notice] = "Candidature acceptée."
+      TestOiamMailer.test_fit_accepted(@cadre_infos).deliver_now
       @cadre_infos.is_recrute = true
     end
     @cadre_infos.save
-
     redirect_to post_avis_candidats_fit_path(@cadre_infos.id)
   end
 

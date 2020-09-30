@@ -6,9 +6,73 @@
   margin: 0 auto;
   .title {
     text-align: center;
-    font: 500 18px Raleway, sans-serif;
-    color: #d6b36a;
+    font: $ffbtn;
+    color: $main_theme_color;
     text-transform: uppercase;
     margin-bottom: 50px;
+  }
+  .message-contact-items {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    #image {
+      content: '';
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      position: relative;
+      .connected {
+        position: absolute;
+        content: '';
+        background: rgb(18, 199, 18);
+        border-radius: 50%;
+        width: 12px;
+        height: 12px;
+        bottom: 0px;
+        right: 12px;
+      }
+    }
+    .link {
+      font: $ffsentence;
+      // width: 85%;
+      padding: 5px;
+      text-decoration: none;
+      color: inherit;
+      .name {
+        font: $ffbtn;
+        span {
+          font: $ffsentence;
+          font-size: 18px;
+          font-weight: bolder;
+        }
+      }
+      .mp {
+        margin-top: 5px;
+        .span {
+          opacity: 0.8;
+        }
+      }
+      .not-connected {
+        opacity: 0.5;
+        color: black;
+        font-size: 11px;
+        text-align: right;
+      }
+      &:hover {
+        .mp {
+          .content {
+            text-decoration: underline;
+            opacity: 0.8;
+          }
+        }
+      }
+      &.color {
+        color: $main_theme_color;
+        font-weight: bold;
+      }
+    }
   }
 }

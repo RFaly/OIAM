@@ -68,4 +68,4 @@ gem 'rails-i18n', '~> 5.1'
 gem 'carrierwave', '~> 2.0'
 gem 'jquery-rails'
 gem 'simple_calendar', '~> 2.0'
-
+gem "letter_opener", :group => :development

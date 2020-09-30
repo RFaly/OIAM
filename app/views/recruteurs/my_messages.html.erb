@@ -9,15 +9,30 @@
       <h5 class="title">Chats</h5>
       <div class="message-content">
         <% unless @contactListes.empty? %> <% @contactListes.each do |contact| %> <% nbr = contact.mp_client_not_see %>
-        <div>
-          <a href="<%= show_my_messages_client_path(contact.cadre.id) %>"> <%= contact.cadre.cadre_info.first_name %>  <%= contact.cadre.cadre_info.last_name %>  </a>
-          <% unless nbr == 0 %>
-          <span class="alert-info"><%= nbr %></span>
-          <% end %> <% if contact.cadre.is_online? %>
-          <span class="connected">connectée</span>
-          <% else %>
-          <span class="not-connected">connectée il y a <%= time_ago_in_words(contact.cadre.online_time) %></span>
-          <% end %>
+        <hr />
+        <div class="message-contact-items">
+          <div id="image" style="background: url(<%= contact.cadre.cadre_info.image%>) center no-repeat; background-size: cover">
+            <% if contact.cadre.is_online? %>
+            <span class="connected"></span>
+            <% end %>
+          </div>
+          <a href="<%= show_my_messages_client_path(contact.cadre.id) %>" class="link <% unless nbr == 0 %>color<% end %>">
+            <div class="name">
+              <%= contact.cadre.cadre_info.first_name %> <%= contact.cadre.cadre_info.last_name %><% unless nbr == 0 %>
+              <span>(<%= nbr %>)</span>
+              <% end %>
+            </div>
+
+            <div class="mp">
+              <% if contact.message_client_cadres.last.is_client %>
+              <span class="span">Vous : </span>
+              <%end%>
+              <span class="content"> <%= contact.message_client_cadres.last.content.truncate(110) %> </span>
+            </div>
+            <% unless contact.cadre.is_online? %>
+            <div class="not-connected">connectée il y a <%= time_ago_in_words(contact.cadre.online_time) %></div>
+            <% end %>
+          </a>
         </div>
         <% end %> <% else %>
         <p>Aucun nouveau message</p>
@@ -28,14 +43,3 @@
     </div>
   </div>
 </div>
-
-<style type="text/css">
-  .connected {
-    /* marké user connecté */
-    color: green;
-  }
-  .not-connected {
-    /* marké user non connecté */
-    color: red;
-  }
-</style>
