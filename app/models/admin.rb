@@ -9,7 +9,8 @@ class Admin < ApplicationRecord
 
   has_many :cadre_infos
 
-  
+  has_many :notifications
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

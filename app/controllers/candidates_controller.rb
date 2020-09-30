@@ -351,7 +351,20 @@ class CandidatesController < ApplicationController
       if params[:score].to_i >= CadreInfo.min_score
         is_recrute = nil
       end
-      @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score])
+      @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score].to_i)
+
+      Admin.all.each do |admin|
+        Notification.create(
+          admin: admin,
+          object: "Nouveau candidat(e): #{@cadreInfo.first_name} #{@cadreInfo.last_name}",
+          message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name[0].upcase}. viens de finir le test potentiel.",
+          link: "#{post_avis_candidats_fit_path(@cadreInfo.id,notification:"fit")}",
+          genre: 2,
+          medel_id: @cadreInfo.id,
+          view: false
+        )
+      end
+
       flash[:notice] = "Score à jour pour #{@cadreInfo.first_name} #{@cadreInfo.last_name}!"
     end
     redirect_to nothing_path

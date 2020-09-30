@@ -3,6 +3,7 @@ class Notification < ApplicationRecord
 
 	belongs_to :client, optional: true
 	belongs_to :cadre, optional: true
+	belongs_to :admin, optional: true
 
 	def cadre_info
 		return Cadre.find_by_id(self.medel_id).cadre_info
@@ -23,6 +24,8 @@ class Notification < ApplicationRecord
 
 =begin
 
+helpers.updateNotification(params[:secure])
+
 #notifaka (FOR search code to create a notification)
 object: title of notification
 message: content of notification
@@ -36,7 +39,11 @@ genre: { type of notice
 	1: suivi recrutement [medel_id: cadre ] (suivi recrutement +1)
 	2: pour la facture ne pas afficher (facture +1)
 	3: postule candidat [medel_id: cadre] (tsy apina aiza aiza)
+	=== ADMIN ===
+	1: offre_job
+	2: cadre
 }
+
 
 view: false if not view
 
