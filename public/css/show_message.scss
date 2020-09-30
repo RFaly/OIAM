@@ -27,8 +27,34 @@
       padding: 10px;
       text-align: center;
     }
+    .clear {
+      clear: both;
+    }
     .input {
+      background: #000;
       // margin-top: 10px;
+      position: relative;
+      input {
+        height: 50px;
+        padding: 10px;
+        border-radius: 0;
+        border: 1.5px solid $main_theme_color;
+        &:focus {
+          outline: none;
+          box-shadow: 1px 1px 3px 1px $main_theme_color;
+        }
+      }
+
+      button {
+        border: none;
+        background: transparent;
+        position: absolute;
+        right: 2px;
+        top: 6px;
+        &:focus {
+          outline: none;
+        }
+      }
     }
     .content {
       padding: 10px;
