@@ -1,57 +1,33 @@
-<link rel="stylesheet" href="/css/admin_client_factures.css" />
-<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
+<<!-- call css  -->
+  <link rel="stylesheet" href="/css/my_job_offre.css" />
+<!-- body html  -->
 <div class="client-column">
-	<div class="client-menu-left">
-		<%= render partial: "admin_client/left_menu_link" %>
-	</div>
+  <div class="client-menu-left"><%= render "admin_client/left_menu_link" %></div>
+  <div class="cp-box">
+    <div class="box-inside">
+      <%# if @offre.count == 0 %>
+      <!-- <div class="co-any-job"> -->
+  <!--       <p>Il n'y  a aucun recrutement</p>
+      </div> -->
+      <%# else %>
+      <div class="co-with-job">
+        <h5>FACTURES CLIENT</h5>
 
-	<div class="cp-box">
-		<div>
-			<h3 class="title" style="color: #d6b36a !important">FACTURES CLIENT</h3>
-
-			<!-- -------------------- -->
-			<div class="box">
-				<div class="box-mess">
-					<h6><i class="fas fa-wallet"></i>Factures Clients</h6>
-				</div>
-				<div class="box-des">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="see">
-					<a href="#" class="event-btn">Voir La Facture</a>
-				</div>
-			</div>
-			<!-- ---------------- -->
-
-			<div class="box">
-				<div class="box-mess">
-					<h6><i class="fas fa-wallet"></i>Factures Clients</h6>
-				</div>
-				<div class="box-des">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="see">
-					<a href="#" class="event-btn">Voir La Facture</a>
-				</div>
-			</div>
-
-			<div class="box">
-				<div class="box-mess">
-					<h6><i class="fas fa-wallet"></i>Factures Clients</h6>
-				</div>
-				<div class="box-des">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="see">
-					<a href="#" class="event-btn">Voir La Facture</a>
-				</div>
-			</div>
-			
-
-			
-
-
-
-		</div>
-	</div>
+        <%# @offre.each do |offre| %>
+        <hr />
+        <div class="coj-box" id="offre<%#= offre.id %>">
+          <div class="cjo-image">
+            <img src="/image/document.png" alt="icone doc" />
+          </div>
+          <div class="cjo-content">Lorem ...</div>
+          <div class="cjo-link-items">
+            <div class="cjo-link"><%= link_to "VOIR FACTURE"%></div>
+          </div>
+        </div>
+        <hr />
+        <%# end %>
+        <%# end %>
+      </div>
+    </div>
+  </div>
 </div>
