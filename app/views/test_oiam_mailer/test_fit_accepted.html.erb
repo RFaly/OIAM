@@ -5,5 +5,5 @@
 	</div>
 	<p>Vous avez désormais terminé le test d’entrée One in a Million et nous avons le plaisir de vous annoncer que vous faites partie du top 10 des cadres du marché.</p>
 	<p>Remplissez dès maintenant votre profil et rejoignez notre communauté ! Découvrez des offres d’emploi sélectionnées spécialement pour vous, ainsi que nos événements dédiés aux cadres d’élite.</p>
-	<%= link_to "COMPLÉTER MON PROFIL", new_cadre_registration_url(comfirm:@cadre_info.confirm_token),class:'pass-test'%>
+	<a href="<%= new_cadre_registration_url(comfirm:@cadre_info.confirm_token) %>">COMPLÉTER MON PROFIL</a>
 </div>
