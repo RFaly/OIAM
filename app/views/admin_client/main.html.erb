@@ -1,46 +1,41 @@
-<link rel="stylesheet" href="/css/admin_client.css" />
-<style>
-	.not-cl {
-		text-align: center;
-		font: 16px Questrial, sans-serif;
-	}
-</style>
-<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
+<!-- call css  -->
+  <link rel="stylesheet" href="/css/my_job_offre.css" />
+<!-- body html  -->
 <div class="client-column">
-	<div class="client-menu-left">
-		<%= render partial: "admin_client/left_menu_link" %>
-	</div>
+  <div class="client-menu-left"><%= render "admin_client/left_menu_link" %></div>
+  <div class="cp-box">
+    <div class="box-inside">
+      <% if @offre.count == 0 %>
+      <div class="co-any-job">
+        <p>Il n'y  a aucun recrutement</p>
+      </div>
+      <% else %>
+      <div class="co-with-job">
+        <h5>RECRUTEMENT EN COURS</h5>
 
-	<div class="cp-box">
-		<div>
-			<h3 class="title" style="color: #d6b36a !important">RECRUTEMENT EN COURS</h3>
-
-			<!-- -------------------- -->
-			<% if @offre.count == 0 %>
-				<p class="not-cl">il n'y  a aucun recrutement </p>
-			<% else %>
-				<% @offre.each do |offre| %>
-					<div class="box">
-						<div class="box-mess">
-							<div class="pic-rec">
-								<img src="<%= offre.image %>">
-							</div>
-						</div>
-						<div class="box-nm">
-							<h6 class="cad">
-								<% offre.offre_for_candidates.each do |t| %>	
-									<%= t.cadre.cadre_info.first_name.upcase %>  <%= t.cadre.cadre_info.last_name.capitalize %>
-							    <% end %> 
-							</h6><span><i class="fas fa-arrow-circle-right"></i></span><h6 class="ent"><%= offre.client.entreprise.name.upcase %></h6>
-						</div>
-						<div class="see">
-							<a href="#" class="event-btn">Voir Recrutement</a>	
-						</div>
-					</div>
-				<% end %>
-			<% end %>
-			<!-- ---------------- -->
-
-		</div>
-	</div>
+        <% @offre.each do |offre| %>
+        <hr />
+        <div class="coj-box" id="offre<%= offre.id %>">
+          <div class="cjo-image">
+            <img src="/image/work.png" alt="icone work" />
+          </div>
+          <div class="cjo-content"><%= offre.client.entreprise.name.upcase %></div>
+          <div class="cjo-link-items">
+            <div class="cjo-link"><%= link_to "VOIR RECRUTEMENT"%></div>
+          </div>
+        </div>
+        <hr />
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
+
+<!-- <script type="text/javascript">
+  $('.delete-element-jobs').bind('ajax:complete', function () {
+    $('#offre' + $(this).data().id).hide(500);
+  });
+</script> -->
+
+<!-- <script data-turbolinks-track="reload" type="text/javascript" src="/js/myoffre.js"></script> -->
