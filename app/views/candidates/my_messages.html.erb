@@ -19,6 +19,11 @@
 					<% unless nbr == 0 %>
 						<span class="alert-info"><%= nbr %></span>
 					<% end %>
+					<% @messages.each do |message| %>
+						<% if message.is_client %>
+							<%= message.content %>
+						<% end %>
+					<% end %>
 					<% if contact.client.is_online? %>
 						<span class="connected"></span>
 					<% else %>

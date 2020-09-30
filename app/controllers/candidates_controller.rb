@@ -406,6 +406,14 @@ class CandidatesController < ApplicationController
   def my_messages
     @clients = Client.all
     @contactListes = current_cadre.contact_client_cadres
+    @contact = ContactClientCadre.where(cadre: @cadre, client:current_client)
+    if @contact.count == 0
+      @contact = ContactClientCadre.create(cadre: @cadre, client:current_client)
+    else
+      @contact = @contact.first
+    end
+    @contact.message_client_cadres.where(client_see:false).update(client_see:true)
+    @messages = @contact.message_client_cadres.order(created_at: :ASC)
   end
 
   def show_my_messages

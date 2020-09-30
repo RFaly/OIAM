@@ -4,6 +4,7 @@ class AdminDashboardController < ApplicationAdminController
   end
 
   def agenda
+    @agendas = AgendaAdmin.all
   end
 
   def offer
