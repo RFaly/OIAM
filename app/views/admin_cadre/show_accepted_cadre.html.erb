@@ -89,12 +89,13 @@
   }
 
   .cd-acc h2 {
-    margin-left: 35px;
+    margin-left: 70px;
     color: #d6b36a;
+    width: 400px;
   }
 
   .cd-acc {
-    margin-top: 40px;
+    margin-top: 100px;
   }
 
   .btn-email {
@@ -115,14 +116,14 @@
     color: #fff;
     border: 1px solid #d6b36a;
     padding: 20px 60px;
-    margin-left: 20px;
+    margin-left: 100px;
     cursor: pointer;
     text-decoration: none:
   }
 
   .not {
     margin-top: 40px;
-    margin-left: 40px;
+    margin-left: 2px;
   }
 
   .btn-email:hover {
@@ -145,7 +146,7 @@
 
   .gen-links {
     margin-top: 40px;
-    margin-left: 40px;
+    margin-left: 100px;
   }
 
   .time-count {
@@ -218,18 +219,6 @@
 
          <div class="mess_candidat">
 
-          
-<!--  ------------------------------------------------------------------------------------ -->
-              <% if @cadre.agenda_admin.accepted.nil? %>
-               <!--  <div>
-                  <% link_to accepted_or_reffused_path(id:@cadre.id), method: :post do %>ACCEPTER LE RENDEZ-VOUS<% end %>
-                </div> -->
-              <% else %>
-                <!-- <div>
-                  RENDEZ-VOUS ACCEPTEE
-                </div> -->
-              <% end %>
-<!--  ------------------------------------------------------------------------------------ -->
 
             <% if @cadre.is_recrute.nil? %> <!-- if is_recrute nil -->
               <% unless @cadre.agenda_admin.nil? %> <!-- if avec date -->

@@ -55,7 +55,7 @@
         .line {
           content: ' ';
           height: 2px;
-          background-color: #f0f2f4;
+          background-color: $secondary_element_color;
           &.color {
             background: $main_theme_color;
           }
@@ -109,7 +109,7 @@
     // date futur entretien suivi recrutement
     .rsc-date-futur {
       background: $main_theme_color;
-      background: linear-gradient(90deg, #d6b36a 35%, #d6b46ac9 100%);
+      background: linear-gradient(90deg, $main_theme_color 35%, #d6b46ac9 100%);
       text-align: center;
       color: white;
       font-weight: 600;

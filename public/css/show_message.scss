@@ -2,14 +2,84 @@
 @import 'pagemenu';
 
 .show-message-box {
+  font: $ffsentence;
+  position: relative;
   width: 90%;
   margin: 0 auto;
-  text-align: center;
+  height: 700px;
   .title {
     text-align: center;
-    font: 500 18px Raleway, sans-serif;
-    color: #d6b36a;
+    font: $ffbtn;
+    color: $main_theme_color;
     text-transform: uppercase;
     margin-bottom: 50px;
+  }
+  .message-m {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 500px;
+    .name {
+      background: $main_theme_color;
+      color: white;
+      border-radius: 10px;
+      font-size: 30px;
+      padding: 10px;
+      text-align: center;
+    }
+    .input {
+      // margin-top: 10px;
+    }
+    .content {
+      padding: 10px;
+      overflow-y: auto;
+      min-height: 100px;
+      max-height: 300px;
+      .my-message {
+        max-width: 85%;
+        margin: 10px 0;
+        padding: 5px 10px;
+        color: white;
+        background: $main_theme_color;
+        box-shadow: 1px 1px 5px 1px $main_theme_color;
+        float: right;
+        text-align: justify;
+        border-radius: 8px;
+      }
+      .her-message {
+        padding: 10px;
+        border-radius: 8px;
+        max-width: 80%;
+        text-align: justify;
+        box-shadow: $box-shadow;
+        background: $secondary_element_color;
+        float: left;
+        margin: 29px 0;
+        margin-left: 40px;
+        position: relative;
+        #image {
+          box-shadow: $box-shadow;
+          position: absolute;
+          align-self: flex-end;
+          left: -35px;
+          bottom: -40px;
+          content: '';
+          margin-right: 5px;
+          border-radius: 50%;
+          width: 54px;
+          height: 54px;
+          .connected {
+            position: absolute;
+            content: '';
+            background: rgb(18, 199, 18);
+            border-radius: 50%;
+            width: 11px;
+            height: 11px;
+            bottom: 0px;
+            right: 2px;
+          }
+        }
+      }
+    }
   }
 }

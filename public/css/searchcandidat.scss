@@ -103,10 +103,10 @@
           align-self: flex-end;
           #boutton-bottom {
             padding: 10px 20px;
-            color: #d6b36a;
+            color: $main_theme_color;
             background: transparent;
             font: $ffbtn;
-            border: 2px solid #d6b36a;
+            border: 2px solid $main_theme_color;
             &:hover,
             &:active {
               background-color: $main_theme_color;
