@@ -1,201 +1,243 @@
-<link rel="stylesheet" href="/css/client_profil.css" />
 <link rel="stylesheet" href="/css/send_mess_cand.css" />
-<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <style>
-  .score-radio {
-    margin-top: 10px;
-    margin-left: 60px;
+  * {
+    text-align: center;
+    line-height: 2;
+  }
+
+  .cd-box {
+    position: relative;
+    text-align: center;
+    margin-top: 50px;
+  }
+  .all-inf {
+    position: relative;
+    background: #fff;
+    display: inline-block;
+    border: 1px solid #d6b36a;
+  }
+
+  .cd-info img {
+    width: 300px;
+    height: 300px;  
+  }
+
+  .cd-info {
+    background: #fff;
+  }
+
+  .cd-info-be {
+    padding: 20px;
+    border-top: 1px solid #F0F2F4;
+  }
+
+  .cd-info-be .name {
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .cd-info-be .score {
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .cd-desc {
+    background: #d6b36a;
+    margin-top: 50px;
+    width: 90%;
+    height: auto;
+    margin-left: 50px;
+    color: #fff;
+    text-align: center;
+    padding: 50px;
+  }
+
+  .fci-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+
+  .all-thing {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .mybtn {
+    width: 200px;
+    height: 400px;
+    background: #fff;
+    color: #d6b36a;
+    padding: 30px 80px;
+    text-decoration: none;
+    border: 1px solid #d6b36a;
+    font-family: Raleway, sans-serif;
+  }
+
+  .mybtn:hover {
+    text-decoration: none;
+    color: #fff;
+    background: #d6b36a;
+    border: 1px solid #fff;
+  }
+
+  .info-cadd {
+    margin-top: 20px;
+  }
+
+  .info-cadd h3 {
+    font-family: Raleway, sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    margin-top: 30px;
+  }
+
+  .all-btn {
+    margin-top: 75px;
+  }
+
+  .textarea-avis textarea {
+    width: 600px;
+    height: 200px;
+    padding: 5px;
+    outline: none;
+    font-family: Raleway, sans-serif;
+    font-size: 14px;
+    border: 2px solid #fff;
+  }
+
+  .avis-desc {
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: Raleway, sans-serif;
+    letter-spacing: 2px;
   }
 
   .apercu {
     background: #d6b36a;
-    border: 1px solid #d6b36a;
+    border: 1px solid #fff;
     color: #fff;
-    padding: 10px 40px;
-    margin-left: 70px;
-    margin-top: 10px;
+    padding: 15px 60px;
+    outline: none;
   }
 
   .apercu:hover {
     background: #fff;
     color: #d6b36a;
-    border: 1px solid #d6b36a;
-  }
-
-  .fomaa {
-    width: 400px;
-    height: 40px;
-    margin-left: 150px;
-    margin-top: 10px;
-    border: 2px solid #d6b36a;
-    padding-bottom: 40px;
-  }
-
-  input[type="radio"] {
-    padding: 10px 30px;
-    margin: 0 17px;
-  }
-
-  .my-cv-label {
-    margin-top: 10px;
-    margin-left: 70px;
-  }
-
-  input[type="radio"]:checked {
-    background-color: #d6b36a !important;
-  }
-
-  .acc-cadre {
-    position: absolute;
-    top: 0;
-    margin-top: 300px;
-  }
-
-  .score-label {
-    text-align: center;
-    margin-left: 60px;
-  }
-
-  .avis-desc {
-    margin-left: 65px;
-    margin-bottom: 30px;
-  }
-
-  .my-form-control {
-    width: 500px;
-    height: 200px;
-    padding: 10px;
+    border: 1px solid #fff;
     outline: none;
-    border: 2px solid #d6b36a;
-    margin: 0 auto;
-    margin-left: 60px;
   }
 
-  .btn-fit {
-    color: #fff;
-    background: #d6b36a;
-    cursor: pointer;
-    padding: 15px 30px;
-    border: 1px solid #d6b36a;
-    text-decoration: none;
+  .cont-btn {
+    margin-top: 30px;
   }
 
-  .btn-fit:hover {
-    color: #d6b36a;
+  .form-my-cv {
+    padding: 10px;
     background: #fff;
+    color: #000;
+    outline: none;
   }
 
-  .desc-suiv {
-    margin-left: 80px;
+  .cont-my-cv .my-cv-label {
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
 
-  .cd-acc h2 {
-    margin-left: 70px;
-    color: #d6b36a;
-    width: 400px;
+  .score-label label {
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
 
-  .cd-acc {
-    margin-top: 100px;
+  .score-radio input {
+    margin-left: 20px;
   }
 
-  .btn-email {
-    width: 60px;
-    height: 30px;
-    background: #d6b36a;
-    color: #fff;
-    border: 1px solid #d6b36a;
-    padding: 20px 60px;
-    margin-top: 50px;
-    cursor: pointer;
+  .score-radio { 
+    display: block;
+    padding: 5px;
   }
 
-  .btn-link {
-    width: 60px;
-    height: 30px;
-    background: #d6b36a;
-    color: #fff;
-    border: 1px solid #d6b36a;
-    padding: 20px 60px;
-    margin-left: 100px;
-    cursor: pointer;
-    text-decoration: none:
-  }
-
-  .not {
-    margin-top: 40px;
-    margin-left: 2px;
-  }
-
-  .btn-email:hover {
-    background: #fff;
-    border: 1px solid #d6b36a;
-    color: #d6b36a;
-  }
-
-  .btn-link:hover {
-    background: #fff;
-    border: 1px solid #d6b36a;
-    color: #d6b36a;
-    text-decoration: none;
-  }
-
-  .gen-link {
-    margin-top: 60px;
-    margin-right: 15px;
-  }
-
-  .gen-links {
-    margin-top: 40px;
-    margin-left: 100px;
+  .score-radio label {
+    font-size: 14px;
   }
 
   .time-count {
-    color: #d6b36a;
+    color: #fff;
+    font-size: 80px;
+    border-left: 10px solid #fff;
+    border-right: 10px solid #fff;
+  }
+
+  .my-count {
+    margin-top: 40px;
+  }
+
+  .btn-link {
+    background: #d6b36a;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 20px 60px;
+    font-family: Raleway, sans-serif;
+    cursor: pointer;
+  }
+
+  .btn-link:hover {
+    color:  #d6b36a;
     background: #fff;
-    padding: 15px 30px;
-    border: 1px solid #d6b36a;
-    font-size: 30px;
-    margin-left: 30px;
-  }
-
-  .acc-rdv {
-    color: #d6b36a;
-    margin-left: 50px;
+    border: 1px solid #fff;
     text-decoration: none;
   }
 
-  .acc-rdv:hover {
-    text-decoration: none;
-    color: #d6b36a;
+  .test-oe {
+    margin-top: 40px;
+  }
+
+  .link-show {  
+    margin-top: 40px;
+  }
+
+  .link-show h4 {
+    font-size: 14px;
+  }
+
+  .entr-avc h3 {
+    color: #fff;
+    font-size: 16px;
   }
 
 </style>
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <div class="client-column">
   <div class="client-menu-left">
     <%= render partial: "admin_cadre/left_menu_link" %>
   </div>
 
   <div class="cp-box">
-  	<div style="grid-column: 1">
-  		<div class="fcp-box">
-      <h3 class="title" style="color: #d6b36a !important">ENTRETIEN FIT</h3>
+    <!-- TITLE -->
+    <div>
+      <div class="fcp-box">
+      <h3 class="title">ENTRETIEN FIT</h3>
       <h3 class="title t2">Choisissez la suite a donner a ces candidats et rediger votre avis recruteur</h3>
+    </div>
 
-<!--  ------------------------------------------------------------------------------------ -->
-<!-- CANDIDATS  -->
-      <div class="fc-item" style="display: flex; margin-top: 40px;">
+    <div class="cd-box">
+      <!-- IMAGE -->
+        <div class="all-inf">
 
-        <div class="fc-item-all" style="margin-top: 40px;">
-          <div class="list-candidat">
-            <div class="fci-image">
-					    <% unless @cadre.image.nil? %>
+          <div  class="cd-info">
+            <% unless @cadre.image.nil? %>
                 <%= image_tag(@cadre.image, alt: 'photo de profil')%>
               <% else %>
                 <img src="/image/profie.png" alt="photo profil candidats">
               <% end %>
-            </div>
-            <div class="fci-icon">
+          </div>
+
+          <div class="fci-icon">
               <% unless @cadre.admin.nil? %>
                 <% if @cadre.admin == current_admin %>
                   <%= link_to rmv_favorite_cadre_path(id:@cadre.id), method: :delete, "data-confirm":"Êtes-vous sure de retirer cet(te) cadre de votre liste de candidat à suivre ?" do %>
@@ -210,38 +252,44 @@
                 <% end %>
               <% end %>
             </div>
-            <div class="fci-infos">
-              <p class="name"><%= @cadre.first_name %> <%= @cadre.last_name %> </p>
-              <p class="score">Score OIAM : <span><%= @cadre.score_potential %></span></p>
-            </div>
+
+          <div class="cd-info-be">
+            <p class="name"><%= @cadre.first_name %> <%= @cadre.last_name %> </p>
+            <p class="score">Score OIAM : <span><%= @cadre.score_potential %></span></p>
           </div>
+
         </div>
 
+        <!-- BODY -->
 
-         <div class="mess_candidat">
+        <div class="cd-desc">
 
-
-            <% if @cadre.is_recrute.nil? %> <!-- if is_recrute nil -->
+          <div class="all-thing">
+              <% if @cadre.is_recrute.nil? %> <!-- if is_recrute nil -->
               <% unless @cadre.agenda_admin.nil? %> <!-- if avec date -->
-                <% if @cadre.agenda_admin.entretien_date > DateTime.now.utc %> <!-- if date future -->
-                  <p style="margin-left: 25px;">
-                    <strong>Entretien fit avec ce cadre le : </strong>
-                    <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
-                  </p>
-                  <p id="time-to-down" class="time-count"></p>
-                <% else %> <!-- else date future -->
-                  <p>Vous avez rencontré <%= @cadre.first_name %> <%= @cadre.last_name %> le <strong><%=  @cadre.agenda_admin.entretien_date.strftime("%d/%m/%Y") %></strong>, comment s'est déroulé votre entretien ?</p>
-                  <div style="margin-left: 200px; margin-top: 150px;">
-                    <span style='font-size: 20px;' id="accepted-js" class="btn-fit btn-acc btn-to-hidden-js">ACCEPTÉE SA CANDIDATURE</span><br><br><br>
-                    <span style='font-size: 20px;' id="refused-js" class="btn-fit btn-ref btn-to-hidden-js">REFUSÉE SA CANDIDATURE</span>
-                  </div>
-                  <div id="show_if_accepted_js" style="display: none;">
-                    <div class="acc-cadre">
-                      <%= form_for Cadre.new , url: candidate_to_cadre_path do |f| %>
+                <% if @cadre.agenda_admin.entretien_date > DateTime.now.utc %>
+                <div class="entr-avc">
+                  <h3>Entretien fit avec ce cadre le :  <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span></h3>
+                </div>
+                <div class="my-count">
+                    <p id="time-to-down" class="time-count"></p>
+                </div>
+                <% else %> 
+                <div class="info-cadd">
+                  <h3>Vous avez rencontré <%= @cadre.first_name %> <%= @cadre.last_name %> le <strong><%=  @cadre.agenda_admin.entretien_date.strftime("%d/%m/%Y") %></strong>, comment s'est déroulé votre entretien ?</h3>
+                </div>
+                <div class="all-btn">
+                  <span id="accepted-js" class="mybtn btn-to-hidden-js">ACCEPTER SA CANDIDATURE</span>
+                  <span id="refused-js" class="mybtn btn-to-hidden-js">REFUSER SA CANDIDATURE</span>
+                </div>
+
+                <div id="show_if_accepted_js" style="display: none;">
+                <div>
+                  <%= form_for Cadre.new , url: candidate_to_cadre_path do |f| %>
                         <input type="hidden" name="cadre_id" value="<%=@cadre.id%>" >
                         <input type="hidden" name="is_recrute" value="1" id="accept-js-wa">
                         <label for="avi_id_js" class="avis-desc">Avis de One in a million</label>
-                        <div class="form-group">
+                        <div class="textarea-avis">
                           <textarea id="avi_id_js" required="required" rows="3" class="my-form-control" name="avis" placeholder="avis visible par le client ..."></textarea>
                         </div>
                         <div>
@@ -254,34 +302,32 @@
                             <% end %>
                           </div>
                           <div>
-                            <div class="form-group">
+                            <div class="cont-my-cv">
                               <%= f.label :compte_rendu, "Importer le compte rendu", class:"my-cv-label"%>
-                              <%= f.file_field :compte_rendu, class:"form-control fomaa", accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+                              <%= f.file_field :compte_rendu, class:"form-control-file form-my-cv", accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
                             </div>
                           </div>
                         </div>
-                        <div class="form-group">
+                        <div class="cont-btn">
                           <%= f.submit 'VALIDER', :class => 'apercu' %>
                         </div>
-                      <% end %>
-                    </div>
-                  </div>
-                <% end %> <!-- end date future -->
-              <% else %> <!-- else avec date -->
-                En attente de la proposition du date de l'entretien par le cadre.
-              <% end %> <!-- end avec date -->
-            <% else %> <!-- else is_recrute nil -->
-              <div class="cd-acc">
+                  <% end %>
+                    <% end %> <!-- end date future -->
+                  <% else %> <!-- else avec date -->
+                    En attente de la proposition du date de l'entretien par le cadre.
+                  <% end %> <!-- end avec date -->
+                  <% else %> <!-- else is_recrute nil -->
+                    <div>
                 <% if @cadre.is_recrute == true %>
                   <h2>TEST FIT REUSSI</h2>
-                  <div class="not">
-                    <div class="gen-link">
+                  <div>
+                    <div class="test-oe">
                       <span id="generate-js" class="btn-link">Générer un lien pour l'inscription</span>
                     </div>
-                    <div class="gen-links">
-                      <center id="show-link-js" style="display: none; color: #d6b36a">
+                    <div class="link-show">
+                      <center id="show-link-js" style="display: none; color: #fff">
                         Lien unique pour l'inscription du candidat: <br>
-                        <strong style="color: #000"><%= new_cadre_registration_path(comfirm:@cadre.confirm_token) %></strong>
+                        <h4><%= new_cadre_registration_path(comfirm:@cadre.confirm_token) %></h4>
                       </center>
                     </div>
                   </div>
@@ -290,15 +336,15 @@
                   <p>Ce candidat n'est pas reçu dans OIAM</p>
                 <% end %>
               </div>
-            <% end %> <!-- end is_recrute nil -->
-
-         </div>
-
+            <% end %> 
+          </div>
+          </div>
+          </div>
         </div>
-      </div>
+
     </div>
-  	</div>
   </div>
+</div>
 </div>
 
 <script type="text/javascript">
@@ -330,11 +376,13 @@
   });
 
   $("#accepted-js").click(function(){
+    console.log("khkshkhkjdhjkdhjkdhjkd");
     $("#show_if_accepted_js").show(500);
     $(".btn-to-hidden-js").hide(500);
   });
 
   $("#refused-js").click(function(){
+    console.log("khkshkhkjdhjkdhjkdhjkd");
     $("#show_if_accepted_js").show(500);
     $(".btn-to-hidden-js").hide(500);
     $("#accept-js-wa").remove()
@@ -356,8 +404,8 @@
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    nodeTime.innerHTML = days + "j:" + hours + "h:"
-    + minutes + "m:" + seconds + "s";
+    nodeTime.innerHTML = days + " | " + hours + " | "
+    + minutes + " | " + seconds + "";
     if (distance < 0) {
       clearInterval(x);
       nodeTime.innerHTML = "EXPIRED";

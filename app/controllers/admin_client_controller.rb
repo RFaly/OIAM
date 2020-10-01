@@ -9,6 +9,7 @@ class AdminClientController < ApplicationAdminController
   end
 
   def show_offer
+    helpers.updateNotification(params[:secure])
   	@offre = OffreJob.find_by(id: params[:id])
   end
   def factures

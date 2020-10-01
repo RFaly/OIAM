@@ -20,7 +20,7 @@
               <p class="name"><%= @cadre.first_name %> <%= @cadre.last_name[0].upcase %>.</p>
               <p>
                 Score de test : <span><%= @cadre.score_potential %></span><br />
-                Compatibilité : <span>60%</span>
+                Compatibilité : <span><%= @cadre.score_fit * 10 %>%</span>
               </p>
             </div>
 

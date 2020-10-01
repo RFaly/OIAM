@@ -7,6 +7,7 @@ class AdminMainController < ApplicationAdminController
   end
 
   def notification
+    @notifications = current_admin.notifications.order("created_at DESC")
   end
 
   def my_profil
