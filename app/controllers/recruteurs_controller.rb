@@ -589,7 +589,7 @@ class RecruteursController < ApplicationController
       @contact = @contact.first
     end
 		@contact.message_client_cadres.where(client_see:false).update(client_see:true)
-    @messages = @contact.message_client_cadres.order(created_at: :DESC)
+    @messages = @contact.message_client_cadres.order(created_at: :ASC)
     @newMessage = MessageClientCadre.new
   end
 
