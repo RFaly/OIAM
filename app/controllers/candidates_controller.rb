@@ -334,6 +334,7 @@ class CandidatesController < ApplicationController
 
   def save_repons_test_potential
     puts "~"*34
+    puts "misy ve e!"
     puts cookies.encrypted[:oiam_cadre]
     puts "~"*34
     @cadreInfo = CadreInfo.find_by(mail:params[:custom_fields][3]["value"])
@@ -351,8 +352,20 @@ class CandidatesController < ApplicationController
       if params[:score].to_i >= CadreInfo.min_score
         is_recrute = nil
       end
-      @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score])
-      flash[:notice] = "Score à jour pour #{@cadreInfo.first_name} #{@cadreInfo.last_name}!"
+      @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score].to_i)
+
+      #notifaka
+      Admin.all.each do |admin|
+        Notification.create(
+          admin: admin,
+          object: "Nouveau candidat: #{@cadreInfo.first_name} #{@cadreInfo.last_name}",
+          message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name[0].upcase}. viens de finir le test potentiel.",
+          link: "#{post_avis_candidats_fit_path(@cadreInfo.id,notification:"fit")}",
+          genre: 2,
+          view: false
+        )
+      end
+      flash[:notice] = "#{@cadreInfo.first_name} #{@cadreInfo.last_name} Brenda a été notifié par email du résultat du test !"
     end
     redirect_to nothing_path
   end
@@ -374,6 +387,10 @@ class CandidatesController < ApplicationController
 
   # Resultat test
   def resultatsTest
+    puts "~"*34
+    puts "misy ve e!"
+    puts cookies.encrypted[:oiam_cadre]
+    puts "~"*34
     @cadreInfo = CadreInfo.find_by_confirm_token(cookies.encrypted[:oiam_cadre])
     unless @cadreInfo.potential_test
       flash[:notice] = "Vous pouvez continuer votre test."

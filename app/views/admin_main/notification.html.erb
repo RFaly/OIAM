@@ -1,38 +1,77 @@
 <link rel="stylesheet" href="/css/notif_admin.css" />
+<style type="text/css">
+	h2{
+		color: #d6b36a;
+		font-size: 30px;
+		text-align: center;
+		margin-top: 50px;
+	}
+</style>
+
 <div class="client-column">
 	<div class="client-menu-left">
 		<%= render partial: "admin_main/left_menu_link" %>
 	</div>
 
-	<div class="cp-box">
-
-		<!-- BASE -->
-		<div class="all-bx">
-			<div class="box box1">
-				<a class="box-link" href="#"><h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</h6></a>
-			</div>
-		</div>
-		<!-- --------- -->
-
-		<div class="all-bx">
-			<div class="box box1">
-				<a class="box-link" href="#"><h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</h6></a>
-			</div>
-		</div>
-		<div class="all-bx">
-			<div class="box box1">
-				<a class="box-link" href="#"><h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</h6></a>
-			</div>
-		</div>
-		<div class="all-bx">
-			<div class="box box1">
-				<a class="box-link" href="#"><h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</h6></a>
-			</div>
-		</div>
-		<div class="all-bx">
-			<div class="box box1">
-				<a class="box-link" href="#"><h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</h6></a>
-			</div>
-		</div>
+		<div class="col-sm-9">
+		  <h5 class="title">NOTIFICATIONS</h5>
+	      <% unless @notifications.empty?%>
+	      	<% @notifications.each do |noficication| %>
+	      		<div class="alert alert-warning" role="alert">
+		      		<span data-times="<%= noficication.created_at.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+		      		<% if noficication.view %>
+		      			<span class="badge">hita</span>
+		      		<% else %>
+		      			<span class="badge">tsy hita</span>
+		      		<% end %>
+	      			<div class="row">
+	      				<div class="col-sm-3">
+	      					<% if noficication.genre == 1 %>
+	      						<img src="<%= noficication.offre_job.image %>" width="200px">
+	      					<% else %>
+	      						<% if noficication.medel_id.nil? %>
+	      							<img src="/image/profie.png" alt="photo profil candidats" width="200px">
+	      						<% else %>
+	      							<img src="<%= noficication.cadre_info.image %>" width="200px">
+	      						<% end %>
+	      					<% end %>
+	      				</div>
+	      				<div class="col-sm-9">
+	      					<h4 class="alert-heading"><%= noficication.object %></h4>
+					  		<p><%= noficication.message %></p>
+					  		<hr>
+					  		<p class="mb-0">
+					  			<a href="<%= noficication.link %>" class="btn btn-warning">VOIR</a>
+					  		</p>
+						</div>
+	      			</div>
+				</div>
+	      	<% end %>
+	      <% else %>
+	      	Aucune notification
+	      <% end %>
 	</div>
 </div>
+
+<script type="text/javascript">
+	if (document.URL.indexOf('#') == -1) {
+      url = document.URL + '#';
+      location = '#';
+      location.reload(true);
+    }
+</script>
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
+
+<script type="text/javascript">
+  var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+  var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+  let $elementDate = $('.currentDateEntretien');
+
+  $elementDate.each(function () {
+    let dateUTC = moment.utc($(this).data().times);
+    let dateGet = new Date(dateUTC.local());
+    let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ dateGet.getMinutes());
+  });
+</script>

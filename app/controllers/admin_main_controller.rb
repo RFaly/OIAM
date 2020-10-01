@@ -7,6 +7,7 @@ class AdminMainController < ApplicationAdminController
   end
 
   def notification
+    @notifications = Notification.where(admin: current_admin)
   end
 
   def my_profil
