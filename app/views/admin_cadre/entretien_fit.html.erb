@@ -126,6 +126,13 @@
     let dateUTC = moment.utc($(this).data().times);
     let dateGet = new Date(dateUTC.local());
     let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
-    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:00');
+
+    let minute = dateGet.getMinutes()
+    if((minute+"").length == 1){
+      minute = "0"+minute
+    }
+
+    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ minute );
+
   });
 </script>

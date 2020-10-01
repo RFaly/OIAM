@@ -18,13 +18,17 @@
           <div class="calendar">
             
           <%= month_calendar events: @agendas do |date, agendas| %>
+
               <%= date.day %>
 
               <% agendas.each do |agenda| %>
-                <div >
-                  <%= agenda.entretien_date %>
-                  </div>
+                <div>
+                  <a href="<%= post_avis_candidats_fit_path(agenda.cadre_info.id) %>">
+                    <span data-times="<%= agenda.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+                  </a>
+                </div>
               <% end %>
+
           <% end %>
           </div>
 
@@ -35,5 +39,33 @@
     </div>
   </div>
 </div>
+
+
+
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
+
+<script type="text/javascript">
+  var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+  var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+  let $elementDate = $('.currentDateEntretien');
+
+  $elementDate.each(function () {
+    let dateUTC = moment.utc($(this).data().times);
+    let dateGet = new Date(dateUTC.local());
+    let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+
+    if((dateGet.getMinutes()+"").length == 1){
+      $(this).html(dateGet.getHours() + 'h:0'+dateGet.getMinutes());
+    }else{
+      $(this).html(dateGet.getHours() + 'h:'+dateGet.getMinutes());
+    }
+
+  });
+
+  $($(".calendar-heading").find("a")[0]).html("PRECEDENT")
+  $($(".calendar-heading").find("a")[1]).html("SUIVANT")
+
+</script>
 
 
