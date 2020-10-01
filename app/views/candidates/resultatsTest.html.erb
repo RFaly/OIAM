@@ -1,7 +1,9 @@
 <link rel="stylesheet" type="text/css" href="/css/resultat_test.css">
-
 <div class="bg-uniq">
 	<div class="cadre">
+
+		<h1><%= cookies.encrypted[:oiam_cadre] %></h1>
+
 		<% if @cadreInfo.score_potential.nil? %>
 			<div class="row">
 				<div class="col-sm-3">

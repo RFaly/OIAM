@@ -49,6 +49,39 @@
   text-align: center;
 }
 
+.show-message-box .message-m .clear {
+  clear: both;
+}
+
+.show-message-box .message-m .input {
+  background: #000;
+  position: relative;
+}
+
+.show-message-box .message-m .input input {
+  height: 50px;
+  padding: 10px;
+  border-radius: 0;
+  border: 1.5px solid #d6b36a;
+}
+
+.show-message-box .message-m .input input:focus {
+  outline: none;
+  box-shadow: 1px 1px 3px 1px #d6b36a;
+}
+
+.show-message-box .message-m .input button {
+  border: none;
+  background: transparent;
+  position: absolute;
+  right: 2px;
+  top: 6px;
+}
+
+.show-message-box .message-m .input button:focus {
+  outline: none;
+}
+
 .show-message-box .message-m .content {
   padding: 10px;
   overflow-y: auto;

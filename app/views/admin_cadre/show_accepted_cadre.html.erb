@@ -25,9 +25,10 @@
   .fomaa {
     width: 400px;
     height: 40px;
-    margin-left: 120px;
+    margin-left: 150px;
     margin-top: 10px;
     border: 2px solid #d6b36a;
+    padding-bottom: 40px;
   }
 
   input[type="radio"] {
@@ -223,7 +224,7 @@
             <% if @cadre.is_recrute.nil? %> <!-- if is_recrute nil -->
               <% unless @cadre.agenda_admin.nil? %> <!-- if avec date -->
                 <% if @cadre.agenda_admin.entretien_date > DateTime.now.utc %> <!-- if date future -->
-                  <p>
+                  <p style="margin-left: 25px;">
                     <strong>Entretien fit avec ce cadre le : </strong>
                     <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
                   </p>

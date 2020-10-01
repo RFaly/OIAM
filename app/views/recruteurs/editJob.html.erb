@@ -1,6 +1,6 @@
 <!-- appel css  -->
 <% content_for :head_style do %>
-  <link rel="stylesheet" href="/css/create_offre.css" />
+<link rel="stylesheet" href="/css/create_offre.css" />
 <% end %>
 
 <!-- body html  -->
@@ -43,7 +43,7 @@
           <select class="co-select" id="metier-input" name="metier_name" required>
             <option value="<%= @offre.metier.name %>" selected hidden><%= @offre.metier.name %></option>
             <% @metiers.each do |metier| %>
-              <option value="<%= metier.name %>"><%= metier.name %></option>
+            <option value="<%= metier.name %>"><%= metier.name %></option>
             <% end %>
           </select>
         </div>
@@ -55,8 +55,10 @@
 
         <%= f.label :descriptif_mission, "DESCRIPTIF DES MISSIONS" %>
         <div class="dp-input">
-          <textarea id="descriptif-mission" ><%= @offre.descriptif_mission.gsub('[sp]', ' &#160; ').gsub('[nl]', '
-            ').html_safe%> </textarea>
+          <textarea id="descriptif-mission">
+<%= @offre.descriptif_mission.gsub('[sp]', ' &#160; ').gsub('[nl]', '
+            ').html_safe%> </textarea
+          >
           <%= f.text_area :descriptif_mission, required:true,id:'descriptif-mission2', style:'display: none' %>
         </div>
         <span class="input-error descriptif-mission-error"></span>
@@ -132,7 +134,7 @@
         <%= f.label :question1, "QUELLE POURRAIT-ÊTRE LA RÉMUNÉRATION MAXIMALE POUR LE CANDIDAT IDÉAL ?", class:"ggag" %>
         <div class="co-input hide-right">
           <select id="question1" name="offre_job[question1]" class="co-select">
-            <option value="<%= @offre.question1 %>" selected hidden><%= @offre.question1 %></option>
+            <option value="<%= @offre.question1 %>" selected hidden><%= @offre.question1 %> k€ bruts annuels</option>
             <option value="60 k€ bruts annuels">60 k€ bruts annuels</option>
             <option value="70 k€ bruts annuels">70 k€ bruts annuels</option>
             <option value="80 k€ bruts annuels">80 k€ bruts annuels</option>
@@ -227,8 +229,8 @@
 </div>
 <!-- call js  -->
 <script>
-   //fixed form description
-   $('#descriptif-mission').on('input', function () {
+  //fixed form description
+  $('#descriptif-mission').on('input', function () {
     let text = $(this).val();
     text = text.replace(/ /g, '[sp]');
     text = text.replace(/\n/g, '[nl]');

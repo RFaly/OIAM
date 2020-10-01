@@ -12,7 +12,7 @@
 					<% end %>
 				</div>
 				<div class="user_name"><%= @cadre.first_name %> <%= @cadre.last_name %> <br></div>
-				<p>Score du test : <span>1005</span></p>
+				<p>Score du test : <span><%= @cadre.score_potential %></span></p>
 				<p>Type de poste :<br> <span style="text-transform:uppercase;">
 				<% unless @cadre.metier.nil? %>
 					<%= @cadre.metier.name %>

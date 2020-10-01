@@ -1,4 +1,7 @@
 class OffreJob < ApplicationRecord
+	after_update :notified_admin
+	delegate :url_helpers, to: 'Rails.application.routes'
+
 	belongs_to :client
 	belongs_to :metier
 	
@@ -26,6 +29,21 @@ class OffreJob < ApplicationRecord
 	validates :numberEntretien, presence: true
 	validates :question4, presence: true
 	validates :question5, presence: true
+
+	def notified_admin
+		name_entreprise = self.client.entreprise.name
+		Admin.all.each do |admin|
+			Notification.create(
+				cadre: admin,
+				object: "#{name_entreprise}",
+				message: "#{name_entreprise} a publié un offre d'emploi.",
+				link: "#{url_helpers.admin_client_show_offer_path(self.id,notification:"offre")}",
+				genre: 1,
+				medel_id: self.id,
+				view: false
+			)
+		end
+	end
 
 	# use in cadre
 	def is_in_my_favorite(cadre)

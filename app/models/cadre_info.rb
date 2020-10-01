@@ -12,7 +12,7 @@ class CadreInfo < ApplicationRecord
 
 	#constance score minimum test potential
 	def self.min_score
-		1005
+		500
 	end
 
   private
