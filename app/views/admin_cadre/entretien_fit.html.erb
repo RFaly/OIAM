@@ -22,6 +22,21 @@
     color: #fff;
   }
 
+  .fcp-box .a {
+    text-decoration: none;
+    background: #fff;
+    color: #d6b36a;
+    padding: 20px 40px;
+    border: 1px solid #d6b36a;
+  }
+
+  .fcp-box .a:hover {
+    text-decoration: none;
+    background: #d6b36a;
+    border: 1px solid #d6b36a;
+    color: #fff;
+  }
+
 .fcp-box .fc-item-all .list-candidat:hover .fci-infos, .fcp-box .fc-item-all .list-candidat:active .fci-infos {
     height: 200px !important;
     transition: all 500ms ease-in-out !important;
@@ -39,6 +54,9 @@
       <h3 class="title" style="color: #d6b36a !important;">ENTRETIEN FIT</h3>
       <h3 class="title t2">Choisissez la suite a donner a ces candidats et rediger votre avis recruteur</h3>
       <br><br><br>
+          <a class="a" href="<%= admin_dashboard_candidate_path %>">
+            SÉLECTIONNER DES CANDIDATS À SUIVRE
+          </a>
       <div class="fc-item">
         <div class="fc-item-all">
 
@@ -78,13 +96,6 @@
             </div>
           <% end %>
         <% end %>
-
-        <div class="selc">
-          <a href="<%= admin_dashboard_candidate_path %>" class="btn-choose">
-            SÉLECTIONNER DES CANDIDATS À SUIVRE
-          </a>
-        </div>
-
       </div>
       </div>
 

@@ -2,10 +2,8 @@ class AgendaAdmin < ApplicationRecord
 	after_create :notified_admin
 	belongs_to :cadre_info
 	belongs_to :admin, optional: true
-
-
+  
 	delegate :url_helpers, to: 'Rails.application.routes'
-
 
 	def notified_admin
 		cadre_info = self.cadre_info
@@ -31,5 +29,9 @@ class AgendaAdmin < ApplicationRecord
 			)
 		end
 	end
+
+  def start_time
+    self.entretien_date ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
+  end
 
 end

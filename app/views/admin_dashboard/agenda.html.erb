@@ -20,3 +20,19 @@
 		</div>
 	</div>
 </div>
+
+
+
+<%= month_calendar events: @agendas do |date, agendas| %>
+  <%= date.day %>
+
+  <% agendas.each do |agenda| %>
+    <div >
+      <%= agenda.entretien_date %>
+    </div>
+  <% end %>
+<% end %>
+
+</div>
+
+
