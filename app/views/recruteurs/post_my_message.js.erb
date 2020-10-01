@@ -1,3 +1,5 @@
+
+
 var $boitReception = $('#js-add-new-message')
 var div = document.createElement('div')
 var divClear = document.createElement('div')
@@ -7,4 +9,8 @@ $(divClear).addClass('clear')
 $(div).html('<%= @content %>')
 $boitReception.append(div)
 $boitReception.append(divClear)
-$("#message_client_cadre_content").val(" ")
+$boitReception.animate({
+  scrollTop: $boitReception.prop("scrollHeight")
+}, 1000);
+
+$("#message_client_cadre_content").val();

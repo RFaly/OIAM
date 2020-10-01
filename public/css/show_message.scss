@@ -22,19 +22,39 @@
     .name {
       background: $main_theme_color;
       color: white;
-      border-radius: 10px;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
       font-size: 30px;
       padding: 10px;
       text-align: center;
+      position: relative;
+      .connected {
+        position: absolute;
+        content: '';
+        background: rgb(18, 199, 18);
+        border-radius: 50%;
+        width: 11px;
+        height: 11px;
+        bottom: 30%;
+        right: 32%;
+      }
+      .notconnected {
+        position: absolute;
+        bottom: 5px;
+        right: 2px;
+        opacity: 0.6;
+        font: $ffsentence;
+        font-size: 14px;
+        border-radius: 50%;
+      }
     }
     .clear {
       clear: both;
     }
     .input {
-      background: #000;
       // margin-top: 10px;
       position: relative;
-      input {
+      textarea {
         height: 50px;
         padding: 10px;
         border-radius: 0;
@@ -50,20 +70,23 @@
         background: transparent;
         position: absolute;
         right: 2px;
-        top: 6px;
+        bottom: 6px;
         &:focus {
           outline: none;
         }
       }
     }
     .content {
+      background: white;
       padding: 10px;
+      margin-bottom: 5px;
       overflow-y: auto;
       min-height: 100px;
       max-height: 300px;
       .my-message {
+        display: block;
         max-width: 85%;
-        margin: 10px 0;
+        margin: 5px 0;
         padding: 5px 10px;
         color: white;
         background: $main_theme_color;
@@ -80,7 +103,7 @@
         box-shadow: $box-shadow;
         background: $secondary_element_color;
         float: left;
-        margin: 29px 0;
+        margin: 30px 0;
         margin-left: 40px;
         position: relative;
         #image {
@@ -94,16 +117,6 @@
           border-radius: 50%;
           width: 54px;
           height: 54px;
-          .connected {
-            position: absolute;
-            content: '';
-            background: rgb(18, 199, 18);
-            border-radius: 50%;
-            width: 11px;
-            height: 11px;
-            bottom: 0px;
-            right: 2px;
-          }
         }
       }
     }
