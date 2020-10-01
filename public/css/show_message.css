@@ -85,6 +85,8 @@
 .show-message-box .message-m .content {
   padding: 10px;
   overflow-y: auto;
+  transform: rotate(180deg);
+  direction: rtl;
   min-height: 100px;
   max-height: 300px;
 }

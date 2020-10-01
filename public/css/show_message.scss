@@ -59,6 +59,9 @@
     .content {
       padding: 10px;
       overflow-y: auto;
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+      direction: rtl;
       min-height: 100px;
       max-height: 300px;
       .my-message {
