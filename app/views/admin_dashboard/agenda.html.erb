@@ -1,38 +1,39 @@
 <link rel="stylesheet" href="/css/client_profil.css" />
-<style>
-	.title {
-		color: #d6b36a;
-		margin-left: 400px;
-	}
-
-	.title h2 {
-		font-size: 16px;
-	}
-	
-</style>
+<link rel="stylesheet" href="/css/mes_cand_admin.css" />
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <div class="client-column">
-	<div class="client-menu-left">
-		<%= render partial: "admin_dashboard/left_menu_link" %>
-	</div>
-	<div class="cp-box">
-		<div class="title">
-			<h2>AGENDA</h2>
-		</div>
-	</div>
-</div>
+  <div class="client-menu-left">
+    <%= render partial: "admin_dashboard/left_menu_link" %>
+  </div>
+
+  <div class="cp-box">
+    <div>
+      <div class="fcp-box">
+      <h3 class="title" style="color: #d6b36a !important;">AGENDA</h3>
+      <div class="fc-item">
+        <div class="fc-item-all">
+
+<!--          CANDIDATS  -->
+
+          <div class="calendar">
+            
+          <%= month_calendar events: @agendas do |date, agendas| %>
+              <%= date.day %>
+
+              <% agendas.each do |agenda| %>
+                <div >
+                  <%= agenda.entretien_date %>
+                  </div>
+              <% end %>
+          <% end %>
+          </div>
 
 
-
-<%= month_calendar events: @agendas do |date, agendas| %>
-  <%= date.day %>
-
-  <% agendas.each do |agenda| %>
-    <div >
-      <%= agenda.entretien_date %>
+        </div>
+      </div>
     </div>
-  <% end %>
-<% end %>
-
+    </div>
+  </div>
 </div>
 
 
