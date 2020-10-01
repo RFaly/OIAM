@@ -1,11 +1,11 @@
 window.$boitReception = $('#js-add-new-message');
 window.$is_client = $('#is_client_session').data().client;
 window.path_url = $('#form-promo-code').data().path;
-console.log($('#Profilher').data().image);
 var profil = $('#Profilher').data().image;
 function creatAndApendNewMessage(data) {
   var div = document.createElement('div');
-  var div2 = document.createElement('div2');
+  var div2 = document.createElement('div');
+  var message = document.createElement('div');
   var divClear = document.createElement('div');
   if ($is_client) {
     if (data.is_client) {
@@ -20,10 +20,14 @@ function creatAndApendNewMessage(data) {
       $(div).addClass('my-message');
     }
   }
-  $(div2).css('background', 'url(' + $(profil) + ') center no-repeat;');
+  $(div2).attr('style', 'background: url(' + profil + ') center no-repeat; background-size: cover');
+  $(div2).attr('id', 'image');
+  $(message).html(data.content);
+
   $(div).attr('data-store-id', data.id);
   $(divClear).addClass('clear');
-  $(div).html(data.content);
+  $(div).append(div2);
+  $(div).append(message);
   $boitReception.append(div);
   $boitReception.append(divClear);
   $boitReception.animate(
@@ -41,7 +45,6 @@ function getMyMessage() {
     for (var i = 0; i < my_data.length; i++) {
       if (my_data[i].id == storeId) {
         for (var j = i + 1; j < my_data.length; j++) {
-          console.log(my_data[j]);
           creatAndApendNewMessage(my_data[j]);
         }
         break;
