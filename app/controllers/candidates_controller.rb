@@ -332,11 +332,9 @@ class CandidatesController < ApplicationController
     end
   end
 
-  def save_repons_test_potential
-    puts "~"*34
-    puts "misy ve e!"
-    puts cookies.encrypted[:oiam_cadre]
-    puts "~"*34
+  # api api
+  def save_repons_test_potential #call in api
+    # http://fc16455.online-server.cloud/cadre/repons-test-potential
     @cadreInfo = CadreInfo.find_by(mail:params[:custom_fields][3]["value"])
     # @cadreInfo.update(score_potential:1005,potential_test:true)
     @cadreInfo.update(potential_test:true)
@@ -387,20 +385,11 @@ class CandidatesController < ApplicationController
 
   # Resultat test
   def resultatsTest
-    puts "~"*34
-    puts "misy ve e!"
-    puts cookies.encrypted[:oiam_cadre]
-    puts "~"*34
     @cadreInfo = CadreInfo.find_by_confirm_token(cookies.encrypted[:oiam_cadre])
     unless @cadreInfo.potential_test
-      flash[:notice] = "Vous pouvez continuer votre test."
-      redirect_to my_tests_path
-      # score_potential: nil
-      # score_fit: nil
-      # potential_test: false
-      # fit_test: false
-      # is_recrute: nil
+      @cadreInfo.update(potential_test:true)
     end
+    flash[:notice] = "En attente du résultat de votre test potentiel."
   end
 
   def getScoresPotential
