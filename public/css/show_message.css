@@ -33,90 +33,58 @@
   margin-bottom: 50px;
 }
 
-.show-message-box .message-m {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 500px;
-}
-
-.show-message-box .message-m .name {
+.show-message-box .name-box {
   background: #d6b36a;
-  color: white;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  padding: 10px 20px;
+  display: flex;
   font-size: 30px;
-  padding: 10px;
-  text-align: center;
-  position: relative;
+  line-height: 1;
+  color: white;
 }
 
-.show-message-box .message-m .name .connected {
+.show-message-box .name-box #image {
+  position: relative;
+  content: '';
+  margin-right: 15px;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+
+.show-message-box .name-box .connected {
+  box-shadow: 0px 0px 2px 1px #a5f0a5;
   position: absolute;
   content: '';
   background: #12c712;
   border-radius: 50%;
-  width: 11px;
-  height: 11px;
-  bottom: 30%;
-  right: 32%;
+  width: 13px;
+  height: 13px;
+  bottom: 0;
+  right: 8px;
 }
 
-.show-message-box .message-m .name .notconnected {
-  position: absolute;
-  bottom: 5px;
-  right: 2px;
+.show-message-box .name-box .notconnected {
   opacity: 0.6;
-  font: 16px Questrial, sans-serif;
   font-size: 14px;
-  border-radius: 50%;
 }
 
-.show-message-box .message-m .clear {
-  clear: both;
-}
-
-.show-message-box .message-m .input {
-  position: relative;
-}
-
-.show-message-box .message-m .input textarea {
-  height: 50px;
-  padding: 10px;
-  border-radius: 0;
-  border: 1.5px solid #d6b36a;
-}
-
-.show-message-box .message-m .input textarea:focus {
-  outline: none;
-  box-shadow: 1px 1px 3px 1px #d6b36a;
-}
-
-.show-message-box .message-m .input button {
-  border: none;
-  background: transparent;
-  position: absolute;
-  right: 2px;
-  bottom: 6px;
-}
-
-.show-message-box .message-m .input button:focus {
-  outline: none;
-}
-
-.show-message-box .message-m .content {
+.show-message-box .content {
   background: white;
-  padding: 10px;
+  border-left: 2px solid #f0f2f4;
+  border-right: 2px solid #f0f2f4;
   margin-bottom: 5px;
   overflow-y: auto;
-  min-height: 100px;
-  max-height: 300px;
+  padding: 20px;
+  min-height: 550px;
+  max-height: 550px;
 }
 
-.show-message-box .message-m .content .my-message {
-  display: block;
+.show-message-box .content .my-message {
   max-width: 85%;
   margin: 5px 0;
+  display: block;
   padding: 5px 10px;
   color: white;
   background: #d6b36a;
@@ -126,7 +94,7 @@
   border-radius: 8px;
 }
 
-.show-message-box .message-m .content .her-message {
+.show-message-box .content .her-message {
   padding: 10px;
   border-radius: 8px;
   max-width: 80%;
@@ -139,7 +107,7 @@
   position: relative;
 }
 
-.show-message-box .message-m .content .her-message #image {
+.show-message-box .content .her-message #image {
   box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
   position: absolute;
   align-self: flex-end;
@@ -150,4 +118,37 @@
   border-radius: 50%;
   width: 54px;
   height: 54px;
+}
+
+.show-message-box .content .clear {
+  clear: both;
+}
+
+.show-message-box .input {
+  position: relative;
+}
+
+.show-message-box .input textarea {
+  min-height: 50px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 0;
+  border: 1.5px solid #d6b36a;
+}
+
+.show-message-box .input textarea:focus {
+  outline: none;
+  box-shadow: 1px 1px 3px 1px #d6b36a;
+}
+
+.show-message-box button {
+  border: none;
+  background: transparent;
+  position: absolute;
+  right: 2px;
+  bottom: 6px;
+}
+
+.show-message-box button:focus {
+  outline: none;
 }
