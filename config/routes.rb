@@ -81,6 +81,8 @@ Rails.application.routes.draw do
   #validate periode d'essai candidate
   post '/recruteur/suivi-recrutement/confirmation-periode-d-essai', to: 'recruteurs#validate_time_trying_client', as: 'validate_time_trying_client'
 
+  # barre de recherche candidat
+  post '/recruteur/recherche-cadre', to: 'candidates#search_bar_cadre', as: "search_bar_cadre"
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   get '/cadre', to: 'candidates#main', as: 'main_cadre'
@@ -114,9 +116,9 @@ Rails.application.routes.draw do
 
   #formation liste
 
-  get 'cadres/formation', to: 'formation_candidate#index', as: 'formation_all'
-  get 'cadres/formation/:id/:name', to: 'formation_candidate#date_rdv', as: 'formation_date_rdv'
-  post 'cadres/formation/save', to: 'formation_candidate#save_rdv', as: 'formation_save_rdv'
+  get 'cadre/formation', to: 'formation_candidate#index', as: 'formation_all'
+  get 'cadre/formation/:formation_id/:name', to: 'formation_candidate#date_rdv', as: 'formation_date_rdv'
+  post 'cadre/formation/save', to: 'formation_candidate#save_rdv', as: 'formation_save_rdv'
 
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -159,6 +161,9 @@ Rails.application.routes.draw do
   post '/cadre/suivi-recrutement/félicitations/prime', to: 'candidates#save_coordinate_banking', as: 'save_coordinate_banking'
 
   get '/cadre/mes-notifications', to: 'candidates#notifications', as: 'cadres_notifications'
+
+  # barre de recherche candidat
+  post '/cadre/recherche-offre', to: 'candidates#search_bar_job', as: "search_bar_job"
 
   #~~~~~~~~~~ LINK fo MESSAGE ~~~~~ TEST CANDIDAT
   get '/cadre/messages', to: 'candidates#my_messages', as: 'my_messages_cadre'

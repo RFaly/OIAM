@@ -2,58 +2,108 @@
 
 <h2 class="reserve-title">Reserver un coaching</h2>
 
-<!-- <h1><%= @formation.name %></h1>
 
-<p><%= @formation.description %></p>
-<% unless @formation.prix.nil? %>
-	<%=  @formation.prix %>€
-<% else %>
-	gratuite
-<% end %> -->
 
 <div class="date-container">
+	<h1><%= @formation.name %></h1>
+
+	<p><%= @formation.description %></p>
+
+	<% unless @formation.prix.nil? %>
+		<strong><%=  @formation.prix.to_i %>€</strong>
+	<% else %>
+		<strong>gratuite</strong>
+	<% end %>
+	
+
 	<div class="selected-date" id="hide-js">
-		<div>
-			<h2 class="date-title"><%= @dates[0][:long] %></h2>
-			<div class="main-container">
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="08:30">08:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="10:00">10:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="11:30">11:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="13:00">13:00</div>
-			</div>
-			<div class="main-container">
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="14:30">14:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="16:00">16:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="17:00">17:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[0][:long] %>" data-date="<%= @dates[0][:short] %>" data-time="19:00">19:00</div>
-			</div>
-		</div>
 
-		<div>
-			<h2 class="date-title"><%= @dates[1][:long] %></h2>
-			<div class="main-container">
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="08:30">08:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="10:00">10:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="11:30">11:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="13:00">13:00</div>
-			</div>
-			<div class="main-container">
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="14:30">14:30</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="16:00">16:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="17:00">17:00</div>
-				<div class="js-hours" data-longdate="<%= @dates[1][:long] %>" data-date="<%= @dates[1][:short] %>" data-time="19:00">19:00</div>
+		<%= form_tag(formation_save_rdv_path, remote: true, id:"send-data-form") do %>
+
+			<div id="display-date-js">
+				<input type="date" name="date_time" id="input-date-js">
 			</div>
 
-			<div class="validate">
-				<%= form_tag("#", remote: true, id:"send-data-form") do %>
-					<input type="hidden" name="date" id="input-date">
-					<input type="hidden" name="time" id="input-time">
-					<div class="form-group">
-						<%= submit_tag("VALIDER", :class=>"btn-valider")%>
-					</div>
-				<% end %>
+			<div id="select-hours-js" style="display: none;">
+
+				<span class="badge badge-info" id="edit-date-js">modifier</span>
+
+				<div class="main-container">
+					<div class="js-hours" data-time="08:30">08:30</div>
+					<div class="js-hours" data-time="10:00">10:00</div>
+					<div class="js-hours" data-time="11:30">11:30</div>
+					<div class="js-hours" data-time="13:00">13:00</div>
+				</div>
+
+				<div class="main-container">
+					<div class="js-hours" data-time="14:30">14:30</div>
+					<div class="js-hours" data-time="16:00">16:00</div>
+					<div class="js-hours" data-time="17:00">17:00</div>
+					<div class="js-hours" data-time="19:00">19:00</div>
+				</div>
+
 			</div>
-		</div>
+
+			<div class="validate" id="submit-tag-js" style="display: none;">
+				<input type="hidden" name="formation_id" value="<%= @formation.id %>">
+				<input type="hidden" name="time" id="input-time">
+				<strong id="current-date-js"></strong>
+				<div class="form-group">
+					<%= submit_tag("VALIDER", :class=>"btn-valider")%>
+				</div>
+			</div>
+
+		<% end %>
+
 	</div>
 
 </div>
+
+<script type="text/javascript">
+
+	var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+	var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+
+	$("#input-date-js").on('input', function () {
+	  $('#select-hours-js').show();
+	  $("#display-date-js").hide();
+	});
+
+	$(".js-hours").click(function() {
+		time = $(this).data().time
+		date = $("#input-date-js").val()
+		// (3) ["2020", "11", "27"]
+
+		$("#input-time").val(time);
+		$("#submit-tag-js").show();
+		
+		date = date.split("-")
+		time_split = time.split(":")
+
+		// %Y-%m-%d %H:%M"
+		let dateGet = new Date(date[0]+"-"+date[1]+"-"+date[2]+" "+time_split[0]+":"+time_split[1])
+
+		let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+
+		let lera = ""
+		if((dateGet.getMinutes()+"").length == 1){
+		  lera = dateGet.getHours() + 'h:0'+dateGet.getMinutes();
+		}else{
+		  lera = dateGet.getHours() + 'h:'+dateGet.getMinutes();
+		}
+
+		$("#current-date-js").html(dateString +" à "+ lera)
+	})
+
+	$("#edit-date-js").click(function() {
+	  	$("#submit-tag-js").hide();
+		$("#select-hours-js").hide();
+		$("#display-date-js").show();
+	})
+
+
+</script>
+
+
+
+
