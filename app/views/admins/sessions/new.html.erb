@@ -8,15 +8,13 @@
     <h2 class="log-admin-ttl">ESPACE CONNEXION</h2>
     <form class="log-admin-form">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'EMAIL', class:'log-admin-input' %> <%= f.password_field :password, autocomplete: "current-password", placeholder:'MOT DE PASSE', class:'log-admin-input', id: 'myInput', type: 'password' %>
-      <label for="checkid" class="show-cont">Show Password
-        <input id="checkid" type="checkbox" onclick="showHide()">
+      <label for="checkid" class="show-cont"
+        >Show Password
+        <input id="checkid" type="checkbox" onclick="showHide()" />
         <span class="checkmark"></span>
       </label>
-       <%= f.submit "SE CONNECTER", class:'log-admin-button' %> <% if
-      devise_mapping.rememberable? %>
-      <div class="log-admin-rem custom-control custom-switch">
-        <%= f.check_box :remember_me, class:'custom-control-input', id:'switch1' %> <%= f.label :remember_me, 'Se souvenir de moi', class:'custom-control-label', for:'switch1' %>
-      </div>
+      <%= f.submit "SE CONNECTER", class:'log-admin-button' %> <% if devise_mapping.rememberable? %>
+      <div class="log-admin-rem custom-control custom-switch"><%= f.check_box :remember_me, class:'custom-control-input', id:'switch1' %> <%= f.label :remember_me, 'Se souvenir de moi', class:'custom-control-label', for:'switch1' %></div>
       <% end %>
     </form>
     <% end %>
