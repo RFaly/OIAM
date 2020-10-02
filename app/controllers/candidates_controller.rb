@@ -645,10 +645,11 @@ class CandidatesController < ApplicationController
     @offres = OffreJob.where(is_publish:true)
 
     region = params[:region]
+
     unless region.empty?
       unless region == "all"
         region = Region.find_by_id(region)
-        @offres = @offres.where(region: region.name)
+        @offres = @offres.where(region: region.name)  
       end
     end
 
@@ -660,11 +661,15 @@ class CandidatesController < ApplicationController
     end
 
     unless params[:remuneration].empty?
-      @offres = @offres.where("remuneration >= #{params[:remuneration]}")
+      @offres = @offres.where("remuneration >= #{params[:remuneration].to_i}")
     end
 
     unless params[:deplacement].empty?
       @offres = @offres.where(type_deplacement:params[:deplacement])
+    end
+
+    if params[:region].empty? && params[:metier].empty? && params[:remuneration].empty? && params[:deplacement].empty?
+      @offres = []
     end
 
     respond_to do |format|
