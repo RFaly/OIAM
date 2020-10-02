@@ -27,7 +27,7 @@
 			<input type="hidden" name="message_client_cadre[client_id]" value="<%=@client.id%>" id="is_client_session" data-client="false">
 			<input type="hidden" name="message_client_cadre[contact_id]" value="<%=@contact.id%>">
 			<span class="form-group" id="textareas">
-				<textarea class="form-control" name="message_client_cadre[content]" id="message_client_cadre_content"></textarea>
+				<input class="form-control" name="message_client_cadre[content]" id="message_client_cadre_content" placeholder="Répondre..."></input>
 			</span>
 			<span class="form-group">
 				<%= submit_tag("") %>

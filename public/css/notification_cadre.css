@@ -63,10 +63,11 @@ html{
   }
 
 .all-content{
-  margin-top: 20px;
+  margin: 20px;
+  font-size: 14px;
 }
 
-  .title{
+  .titles{
 		color: #d6b36a;
 		font-size: 20px;
 		text-align: center;
@@ -75,83 +76,91 @@ html{
 	}
 
 
-  .all-content{
+  .notif-info{
     display: flex;
+    grid-column-gap: 5%; 
+  }
+
+  .notif-image{
+    width: 20%;
+  }
+
+  .pdp{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+  }
+
+  .notif-info-content{
+    width: 60%;
+    padding: 20px;
   }
 
 
-.right-link{
-  border-left: 1px solid #d6b36a;
-  width: 100%;
-	height: auto;
-  padding:0 50px;
-	margin-bottom: 100px;
-}
+  .mb-0{
+    width: 20%;
+    padding: 15px;
+  }
 
-.notif-container{
-  position: relative;
-  padding-left: 20px;
-  color: #d6b36a;
-}
-
-.notif-info{
-  display: flex;
-  border-top: 2px solid #f0f2f4;
-  grid-column-gap: 3%;
-  padding: 20px;
-}
-
-.notif-image{
-  width: 10%;
-}
-
-.notif-info-content{
-  display: block;
-  margin: 0 auto;
-  position: relative;
-  top: 50%;
-  width: 80%;
-  height: 100%;
-}
-
-.notif-image img{
-  border-radius: 100px;
-}
 
 .btn-voir{
+  color: #d6b36a;
   text-decoration: none;
-  color: #000;
 }
 
 .btn-voir:hover{
-	text-decoration: none;
-}
-
-
-
-.currentDateEntretien{
-  position: absolute;
-  right: 30px;
-  bottom: 20px;;
-  font-size: 12px;
-  color: #8b8b8b;
-}
-
-
-
-.alert-heading{
-  font-weight: bold;
-  font-size: 18px;
-  margin-top: 20px;
-  margin-bottom: 15px;
-}
-
-
-
-.notif-mes{
-	font-size: 16px;
+  text-decoration: none;
+  color: #d6b36a;
 }
 
 .notif-see{
-	color: #000;
+  color: #000;
 }
+
+
+@media only screen and (min-width: 900px){
+  .all-content{
+    display: flex;
+    grid-column-gap: 5%; 
+    margin-top: 20px;
+    font-size: 18px;
+  }
+
+  .left-link{
+    border-right: 1px solid #d6b36a;
+    padding: 0;
+  }
+
+  .pdp{
+    width: 100px;
+    height: 100px;
+  }
+
+  .notif-info{
+    padding: 10px 0;
+    border-top: 2px solid #f0f2f4;
+    grid-column-gap: 0; 
+    width: 100%;
+  }
+
+  .mb-0{
+    position: relative;
+  }
+
+  .currentDateEntretien{
+    position: absolute;
+    bottom: 10px;
+    opacity: .7;
+    font-size: 10px;
+  }
+
+  .right-link{
+    width: 100%;
+  }
+
+}
+
+
+
+

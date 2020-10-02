@@ -73,7 +73,7 @@ body{
     color: #fff;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
     background-color: #D6B36A;
     width: 100%;
     padding: 15px;
@@ -196,6 +196,12 @@ input[type=submit]{
         bottom: 0;
         right: 0;
         width: 500px;
+    }
+
+    .boit-reception{
+        min-width: 250px;
+        max-height: 500px;
+        overflow: scroll;
     }
     
 
