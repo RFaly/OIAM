@@ -190,13 +190,62 @@ class RecruteursController < ApplicationController
 		@offre = OffreJob.find_by_id(params[:id])
 		@topCinqs = @offre.my_top_five_candidates
 		@metiers = Metier.all
+    @regions = Region.all
 		#afficher tous les cadre dans la bdd
 		@cadres = Cadre.joins(:cadre_info).where("cadre_infos.empty = ?",false)
 	end
 
 	def search_bar_cadre
+		# @cadres
+		@offre = OffreJob.find_by_id(params[:id])
+		@cadre_infos = CadreInfo.where(empty:false)
+		@topCinqs = @offre.my_top_five_candidates
 
+		unless params[:remuneration].empty?
+    	maximum_salar = params[:remuneration].to_i
+    	@cadre_infos = @cadre_infos.where("question4 <= #{maximum_salar}")
+		end
 
+    unless params[:disponility].empty?
+    	@cadre_infos = @cadre_infos.where(disponibilite: params[:disponility])
+    end
+
+    unless params[:metier].empty?
+      metier = Metier.find_by_id(params[:metier])
+      unless metier.nil?
+      	@cadre_infos = @cadre_infos.where(metier:metier)
+      end
+    end
+
+    my_cadres = []
+
+		region = params[:region]
+   
+    unless region.empty? && @cadre_infos.empty?
+      region = Region.find_by_id(region)
+    	@cadre_infos.each do |cadre_info|
+    		if params[:region] == "all"
+    			my_cadres.push(cadre_info)
+    		else
+					if cadre_info.region.name == "Toutes les régions" || cadre_info.region == region
+						my_cadres.push(cadre_info)
+					end
+    		end
+    	end
+    	@cadre_infos = my_cadres
+    end
+		
+		if params[:remuneration].empty? && params[:disponility].empty? && params[:metier].empty? && params[:region].empty?
+			@cadre_infos = []
+		end
+
+    respond_to do |format|
+      format.html do
+        redirect_to searchJob_path
+      end
+      format.js do
+      end
+    end
 		
 	end
 
