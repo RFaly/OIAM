@@ -14,111 +14,113 @@
     text-transform: uppercase;
     margin-bottom: 50px;
   }
-  .message-m {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 500px;
-    .name {
-      background: $main_theme_color;
-      color: white;
-      border-top-right-radius: 10px;
-      border-top-left-radius: 10px;
-      font-size: 30px;
-      padding: 10px;
-      text-align: center;
+  /////////////////@at-root
+  .name-box {
+    background: $main_theme_color;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 10px 20px;
+    display: flex;
+    font-size: 30px;
+    line-height: 1;
+    color: white;
+    #image {
       position: relative;
-      .connected {
+      content: '';
+      margin-right: 15px;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+    }
+    .connected {
+      box-shadow: 0px 0px 2px 1px rgb(165, 240, 165);
+      position: absolute;
+      content: '';
+      background: rgb(18, 199, 18);
+      border-radius: 50%;
+      width: 13px;
+      height: 13px;
+      bottom: 0;
+      right: 8px;
+    }
+    .notconnected {
+      opacity: 0.6;
+      font-size: 14px;
+    }
+  }
+  .content {
+    background: white;
+    border-left: 2px solid $secondary_element_color;
+    border-right: 2px solid $secondary_element_color;
+    margin-bottom: 5px;
+    overflow-y: auto;
+    padding: 20px;
+    min-height: 550px;
+    max-height: 550px;
+    .my-message {
+      max-width: 85%;
+      margin: 5px 0;
+      display: block;
+      padding: 5px 10px;
+      color: white;
+      background: $main_theme_color;
+      box-shadow: 1px 1px 5px 1px $main_theme_color;
+      float: right;
+      text-align: justify;
+      border-radius: 8px;
+    }
+    .her-message {
+      padding: 10px;
+      border-radius: 8px;
+      max-width: 80%;
+      text-align: justify;
+      box-shadow: $box-shadow;
+      background: $secondary_element_color;
+      float: left;
+      margin: 30px 0;
+      margin-left: 40px;
+      position: relative;
+      #image {
+        box-shadow: $box-shadow;
         position: absolute;
+        align-self: flex-end;
+        left: -35px;
+        bottom: -40px;
         content: '';
-        background: rgb(18, 199, 18);
+        margin-right: 5px;
         border-radius: 50%;
-        width: 11px;
-        height: 11px;
-        bottom: 30%;
-        right: 32%;
-      }
-      .notconnected {
-        position: absolute;
-        bottom: 5px;
-        right: 2px;
-        opacity: 0.6;
-        font: $ffsentence;
-        font-size: 14px;
-        border-radius: 50%;
+        width: 54px;
+        height: 54px;
       }
     }
     .clear {
       clear: both;
     }
-    .input {
-      // margin-top: 10px;
-      position: relative;
-      textarea {
-        height: 50px;
-        padding: 10px;
-        border-radius: 0;
-        border: 1.5px solid $main_theme_color;
-        &:focus {
-          outline: none;
-          box-shadow: 1px 1px 3px 1px $main_theme_color;
-        }
-      }
-
-      button {
-        border: none;
-        background: transparent;
-        position: absolute;
-        right: 2px;
-        bottom: 6px;
-        &:focus {
-          outline: none;
-        }
+  }
+  .input {
+    // margin-top: 10px;
+    position: relative;
+    textarea {
+      min-height: 50px;
+      height: 50px;
+      padding: 10px;
+      border-radius: 0;
+      border: 1.5px solid $main_theme_color;
+      &:focus {
+        outline: none;
+        box-shadow: 1px 1px 3px 1px $main_theme_color;
       }
     }
-    .content {
-      background: white;
-      padding: 10px;
-      margin-bottom: 5px;
-      overflow-y: auto;
-      min-height: 100px;
-      max-height: 300px;
-      .my-message {
-        display: block;
-        max-width: 85%;
-        margin: 5px 0;
-        padding: 5px 10px;
-        color: white;
-        background: $main_theme_color;
-        box-shadow: 1px 1px 5px 1px $main_theme_color;
-        float: right;
-        text-align: justify;
-        border-radius: 8px;
-      }
-      .her-message {
-        padding: 10px;
-        border-radius: 8px;
-        max-width: 80%;
-        text-align: justify;
-        box-shadow: $box-shadow;
-        background: $secondary_element_color;
-        float: left;
-        margin: 30px 0;
-        margin-left: 40px;
-        position: relative;
-        #image {
-          box-shadow: $box-shadow;
-          position: absolute;
-          align-self: flex-end;
-          left: -35px;
-          bottom: -40px;
-          content: '';
-          margin-right: 5px;
-          border-radius: 50%;
-          width: 54px;
-          height: 54px;
-        }
-      }
+  }
+
+  button {
+    border: none;
+    background: transparent;
+    position: absolute;
+    right: 2px;
+    bottom: 6px;
+    &:focus {
+      outline: none;
     }
   }
 }
