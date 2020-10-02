@@ -44,6 +44,9 @@
       <% end %>
     </div>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div id="loading-indicator">
+      <div id="spinner"></div>
+    </div>
     <%= yield %> <% if @header.nil? %>
     <div class="footer-controll"><%= render "layouts/footer" %></div>
     <% end %>
