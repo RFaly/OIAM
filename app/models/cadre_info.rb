@@ -28,6 +28,10 @@ class CadreInfo < ApplicationRecord
 		end
 	end
 
+	def compatibilite
+		self.score_fit * 10
+	end
+
   private
 
   def confirmation_token

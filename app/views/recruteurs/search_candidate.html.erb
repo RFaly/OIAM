@@ -122,8 +122,8 @@
             </div>
             <div class="cadre-box-info">
               <p class="name"><%= cadre.cadre_info.first_name %> <%= cadre.cadre_info.last_name[0].upcase %>.</p>
-              <p class="compatibilite">Compatibilité : <span>60%</span></p>
-              <p class="score">Score OIAM : <span>1700</span></p>
+              <p class="compatibilite">Compatibilité : <span><%= cadre_info.compatibilite %>%</span></p>
+              <p class="score">Score OIAM : <span><%= cadre_info.score_potential %></span></p>
               <p class="poste">Type de poste : <% if cadre.cadre_info.metier.nil? %> Manager marketing <% else %> <%= cadre.cadre_info.metier.name %> <% end %></p>
             </div>
           </div>

@@ -151,7 +151,39 @@ class RecruteursController < ApplicationController
 	end
 
 	def our_selection
-		
+		@offre = OffreJob.find_by_id(params[:id])
+		@cadre_infos = @offre.metier.cadre_infos.where(empty:false)
+
+    region = Region.find_by_name(@offre.region)
+    ville = region.villes.find_by_name(@offre.department)
+
+    minimum_salar = @offre.remuneration.to_i
+
+    @cadre_infos = @cadre_infos.where("question4 <= #{minimum_salar}")
+
+    @cadre_infos = @cadre_infos.where(mobilite: @offre.type_deplacement)
+
+    my_cadres = []
+
+    unless @cadre_infos.empty?
+    	@cadre_infos.each do |cadre_info|
+    		if cadre_info.region.name = "Toutes les régions"
+    			my_cadres.push(cadre_info)
+    		else
+    			if ville.name == "Tous les départements"
+						if cadre_info.region == region
+							my_cadres.push(cadre_info)
+						end
+					else
+						if cadre_info.region == region && cadre_info.ville == ville
+							my_cadres.push(cadre_info)
+						end
+					end
+    		end
+    	end
+    end
+    @cadre_infos = my_cadres
+
 	end
 
 	def search_candidate

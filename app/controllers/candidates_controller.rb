@@ -109,10 +109,11 @@ class CandidatesController < ApplicationController
   def jobsPersonalized
     validate_info_cadre
     cadre_info = current_cadre.cadre_info
-    minimum_salar = cadre_info.question4
+    minimum_salar = cadre_info.question4.to_i
     region = cadre_info.region.name
     ville = cadre_info.ville.name
     @offres = cadre_info.metier.offre_jobs
+    @offres = @offres.where("remuneration >= #{minimum_salar}")
     @offres = @offres.where(type_deplacement: cadre_info.mobilite)
     unless region == "Toutes les régions"
       if ville == "Tous les départements"
