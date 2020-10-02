@@ -77,7 +77,7 @@ window.startSpinner = function () {
 };
 
 window.stopSpinner = function () {
-  return $('#loading-indicator').fadeOut(2000);
+  return $('#loading-indicator').fadeOut(1500);
 };
 
 $(document).on('page:fetch', function () {

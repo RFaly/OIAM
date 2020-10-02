@@ -1,0 +1,97 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+  border-left: 1px solid #d6b36a;
+}
+
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.selection-box {
+  width: 90%;
+  margin: 0 auto;
+  font: 16px Questrial, sans-serif;
+}
+
+.selection-box .title {
+  font: 500 18px Raleway, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  color: #d6b36a;
+}
+
+.selection-box .empty {
+  margin: 30px;
+}
+
+.selection-box .select-cadre-list-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.selection-box .select-cadre-list-items .cadre-box {
+  margin: 30px 0;
+  height: 430px;
+  position: relative;
+  overflow: hidden;
+}
+
+.selection-box .select-cadre-list-items .cadre-box .cadre-box-image {
+  position: relative;
+}
+
+.selection-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo {
+  width: 100%;
+}
+
+.selection-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo img,
+.selection-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo .c {
+  width: 100%;
+}
+
+.selection-box .select-cadre-list-items .cadre-box .cadre-box-image .icone {
+  position: absolute;
+  cursor: pointer;
+  text-align: left;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 67px solid #d6b36a;
+  border-left: 70px solid transparent;
+}
+
+.selection-box .select-cadre-list-items .cadre-box .cadre-box-image .icone img {
+  position: absolute;
+  top: -58px;
+  right: 7px;
+  width: 30px;
+}
+
+.selection-box .select-cadre-list-items .cadre-box .cadre-box-info {
+  width: 100%;
+  background: white;
+  text-align: center;
+  padding: 5px 0;
+  font: 16px Questrial, sans-serif;
+}
+
+.selection-box .select-cadre-list-items .cadre-box .cadre-box-info p span {
+  color: #d6b36a;
+}
+
+.selection-box .select-cadre-list-items .cadre-box .cadre-box-info .name {
+  text-transform: uppercase;
+  font: 500 18px Raleway, sans-serif;
+}
