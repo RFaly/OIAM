@@ -1,5 +1,5 @@
 class OffreJob < ApplicationRecord
-	after_update :notified_admin
+	after_create :notified_admin
 	delegate :url_helpers, to: 'Rails.application.routes'
 
 	belongs_to :client
@@ -32,9 +32,10 @@ class OffreJob < ApplicationRecord
 
 	def notified_admin
 		name_entreprise = self.client.entreprise.name
-		Admin.all.each do |admin|
+		admins = Admin.all
+		admins.each do |admin|
 			Notification.create(
-				cadre: admin,
+				admin: admin,
 				object: "#{name_entreprise}",
 				message: "#{name_entreprise} a publié un offre d'emploi.",
 				link: "#{url_helpers.admin_client_show_offer_path(self.id,notification:"offre")}",

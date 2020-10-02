@@ -160,6 +160,9 @@ Rails.application.routes.draw do
 
   get '/cadre/mes-notifications', to: 'candidates#notifications', as: 'cadres_notifications'
 
+  # barre de recherche candidat
+  post '/cadre/recherche-offre', to: 'candidates#search_bar_job', as: "search_bar_job"
+
   #~~~~~~~~~~ LINK fo MESSAGE ~~~~~ TEST CANDIDAT
   get '/cadre/messages', to: 'candidates#my_messages', as: 'my_messages_cadre'
   get '/cadre/messages/:id', to: 'candidates#show_my_messages', as: 'show_my_messages_cadre'

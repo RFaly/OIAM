@@ -106,11 +106,51 @@ class CandidatesController < ApplicationController
 	def searchJob
     validate_info_cadre
     @metiers = Metier.all
+    @regions = Region.all
     @offres = OffreJob.where(is_publish:true)
 	end
 
   def jobsPersonalized
     validate_info_cadre
+
+    @offres = OffreJob.where(is_publish:true)
+
+    
+region = current_cadre.cadre_info.region
+
+ville = current_cadre.cadre_info.ville
+
+minimum_salar = current_cadre.cadre_info.question4
+
+@offres = current_cadre.cadre_info.metier.offre_jobs
+
+OffreJob.first.type_deplacement
+
+# Fréquence de déplacement: Ponctuellement
+CadreInfo.last.region
+CadreInfo.last.ville
+
+
+
+current_cadre.cadre_info.mobilite 
+
+PAS DE DÉPLACEMENT
+#Cadre
+
+NATIONAL
+INTERNATIONAL
+LOCALE
+PAS DE DÉPLACEMENT
+
+
+
+#OffreJob
+
+Pas de déplacements
+Nationaux
+Régionaux
+Internationaux
+
   end
 
   def showSearchJob
@@ -627,6 +667,43 @@ class CandidatesController < ApplicationController
 
   def save_coordinate_banking #formularie pour enregistrer la coordonné bancaire
     # gem wiked_pdf
+  end
+
+  def search_bar_job
+
+    @offres = OffreJob.where(is_publish:true)
+
+    region = params[:region]
+    unless region.empty?
+      unless region == "all"
+        region = Region.find_by_id(region)
+        @offres = @offres.where(region: region.name)
+      end
+    end
+
+    unless params[:metier].empty?
+      metier = Metier.find_by_id(params[:metier])
+      unless metier.nil?
+        @offres = @offres.where(metier: metier)
+      end
+    end
+
+    unless params[:remuneration].empty?
+      @offres = @offres.where("remuneration >= #{params[:remuneration]}")
+    end
+
+    unless params[:deplacement].empty?
+      @offres = @offres.where(type_deplacement:params[:deplacement])
+    end
+
+    respond_to do |format|
+      format.html do
+        redirect_to searchJob_path
+      end
+      format.js do
+      end
+    end
+
   end
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
