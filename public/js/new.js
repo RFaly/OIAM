@@ -8,19 +8,19 @@
 
 /* INITIALISER LES VALEURS */
 var franceData = [
-    { region: 'Auvergne-Rhône-Alpes', departement: ['Ain', 'Allier', 'Ardèche ', 'Cantal', 'Drôme', 'Isère', 'Loire ', 'Haute-Loire ', 'Puy-de-Dôme', ' Rhône + Métropole de Lyon', 'Savoie', 'Haute-Savoie'] },
-    { region: 'Bourgogne-Franche-Comté', departement: ["Côte-d'Or", 'Doubs', 'Jura', 'Nièvre', 'Haute-Saône', 'Saône-et-Loire', 'Yonne', 'Territoire de Belfort'] },
-    { region: 'Bretagne', departement: ["Côtes-d'Armor", 'Finistère', 'Ille-et-Vilaine', 'Morbihan'] },
-    { region: 'Centre-Val de Loire', departement: ['Cher', 'Eure-et-Loir', 'Indre', 'Indre-et-Loire', 'Loir-et-Cher', 'Loiret'] },
-    { region: 'Corse', departement: ['Corse-du-Sud', 'Haute-Corse'] },
-    { region: 'Grand Est', departement: ['Ardennes', 'Aube', 'Marne', 'Haute-Marne', 'Meurthe-et-Moselle', 'Meuse', 'Moselle', 'Bas-Rhin', 'Haut-Rhin', 'Vosges'] },
-    { region: 'Hauts-de-France', departement: ['Aisne', 'Nord', 'Oise', 'Pas-de-Calais', 'Somme'] },
-    { region: 'Île-de-France', departement: ['Paris', 'Seine-et-Marne', 'Yvelines', 'Essonne', 'Hauts-de-Seine', 'Seine-Saint-Denis', 'Val-de-Marne', "Val-d'Oise"] },
-    { region: 'Normandie', departement: ['Calvados', 'Eure', 'Manche', 'Orne', 'Seine-Maritime'] },
-    { region: 'Nouvelle-Aquitaine', departement: ['Charente', 'Charente-Maritime', 'Corrèze', 'Creuse', 'Dordogne', 'Gironde', 'Landes', 'Lot-et-Garonne', 'Pyrénées-Atlantiques', 'Deux-Sèvres', 'Vienne', 'Haute-Vienne'] },
-    { region: 'Occitanie', departement: ['Ariège', 'Aude', 'Aveyron', 'Gard', 'Haute-Garonne', 'Gers', 'Hérault', 'Lot', 'Lozère', 'Hautes-Pyrénées', 'Pyrénées-Orientales', 'Tarn', 'Tarn-et-Garonne'] },
-    { region: 'Pays de la Loire', departement: ['Loire-Atlantique', 'Maine-et-Loire', 'Mayenne', 'Sarthe', 'Vendée'] },
-    { region: "Provence-Alpes-Côte d'Azur", departement: ['Alpes-de-Haute-Provence', 'Hautes-Alpes', 'Alpes-Maritimes', 'Bouches-du-Rhône', 'Var', 'Vaucluse'] },
+    { region: 'Auvergne-Rhône-Alpes', departement: ["Tous les départements",'Ain', 'Allier', 'Ardèche ', 'Cantal', 'Drôme', 'Isère', 'Loire ', 'Haute-Loire ', 'Puy-de-Dôme', ' Rhône + Métropole de Lyon', 'Savoie', 'Haute-Savoie'] },
+    { region: 'Bourgogne-Franche-Comté', departement: ["Tous les départements","Côte-d'Or", 'Doubs', 'Jura', 'Nièvre', 'Haute-Saône', 'Saône-et-Loire', 'Yonne', 'Territoire de Belfort'] },
+    { region: 'Bretagne', departement: ["Tous les départements","Côtes-d'Armor", 'Finistère', 'Ille-et-Vilaine', 'Morbihan'] },
+    { region: 'Centre-Val de Loire', departement: ["Tous les départements",'Cher', 'Eure-et-Loir', 'Indre', 'Indre-et-Loire', 'Loir-et-Cher', 'Loiret'] },
+    { region: 'Corse', departement: ["Tous les départements",'Corse-du-Sud', 'Haute-Corse'] },
+    { region: 'Grand Est', departement: ["Tous les départements",'Ardennes', 'Aube', 'Marne', 'Haute-Marne', 'Meurthe-et-Moselle', 'Meuse', 'Moselle', 'Bas-Rhin', 'Haut-Rhin', 'Vosges'] },
+    { region: 'Hauts-de-France', departement: ["Tous les départements",'Aisne', 'Nord', 'Oise', 'Pas-de-Calais', 'Somme'] },
+    { region: 'Île-de-France', departement: ["Tous les départements",'Paris', 'Seine-et-Marne', 'Yvelines', 'Essonne', 'Hauts-de-Seine', 'Seine-Saint-Denis', 'Val-de-Marne', "Val-d'Oise"] },
+    { region: 'Normandie', departement: ["Tous les départements",'Calvados', 'Eure', 'Manche', 'Orne', 'Seine-Maritime'] },
+    { region: 'Nouvelle-Aquitaine', departement: ["Tous les départements",'Charente', 'Charente-Maritime', 'Corrèze', 'Creuse', 'Dordogne', 'Gironde', 'Landes', 'Lot-et-Garonne', 'Pyrénées-Atlantiques', 'Deux-Sèvres', 'Vienne', 'Haute-Vienne'] },
+    { region: 'Occitanie', departement: ["Tous les départements",'Ariège', 'Aude', 'Aveyron', 'Gard', 'Haute-Garonne', 'Gers', 'Hérault', 'Lot', 'Lozère', 'Hautes-Pyrénées', 'Pyrénées-Orientales', 'Tarn', 'Tarn-et-Garonne'] },
+    { region: 'Pays de la Loire', departement: ["Tous les départements",'Loire-Atlantique', 'Maine-et-Loire', 'Mayenne', 'Sarthe', 'Vendée'] },
+    { region: "Provence-Alpes-Côte d'Azur", departement: ["Tous les départements",'Alpes-de-Haute-Provence', 'Hautes-Alpes', 'Alpes-Maritimes', 'Bouches-du-Rhône', 'Var', 'Vaucluse'] },
     { region: "Toutes les régions", departement: ['Tous les départements']},
   ];
   var listOptionRegion = '';

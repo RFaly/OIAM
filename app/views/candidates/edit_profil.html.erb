@@ -11,7 +11,7 @@
 			            <% @meties.each do |metier| %>
 			            	<option value="<%= metier.id %>"><%= metier.name %></option>
 			            <% end %>
-		          </select>
+		          	</select>
 				</div>
 				<div class="act-job">
 					<label for="" class="label-content">Quelle est votre profession actuelle ?</label>
@@ -88,12 +88,12 @@
 			<select class="btn-recherche" required="required" name="cadre_info[mobilite]" id="cadre_info_mobilite">
 				<option value="" disabled selected>MOBILITÉ</option>
 				<% unless @cadre.mobilite.nil? %>
-				<option value="<%= @cadre.mobilite %>" selected hidden><%= @cadre.mobilite %></option>
+					<option value="<%= @cadre.mobilite %>" selected hidden><%= @cadre.mobilite_name %></option>
 				<% end %>
-				<option value="NATIONAL">NATIONALE</option>
-				<option value="INTERNATIONAL">INTERNATIONALE</option>
-				<option value="LOCALE">LOCALE</option>
-				<option value="PAS DE DÉPLACEMENT">PAS DE DÉPLACEMENT</option>
+				<option value="1">NATIONALE</option>
+				<option value="2">INTERNATIONALE</option>
+				<option value="3">REGIONAL</option>
+				<option value="0">PAS DE DÉPLACEMENT</option>
 			</select>
 			<div class="image-cv">
 				<div id="import-cv">
@@ -157,8 +157,6 @@
 			return true;
 		}
 	})
-
-
 </script>
 
 <script type="text/javascript" src="/js/edit_profil_cadre.js"></script>

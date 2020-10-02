@@ -84,7 +84,8 @@
         </label>
 
         <%= f.label :type_deplacement, "LE POSTE IMPLIQUE-T-IL DES DÉPLACEMENTS ?" %>
-        <div class="dp-input hide-right"><%= f.select :type_deplacement, options_for_select([["Pas de déplacements","Pas de déplacements"],["Nationaux","Nationaux"],["Régionaux","Régionaux"],["Internationaux", "Internationaux"]]), {}, required:true, class:'co-select',id:'type-deplacement',autofocus:true %></div>
+        <div class="dp-input hide-right"><%= f.select :type_deplacement, options_for_select([["Pas de déplacements","
+          0"],["Nationaux","1"],["Internationaux","2"],["Régionaux","3"]]), {}, required:true, class:'co-select',id:'type-deplacement',autofocus:true %></div>
         <span class="input-error type-deplacement-error"></span>
 
         <%= f.label :type_deplacement, "DATE DE PRISE DE POSTE" %>

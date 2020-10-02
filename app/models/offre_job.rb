@@ -46,6 +46,19 @@ class OffreJob < ApplicationRecord
 		end
 	end
 
+	def type_deplacement_name
+		case self.type_deplacement
+		when "1"
+		  "Nationaux"
+		when "2"
+		  "Internationaux"
+		when "3"
+		  "Régionaux"
+		when "0"
+		  "Pas de déplacements"
+		end
+	end
+	
 	# use in cadre
 	def is_in_my_favorite(cadre)
 		return FavoriteJob.find_by(offre_job:self, cadre:cadre)

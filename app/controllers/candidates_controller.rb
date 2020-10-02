@@ -29,10 +29,6 @@ class CandidatesController < ApplicationController
   end
 
   def confirmedProfil
-    puts "~"*45
-    puts params.inspect
-    puts "~"*45
-
     errorMessage = ""
 
     is_error = params[:cadre_info][:job].empty? || params[:cadre_info][:question3].empty? || params[:cadre_info][:question4].empty? || params[:cadre_info][:question5].empty? || params[:cadre_info][:status].empty? || params[:cadre_info][:disponibilite].empty? || params[:cadre_info][:mobilite].empty?
@@ -112,45 +108,19 @@ class CandidatesController < ApplicationController
 
   def jobsPersonalized
     validate_info_cadre
-
-    @offres = OffreJob.where(is_publish:true)
-
-    
-region = current_cadre.cadre_info.region
-
-ville = current_cadre.cadre_info.ville
-
-minimum_salar = current_cadre.cadre_info.question4
-
-@offres = current_cadre.cadre_info.metier.offre_jobs
-
-OffreJob.first.type_deplacement
-
-# Fréquence de déplacement: Ponctuellement
-CadreInfo.last.region
-CadreInfo.last.ville
-
-
-
-current_cadre.cadre_info.mobilite 
-
-PAS DE DÉPLACEMENT
-#Cadre
-
-NATIONAL
-INTERNATIONAL
-LOCALE
-PAS DE DÉPLACEMENT
-
-
-
-#OffreJob
-
-Pas de déplacements
-Nationaux
-Régionaux
-Internationaux
-
+    cadre_info = current_cadre.cadre_info
+    minimum_salar = cadre_info.question4
+    region = cadre_info.region.name
+    ville = cadre_info.ville.name
+    @offres = cadre_info.metier.offre_jobs
+    @offres = @offres.where(type_deplacement: cadre_info.mobilite)
+    unless region == "Toutes les régions"
+      if ville == "Tous les départements"
+        @offres = @offres.where(region:region)
+      else
+        @offres = @offres.where(region:region,department:ville)
+      end
+    end
   end
 
   def showSearchJob
