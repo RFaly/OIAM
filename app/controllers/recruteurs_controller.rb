@@ -194,6 +194,12 @@ class RecruteursController < ApplicationController
 		@cadres = Cadre.joins(:cadre_info).where("cadre_infos.empty = ?",false)
 	end
 
+	def search_bar_cadre
+
+
+		
+	end
+
 	def show_search_candidate
 		@offre = OffreJob.find_by_id(params[:offre_id])
 		@cadre = Cadre.find_by_id(params[:id]).cadre_info

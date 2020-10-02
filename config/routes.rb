@@ -81,6 +81,8 @@ Rails.application.routes.draw do
   #validate periode d'essai candidate
   post '/recruteur/suivi-recrutement/confirmation-periode-d-essai', to: 'recruteurs#validate_time_trying_client', as: 'validate_time_trying_client'
 
+  # barre de recherche candidat
+  post '/recruteur/recherche-cadre', to: 'candidates#search_bar_cadre', as: "search_bar_cadre"
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   get '/cadre', to: 'candidates#main', as: 'main_cadre'
