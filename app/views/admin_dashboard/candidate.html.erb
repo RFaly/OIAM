@@ -1,8 +1,103 @@
 <link rel="stylesheet" href="/css/client_profil.css" />
 <style>
+.nw-cont {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.cont-filter {
+  position: relative;
+  width: 400px;
+  float: right;
+}
+.filter {
+  padding-top: 20px;
+  padding-bottom: 20px;
+/*      border-bottom: 1px solid rgba(0,0,0,.1);*/
+}
+
+.filter span {
+  align-items: flex-end;
+  background: #E3D7BF;
+  color: #fff;
+  cursor: pointer;
+  font-size: 10px;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  border: 1px solid #E3D7BF;
+}
+
+.filter span:hover {
+  background: #fff;
+  color: #E3D7BF;
+  border: 1px solid #E3D7BF;
+}
+
+.candd {
+  clear: both;
+  padding: 20px;
+  margin-top: 20px;
+  border-top: 1px solid rgba(0,0,0,.1);
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  position: relative;
+}
+
+.desc-candd {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.name {
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.score {
+  text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+}
+
+.cont-btn {
+  margin-top: 40px;
+}
+
+.entr-fit {
+  font-size: 14px;
+}
+
+.icon-oi {
+  height: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.cont-btn a {
+  color: #fff !important;
+  background: #d6b36a !important;
+  padding: 10px 40px !important;
+  cursor: pointer !important;
+  border: 1px solid #d6b36a !important;
+}
+
+.cont-btn a:hover {
+  border: 1px solid #d6b36a !important;
+  color: #d6b36a !important;
+  background: #fff !important;
+}
+
   * {
     line-height: 2;
   }
+
+  .fil-cad {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+  }
+
 </style>
 <link rel="stylesheet" href="/css/mes_cand_dash.css" />
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
@@ -17,8 +112,12 @@
         <h3 class="title" style="color: #d6b36a !important">CANDIDATS A SUIVRE</h3>
         <div class="fc-item">
           <div class="fc-item-all">
-            <!--         	CANDIDATS  -->
-            <% if @cadres.empty? %>
+
+
+
+
+            <!--          CANDIDATS  -->
+            <!-- <% if @cadres.empty? %>
               Aucun nouveau candidat libre.
             <% else %>
               <% @cadres.each do |cadre| %>
@@ -42,9 +141,60 @@
                   </div>
                 </div>
               <% end %>
-            <% end %>
+            <% end %> -->
 
             <!--  ---------------------------- -->
+
+
+            <!-- -----------------------------------------------------------------------------------------------------------------       -->
+
+                <div class="nw-cont">
+                  <div class="cont-candd">
+
+                  <!-- --------------------------------------------------------------- -->
+                  <!--  CANDIDATS ANAKY RAY NO ETO RY FALY -->
+                  <% if @cadres.empty? %>
+                  <h4>Aucun nouveau candidat libre.</h4>
+                  <% else %>
+                  <% @cadres.each do |cadre| %>
+                   <div class="candd">
+                     <div class="row">
+                     <div class="col-sm-3">
+                       <% unless cadre.image.nil? %>
+                         <%= image_tag(cadre.image, alt: 'photo de profil', style: 'width:120px')%>
+                       <% else %>
+                          <img src="/image/profie.png" alt="photo profil candidats", width="120px" />
+                       <% end %>
+                     </div>
+                     <div class="col-sm-6">
+                       <div class="desc-candd">
+                         <h4 class="name"><%= cadre.first_name %> <%= cadre.last_name %></h4>
+                         <h4 class="score">Score OIAM : <span><%= cadre.score_potential %></h4>
+                       </div>
+                     </div>
+                     <div class="col-sm-3">
+                       <div class="icon-oi">
+                         <%= link_to add_favorite_cadre_path(id:cadre.id), method: :post, "data-confirm":"Êtes-vous sure de suivre cet(te) candidat(e)?" do %>
+                         <img src="/image/Vector-22.png" alt="logo oiam non favorie" width="20px" title="suivre" /> <% end %>
+                       </div>
+                       <div class="cont-btn">
+                       <a href="<%= admin_dashboard_show_candidate_path(cadre.id) %>">VOIR</a>
+                       </div>
+                     </div>
+                     </div>
+                   </div>
+                   <% end %>
+                   <% end %>
+                     <!-- --------------------------------------------------------------------- -->
+
+                   </div>
+                 </div>
+
+        <!-- ----------------------------------------------------------------------------------------------------------- -->
+
+
+
+
           </div>
         </div>
       </div>

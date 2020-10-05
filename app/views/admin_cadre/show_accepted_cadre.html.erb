@@ -19,7 +19,7 @@
 
   .cd-info img {
     width: 300px;
-    height: 300px;  
+    height: 300px;
   }
 
   .cd-info {
@@ -42,7 +42,7 @@
   }
 
   .cd-desc {
-    background: #d6b36a;
+    background: #E3D7BF;
     margin-top: 50px;
     width: 90%;
     height: auto;
@@ -66,18 +66,19 @@
   .mybtn {
     width: 200px;
     height: 400px;
-    background: #fff;
-    color: #d6b36a;
+    background: #E3D7BF;
+    color: #fff;
     padding: 30px 80px;
     text-decoration: none;
-    border: 1px solid #d6b36a;
+    border: 1px solid #fff;
     font-family: Raleway, sans-serif;
+    cursor: pointer;
   }
 
   .mybtn:hover {
     text-decoration: none;
-    color: #fff;
-    background: #d6b36a;
+    color: #E3D7BF;
+    background: #fff;
     border: 1px solid #fff;
   }
 
@@ -116,7 +117,7 @@
   }
 
   .apercu {
-    background: #d6b36a;
+    background: #E3D7BF;
     border: 1px solid #fff;
     color: #fff;
     padding: 15px 60px;
@@ -125,7 +126,7 @@
 
   .apercu:hover {
     background: #fff;
-    color: #d6b36a;
+    color: #E3D7BF;
     border: 1px solid #fff;
     outline: none;
   }
@@ -155,7 +156,7 @@
     margin-left: 20px;
   }
 
-  .score-radio { 
+  .score-radio {
     display: block;
     padding: 5px;
   }
@@ -176,7 +177,7 @@
   }
 
   .btn-link {
-    background: #d6b36a;
+    background: #E3D7BF;
     border: 1px solid #fff;
     color: #fff;
     text-decoration: none;
@@ -187,7 +188,7 @@
   }
 
   .btn-link:hover {
-    color:  #d6b36a;
+    color:  #E3D7BF;
     background: #fff;
     border: 1px solid #fff;
     text-decoration: none;
@@ -197,7 +198,7 @@
     margin-top: 40px;
   }
 
-  .link-show {  
+  .link-show {
     margin-top: 40px;
   }
 
@@ -208,6 +209,22 @@
   .entr-avc h3 {
     color: #fff;
     font-size: 16px;
+  }
+
+  .fcp-box .t1 {
+    color: #d6b36a;
+  }
+
+  .date-list {
+    text-align: center;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    grid-column-gap: 10%;
+  }
+
+  .date-list h3 {
+    border-bottom: 1px solid #fff;
   }
 
 </style>
@@ -221,7 +238,7 @@
     <!-- TITLE -->
     <div>
       <div class="fcp-box">
-      <h3 class="title">ENTRETIEN FIT</h3>
+      <h3 class="title t1">ENTRETIEN FIT</h3>
       <h3 class="title t2">Choisissez la suite a donner a ces candidats et rediger votre avis recruteur</h3>
     </div>
 
@@ -273,8 +290,14 @@
                 </div>
                 <div class="my-count">
                     <p id="time-to-down" class="time-count"></p>
+                    <div class="date-list">
+                      <h3>jours</h3>
+                      <h3>heures</h3>
+                      <h3>minutes</h3>
+                      <h3>secondes</h3>
+                    </div>
                 </div>
-                <% else %> 
+                <% else %>
                 <div class="info-cadd">
                   <h3>Vous avez rencontré <%= @cadre.first_name %> <%= @cadre.last_name %> le <strong><%=  @cadre.agenda_admin.entretien_date.strftime("%d/%m/%Y") %></strong>, comment s'est déroulé votre entretien ?</h3>
                 </div>
@@ -336,7 +359,7 @@
                   <p>Ce candidat n'est pas reçu dans OIAM</p>
                 <% end %>
               </div>
-            <% end %> 
+            <% end %>
           </div>
           </div>
           </div>

@@ -1,4 +1,9 @@
 <link rel="stylesheet" href="/css/offer_client_admin.css" />
+<style>
+  .btn-see {
+    text-transform: uppercase;
+  }
+</style>
 <link rel="stylesheet" href="/css/mes_cand_dash.css" />
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <div class="client-column">
@@ -20,7 +25,7 @@
           <% @offre.each do |offre| %>
             <div class="list-candidat">
               <div class="fci-image">
-  					    <img src="<%= offre.image %>" alt="photo entreprise"> 
+  					    <img src="<%= offre.image %>" alt="photo entreprise">
               </div>
               <div class="fci-icon">
                 <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />

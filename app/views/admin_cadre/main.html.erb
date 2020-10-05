@@ -1,8 +1,85 @@
 <link rel="stylesheet" href="/css/client_profil.css" />
 <style>
     * {
-      line-height: 2;
+      line-height: 1.5;
     }
+
+    .nw-cont {
+      width: 100%;
+    }
+
+    .cont-filter {
+      position: relative;
+      width: 400px;
+      float: right;
+    }
+    .filter {
+      padding-top: 20px;
+      padding-bottom: 20px;
+/*      border-bottom: 1px solid rgba(0,0,0,.1);*/
+    }
+
+    .filter span {
+      align-items: flex-end;
+      background: #E3D7BF;
+      color: #fff;
+      cursor: pointer;
+      font-size: 10px;
+      padding: 10px 30px;
+      text-transform: uppercase;
+      border: 1px solid #E3D7BF;
+    }
+
+    .filter span:hover {
+      background: #fff;
+      color: #E3D7BF;
+      border: 1px solid #E3D7BF;
+    }
+
+    .candd {
+      clear: both;
+      padding: 20px;
+      margin-top: 20px;
+      border-top: 1px solid rgba(0,0,0,.1);
+      border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .desc-candd {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .name {
+      text-decoration: none;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .score {
+      text-decoration: none;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .cont-btn {
+      margin-top: 40px;
+    }
+
+    .cont-btn a {
+      color: #fff !important;
+      background: #d6b36a !important;
+      padding: 10px 40px !important;
+      cursor: pointer !important;
+      border: 1px solid #d6b36a !important;
+    }
+
+    .cont-btn a:hover {
+      border: 1px solid #d6b36a !important;
+      color: #d6b36a !important;
+      background: #fff !important;
+    }
+
 </style>
 <link rel="stylesheet" href="/css/mes_cand_admin.css" />
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
@@ -19,30 +96,45 @@
         <div class="fc-item-all">
 
 <!--         	CANDIDATS  -->
+        <div class="nw-cont">
 
-          <div class="list-candidat">
-            <div class="fci-image">
-					<img src="/image/cand.jpg" alt="photo profil candidats">
-            </div>
-            <div class="fci-icon">
-              <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
-            </div>
-            <div class="fci-infos">
-              <p class="name">Pierre LEVALLLET</p>
-              <p class="score">Score OIAM : <span>70</span></p>
-              <div class="ico-cand">
-              	<a href="<%= message_candidats_path %>" class="ico ico1"><i class="fas fa-pencil-alt fa-lg"></i></a>
-              	<a href="#" class="ico ico2"><i class="fas fa-trash-alt fa-lg"></i></a>
-              </div>
+          <div class="cont-filter">
+            <div class="filter">
+              <span>En cours</span>
+              <span>Traiter</span>
+              <span>A traiter</span>
             </div>
           </div>
 
+          <div class="cont-candd">
 
+           <!--  CANDIDATS ANAKY RAY NO ETO RY FALY -->
+            <div class="candd">
+              <div class="row">
+              <div class="col-sm-3">
+                <img src="/image/profie.png" alt="photo profil candidats", width="120px" />
+              </div>
+              <div class="col-sm-6">
+                <div class="desc-candd">
+                  <h4 class="name">Pierre Le Candidats</h4>
+                  <h4 class="score">Score OIAM: 5500</h4>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="cont-btn">
+                <a href="#">Voir</a>
+                </div>
+              </div>
+              </div>
+            </div>
+              <!-- --------------------------------------------------------------------- -->
+
+
+          </div>
+        </div>
         </div>
       </div>
     </div>
   	</div>
   </div>
 </div>
-
-

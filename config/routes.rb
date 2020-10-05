@@ -196,7 +196,7 @@ Rails.application.routes.draw do
   post 'secret-oiam-page/admin/send-message', to: 'admin_main#post_messaging', as: 'post_messaging'
 
   # route admin cadre
-  get 'secret-oiam-page/admin/cadre/envoyer-un-message', to: 'admin_cadre#main', as: 'admin_cadre_main'
+  get 'secret-oiam-page/admin/cadre/mes-candidats', to: 'admin_cadre#main', as: 'admin_cadre_main'
 
   get 'secret-oiam-page/admin/cadre/entretien-fit', to: 'admin_cadre#entretien_fit', as: 'admin_cadre_entretien_fit'
   get 'secret-oiam-page/admin/cadre/entretien-fit/:id/avis-recruteur', to: 'admin_cadre#show_accepted_cadre', as: 'post_avis_candidats_fit'
