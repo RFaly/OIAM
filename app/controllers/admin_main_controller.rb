@@ -59,6 +59,14 @@ class AdminMainController < ApplicationAdminController
   end
 
   def my_profil
-  	
+
+  end
+
+  def message_candidat
+
+  end
+
+  def message_recruteur
+
   end
 end
