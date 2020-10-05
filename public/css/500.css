@@ -14,10 +14,20 @@ body div {
 }
 
 body span {
-  font: 16px Questrial, sans-serif;
-  font-size: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 500 18px Raleway, sans-serif;
+  font-size: 126px;
   word-spacing: -30px;
   color: #e6b85f;
+}
+
+body span img {
+  margin-top: 50px;
+  margin-bottom: -50px;
+  width: 137px;
+  margin: 0;
 }
 
 body h1 {
