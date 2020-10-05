@@ -6,16 +6,15 @@
     width: 800px;
   }
 
-  .calendr {
-    position: absolute;
-    width: 800px;
-  }
 
   .table td, .table th {
     padding: 20px;
     vertical-align: top;
     border-top: 1px solid #d6b36a;
-    border-left: 1px solid #d6b36a;
+}
+
+.table td {
+    border-right: 1px solid #d6b36a;
 }
 
 
@@ -31,8 +30,7 @@
   text-transform: uppercase;
 }
 
-.calendr {
-    position: absolute;
+.calendrier {
     width: 800px;
     border: 2px solid #d6b36a;
 }
@@ -62,7 +60,6 @@
   <div class="client-menu-left">
     <%= render partial: "admin_dashboard/left_menu_link" %>
   </div>
-
   <div class="cp-box">
     <div>
       <div class="fcp-box">
@@ -70,10 +67,9 @@
       <div class="fc-item">
         <div class="fc-item-all">
 
-<!--          CANDIDATS  -->
 
-          <div class="cont-calendar">            
-            <div class="calendr">
+          <div class="cont-calendar">
+            <div class="calendrier">
           <%= month_calendar events: @agendas do |date, agendas| %>
               <%= date.day %>
               <% agendas.each do |agenda| %>
@@ -85,6 +81,7 @@
               <% end %>
           <% end %>
           </div>
+
           </div>
         </div>
       </div>
@@ -128,5 +125,3 @@
   $($(".calendar-heading").find("a")[0]).addClass("tt")
   $($(".calendar-heading").find("a")[1]).addClass("tt")
 </script>
-
-

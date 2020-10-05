@@ -19,7 +19,7 @@
 
   .cd-info img {
     width: 300px;
-    height: 300px;  
+    height: 300px;
   }
 
   .cd-info {
@@ -155,7 +155,7 @@
     margin-left: 20px;
   }
 
-  .score-radio { 
+  .score-radio {
     display: block;
     padding: 5px;
   }
@@ -197,7 +197,7 @@
     margin-top: 40px;
   }
 
-  .link-show {  
+  .link-show {
     margin-top: 40px;
   }
 
@@ -208,6 +208,10 @@
   .entr-avc h3 {
     color: #fff;
     font-size: 16px;
+  }
+
+  .fcp-box .t1 {
+    color: #d6b36a;
   }
 
 </style>
@@ -221,7 +225,7 @@
     <!-- TITLE -->
     <div>
       <div class="fcp-box">
-      <h3 class="title">ENTRETIEN FIT</h3>
+      <h3 class="title t1">ENTRETIEN FIT</h3>
       <h3 class="title t2">Choisissez la suite a donner a ces candidats et rediger votre avis recruteur</h3>
     </div>
 
@@ -274,7 +278,7 @@
                 <div class="my-count">
                     <p id="time-to-down" class="time-count"></p>
                 </div>
-                <% else %> 
+                <% else %>
                 <div class="info-cadd">
                   <h3>Vous avez rencontré <%= @cadre.first_name %> <%= @cadre.last_name %> le <strong><%=  @cadre.agenda_admin.entretien_date.strftime("%d/%m/%Y") %></strong>, comment s'est déroulé votre entretien ?</h3>
                 </div>
@@ -336,7 +340,7 @@
                   <p>Ce candidat n'est pas reçu dans OIAM</p>
                 <% end %>
               </div>
-            <% end %> 
+            <% end %>
           </div>
           </div>
           </div>
