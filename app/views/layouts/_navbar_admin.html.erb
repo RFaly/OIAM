@@ -2,50 +2,52 @@
 <link rel="stylesheet" href="/css/burger_admin.css" />
 <link rel="stylesheet" href="/css/navbar_admin.css" />
 <!-- body html  -->
-<nav class="navb">
-  <div class="navbar-logo">
-    <% if admin_signed_in? %>
-    <a href="<%=  admin_main_home_path %>">
-      <img src="/image/OIAM_DIAMOND.png" alt="logo" />
-    </a>
-    <% else %>
-    <a href="<%= root_path %>">
-      <img src="/image/OIAM_DIAMOND.png" alt="logo" />
-    </a>
-    <% end %>
-  </div>
-  <div class="btn-btn open">
-    <span class="btn-btn-burger"></span>
-  </div>
-  <div class="navbar-content">
-    <ul class="navbar-ul">
-      <li class="act"><a href="<%= admin_dashboard_agenda_path %>" class="navbar-item">Tableau de bord</a></li>
-
-      <li><a href="<%= admin_cadre_main_path %>" class="navbar-item">Candidats</a></li>
-
-      <li>
-        <a href="<%= admin_client_main_path %>" class="navbar-item">Clients</a>
-      </li>
-
-      <li><a href="<%= admin_administration_main_path %>" class="navbar-item">Administration</a></li>
-    </ul>
-
-    <div class="dropup1">
+  <nav class="navb">
+    <div class="navbar-logo">
       <% if admin_signed_in? %>
-      <div class="dropup-btn1" data-toggle="dropdown">Mon profil</div>
-      <div class="dropup-content1">
-        <a href="<%= admin_main_my_profil_path %>">
-          <div class="dropup-item1">Mon profil</div>
-        </a>
-        <%= link_to destroy_admin_session_path, method:"delete" do %>
-        <div class="dropup-item1">Se déconnecter</div>
-        <% end %>
-      </div>
+      <a href="<%=  admin_main_home_path %>">
+        <img src="/image/OIAM_DIAMOND.png" alt="logo" />
+      </a>
       <% else %>
-      <div class="dropup-btn1" data-toggle="dropdown">
-        <a href="<%= new_admin_session_path %>">Se connecter</a>
-      </div>
+      <a href="<%= root_path %>">
+        <img src="/image/OIAM_DIAMOND.png" alt="logo" />
+      </a>
       <% end %>
+    </div>
+    <div class="btn-btn open">
+      <span class="btn-btn-burger"></span>
+    </div>
+    <div class="navbar-content">
+      <ul class="navbar-ul">
+        <li class="act"><a href="<%= admin_dashboard_agenda_path %>" class="navbar-item">Agenda</a>  </li>
+        <li><a href="<%= admin_cadre_main_path %>" class="navbar-item">Candidats</a></li>
+        <li>
+          <a href="<%= admin_client_main_path %>" class="navbar-item">Clients</a>
+        </li>
+         <li><a href="<%= admin_main_messaging_path %>" class="navbar-item">Messagerie</a></li>
+        <li><a href="<%= admin_main_notification_path %>" class="navbar-item">Notifications</a></li>
+<!--         <li><a href="<%= admin_administration_main_path %>" class="navbar-item">Administration</a></li> -->
+      </ul>
+
+
+      <div class="dropup1">
+              <% if admin_signed_in? %>
+                  <div class="dropup-btn1" data-toggle="dropdown">
+                    Mon profil
+                  </div>
+                    <div class="dropup-content1">
+                      <a href="<%= admin_main_my_profil_path %>">
+                        <div class="dropup-item1">Mon profil</div>
+                      </a>
+                      <%= link_to destroy_admin_session_path, method:"delete" do %>
+                      <div class="dropup-item1">Se déconnecter</div>
+                      <% end %>
+                    </div>
+              <% else %>
+                <div class="dropup-btn1" data-toggle="dropdown">
+                  <a href="<%= new_admin_session_path %>">Se connecter</a>
+                </div>
+              <% end %>
     </div>
   </div>
 </nav>

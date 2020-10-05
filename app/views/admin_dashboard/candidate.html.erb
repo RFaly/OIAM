@@ -3,6 +3,12 @@
   * {
     line-height: 2;
   }
+
+  .fil-cad {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+  }
+
 </style>
 <link rel="stylesheet" href="/css/mes_cand_dash.css" />
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
@@ -17,7 +23,7 @@
         <h3 class="title" style="color: #d6b36a !important">CANDIDATS A SUIVRE</h3>
         <div class="fc-item">
           <div class="fc-item-all">
-            <!--         	CANDIDATS  -->
+            <!--          CANDIDATS  -->
             <% if @cadres.empty? %>
               Aucun nouveau candidat libre.
             <% else %>
@@ -51,3 +57,4 @@
     </div>
   </div>
 </div>
+
