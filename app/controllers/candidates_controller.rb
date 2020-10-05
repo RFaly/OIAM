@@ -29,10 +29,6 @@ class CandidatesController < ApplicationController
   end
 
   def confirmedProfil
-    puts "~"*45
-    puts params.inspect
-    puts "~"*45
-
     errorMessage = ""
 
     is_error = params[:cadre_info][:job].empty? || params[:cadre_info][:question3].empty? || params[:cadre_info][:question4].empty? || params[:cadre_info][:question5].empty? || params[:cadre_info][:status].empty? || params[:cadre_info][:disponibilite].empty? || params[:cadre_info][:mobilite].empty?
@@ -106,11 +102,26 @@ class CandidatesController < ApplicationController
 	def searchJob
     validate_info_cadre
     @metiers = Metier.all
+    @regions = Region.all
     @offres = OffreJob.where(is_publish:true)
 	end
 
   def jobsPersonalized
     validate_info_cadre
+    cadre_info = current_cadre.cadre_info
+    minimum_salar = cadre_info.question4.to_i
+    region = cadre_info.region.name
+    ville = cadre_info.ville.name
+    @offres = cadre_info.metier.offre_jobs
+    @offres = @offres.where("remuneration >= #{minimum_salar}")
+    @offres = @offres.where(type_deplacement: cadre_info.mobilite)
+    unless region == "Toutes les régions"
+      if ville == "Tous les départements"
+        @offres = @offres.where(region:region)
+      else
+        @offres = @offres.where(region:region,department:ville)
+      end
+    end
   end
 
   def showSearchJob
@@ -627,6 +638,48 @@ class CandidatesController < ApplicationController
 
   def save_coordinate_banking #formularie pour enregistrer la coordonné bancaire
     # gem wiked_pdf
+  end
+
+  def search_bar_job
+
+    @offres = OffreJob.where(is_publish:true)
+
+    region = params[:region]
+
+    unless region.empty?
+      unless region == "all"
+        region = Region.find_by_id(region)
+        @offres = @offres.where(region: region.name)  
+      end
+    end
+
+    unless params[:metier].empty?
+      metier = Metier.find_by_id(params[:metier])
+      unless metier.nil?
+        @offres = @offres.where(metier: metier)
+      end
+    end
+
+    unless params[:remuneration].empty?
+      @offres = @offres.where("remuneration >= #{params[:remuneration].to_i}")
+    end
+
+    unless params[:deplacement].empty?
+      @offres = @offres.where(type_deplacement:params[:deplacement])
+    end
+
+    if params[:region].empty? && params[:metier].empty? && params[:remuneration].empty? && params[:deplacement].empty?
+      @offres = []
+    end
+
+    respond_to do |format|
+      format.html do
+        redirect_to searchJob_path
+      end
+      format.js do
+      end
+    end
+
   end
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

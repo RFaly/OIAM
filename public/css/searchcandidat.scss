@@ -4,7 +4,7 @@
 .select-cadre-box {
   width: 95%;
   margin: 0 auto;
-  .search {
+  #send-data-form {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -59,17 +59,25 @@
       }
     }
     .td-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 2px solid $main_theme_color;
-      padding: 10px 20px;
-      // margin: 10px auto;
-      text-transform: uppercase;
-      font: $ffbtn;
-      font-size: 15px;
-      color: $main_theme_color;
-      cursor: pointer;
+      input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid $main_theme_color;
+        padding: 10px 20px;
+        background: white;
+        // margin: 10px auto;
+        text-transform: uppercase;
+        font: $ffbtn;
+        font-size: 15px;
+        color: $main_theme_color;
+        cursor: pointer;
+        &:hover,
+        &:active {
+          background: $main_theme_color;
+          color: white;
+        }
+      }
     }
   }
   .select-cadre-list {

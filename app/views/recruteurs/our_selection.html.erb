@@ -1,30 +1,67 @@
+<% content_for :head_style do %>
+<link rel="stylesheet" href="/css/selection_cadre.css" />
+<% end %>
+<!-- body html  -->
+<div class="client-column">
+  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
+  <div class="cp-box">
+    <div class="selection-box">
+      <div class="title">NOTRE SELECTION</div>
+      <% unless @cadre_infos.empty? %>
+      <div class="select-cadre-list-items">
+        <% @cadre_infos.each do |cadre_info| %>
+        <div class="cadre-box">
+          <div class="cadre-box-image">
+            <div class="cbi-photo">
+              <%= link_to show_search_candidate_path(cadre_info.cadre.id, offre_id: @offre.id), method: :get do %>
+              <div class="c" style="background: url(<%= cadre_info.image%>) center no-repeat; background-size: cover"></div>
+              <% end %> <%= image_tag(cadre_info.image, alt: 'photo profil cadre', class:"js-image-#{cadre_info.cadre.id} " ,style:'display:none')%>
+            </div>
+          </div>
+          <div class="cadre-box-info">
+            <p class="name"><%= cadre_info.first_name %> <%= cadre_info.last_name[0].upcase %>.</p>
+            <p class="compatibilite">Compatibilité : <span> <%= cadre_info.compatibilite %>%</span></p>
+            <p class="score">Score OIAM : <span><%= cadre_info.score_potential %></span></p>
+            <p class="poste">Type de poste : <% if cadre_info.metier.nil? %> Manager marketing <% else %> <%= cadre_info.metier.name %> <% end %></p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <p>Cette sélection est celle que nous vous recommandons d’après notre algorithme. Si vous voulez en voir plus <a href="#">cliquez ici</a></p>
+      <% else %>
+      <p class="empty">Aucun candidat ne correspond à votre offre pour le moment.</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <div class="row">
-	<div class="col-sm-3">
-		<%= render partial: "recruteurs/left_link_bar" %>
-	</div>
+  <div class="col-sm-3"><%= render partial: "recruteurs/left_link_bar" %></div>
 
-	<div class="col-sm-9">
-		<h1>NOTRE SELECTION</h1>
+  <div class="col-sm-9">
+    <h1>NOTRE SELECTION</h1>
 
-<div>
-	<img src="">
-		Linchan T. <br>
-	Score de test : 1025 <br>
+    <% unless @cadre_infos.empty? %>
+    <div class="select-cadre-list-items">
+      <% @cadre_infos.each do |cadre_info| %>
+      <div class="cadre-box">
+        <div class="cadre-box-image">
+          <div class="cbi-photo">
+            <%= link_to show_search_candidate_path(cadre_info.cadre.id, offre_id: @offre.id), method: :get do %>
+            <div class="c" style="background: url(<%= cadre_info.image%>) center no-repeat; background-size: cover"></div>
+            <% end %> <%= image_tag(cadre_info.image, alt: 'photo profil cadre', class:"js-image-#{cadre_info.cadre.id} " ,style:'display:none')%>
+          </div>
+        </div>
+        <div class="cadre-box-info">
+          <p class="name"><%= cadre_info.first_name %> <%= cadre_info.last_name[0].upcase %>.</p>
+          <p class="compatibilite">Compatibilité : <span> <%= cadre_info.compatibilite %>%</span></p>
+          <p class="score">Score OIAM : <span><%= cadre_info.score_potential %></span></p>
+          <p class="poste">Type de poste : <% if cadre_info.metier.nil? %> Manager marketing <% else %> <%= cadre_info.metier.name %> <% end %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <p>Cette sélection est celle que nous vous recommandons d’après notre algorithme. Si vous voulez en voir plus <a href="#">cliquez ici</a></p>
+    <% else %> Aucun candidat ne correspond à votre offre pour le moment. <% end %>
+  </div>
 </div>
-
-<div>
-	<img src="">
-	Mathilde H.
-	Compatibilité : 90%
-	Score OIAM : 1005
-	Type de poste : Manager Marketing
-</div>
-
-		<p>
-			Cette sélection est celle  que nous vous recommandons d’après notre algorithme. Si vous voulez en voir plus <a href="#">cliquez ici</a>
-		</p>
-	</div>
-</div>
-
-
-

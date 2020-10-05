@@ -67,6 +67,12 @@ body{
   margin-left: 5px;
 }
 
+.content-title{
+  text-align: center;
+  color: #D6B36A;
+  margin-bottom: 50px;
+}
+
 .seacrh-drop{
   display: block;
   margin: auto;
@@ -175,12 +181,22 @@ body{
 .hidden { display: none; }
 .readmore { margin: 0 5px;cursor: pointer; color: #000; text-decoration: none;cursor: default; pointer-events: none;text-decoration: none; col}
 @media only screen and (min-width: 900px){
+  .content{
+    display: flex;
+    width: 100%;
+  }
+
   .all-content{
     display: flex;
+    margin-top: 20px;
   }
 
   .no-flex{
     clear: both;
+  }
+
+  .left_link_bar{
+    border-right: 1px solid #D6B36A;
   }
 
   .seacrh-drop{

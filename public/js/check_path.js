@@ -69,4 +69,17 @@ $(document).ready(function () {
     $('.left-menu-r a[href="/recruteur/messages"]').addClass('color-this');
   }
   //end check path menu recruteur
+  stopSpinner();
+});
+
+window.startSpinner = function () {
+  return $('#loading-indicator').fadeIn();
+};
+
+window.stopSpinner = function () {
+  return $('#loading-indicator').fadeOut(1500);
+};
+
+$(document).on('page:fetch', function () {
+  startSpinner();
 });
