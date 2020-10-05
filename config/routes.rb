@@ -191,6 +191,10 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/notifications', to: 'admin_main#notification', as: 'admin_main_notification'
   get 'secret-oiam-page/admin/mon-profil', to: 'admin_main#my_profil', as: 'admin_main_my_profil'
 
+  #route message admin
+  get 'secret-oiam-page/admin/messages/:id', to: 'admin_main#show_messaging', as: 'admin_show_messaging'
+  post 'secret-oiam-page/admin/send-message', to: 'admin_main#post_messaging', as: 'post_messaging'
+
   # route admin cadre
   get 'secret-oiam-page/admin/cadre/envoyer-un-message', to: 'admin_cadre#main', as: 'admin_cadre_main'
 
