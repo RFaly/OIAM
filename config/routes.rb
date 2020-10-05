@@ -194,6 +194,11 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/messages-candidats', to: 'admin_main#message_candidat', as: 'admin_messaging_candidat'
   get 'secret-oiam-page/admin/messages-recruteurs', to: 'admin_main#message_recruteur', as: 'admin_messaging_recruteur'
 
+  #route message admin
+  get 'secret-oiam-page/admin/messages/:id', to: 'admin_main#show_messaging', as: 'admin_show_messaging'
+  post 'secret-oiam-page/admin/send-message', to: 'admin_main#post_messaging', as: 'post_messaging'
+
+
   # route admin cadre
   get 'secret-oiam-page/admin/cadre/mes-candidats', to: 'admin_cadre#main', as: 'admin_cadre_main'
 

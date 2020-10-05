@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_02_064839) do
+ActiveRecord::Schema.define(version: 2020_10_05_062928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -181,6 +181,18 @@ ActiveRecord::Schema.define(version: 2020_10_02_064839) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_entreprises_on_client_id"
+  end
+
+  create_table "facture_formations", force: :cascade do |t|
+    t.string "ov"
+    t.float "prix"
+    t.boolean "is_payed"
+    t.bigint "formation_id"
+    t.bigint "cadre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cadre_id"], name: "index_facture_formations_on_cadre_id"
+    t.index ["formation_id"], name: "index_facture_formations_on_formation_id"
   end
 
   create_table "factures", force: :cascade do |t|

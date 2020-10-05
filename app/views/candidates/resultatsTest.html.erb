@@ -34,14 +34,9 @@
 				<p>Malheureusement, ce score est insuffisant pour vous permettre d’intégrer One in a Million.</p>
 				<p>Nous savons que ces résultats peuvent être frustrants, aussi vous avez la possibilité de passer le test une seconde fois au cours de votre vie, dans un délai minimum de 6 mois.</p>
 				<p>Afin de maximiser vos chances, nous vous proposons des ateliers de coaching.</p>
-				<div class="row">
-					<div class="col-sm-6">
-						<%= link_to "RETOUR AU MENU", '#', class:'pass-test', id:'link-to-menu' %>
-					</div>
-					<div class="col-sm-6">
-						<%= link_to "AMÉLIORER MES RESULTATS", formation_all_path, class:'pass-test', id:'link-to-resultats' %>
-					</div>
-				</div>
+				<!-- formation_all_path(comfirm:@cadreInfo.confirm_token) -->
+				<%= link_to "AMÉLIORER MES RESULTATS","#", class:'pass-test', id:'link-to-resultats' %>
+				
 			<% else %>
 				<% if @cadreInfo.score_fit.nil? %>
 					<div class="content">
