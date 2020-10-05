@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_page#contact', as: 'contact'
 
   get '/oiam', to: 'static_page#nothing', as: 'nothing'
-  
+
 
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Client ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :clients, path: 'clients', controllers: {
@@ -62,13 +62,13 @@ Rails.application.routes.draw do
   patch '/recruteur/publier/:id/-offre', to: 'recruteurs#publish', as: 'publish'
 
   get '/recruteur/offre/:id/notre-selection', to: 'recruteurs#our_selection', as: 'our_selection'
-  get '/recruteur/offre/:id/recherche-candidat', to: 'recruteurs#search_candidate', as: 'search_candidate'  
+  get '/recruteur/offre/:id/recherche-candidat', to: 'recruteurs#search_candidate', as: 'search_candidate'
   get '/recruteurs/offre/:id/candidate', to:'recruteurs#show_search_candidate', as:'show_search_candidate'
   post '/recruteurs/favorite/:id/candidate', to:'recruteurs#add_top_five_candidate', as:'add_top_five_candidate'
   post '/recruteurs/envoyer-invitation-entretien', to:'recruteurs#save_entretien_client', as:'save_entretien_client'
   post '/recruteurs/envoyer-reponse-entretien', to:'recruteurs#notice_refused_post', as:'notice_refused_post'
   post '/recruteurs/candidate-change/reponse-entretien', to:'recruteurs#update_entretien_client', as:'update_entretien_client'
-  
+
   # show promesse d'embauche
   get '/recruteur/offre-d-emploi/:id/contrat-d-embauche', to: 'recruteurs#show_promise_to_hire', as: 'show_promise_to_hire'
   #create a promesse d'embauche
@@ -91,7 +91,7 @@ Rails.application.routes.draw do
 
   # les 3 test a faire
   get '/cadre/welcome-to-test', to: 'candidates#my_tests', as: 'my_tests'
-  
+
   get '/cadre/potential-test', to: 'candidates#testpotential', as: 'testpotential'
   get '/cadre/go-potential-test', to: 'candidates#init_testpotential', as: 'init_testpotential'
 
@@ -149,15 +149,15 @@ Rails.application.routes.draw do
   post '/cadre/post-repons-received-job', to:'candidates#post_repons_received_job', as: 'post_repons_received_job'
   get '/cadre/suivi-recrutement', to: 'candidates#recrutmentMonitoring', as: 'recrutment_monitoring'
   get '/cadre/suivi-recrutement/:ofc_id/mon-progression', to: 'candidates#showRecrutmentMonitoring', as: 'show_recrutment_monitoring'
-  
+
   get '/cadre/suivi-recrutement/:id/promesse-d-embauche', to: 'candidates#cadre_show_promise_to_hire', as: 'cadre_show_promise_to_hire'
   patch '/cadre/suivi-recrutement/:id_pdm/validate-promesse-d-embauche', to: 'candidates#cadre_update_promise_to_hire', as: 'cadre_update_promise_to_hire'
-  
+
   # reclamer la prime et message de felicitation
   get '/cadre/suivi-recrutement/:confirm_token/félicitations', to: 'candidates#congratulations_cadre', as: 'congratulations_cadre'
-  
-  post '/cadre/suivi-recrutement/confirmation-periode-d-essai', to: 'candidates#validate_time_trying_cadre', as: 'validate_time_trying_cadre'  
-  
+
+  post '/cadre/suivi-recrutement/confirmation-periode-d-essai', to: 'candidates#validate_time_trying_cadre', as: 'validate_time_trying_cadre'
+
   post '/cadre/suivi-recrutement/félicitations/prime', to: 'candidates#save_coordinate_banking', as: 'save_coordinate_banking'
 
   get '/cadre/mes-notifications', to: 'candidates#notifications', as: 'cadres_notifications'
@@ -179,7 +179,7 @@ Rails.application.routes.draw do
 
   #~~~~~~~~~~~~~~~~~~~~~~~~ Admin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Lien pour authentification admin
-  devise_for :admins, path: 'secret-oiam-page/admin',:skip => [:registrations], controllers: { 
+  devise_for :admins, path: 'secret-oiam-page/admin',:skip => [:registrations], controllers: {
     sessions: "admins/sessions"
   }, path_names: {
     sign_in: 'se-connecter', sign_out: 'se-deconneter', cancel: 'supprimer',
@@ -187,19 +187,22 @@ Rails.application.routes.draw do
   }
   # routes principale dans admin_main
   get 'secret-oiam-page/admin', to: 'admin_main#home', as: 'admin_main_home'
-  get 'secret-oiam-page/admin/messages', to: 'admin_main#messaging', as: 'admin_main_messaging'
   get 'secret-oiam-page/admin/notifications', to: 'admin_main#notification', as: 'admin_main_notification'
   get 'secret-oiam-page/admin/mon-profil', to: 'admin_main#my_profil', as: 'admin_main_my_profil'
+
+  # routes message admin
+  get 'secret-oiam-page/admin/messages-candidats', to: 'admin_main#message_candidat', as: 'admin_messaging_candidat'
+  get 'secret-oiam-page/admin/messages-recruteurs', to: 'admin_main#message_recruteur', as: 'admin_messaging_recruteur'
 
   # route admin cadre
   get 'secret-oiam-page/admin/cadre/mes-candidats', to: 'admin_cadre#main', as: 'admin_cadre_main'
 
   get 'secret-oiam-page/admin/cadre/entretien-fit', to: 'admin_cadre#entretien_fit', as: 'admin_cadre_entretien_fit'
   get 'secret-oiam-page/admin/cadre/entretien-fit/:id/avis-recruteur', to: 'admin_cadre#show_accepted_cadre', as: 'post_avis_candidats_fit'
-  
+
   post 'secret-oiam-page/admin/cadre/entretien-fit', to: 'admin_cadre#candidate_to_cadre', as: 'candidate_to_cadre'
   post 'secret-oiam-page/admin/cadre/entretien-fit/ok', to: 'admin_cadre#accepted_or_reffused', as: 'accepted_or_reffused'
-  
+
 
   # get 'secret-oiam-page/admin/cadre/envoyer-un-message', to: 'admin_cadre#send_message', as: 'admin_cadre_send_message'
 
@@ -226,7 +229,7 @@ Rails.application.routes.draw do
 
   get 'secret-oiam-page/admin/dashboard/candidats-a-suivre', to: 'admin_dashboard#candidate', as: 'admin_dashboard_candidate'
   get 'secret-oiam-page/admin/dashboard/:id/candidats-a-suivre', to: 'admin_dashboard#show_candidate', as: 'admin_dashboard_show_candidate'
-  
+
 
   get 'secret-oiam-page/admin/dashboard/taches', to: 'admin_dashboard#tache', as: 'admin_dashboard_tache'
 
@@ -269,4 +272,3 @@ cancel_client_registration GET    /clients/cancel(.:format)        clients/regis
     new_admin_registration GET    /admins/sign_up(.:format)        admins/registrations#new
    edit_admin_registration GET    /admins/edit(.:format)           admins/registrations#edit
 =end
-
