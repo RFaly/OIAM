@@ -1,0 +1,44 @@
+@import 'config';
+.body {
+  height: 90vh;
+  display: flex;
+  font: $ffbtn;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  span {
+    font: $ffsentence;
+    font-size: 150px;
+    word-spacing: -30px;
+    color: #e6b85f;
+    line-height: 0.5;
+    img {
+      width: 130px;
+      margin: 0;
+    }
+  }
+  div {
+    padding: 50px;
+    border: 2px solid rgba(0, 0, 0, 0.418);
+  }
+  .link {
+    margin-top: 50px;
+    border: 2px solid #e6b85f;
+    padding: 10px 0;
+    text-align: center;
+    a {
+      //   padding: 12px 3px;
+      color: #e6b85f;
+      text-decoration: none;
+      text-transform: uppercase;
+      font: $ffbtn;
+    }
+    &:hover {
+      a {
+        color: white;
+      }
+      background: #e6b85f;
+    }
+  }
+}
