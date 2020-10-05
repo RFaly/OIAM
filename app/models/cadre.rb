@@ -3,6 +3,9 @@ class Cadre < ApplicationRecord
 
 	has_one :cadre_info
 
+  has_many :facture_formations
+  has_many :formations, through: :facture_formations
+
 	has_many :promise_to_hires
   has_many :offre_jobs, through: :promise_to_hires
 
