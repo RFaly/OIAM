@@ -19,7 +19,7 @@
 
   .cd-info img {
     width: 300px;
-    height: 300px;  
+    height: 300px;
   }
 
   .cd-info {
@@ -42,7 +42,7 @@
   }
 
   .cd-desc {
-    background: #d6b36a;
+    background: #E3D7BF;
     margin-top: 50px;
     width: 90%;
     height: auto;
@@ -66,19 +66,19 @@
   .mybtn a{
     width: 200px;
     height: 400px;
-    background: #fff;
-    color: #d6b36a;
+    background: #E3D7BF;
+    color: #fff;
     padding: 30px 80px;
     text-decoration: none;
-    border: 1px solid #d6b36a;
+    border: 1px solid #fff;
     font-family: Raleway, sans-serif;
   }
 
   .mybtn a:hover {
     text-decoration: none;
-    color: #fff;
+    color: #E3D7BF;
     border: 1px solid #fff;
-    background: #d6b36a;
+    background: #fff;
   }
 
   .info-cadd {
@@ -155,7 +155,7 @@
     margin-left: 20px;
   }
 
-  .score-radio { 
+  .score-radio {
     display: block;
     padding: 5px;
   }
@@ -197,7 +197,7 @@
     margin-top: 40px;
   }
 
-  .link-show {  
+  .link-show {
     margin-top: 40px;
   }
 
@@ -269,12 +269,12 @@
                 <div class="entr-avc">
                   <h3>Entretien fit avec ce cadre le :  <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span></h3>
                 </div>
-                <% else %> 
+                <% else %>
                 <div class="entr-avc">
                   <h3>En attente de la proposition du date de l'entretien par le cadre.</h3>
                 </div>
                 <% end %>
-                
+
 
                 <div class="info-cadd">
                 <div class="all-btn">
@@ -327,4 +327,3 @@
     $(this).html(dateString + ' à ' + heur + 'h:'+min);
   });
 </script>
-
