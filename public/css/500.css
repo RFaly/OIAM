@@ -1,0 +1,25 @@
+body {
+  height: 90vh;
+  font: 500 18px Raleway, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+body div {
+  padding: 50px;
+  border: 2px solid rgba(0, 0, 0, 0.418);
+}
+
+body span {
+  font: 16px Questrial, sans-serif;
+  font-size: 150px;
+  word-spacing: -30px;
+  color: #e6b85f;
+}
+
+body h1 {
+  font-size: 18px;
+}

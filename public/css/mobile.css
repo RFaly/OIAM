@@ -622,6 +622,9 @@
     width: 70%;
     margin: 10px 0;
   }
+  .link a {
+    padding: 12px 3px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -955,6 +958,13 @@
   .message-box .message-contact-items .link {
     width: 80%;
     margin-left: 5px;
+  }
+  .link {
+    margin: 0 auto;
+    width: 330px;
+  }
+  .link a {
+    padding: 12px 8px;
   }
 }
 
