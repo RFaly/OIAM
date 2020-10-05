@@ -1,7 +1,15 @@
 class FormationCandidateController < ApplicationController
+  before_action :authenticate_cadre!, except: [:index,:date_rdv]
+
   def index
     confirm_token = params[:comfirm]
     @cadreInfo = CadreInfo.find_by_confirm_token(confirm_token)
+
+    # cookies.encrypted[:oiam_cadre] = {
+    #  value: @cadreInfo.confirm_token,
+    #  expires: Time.now + 172800
+    # }
+
   	@formations = Formation.all
     #comfirm
   end
@@ -25,13 +33,11 @@ class FormationCandidateController < ApplicationController
   end
 
   def facture
-    
+    @FactureFormations = current_cadre.facture_formations
   end
 
   def my_formation
     
   end
-
-
 
 end
