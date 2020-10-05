@@ -2,15 +2,15 @@
 
 
 <div class="all-content">
-	<div class="content">
+
 	<div class="left_link">
 		<%= render partial: "candidates/left_link_bar" %>
 	</div>
 	<div class="main">
 			<%= form_tag(search_bar_job_path, remote:true, id:"send-data-form") do %>
 		<div class="seach-bar">
-			
-			<div class="bar-long">	
+
+			<div class="bar-long">
 				<select name="region" id="" class="seacrh-drop">
 					<option value="" disabled selected>Localisation</option>
 					<option value="all">France entière</option>
@@ -114,7 +114,7 @@
 			<% end %>
 		</div>
 	</div>
-</div>
+
 
 <div class="no-flex"></div>
 </div>
