@@ -1,18 +1,53 @@
-<link rel="stylesheet" href="/css/admin_admin.css" />
-<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="/css/my_messages.css" />
 <style>
-  .box-mess h6 {
-    font-size: 14px;
+  .mes {
+    text-align: center;
   }
-</style>
-<div class="client-column">
-	<div class="client-menu-left">
-		<%= render partial: "admin_main/left_menu_message_link" %>
-	</div>
 
-	<div class="cp-box">
-		<div>
-			<h3 class="title" style="color: #d6b36a !important">MA MESSAGERIE</h3>
-		</div>
-	</div>
+  .mes h4 {
+    font-size: 14px;
+    font-weight: 200;
+    font-family: Raleway, sans-serif;
+  }
+
+</style>
+<div class="all-content">
+  <div class="left-content"><%= render partial: "admin_main/left_menu_message_link" %></div>
+
+  <div class="main">
+    <h2 class="main-title">MA MESSAGERIE</h2>
+    <% if @contactClient.count == 0 %>
+    <div class="mes">
+      <h4>Aucun contact d'un candidat</h4>
+    </div>
+    <% else %>
+    <% @contactClient.each do |contact| %>
+    <!-- <% nbr = contact.mp_cadre_not_see %> -->
+    <a href="<%= show_my_messages_cadre_path(contact.client.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>">
+    <div class="message">
+      <div class="block-image">
+        <%= image_tag(contact.client.image, alt: 'photo de profil', class:"pdp" )%>
+        <% if contact.client.is_online? %>
+          <span class="connected"></span>
+        <% end %>
+        </div>
+      <div class="message-content">
+        <div class="recruteur-name"><%= contact.client.first_name %> <%= contact.client.last_name %></div>
+        <div class="message-body">
+          <% unless nbr == 0 %>
+            <span class="alert-info"><%= nbr %></span>
+          <% end %>
+          <!-- <% unless contact.message_client_cadres.last.is_client %>vous : <%end%> <%= contact.message_client_cadres.last.content %> -->
+        </div>
+      </div>
+      <div class="connected-times">
+          <% unless contact.client.is_online? %>
+            <span class="not-connected">Connectée il y a <%= time_ago_in_words(contact.client.online_time) %></span>
+          <% end %>
+        </div>
+    </div>
+    </a>
+    <% end %>
+    <% end %>
+  </div>
 </div>
