@@ -1,0 +1,151 @@
+@import 'config';
+p {
+  margin-bottom: 0;
+}
+* {
+  line-height: 1.5;
+  font: $ffsentence;
+}
+hr {
+  background: #000;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.bolder {
+  font-weight: bold;
+}
+.nav-facture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 50px;
+  padding-bottom: 20px;
+  padding-top: 40px;
+  p {
+    margin-bottom: 10px;
+  }
+  hr {
+    margin-top: 0;
+  }
+}
+.facture-content {
+  padding: 50px;
+  padding-top: 100px;
+  .infos-box {
+    .infos {
+      img {
+        width: 250px;
+      }
+      .contact {
+        font: $ffbtn;
+      }
+    }
+    .facture {
+      width: 60%;
+      flex-direction: column;
+      padding-bottom: 60px;
+    }
+  }
+}
+.objet {
+  margin: 20px 0;
+}
+.table1 {
+  border-collapse: collapse;
+  margin-bottom: 10px;
+  th {
+    font-weight: bold;
+  }
+  td {
+    border: 1px solid black;
+    padding: 10px 5px;
+    &:nth-child(1) {
+      border-left: none;
+      width: 150px;
+    }
+    &:last-child {
+      width: 100px;
+      border-right: none;
+    }
+  }
+  .span {
+    width: 100px;
+    text-align: right;
+    span {
+      display: block;
+    }
+  }
+}
+.note-box {
+  .note {
+    width: 45%;
+    border: 1px solid #000;
+    padding: 5px;
+    ul {
+      padding-left: 50px;
+      text-align: justify;
+    }
+  }
+  table {
+    td {
+      padding: 5px 30px;
+      background: #fff;
+      text-align: right;
+      span {
+        font-style: italic;
+        color: rgba(0, 0, 0, 0.774);
+        font-size: 13px;
+      }
+    }
+    .spec {
+      td {
+        padding: 20px 30px;
+      }
+      &.bor {
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+      }
+    }
+  }
+}
+.befor-last {
+  margin: 20px 0;
+  table {
+    border-collapse: collapse;
+  }
+
+  td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: right;
+    padding-left: 20px;
+    &:first-child {
+      padding-left: 5px;
+      padding-right: 20px;
+      text-align: left;
+    }
+  }
+
+  th {
+    font-weight: bold;
+  }
+}
+.facture-footer {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  padding: 50px;
+  left: 0;
+  bottom: 0;
+}
+.last-table {
+  td {
+    padding: 10px 50px;
+  }
+}
+.last-p {
+  padding: 10px 50px;
+}
