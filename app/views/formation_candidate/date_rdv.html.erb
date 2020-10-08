@@ -87,9 +87,9 @@
 
 		let lera = ""
 		if((dateGet.getMinutes()+"").length == 1){
-		  lera = dateGet.getHours() + 'h:0'+dateGet.getMinutes();
+		  lera = dateGet.getHours() + 'h0'+dateGet.getMinutes();
 		}else{
-		  lera = dateGet.getHours() + 'h:'+dateGet.getMinutes();
+		  lera = dateGet.getHours() + 'h'+dateGet.getMinutes();
 		}
 
 		$("#current-date-js").html(dateString +" à "+ lera)

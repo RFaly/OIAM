@@ -324,6 +324,6 @@
     let heur = (""+dateGet.getHours()).length == 1 ? ("0"+dateGet.getHours()) : dateGet.getHours()
     let min = (""+dateGet.getMinutes()).length == 1 ? ("0"+dateGet.getMinutes()) : dateGet.getMinutes()
 
-    $(this).html(dateString + ' à ' + heur + 'h:'+min);
+    $(this).html(dateString + ' à ' + heur + 'h'+min);
   });
 </script>
