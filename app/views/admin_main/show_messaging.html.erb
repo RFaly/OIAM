@@ -1,6 +1,7 @@
+<% @title="Messagerie" %>
 <% @messages.each do |message| %>
 	<% if message.is_admin %>
-		<p>Vous: <%= message.content %></p>	
+		<p>Vous: <%= message.content %></p>
 	<% else %>
 	<p><%= message.content %></p>
 	<% end %>
@@ -13,4 +14,3 @@
 			<%= submit_tag("Envoyer") %>
 		</span>
 <% end %>
-

@@ -1,149 +1,139 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<h1>FacturationPdf#index</h1>
-<p>Find me in app/views/facturation_pdf/index.html.erb</p>
-<%= @pcalcul%> €
-
-<p>Eighty Eight SAS - Facture FACT-20200324-00011 <span>Page 1/2</span></p>
-<hr />
-<div class="infos">
-  <img src="/public/image/88 Manoushka BEIGE.webp" alt="logo 88" />
-  <p>128 rue La Boétie</p>
-  <p>75008 Paris</p>
-  <p>France</p>
-  <p class="contact">Votre contact : Emmanuelle VANDEPITTERIE</p>
-  <p>Tel : +33 1 70 25 98 56</p>
-  <p>Mobile : +33 6 29 41 02 14</p>
-  <p>Email : emmanuelle@88-recrutement.com</p>
-</div>
-<div class="facture">
-  <div class="facture-info">
-    <div class="numero">Facture FACT-20200324-00011</div>
-    <div class="date">En date du : 24/03/2020</div>
+<div class="facture-content">
+  <div class="infos-box flex">
+    <div class="infos">
+      <%= image_tag wicked_pdf_asset_base64("download.png") -%></br>
+      128 rue La Boétie<br>
+      75008 Paris</br>
+     France</br>
+      <span class="contact">Votre contact : Emmanuelle VANDEPITTERIE</span></br>
+      Tel : +33 1 70 25 98 56</br>
+      Mobile : +33 6 29 41 02 14</br>
+      Email : emmanuelle@88-recrutement.com</br>
+    </div>
+    <div class="facture2 flex">
+      <div class="facture-info">
+        <div class="numero">Facture FACT-20200324-00011</div>
+        <div class="date">En date du : 24/03/2020</div>
+      </div>
+      <div class="loc">
+        <div class="stat">Corlido France SARL</div>
+       43/47 Avenue de la Grande Armée</br>
+        75116 Paris 16</br>
+        France<br>
+      </div>
+    </div>
   </div>
-  <div class="loc">
-    <div class="stat">Corlido France SARL</div>
-    <p>43/47 Avenue de la Grande Armée</p>
-    <p>75116 Paris 16</p>
-    <p>France</p>
+  <div class="objet">Objet : Votre demande de Recrutement & Chasse de tête
   </div>
-</div>
-<p>Objet : Votre demande de Recrutement & Chasse de tête</p>
-
-<table>
-  <tr>
-    <th>Nom / Code</th>
-    <th>Description</th>
-    <th>Qte</th>
-    <th>PU HT</th>
-    <th>TVA</th>
-    <th>Total HT</th>
-  </tr>
-  <tr>
-    <td>Pr-rec-001</td>
-    <td>Recrutement & Chasse de tête - Foodservice Manager France (H/F) 55000€ bruts annuels + 7000€ variables</td>
-    <td>1,00</td>
-    <td>9 300,00 <span>unité</span></td>
-    <td>20,00 % <span>(1 860,00)</span></td>
-    <td>9 300,00</td>
-  </tr>
-  <tr>
-    <td>Pr-rec-002</td>
-    <td>Remboursement frais de déplacement - Cécile DELAVAL /Jean-Baptiste LE BRUN</td>
-    <td>1,00</td>
-    <td>532,00 <span>unité</span></td>
-    <td>0,00 % <span>(0,00)</span></td>
-    <td>532,00</td>
-  </tr>
-</table>
-<div>MODALITES DE PAIEMENT :</div>
-<p>Honoraires de 15% de la rémunération annuelle brute du candidat. Le montant final sera révisé en fonction de la rémunération contractuelle (Fixe + variable+Primes) allouée au candidat.</p>
-<p>Acompte de 30% à régler à la signature du devis, puis solde au succès, réglable à réception de la facture, au 1 er jour du démarrage du candidat par virement bancaire au compte visé ci-dessus. Garantie de 12 semaines.</p>
-<hr />
-<div class="note-box">
-  <div class="note">
-    <p>Notes :</p>
-    <p>Conditions générales d’abonnement de la prestation :</p>
-    <p>CHASSE DE TÊTE / RECRUTEMENT</p>
-    <ul>
-      <li>La prise en charge du sourcing, approche directe des candidats</li>
-      <li>Diffusion des annonces sur les jobboards et prise en charge des supports dédiés</li>
-      <li>Préqualification téléphonique des candidats et 1er entretien de recrutement</li>
-      <li>La constitution d’un dossier complet par candidat (résumé, avis du recruteur, références, prétentions salariales, disponibilité)</li>
-      <li>L’appui à la négociation salariale</li>
-      <li>Le suivi de l’intégration</li>
-      <li>Garantie de remplacement durant 12 semaines</li>
-    </ul>
-  </div>
-  <table>
+  <table class="table1">
     <tr>
-      <td>Total net HT</td>
-      <td>9 832,00 €</td>
+      <th>Nom / Code</th>
+      <th>Description</th>
+      <th>Qte</th>
+      <th>PU HT</th>
+      <th>TVA</th>
+      <th>Total HT</th>
     </tr>
     <tr>
-      <td>TVA 20,00%</td>
-      <td>1 860,00 €</td>
+      <td>Pr-rec-001</td>
+      <td>Recrutement & Chasse de tête - Foodservice Manager France (H/F) 55000€ bruts annuels + 7000€ variables</td>
+      <td class="span">1,00</td>
+      <td class="span">9 300,00 <span>unité</span></td>
+      <td class="span">20,00 % <span>(1 860,00)</span></td>
+      <td class="span">9 300,00</td>
     </tr>
     <tr>
-      <td>Montant total TTC</td>
-      <td>11 692,00 €</td>
-    </tr>
-    <tr>
-      <td>
-        Paiement par virement <br />
-        bancaire du 30/04/2020
-      </td>
-      <td>8 722,00 €</td>
-    </tr>
-    <tr>
-      <td>
-        Facture d'acompte du <br />
-        08/11/2019 <br />FACT-20191108-00002
-      </td>
-      <td>2 970,00 € <br />dont TVA 495,00 €</td>
-    </tr>
-    <tr>
-      <td>Total à régler</td>
-      <td>0,00 €</td>
+      <td>Pr-rec-002</td>
+      <td>Remboursement frais de déplacement - Cécile DELAVAL /Jean-Baptiste LE BRUN</td>
+      <td class="span">1,00</td>
+      <td class="span">532,00 <span>unité</span></td>
+      <td class="span">0,00 % <span>(0,00)</span></td>
+      <td class="span">532,00</td>
     </tr>
   </table>
+  <div>MODALITES DE PAIEMENT :</div>
+  <div>Honoraires de 15% de la rémunération annuelle brute du candidat. Le montant final sera révisé en fonction de la rémunération contractuelle (Fixe + variable+Primes) allouée au candidat.</div>
+  <div>Acompte de 30% à régler à la signature du devis, puis solde au succès, réglable à réception de la facture, au 1 er jour du démarrage du candidat par virement bancaire au compte visé ci-dessus. Garantie de 12 semaines.</div>
+  <hr />
+  <div class="note-box flex">
+    <div class="note">
+      <div>Notes :</div>
+      <div class='bolder'>Conditions générales d’abonnement de la prestation :</div>
+      <div>CHASSE DE TÊTE / RECRUTEMENT</div>
+      <ul>
+        <li>La prise en charge du sourcing, approche directe des candidats</li>
+        <li>Diffusion des annonces sur les jobboards et prise en charge des supports dédiés</li>
+        <li>Préqualification téléphonique des candidats et 1er entretien de recrutement</li>
+        <li>La constitution d’un dossier complet par candidat (résumé, avis du recruteur, références, prétentions salariales, disponibilité)</li>
+        <li>L’appui à la négociation salariale</li>
+        <li>Le suivi de l’intégration</li>
+        <li>Garantie de remplacement durant 12 semaines</li>
+      </ul>
+    </div>
+    <table>
+      <tr>
+        <td class="bolder">Total net HT</td>
+        <td class="bolder">9 832,00 €</td>
+      </tr>
+      <tr>
+        <td>TVA 20,00%</td>
+        <td>1 860,00 €</td>
+      </tr>
+      <tr>
+        <td class="bolder">Montant total TTC</td>
+        <td class="bolder">11 692,00 €</td>
+      </tr>
+      <tr class="spec">
+        <td>
+          Paiement par virement <br />
+          bancaire du 30/04/2020
+        </td>
+        <td>8 722,00 €</td>
+      </tr>
+      <tr class="spec">
+        <td>
+          Facture d'acompte du <br />
+          08/11/2019 <br />
+          <span>FACT-20191108-00002</span>
+        </td>
+        <td>
+          2 970,00 € <br />
+          <span>dont TVA 495,00 €</span>
+        </td>
+      </tr>
+      <tr class="spec">
+        <td class="bolder bor">Total à régler</td>
+        <td class="bolder bor">0,00 €</td>
+      </tr>
+    </table>
+  </div>
+  <div class="befor-last">
+    <p>Récapitulatif des TVA d‘acompte :</p>
+    <table>
+      <tr>
+        <th>TVA</th>
+        <th>Facture</th>
+        <th>Acompte</th>
+        <th>Reste</th>
+      </tr>
+      <tr>
+        <td>20,00 %</td>
+        <td>1 860,00 €</td>
+        <td>0,00 €</td>
+        <td>1 860,00 €</td>
+      </tr>
+      <tr>
+        <td>0,00 %</td>
+        <td>0,00 €</td>
+        <td>0,00 €</td>
+        <td>0,00 €</td>
+      </tr>
+    </table>
+  </div>
 </div>
-<p>Récapitulatif des TVA d‘acompte :</p>
-<table>
-  <tr>
-    <th>TVA</th>
-    <th>Facture</th>
-    <th>Acompte</th>
-    <th>Reste</th>
-  </tr>
-  <tr>
-    <td>20,00 %</td>
-    <td>1 860,00 €</td>
-    <td>0,00 €</td>
-    <td>1 860,00 €</td>
-  </tr>
-  <tr>
-    <td>0,00 %</td>
-    <td>0,00 €</td>
-    <td>0,00 €</td>
-    <td>0,00 €</td>
-  </tr>
-</table>
-<!-- footer  -->
-<hr />
-<p>Eighty Eight SAS - 128 rue La Boétie - 75008 Paris - France</p>
-<p>Siret : 83383142300011 - Naf : 7022Z - TVA : FR81 833831423 - RCS Créteil</p>
-<p>au capital de 1.000 €</p>
-<p>Tel : +33 1 70 25 98 56 - Email : contact@88-recrutement.com</p>
-<p>Site internet : www.88-recrutement.com</p>
-<!-- footer  -->
-<table>
+<div class='cool'>
+</div>
+<table class="last-table">
   <tr>
     <td>Moyen de règlement :</td>
     <td>virement bancaire, carte bancaire</td>
@@ -157,8 +147,7 @@
     <td>CREDIT AGRICOLE <br />BIC : AGRIFRPP882 <br />IBAN : FR7618206004546506420559007</td>
   </tr>
 </table>
-<p>En cas de retard de paiement, pénalités de retard égales à 3 fois le taux d’intérêt légal en vigueur, exigibles de plein droit à compter du jour suivant l’expiration du délai de règlement (art L 441-6 C.Cce Loi du 040808) sauf taux d’intérêt plus favorable courant après mise en demeure en application des contrats antérieurs au 010109.</p>
-<p>Pas d’escompte accordé en cas de paiement anticipé.</p>
-
-</body>
-</html>
+<p class="last-p">
+  En cas de retard de paiement, pénalités de retard égales à 3 fois le taux d’intérêt légal en vigueur, exigibles de plein droit à compter du jour suivant l’expiration du délai de règlement (art L 441-6 C.Cce Loi du 040808) sauf taux d’intérêt plus favorable courant après mise en demeure en application des contrats antérieurs au 010109. <br />
+  Pas d’escompte accordé en cas de paiement anticipé.
+</p>

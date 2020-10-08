@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/equipe', to: 'static_page#equipe', as: 'equipe'
   get '/portfolio', to: 'static_page#portfolio', as: 'portfolio'
   get '/contact', to: 'static_page#contact', as: 'contact'
+  get '/condition_general', to: 'static_page#condition_general', as: 'condition_general'
 
   get '/oiam', to: 'static_page#nothing', as: 'nothing'
 
@@ -187,7 +188,7 @@ Rails.application.routes.draw do
     password: 'mot-de-passe', confirmation: 'verification', edit: 'editer'
   }
   # routes principale dans admin_main
-  get 'secret-oiam-page/admin', to: 'admin_main#home', as: 'admin_main_home'
+  # get 'secret-oiam-page/admin', to: 'admin_main#home', as: 'admin_main_home'
   get 'secret-oiam-page/admin/notifications', to: 'admin_main#notification', as: 'admin_main_notification'
   get 'secret-oiam-page/admin/mon-profil', to: 'admin_main#my_profil', as: 'admin_main_my_profil'
 
@@ -198,10 +199,12 @@ Rails.application.routes.draw do
   #route message admin
   get 'secret-oiam-page/admin/messages/:id', to: 'admin_main#show_messaging', as: 'admin_show_messaging'
   post 'secret-oiam-page/admin/send-message', to: 'admin_main#post_messaging', as: 'post_messaging'
-
+  get 'secret-oiam-page/admin/messages/:id/recruteur', to: 'admin_main#show_message_recruteur', as:'show_message_recruteur'
+  post 'secret-oiam-page/admin/send-message-recruteur', to: 'admin_main#post_message_recruteur', as: 'post_message_recruteur'
 
   # route admin cadre
   get 'secret-oiam-page/admin/cadre/mes-candidats', to: 'admin_cadre#main', as: 'admin_cadre_main'
+  get 'secret-oiam-page/admin/cadre/mes-candidats/candidat', to: 'admin_cadre#show_profile', as: 'admin_cadre_show_profile'
 
   get 'secret-oiam-page/admin/cadre/entretien-fit', to: 'admin_cadre#entretien_fit', as: 'admin_cadre_entretien_fit'
   get 'secret-oiam-page/admin/cadre/entretien-fit/:id/avis-recruteur', to: 'admin_cadre#show_accepted_cadre', as: 'post_avis_candidats_fit'
@@ -243,12 +246,6 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/dashboard/taches/mes-factures', to: 'admin_dashboard#factures', as: 'admin_dashboard_tache_factures'
   get 'secret-oiam-page/admin/dashboard/taches/mes-relances-clients', to: 'admin_dashboard#relances', as: 'admin_dashboard_tache_relances'
   get 'secret-oiam-page/admin/dashboard/taches/mes-taches-a-faire', to: 'admin_dashboard#taches', as: 'admin_dashboard_tache_taches'
-
-  # routes dans pour l'administration
-  get 'secret-oiam-page/admin/administration/les-agendas', to: 'admin_administration#main', as: 'admin_administration_main'
-  get 'secret-oiam-page/admin/administration/les-mails', to: 'admin_administration#mail', as: 'admin_administration_mail'
-  get 'secret-oiam-page/admin/administration/les-tests', to: 'admin_administration#test', as: 'admin_administration_test'
-  get 'secret-oiam-page/admin/administration/les-utilisateurs', to: 'admin_administration#utilisateur', as: 'admin_administration_utilisateur'
 
 end
 
