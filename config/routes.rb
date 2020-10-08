@@ -245,12 +245,6 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/dashboard/taches/mes-relances-clients', to: 'admin_dashboard#relances', as: 'admin_dashboard_tache_relances'
   get 'secret-oiam-page/admin/dashboard/taches/mes-taches-a-faire', to: 'admin_dashboard#taches', as: 'admin_dashboard_tache_taches'
 
-  # routes dans pour l'administration
-  get 'secret-oiam-page/admin/administration/les-agendas', to: 'admin_administration#main', as: 'admin_administration_main'
-  get 'secret-oiam-page/admin/administration/les-mails', to: 'admin_administration#mail', as: 'admin_administration_mail'
-  get 'secret-oiam-page/admin/administration/les-tests', to: 'admin_administration#test', as: 'admin_administration_test'
-  get 'secret-oiam-page/admin/administration/les-utilisateurs', to: 'admin_administration#utilisateur', as: 'admin_administration_utilisateur'
-
 end
 
 
