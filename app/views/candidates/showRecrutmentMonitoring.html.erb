@@ -142,12 +142,16 @@
 					<% if @agendas.entretien_date > DateTime.now.utc %>
 						<% show = true %>
 						<p class="new-proposition">
-							<span class="title-entretien">Nouvelle proposition d'entretien le </span> <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+							<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
+								<span class="title-entretien">Vous avez accepté la demande d'entretien qui aura lieu le  </span> <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+							<% else %>
+								<span class="title-entretien">Nouvelle proposition d'entretien le </span> <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+							<% end %>
 						</p>
 
 						<!-- candidat a accepter l'entretien -->
 						<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
-							<div class="entretien-accepted">
+							<div class="entretien-accepted" style="display:none;">
 								Vous avez accepté la demande d'entretien.
 							</div>
 						<!-- candidat a accepter l'entretien sous condition -->
@@ -176,7 +180,7 @@
 						<% end %>
 
 						<% if show %> <!-- afficher ce petit compte à rebours mandona -->
-							<div id="futureTimeClock" data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="entretien-hours">
+							<div id="futureTimeClock" data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="entretien-hours <%if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %> move-me <% end %>">
 								<p class="entretien-info">Temps restant avant entretien</p>
 								<div class="hours-entretien-info">
 									<div class="entretien-days-left">
