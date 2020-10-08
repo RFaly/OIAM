@@ -126,9 +126,7 @@
 				</div>
 				<div class="promese-info remove">
 					<div class="date-prise-label" id="cin-label">CIN ou Passeport
-						<% unless @promise.cin_pass_port.nil? %>
 							<span id="file-cin-content"	><br>Votre fichier : <span id="cin-filename"></span></span>
-						<% end %>
 					</div>
 					<div class="fichier">
 						<% if @promise.cin_pass_port.nil? %>
@@ -144,9 +142,7 @@
 				</div>
 				<div class="promese-info remove">
 					<div class="date-prise-label">Attestation de sécurité sociale
-						<% unless @promise.security_certificate.nil? %>
 								<span id="file-atest-content"><br>Votre fichier : <span id="atest-filename"></span></span>
-						<% end %>
 					</div>
 					<div class="fichier">
 						<% if @promise.security_certificate.nil? %>
@@ -160,9 +156,7 @@
 				</div>
 				<div class="promese-info remove">
 					<div class="date-prise-label">RIB
-						<% unless @promise.rib.nil? %>
 						<span id="file-rib-content"	><br>Votre fichier : <span id="rib-filename"></span>
-						<% end %>
 					</div>
 					<div class="fichier">
 						<% if @promise.rib.nil? %>
