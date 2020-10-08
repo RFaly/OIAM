@@ -1,3 +1,4 @@
+<% @title="Notifications" %>
 <link rel="stylesheet" type="text/css" href="/css/notification_cadre.css">
 <style>
   .no-noti {
@@ -139,6 +140,6 @@
     let dateUTC = moment.utc($(this).data().times);
     let dateGet = new Date(dateUTC.local());
     let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
-    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ dateGet.getMinutes());
+    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h'+ dateGet.getMinutes());
   });
 </script>

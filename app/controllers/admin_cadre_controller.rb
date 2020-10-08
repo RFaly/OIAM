@@ -56,22 +56,30 @@ class AdminCadreController < ApplicationAdminController
   end
 
   def show_refused_cadre
-    
+
   end
-  
+
   def coaching_workshop
+
   end
 
   def events
+
   end
 
   def message
+
   end
 
-
   def accept_workshop
+
   end
 
   def cancel_workshop
+
+  end
+
+  def show_profile
+
   end
 end

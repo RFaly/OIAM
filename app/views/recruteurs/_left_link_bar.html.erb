@@ -1,3 +1,5 @@
+<% notice = current_client.numberOfNotification %>
+
 <!-- appel css user-menu.css  -->
 <% content_for :head_style do %>
 <link rel="stylesheet" href="/css/user_menu.css" />
@@ -20,9 +22,15 @@
     <li><%= link_to "MES OFFRES D'EMPLOI", my_job_offers_path %></li>
     <li><%= link_to "MES CANDIDATS FAVORIS", favorite_candidates_path %></li>
     <li><%= link_to "MON SUIVI RECRUTEMENT", my_recruitment_follow_path %></li>
-    <li><%= link_to "MES FACTURES", my_bills_path %></li>
-    <li><%= link_to "MES NOTIFICATIONS", client_notifications_path %></li>
-    <li><%= link_to "MA MESSAGERIE", my_messages_client_path %></li>
+    <li><%= link_to "MES FACTURES", my_bills_path %>
+      <div class="first" <%if (notice[:facture] == 0) %>hidden<% end %>><%= notice[:facture] %></div>
+    </li>
+    <li><%= link_to "MES NOTIFICATIONS", client_notifications_path %>
+      <div <%if (notice[:all] == 0) %>hidden<% end %>><%= notice[:all] %></div>
+    </li>
+    <li><%= link_to "MA MESSAGERIE", my_messages_client_path %>
+      <div class="last" <%if (current_client.number_message_not_see == 0) %>hidden<% end %>><%= current_client.number_message_not_see %></div>
+    </li>
   </ul>
 </div>
 <!-- appel js menu_recruteur.js  -->
