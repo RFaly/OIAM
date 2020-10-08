@@ -1,0 +1,35 @@
+.content{
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  margin: 15px;
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  text-align: justify;
+  margin-bottom: 100px;
+}
+
+.oiam-title{
+  color: #d6b36a;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.maj{
+  text-align: center;
+  font-size: 16px;
+  margin: 20px;
+  margin-bottom: 50px;
+}
+
+.step{
+  font-weight: bold;
+  font-size: 16px;
+  margin: 50px 0;
+}
+
+.donne-perso{
+  margin-left: 50px;
+}
