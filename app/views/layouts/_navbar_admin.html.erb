@@ -25,26 +25,30 @@
           <a href="<%= admin_client_main_path %>" class="navbar-item">Clients</a>
         </li>
          <li><a href="<%= admin_messaging_candidat_path %>" class="navbar-item">Messagerie</a></li>
-        <li><a href="<%= admin_main_notification_path %>" class="navbar-item">Notifications</a></li>
+        <li><a href="<%= admin_main_notification_path %>" class="navbar-item">Notifications</a>
+          <% if admin_signed_in? %>
+            <span class="badge badge-primary"><%= current_admin.numberOfNotification %></span>
+          <% end %>
+         </li>
       </ul>
       <div class="dropup1">
-              <% if admin_signed_in? %>
-                  <div class="dropup-btn1" data-toggle="dropdown">
-                    Mon profil
-                  </div>
-                    <div class="dropup-content1">
-                      <a href="<%= admin_main_my_profil_path %>">
-                        <div class="dropup-item1">Mon profil</div>
-                      </a>
-                      <%= link_to destroy_admin_session_path, method:"delete" do %>
-                      <div class="dropup-item1">Se déconnecter</div>
-                      <% end %>
-                    </div>
-              <% else %>
-                <div class="dropup-btn1" data-toggle="dropdown">
-                  <a href="<%= new_admin_session_path %>">Se connecter</a>
-                </div>
-              <% end %>
+        <% if admin_signed_in? %>
+            <div class="dropup-btn1" data-toggle="dropdown">
+              Mon profil
+            </div>
+              <div class="dropup-content1">
+                <a href="<%= admin_main_my_profil_path %>">
+                  <div class="dropup-item1">Mon profil</div>
+                </a>
+                <%= link_to destroy_admin_session_path, method:"delete" do %>
+                <div class="dropup-item1">Se déconnecter</div>
+                <% end %>
+              </div>
+        <% else %>
+          <div class="dropup-btn1" data-toggle="dropdown">
+            <a href="<%= new_admin_session_path %>">Se connecter</a>
+          </div>
+        <% end %>
     </div>
   </div>
 </nav>

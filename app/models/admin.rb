@@ -16,9 +16,8 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # def numberNotification
-  #   self.notifications
+  def numberOfNotification
+    self.notifications.where(view:false).count
+  end
 
-  # end
-  
 end
