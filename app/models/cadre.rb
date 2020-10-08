@@ -36,4 +36,32 @@ class Cadre < ApplicationRecord
   def edit_online_time
     self.update(online_time: Time.current)
   end
+
+  def numberOfNotification
+    @notifications = self.notifications.where(view:false)
+    all = @notifications.count
+    # 1: [medel_id: offre_job ] add to (received job +1)
+    received = @notifications.where(genre:1).count
+    # 2: [medel_id: offre_job] add to (suivi recrutement +1)
+    suivi = @notifications.where(genre:2).count
+    #
+    notice = {}
+    notice[:all] = all
+    notice[:received] = received
+    notice[:suivi] = suivi
+    #
+    return notice
+  end
+
+  def number_message_not_see
+    @contactListes = self.contact_client_cadres
+    number = 0
+    @contactListes.each do |contact|
+      if contact.mp_cadre_not_see > 0
+        number += 1
+      end
+    end
+    return number
+  end
+
 end

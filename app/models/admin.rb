@@ -15,4 +15,9 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def numberOfNotification
+    self.notifications.where(view:false).count
+  end
+
 end
