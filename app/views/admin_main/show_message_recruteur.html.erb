@@ -1,6 +1,7 @@
+<% @title="Messagerie" %>
 <% @message.each do |messages| %>
 	<% if messages.is_admin %>
-		<p>Vous: <%= messages.content %></p>	
+		<p>Vous: <%= messages.content %></p>
 	<% else %>
 	<p><%= messages.content %></p>
 	<% end %>
