@@ -6,7 +6,19 @@ class FacturationPdfController < ApplicationController
     @pcalcul = (test/1000).round(2)
     respond_to do |format|
       format.html
-      format.pdf {render template: 'facturation_pdf/reporte',pdf: 'Reporte' }
+      format.pdf {render layout: 'facture_layout.html',
+                    template: 'facturation_pdf/reporte',
+                    pdf: 'Facture',
+                    margin: { top: 10, bottom: 10, left: 10, right: 10 },
+                    header: {
+                      html: { template: 'facturation_pdf/header' },
+                      spacing: 0
+                    },
+                    footer: {
+                      html: { template: 'facturation_pdf/footer' },
+                      spacing: -15
+                    }
+                  }
     end
   end
 end

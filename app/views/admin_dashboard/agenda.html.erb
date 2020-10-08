@@ -115,9 +115,9 @@
     let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
 
     if((dateGet.getMinutes()+"").length == 1){
-      $(this).html(dateGet.getHours() + 'h:0'+dateGet.getMinutes());
+      $(this).html(dateGet.getHours() + 'h0'+dateGet.getMinutes());
     }else{
-      $(this).html(dateGet.getHours() + 'h:'+dateGet.getMinutes());
+      $(this).html(dateGet.getHours() + 'h'+dateGet.getMinutes());
     }
 
   });
