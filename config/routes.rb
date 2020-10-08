@@ -187,7 +187,7 @@ Rails.application.routes.draw do
     password: 'mot-de-passe', confirmation: 'verification', edit: 'editer'
   }
   # routes principale dans admin_main
-  get 'secret-oiam-page/admin', to: 'admin_main#home', as: 'admin_main_home'
+  # get 'secret-oiam-page/admin', to: 'admin_main#home', as: 'admin_main_home'
   get 'secret-oiam-page/admin/notifications', to: 'admin_main#notification', as: 'admin_main_notification'
   get 'secret-oiam-page/admin/mon-profil', to: 'admin_main#my_profil', as: 'admin_main_my_profil'
 
@@ -244,12 +244,6 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/dashboard/taches/mes-factures', to: 'admin_dashboard#factures', as: 'admin_dashboard_tache_factures'
   get 'secret-oiam-page/admin/dashboard/taches/mes-relances-clients', to: 'admin_dashboard#relances', as: 'admin_dashboard_tache_relances'
   get 'secret-oiam-page/admin/dashboard/taches/mes-taches-a-faire', to: 'admin_dashboard#taches', as: 'admin_dashboard_tache_taches'
-
-  # routes dans pour l'administration
-  get 'secret-oiam-page/admin/administration/les-agendas', to: 'admin_administration#main', as: 'admin_administration_main'
-  get 'secret-oiam-page/admin/administration/les-mails', to: 'admin_administration#mail', as: 'admin_administration_mail'
-  get 'secret-oiam-page/admin/administration/les-tests', to: 'admin_administration#test', as: 'admin_administration_test'
-  get 'secret-oiam-page/admin/administration/les-utilisateurs', to: 'admin_administration#utilisateur', as: 'admin_administration_utilisateur'
 
 end
 
