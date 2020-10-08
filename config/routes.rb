@@ -187,7 +187,7 @@ Rails.application.routes.draw do
     password: 'mot-de-passe', confirmation: 'verification', edit: 'editer'
   }
   # routes principale dans admin_main
-  get 'secret-oiam-page/admin', to: 'admin_main#home', as: 'admin_main_home'
+  # get 'secret-oiam-page/admin', to: 'admin_main#home', as: 'admin_main_home'
   get 'secret-oiam-page/admin/notifications', to: 'admin_main#notification', as: 'admin_main_notification'
   get 'secret-oiam-page/admin/mon-profil', to: 'admin_main#my_profil', as: 'admin_main_my_profil'
 

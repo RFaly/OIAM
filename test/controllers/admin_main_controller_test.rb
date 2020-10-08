@@ -1,10 +1,6 @@
 require 'test_helper'
 
 class AdminMainControllerTest < ActionDispatch::IntegrationTest
-  test "should get home" do
-    get admin_main_home_url
-    assert_response :success
-  end
 
   test "should get messaging" do
     get admin_main_messaging_url
