@@ -1,0 +1,34 @@
+<h2>Resulats de la recherche :</h2>
+<% if cadre_infos.empty? %>
+  Désolé aucune offre corresponde à votre recherche.
+<% else %>
+  <% cadre_infos.each do |cadre_info| %>
+    <div class="cadre-box">
+      <div class="cadre-box-image">
+        <div class="cbi-photo">
+          <%= link_to show_search_candidate_path(cadre_info.cadre.id, offre_id: @offre.id), method: :get do %>
+          <div class="c" style="background: url(<%= cadre_info.image%>) center no-repeat; background-size: cover"></div>
+          <% end %> <%= image_tag(cadre_info.image, alt: 'photo profil cadre', class:"js-image-#{cadre_info.cadre.id} " ,style:'display:none')%>
+        </div>
+        <div class="icone">
+          <% oFc = @offre.is_in_this_job(cadre_info.cadre) %> <% if oFc.nil? || oFc.accepted_postule.nil? || oFc.accepted_postule == false %> <% if @topCinqs.count < 5 %>
+          <img class="add-js-toFavorite" data-info="<%= cadre_info.cadre.id %>" src="/image/Vector-22.png" alt="logo oiam non favorie" />
+          <% end %> <% else %>
+          <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
+          <% end %>
+
+          <img class="rmv-js-toFavorite" data-info="<%= cadre_info.cadre.id %>" src="/image/Vector-24.png" alt="logo oiam favorie" style="display: none" />
+        </div>
+      </div>
+      <div class="cadre-box-info">
+        <p class="name"><%= cadre_info.first_name %> <%= cadre_info.last_name[0].upcase %>.</p>
+        <p class="compatibilite">Compatibilité : <span><%= cadre_info.compatibilite %>%</span></p>
+        <p class="score">Score OIAM : <span><%= cadre_info.score_potential %></span></p>
+        <p class="poste">Type de poste : <% if cadre_info.metier.nil? %> Manager marketing <% else %> <%= cadre_info.metier.name %> <% end %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/add_favorite_cadre.js"></script>
+

@@ -11,13 +11,12 @@
     <link rel="stylesheet" href="/css/navbar.css" />
     <link rel="stylesheet" href="/css/burger.css" />
     <link rel="stylesheet" href="/css/footer.css" />
-
+    <!-- call icon top -->
+    <link rel="icon" type="image/png" href="/image/OIAM_DIAMOND.png" />
     <!------------------------------ bootstrap css ------------------------------>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
     <!------------------------------ bootstrap css ------------------------------>
-    <% if content_for?(:head_style) %>
-      <%= yield(:head_style) %>
-    <% end %>
+    <% if content_for?(:head_style) %> <%= yield(:head_style) %> <% end %>
   </head>
 
   <body>
@@ -45,6 +44,9 @@
       <% end %>
     </div>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div id="loading-indicator">
+      <div id="spinner"></div>
+    </div>
     <%= yield %> <% if @header.nil? %>
     <div class="footer-controll"><%= render "layouts/footer" %></div>
     <% end %>

@@ -1,0 +1,16 @@
+<% @messages.each do |message| %>
+	<% if message.is_admin %>
+		<p>Vous: <%= message.content %></p>	
+	<% else %>
+	<p><%= message.content %></p>
+	<% end %>
+<% end %>
+<%= form_tag(post_messaging_path) do %>
+		<span class="form-group" id="textareas">
+			<input class="form-control" name="message_admin_cadre[content]" id="message_admin_cadre_content" placeholder="Répondre..."></input>
+		</span>
+		<span class="form-group">
+			<%= submit_tag("Envoyer") %>
+		</span>
+<% end %>
+

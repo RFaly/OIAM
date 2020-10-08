@@ -15,6 +15,23 @@ class CadreInfo < ApplicationRecord
 		500
 	end
 
+	def mobilite_name
+		case self.mobilite
+		when "1"
+		  "NATIONALE"
+		when "2"
+		  "INTERNATIONALE"
+		when "3"
+		  "LOCALE"
+		when "0"
+		  "PAS DE DÉPLACEMENT"
+		end
+	end
+
+	def compatibilite
+		self.score_fit * 10
+	end
+
   private
 
   def confirmation_token

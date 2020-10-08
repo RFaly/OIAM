@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ov: MyString
+  prix: 1.5
+  is_payed: false
+
+two:
+  ov: MyString
+  prix: 1.5
+  is_payed: false

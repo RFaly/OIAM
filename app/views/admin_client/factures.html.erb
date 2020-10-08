@@ -5,17 +5,10 @@
   <div class="client-menu-left"><%= render "admin_client/left_menu_link" %></div>
   <div class="cp-box">
     <div class="box-inside">
-      <%# if @offre.count == 0 %>
-      <!-- <div class="co-any-job"> -->
-  <!--       <p>Il n'y  a aucun recrutement</p>
-      </div> -->
-      <%# else %>
       <div class="co-with-job">
         <h5>FACTURES CLIENT</h5>
-
-        <%# @offre.each do |offre| %>
         <hr />
-        <div class="coj-box" id="offre<%#= offre.id %>">
+        <div class="coj-box" id="offre">
           <div class="cjo-image">
             <img src="/image/document.png" alt="icone doc" />
           </div>

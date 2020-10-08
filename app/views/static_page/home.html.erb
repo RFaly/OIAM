@@ -15,3 +15,20 @@
   <!-- <img src="/image/picture_photo_0ae4b3.jpg" alt="landing-photo" /> -->
   <!-- </div> -->
 </div>
+<script>
+  $(document).ready(function () {
+    stopSpinner();
+  });
+
+  window.startSpinner = function () {
+    return $('#loading-indicator').fadeIn();
+  };
+
+  window.stopSpinner = function () {
+    return $('#loading-indicator').fadeOut(1500);
+  };
+
+  $(document).on('page:fetch', function () {
+    startSpinner();
+  });
+</script>

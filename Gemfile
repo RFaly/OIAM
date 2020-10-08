@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
 # Use postgresql as the database for Active Record
@@ -69,3 +68,5 @@ gem 'carrierwave', '~> 2.0'
 gem 'jquery-rails'
 gem 'simple_calendar', '~> 2.0'
 gem "letter_opener", :group => :development
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

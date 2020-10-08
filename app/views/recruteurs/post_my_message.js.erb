@@ -1,10 +1,16 @@
+
+
 var $boitReception = $('#js-add-new-message')
 var div = document.createElement('div')
-var divClear = document.createElement('div')
-$(div).addClass('my-message')
-$(div).attr('data-store-id','<%= @newMessage.id %>')
-$(divClear).addClass('clear')
-$(div).html('<%= @content %>')
-$boitReception.append(div)
-$boitReception.append(divClear)
-$("#message_client_cadre_content").val(" ")
+var divClear = document.createElement('div');
+$(div).addClass('my-message');
+$(div).attr('data-store-id','<%= @newMessage.id %>');
+$(divClear).addClass('clear');
+$(div).html('<%= @content %>');
+$boitReception.append(div);
+$boitReception.append(divClear);
+$boitReception.animate({
+  scrollTop: $boitReception.prop("scrollHeight");
+}, 1000);
+
+$("#message_client_cadre_content").val("");

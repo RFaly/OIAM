@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_30_135544) do
+ActiveRecord::Schema.define(version: 2020_10_05_062928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 2020_09_30_135544) do
     t.boolean "empty", default: true
     t.text "question2"
     t.text "question3"
-    t.text "question4"
     t.text "question5"
     t.bigint "cadre_id"
     t.datetime "created_at", null: false
@@ -95,6 +94,7 @@ ActiveRecord::Schema.define(version: 2020_09_30_135544) do
     t.string "confirm_token"
     t.string "compte_rendu"
     t.text "avis"
+    t.float "question4"
     t.index ["admin_id"], name: "index_cadre_infos_on_admin_id"
     t.index ["cadre_id"], name: "index_cadre_infos_on_cadre_id"
     t.index ["country_id"], name: "index_cadre_infos_on_country_id"
@@ -181,6 +181,18 @@ ActiveRecord::Schema.define(version: 2020_09_30_135544) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_entreprises_on_client_id"
+  end
+
+  create_table "facture_formations", force: :cascade do |t|
+    t.string "ov"
+    t.float "prix"
+    t.boolean "is_payed"
+    t.bigint "formation_id"
+    t.bigint "cadre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cadre_id"], name: "index_facture_formations_on_cadre_id"
+    t.index ["formation_id"], name: "index_facture_formations_on_formation_id"
   end
 
   create_table "factures", force: :cascade do |t|

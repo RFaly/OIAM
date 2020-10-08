@@ -1,4 +1,3 @@
-
 <style type="text/css">
   #form-promo-code {
     margin: auto;
@@ -8,23 +7,38 @@
   }
 </style>
 
-<br><br><br><br><br>
+<br /><br /><br /><br /><br />
 
 <div class="m">
-<%= form_tag(save_scores_potential_test_path, id:"form-promo-code") do %>
+  <%= form_tag(save_scores_potential_test_path, id:"form-promo-code") do %>
   <div class="form-group">
     <label for="staticEmail">Email</label>
-    <input type="email" name="email" class="form-control">
+    <input type="email" name="email" class="form-control" />
   </div>
-  
+
   <div class="form-group">
     <label for="staticEmail">Scores</label>
-    <input type="number" name="score" class="form-control">
+    <input type="number" name="score" class="form-control" />
   </div>
 
-  <center>
-    <%= submit_tag("VALIDER", class:"btn btn-primary") %>
-  </center>
+  <center><%= submit_tag("VALIDER", class:"btn btn-primary") %></center>
 
-<% end %>
+  <% end %>
 </div>
+<script>
+  $(document).ready(function () {
+    stopSpinner();
+  });
+
+  window.startSpinner = function () {
+    return $('#loading-indicator').fadeIn();
+  };
+
+  window.stopSpinner = function () {
+    return $('#loading-indicator').fadeOut(1500);
+  };
+
+  $(document).on('page:fetch', function () {
+    startSpinner();
+  });
+</script>

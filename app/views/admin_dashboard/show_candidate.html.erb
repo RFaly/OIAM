@@ -1,53 +1,243 @@
-<link rel="stylesheet" href="/css/client_profil.css" />
+<link rel="stylesheet" href="/css/send_mess_cand.css" />
 <style>
-  .suiv-btn a {
-    color: #d6b36a;
-    background: 1;
-    text-decoration: none;
-    padding: 30px 15px; 
+  * {
+    text-align: center;
+    line-height: 2;
+  }
+
+  .cd-box {
+    position: relative;
+    text-align: center;
+    margin-top: 50px;
+  }
+  .all-inf {
+    position: relative;
+    background: #fff;
+    display: inline-block;
     border: 1px solid #d6b36a;
   }
-  
-  .suiv-btn a:hover {
+
+  .cd-info img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .cd-info {
+    background: #fff;
+  }
+
+  .cd-info-be {
+    padding: 20px;
+    border-top: 1px solid #F0F2F4;
+  }
+
+  .cd-info-be .name {
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .cd-info-be .score {
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .cd-desc {
+    background: #E3D7BF;
+    margin-top: 50px;
+    width: 90%;
+    height: auto;
+    margin-left: 50px;
+    color: #fff;
+    text-align: center;
+    padding: 50px;
+  }
+
+  .fci-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+
+  .all-thing {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .mybtn a{
+    width: 200px;
+    height: 400px;
+    background: #E3D7BF;
+    color: #fff;
+    padding: 30px 80px;
+    text-decoration: none;
+    border: 1px solid #fff;
+    font-family: Raleway, sans-serif;
+  }
+
+  .mybtn a:hover {
+    text-decoration: none;
+    color: #E3D7BF;
+    border: 1px solid #fff;
+    background: #fff;
+  }
+
+  .info-cadd {
+    margin-top: 20px;
+  }
+
+  .info-cadd h3 {
+    font-family: Raleway, sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    margin-top: 30px;
+  }
+
+  .all-btn {
+    margin-top: 75px;
+  }
+
+  .textarea-avis textarea {
+    width: 600px;
+    height: 200px;
+    padding: 5px;
+    outline: none;
+    font-family: Raleway, sans-serif;
+    font-size: 14px;
+    border: 2px solid #fff;
+  }
+
+  .avis-desc {
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: Raleway, sans-serif;
+    letter-spacing: 2px;
+  }
+
+  .apercu {
+    background: #d6b36a;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 15px 60px;
+    outline: none;
+  }
+
+  .apercu:hover {
     background: #fff;
     color: #d6b36a;
+    border: 1px solid #fff;
+    outline: none;
   }
 
-  .suiv-btn {
-    margin-top: 150px;
-    margin-left: 100px;
+  .cont-btn {
+    margin-top: 30px;
   }
 
-  .desc-suiv {
-    margin-left: 90px;
+  .form-my-cv {
+    padding: 10px;
+    background: #fff;
+    color: #000;
+    outline: none;
   }
+
+  .cont-my-cv .my-cv-label {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .score-label label {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .score-radio input {
+    margin-left: 20px;
+  }
+
+  .score-radio {
+    display: block;
+    padding: 5px;
+  }
+
+  .score-radio label {
+    font-size: 14px;
+  }
+
+  .time-count {
+    color: #fff;
+    font-size: 80px;
+    border-left: 10px solid #fff;
+    border-right: 10px solid #fff;
+  }
+
+  .my-count {
+    margin-top: 40px;
+  }
+
+  .btn-link {
+    background: #d6b36a;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 20px 60px;
+    font-family: Raleway, sans-serif;
+    cursor: pointer;
+  }
+
+  .btn-link:hover {
+    color:  #d6b36a;
+    background: #fff;
+    border: 1px solid #fff;
+    text-decoration: none;
+  }
+
+  .test-oe {
+    margin-top: 40px;
+  }
+
+  .link-show {
+    margin-top: 40px;
+  }
+
+  .link-show h4 {
+    font-size: 14px;
+  }
+
+  .entr-avc h3 {
+    color: #fff;
+    font-size: 16px;
+  }
+
 </style>
-<link rel="stylesheet" href="/css/send_mess_cand.css" />
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <div class="client-column">
   <div class="client-menu-left">
-    <%= render partial: "admin_dashboard/left_menu_link" %>
+    <%= render partial: "admin_cadre/left_menu_link" %>
   </div>
 
   <div class="cp-box">
-  	<div style="grid-column: 1">
-  		<div class="fcp-box">
-      <h3 class="title" style="color: #d6b36a !important">ENTRETIEN FIT</h3>
+    <!-- TITLE -->
+    <div>
+      <div class="fcp-box">
+      <h3 class="title">ENTRETIEN FIT</h3>
       <h3 class="title t2">Choisissez la suite a donner a ces candidats et rediger votre avis recruteur</h3>
+    </div>
 
-      <div class="fc-item" style="display: flex; margin-top: 40px;">
-        <div class="fc-item-all">
+    <div class="cd-box">
+      <!-- IMAGE -->
+        <div class="all-inf">
 
-
-          <div class="list-candidat">
-            <div class="fci-image">
-					    <% unless @cadre.image.nil? %>
+          <div  class="cd-info">
+            <% unless @cadre.image.nil? %>
                 <%= image_tag(@cadre.image, alt: 'photo de profil')%>
               <% else %>
                 <img src="/image/profie.png" alt="photo profil candidats">
               <% end %>
-            </div>
-            <div class="fci-icon">
+          </div>
+
+          <div class="fci-icon">
               <% unless @cadre.admin.nil? %>
                 <% if @cadre.admin == current_admin %>
                   <%= link_to rmv_favorite_cadre_path(id:@cadre.id), method: :delete, "data-confirm":"Êtes-vous sure de retirer cet(te) cadre de votre liste de candidat à suivre ?" do %>
@@ -62,50 +252,51 @@
                 <% end %>
               <% end %>
             </div>
-            <div class="fci-infos">
-              <p class="name"><%= @cadre.first_name %> <%= @cadre.last_name %> </p>
-              <p class="score">Score OIAM : <span><%= @cadre.score_potential %></span></p>
-            </div>
+
+          <div class="cd-info-be">
+            <p class="name"><%= @cadre.first_name %> <%= @cadre.last_name %> </p>
+            <p class="score">Score OIAM : <span><%= @cadre.score_potential %></span></p>
           </div>
+
         </div>
 
-         <div class="mess_candidat">
-          <div class="desc-suiv">
-          <% unless @cadre.agenda_admin.nil? %>
-            <p>
-              <strong>Entretien fit avec ce cadre le : </strong>
-              <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
-            </p>
-          <% else %>
-            <p>
-              En attente de la proposition du date de l'entretien par le cadre.
-            </p>
-          <% end %>
-          </div>
+        <!-- BODY -->
 
-          <div class="suiv-btn">
-            <% unless @cadre.admin.nil? %>
-              <% if @cadre.admin == current_admin %>
-                <%= link_to rmv_favorite_cadre_path(id:@cadre.id), method: :delete, "data-confirm":"Êtes-vous sure de retirer cet(te) cadre de votre liste de candidat à suivre ?" do %>
-                  RETIRER LE CADRE DE VOTRE LISTE DE CANDIDAT À SUIVRE.
+        <div class="cd-desc">
+
+          <div class="all-thing">
+              <% unless @cadre.agenda_admin.nil? %> <!-- if avec date -->
+                <div class="entr-avc">
+                  <h3>Entretien fit avec ce cadre le :  <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span></h3>
+                </div>
+                <% else %>
+                <div class="entr-avc">
+                  <h3>En attente de la proposition du date de l'entretien par le cadre.</h3>
+                </div>
                 <% end %>
-              <% else %>
-                DÉJÀ SUIVI PAR <%= @cadre.admin.first_name %> <%= @cadre.admin.last_name %>
-              <% end %>
-            <% else %>
-              <%= link_to add_favorite_cadre_path(id:@cadre.id), method: :post do %>
-                SUIVRE CET(TE) CANDIDAT(E)
-              <% end %>
-            <% end %>
-          </div>
 
-         </div>
 
-        </div>
-      </div>
+                <div class="info-cadd">
+                <div class="all-btn">
+                  <span class="mybtn">
+                       <% unless @cadre.admin.nil? %>
+                          <% if @cadre.admin == current_admin %>
+                            <%= link_to rmv_favorite_cadre_path(id:@cadre.id), method: :delete, "data-confirm":"Êtes-vous sure de retirer cet(te) cadre de votre liste de candidat à suivre ?" do %>
+                              RETIRER LE CADRE DE VOTRE LISTE DE CANDIDAT À SUIVRE.
+                            <% end %>
+                          <% else %>
+                            DÉJÀ SUIVI PAR <%= @cadre.admin.first_name %> <%= @cadre.admin.last_name %>
+                          <% end %>
+                        <% else %>
+                          <%= link_to add_favorite_cadre_path(id:@cadre.id), method: :post do %>
+                            SUIVRE CET(TE) CANDIDAT(E)
+                          <% end %>
+                      <% end %>
+                  </span>
+                </div>
     </div>
-  	</div>
   </div>
+</div>
 </div>
 
 <script type="text/javascript">

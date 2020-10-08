@@ -7,7 +7,7 @@
 </style>
 <div class="client-column">
 	<div class="client-menu-left">
-		<%= render partial: "admin_main/left_menu_link" %>
+		<%= render partial: "admin_main/left_menu_message_link" %>
 	</div>
 
 	<div class="cp-box">
@@ -15,14 +15,16 @@
 			<h3 class="title" style="color: #d6b36a !important">MA MESSAGERIE</h3>
 
 			<!-- -------------------- -->
+			<% @contactCadre.each do |contact| %>
 			<div class="box">
 				<div class="box-mess">
-					<h6><i class="fas fa-envelope pin"></i>Vous avez recu un message de <span class="box-nm">Pierre VALLET</span></h6>
+					<h6><i class="fas fa-envelope pin"></i>Vous avez recu un message de <span class="box-nm"><%= contact.cadre.cadre_info.first_name.capitalize %> <%= contact.cadre.cadre_info.last_name.upcase %></span></h6>
 				</div>
-				<a href="#" class="event-btn">Voir Le Message</a>
+				<a href="<%= admin_show_messaging_path(contact.id) %>" class="event-btn">Voir Le Message</a>
 			</div>
+			<% end %>
 			<!-- ---------------- -->
-			
+
 		</div>
 	</div>
 </div>

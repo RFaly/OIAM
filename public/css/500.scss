@@ -1,0 +1,32 @@
+@import 'config';
+body {
+  height: 90vh;
+  font: $ffbtn;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  div {
+    padding: 50px;
+    border: 2px solid rgba(0, 0, 0, 0.418);
+  }
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: $ffbtn;
+    font-size: 126px;
+    word-spacing: -30px;
+    color: #e6b85f;
+    img {
+      margin-top: 50px;
+      margin-bottom: -50px;
+      width: 137px;
+      margin: 0;
+    }
+  }
+  h1 {
+    font-size: 18px;
+  }
+}

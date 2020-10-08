@@ -111,11 +111,11 @@
         <%= f.label :type_deplacement, "LE POSTE IMPLIQUE-T-IL DES DÉPLACEMENTS ?" %>
         <div class="dp-input hide-right">
           <select id="type-deplacement" name="offre_job[type_deplacement]" class="co-select">
-            <option value="<%= @offre.type_deplacement %>" selected hidden><%= @offre.type_deplacement %></option>
-            <option value="Pas de déplacements">Pas de déplacements</option>
-            <option value="Nationaux">Nationaux</option>
-            <option value="Régionaux">Régionaux</option>
-            <option value="Internationaux">Internationaux</option>
+            <option value="<%= @offre.type_deplacement %>" selected hidden><%= @offre.type_deplacement_name %></option>
+            <option value="0">Pas de déplacements</option>
+            <option value="1">Nationaux</option>
+            <option value="2">Internationaux</option>
+            <option value="3">Régionaux</option>
           </select>
         </div>
         <span class="input-error type-deplacement-error"></span>

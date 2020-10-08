@@ -1,38 +1,127 @@
 <link rel="stylesheet" href="/css/client_profil.css" />
+<link rel="stylesheet" type="text/css" href="/css/agenda.scss">
 <style>
-	.title {
-		color: #d6b36a;
-		margin-left: 400px;
-	}
+  .cont-calendar {
+    position: relative;
+    width: 800px;
+  }
 
-	.title h2 {
-		font-size: 16px;
-	}
-	
+
+  .table td, .table th {
+    padding: 20px;
+    vertical-align: top;
+    border-top: 1px solid #d6b36a;
+}
+
+.table td {
+    border-right: 1px solid #d6b36a;
+}
+
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #d6b36a;
+    color: #d6b36a;
+    text-transform: uppercase;
+}
+
+
+.calendar-title {
+  text-transform: uppercase;
+}
+
+.calendrier {
+    width: 800px;
+    border: 2px solid #d6b36a;
+}
+
+.today {
+  background: #d6b36a;
+  color: #fff;
+}
+
+.calendar-heading {
+  padding: 20px;
+}
+
+.fcp-box .title {
+  padding-bottom: 20px;
+}
+
+.tt {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 </style>
+<link rel="stylesheet" href="/css/mes_cand_admin.css" />
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <div class="client-column">
-	<div class="client-menu-left">
-		<%= render partial: "admin_dashboard/left_menu_link" %>
-	</div>
-	<div class="cp-box">
-		<div class="title">
-			<h2>AGENDA</h2>
-		</div>
-	</div>
-</div>
+  <div class="client-menu-left">
+    <%= render partial: "admin_dashboard/left_menu_link" %>
+  </div>
+  <div class="cp-box">
+    <div>
+      <div class="fcp-box">
+      <h3 class="title" style="color: #d6b36a !important;">AGENDA</h3>
+      <div class="fc-item">
+        <div class="fc-item-all">
 
 
+          <div class="cont-calendar">
+            <div class="calendrier">
+          <%= month_calendar events: @agendas do |date, agendas| %>
+              <%= date.day %>
+              <% agendas.each do |agenda| %>
+                <div>
+                  <a href="<%= post_avis_candidats_fit_path(agenda.cadre_info.id) %>">
+                    <span data-times="<%= agenda.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+                  </a>
+                </div>
+              <% end %>
+          <% end %>
+          </div>
 
-<%= month_calendar events: @agendas do |date, agendas| %>
-  <%= date.day %>
-
-  <% agendas.each do |agenda| %>
-    <div >
-      <%= agenda.entretien_date %>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-<% end %>
+    </div>
+  </div>
 
 </div>
 
+<script type="text/javascript">
+/*----------------------------------------------*/
+  if (document.URL.indexOf('#') == -1) {
+    url = document.URL + '#';
+    location = '#';
+    location.reload(true);
+  }
+/*----------------------------------------------*/
+</script>
 
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
+
+<script type="text/javascript">
+  var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+  var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+  let $elementDate = $('.currentDateEntretien');
+
+  $elementDate.each(function () {
+    let dateUTC = moment.utc($(this).data().times);
+    let dateGet = new Date(dateUTC.local());
+    let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+
+    if((dateGet.getMinutes()+"").length == 1){
+      $(this).html(dateGet.getHours() + 'h:0'+dateGet.getMinutes());
+    }else{
+      $(this).html(dateGet.getHours() + 'h:'+dateGet.getMinutes());
+    }
+
+  });
+ // $($(".calendar-heading").find("a")[0]).html("PRECEDENT")
+ //  $($(".calendar-heading").find("a")[1]).html("SUIVANT")
+  $($(".calendar-heading").find("a")[0]).addClass("tt")
+  $($(".calendar-heading").find("a")[1]).addClass("tt")
+</script>
