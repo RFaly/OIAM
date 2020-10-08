@@ -80,6 +80,46 @@
       background: #fff !important;
     }
 
+    .search-bar {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 5px;
+      padding-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .search-bar input {
+      align-items: flex-end;
+      width: 200px;
+      padding: 10px;
+      outline: none;
+      font-size: 12px;
+      height: auto;
+      margin-left: 14px;
+      border: 1px solid #d6b36a;
+    }
+
+    .search-bar span {
+      align-items: flex-end;
+      background: #E3D7BF;
+      font-size: 10px;
+      text-transform: uppercase;
+      padding: 10px 30px;
+      color: #fff !important;
+      cursor: pointer;
+      border: 1px solid #E3D7BF;
+      margin-right: 15px;
+      text-align: center;
+    }
+
+    .search-bar span:hover {
+      background: #fff;
+      color: #E3D7BF !important;
+      border: 1px solid #E3D7BF;
+    }
+
+
 </style>
 <link rel="stylesheet" href="/css/mes_cand_admin.css" />
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
@@ -104,7 +144,13 @@
               <span>Traiter</span>
               <span>A traiter</span>
             </div>
+              <div class="search-bar">
+                <input type="text" name="q" placeholder="Entrer le nom d'un candidat">
+                <span>rechercher</span>
+              </div>
           </div>
+
+
 
           <div class="cont-candd">
 
@@ -122,7 +168,7 @@
               </div>
               <div class="col-sm-3">
                 <div class="cont-btn">
-                <a href="#">Voir</a>
+                <a href="<%= admin_cadre_show_profile_path %>">Voir</a>
                 </div>
               </div>
               </div>

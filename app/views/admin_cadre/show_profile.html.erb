@@ -1,0 +1,59 @@
+<link rel="stylesheet" type="text/css" href="/css/candidat_my_profil.css" />
+
+<div class="content">
+	<div class="left_link">
+		<%= render partial: "admin_cadre/left_menu_link" %>
+	</div>
+	<div class="main">
+			<div class="block-left">
+				<div class="block-image">
+            <img src="/image/profie.png" alt="photo profil candidats", width="150px", class="pdp" />
+				</div>
+				<div class="user_name">Pierre Le Candidat<br></div>
+				<p>Score du test : <span>5000</span></p>
+				<p>Type de poste :<br> <span style="text-transform:uppercase;">
+				</span><br>
+				Profession :<br> <span style="text-transform:uppercase;"> Metier
+				</span>
+				</p>
+				<p>Statut :<br> <span>Statut</span></p>
+				<p>Disponibilité :<br> <span>Disponibilité</span></p>
+				<p>Mobilité :<br> <span>Mobilité</span></p>
+				<p>Salaire : <span> Question k€</span></p>
+			</div>
+		<div class="block-right">
+			<div class="block-right-content">
+				<div class="questionnaire">
+					<h2 class="questionnaire-title">Que faites-vous actuellement et que recherchez-vous comme type de poste ?</h2>
+					<p>Type de poste :<br>Profession : Profile</p>
+				</div>
+				<div class="questionnaire">
+					<h2 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h2>
+					<p>
+            France
+					</p>
+				</div>
+				<div class="questionnaire">
+					<h2 class="questionnaire-title">Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?</h2>
+					<p>C'est mon choix</p>
+				</div>
+				<div class="questionnaire">
+					<h2 class="questionnaire-title">Quel est le minimum salarial FIXE en dessous duquel il n’est pas nécessaire de vous contacter ?</h2>
+					<p>2000 k€</p>
+				</div>
+				<div class="questionnaire">
+					<h2 class="questionnaire-title">Parlez-nous de vous</h2>
+					<p>Je suis moi</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	$('#send-validation').click(function(){
+		$('.main').hide(300);
+		$('#js-show-in-validate-profil').show(300);
+	})
+</script>
