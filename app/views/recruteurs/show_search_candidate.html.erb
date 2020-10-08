@@ -17,7 +17,7 @@
           </div>
           <div class="infos">
             <div class="score">
-              <p class="name"><%= @cadre.first_name %> <%= @cadre.last_name[0].upcase %>.</p>
+              <p class="name"><%= @cadre.first_name %> <%= @cadre.last_name %>.</p>
               <p>
                 Score de test : <span><%= @cadre.score_potential %></span><br />
                 Compatibilité : <span><%= @cadre.score_fit * 10 %>%</span>
@@ -28,7 +28,7 @@
               <p>Type de poste : <% unless @cadre.metier.nil? %> <%= @cadre.metier.name %> <% end %></p>
               <p>Profession : <%= @cadre.job %></p>
               <p>Disponibilité : <%= @cadre.disponibilite %></p>
-              <p>Salaire : <%= @cadre.question4 %>k€</p>
+              <p>Salaire(Brut annuel) : <%= @cadre.question4 %>k€</p>
               <p>Mobilité : <%= @cadre.mobilite_name %></p>
             </div>
             <div class="ssc-btn"><%= link_to "VISUALISER LE CV", @cadre.cv %></div>

@@ -23,13 +23,13 @@
     <li><%= link_to "MES CANDIDATS FAVORIS", favorite_candidates_path %></li>
     <li><%= link_to "MON SUIVI RECRUTEMENT", my_recruitment_follow_path %></li>
     <li><%= link_to "MES FACTURES", my_bills_path %>
-      <span class="badge badge-primary"><%= notice[:facture] %></span>
+      <div class="first"><%= notice[:facture] %></div>
     </li>
     <li><%= link_to "MES NOTIFICATIONS", client_notifications_path %>
-      <span class="badge badge-primary"><%= notice[:all] %></span>
+      <div ><%= notice[:all] %></div>
     </li>
     <li><%= link_to "MA MESSAGERIE", my_messages_client_path %>
-      <span class="badge badge-primary"><%= current_client.number_message_not_see %></span>
+      <div class="last"><%= current_client.number_message_not_see %></div>
     </li>
   </ul>
 </div>
