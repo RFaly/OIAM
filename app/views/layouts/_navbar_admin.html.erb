@@ -1,5 +1,21 @@
 <!-- appel css  -->
 <link rel="stylesheet" href="/css/burger_admin.css" />
+<style>
+
+  .cont-bag {
+    position: relative;
+  }
+  .not-bdg {
+    padding: 5px 10px;
+    position: absolute;
+    background: #d6b36a;
+    color: #fff;
+    font-size: 14px;
+     border-radius: 10px 10px 10px 0px;
+     left: 140px;
+     bottom: 15px;
+  }
+</style>
 <link rel="stylesheet" href="/css/navbar_admin.css" />
 <!-- body html  -->
   <nav class="navb">
@@ -26,9 +42,17 @@
         </li>
          <li><a href="<%= admin_messaging_candidat_path %>" class="navbar-item">Messagerie</a></li>
         <li><a href="<%= admin_main_notification_path %>" class="navbar-item">Notifications</a>
+          <div class="cont-bag">
           <% if admin_signed_in? %>
-            <span class="badge badge-primary"><%= current_admin.numberOfNotification %></span>
+            <% if current_admin.numberOfNotification == 0 %>
+
+            <% elsif current_admin.numberOfNotification >= 9 %>
+            <span class="not-bdg">9+</span>
+            <% else %>
+            <span class="not-bdg"><%= current_admin.numberOfNotification %></span>
+            <% end %>
           <% end %>
+          </div>
          </li>
       </ul>
       <div class="dropup1">
