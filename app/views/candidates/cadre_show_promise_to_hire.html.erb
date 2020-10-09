@@ -53,7 +53,7 @@
 				<div class="date-prise dat-p"><%= @promise.time_trying %></div>
 			</div>
 			<div class="promese-info dis-me">
-				<div class="date-prise-label">Rémunération fixe <br>(€ bruts mensuels)</div>
+				<div class="date-prise-label">Rémunération fixe(€ bruts mensuels)</div>
 				<div class="date-prise"><%= @promise.remuneration_fixe %></div>
 			</div>
 			<div class="pro-info">
@@ -89,7 +89,7 @@
 				<div class="renum">Rémunération variable  (k€ bruts annuels)</div>
 				<div class="mounth">
 					<% if @promise.remuneration_variable %>
-						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois" checked=""> <span class="go-right">OUI </span><%= @promise.remuneration_var_info %><br>
+						<%= f.text_field :remuneration_var_info, class:"renum-var", disabled: true %>
 					<% else %>
 						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois" checked="" disabled> <span class="go-right">NON</span>
 					<% end %>
@@ -305,6 +305,11 @@
 	    	return true;
 	    })
 
+var atest = $('#atest-filename');
+var rib = $('#rib-filename');
+var cin = $('#cin-filename');
+
+var tab = [atest, rib, cin];
 
 
 
