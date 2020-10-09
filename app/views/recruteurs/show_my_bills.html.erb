@@ -7,7 +7,6 @@
     <div class="pay-bill-box">
       <h5 class="title">Factures à payer</h5>
       <div class="pb-content">
-        
         <div class="pb-flex">
           <div class="left">RIB</div>
           <div class="pb-btn">
@@ -23,47 +22,44 @@
         </div>
 
         <% unless @promise.payed %>
-          <div class="button">
-            <%= form_tag(paye_my_bills_path, id:'pay_js') do %>
-            <input type="hidden" name="facture_id" value="<%= @facture.id %>" />
-            <input type="hidden" name="promise_id" value="<%= @promise.id %>" />
-            <input type="hidden" name="offre_job_id" value="<%= @offre_job.id %>" />
-            <label id="checkbox1">
-              J'atteste régler cette facture par virement dans les 15jours.
-              <input type="checkbox" id="check1" name="confirm" value="1" autofocus="true" required /><span class="checkmark"></span>
-            </label>
-            <%= submit_tag("VALIDER",id:"valide") %> <% end %>
+        <div class="button">
+          <%= form_tag(paye_my_bills_path, id:'pay_js') do %>
+          <input type="hidden" name="facture_id" value="<%= @facture.id %>" />
+          <input type="hidden" name="promise_id" value="<%= @promise.id %>" />
+          <input type="hidden" name="offre_job_id" value="<%= @offre_job.id %>" />
+          <label id="checkbox1">
+            J'atteste régler cette facture par virement dans les 15 jours.
+            <input type="checkbox" id="check1" name="confirm" value="1" autofocus="true" required /><span class="checkmark"></span>
+          </label>
+          <%= submit_tag("VALIDER",id:"valide") %> <% end %>
+        </div>
+        <% else %> <% if @facture.is_payed == true %>
+        <div class="pb-flex">
+          <div class="left">OV</div>
+          <div class="pb-btn">
+            <a href="<%= @facture.ov %>" target="_blank"> TÉLÉCHARGER </a>
           </div>
+        </div>
         <% else %>
-          <% if @facture.is_payed == true %>
-            <div class="pb-flex">
-              <div class="left">OV</div>
-              <div class="pb-btn">
-                <a href="<%= @facture.ov %>" target="_blank"> TÉLÉCHARGER </a>
-              </div>
+        <div class="button-2">
+          Vous avez confirmé de régler la facture par virement dans les 15 jours. <br />
+          <%= form_for Facture.new, url:ov_my_bills_path, id:'ov_js' do |f|%>
+          <input type="hidden" name="facture_id" value="<%= @facture.id %>" />
+          <input type="hidden" name="promise_id" value="<%= @promise.id %>" />
+          <input type="hidden" name="offre_job_id" value="<%= @offre_job.id %>" />
+          <div class="pb-flex-2 pb-flex">
+            <div class="c" id="addimage" style="background: center no-repeat; background-size: cover"></div>
+            <div class="import-button">
+              <label>
+                <span>IMPORTER LE OV</span>
+                <%= f.file_field :ov, required:true, id:'image',class:"input-import cin", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document",style:"display: none" %>
+              </label>
             </div>
-          <% else %>
-            <div class="button-2">
-              Vous avez confirmé de régler la facture par virement dans les 15 jours. <br />
-              <%= form_for Facture.new, url:ov_my_bills_path, id:'ov_js' do |f|%>
-                <input type="hidden" name="facture_id" value="<%= @facture.id %>" />
-                <input type="hidden" name="promise_id" value="<%= @promise.id %>" />
-                <input type="hidden" name="offre_job_id" value="<%= @offre_job.id %>" />
-                <div class="pb-flex-2 pb-flex">
-                  <div class="c" id="addimage" style="background: center no-repeat; background-size: cover"></div>
-                  <div class="import-button">
-                    <label>
-                      <span>IMPORTER LE OV</span>
-                      <%= f.file_field :ov, required:true, id:'image',class:"input-import cin", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document",style:"display: none" %>
-                    </label>
-                  </div>
-                </div>
-                <div class="button"><%= submit_tag("VALIDER",id:"valide") %></div>
-              <% end %>
-            </div>
-          <% end %>    
-        <% end %>
-
+          </div>
+          <div class="button"><%= submit_tag("VALIDER",id:"valide") %></div>
+          <% end %>
+        </div>
+        <% end %> <% end %>
       </div>
     </div>
   </div>

@@ -20,7 +20,6 @@ class FacturationPdfController < ApplicationController
     test = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2))) * 10 * 15
     @pcalcul = (test/1000).round(2)
     respond_to do |format|
-      format.html
       format.pdf {render layout: 'facture_layout.html',
                     template: 'facturation_pdf/reporte',
                     pdf: 'Facture',
@@ -36,7 +35,17 @@ class FacturationPdfController < ApplicationController
                   }
     end
   end
-  def promesse
-    
+  def promise
+    @promise = PromiseToHire.find_by_id(params[:id_promise])
+		@job = @promise.offre_job
+    @cadre = @promise.cadre.cadre_info
+    respond_to do |format|
+      format.html
+      format.pdf {render layout: 'promise_layout.html',
+                    template: 'facturation_pdf/promise',
+                    pdf: 'Promise',
+                    margin: { top: 10, bottom: 10, left: 10, right: 10 }
+                  }
+    end
   end
 end

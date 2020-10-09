@@ -1,0 +1,136 @@
+
+<div class="promisedd">
+    <h5 class="title">PROMESSE D'EMBAUCHE</h5>
+    <div class="promise-content">
+    <%= form_for @promise , url: root_path do |f| %>
+    <div class="pc-head">
+        <div class="pch-left">
+        <div class="pchl-image">
+            <% unless @job.image.nil? %>
+            <img src="<%= request.base_url %><%= @job.image %>" alt="logo">
+            <% end %>
+        </div>
+        <div class="pchl-content">
+            <%= @job.intitule_pote %>
+            <div><%= @job.contrat_cdi ? "Contrat à durée indéterminée" : "Contrat à durée déterminée" %></div>
+        </div>
+        </div>
+        <div class="pch-right">
+        <div class="pch-div">
+            <label> Nom </label>
+            <input type="text" value="<%= @cadre.last_name %>" readonly class="input" />
+        </div>
+        <div class="pch-div">
+            <label>Prénoms</label>
+            <input type="text" value="<%= @cadre.first_name %>" readonly class="input" />
+        </div>
+        <div class="pch-div">
+            <% if (@promise.birthday_cadre != nil)%>
+            <label>Date de naissance</label>
+            <% end%> <input type="text" id="date" value="<%= @promise.birthday_cadre ? @promise.birthday_cadre : "Date de naissance" %>" readonly class="<% if (@promise.birthday_cadre != nil)%> input <% end%>"/>
+            <%= image_tag wicked_pdf_asset_base64("calendar.png") -%>
+        </div>
+        <div class="pch-div">
+            <% if (@promise.birthplace_cadre != nil)%>
+            <label>Lieu de naissance</label>
+            <% end%> <input type="text" value="<%= @promise.birthplace_cadre ? @promise.birthplace_cadre : "Lieu de naissance" %>" readonly class="<% if (@promise.birthplace_cadre != nil)%>input<% end%>"/>
+        </div>
+        <div class="pch-div">
+            <% if (@promise.ns_sociale_cadre != nil)%>
+            <label>N°sécurité sociale</label>
+            <% end%> <input type="text" value="<%= @promise.ns_sociale_cadre ? @promise.ns_sociale_cadre : "N°sécurité sociale" %>" readonly class="<% if (@promise.ns_sociale_cadre != nil)%>input<% end%>"/>
+        </div>
+        </div>
+    </div>
+    <hr />
+    <div class="pc-form pc-form1 "><div class='label'>Date de prise de poste</div> <% priseDate = @promise.date_poste ? @promise.date_poste : @job.date_poste %> <%= f.text_field :date_poste,readonly:'true',id:'datepicker' %><%= image_tag wicked_pdf_asset_base64("calendar.png") -%></div>
+    <hr />
+    <div class="pc-form pc-form1"><div class='label'>Période d'essai</div><% periodessay = @promise.time_trying ? @promise.time_trying : (@promise.date_poste.to_date + 120 ).strftime("%d/%m/%Y") %> <input type="text" value="<%= periodessay %>" id="date" readonly /><%= image_tag wicked_pdf_asset_base64("calendar.png") -%></div>
+    <hr />
+    <div class="pc-form pc-form1">
+        <div class='label'>Rémunération fixe (k€ bruts annuels)</div>
+        <% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %>
+        <input type="text" id="remA" onkeypress="return event.charCode>=46 && event.charCode<=57" value="<%= ((payFix.to_f / 1000) * @promise.remuneration_fixe_date.to_f).round(2)%> " readonly />
+    </div>
+    <div class="pc-form pc-form2">
+        <div class='label'>Rémunération fixe (€ bruts mensuels)</div>
+        <div class="right">
+        <div><% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <%= f.text_field :remuneration_fixe, value: (payFix) ,readonly:'true' %></div>
+        <div class='check'>
+            <label id="conditioncheck">
+            12 mois <%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois',disabled:'true'%>
+            <span class="checkmark"><%if (@promise.remuneration_fixe_date == '12' ) %><%= image_tag wicked_pdf_asset_base64("checkeed.png") -%><%end%></span>
+            </label>
+        </div>
+        <div class='check'>
+            <label id="conditioncheck">
+            13 mois <%= f.radio_button :remuneration_fixe_date, "13", id:'post_13', class:'js-post-mois',disabled:'true' %>
+            <span class="checkmark"><%if (@promise.remuneration_fixe_date == '13' ) %><%= image_tag wicked_pdf_asset_base64("checkeed.png") -%><%end%></span>
+            </label>
+        </div>
+        <div class='check'>
+            <label id="conditioncheck">
+            <%if (@promise.remuneration_fixe_date == '13' || @promise.remuneration_fixe_date == '12') %> Personnalisé <input type="radio" disabled /><% else %><%= @promise.remuneration_fixe_date %> mois <input type="radio" checked disabled /><%end %>
+            <span class="checkmark"><%unless (@promise.remuneration_fixe_date == '13' || @promise.remuneration_fixe_date == '12') %><%= image_tag wicked_pdf_asset_base64("checkeed.png") -%><% end%></span>
+            </label>
+        </div>
+        </div>
+    </div>
+    <hr />
+    <div class="pc-form pc-form3">
+        <div class='label'>Rémunération variable (k€ bruts annuels)</div>
+        <div class="right">
+            <div class='check2'>
+                <label id="conditioncheck">
+                Oui <%= f.radio_button :remuneration_variable, "true", id:'post_oui', class:'js-post-choix',disabled:true%>
+                <span class="checkmark"><%if (@promise.remuneration_variable) %><%= image_tag wicked_pdf_asset_base64("checkeed.png") -%><%end%></span>
+                </label>
+            </div>
+            <div><%if (@promise.remuneration_variable) %> <input type="text" value=" <%=@promise.remuneration_var_info %> k€ annuels " readonly /> <%end%></div>
+            <div class='check2'>
+                <label id="conditioncheck">
+                Non <%= f.radio_button :remuneration_variable, "false", id:'post_nom', class:'js-post-choix',disabled:true%>
+                <span class="checkmark"><%unless (@promise.remuneration_variable) %><%= image_tag wicked_pdf_asset_base64("checkeed.png") -%><%end%></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="pc-calcul">
+        Précalcul honoraires OIAM<br />
+        <div id="pc-calcul"><%if (@promise.remuneration_variable) %><%test = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2)) + @promise.remuneration_var_info.to_f.round(2)*1000) * 10 * 15%> <% else%> <%test = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2))) * 10 * 15%><% end%><%= (test/1000).round(2)%> €</div>
+    </div>
+    <hr />
+    <div class="pc-avantage">
+        <div><%= f.label :remuneration_avantage, "Avantages ou autre précision sur la rémunération" %></div>
+        <div class="textarea">
+        <%if (@promise.remuneration_avantage)%><%= @promise.remuneration_avantage.gsub('[sp]', ' &#160; ').gsub('[nl]', ' <br />
+        ').html_safe%><%end%>
+        </div>
+    </div>
+    <hr />
+    <div class="pc-form pc-validite"><div class='label'>Date de validité</div> <%= f.text_field :date_de_validite, readonly:true, value:@promise.date_de_validite,id:'datepicker2' %></div>
+    <hr />
+    <div class="pc-form p-sign">
+        <div class='label'>Signature électronique entreprise</div>
+        <div class="signature">
+        <% unless @promise.signature_entreprise.nil? %>
+        <img src="<%= request.base_url %><%= @promise.signature_entreprise %>" alt="logo">
+        <% end %>
+        </div>
+    </div>
+    <hr />
+    <br/>
+    <div class="pc-form pc-sign-cadre">
+        <div class='label'>Signature électronique candidat</div>
+        <div class="image">
+            <% unless @promise.signature_candidat.nil? %>
+            <img src="<%= request.base_url %><%= @promise.signature_candidat %>" alt="logo" >
+            <% end %>
+        </div>
+    </div>
+    <hr />
+    <% end %>
+    </div>
+</div>
+    
