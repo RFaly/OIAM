@@ -1,3 +1,4 @@
+<% @title="Candidats" %>
 <link rel="stylesheet" href="/css/send_mess_cand.css" />
 <style>
   * {
@@ -56,6 +57,7 @@
     position: absolute;
     top: 5px;
     right: 5px;
+    cursor: pointer;
   }
 
   .all-thing {
@@ -227,6 +229,13 @@
     border-bottom: 1px solid #fff;
   }
 
+  .entr-avc h4 {
+    margin-top: 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
 </style>
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <div class="client-column">
@@ -287,6 +296,7 @@
                 <% if @cadre.agenda_admin.entretien_date > DateTime.now.utc %>
                 <div class="entr-avc">
                   <h3>Entretien fit avec ce cadre le :  <span data-times="<%= @cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span></h3>
+                  <h4>Compte a rebours avant l'entretien fit</h4>
                 </div>
                 <div class="my-count">
                     <p id="time-to-down" class="time-count"></p>
@@ -395,7 +405,7 @@
     let heur = (""+dateGet.getHours()).length == 1 ? ("0"+dateGet.getHours()) : dateGet.getHours()
     let min = (""+dateGet.getMinutes()).length == 1 ? ("0"+dateGet.getMinutes()) : dateGet.getMinutes()
 
-    $(this).html(dateString + ' à ' + heur + 'h:'+min);
+    $(this).html(dateString + ' à ' + heur + 'h'+min);
   });
 
   $("#accepted-js").click(function(){
@@ -427,8 +437,8 @@
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    nodeTime.innerHTML = days + " | " + hours + " | "
-    + minutes + " | " + seconds + "";
+    nodeTime.innerHTML = days + " : " + hours + " : "
+    + minutes + " : " + seconds;
     if (distance < 0) {
       clearInterval(x);
       nodeTime.innerHTML = "EXPIRED";

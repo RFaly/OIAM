@@ -2,36 +2,19 @@ p {
   margin-bottom: 0;
 }
 
-* {
-  line-height: 1.5;
-  font: 16px Questrial, sans-serif;
-}
-
-hr {
-  background: #000;
-}
-
 .flex {
+  /* wkhtmltopdf uses this one */
   display: flex;
+  /* wkhtmltopdf uses this one */
   justify-content: space-between;
 }
 
-.bolder {
-  font-weight: bold;
-}
-
 .nav-facture {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  padding: 50px;
-  padding-bottom: 20px;
-  padding-top: 40px;
 }
 
 .nav-facture p {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .nav-facture hr {
@@ -39,26 +22,68 @@ hr {
 }
 
 .facture-content {
-  padding: 50px;
-  padding-top: 100px;
+  padding-top: 5px;
+}
+
+.facture-content * {
+  line-height: 1.5;
+  font: 16px Questrial, sans-serif;
+  color: #333333;
+}
+
+.facture-content th {
+  text-align: left;
+  font-weight: bold;
+  color: #000;
+}
+
+.facture-content .bolder {
+  font-weight: bold;
+  color: #000;
+}
+
+.facture-content hr {
+  background: #000;
+}
+
+.facture-content .infos-box .infos {
+  float: left;
+  margin-right: 160px;
 }
 
 .facture-content .infos-box .infos img {
-  width: 250px;
+  width: 200px;
 }
 
 .facture-content .infos-box .infos .contact {
   font: 500 18px Raleway, sans-serif;
+  font-weight: bold;
 }
 
-.facture-content .infos-box .facture {
-  width: 60%;
+.facture-content .infos-box .facture2 {
+  background: transparent;
   flex-direction: column;
   padding-bottom: 60px;
 }
 
+.facture-content .infos-box .facture2 .facture-info {
+  margin-top: 20px;
+  margin-bottom: 150px;
+}
+
+.facture-content .infos-box .facture2 .loc {
+  margin-bottom: 20px;
+}
+
+.facture-content .infos-box .facture2 .numero,
+.facture-content .infos-box .facture2 .stat {
+  font-weight: bold;
+  color: #000;
+}
+
 .objet {
-  margin: 20px 0;
+  margin: 10px 0;
+  margin-bottom: 30px;
 }
 
 .table1 {
@@ -66,18 +91,14 @@ hr {
   margin-bottom: 10px;
 }
 
-.table1 th {
-  font-weight: bold;
-}
-
 .table1 td {
   border: 1px solid black;
-  padding: 10px 5px;
+  padding: 10px 7px;
 }
 
 .table1 td:nth-child(1) {
   border-left: none;
-  width: 150px;
+  width: 120px;
 }
 
 .table1 td:last-child {
@@ -86,7 +107,7 @@ hr {
 }
 
 .table1 .span {
-  width: 100px;
+  width: 90px;
   text-align: right;
 }
 
@@ -95,7 +116,9 @@ hr {
 }
 
 .note-box .note {
-  width: 45%;
+  float: left;
+  margin-right: 100px;
+  width: 47%;
   border: 1px solid #000;
   padding: 5px;
 }
@@ -103,6 +126,12 @@ hr {
 .note-box .note ul {
   padding-left: 50px;
   text-align: justify;
+}
+
+.note-box table {
+  width: 40%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
 }
 
 .note-box table td {
@@ -118,16 +147,23 @@ hr {
 }
 
 .note-box table .spec td {
-  padding: 20px 30px;
+  padding: 10px 30px;
 }
 
-.note-box table .spec.bor {
+.note-box table .spec .bor {
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
 }
 
+.cool {
+  content: '';
+  width: 5px;
+  height: 120px;
+}
+
 .befor-last {
   margin: 20px 0;
+  margin-top: 50px;
 }
 
 .befor-last table {
@@ -135,6 +171,7 @@ hr {
 }
 
 .befor-last td {
+  width: 90px;
   border: 1px solid black;
   padding: 5px;
   text-align: right;
@@ -147,23 +184,16 @@ hr {
   text-align: left;
 }
 
-.befor-last th {
-  font-weight: bold;
-}
-
 .facture-footer {
-  position: absolute;
   text-align: center;
   width: 100%;
-  padding: 50px;
   left: 0;
-  bottom: 0;
+}
+
+.last-table {
+  width: 80%;
 }
 
 .last-table td {
-  padding: 10px 50px;
-}
-
-.last-p {
-  padding: 10px 50px;
+  padding: 10px;
 }

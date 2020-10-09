@@ -27,4 +27,33 @@ class Client < ApplicationRecord
   def edit_online_time
     self.update(online_time: Time.current)
   end
+
+
+  def numberOfNotification
+    @notifications = self.notifications.where(view:false)
+    all = @notifications.count
+    # 1: suivi recrutement [medel_id: cadre ] (suivi recrutement +1)
+    suivi = @notifications.where(genre:1).count
+    # 2: pour la facture ne pas afficher (facture +1)
+    facture = @notifications.where(genre:2).count
+    # 3: postule candidat [medel_id: cadre] (tsy apina aiza aiza)
+    # postule = @notifications.where(genre:3).count
+    notice = {}
+    notice[:all] = all
+    notice[:suivi] = suivi
+    notice[:facture] = facture
+    return notice
+  end
+
+  def number_message_not_see
+    @contactListes = self.contact_client_cadres
+    number = 0
+    @contactListes.each do |contact|
+      if contact.mp_client_not_see > 0
+        number += 1
+      end
+    end
+    return number
+  end
+
 end

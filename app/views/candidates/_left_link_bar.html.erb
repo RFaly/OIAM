@@ -1,3 +1,4 @@
+<% notice = current_cadre.numberOfNotification %>
 <!-- appel css user-menu.css  -->
 <% content_for :head_style do %>
 	<link rel="stylesheet" href="/css/user_menu.css" />
@@ -17,10 +18,25 @@
 	<li><%= link_to "RECHERCHE D’OFFRES", searchJob_path %></li>
 	<li><%= link_to "MES OFFRES FAVORIS", favoriteJob_path %></li>
 	<li><%= link_to "MON SUIVI RECRUTEMENT", recrutment_monitoring_path %></li>
-	<li><%= link_to "MES NOTIFICATIONS", cadres_notifications_path %></li>
-	<li><%= link_to "MA MESSAGERIE", my_messages_cadre_path %></li>
+	<li>
+		<%= link_to "MES NOTIFICATIONS", cadres_notifications_path %>
+		<!-- <span class="badge badge-primary"><%= notice[:all] %></span> -->
+	</li>
+	<li><%= link_to "MA MESSAGERIE", my_messages_cadre_path %>
+		<!-- <span class="badge badge-primary"><%= current_cadre.number_message_not_see %></span> -->
+	</li>
   </ul>
 </div>
 <!-- appel js menu_recruteur.js  -->
 <script data-turbolinks-track="reload" src="/js/menu_recruteur.js"></script>
+
+
+<!--
+
+
+<% notice[:received] %>
+<% notice[:suivi] %>
+
+
+-->
 

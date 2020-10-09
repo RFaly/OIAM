@@ -43,7 +43,7 @@
 <div class="pc-form pc-form1 pc-flex"><%= f.label :time_trying, "Fin du période d'essai" %> <% periodessay = @promise.time_trying ? @promise.time_trying : (@job.date_poste.to_date + 120 ).strftime("%d/%m/%Y") %> <%= f.text_field :time_trying, value: periodessay, required:true,id:"datepicker1",class:"datepicker1" %></div>
 <hr />
 <div class="pc-form pc-form1 pc-flex">
-  <label>Rémunération fixe <br />(k€ bruts annuels)</label>
+  <label>Rémunération fixe (k€ bruts annuels)</label>
   <% if valeur%>
   <input type="text" id="remA" onkeypress="return event.charCode>=46 && event.charCode<=57" value="<%= (@job.remuneration.to_f ).round(2)%> " />
   <%else%> <% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %>
@@ -51,7 +51,7 @@
   <%end%>
 </div>
 <div class="pc-form pc-form2 pc-flex">
-  <label>Rémunération fixe <br />(€ bruts mensuels)</label>
+  <label>Rémunération fixe (€ bruts mensuels)</label>
   <div class="right">
     <div>
       <% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <% if valeur%> <%= f.text_field :remuneration_fixe, required:true, required:true,id:'renumeration-fixe',onkeypress:"return event.charCode>=46 && event.charCode<=57"%> <%else%> <%= f.text_field:remuneration_fixe, required:true, value: (payFix),
@@ -80,7 +80,7 @@
 </div>
 <hr />
 <div class="pc-form pc-form3 pc-flex">
-  <label> Rénumération variable <br />(k€ bruts annuels)</label>
+  <label> Rémunération variable (k€ bruts annuels)</label>
 
   <div class="right">
     <input type="text" class="hidden" />
@@ -110,7 +110,7 @@
 </div>
 <hr />
 <div class="pc-avantage">
-  <div><%= f.label :remuneration_avantage, "Avantages ou autre précision sur la rénumération" %></div>
+  <div><%= f.label :remuneration_avantage, "Avantages ou autre précision sur la rémunération" %></div>
   <div>
     <textarea id="pc-advantage-form" required>
 <%if (@promise.remuneration_avantage)%><%=@promise.remuneration_avantage.gsub('[sp]', ' ').gsub('[nl]', '

@@ -86,7 +86,7 @@
 			</div>
 			</div>
 			<div class="promese-info bool">
-				<div class="renum">Rénumération variable (k€ bruts annuels)</div>
+				<div class="renum">Rémunération variable  (k€ bruts annuels)</div>
 				<div class="mounth">
 					<% if @promise.remuneration_variable %>
 						<%= f.text_field :remuneration_var_info, class:"renum-var", disabled: true %>
@@ -96,7 +96,7 @@
 				</div>
 			</div>
 			<div class="avantages pro-info">
-				<div class="avantage-label">Avantages ou autre précision sur la rénumération</div>
+				<div class="avantage-label">Avantages ou autre précision sur la rémunération</div>
 				<div class="avantage-input"><%= @promise.remuneration_avantage.gsub('[sp]', ' &#160; ').gsub('[nl]', ' <br />').html_safe %></div>
 			</div>
 			<div class="promese-all">

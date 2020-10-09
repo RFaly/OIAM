@@ -10,6 +10,7 @@
   .left-menu-content {
     list-style: none;
     li {
+      position: relative;
       margin: 42px 0;
       a {
         text-decoration: none;
@@ -19,6 +20,28 @@
         &:hover,
         &:active {
           color: $main_theme_color;
+        }
+      }
+      div{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        font-weight: bolder;
+        top: -20px;
+        right: 40px;
+        background: $main_theme_color;
+        color: white;
+        padding: 1px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        &.first{
+          right: 62px;
+        }
+        &.last{
+          right: 54px;
         }
       }
     }

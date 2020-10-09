@@ -460,7 +460,6 @@ class RecruteursController < ApplicationController
 		end
 	end
 
-
 # Une fois terminé, réglez les horaires de 15% de la rémunération annuelle brute de votre candidat retenu.
 
 #Mes factures
@@ -485,8 +484,40 @@ class RecruteursController < ApplicationController
 	end
 
 	def ov_my_bills
+#eto a
+		errorMessage = ""
+
+		ov = AllUploader.new
+    begin
+      ov.store!(params[:facture][:ov])
+    rescue StandardError => e
+      errorMessage += "Votre ov: #{e.message}"
+    end
+
 		@facture = Facture.find_by_id(params[:facture_id])
-		# @facture.update(is_payed: true)
+
+		if errorMessage.empty?
+	    @facture.ov = ov.url
+			@facture.is_payed = true
+			@facture.save
+
+			name_entreprise = @facture.client.entreprise.name
+
+			Admin.all.each do |admin|
+				Notification.create(
+					admin: admin,
+					object: "#{name_entreprise}",
+					message: "L'entreprise #{name_entreprise} a payé sa facture oiam.",
+					link: "/",
+					view: false
+				)
+			end
+
+			flash[:notice] = "ordre de virement bien sauvegarder."
+		else
+			flash[:alert] = errorMessage
+		end
+
 		redirect_to show_my_bills_path(@facture.id)
 	end
 
@@ -545,7 +576,6 @@ class RecruteursController < ApplicationController
       @promise.save
       flash[:notice] = "Promesse d'embauche envoyée."
       name_entreprise = current_client.entreprise.name
-			
 
 			oFc = @job.my_top_five_candidates.find_by(cadre:@cadre)
 			#notifaka

@@ -17,15 +17,16 @@ class PromiseToHire < ApplicationRecord
 
 
 	def notified_admin
-		name_entreprise = self.client.entreprise.name
+		offreJob = self.offre_job
+		name_entreprise = offreJob.client.entreprise.name
 		Admin.all.each do |admin|
 			Notification.create(
-				cadre: admin,
+				admin: admin,
 				object: "#{name_entreprise}",
 				message: "#{name_entreprise} vien d'embaucher un candidat.",
 				link: "#{url_helpers.post_avis_candidats_fit_path(self.cadre.id,notification:"fit")}",
 				genre: 1,
-				medel_id: self.offre_job.id,
+				medel_id: offreJob.id,
 				view: false
 			)
 		end

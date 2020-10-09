@@ -24,5 +24,5 @@ $elementDate.each(function () {
     hour = '0' + hour;
   }
   let dateString = today + ' ' + daily + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
-  $(this).html(dateString + ' à ' + hour + 'h:' + minut);
+  $(this).html(dateString + ' à ' + hour + 'h' + minut);
 });
