@@ -18,7 +18,7 @@
         <div class="pb-flex">
           <div class="left">FACTURE <%= @offre_job.intitule_pote %></div>
           <div class="pb-btn">
-            <a href="/image/facture_exemple.pdf" target="_blank"> TÉLÉCHARGER </a>
+            <a href="<%= facturation_pdf_to_pdf_path(@facture) %>" target="_blank"> TÉLÉCHARGER </a>
           </div>
         </div>
 
