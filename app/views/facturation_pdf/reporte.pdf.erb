@@ -12,8 +12,8 @@
     </div>
     <div class="facture2 flex">
       <div class="facture-info">
-        <div class="numero">Facture FACT-20200324-00011</div>
-        <div class="date">En date du : 24/03/2020</div>
+        <div class="numero">Facture FACT-<%= @year %><%= @month %><%= @day %>-<%= @facture_id %></div>
+        <div class="date">En date du : <%= @day %>/<%= @month %>/<%= @year %></div>
       </div>
       <div class="loc">
         <div class="stat">Corlido France SARL</div>

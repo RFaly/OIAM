@@ -8,7 +8,9 @@
 	<div class="right-link">
 		<h5 class="titles">NOTIFICATIONS</h5>
 	      <% unless @notifications.empty?%>
-	      	<% @notifications.each do |noficication| %>
+			  <% @notifications.each do |noficication| %>
+			  
+			  <% next if noficication.offre_job.nil? %>
 					<a href="<%= noficication.link %>" class="btn-voir">
 	      		<div class="notif-container" role="alert">
 		      		<% if noficication.view %>

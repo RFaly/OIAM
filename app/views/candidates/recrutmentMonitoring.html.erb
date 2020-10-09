@@ -22,8 +22,9 @@
 			<div class="container-flex">
 
 			<% @oFcs.each do |oFc| %>
-				<%= link_to show_recrutment_monitoring_path(oFc.id), class:'etape' do %>
-				<% offre_job = oFc.offre_job %>
+			<%= link_to show_recrutment_monitoring_path(oFc.id), class:'etape' do %>
+			<% offre_job = oFc.offre_job %>
+			<% next if offre_job.nil? %>
 				<div class="offre-items">
 					<div class="job-info">
 						<center>

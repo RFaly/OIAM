@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get '/recruteur/mes-factures/%":id_factures"%/facturation_pdf',to: 'facturation_pdf#index',as: 'facturation_pdf'
+  # routes pdf 
+  get '/recruteur/mes-factures/%:id_factures.26#%/facturation_pdf.pdf',to: 'facturation_pdf#index',as: 'facturation_pdf_to_pdf'
+  # get '/recruteur/mes-factures/%:id_factures.26#%/facturation_pdf.pdf',to: 'facturation_pdf#index',as: 'facturation_pdf_to_pdf'
 	#~~~~~~~~~~~~~~~~~~~~ Accueil ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   root to: 'static_page#home'
   get '/welcome', to: 'static_page#allHome', as: 'welcome'
