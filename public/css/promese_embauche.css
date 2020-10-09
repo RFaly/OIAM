@@ -277,7 +277,7 @@ body {
 }
 
 .job-info-content {
-  width: 250px;
+  width: 300px;
 }
 
 .down {
@@ -358,7 +358,7 @@ body {
   top: 15px;
   font-size: 16px;
   text-align: center;
-  width: 250px;
+  width: 300px;
   height: 100%;
 }
 
@@ -372,7 +372,7 @@ body {
 
 .transparent {
   text-align: center;
-  width: 250px;
+  width: 300px;
   color: transparent;
 }
 
@@ -384,8 +384,9 @@ body {
 
 .renum {
   font-size: 16px;
-  width: 260px;
+  width: 300px;
   text-align: center;
+  margin-top: 20px;
 }
 
 .bool {
@@ -551,6 +552,17 @@ input[type='radio']:checked {
   text-align: center;
   padding: 11px;
   color: #d6b36a;
+}
+
+.renum-var{
+  width: 225px;
+  height: 35px;
+  border-radius: 0;
+  border: none;
+  font-size: 14px;
+  background-color: #f0f2f4;
+  text-align: center;
+  margin-top: 15px;
 }
 
 .telecharger:hover {
