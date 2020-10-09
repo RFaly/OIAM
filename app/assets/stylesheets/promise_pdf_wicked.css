@@ -1,12 +1,12 @@
-.promise {
+.promisedd {
   font: 16px Questrial, sans-serif;
 }
 
-.promise * {
+.promisedd * {
   color: #333333;
 }
 
-.promise .title {
+.promisedd .title {
   text-align: center;
   font: 500 18px Raleway, sans-serif;
   color: #d6b36a;
@@ -14,62 +14,66 @@
   margin-bottom: 50px;
 }
 
-.promise .pc-flex {
+.promisedd .pc-flex {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
 
-.promise .promise-content #datepicker,
-.promise .promise-content #datepicker1,
-.promise .promise-content #datepicker2,
-.promise .promise-content #date {
-  cursor: pointer;
-  background: #f0f2f4 url("/image/calendar.png") no-repeat right 0.5rem center/21px 24px;
-}
-
-.promise .promise-content .pc-form3 .hidden {
+.promisedd .promise-content .pc-form3 .hidden {
   height: 0.01px;
   padding-top: 0;
   padding-bottom: 0;
 }
 
-.promise .promise-content .pc-head {
-  width: 90%;
+.promisedd .promise-content .pc-form3 .right {
+  width: 30%;
+  margin-left: auto;
+}
+
+.promisedd .promise-content .pc-form3 .right .check2 {
+  width: 83%;
+  margin: 10px 0;
+  margin-left: auto;
+}
+
+.promisedd .promise-content .pc-head {
   margin: 0 auto;
 }
 
-.promise .promise-content .pc-head .pch-left {
-  width: 40%;
+.promisedd .promise-content .pc-head .pch-left {
+  width: 30%;
+  margin-right: 400px;
+  float: left;
   text-align: center;
 }
 
-.promise .promise-content .pc-head .pch-left .pchl-image {
+.promisedd .promise-content .pc-head .pch-left .pchl-image {
   width: 150px;
   height: 150px;
   margin: 10px auto;
 }
 
-.promise .promise-content .pc-head .pch-left .pchl-image img {
+.promisedd .promise-content .pc-head .pch-left .pchl-image img {
   width: 100%;
   height: 100%;
 }
 
-.promise .promise-content .pc-head .pch-left .pchl-content {
+.promisedd .promise-content .pc-head .pch-left .pchl-content {
   margin: 10px 0;
 }
 
-.promise .promise-content .pc-head .pch-left .pchl-content div {
+.promisedd .promise-content .pc-head .pch-left .pchl-content div {
   margin: 10px auto;
   width: 80%;
 }
 
-.promise .promise-content .pc-head .pch-right .pch-div {
+.promisedd .promise-content .pc-head .pch-right .pch-div {
   position: relative;
 }
 
-.promise .promise-content .pc-head .pch-right .pch-div label {
+.promisedd .promise-content .pc-head .pch-right .pch-div label {
   font: 500 18px Raleway, sans-serif;
   font-size: 12px;
   font-weight: bolder;
@@ -78,14 +82,23 @@
   position: absolute;
   padding: 1.5px;
   top: -8px;
-  left: 18px;
+  left: 76%;
   z-index: 50;
 }
 
-.promise .promise-content .pc-head .pch-right input {
+.promisedd .promise-content .pc-head .pch-right .pch-div img {
+  width: 21px;
+  height: 24px;
+  position: absolute;
+  right: 25px;
+  top: 8px;
+}
+
+.promisedd .promise-content .pc-head .pch-right input {
+  width: 20%;
   margin: 10px 0;
   margin-left: 10px;
-  padding: 8px;
+  padding: 10px;
   text-align: center;
   display: block;
   border: none;
@@ -94,28 +107,31 @@
   background: #f0f2f4;
 }
 
-.promise .promise-content .pc-head .pch-right input:focus {
+.promisedd .promise-content .pc-head .pch-right input:focus {
   outline: none;
 }
 
-.promise .promise-content .pc-head .pch-right input.input {
+.promisedd .promise-content .pc-head .pch-right input.input {
   border: 1px solid #d6b36a;
 }
 
-.promise .promise-content .pc-form {
-  width: 90%;
+.promisedd .promise-content .pc-form {
   margin: 0 auto;
+  position: relative;
 }
 
-.promise .promise-content .pc-form label {
-  width: 40%;
+.promisedd .promise-content .pc-form .label {
+  margin: 20px 0;
+  float: left;
+  width: 30%;
+  margin-right: 390px;
   text-align: center;
 }
 
-.promise .promise-content .pc-form input {
+.promisedd .promise-content .pc-form input {
   margin: 10px 0;
   margin-left: 10px;
-  padding: 8px;
+  padding: 10px 15px;
   text-align: center;
   border: none;
   outline: none;
@@ -123,40 +139,59 @@
   background: #f0f2f4;
 }
 
-.promise .promise-content .pc-form input:focus {
+.promisedd .promise-content .pc-form input:focus {
   box-shadow: #e3d7bf 0px 1px 5px 1px;
   outline: 2px solid #d6b36a;
 }
 
-.promise .promise-content .pc-form input:read-only:focus {
+.promisedd .promise-content .pc-form input:read-only:focus {
   box-shadow: none;
   outline: none;
 }
 
-.promise .promise-content .pc-calcul {
+.promisedd .promise-content .pc-form .check {
+  width: 25%;
+  margin: 10px 0;
+  margin-left: auto;
+}
+
+.promisedd .promise-content .pc-form img {
+  width: 21px;
+  height: 24px;
+  position: absolute;
+  right: 25px;
+  top: 17px;
+}
+
+.promisedd .promise-content .pc-calcul {
   padding: 20px;
-  width: 90%;
+  width: 92%;
   margin: 0 auto;
   text-align: center;
-  color: white;
   background: #d6b36a;
+  color: white;
 }
 
-.promise .promise-content .pc-avantage {
+.promisedd .promise-content .pc-calcul #pc-calcul {
+  color: white;
+}
+
+.promisedd .promise-content .pc-avantage {
   text-align: center;
-  margin: 10px auto;
-  width: 90%;
+  margin: 0 auto;
+  width: 100%;
 }
 
-.promise .promise-content .pc-avantage .textarea {
+.promisedd .promise-content .pc-avantage .textarea {
   text-align: left;
   background: #f0f2f4;
-  width: 100%;
+  width: 92%;
+  margin: 0 auto;
   padding: 10px;
   padding-left: 30px;
 }
 
-.promise .promise-content .pc-avantage textarea {
+.promisedd .promise-content .pc-avantage textarea {
   text-align: left;
   background: #f0f2f4;
   width: 100%;
@@ -168,57 +203,42 @@
   border-radius: 0;
 }
 
-.promise .promise-content .pc-avantage textarea:focus {
+.promisedd .promise-content .pc-avantage textarea:focus {
   box-shadow: #e3d7bf 0px 1px 5px 1px;
   outline: 2px solid #d6b36a;
 }
 
-.promise .promise-content .p-sign .signature {
-  margin: 10px 0;
+.promisedd .promise-content .p-sign .signature {
+  margin: 8px 0;
   margin-left: 10px;
-  width: 212px;
   height: 150px;
-  background: #f0f2f4;
   position: relative;
 }
 
-.promise .promise-content .p-sign .signature .c {
-  content: ' ';
-  width: 212px;
-  height: 150px;
-}
-
-.promise .promise-content .p-sign .signature label {
-  cursor: pointer;
-  content: ' ';
+.promisedd .promise-content .p-sign .signature img {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 6px;
   width: 212px;
   height: 150px;
 }
 
-.promise .promise-content .p-sign .signature label:hover, .promise .promise-content .p-sign .signature label:active {
-  box-shadow: #e3d7bf 0px 1px 5px 1px;
-  outline: 2px solid #d6b36a;
-}
-
-.promise .promise-content .pc-sign-cadre .image {
-  opacity: 0.5;
+.promisedd .promise-content .pc-sign-cadre .image {
   margin: 10px 0;
   margin-left: 10px;
-  width: 212px;
   height: 150px;
-  background: #f0f2f4;
+  position: relative;
 }
 
-.promise .promise-content .pc-sign-cadre .image .c {
-  content: ' ';
+.promisedd .promise-content .pc-sign-cadre .image img {
+  position: absolute;
+  top: 0;
+  right: 6px;
   width: 212px;
   height: 150px;
 }
 
-.promise .promise-content .pc-submit input {
+.promisedd .promise-content .pc-submit input {
   margin: 30px 0;
   padding: 10px 30px;
   font: 500 18px Raleway, sans-serif;
@@ -230,11 +250,11 @@
   background: transparent;
 }
 
-.promise .promise-content .pc-submit input:focus {
+.promisedd .promise-content .pc-submit input:focus {
   outline: none;
 }
 
-.promise .promise-content .pc-submit input:active, .promise .promise-content .pc-submit input:hover {
+.promisedd .promise-content .pc-submit input:active, .promisedd .promise-content .pc-submit input:hover {
   color: white;
   background: #d6b36a;
 }
@@ -258,7 +278,7 @@
 
 #conditioncheck .checkmark {
   position: absolute;
-  top: -2px;
+  top: -5px;
   left: 0;
   height: 20px;
   width: 20px;
@@ -284,14 +304,12 @@
   display: block;
 }
 
-#conditioncheck .checkmark:after {
-  left: 6px;
-  top: -7px;
-  width: 10px;
-  height: 20px;
-  border: solid black;
-  border-width: 0 4px 4px 0;
-  transform: rotate(45deg);
+#conditioncheck img {
+  position: absolute;
+  top: -8px;
+  left: -5px;
+  width: 30px;
+  height: 35px;
 }
 
 .show-promise-btn {

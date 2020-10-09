@@ -12,7 +12,7 @@ $ffbtn: 500 18px Raleway, sans-serif;
 
 $box-shadow: 1px 1px 3px 1px rgba(#dad7d3, 0.63);
 
-.promise {
+.promisedd {
   * {
     color: #333333;
   }
@@ -32,25 +32,28 @@ $box-shadow: 1px 1px 3px 1px rgba(#dad7d3, 0.63);
   }
 
   .promise-content {
-    #datepicker,
-    #datepicker1,
-    #datepicker2,
-    #date {
-      cursor: pointer;
-      background: $secondary_element_color url('/image/calendar.png') no-repeat right 0.5rem center/21px 24px;
-    }
     .pc-form3 {
       .hidden {
         height: 0.01px;
         padding-top: 0;
         padding-bottom: 0;
       }
+      .right {
+        width: 30%;
+        margin-left: auto;
+        .check2 {
+          width: 83%;
+          margin: 10px 0;
+          margin-left: auto;
+        }
+      }
     }
     .pc-head {
-      width: 90%;
       margin: 0 auto;
       .pch-left {
-        width: 40%;
+        width: 30%;
+        margin-right: 400px;
+        float: left;
         text-align: center;
         .pchl-image {
           width: 150px;
@@ -81,14 +84,22 @@ $box-shadow: 1px 1px 3px 1px rgba(#dad7d3, 0.63);
             position: absolute;
             padding: 1.5px;
             top: -8px;
-            left: 18px;
+            left: 76%;
             z-index: 50;
+          }
+          img {
+            width: 21px;
+            height: 24px;
+            position: absolute;
+            right: 25px;
+            top: 8px;
           }
         }
         input {
+          width: 20%;
           margin: 10px 0;
           margin-left: 10px;
-          padding: 8px;
+          padding: 10px;
           text-align: center;
           display: block;
           border: none;
@@ -106,17 +117,19 @@ $box-shadow: 1px 1px 3px 1px rgba(#dad7d3, 0.63);
       }
     }
     .pc-form {
-      width: 90%;
       margin: 0 auto;
-      label {
-        width: 40%;
+      position: relative;
+      .label {
+        margin: 20px 0;
+        float: left;
+        width: 30%;
+        margin-right: 390px;
         text-align: center;
-        // background: green;
       }
       input {
         margin: 10px 0;
         margin-left: 10px;
-        padding: 8px;
+        padding: 10px 15px;
         text-align: center;
         border: none;
         outline: none;
@@ -133,23 +146,39 @@ $box-shadow: 1px 1px 3px 1px rgba(#dad7d3, 0.63);
           }
         }
       }
+      .check {
+        width: 25%;
+        margin: 10px 0;
+        margin-left: auto;
+      }
+      img {
+        width: 21px;
+        height: 24px;
+        position: absolute;
+        right: 25px;
+        top: 17px;
+      }
     }
     .pc-calcul {
       padding: 20px;
-      width: 90%;
+      width: 92%;
       margin: 0 auto;
       text-align: center;
-      color: white;
       background: $main_theme_color;
+      color: white;
+      #pc-calcul {
+        color: white;
+      }
     }
     .pc-avantage {
       text-align: center;
-      margin: 10px auto;
-      width: 90%;
+      margin: 0 auto;
+      width: 100%;
       .textarea {
         text-align: left;
         background: $secondary_element_color;
-        width: 100%;
+        width: 92%;
+        margin: 0 auto;
         padding: 10px;
         padding-left: 30px;
       }
@@ -171,44 +200,29 @@ $box-shadow: 1px 1px 3px 1px rgba(#dad7d3, 0.63);
     }
     .p-sign {
       .signature {
-        margin: 10px 0;
+        margin: 8px 0;
         margin-left: 10px;
-        width: 212px;
         height: 150px;
-        background: $secondary_element_color;
         position: relative;
-        .c {
-          content: ' ';
-          width: 212px;
-          height: 150px;
-        }
-        label {
-          cursor: pointer;
-          content: ' ';
+        img {
           position: absolute;
           top: 0;
-          right: 0;
+          right: 6px;
           width: 212px;
           height: 150px;
-          // background: purple;
-          &:hover,
-          &:active {
-            box-shadow: rgb(227, 215, 191) 0px 1px 5px 1px;
-            outline: 2px solid $main_theme_color;
-          }
         }
       }
     }
     .pc-sign-cadre {
       .image {
-        opacity: 0.5;
         margin: 10px 0;
         margin-left: 10px;
-        width: 212px;
         height: 150px;
-        background: $secondary_element_color;
-        .c {
-          content: ' ';
+        position: relative;
+        img {
+          position: absolute;
+          top: 0;
+          right: 6px;
           width: 212px;
           height: 150px;
         }
@@ -257,7 +271,7 @@ $box-shadow: 1px 1px 3px 1px rgba(#dad7d3, 0.63);
   }
   .checkmark {
     position: absolute;
-    top: -2px;
+    top: -5px;
     left: 0;
     height: 20px;
     width: 20px;
@@ -278,17 +292,28 @@ $box-shadow: 1px 1px 3px 1px rgba(#dad7d3, 0.63);
   input:checked ~ .checkmark:after {
     display: block;
   }
-  .checkmark:after {
-    left: 6px;
-    top: -7px;
-    width: 10px;
-    height: 20px;
-    border: solid black;
-    border-width: 0 4px 4px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
+  img {
+    position: absolute;
+    top: -8px;
+    left: -5px;
+    width: 30px;
+    height: 35px;
   }
+  //   .checkmark:after {
+  //     left: 4px;
+  //     top: -7px;
+  //     width: 10px;
+  //     height: 20px;
+  //     border: solid black;
+  //     border-width: 0 4px 4px 0;
+  //     border-top-color: transparent;
+  //     border-left: transparent;
+  //     -moz-transform: rotate(45deg);
+  //     -webkit-transform: rotate(45deg);
+  //     -o-transform: rotate(45deg);
+  //     -ms-transform: rotate(45deg);
+  //     transform: rotate(45deg);
+  //   }
 }
 .show-promise-btn {
   text-align: center;

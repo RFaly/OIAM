@@ -1,13 +1,13 @@
 
-<div class="promise">
+<div class="promisedd">
     <h5 class="title">PROMESSE D'EMBAUCHE</h5>
     <div class="promise-content">
     <%= form_for @promise , url: root_path do |f| %>
-    <div class="pc-head pc-flex">
+    <div class="pc-head">
         <div class="pch-left">
         <div class="pchl-image">
             <% unless @job.image.nil? %>
-            <img src="<%= (@job.image.to_s) %>" alt="">
+            <img src="<%= request.base_url %><%= @job.image %>" alt="logo">
             <% end %>
         </div>
         <div class="pchl-content">
@@ -28,6 +28,7 @@
             <% if (@promise.birthday_cadre != nil)%>
             <label>Date de naissance</label>
             <% end%> <input type="text" id="date" value="<%= @promise.birthday_cadre ? @promise.birthday_cadre : "Date de naissance" %>" readonly class="<% if (@promise.birthday_cadre != nil)%> input <% end%>"/>
+            <%= image_tag wicked_pdf_asset_base64("calendar.png") -%>
         </div>
         <div class="pch-div">
             <% if (@promise.birthplace_cadre != nil)%>
@@ -42,67 +43,62 @@
         </div>
     </div>
     <hr />
-    <div class="pc-form pc-form1 pc-flex"><%= f.label :date_poste, "Date de prise de poste" %> <% priseDate = @promise.date_poste ? @promise.date_poste : @job.date_poste %> <%= f.text_field :date_poste,readonly:'true',id:'datepicker' %></div>
+    <div class="pc-form pc-form1 "><div class='label'>Date de prise de poste</div> <% priseDate = @promise.date_poste ? @promise.date_poste : @job.date_poste %> <%= f.text_field :date_poste,readonly:'true',id:'datepicker' %><%= image_tag wicked_pdf_asset_base64("calendar.png") -%></div>
     <hr />
-    <div class="pc-form pc-form1 pc-flex"><%= f.label :time_trying, "Période d'essai" %> <% periodessay = @promise.time_trying ? @promise.time_trying : (@promise.date_poste.to_date + 120 ).strftime("%d/%m/%Y") %> <input type="text" value="<%= periodessay %>" id="date" readonly /></div>
+    <div class="pc-form pc-form1"><div class='label'>Période d'essai</div><% periodessay = @promise.time_trying ? @promise.time_trying : (@promise.date_poste.to_date + 120 ).strftime("%d/%m/%Y") %> <input type="text" value="<%= periodessay %>" id="date" readonly /><%= image_tag wicked_pdf_asset_base64("calendar.png") -%></div>
     <hr />
-    <div class="pc-form pc-form1 pc-flex">
-        <label>Rémunération fixe (k€ bruts annuels)</label>
+    <div class="pc-form pc-form1">
+        <div class='label'>Rémunération fixe (k€ bruts annuels)</div>
         <% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %>
         <input type="text" id="remA" onkeypress="return event.charCode>=46 && event.charCode<=57" value="<%= ((payFix.to_f / 1000) * @promise.remuneration_fixe_date.to_f).round(2)%> " readonly />
     </div>
-    <div class="pc-form pc-form2 pc-flex">
-        <label>Rémunération fixe (€ bruts mensuels)</label>
-
+    <div class="pc-form pc-form2">
+        <div class='label'>Rémunération fixe (€ bruts mensuels)</div>
         <div class="right">
         <div><% payFix = @promise.remuneration_fixe ? @promise.remuneration_fixe : nil %> <%= f.text_field :remuneration_fixe, value: (payFix) ,readonly:'true' %></div>
-        <div>
+        <div class='check'>
             <label id="conditioncheck">
             12 mois <%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois',disabled:'true'%>
-            <span class="checkmark"></span>
+            <span class="checkmark"><%if (@promise.remuneration_fixe_date == '12' ) %><%= image_tag wicked_pdf_asset_base64("checkeed.png") -%><%end%></span>
             </label>
         </div>
-        <div>
+        <div class='check'>
             <label id="conditioncheck">
             13 mois <%= f.radio_button :remuneration_fixe_date, "13", id:'post_13', class:'js-post-mois',disabled:'true' %>
-            <span class="checkmark"></span>
+            <span class="checkmark"><%if (@promise.remuneration_fixe_date == '13' ) %><%= image_tag wicked_pdf_asset_base64("checkeed.png") -%><%end%></span>
             </label>
         </div>
-        <div>
+        <div class='check'>
             <label id="conditioncheck">
             <%if (@promise.remuneration_fixe_date == '13' || @promise.remuneration_fixe_date == '12') %> Personnalisé <input type="radio" disabled /><% else %><%= @promise.remuneration_fixe_date %> mois <input type="radio" checked disabled /><%end %>
-            <span class="checkmark"></span>
+            <span class="checkmark"><%unless (@promise.remuneration_fixe_date == '13' || @promise.remuneration_fixe_date == '12') %><%= image_tag wicked_pdf_asset_base64("checkeed.png") -%><% end%></span>
             </label>
         </div>
         </div>
     </div>
     <hr />
-    <div class="pc-form pc-form3 pc-flex">
-        <label> Rémunération variable (k€ bruts annuels)</label>
-
+    <div class="pc-form pc-form3">
+        <div class='label'>Rémunération variable (k€ bruts annuels)</div>
         <div class="right">
-        <input type="text" class="hidden" />
-        <div>
-            <label id="conditioncheck">
-            Oui <%= f.radio_button :remuneration_variable, "true", id:'post_oui', class:'js-post-choix',disabled:true%>
-            <span class="checkmark"></span>
-            </label>
-        </div>
-        <div><%if (@promise.remuneration_variable) %> <input type="text" value=" <%=@promise.remuneration_var_info %> k€ annuels " readonly /> <%end%></div>
-        <div>
-            <label id="conditioncheck">
-            Non <%= f.radio_button :remuneration_variable, "false", id:'post_nom', class:'js-post-choix',disabled:true%>
-
-            <span class="checkmark"></span>
-            </label>
-        </div>
+            <div class='check2'>
+                <label id="conditioncheck">
+                Oui <%= f.radio_button :remuneration_variable, "true", id:'post_oui', class:'js-post-choix',disabled:true%>
+                <span class="checkmark"><%if (@promise.remuneration_variable) %><%= image_tag wicked_pdf_asset_base64("checkeed.png") -%><%end%></span>
+                </label>
+            </div>
+            <div><%if (@promise.remuneration_variable) %> <input type="text" value=" <%=@promise.remuneration_var_info %> k€ annuels " readonly /> <%end%></div>
+            <div class='check2'>
+                <label id="conditioncheck">
+                Non <%= f.radio_button :remuneration_variable, "false", id:'post_nom', class:'js-post-choix',disabled:true%>
+                <span class="checkmark"><%unless (@promise.remuneration_variable) %><%= image_tag wicked_pdf_asset_base64("checkeed.png") -%><%end%></span>
+                </label>
+            </div>
         </div>
     </div>
     <hr />
     <div class="pc-calcul">
         Précalcul honoraires OIAM<br />
-        <div id="pc-calcul"><%test = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2)) + @promise.remuneration_var_info.to_f.round(2)*1000) * 10 * 15%> <%= (test/1000).round(2)%> €</div>
-        <div id="pc-calcul2"><%test = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2))) * 10 * 15%> <%= (test/1000).round(2)%> €</div>
+        <div id="pc-calcul"><%if (@promise.remuneration_variable) %><%test = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2)) + @promise.remuneration_var_info.to_f.round(2)*1000) * 10 * 15%> <% else%> <%test = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2))) * 10 * 15%><% end%><%= (test/1000).round(2)%> €</div>
     </div>
     <hr />
     <div class="pc-avantage">
@@ -113,41 +109,28 @@
         </div>
     </div>
     <hr />
-    <div class="pc-form pc-validite pc-flex"><%= f.label :date_de_validite, "Date de validité" %> <%= f.text_field :date_de_validite, readonly:true, value:@promise.date_de_validite,id:'datepicker2' %></div>
+    <div class="pc-form pc-validite"><div class='label'>Date de validité</div> <%= f.text_field :date_de_validite, readonly:true, value:@promise.date_de_validite,id:'datepicker2' %></div>
     <hr />
-    <div class="pc-form p-sign pc-flex">
-        <%= f.label :signature_entreprise, "Signature électronique entreprise" %>
+    <div class="pc-form p-sign">
+        <div class='label'>Signature électronique entreprise</div>
         <div class="signature">
         <% unless @promise.signature_entreprise.nil? %>
-        <div class="c" id="addImage" style="background: url(<%= @promise.signature_entreprise%>) center no-repeat; background-size: cover"></div>
-        <% else %>
-        <div class="c" id="addImage" style="background: url() center no-repeat; background-size: cover"></div>
+        <img src="<%= request.base_url %><%= @promise.signature_entreprise %>" alt="logo">
         <% end %>
-        <label>
-            <span style="display: none"> <%= f.file_field :signature_entreprise , class:'input_fied', disabled:true %> </span>
-        </label>
-        <!-- Télécharger une image -->
         </div>
     </div>
     <hr />
-    <div class="pc-form pc-sign-cadre pc-flex">
-        <label> Signature électronique candidat</label>
-
+    <br/>
+    <div class="pc-form pc-sign-cadre">
+        <div class='label'>Signature électronique candidat</div>
         <div class="image">
-        <% unless @promise.signature_candidat.nil? %>
-        <div class="c" style="background: url(<%= @promise.signature_candidat%>) center no-repeat; background-size: cover"></div>
-        <% end %>
+            <% unless @promise.signature_candidat.nil? %>
+            <img src="<%= request.base_url %><%= @promise.signature_candidat %>" alt="logo" >
+            <% end %>
         </div>
     </div>
     <hr />
     <% end %>
     </div>
 </div>
-<script>
-    if ($('#post_oui').is(':checked')) {
-    $('#pc-calcul2').hide();
-    } else {
-    $('#pc-calcul').hide();
-    }
-</script>
     
