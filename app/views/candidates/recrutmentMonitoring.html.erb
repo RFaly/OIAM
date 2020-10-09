@@ -37,7 +37,9 @@
 
 					<% if oFc.accepted_postule == true %>
 						<% if oFc.etapes == 0 %>
+						<div class="refused">
 							Vous êtes selectioner parmi les 5 candidats favoris pour ce poste.
+						</div>
 						<% elsif oFc.etapes == 1 || oFc.status == "refused"%>
 							<% if oFc.status == "refused" %>
 								<div class="refused">
