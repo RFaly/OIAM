@@ -5,6 +5,8 @@
 .create-offre-box {
   padding: 20px 0;
   font: $ffsentence;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   .travel-creation {
     margin: 0 auto;
@@ -80,6 +82,8 @@
     }
     #datepicker {
       cursor: pointer;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       -moz-text-align-last: center;
       -ms-text-align-last: center;
@@ -97,6 +101,8 @@
       input,
       select,
       textarea {
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
         border: none;
         padding: 10px 0;
@@ -254,6 +260,8 @@
     }
     .co-dp-btn {
       font: $ffbtn;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       border: 2px solid $main_theme_color;
       color: $main_theme_color;
@@ -277,11 +285,15 @@
     width: 80%;
     .co-input {
       margin: 6px auto 30px auto;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       input,
       select,
       textarea {
         font: $ffsentence;
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
         border: none;
         width: 100%;
@@ -325,6 +337,8 @@
           text-decoration: underline;
         }
         font: $ffbtn;
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
         margin-left: 30px;
       }
@@ -430,6 +444,8 @@
     -moz-appearance: none;
     appearance: none;
     background: $secondary_element_color url('/image/dropdown.png') no-repeat right 1rem center/21px 18px;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     -webkit-text-align-last: center;
     -moz-text-align-last: center;
@@ -440,6 +456,8 @@
       font: $ffsentence;
       text-align: -webkit-center;
       font-size: 15px;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       -webkit-text-align-last: center;
       -moz-text-align-last: center;
@@ -484,6 +502,8 @@
     }
   }
   &-header {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     padding: 30px;
   }

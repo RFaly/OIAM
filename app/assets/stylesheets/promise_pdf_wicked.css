@@ -7,6 +7,8 @@
 }
 
 .promisedd .title {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   font: 500 18px Raleway, sans-serif;
   color: #d6b36a;
@@ -46,6 +48,8 @@
   width: 30%;
   margin-right: 400px;
   float: left;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -99,6 +103,8 @@
   margin: 10px 0;
   margin-left: 10px;
   padding: 10px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   display: block;
   border: none;
@@ -125,6 +131,8 @@
   float: left;
   width: 30%;
   margin-right: 390px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -132,6 +140,8 @@
   margin: 10px 0;
   margin-left: 10px;
   padding: 10px 15px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   border: none;
   outline: none;
@@ -167,6 +177,8 @@
   padding: 20px;
   width: 92%;
   margin: 0 auto;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   background: #d6b36a;
   color: white;
@@ -177,6 +189,8 @@
 }
 
 .promisedd .promise-content .pc-avantage {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   margin: 0 auto;
   width: 100%;
@@ -313,6 +327,8 @@
 }
 
 .show-promise-btn {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 

@@ -4,6 +4,8 @@
   font: 500 18px Raleway, sans-serif;
   align-items: center;
   justify-content: center;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   flex-direction: column;
 }
@@ -30,6 +32,8 @@
   margin-top: 50px;
   border: 2px solid #e6b85f;
   padding: 10px 0;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 

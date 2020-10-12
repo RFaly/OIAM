@@ -5,6 +5,8 @@
   width: 95%;
   margin: 0 auto;
   .rlc-empty {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     padding: 30px 20px;
     // width: 50%;
@@ -45,6 +47,8 @@
     .rlc-items {
       border: 2px solid $main_theme_color;
       background: white;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       width: 300px;
       padding: 10px;

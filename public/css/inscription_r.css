@@ -19,6 +19,8 @@
   border: none;
   padding: 10px;
   background-color: #f0f2f4;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   font: 16px Questrial, sans-serif;
 }
@@ -35,6 +37,8 @@
   margin: 30px auto;
   font: 500 18px Raleway, sans-serif;
   cursor: pointer;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   border: 2px solid #d6b36a;
   color: #d6b36a;
@@ -74,6 +78,8 @@
 
 .details-r-condition p {
   font: 16px Questrial, sans-serif;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 

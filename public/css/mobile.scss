@@ -91,6 +91,8 @@
 //   background: rgba(red, 0.5);
 // }
 .felicitation {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -166,6 +168,8 @@
       align-self: center;
     }
     .box-1-content {
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
     }
     .box-1-logo {
@@ -193,6 +197,8 @@
 
   .dropup-btn1 {
     width: 180px;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     background-color: white;
     color: $secondary_text_color_button;
@@ -371,6 +377,8 @@
     .cpe-naf,
     .cpe-adress,
     .cpe-site {
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
     }
     .cpe-naf {
@@ -410,6 +418,8 @@
     }
     .cpe-description,
     .cpe-naf {
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
     }
   }
@@ -460,6 +470,8 @@
     }
   }
   .context-offre-box {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     #co-input-submit {
       display: none;
@@ -512,6 +524,8 @@
       flex-direction: column;
       a {
         margin-bottom: 15px;
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
       }
     }
@@ -776,6 +790,8 @@
     }
   }
   .dropup-btn1 {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     background-color: white;
     width: 180px;
@@ -1268,6 +1284,8 @@
     margin: 0;
   }
   .dropup-btn1 {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     background-color: $secondary_text_color_button;
     color: white;
@@ -1286,6 +1304,8 @@
     width: 204px;
     right: 5%;
     top: 83px;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     z-index: 20;
   }

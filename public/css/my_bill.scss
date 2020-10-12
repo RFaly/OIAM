@@ -6,6 +6,8 @@
   margin: 0 auto;
   font: $ffsentence;
   .title {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     font: $ffbtn;
     color: $main_theme_color;
@@ -35,6 +37,8 @@
       padding: 10px 0;
       width: 200px;
       border: 2px solid $main_theme_color;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       a {
         text-decoration: none;

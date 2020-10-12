@@ -21,6 +21,8 @@
   width: 90%;
   margin: 0 auto;
   font: 16px Questrial, sans-serif;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 

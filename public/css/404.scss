@@ -5,6 +5,8 @@
   font: $ffbtn;
   align-items: center;
   justify-content: center;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   flex-direction: column;
   span {
@@ -26,6 +28,8 @@
     margin-top: 50px;
     border: 2px solid #e6b85f;
     padding: 10px 0;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     a {
       //   padding: 12px 3px;

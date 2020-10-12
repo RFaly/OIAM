@@ -24,6 +24,8 @@
 }
 
 .pay-bill-box .title {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   font: 500 18px Raleway, sans-serif;
   color: #d6b36a;
@@ -56,6 +58,8 @@
   color: #d6b36a;
   border: 2px solid #d6b36a;
   padding: 10px 20px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   font: 500 18px Raleway, sans-serif;
   font-size: 16px;
@@ -67,11 +71,15 @@
 }
 
 .pay-bill-box .button {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
 .pay-bill-box .button #valide {
   margin-top: 50px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   border-radius: 0;
   border: 2px solid #d6b36a;
@@ -87,6 +95,8 @@
 }
 
 .pay-bill-box .button-2 {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   margin-top: 20px;
 }
@@ -114,6 +124,8 @@
   color: #d6b36a;
   border: 2px solid #d6b36a;
   padding: 10px 20px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   font: 500 18px Raleway, sans-serif;
   font-size: 16px;

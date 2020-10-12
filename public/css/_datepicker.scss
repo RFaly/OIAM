@@ -2,6 +2,8 @@
   font: $ffbtn;
   background-color: $secondary_text_color_button;
   thead {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
   }
   &-calendar {
@@ -10,6 +12,8 @@
     td {
       cursor: pointer;
       border-radius: 50%;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       height: 60px;
     }
@@ -60,6 +64,8 @@
 .ui-widget-content {
   .ui-state-default {
     border: 0px;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     text-decoration: none;
     color: white;

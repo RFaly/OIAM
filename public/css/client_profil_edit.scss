@@ -17,6 +17,8 @@
     font: $ffsentence;
     border-radius: 0;
     padding: 6px;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     box-shadow: none;
     border: none;
@@ -39,6 +41,8 @@
     justify-content: center;
     width: 100%;
     height: 40px;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     &:focus {
       outline: none;
@@ -62,6 +66,8 @@
   }
   .cp-flex-t {
     // justify-content: space-between;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
   }
 
@@ -101,6 +107,8 @@
       color: $main_theme_color;
       border: 2px solid $main_theme_color;
       padding: 10px 0;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       font: $ffbtn;
       font-size: 16px;
@@ -118,6 +126,8 @@
     .cp-infos-r {
       // width: 80%;
       // padding: 10px;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       h5 {
         color: $main_theme_color;
@@ -144,6 +154,8 @@
   }
   .cp-entreprise-name {
     input {
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       width: 100%;
       font-size: 30px;
@@ -166,6 +178,8 @@
     }
   }
   .cp-link {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     input {
       text-transform: uppercase;

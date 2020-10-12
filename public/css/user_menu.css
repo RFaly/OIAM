@@ -2,6 +2,8 @@
   width: 300px;
   position: relative;
   padding: 70px 0;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   text-transform: uppercase;
   transition: all 500ms ease-in-out;

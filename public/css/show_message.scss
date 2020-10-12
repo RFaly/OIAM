@@ -8,6 +8,8 @@
   margin: 0 auto;
   height: 700px;
   .title {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     font: $ffbtn;
     color: $main_theme_color;

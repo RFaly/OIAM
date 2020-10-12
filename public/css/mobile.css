@@ -88,6 +88,8 @@
 }
 
 .felicitation {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -167,6 +169,8 @@
     align-self: center;
   }
   .box-1 .box-1-content {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
   }
   .box-1 .box-1-logo {
@@ -189,6 +193,8 @@
   }
   .dropup-btn1 {
     width: 180px;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     background-color: white;
     color: #e3d7bf;
@@ -332,6 +338,8 @@
   .cp-table-box .cpe-naf,
   .cp-table-box .cpe-adress,
   .cp-table-box .cpe-site {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
   }
   .cp-table-box .cpe-naf {
@@ -364,6 +372,8 @@
   }
   .cp-edit-table-box .cpe-description,
   .cp-edit-table-box .cpe-naf {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
   }
   .coj-box {
@@ -406,6 +416,8 @@
     margin-left: -10%;
   }
   .context-offre-box {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
   }
   .context-offre-box #co-input-submit {
@@ -455,6 +467,8 @@
   }
   .show-publication .so-btn a {
     margin-bottom: 15px;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
   }
   .show-pb2 {
@@ -653,6 +667,8 @@
     margin: 30px 0;
   }
   .dropup-btn1 {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     background-color: white;
     width: 180px;
@@ -1031,6 +1047,8 @@
     margin: 0;
   }
   .dropup-btn1 {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     background-color: #e3d7bf;
     color: white;
@@ -1048,6 +1066,8 @@
     width: 204px;
     right: 5%;
     top: 83px;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     z-index: 20;
   }

@@ -18,6 +18,8 @@ $box-shadow: 1px 1px 3px 1px rgba(#dad7d3, 0.63);
   }
   font: $ffsentence;
   .title {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     font: $ffbtn;
     color: $main_theme_color;
@@ -54,6 +56,8 @@ $box-shadow: 1px 1px 3px 1px rgba(#dad7d3, 0.63);
         width: 30%;
         margin-right: 400px;
         float: left;
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
         .pchl-image {
           width: 150px;
@@ -100,6 +104,8 @@ $box-shadow: 1px 1px 3px 1px rgba(#dad7d3, 0.63);
           margin: 10px 0;
           margin-left: 10px;
           padding: 10px;
+          text-align: -webkit-center;
+          text-align: -moz-center;
           text-align: center;
           display: block;
           border: none;
@@ -124,12 +130,16 @@ $box-shadow: 1px 1px 3px 1px rgba(#dad7d3, 0.63);
         float: left;
         width: 30%;
         margin-right: 390px;
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
       }
       input {
         margin: 10px 0;
         margin-left: 10px;
         padding: 10px 15px;
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
         border: none;
         outline: none;
@@ -163,6 +173,8 @@ $box-shadow: 1px 1px 3px 1px rgba(#dad7d3, 0.63);
       padding: 20px;
       width: 92%;
       margin: 0 auto;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       background: $main_theme_color;
       color: white;
@@ -171,6 +183,8 @@ $box-shadow: 1px 1px 3px 1px rgba(#dad7d3, 0.63);
       }
     }
     .pc-avantage {
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       margin: 0 auto;
       width: 100%;
@@ -316,6 +330,8 @@ $box-shadow: 1px 1px 3px 1px rgba(#dad7d3, 0.63);
   //   }
 }
 .show-promise-btn {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   .spb-div {
     width: 150px;

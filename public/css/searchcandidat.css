@@ -30,11 +30,15 @@
 }
 
 .select-cadre-box #send-data-form .co-input {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
 .select-cadre-box #send-data-form .co-input select {
   font: 16px Questrial, sans-serif;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   border: none;
   width: 100%;
@@ -46,6 +50,8 @@
 }
 
 .select-cadre-box #send-data-form .co-input select option {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   -ms-text-align-last: center;
   text-align-last: center;
@@ -190,6 +196,8 @@
 .select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-info {
   width: 100%;
   background: white;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   padding: 5px 0;
   font: 16px Questrial, sans-serif;

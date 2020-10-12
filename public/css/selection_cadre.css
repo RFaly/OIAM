@@ -25,6 +25,8 @@
 
 .selection-box .title {
   font: 500 18px Raleway, sans-serif;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   text-transform: uppercase;
   color: #d6b36a;
@@ -82,6 +84,8 @@
 .selection-box .select-cadre-list-items .cadre-box .cadre-box-info {
   width: 100%;
   background: white;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   padding: 5px 0;
   font: 16px Questrial, sans-serif;
