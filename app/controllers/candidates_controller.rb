@@ -583,7 +583,7 @@ class CandidatesController < ApplicationController
       @offreJob.next_stape
 
       #notifaka
-      facture = Facture.create(prix:(@offreJob.remuneration * 1000 * 15)/100,promise_to_hire:@promise,client:@promise.offre_job.client)
+      facture = Facture.create(prix:(@offreJob.remuneration * 1000 * 20)/100,promise_to_hire:@promise,client:@promise.offre_job.client)
       Notification.create(client: facture.client,link: "#{paye_my_bills_path(facture.id,notification:"entretien")}",genre: 2,view: false)
       #créé un cacture rib:"/image/OIAM_DIAMOND.png",
 

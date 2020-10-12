@@ -39,6 +39,8 @@
   font: 16px Questrial, sans-serif;
   border-radius: 0;
   padding: 6px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   box-shadow: none;
   border: none;
@@ -62,6 +64,8 @@
   justify-content: center;
   width: 100%;
   height: 40px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -85,6 +89,8 @@
 }
 
 .cp-edit-table-box .cp-flex-t {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -129,6 +135,8 @@
   color: #d6b36a;
   border: 2px solid #d6b36a;
   padding: 10px 0;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   font: 500 18px Raleway, sans-serif;
   font-size: 16px;
@@ -144,6 +152,8 @@
 }
 
 .cp-edit-table-box .table-td .cp-infos-r {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -175,6 +185,8 @@
 }
 
 .cp-edit-table-box .cp-entreprise-name input {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   width: 100%;
   font-size: 30px;
@@ -199,6 +211,8 @@
 }
 
 .cp-edit-table-box .cp-link {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 

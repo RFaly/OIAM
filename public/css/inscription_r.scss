@@ -16,6 +16,8 @@
     border: none;
     padding: 10px;
     background-color: $secondary_element_color;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     font: $ffsentence;
     &:focus {
@@ -30,6 +32,8 @@
     margin: 30px auto;
     font: $ffbtn;
     cursor: pointer;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     border: 2px solid $main_theme_color;
     color: $main_theme_color;
@@ -67,6 +71,8 @@
   display: none;
   p {
     font: $ffsentence;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
   }
   .condition-content {

@@ -3,6 +3,8 @@
   width: 300px;
   position: relative;
   padding: 70px 0;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   text-transform: uppercase;
   transition: all 500ms ease-in-out;
@@ -22,7 +24,7 @@
           color: $main_theme_color;
         }
       }
-      div{
+      div {
         position: absolute;
         display: flex;
         justify-content: center;
@@ -37,10 +39,10 @@
         width: 30px;
         height: 30px;
         border-radius: 50%;
-        &.first{
+        &.first {
           right: 62px;
         }
-        &.last{
+        &.last {
           right: 54px;
         }
       }

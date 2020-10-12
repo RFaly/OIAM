@@ -23,6 +23,8 @@
 }
 
 .ui-datepicker thead {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -33,6 +35,8 @@
 .ui-datepicker-calendar td {
   cursor: pointer;
   border-radius: 50%;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   height: 60px;
 }
@@ -86,6 +90,8 @@
 
 .ui-widget-content .ui-state-default {
   border: 0px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   text-decoration: none;
   color: white;
@@ -102,6 +108,8 @@
 }
 
 .promise .title {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   font: 500 18px Raleway, sans-serif;
   color: #d6b36a;
@@ -137,6 +145,8 @@
 
 .promise .promise-content .pc-head .pch-left {
   width: 40%;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -182,6 +192,8 @@
   margin: 10px 0;
   margin-left: 10px;
   padding: 8px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   display: block;
   border: none;
@@ -205,6 +217,8 @@
 
 .promise .promise-content .pc-form label {
   width: 40%;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -212,6 +226,8 @@
   margin: 10px 0;
   margin-left: 10px;
   padding: 8px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   border: none;
   outline: none;
@@ -239,6 +255,8 @@
 }
 
 .promise .promise-content .pc-avantage {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   margin: 10px auto;
   width: 90%;
@@ -391,6 +409,8 @@
 }
 
 .show-promise-btn {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -444,6 +464,8 @@
 }
 
 .ui-datepicker-header {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   padding: 30px;
 }

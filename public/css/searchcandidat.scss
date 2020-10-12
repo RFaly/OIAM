@@ -17,9 +17,13 @@
     }
     .co-input {
       // margin-bottom: 30px;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       select {
         font: $ffsentence;
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
         border: none;
         width: 100%;
@@ -35,6 +39,8 @@
         // text-align-last: center;
         padding-right: 33px;
         option {
+          text-align: -webkit-center;
+          text-align: -moz-center;
           text-align: center;
           -moz-text-align-last: center;
           -ms-text-align-last: center;
@@ -163,6 +169,8 @@
         .cadre-box-info {
           width: 100%;
           background: white;
+          text-align: -webkit-center;
+          text-align: -moz-center;
           text-align: center;
           padding: 5px 0;
           font: $ffsentence;

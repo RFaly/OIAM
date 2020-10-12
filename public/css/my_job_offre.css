@@ -29,6 +29,8 @@
   align-items: center;
   border: 2px solid #d6b36a;
   margin-top: 150px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -52,6 +54,8 @@
 }
 
 .co-with-job h5 {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   font: 500 18px Raleway, sans-serif;
   color: #d6b36a;
@@ -60,6 +64,8 @@
 }
 
 .co-with-job .btn-newjob-div {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   margin: 90px 0;
 }

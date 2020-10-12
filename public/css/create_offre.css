@@ -23,6 +23,8 @@
 }
 
 .ui-datepicker thead {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -33,6 +35,8 @@
 .ui-datepicker-calendar td {
   cursor: pointer;
   border-radius: 50%;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   height: 60px;
 }
@@ -86,6 +90,8 @@
 
 .ui-widget-content .ui-state-default {
   border: 0px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   text-decoration: none;
   color: white;
@@ -98,6 +104,8 @@
 .create-offre-box {
   padding: 20px 0;
   font: 16px Questrial, sans-serif;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -186,6 +194,8 @@
 
 .create-offre-box .detail-post-box #datepicker {
   cursor: pointer;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   -ms-text-align-last: center;
   text-align-last: center;
@@ -204,6 +214,8 @@
 .create-offre-box .detail-post-box .dp-input input,
 .create-offre-box .detail-post-box .dp-input select,
 .create-offre-box .detail-post-box .dp-input textarea {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   border: none;
   padding: 10px 0;
@@ -374,6 +386,8 @@
 
 .create-offre-box .detail-post-box .co-dp-btn {
   font: 500 18px Raleway, sans-serif;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   border: 2px solid #d6b36a;
   color: #d6b36a;
@@ -399,6 +413,8 @@
 
 .create-offre-box .context-offre-box .co-input {
   margin: 6px auto 30px auto;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -406,6 +422,8 @@
 .create-offre-box .context-offre-box .co-input select,
 .create-offre-box .context-offre-box .co-input textarea {
   font: 16px Questrial, sans-serif;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   border: none;
   width: 100%;
@@ -443,6 +461,8 @@
 
 .create-offre-box .context-offre-box .co-input-image label {
   font: 500 18px Raleway, sans-serif;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   margin-left: 30px;
 }
@@ -560,6 +580,8 @@
 .create-offre-box .co-select {
   appearance: none;
   background: #f0f2f4 url("/image/dropdown.png") no-repeat right 1rem center/21px 18px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   -webkit-text-align-last: center;
   -moz-text-align-last: center;
@@ -572,6 +594,8 @@
   font: 16px Questrial, sans-serif;
   text-align: -webkit-center;
   font-size: 15px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   -webkit-text-align-last: center;
   -ms-text-align-last: center;
@@ -617,6 +641,8 @@
 }
 
 .ui-datepicker-header {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   padding: 30px;
 }

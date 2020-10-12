@@ -23,6 +23,8 @@
 }
 
 .rlc-box .rlc-empty {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   padding: 30px 20px;
   border: 2px solid #d6b36a;
@@ -65,6 +67,8 @@
 .rlc-box .rlc-content .rlc-items {
   border: 2px solid #d6b36a;
   background: white;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   width: 300px;
   padding: 10px;

@@ -17,7 +17,7 @@ class FacturationPdfController < ApplicationController
       @facture_id = "0"+ @facture_id
     end
     @promise = @facture.promise_to_hire
-    test = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2))) * 10 * 15
+    test = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2))) * 10 * 20
     @pcalcul = (test/1000).round(2)
     respond_to do |format|
       format.pdf {render layout: 'facture_layout.html',

@@ -2,10 +2,10 @@ $(document).ready(function () {
   let pop = 12;
   $('#renumeration-fixe').on('input', function () {
     if ($('#post_oui').is(':checked')) {
-      var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 15) / 100;
+      var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 20) / 100;
       $('#pc-calcul').html(oiam.toFixed(2) + '€');
     } else {
-      var oiam = ($('#renumeration-fixe').val() * pop * 15) / 100;
+      var oiam = ($('#renumeration-fixe').val() * pop * 20) / 100;
       $('#pc-calcul').html(oiam.toFixed(2) + '€');
     }
   });
@@ -18,10 +18,10 @@ $(document).ready(function () {
     });
     // fin calcul remunération
     if ($('#post_oui').is(':checked')) {
-      var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 15) / 100;
+      var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 20) / 100;
       $('#pc-calcul').html(oiam.toFixed(2) + '€');
     } else {
-      var oiam = ($('#renumeration-fixe').val() * pop * 15) / 100;
+      var oiam = ($('#renumeration-fixe').val() * pop * 20) / 100;
       $('#pc-calcul').html(oiam.toFixed(2) + '€');
     }
   });
@@ -34,10 +34,10 @@ $(document).ready(function () {
     });
     // fin calcul remunération
     if ($('#post_oui').is(':checked')) {
-      var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 15) / 100;
+      var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 20) / 100;
       $('#pc-calcul').html(oiam.toFixed(2) + '€');
     } else {
-      var oiam = ($('#renumeration-fixe').val() * pop * 15) / 100;
+      var oiam = ($('#renumeration-fixe').val() * pop * 20) / 100;
       $('#pc-calcul').html(oiam.toFixed(2) + '€');
     }
   });
@@ -50,10 +50,10 @@ $(document).ready(function () {
     });
     // fin calcul remunération
     if ($('#post_oui').is(':checked')) {
-      var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 15) / 100;
+      var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 20) / 100;
       $('#pc-calcul').html(oiam.toFixed(2) + '€');
     } else {
-      var oiam = ($('#renumeration-fixe').val() * pop * 15) / 100;
+      var oiam = ($('#renumeration-fixe').val() * pop * 20) / 100;
       $('#pc-calcul').html(oiam.toFixed(2) + '€');
     }
   });
@@ -67,20 +67,20 @@ $(document).ready(function () {
     });
     // fin calcul remunération
     if ($('#post_oui').is(':checked')) {
-      var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 15) / 100;
+      var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 20) / 100;
       $('#pc-calcul').html(oiam.toFixed(2) + '€');
     } else {
-      var oiam = ($('#renumeration-fixe').val() * pop * 15) / 100;
+      var oiam = ($('#renumeration-fixe').val() * pop * 20) / 100;
       $('#pc-calcul').html(oiam.toFixed(2) + '€');
     }
   });
 
   $('#js-input-choix').on('input', function () {
-    var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 15) / 100;
+    var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 20) / 100;
     $('#pc-calcul').html(oiam.toFixed(2) + '€');
   });
   $('#post_nom').on('focus', function () {
-    var oiam = ($('#renumeration-fixe').val() * pop * 15) / 100;
+    var oiam = ($('#renumeration-fixe').val() * pop * 20) / 100;
     $('#pc-calcul').html(oiam.toFixed(2) + '€');
   });
   //  on load
@@ -91,10 +91,10 @@ $(document).ready(function () {
     pop = $('#input-perso').val();
   }
   if ($('#post_oui').is(':checked')) {
-    var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 15) / 100;
+    var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 20) / 100;
     $('#pc-calcul').html(oiam.toFixed(2) + '€');
   } else {
-    var oiam = ($('#renumeration-fixe').val() * pop * 15) / 100;
+    var oiam = ($('#renumeration-fixe').val() * pop * 20) / 100;
     $('#pc-calcul').html(oiam.toFixed(2) + '€');
   }
   // js remuneration
@@ -103,10 +103,10 @@ $(document).ready(function () {
     $('#renumeration-fixe').val((($(this).val() * 1000) / pop).toFixed(2));
     // calcul oiam %
     if ($('#post_oui').is(':checked')) {
-      var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 15) / 100;
+      var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 20) / 100;
       $('#pc-calcul').html(oiam.toFixed(2) + '€');
     } else {
-      var oiam = ($('#renumeration-fixe').val() * pop * 15) / 100;
+      var oiam = ($('#renumeration-fixe').val() * pop * 20) / 100;
       $('#pc-calcul').html(oiam.toFixed(2) + '€');
     }
   });

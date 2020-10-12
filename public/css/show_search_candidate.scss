@@ -39,6 +39,8 @@
     justify-content: space-between;
     .ssc-infos {
       font: $ffsentence;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       .image {
         img,
@@ -86,6 +88,8 @@
     .ssc-rest-btn {
       position: relative;
       padding: 20px 0;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       .ssc-message {
         a {
@@ -147,6 +151,8 @@
       color: white;
       font: $ffbtn;
       h4 {
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
       }
       .fselect {
@@ -165,6 +171,8 @@
           background: transparent;
           border: 2px solid #fff;
           width: 86px;
+          text-align: -webkit-center;
+          text-align: -moz-center;
           text-align: center;
           cursor: pointer;
           &:hover,
@@ -214,6 +222,8 @@
       color: white;
       background: $secondary_text_color_button;
       font: $ffsentence;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       padding: 30px;
       margin-top: 11px;

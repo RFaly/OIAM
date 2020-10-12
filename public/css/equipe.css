@@ -22,6 +22,8 @@
 }
 
 .equipe-box .eq-title {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   text-transform: uppercase;
   color: white;
@@ -45,6 +47,8 @@
 }
 
 .equipe-box .eq-box-eq .eq-content {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 

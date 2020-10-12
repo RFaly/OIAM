@@ -4,6 +4,8 @@
 .fc-box {
   width: 90%;
   margin: 0 auto;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   .title {
     font: $ffbtn;
@@ -20,6 +22,8 @@
     border: 2px solid $main_theme_color;
     width: 50%;
     margin: 50px auto;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     padding: 50px;
     p {

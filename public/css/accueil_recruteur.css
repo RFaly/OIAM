@@ -23,6 +23,8 @@
 .accueil-recruteur .accueil-r-btn {
   width: 40%;
   margin: 70px auto;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 

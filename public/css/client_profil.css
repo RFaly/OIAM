@@ -88,6 +88,8 @@
 }
 
 .cp-table-box .code-naf-flex .cpe-naf p {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -100,6 +102,8 @@
 }
 
 .cp-table-box .cp-flex-t {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -138,6 +142,8 @@
 
 .cp-table-box .table-td .cp-infos-r {
   padding: 10px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -164,6 +170,8 @@
 }
 
 .cp-table-box .cp-entreprise-name {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -190,6 +198,8 @@
 }
 
 .cp-table-box .cp-link {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   padding: 25px;
   padding-bottom: 40px;

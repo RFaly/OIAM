@@ -20,6 +20,8 @@
 .fc-box {
   width: 90%;
   margin: 0 auto;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -41,6 +43,8 @@
   border: 2px solid #d6b36a;
   width: 50%;
   margin: 50px auto;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   padding: 50px;
 }

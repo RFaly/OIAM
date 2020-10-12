@@ -23,6 +23,8 @@
 }
 
 .ui-datepicker thead {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -33,6 +35,8 @@
 .ui-datepicker-calendar td {
   cursor: pointer;
   border-radius: 50%;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   height: 60px;
 }
@@ -86,6 +90,8 @@
 
 .ui-widget-content .ui-state-default {
   border: 0px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   text-decoration: none;
   color: white;
@@ -137,6 +143,8 @@
 
 .ssc-box .ssc-all-infos .ssc-infos {
   font: 16px Questrial, sans-serif;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -192,6 +200,8 @@
 .ssc-box .ssc-rest .ssc-rest-btn {
   position: relative;
   padding: 20px 0;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -257,6 +267,8 @@
 }
 
 .ssc-box .ssc-planification .js-timeContainer h4 {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 
@@ -280,6 +292,8 @@
   background: transparent;
   border: 2px solid #fff;
   width: 86px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   cursor: pointer;
 }
@@ -333,6 +347,8 @@
   color: white;
   background: #e3d7bf;
   font: 16px Questrial, sans-serif;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   padding: 30px;
   margin-top: 11px;
