@@ -1,16 +1,36 @@
 class AdminCadreController < ApplicationAdminController
   before_action :authenticate_admin!
-  def main
+
+  #tous les candidats
+  def all_cadre
   end
 
-  def send_message
+  #cadre non admis
+  def cadre_not_admitted
   end
 
+  #cadre admis
+  def cadre_admitted
+    
+  end
+
+  # entretien fit
   def entretien_fit
     @cadres = current_admin.cadre_infos
     # @cadres = CadreInfo.where(cadre_id:nil,is_recrute:nil,score_fit:nil)
   end
 
+
+
+
+
+
+
+
+  def send_message
+  end
+
+  
   def show_accepted_cadre
     helpers.updateNotification(params[:secure])
     @cadre = CadreInfo.find_by(id:params[:id])
@@ -80,6 +100,8 @@ class AdminCadreController < ApplicationAdminController
   end
 
   def show_profile
-
+    puts "~~"*43
+    puts params[:id]
+    puts "~~"*43
   end
 end

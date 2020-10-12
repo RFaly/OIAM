@@ -205,23 +205,27 @@ Rails.application.routes.draw do
   post 'secret-oiam-page/admin/send-message-recruteur', to: 'admin_main#post_message_recruteur', as: 'post_message_recruteur'
 
   # route admin cadre
-  get 'secret-oiam-page/admin/cadre/mes-candidats', to: 'admin_cadre#main', as: 'admin_cadre_main'
-  get 'secret-oiam-page/admin/cadre/mes-candidats/candidat', to: 'admin_cadre#show_profile', as: 'admin_cadre_show_profile'
+  get 'secret-oiam-page/admin/candidats/tous-les-candidats', to: 'admin_cadre#all_cadre', as: 'admin_cadre_all'
+  get 'secret-oiam-page/admin/candidats/:id/tous-les-candidats/', to: 'admin_cadre#show_profile', as: 'admin_cadre_show_profile'
 
-  get 'secret-oiam-page/admin/cadre/entretien-fit', to: 'admin_cadre#entretien_fit', as: 'admin_cadre_entretien_fit'
-  get 'secret-oiam-page/admin/cadre/entretien-fit/:id/avis-recruteur', to: 'admin_cadre#show_accepted_cadre', as: 'post_avis_candidats_fit'
+  get 'secret-oiam-page/admin/candidats/mes-candidats/candidats-non-admis', to: 'admin_cadre#cadre_not_admitted', as: 'cadre_not_admitted'
+  get 'secret-oiam-page/admin/candidats/mes-candidats/candidats-non-admis', to: 'admin_cadre#cadre_admitted', as: 'cadre_admitted'
 
-  post 'secret-oiam-page/admin/cadre/entretien-fit', to: 'admin_cadre#candidate_to_cadre', as: 'candidate_to_cadre'
-  post 'secret-oiam-page/admin/cadre/entretien-fit/ok', to: 'admin_cadre#accepted_or_reffused', as: 'accepted_or_reffused'
+
+  get 'secret-oiam-page/admin/candidats/entretien-fit', to: 'admin_cadre#entretien_fit', as: 'admin_cadre_entretien_fit'
+  get 'secret-oiam-page/admin/candidats/entretien-fit/:id/avis-recruteur', to: 'admin_cadre#show_accepted_cadre', as: 'post_avis_candidats_fit'
+
+  post 'secret-oiam-page/admin/candidats/entretien-fit', to: 'admin_cadre#candidate_to_cadre', as: 'candidate_to_cadre'
+  post 'secret-oiam-page/admin/candidats/entretien-fit/ok', to: 'admin_cadre#accepted_or_reffused', as: 'accepted_or_reffused'
 
 
   # get 'secret-oiam-page/admin/cadre/envoyer-un-message', to: 'admin_cadre#send_message', as: 'admin_cadre_send_message'
 
-  get 'secret-oiam-page/admin/cadre/coaching-workshop', to: 'admin_cadre#coaching_workshop', as: 'admin_cadre_coaching_workshop'
+  get 'secret-oiam-page/admin/candidats/coaching-workshop', to: 'admin_cadre#coaching_workshop', as: 'admin_cadre_coaching_workshop'
 
-  get 'secret-oiam-page/admin/cadre/envoyer-un-message/envoyer', to: 'admin_cadre#message', as: 'message_candidats'
-  get 'secret-oiam-page/admin/cadre/coaching-workshop/accept_workshop', to: 'admin_cadre#accept_workshop', as: 'accept_workshop'
-  get 'secret-oiam-page/admin/cadre/coaching-workshop/cancel_workshop', to: 'admin_cadre#cancel_workshop', as: 'cancel_workshop'
+  get 'secret-oiam-page/admin/candidats/envoyer-un-message/envoyer', to: 'admin_cadre#message', as: 'message_candidats'
+  get 'secret-oiam-page/admin/candidats/coaching-workshop/accept_workshop', to: 'admin_cadre#accept_workshop', as: 'accept_workshop'
+  get 'secret-oiam-page/admin/candidats/coaching-workshop/cancel_workshop', to: 'admin_cadre#cancel_workshop', as: 'cancel_workshop'
 
   # route admin client
   get 'secret-oiam-page/admin/client/recrutement-en-cours', to: 'admin_client#main', as: 'admin_client_main'
