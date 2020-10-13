@@ -20,4 +20,24 @@ class Admin < ApplicationRecord
     self.notifications.where(view:false).count
   end
 
+  def number_message_not_see
+    if  @contactCadre = self.contact_admin_cadres
+        number = 0
+        @contactCadre.each do |contact|
+          if contact.mp_admin_not_see > 0
+            number += 1
+          end
+        end
+      return number
+    elsif @contactClient = self.contact_admin_clients
+          number = 0
+          @contactClient.each do |contact|
+          if contact.mp_admin_not_see > 0
+            number += 1
+          end
+        end
+      return number
+    end
+  end
+
 end
