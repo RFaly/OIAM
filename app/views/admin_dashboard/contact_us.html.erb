@@ -1,3 +1,28 @@
+<% @title="Contacts" %>
+<style>
+  .auc {
+    margin-top: 20px;
+  }
+
+  .row {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+
+  .cont-dem {
+    padding: 20px;
+  }
+
+  .title {
+    padding-bottom: 20px;
+  }
+
+  .dem {
+    text-align: left;
+  }
+</style>
+
 <link rel="stylesheet" href="/css/mes_cand_admin.css" />
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <div class="client-column">
@@ -5,24 +30,45 @@
     <%= render partial: "admin_dashboard/left_menu_link" %>
   </div>
   <div class="cp-box">
+    <div class="fcp-box">
+      	<h3 class="title" style="color: #d6b36a !important;">DEMANDE DE CONTACT</h3>
 		<% if @contactUs.empty? %>
-			Aucune demande de contact
+    <div class="auc">
+      	Aucune demande de contact
+    </div>
 		<% else %>
 			<% @contactUs.each do |contactU| %>
-			<div class="aler info">
-				<ul>
-					<li>Prénom: <%= contactU.first_name %></li>
-					<li>Nom: <%= contactU.last_name %></li>
-					<li>Société: <%= contactU.society %></li>
-					<li>Fonction: <%= contactU.function %></li>
-					<li>E-mail: <%= contactU.email %></li>
-					<li>Téléphone: <%= contactU.telephone %></li>
-					<li>Comment nous avez-vous connu ?: <%= contactU.how %></li>
-					<li>Message: <%= contactU.message %></li>
-				</ul>
+			<div class="row">
+              <div class="col-sm-4">
+                <div class="dem">
+                  <p class="desc-dem">
+                    <strong><%= contactU.first_name %> <%= contactU.last_name %></strong>
+                    <br>
+                    <small>E-mail: <%= contactU.email %></small>
+                    <br>
+                    <small>Telephone: <%= contactU.telephone %></small>
+                    <br>
+                    <small>Société: <%= contactU.society %></small>
+                    <br>
+                    <small>Fonction: <%= contactU.function %></small>
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <p>
+                  <strong>Comment nous avez-vous connu ?</strong>
+                  <br>
+                  <small><%= contactU.how %></small>
+                  <br>
+                  <br>
+                  <strong>Message</strong>
+                  <br>
+                  <small><%= contactU.message %></small>
+                </p>
+              </div>
 			</div>
 			<% end %>
 		<% end %>
+  </div>
 	</div>
 </div>
-
