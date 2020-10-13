@@ -1,8 +1,10 @@
-if (document.URL.indexOf('#') == -1) {
-  url = document.URL + '#';
-  location = '#';
-  location.reload(true);
-}
+$(document).ready(function () {
+  if (document.URL.indexOf('#') == -1) {
+    url = document.URL + '#';
+    location = '#';
+    location.reload(true);
+  }
+});
 var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
 var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
 let $elementDate = $('.currentDateEntretien');
