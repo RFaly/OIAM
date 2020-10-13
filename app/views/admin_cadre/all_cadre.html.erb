@@ -1,6 +1,6 @@
 <% @title="Candidats" %>
-<link rel="stylesheet" href="/css/client_profil.css" />
-<style>
+<!-- <link rel="stylesheet" href="/css/client_profil.css" /> -->
+<!-- <style>
     * {
       line-height: 1.5;
     }
@@ -120,10 +120,12 @@
       border: 1px solid #E3D7BF;
     }
 
+</style> -->
 
-</style>
 <link rel="stylesheet" href="/css/mes_cand_admin.css" />
+
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
+
 <div class="client-column">
   <div class="client-menu-left">
     <%= render partial: "admin_cadre/left_menu_link" %>
@@ -132,52 +134,175 @@
   <div class="cp-box">
   	<div>
   		<div class="fcp-box">
-      <h3 class="title" style="color: #d6b36a !important;">MES CANDIDATS</h3>
+      <h3 class="title" style="color: #d6b36a !important;">TOUS LES CANDIDATS</h3>
       <div class="fc-item">
         <div class="fc-item-all">
 
 <!--         	CANDIDATS  -->
         <div class="nw-cont">
 
-          <div class="cont-filter">
-            <div class="filter">
-              <span>En cours</span>
-              <span>Traiter</span>
-              <span>A traiter</span>
-            </div>
-              <div class="search-bar">
-                <input type="text" name="q" placeholder="Entrer le nom d'un candidat">
-                <span>rechercher</span>
-              </div>
-          </div>
+          <% if @cadre_infos.empty? %>
+             "Aucun candidat inscrit"
+          <% else %>
+
+          <% end %>
+
+<!-- ======================================================================================================================== -->
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.min.css">
+<link rel="stylesheet" href="https://rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css">
 
 
 
-          <div class="cont-candd">
+<div class="container">
 
-           <!--  CANDIDATS ANAKY RAY NO ETO RY FALY -->
-            <div class="candd">
-              <div class="row">
-              <div class="col-sm-3">
-                <img src="/image/profie.png" alt="photo profil candidats", width="120px" />
-              </div>
-              <div class="col-sm-6">
-                <div class="desc-candd">
-                  <h4 class="name">Pierre Le Candidats</h4>
-                  <h4 class="score">Score OIAM: 5500</h4>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="cont-btn">
-                <a href="<%= admin_cadre_show_profile_path(12) %>">Voir</a>
-                </div>
-              </div>
-              </div>
-            </div>
-              <!-- --------------------------------------------------------------------- -->
+<div id="toolbar">
+    <select class="form-control">
+        <option value="all">Export All</option>
+        <option value="selected">Export Selected</option>
+    </select>
+</div>
+
+<table id="table" 
+       data-toggle="table"
+       data-search="true"
+       data-filter-control="true" 
+       data-show-export="true"
+       data-click-to-select="true"
+       data-toolbar="#toolbar"
+       class="table-responsive"
+       >
+  <thead>
+    <tr>
+      <th data-field="state" data-checkbox="true"></th>
+      <th>Photo</th>
+      <th data-field="prenom" data-filter-control="input" data-sortable="true">Prénom</th>
+      <th data-field="potential_test" data-filter-control="input" data-sortable="true">Test potentiel</th>
+      <th data-field="fit_test" data-filter-control="input" data-sortable="true">Test fit</th>
+      <th data-field="status" data-filter-control="select" data-sortable="true">Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% index_val = 0 %>
+    <% @cadre_infos.each do |cadre_info| %>
+      <tr>
+        <td class="bs-checkbox "><input data-index="<%= index_val %>" name="btSelectItem" type="checkbox"></td>
+
+        <% if cadre_info.image.nil? %>
+          <td class="add-image-link" data-link="/image/profie.png">
+            <img src='/image/profie.png' alt='photo de profil' width='120px' />
+          </td>
+        <% else %>
+          <td class="add-image-link" data-link="<%= cadre_info.image %>">
+            <img src='<%= cadre_info.image %>' alt='photo de profil' width='120px' />
+          </td>
+        <% end %>
+
+        <td>
+          <%= cadre_info.first_name %> <%= cadre_info.last_name %>
+        </td>
+
+        <td>
+          <% if cadre_info.potential_test %>
+            <%= cadre_info.score_potential.nil? ? "en attente du score" : "#{cadre_info.score_potential}" %>
+          <% else %>
+            test non initier
+          <% end %>
+        </td>
+
+        <td>
+          <% if cadre_info.fit_test %>
+            <%= cadre_info.score_fit.nil? ? "en attente du score" : "#{cadre_info.compatibilite}" %>
+          <% else %>
+            test non initier
+          <% end %>
+        </td>
+        
+        <td>
+          <%= cadre_info.status %>  
+        </td>
+
+        <td class="add-link-js" data-link="<%= admin_cadre_show_profile_path(cadre_info.id) %>" style="">
+          <a class='btn btn-primary' href="<%= admin_cadre_show_profile_path(cadre_info.id) %>">Voir</a>
+        </td>
+
+      </tr>
+      <% index_val += 1 %>
+    <% end %>
+
+  </tbody>
+
+</table>
+
+</div>
 
 
-          </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/editable/bootstrap-table-editable.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/export/bootstrap-table-export.js"></script>
+<script src="https://rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
+
+
+
+<script type="text/javascript">
+  // add node element in table
+  $(document).ready(function () {
+
+    // $(".add-image-link").each(function(){
+    //   $(this).html("<img src='"+ $(this).data().link +"' alt='photo de profil' width='120px' />")
+    // });
+
+    // $(".add-link-js").each(function(){
+    //   $(this).html("<a class='btn btn-primary' href="+$(this).data().link+">Voir</a>")
+    // });
+    
+  })
+
+
+
+  //exporte les données sélectionnées
+  var $table = $('#table');
+    $(function () {
+        $('#toolbar').find('select').change(function () {
+            $table.bootstrapTable('refreshOptions', {
+                exportDataType: $(this).val()
+            });
+        });
+    })
+
+    var trBoldBlue = $("table");
+
+  $(trBoldBlue).on("click", "tr", function (){
+      $(this).toggleClass("bold-blue");
+  });
+</script>
+
+<!-- ======================================================================================================================== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+       
         </div>
         </div>
       </div>

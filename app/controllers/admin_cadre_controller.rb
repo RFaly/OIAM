@@ -3,29 +3,25 @@ class AdminCadreController < ApplicationAdminController
 
   #tous les candidats
   def all_cadre
+    @cadre_infos = CadreInfo.all
   end
 
   #cadre non admis
   def cadre_not_admitted
+    @cadre_infos = CadreInfo.where(is_recrute:false)
   end
 
   #cadre admis
   def cadre_admitted
-    
+    @cadre_infos = CadreInfo.where(is_recrute:true)
   end
 
   # entretien fit
   def entretien_fit
-    @cadres = current_admin.cadre_infos
-    # @cadres = CadreInfo.where(cadre_id:nil,is_recrute:nil,score_fit:nil)
+    @cadre_infos = CadreInfo.where(is_recrute:nil).where.not(score_potential:nil)
   end
 
-
-
-
-
-
-
+#====================================================================================
 
   def send_message
   end

@@ -15,6 +15,24 @@ class CadreInfo < ApplicationRecord
 		500
 	end
 
+	def status
+		if self.is_recrute.nil?
+			"en cours"
+		elsif self.is_recrute
+			"admis"
+		else
+			"non admis"
+		end
+	end
+
+	def not_admited_test
+		if self.score_fit.nil?
+			"potential_test"
+		else
+			"fit_test"
+		end
+	end
+
 	def mobilite_name
 		case self.mobilite
 		when "1"

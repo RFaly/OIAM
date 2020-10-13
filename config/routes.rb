@@ -209,7 +209,7 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/candidats/:id/tous-les-candidats/', to: 'admin_cadre#show_profile', as: 'admin_cadre_show_profile'
 
   get 'secret-oiam-page/admin/candidats/mes-candidats/candidats-non-admis', to: 'admin_cadre#cadre_not_admitted', as: 'cadre_not_admitted'
-  get 'secret-oiam-page/admin/candidats/mes-candidats/candidats-non-admis', to: 'admin_cadre#cadre_admitted', as: 'cadre_admitted'
+  get 'secret-oiam-page/admin/candidats/mes-candidats/candidats-admis', to: 'admin_cadre#cadre_admitted', as: 'cadre_admitted'
 
 
   get 'secret-oiam-page/admin/candidats/entretien-fit', to: 'admin_cadre#entretien_fit', as: 'admin_cadre_entretien_fit'
