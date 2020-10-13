@@ -303,13 +303,13 @@
                     <div class="date-list">
                       <h3>jours</h3>
                       <h3>heures</h3>
-                      <h3>minutes</h3>
+                      <h3>minutes</h3>  
                       <h3>secondes</h3>
                     </div>
                 </div>
                 <% else %>
                 <div class="info-cadd">
-                  <h3>Vous avez rencontré <%= @cadre.first_name %> <%= @cadre.last_name %> le <strong><%=  @cadre.agenda_admin.entretien_date.strftime("%d/%m/%Y") %></strong>, comment s'est déroulé votre entretien ?</h3>
+                  <h3>Vous avez rencontré <%= @cadre.first_name %> <%= @cadre.last_name %> le <strong><%=  @cadre.agenda_admin.entretien_date.strftime("%d-%m-%Y %H:%M") %></strong>, comment s'est déroulé votre entretien ?</h3>
                 </div>
                 <div class="all-btn">
                   <span id="accepted-js" class="mybtn btn-to-hidden-js">ACCEPTER SA CANDIDATURE</span>
