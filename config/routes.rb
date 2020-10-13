@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # routes pdf 
   get '/recruteur/mes-factures/%:id_factures.26#%/facturation_pdf.pdf',to: 'facturation_pdf#index',as: 'facturation_pdf_to_pdf'
-  get '/recruteur/offre-d-emploi/%:id_promise.26#%/contrat-d-embauche',to: 'facturation_pdf#promise',as: 'promise_pdf'
+  get '/recruteur/offre-d-emploi/%:id_promise.26#%/contrat-d-embauche.pdf',to: 'facturation_pdf#promise',as: 'promise_pdf'
+  get '/cadre/suivi-recrutement/%:id_promise.26#%/contrat-d-embauche',to: 'facturation_pdf#promise_cadre',as: 'promise_cadre_pdf'
 	#~~~~~~~~~~~~~~~~~~~~ Accueil ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   root to: 'static_page#home'
   get '/welcome', to: 'static_page#allHome', as: 'welcome'

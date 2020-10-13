@@ -31,19 +31,19 @@
               <input type="text" value="<%= @cadre.first_name %>" readonly class="input" />
             </div>
             <div class="pch-div">
-              <% if (@promise.birthday_cadre != nil)%>
+              <%unless @promise.birthday_cadre.nil? %> <% @datebirth = @promise.birthday_cadre.split('-')%> <% @pbc = "#{@datebirth[2]}/#{@datebirth[1]}/#{@datebirth[0]}"%>
               <label>Date de naissance</label>
-              <% end%> <input type="text" id="date" value="<%= @promise.birthday_cadre ? @promise.birthday_cadre : "Date de naissance" %>" readonly class="<% if (@promise.birthday_cadre != nil)%> input <% end%>"/>
+              <% end%> <input type="text" id="date" value="<%= @pbc ? @pbc : "Date de naissance" %>" readonly class="<% unless @promise.birthday_cadre.nil?%> input <% end%>"/>
             </div>
             <div class="pch-div">
-              <% if (@promise.birthplace_cadre != nil)%>
+              <% unless @promise.birthplace_cadre.nil?%>
               <label>Lieu de naissance</label>
-              <% end%> <input type="text" value="<%= @promise.birthplace_cadre ? @promise.birthplace_cadre : "Lieu de naissance" %>" readonly class="<% if (@promise.birthplace_cadre != nil)%>input<% end%>"/>
+              <% end%> <input type="text" value="<%= @promise.birthplace_cadre ? @promise.birthplace_cadre : "Lieu de naissance" %>" readonly class="<% unless @promise.birthplace_cadre.nil?%>input<% end%>"/>
             </div>
             <div class="pch-div">
-              <% if (@promise.ns_sociale_cadre != nil)%>
+              <% unless @promise.ns_sociale_cadre.nil?%>
               <label>N°sécurité sociale</label>
-              <% end%> <input type="text" value="<%= @promise.ns_sociale_cadre ? @promise.ns_sociale_cadre : "N°sécurité sociale" %>" readonly class="<% if (@promise.ns_sociale_cadre != nil)%>input<% end%>"/>
+              <% end%> <input type="text" value="<%= @promise.ns_sociale_cadre ? @promise.ns_sociale_cadre : "N°sécurité sociale" %>" readonly class="<% unless @promise.ns_sociale_cadre.nil?%>input<% end%>"/>
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@
         </div>
         <hr />
         <div class="pc-form pc-form3 pc-flex">
-          <label> Rémunération variable  (k€ bruts annuels)</label>
+          <label> Rémunération variable (k€ bruts annuels)</label>
 
           <div class="right">
             <input type="text" class="hidden" />
@@ -149,7 +149,7 @@
         <% end %>
         <div class="show-promise-btn">
           <% if @promise.repons_cadre == true %>
-          <div class="spb-div spb-div1"><a class="a-down">TELECHARGER</a></div>
+          <div class="spb-div spb-div1"><a class="a-down" href="<%= promise_pdf_path(@promise)%>">TELECHARGER</a></div>
           <% else %>
           <div class="spb-div"><%= link_to "MODIFIER", edit_promise_to_hire_path(@promise.id) %></div>
           <% end %>

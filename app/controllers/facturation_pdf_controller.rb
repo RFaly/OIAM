@@ -1,4 +1,6 @@
 class FacturationPdfController < ApplicationController
+  before_action :authenticate_cadre!,only: [:promise_cadre]
+  before_action :authenticate_client! , except: :promise_cadre
   def index
     @facture = Facture.find_by_id(params[:id_factures])
     if (@facture.created_at.day < 10)
@@ -40,11 +42,23 @@ class FacturationPdfController < ApplicationController
 		@job = @promise.offre_job
     @cadre = @promise.cadre.cadre_info
     respond_to do |format|
-      format.html
       format.pdf {render layout: 'promise_layout.html',
                     template: 'facturation_pdf/promise',
-                    pdf: 'Promise',
-                    margin: { top: 10, bottom: 10, left: 10, right: 10 }
+                    pdf:"Promesse b'embauche OIAM ",
+                    margin: { top: 15, bottom: 15, left: 10, right: 10 }
+                  }
+    end
+  end
+  def promise_cadre
+    @promise = PromiseToHire.find_by_id(params[:id_promise])
+    @cadre = current_cadre.cadre_info
+    @job = @promise.offre_job
+    @current_client = @job.client
+    respond_to do |format|
+      format.pdf {render layout: 'promise_cadre.html',
+                    template: 'facturation_pdf/promise_cadre',
+                    pdf: "Promesse b'embauche OIAM ",
+                    margin: { top: 15, bottom: 15, left: 10, right: 10 }
                   }
     end
   end

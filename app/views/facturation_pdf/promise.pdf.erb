@@ -25,20 +25,20 @@
             <input type="text" value="<%= @cadre.first_name %>" readonly class="input" />
         </div>
         <div class="pch-div">
-            <% if (@promise.birthday_cadre != nil)%>
+            <%unless @promise.birthday_cadre.nil? %><% @datebirth = @promise.birthday_cadre.split('-')%> <% @pbc = "#{@datebirth[2]}/#{@datebirth[1]}/#{@datebirth[0]}"%>
             <label>Date de naissance</label>
-            <% end%> <input type="text" id="date" value="<%= @promise.birthday_cadre ? @promise.birthday_cadre : "Date de naissance" %>" readonly class="<% if (@promise.birthday_cadre != nil)%> input <% end%>"/>
+            <% end%> <input type="text" id="date" value="<%= @pbc ? @pbc : "Date de naissance" %>" readonly class="<%unless @promise.birthday_cadre.nil? %> input <% end%>"/>
             <%= image_tag wicked_pdf_asset_base64("calendar.png") -%>
         </div>
         <div class="pch-div">
-            <% if (@promise.birthplace_cadre != nil)%>
+            <% unless @promise.birthplace_cadre.nil?%>
             <label>Lieu de naissance</label>
-            <% end%> <input type="text" value="<%= @promise.birthplace_cadre ? @promise.birthplace_cadre : "Lieu de naissance" %>" readonly class="<% if (@promise.birthplace_cadre != nil)%>input<% end%>"/>
+            <% end%> <input type="text" value="<%= @promise.birthplace_cadre ? @promise.birthplace_cadre : "Lieu de naissance" %>" readonly class="<% unless @promise.birthplace_cadre.nil?%>input<% end%>"/>
         </div>
         <div class="pch-div">
-            <% if (@promise.ns_sociale_cadre != nil)%>
+            <% unless @promise.ns_sociale_cadre.nil?%>
             <label>N°sécurité sociale</label>
-            <% end%> <input type="text" value="<%= @promise.ns_sociale_cadre ? @promise.ns_sociale_cadre : "N°sécurité sociale" %>" readonly class="<% if (@promise.ns_sociale_cadre != nil)%>input<% end%>"/>
+            <% end%> <input type="text" value="<%= @promise.ns_sociale_cadre ? @promise.ns_sociale_cadre : "N°sécurité sociale" %>" readonly class="<% unless @promise.ns_sociale_cadre.nil?%>input<% end%>"/>
         </div>
         </div>
     </div>
