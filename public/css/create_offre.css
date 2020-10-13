@@ -230,6 +230,14 @@
   box-shadow: 1px 1px 5px 1px #d6b36a;
 }
 
+.create-offre-box .detail-post-box .dp-input input#metier-input,
+.create-offre-box .detail-post-box .dp-input select#metier-input,
+.create-offre-box .detail-post-box .dp-input textarea#metier-input {
+  padding-left: 35px;
+  word-wrap: break-word;
+  padding-right: 35px;
+}
+
 .create-offre-box .detail-post-box .dp-input textarea {
   padding-left: 10px;
   resize: both;
