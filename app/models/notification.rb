@@ -3,7 +3,6 @@ class Notification < ApplicationRecord
 
 	belongs_to :client, optional: true
 	belongs_to :cadre, optional: true
-	belongs_to :admin, optional: true
 
 	def cadre_info
 		return Cadre.find_by_id(self.medel_id).cadre_info

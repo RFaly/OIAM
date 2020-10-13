@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_081916) do
+ActiveRecord::Schema.define(version: 2020_10_13_114757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -290,8 +290,6 @@ ActiveRecord::Schema.define(version: 2020_10_13_081916) do
     t.bigint "cadre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "admin_id"
-    t.index ["admin_id"], name: "index_notifications_on_admin_id"
     t.index ["cadre_id"], name: "index_notifications_on_cadre_id"
     t.index ["client_id"], name: "index_notifications_on_client_id"
   end
@@ -402,6 +400,5 @@ ActiveRecord::Schema.define(version: 2020_10_13_081916) do
   add_foreign_key "cadre_infos", "metiers"
   add_foreign_key "cadre_infos", "regions"
   add_foreign_key "cadre_infos", "villes"
-  add_foreign_key "notifications", "admins"
   add_foreign_key "offre_jobs", "metiers"
 end
