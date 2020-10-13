@@ -1,131 +1,29 @@
 <% @title="Candidats" %>
-<!-- <link rel="stylesheet" href="/css/client_profil.css" /> -->
-<!-- <style>
-    * {
-      line-height: 1.5;
-    }
 
-    .nw-cont {
-      width: 100%;
-    }
-
-    .cont-filter {
-      position: relative;
-      width: 400px;
-      float: right;
-    }
-    .filter {
-      padding-top: 20px;
-      padding-bottom: 20px;
-/*      border-bottom: 1px solid rgba(0,0,0,.1);*/
-    }
-
-    .filter span {
-      align-items: flex-end;
-      background: #E3D7BF;
-      color: #fff;
-      cursor: pointer;
-      font-size: 10px;
-      padding: 10px 30px;
-      text-transform: uppercase;
-      border: 1px solid #E3D7BF;
-    }
-
-    .filter span:hover {
-      background: #fff;
-      color: #E3D7BF;
-      border: 1px solid #E3D7BF;
-    }
-
-    .candd {
-      clear: both;
-      padding: 20px;
-      margin-top: 20px;
-      border-top: 1px solid rgba(0,0,0,.1);
-      border-bottom: 1px solid rgba(0,0,0,.1);
-    }
-
-    .desc-candd {
-      margin-top: 30px;
-      text-align: center;
-    }
-
-    .name {
-      text-decoration: none;
-      text-align: center;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .score {
-      text-decoration: none;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .cont-btn {
-      margin-top: 40px;
-    }
-
-    .cont-btn a {
-      color: #fff !important;
-      background: #d6b36a !important;
-      padding: 10px 40px !important;
-      cursor: pointer !important;
-      border: 1px solid #d6b36a !important;
-    }
-
-    .cont-btn a:hover {
-      border: 1px solid #d6b36a !important;
-      color: #d6b36a !important;
-      background: #fff !important;
-    }
-
-    .search-bar {
-      padding-left: 20px;
-      padding-right: 20px;
-      padding-top: 5px;
-      padding-bottom: 20px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .search-bar input {
-      align-items: flex-end;
-      width: 200px;
-      padding: 10px;
-      outline: none;
-      font-size: 12px;
-      height: auto;
-      margin-left: 14px;
-      border: 1px solid #d6b36a;
-    }
-
-    .search-bar span {
-      align-items: flex-end;
-      background: #E3D7BF;
-      font-size: 10px;
-      text-transform: uppercase;
-      padding: 10px 30px;
-      color: #fff !important;
-      cursor: pointer;
-      border: 1px solid #E3D7BF;
-      margin-right: 15px;
-      text-align: center;
-    }
-
-    .search-bar span:hover {
-      background: #fff;
-      color: #E3D7BF !important;
-      border: 1px solid #E3D7BF;
-    }
-
-</style> -->
 
 <link rel="stylesheet" href="/css/mes_cand_admin.css" />
 
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 
+<!-- render table -->
+<!-- render table -->
+<!-- render table -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+<script src="https://unpkg.com/tableexport.jquery.plugin/libs/jsPDF/jspdf.min.js"></script>
+<script src="https://unpkg.com/tableexport.jquery.plugin/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/export/bootstrap-table-export.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+
+<!-- render table -->
+<!-- render table -->
+<!-- render table -->
 <div class="client-column">
   <div class="client-menu-left">
     <%= render partial: "admin_cadre/left_menu_link" %>
@@ -148,11 +46,6 @@
           <% end %>
 
 <!-- ======================================================================================================================== -->
-
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.min.css">
-<link rel="stylesheet" href="https://rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css">
 
 
 
@@ -178,7 +71,11 @@
     <tr>
       <th data-field="state" data-checkbox="true"></th>
       <th>Photo</th>
+      
+      <th data-field="nom" data-filter-control="input" data-sortable="true">Nom</th>
+
       <th data-field="prenom" data-filter-control="input" data-sortable="true">Prénom</th>
+
       <th data-field="potential_test" data-filter-control="input" data-sortable="true">Test potentiel</th>
       <th data-field="fit_test" data-filter-control="input" data-sortable="true">Test fit</th>
       <th data-field="status" data-filter-control="select" data-sortable="true">Status</th>
@@ -203,7 +100,11 @@
         <% end %>
 
         <td>
-          <%= cadre_info.first_name %> <%= cadre_info.last_name %>
+          <%= cadre_info.last_name %>
+        </td>
+
+        <td>
+          <%= cadre_info.first_name %>
         </td>
 
         <td>
@@ -226,8 +127,8 @@
           <%= cadre_info.status %>  
         </td>
 
-        <td class="add-link-js" data-link="<%= admin_cadre_show_profile_path(cadre_info.id) %>" style="">
-          <a class='btn btn-primary' href="<%= admin_cadre_show_profile_path(cadre_info.id) %>">Voir</a>
+        <td class="add-link-js" data-link="<%= admin_cadre_show_profile_path(cadre_info.id) %>">
+          <a href="<%= admin_cadre_show_profile_path(cadre_info.id) %>"><i class="far fa-eye" data-method="GET"></i></a>
         </td>
 
       </tr>
@@ -240,51 +141,6 @@
 
 </div>
 
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/editable/bootstrap-table-editable.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/export/bootstrap-table-export.js"></script>
-<script src="https://rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
-
-
-
-<script type="text/javascript">
-  // add node element in table
-  $(document).ready(function () {
-
-    // $(".add-image-link").each(function(){
-    //   $(this).html("<img src='"+ $(this).data().link +"' alt='photo de profil' width='120px' />")
-    // });
-
-    // $(".add-link-js").each(function(){
-    //   $(this).html("<a class='btn btn-primary' href="+$(this).data().link+">Voir</a>")
-    // });
-    
-  })
-
-
-
-  //exporte les données sélectionnées
-  var $table = $('#table');
-    $(function () {
-        $('#toolbar').find('select').change(function () {
-            $table.bootstrapTable('refreshOptions', {
-                exportDataType: $(this).val()
-            });
-        });
-    })
-
-    var trBoldBlue = $("table");
-
-  $(trBoldBlue).on("click", "tr", function (){
-      $(this).toggleClass("bold-blue");
-  });
-</script>
 
 <!-- ======================================================================================================================== -->
 
