@@ -80,14 +80,8 @@
   font: 16px Questrial, sans-serif;
   text-align: -webkit-center;
   text-align: -moz-center;
-  text-align: justify;
-}
-
-
-#det-p{
   text-align: center;
 }
-
 
 .details-r-condition .condition-content {
   width: 70%;

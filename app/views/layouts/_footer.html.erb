@@ -1,25 +1,18 @@
-
 <div class="bg-footer">
   <div class="footer-oiam">
     <div class="footer-btn">
-      <span>abonnez-vous à notre newsletter</span>
-      <div class="input-mail">
-        <%= form_tag url_for(save_app_subscriber_path),method:'post' do %>
-          <input type="text" required="required" name="email" placeholder="E-mail" />
-          <div class="sub">
-            <input type="submit" value="S'ABONNER" class="submit" />
-          </div>
-        <%end%>
+      <span id="newslettres">abonnez-vous à notre newsletter</span>
+      <%= form_tag url_for(save_app_subscriber_path),id:'input-mail',method:'post' do %>
+      <input type="text" required="required" name="email" placeholder="E-mail" id="input-types" />
+      <div class="sub">
+        <input type="submit" value="S'ABONNER" id="submit" />
       </div>
+      <%end%>
     </div>
     <hr />
     <div class="footer-bottom">
-      <div class="footer-c">
-        <%=link_to "Conditions générales", condition_general_path%> <%=link_to "Règles de communauté", root_path%> <%=link_to "Politique de confidentialité", root_path%> <%=link_to "Charte d'utilisation des cookies", root_path%>
-      </div>
-      <div class="copyright">
-        &copy; 2020
-      </div>
+      <div class="footer-c"><%=link_to "Conditions générales", condition_general_path%> <%=link_to "Règles de communauté", root_path%> <%=link_to "Politique de confidentialité", root_path%> <%=link_to "Charte d'utilisation des cookies", root_path%></div>
+      <div class="copyright">&copy; 2020</div>
       <div class="social">
         <a href="#" target="_blank" title="Linkedin"><img src="/image/icon-linkedin.jpg" alt="linkedin logo" /> </a>
         <a href="#" target="_blank" title="Instagram"><img src="/image/icon-instagram1.png" alt="instagram logo" /></a>
@@ -29,3 +22,5 @@
     </div>
   </div>
 </div>
+<!-- call js  -->
+<script type="text/javascript" data-turbolinks-track="reload" src="/js/footer.js"></script>
