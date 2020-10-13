@@ -5,15 +5,19 @@
     <%= render partial: "admin_dashboard/left_menu_link" %>
   </div>
   <div class="cp-box">
-		<table class="table">
-			<tr>
-				<td>email</td>
-			</tr>
-		<% @subscribers.each do |subscriber| %>
-			<tr class="aler info">
-				<td><%= subscriber.email %></td>
-			</tr>
+  		<% if @subscribers.empty? %>
+  			Aucun abonné
+  		<% else %>
+			<table class="table">
+				<tr>
+					<td>email</td>
+				</tr>
+			<% @subscribers.each do |subscriber| %>
+				<tr class="aler info">
+					<td><%= subscriber.email %></td>
+				</tr>
+			<% end %>
+			</table>
 		<% end %>
-		</table>
 	</div>
 </div>
