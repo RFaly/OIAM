@@ -1,4 +1,25 @@
 <% @title="Candidats" %>
+<style>
+  .add-image-link img {
+    border-radius: 50%;
+  }
+
+  .nw-cont {
+    position: relative;
+  }
+
+  .fa-eye {
+    color: #d6b36a;
+  }
+
+  .lab {
+    text-align: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+
+</style>
 
 
 <link rel="stylesheet" href="/css/mes_cand_admin.css" />
@@ -49,7 +70,7 @@
 
 
 
-<div class="container">
+<div class="all-cd">
 
 <div id="toolbar">
     <select class="form-control">
@@ -58,28 +79,27 @@
     </select>
 </div>
 
-<table id="table" 
+<table id="table"
        data-toggle="table"
        data-search="true"
-       data-filter-control="true" 
+       data-filter-control="true"
        data-show-export="true"
        data-click-to-select="true"
        data-toolbar="#toolbar"
-       class="table-responsive"
        >
   <thead>
     <tr>
       <th data-field="state" data-checkbox="true"></th>
-      <th>Photo</th>
-      
-      <th data-field="nom" data-filter-control="input" data-sortable="true">Nom</th>
+      <th class="lab">Photo</th>
 
-      <th data-field="prenom" data-filter-control="input" data-sortable="true">Prénom</th>
+      <th class="lab" data-field="nom" data-filter-control="input" data-sortable="true">Nom</th>
 
-      <th data-field="potential_test" data-filter-control="input" data-sortable="true">Test potentiel</th>
-      <th data-field="fit_test" data-filter-control="input" data-sortable="true">Test fit</th>
-      <th data-field="status" data-filter-control="select" data-sortable="true">Status</th>
-      <th>Action</th>
+      <th class="lab" data-field="prenom" data-filter-control="input" data-sortable="true">Prénom</th>
+
+      <th class="lab" data-field="potential_test" data-filter-control="input" data-sortable="true">Test potentiel</th>
+      <th class="lab" data-field="fit_test" data-filter-control="input" data-sortable="true">Test fit</th>
+      <th class="lab" data-field="status" data-filter-control="select" data-sortable="true">Status</th>
+      <th class="lab">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -91,11 +111,11 @@
 
         <% if cadre_info.image.nil? %>
           <td class="add-image-link" data-link="/image/profie.png">
-            <img src='/image/profie.png' alt='photo de profil' width='120px' />
+            <img src='/image/profie.png' alt='photo de profil' width='120px' height="120px" />
           </td>
         <% else %>
           <td class="add-image-link" data-link="<%= cadre_info.image %>">
-            <img src='<%= cadre_info.image %>' alt='photo de profil' width='120px' />
+            <img src='<%= cadre_info.image %>' alt='photo de profil' width='120px' height="120px" />
           </td>
         <% end %>
 
@@ -122,9 +142,9 @@
             test non initier
           <% end %>
         </td>
-        
+
         <td>
-          <%= cadre_info.status %>  
+          <%= cadre_info.status %>
         </td>
 
         <td class="add-link-js" data-link="<%= admin_cadre_show_profile_path(cadre_info.id) %>">
@@ -145,20 +165,6 @@
 <!-- ======================================================================================================================== -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-            
-       
         </div>
         </div>
       </div>

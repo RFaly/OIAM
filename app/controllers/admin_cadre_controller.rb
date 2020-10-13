@@ -28,7 +28,7 @@ class AdminCadreController < ApplicationAdminController
 
   
   def show_accepted_cadre
-    helpers.updateNotification(params[:secure])
+    helpers.updateAdminNotification(params[:secure],current_admin)
     @cadre = CadreInfo.find_by(id:params[:id])
   end
 
@@ -96,6 +96,7 @@ class AdminCadreController < ApplicationAdminController
   end
 
   def show_profile
+    @cadre_info = CadreInfo.find_by(id: params[:id])
     puts "~~"*43
     puts params[:id]
     puts "~~"*43

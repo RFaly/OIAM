@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get '/oiam', to: 'static_page#nothing', as: 'nothing'
 
+  post '/contact/save', to: 'static_page#save_contact_us', as: 'save_contact_us'
+  post '/contact/subscriber', to: 'static_page#save_app_subscriber', as: 'save_app_subscriber'
 
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Client ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :clients, path: 'clients', controllers: {
@@ -236,10 +238,13 @@ Rails.application.routes.draw do
 
   # routes dans le dashboard
 
-  post 'secret-oiam-page/admin/:id/suivre-candidate', to:'admin_dashboard#add_favorite_cadre', as:'add_favorite_cadre'
-  delete 'secret-oiam-page/admin/:id/remove-candidate', to:'admin_dashboard#rmv_favorite_cadre', as:'rmv_favorite_cadre'
+  # post 'secret-oiam-page/admin/:id/suivre-candidate', to:'admin_dashboard#add_favorite_cadre', as:'add_favorite_cadre'
+  # delete 'secret-oiam-page/admin/:id/remove-candidate', to:'admin_dashboard#rmv_favorite_cadre', as:'rmv_favorite_cadre'
 
   # get 'secret-oiam-page/admin/dashboard', to: 'admin_dashboard#main', as: 'admin_dashboard_main'
+  get 'secret-oiam-page/admin/dashboard/demandes-de-contacts', to: 'admin_dashboard#contact_us', as: 'dashboard_contact_us'
+  get 'secret-oiam-page/admin/dashboard/abonné-newsletter', to: 'admin_dashboard#subscribers', as: 'dashboard_subscribers'
+  
   get 'secret-oiam-page/admin/dashboard/agenda', to: 'admin_dashboard#agenda', as: 'admin_dashboard_agenda'
   get 'secret-oiam-page/admin/dashboard/offres-en-cours', to: 'admin_dashboard#offer', as: 'admin_dashboard_offer'
 

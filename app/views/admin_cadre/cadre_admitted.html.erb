@@ -1,4 +1,49 @@
+<% @title="Candidats" %>
 <link rel="stylesheet" href="/css/mes_cand_admin.css" />
+<style>
+	.mytable {
+		margin-top: 20px;
+		display: inline-table;
+	}
+
+	th {
+		padding: 10px 40px;
+		border: 1px solid #ccc;
+	}
+
+	.each-cdd {
+		border: 1px solid #ccc;
+	}
+
+	.img-cd {
+		border-right: 1px solid #ccc;
+	}
+
+	.img-cd img {
+		border-radius: 50%;
+		padding: 10px;
+	}
+
+	.nm-cd {
+		border-right: 1px solid #ccc;
+	}
+
+	.decs-cd {
+		border-right: 1px solid #ccc;
+	}
+
+	.fa-eye {
+		color: #d6b36a;
+	}
+
+	.lab {
+		text-align: center;
+		justify-content: center;
+		text-transform: uppercase;
+		font-size: 12px;
+	}
+
+</style>
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 
 <div class="client-column">
@@ -12,37 +57,37 @@
 				<% if @cadre_infos.empty? %>
 					Aucun candidats
 				<% else %>
-					<table class="table-responsive">
+					<table class="table-responsive mytable">
 						<tr>
-					      <th>Photo</th>
-					      <th>Nom</th>
-					      <th>Prénom</th>
-					      <th>Test potentiel</th>
-					      <th>Test fit</th>
-					      <th>Status</th>
-					      <th>Action</th>
+								<th class="lab">Photo</th>
+					      <th class="lab">Nom</th>
+					      <th class="lab">Prénom</th>
+					      <th class="lab">Test potentiel</th>
+					      <th class="lab">Test fit</th>
+					      <th class="lab">Status</th>
+					      <th class="lab">Action</th>
 					    </tr>
 						<% @cadre_infos.each do |cadre_info| %>
-							<tr>
+							<tr class="each-cdd">
 						        <% if cadre_info.image.nil? %>
-						          <td>
-						            <img src='/image/profie.png' alt='photo de profil' width='120px' />
+						          <td class="img-cd">
+						            <img src='/image/profie.png' alt='photo de profil' width='120px' height="120px" />
 						          </td>
 						        <% else %>
-						          <td>
-						            <img src='<%= cadre_info.image %>' alt='photo de profil' width='120px' />
+						          <td class="img-cd">
+						            <img src='<%= cadre_info.image %>' alt='photo de profil' width='120px' height="120px" />
 						          </td>
 						        <% end %>
 
-						        <td>
+						        <td class="nm-cd">
 						          <%= cadre_info.last_name %>
 						        </td>
 
-						        <td>
+						        <td class="nm-cd">
 						          <%= cadre_info.first_name %>
 						        </td>
 
-						        <td>
+						        <td class="decs-cd">
 						          <% if cadre_info.potential_test %>
 						            <%= cadre_info.score_potential.nil? ? "en attente du score" : "#{cadre_info.score_potential}" %>
 						          <% else %>
@@ -50,16 +95,16 @@
 						          <% end %>
 						        </td>
 
-						        <td>
+						        <td class="decs-cd">
 						          <% if cadre_info.fit_test %>
 						            <%= cadre_info.score_fit.nil? ? "en attente du score" : "#{cadre_info.compatibilite}" %>
 						          <% else %>
 						            test non initier
 						          <% end %>
 						        </td>
-						        
-						        <td>
-						          <%= cadre_info.status %>  
+
+						        <td class="decs-cd">
+						          <%= cadre_info.status %>
 						        </td>
 
 						        <td >

@@ -155,6 +155,9 @@
 }
 
 @media screen and (min-width: 320px) {
+  #input-mail {
+    flex-direction: column;
+  }
   .bg-uniq {
     margin-top: -450px;
     padding-top: 492px;
@@ -642,6 +645,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  #input-mail {
+    flex-direction: row;
+  }
   .box-1 .box-1-logo {
     width: 55%;
   }

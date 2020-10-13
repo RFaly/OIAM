@@ -104,8 +104,8 @@
                 </div>
                 <div class="col-sm-9">
                   <div class="oob">
-                  <h4 class="not-obj<% if noficication.view %> lu-izy <% end %>"><%= noficication.object %></h4>
-                  <p class="me-not<% if noficication.view %> lu-n-izy <% end %>"><%= noficication.message %></p>
+                  <h4 class="not-obj<% if noficication.view(current_admin) %> lu-izy <% end %>"><%= noficication.object %></h4>
+                  <p class="me-not<% if noficication.view(current_admin) %> lu-n-izy <% end %>"><%= noficication.message %></p>
                   </div>
                   <p class="mb-0">
                   </a>

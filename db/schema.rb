@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_08_110723) do
+ActiveRecord::Schema.define(version: 2020_10_13_121332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -162,6 +162,19 @@ ActiveRecord::Schema.define(version: 2020_10_08_110723) do
     t.index ["client_id"], name: "index_contact_client_cadres_on_client_id"
   end
 
+  create_table "contact_us", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "society"
+    t.string "function"
+    t.string "email"
+    t.string "telephone"
+    t.text "how"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "countries", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -265,6 +278,26 @@ ActiveRecord::Schema.define(version: 2020_10_08_110723) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "notification_admins", force: :cascade do |t|
+    t.string "object"
+    t.text "message"
+    t.string "link"
+    t.integer "genre"
+    t.integer "medel_id"
+    t.string "confirm_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notification_see_admins", force: :cascade do |t|
+    t.bigint "admin_id"
+    t.bigint "notification_admin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_notification_see_admins_on_admin_id"
+    t.index ["notification_admin_id"], name: "index_notification_see_admins_on_notification_admin_id"
+  end
+
   create_table "notifications", force: :cascade do |t|
     t.string "object"
     t.text "message"
@@ -277,8 +310,6 @@ ActiveRecord::Schema.define(version: 2020_10_08_110723) do
     t.bigint "cadre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "admin_id"
-    t.index ["admin_id"], name: "index_notifications_on_admin_id"
     t.index ["cadre_id"], name: "index_notifications_on_cadre_id"
     t.index ["client_id"], name: "index_notifications_on_client_id"
   end
@@ -370,6 +401,12 @@ ActiveRecord::Schema.define(version: 2020_10_08_110723) do
     t.index ["country_id"], name: "index_regions_on_country_id"
   end
 
+  create_table "subscribers", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "villes", force: :cascade do |t|
     t.string "name"
     t.bigint "region_id"
@@ -383,6 +420,5 @@ ActiveRecord::Schema.define(version: 2020_10_08_110723) do
   add_foreign_key "cadre_infos", "metiers"
   add_foreign_key "cadre_infos", "regions"
   add_foreign_key "cadre_infos", "villes"
-  add_foreign_key "notifications", "admins"
   add_foreign_key "offre_jobs", "metiers"
 end
