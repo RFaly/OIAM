@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  object: MyString
+  message: MyText
+  link: MyString
+  genre: 1
+  medel_id: 1
+  confirm_token: MyString
+
+two:
+  object: MyString
+  message: MyText
+  link: MyString
+  genre: 1
+  medel_id: 1
+  confirm_token: MyString
