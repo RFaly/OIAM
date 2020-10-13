@@ -2,7 +2,15 @@
 <div class="bg-footer">
   <div class="footer-oiam">
     <div class="footer-btn">
-      <%=link_to "abonnez-vous à notre newsletter", root_path%>
+      <span>abonnez-vous à notre newsletter</span>
+      <div class="input-mail">
+        <%= form_tag url_for(save_app_subscriber_path),method:'post' do %>
+          <input type="text" required="required" name="email" placeholder="E-mail" />
+          <div class="sub">
+            <input type="submit" value="S'ABONNER" class="submit" />
+          </div>
+        <%end%>
+      </div>
     </div>
     <hr />
     <div class="footer-bottom">

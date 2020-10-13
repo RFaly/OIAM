@@ -5,21 +5,24 @@
 <!-- body html  -->
 <div class="contact-us">
   <h2>CONTACTEZ-NOUS</h2>
-  <%= form_tag url_for('#'),method:'post' do %>
-  <div class="contact-change">
-    <input type="text" placeholder="Prénom" class="contact-item" />
-    <input type="text" placeholder="Nom" class="contact-item" />
-  </div>
-  <div class="contact-change">
-    <input type="text" placeholder="Société" class="contact-item" />
-    <input type="text" placeholder="Fonction" class="contact-item" />
-  </div>
-  <input type="text" name="name" placeholder="E-mail" />
-  <input type="text" name="name" placeholder="Téléphone" class="contact-item" />
-  <input type="text" name="name" placeholder="Comment nous avez-vous connu ?" />
-  <textarea name="message" placeholder="Rédiger un message" class="textarea"></textarea>
-  <div class="sub">
-    <input type="submit" value="Envoyer" class="submit" />
-  </div>
+<!-- save_app_subscriber_path -->
+
+  <%= form_tag url_for(save_contact_us_path),method:'post' do %>
+    <div class="contact-change">
+      <input type="text" required="required" name="first_name" placeholder="Prénom" class="contact-item" />
+      <input type="text" required="required" name="last_name" placeholder="Nom" class="contact-item" />
+    </div>
+    <div class="contact-change">
+      <input type="text" required="required" name="society" placeholder="Société" class="contact-item" />
+      <input type="text" required="required" name="function" placeholder="Fonction" class="contact-item" />
+    </div>
+    <input type="email" required="required" name="mail" placeholder="E-mail" />
+    <input type="text" required="required" name="telephone" placeholder="Téléphone" class="contact-item" />
+    <input type="text" required="required" name="how" placeholder="Comment nous avez-vous connu ?" />
+    <textarea required="required" name="message" placeholder="Rédiger un message" class="textarea"></textarea>
+    <div class="sub">
+      <input type="submit" value="Envoyer" class="submit" />
+    </div>
   <%end%>
+  
 </div>

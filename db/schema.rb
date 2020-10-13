@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_08_110723) do
+ActiveRecord::Schema.define(version: 2020_10_13_081916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -160,6 +160,19 @@ ActiveRecord::Schema.define(version: 2020_10_08_110723) do
     t.datetime "updated_at", null: false
     t.index ["cadre_id"], name: "index_contact_client_cadres_on_cadre_id"
     t.index ["client_id"], name: "index_contact_client_cadres_on_client_id"
+  end
+
+  create_table "contact_us", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "society"
+    t.string "function"
+    t.string "email"
+    t.string "telephone"
+    t.text "how"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "countries", force: :cascade do |t|
@@ -368,6 +381,12 @@ ActiveRecord::Schema.define(version: 2020_10_08_110723) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_regions_on_country_id"
+  end
+
+  create_table "subscribers", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "villes", force: :cascade do |t|
