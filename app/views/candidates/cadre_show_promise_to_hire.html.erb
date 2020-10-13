@@ -110,13 +110,13 @@
 				</div>
 				<div class="promese-info remove">
 					<div class="date-prise-label">Signature électronique entreprise</div>
-					<div class="date-valid0"><%= image_tag(@promise.signature_entreprise, alt: 'signature entreprise', class:'photo_ako', width:'225px', height:'76px')%></div>
+					<div class="date-valid0"><%= image_tag(@promise.signature_entreprise, alt: 'signature entreprise', class:'photo_ako', width:'225px', height:'120px')%></div>
 				</div>
 				<div class="promese-info remove">
 					<div class="date-prise-label">Signature électronique candidat</div>
 					<div class="date-valid0">
 						<% unless @promise.signature_candidat.nil? %>
-							<%= image_tag(@promise.signature_candidat, alt: 'signature candidat', class:'photo_ako', width:'250px', height:'76px')%>
+							<%= image_tag(@promise.signature_candidat, alt: 'signature candidat', class:'photo_ako', width:'225px', height:'120px')%>
 						<% else %>
 						<div>
 							<img id="addImage" class="addImage" src="#" alt="signature candidat" height="150px" style="display: none;">
