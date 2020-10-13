@@ -22,12 +22,17 @@
     font-size: 14px;
     text-transform: uppercase;
     margin-bottom: 5px;
-    a {
+    span {
+      cursor: pointer;
       background: white;
       //   width: 350px;
       padding: 15px 60px;
       border: 2px solid black;
       color: black;
+      &:hover,
+      &:active {
+        opacity: 0.8;
+      }
     }
   }
   .footer-bottom {
@@ -49,6 +54,46 @@
       img {
         width: 20px;
       }
+    }
+  }
+}
+
+#input-mail {
+  width: 450px;
+  background: white;
+  transform: translateX(500px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  input {
+    border-radius: 0;
+
+    padding: 10px;
+  }
+  input[type='text'] {
+    margin: 10px;
+    width: 90%;
+    border: none;
+    margin-right: 20px;
+    background: $secondary_element_color;
+    color: #333333;
+    &:focus {
+      border: 1px solid $secondary_text_color_button;
+      outline: none;
+    }
+  }
+  input[type='submit'] {
+    margin: 10px;
+    text-decoration: none;
+    border: 2px solid $main_theme_color;
+    text-transform: uppercase;
+    color: $main_theme_color;
+    font: $ffbtn;
+    padding: 10px 20px;
+    &:hover,
+    &:active {
+      background: $main_theme_color;
+      color: white;
     }
   }
 }

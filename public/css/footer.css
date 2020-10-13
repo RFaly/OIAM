@@ -27,11 +27,16 @@
   margin-bottom: 5px;
 }
 
-.footer-oiam .footer-btn a {
+.footer-oiam .footer-btn span {
+  cursor: pointer;
   background: white;
   padding: 15px 60px;
   border: 2px solid black;
   color: black;
+}
+
+.footer-oiam .footer-btn span:hover, .footer-oiam .footer-btn span:active {
+  opacity: 0.8;
 }
 
 .footer-oiam .footer-bottom {
@@ -59,4 +64,47 @@
 
 .footer-oiam .footer-bottom .social img {
   width: 20px;
+}
+
+#input-mail {
+  width: 450px;
+  background: white;
+  transform: translateX(500px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#input-mail input {
+  border-radius: 0;
+  padding: 10px;
+}
+
+#input-mail input[type='text'] {
+  margin: 10px;
+  width: 90%;
+  border: none;
+  margin-right: 20px;
+  background: #f0f2f4;
+  color: #333333;
+}
+
+#input-mail input[type='text']:focus {
+  border: 1px solid #e3d7bf;
+  outline: none;
+}
+
+#input-mail input[type='submit'] {
+  margin: 10px;
+  text-decoration: none;
+  border: 2px solid #d6b36a;
+  text-transform: uppercase;
+  color: #d6b36a;
+  font: 500 18px Raleway, sans-serif;
+  padding: 10px 20px;
+}
+
+#input-mail input[type='submit']:hover, #input-mail input[type='submit']:active {
+  background: #d6b36a;
+  color: white;
 }
