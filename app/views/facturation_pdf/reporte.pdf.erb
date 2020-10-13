@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-  <div class="objet">Objet : Votre demande de Recrutement & Chasse de tête
+  <div class="objet">Objet : Votre demande de Recrutement en <%=  @promise.offre_job.intitule_pote %>
   </div>
   <table class="table1">
     <tr>
@@ -36,19 +36,11 @@
     </tr>
     <tr>
       <td>Pr-rec-001</td>
-      <td>Recrutement & Chasse de tête - Foodservice Manager France (H/F) 55000€ bruts annuels + 7000€ variables</td>
+      <td>Recrutement en <%=  @promise.offre_job.intitule_pote %> - <%=  @promise.offre_job.metier.name %> - <%=  @promise.offre_job.client.first_name %> <%=  @promise.offre_job.client.last_name %> - Date de prise de poste le <%=  @promise.date_poste %> -  <%=  @promise.remuneration_fixe.to_i *  @promise.remuneration_fixe_date.to_i %>€ bruts annuels <%if  @promise.remuneration_variable === true %> + <%= @promise.remuneration_var_info.to_i * 1000 %>€ variables<%end %></td>
       <td class="span">1,00</td>
-      <td class="span">9 300,00 <span>unité</span></td>
-      <td class="span">20,00 % <span>(1 860,00)</span></td>
-      <td class="span">9 300,00</td>
-    </tr>
-    <tr>
-      <td>Pr-rec-002</td>
-      <td>Remboursement frais de déplacement - Cécile DELAVAL /Jean-Baptiste LE BRUN</td>
-      <td class="span">1,00</td>
-      <td class="span">532,00 <span>unité</span></td>
-      <td class="span">0,00 % <span>(0,00)</span></td>
-      <td class="span">532,00</td>
+      <td class="span"><%if  @promise.remuneration_variable === true %><% @valueR = @promise.remuneration_fixe.to_i *  @promise.remuneration_fixe_date.to_i + @promise.remuneration_var_info.to_i * 1000%> <%else %> <% @valueR = @promise.remuneration_fixe.to_i *  @promise.remuneration_fixe_date.to_i %><%end %> <%= @valueR %>,00<span>unité</span></td>
+      <td class="span">20,00 % <span>(<%= (@valueR * 20)/100  %>,00)</span></td>
+      <td class="span"><%= @valueR %>,00</td>
     </tr>
   </table>
   <div>MODALITES DE PAIEMENT :</div>
@@ -73,15 +65,15 @@
     <table>
       <tr>
         <td class="bolder">Total net HT</td>
-        <td class="bolder">9 832,00 €</td>
+        <td class="bolder"><%= @valueR %>,00 €</td>
       </tr>
       <tr>
         <td>TVA 20,00%</td>
-        <td>1 860,00 €</td>
+        <td><%= (@valueR * 20)/100  %>,00  €</td>
       </tr>
       <tr>
         <td class="bolder">Montant total TTC</td>
-        <td class="bolder">11 692,00 €</td>
+        <td class="bolder"><%= @valueR +(@valueR * 20)/100  %>,00 €</td>
       </tr>
       <tr class="spec">
         <td>
@@ -89,17 +81,6 @@
           bancaire du 30/04/2020
         </td>
         <td>8 722,00 €</td>
-      </tr>
-      <tr class="spec">
-        <td>
-          Facture d'acompte du <br />
-          08/11/2019 <br />
-          <span>FACT-20191108-00002</span>
-        </td>
-        <td>
-          2 970,00 € <br />
-          <span>dont TVA 495,00 €</span>
-        </td>
       </tr>
       <tr class="spec">
         <td class="bolder bor">Total à régler</td>

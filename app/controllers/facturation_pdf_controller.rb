@@ -24,7 +24,7 @@ class FacturationPdfController < ApplicationController
     respond_to do |format|
       format.pdf {render layout: 'facture_layout.html',
                     template: 'facturation_pdf/reporte',
-                    pdf: 'Facture',
+                    pdf: 'Facture oiam',
                     margin: { top: 10, bottom: 10, left: 10, right: 10 },
                     header: {
                       html: { template: 'facturation_pdf/header' },
