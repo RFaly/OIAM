@@ -506,21 +506,19 @@ html{
 
   @media only screen and (min-width: 1024px){
     .main{
-      margin:  100px 150px;
+      margin:  100px 170px;
     }
 
 		.cadre-quest{
-			display: flex;
-			grid-column-gap: 3%;
 			margin-bottom: 20px;
 		}
 
 		.type-pos{
-			width: 55%;
+			width: 100%;
 		}
 
 		.act-job{
-			width: 53%;
+			width: 100%;
 		}
 
     .label-content{
@@ -537,9 +535,11 @@ html{
     }
 
   }
+@media only screen and (min-width: 1280px){
 
+}
   @media only screen and (min-width: 1280px){
     .main{
-      margin:  100px 170px;
+      margin:  100px 100px;
     }
   }
