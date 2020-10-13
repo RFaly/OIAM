@@ -7,6 +7,18 @@ class AdminDashboardController < ApplicationAdminController
     @agendas = AgendaAdmin.all
   end
 
+  def statistics
+    
+  end
+
+  def contact_us
+    @contactUs = ContactU.all
+  end
+
+  def subscribers
+    @subscribers = Subscriber.all
+  end
+
   def offer
   end
 
@@ -32,25 +44,25 @@ class AdminDashboardController < ApplicationAdminController
   def taches
   end
 
-  def add_favorite_cadre
-    @cadre = CadreInfo.find_by(id:params[:id])
-    if @cadre.admin.nil?
-      @cadre.update(admin:current_admin)
-      flash[:notice] = "Vous êtes responsable de #{@cadre.last_name} #{@cadre.first_name} maintenant."
-      redirect_to post_avis_candidats_fit_path(@cadre.id)
-    else
-      flash[:notice] = "Oupss! ... "
-      redirect_back(fallback_location: root_path)
-    end
-  end
+  # def add_favorite_cadre
+  #   @cadre = CadreInfo.find_by(id:params[:id])
+  #   if @cadre.admin.nil?
+  #     @cadre.update(admin:current_admin)
+  #     flash[:notice] = "Vous êtes responsable de #{@cadre.last_name} #{@cadre.first_name} maintenant."
+  #     redirect_to post_avis_candidats_fit_path(@cadre.id)
+  #   else
+  #     flash[:notice] = "Oupss! ... "
+  #     redirect_back(fallback_location: root_path)
+  #   end
+  # end
 
-  def rmv_favorite_cadre
-    @cadre = CadreInfo.find_by(id:params[:id])
-    unless @cadre.admin.nil?
-      @cadre.update(admin_id:nil)
-    end
-    flash[:notice] = "Vous n'êtes plus responsable de #{@cadre.last_name} #{@cadre.first_name} maintenant."
-    redirect_to admin_dashboard_candidate_path
-  end
+  # def rmv_favorite_cadre
+  #   @cadre = CadreInfo.find_by(id:params[:id])
+  #   unless @cadre.admin.nil?
+  #     @cadre.update(admin_id:nil)
+  #   end
+  #   flash[:notice] = "Vous n'êtes plus responsable de #{@cadre.last_name} #{@cadre.first_name} maintenant."
+  #   redirect_to admin_dashboard_candidate_path
+  # end
 
 end

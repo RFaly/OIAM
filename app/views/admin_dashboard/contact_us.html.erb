@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/css/mes_cand_admin.css" />
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
+<div class="client-column">
+  <div class="client-menu-left">
+    <%= render partial: "admin_dashboard/left_menu_link" %>
+  </div>
+  <div class="cp-box">
+		<% @contactUs.each do |contactU| %>
+		<div class="aler info">
+			<ul>
+				<li>Prénom: <%= contactU.first_name %></li>
+				<li>Nom: <%= contactU.last_name %></li>
+				<li>Société: <%= contactU.society %></li>
+				<li>Fonction: <%= contactU.function %></li>
+				<li>E-mail: <%= contactU.email %></li>
+				<li>Téléphone: <%= contactU.telephone %></li>
+				<li>Comment nous avez-vous connu ?: <%= contactU.how %></li>
+				<li>Message: <%= contactU.message %></li>
+			</ul>
+		</div>
+		<% end %>
+	</div>
+</div>
+
