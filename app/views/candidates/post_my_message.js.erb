@@ -7,4 +7,7 @@ $(divClear).addClass('clear')
 $(div).html('<%= @content %>')
 $boitReception.append(div)
 $boitReception.append(divClear)
+$boitReception.animate({
+  scrollTop: $boitReception.prop("scrollHeight");
+}, 1000);
 $("#message_client_cadre_content").val('')

@@ -39,5 +39,14 @@
         <% end %>
       </div>
     </div>
+    <div class="click btn btn-success">click</div>
+    <div class="chat-out" style="display: none">cwx</div>
   </div>
 </div>
+<script>
+  $('.click').click(function () {
+    $('.chat-out').fadeIn(500);
+    document.cookie = 'username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC';
+  });
+  console.log(document.cookie);
+</script>
