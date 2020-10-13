@@ -39,6 +39,8 @@
 }
 
 .accueilg-content1 .cc-accueuil1 {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   margin: 40px 0;
 }

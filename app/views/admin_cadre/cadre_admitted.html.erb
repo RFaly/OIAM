@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="/css/mes_cand_admin.css" />
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
+
+<div class="client-column">
+	<div class="client-menu-left">
+		<%= render partial: "admin_cadre/left_menu_link" %>
+	</div>
+	<div class="cp-box">
+  		<div class="fcp-box">
+			<h3 class="title" style="color: #d6b36a !important;">CANDIDAT ADMIS</h3>
+			<div class="fc-item">
+				<% if @cadre_infos.empty? %>
+					Aucun candidats
+				<% else %>
+					<table class="table-responsive">
+						<tr>
+					      <th>Photo</th>
+					      <th>Nom</th>
+					      <th>Prénom</th>
+					      <th>Test potentiel</th>
+					      <th>Test fit</th>
+					      <th>Status</th>
+					      <th>Action</th>
+					    </tr>
+						<% @cadre_infos.each do |cadre_info| %>
+							<tr>
+						        <% if cadre_info.image.nil? %>
+						          <td>
+						            <img src='/image/profie.png' alt='photo de profil' width='120px' />
+						          </td>
+						        <% else %>
+						          <td>
+						            <img src='<%= cadre_info.image %>' alt='photo de profil' width='120px' />
+						          </td>
+						        <% end %>
+
+						        <td>
+						          <%= cadre_info.last_name %>
+						        </td>
+
+						        <td>
+						          <%= cadre_info.first_name %>
+						        </td>
+
+						        <td>
+						          <% if cadre_info.potential_test %>
+						            <%= cadre_info.score_potential.nil? ? "en attente du score" : "#{cadre_info.score_potential}" %>
+						          <% else %>
+						            test non initier
+						          <% end %>
+						        </td>
+
+						        <td>
+						          <% if cadre_info.fit_test %>
+						            <%= cadre_info.score_fit.nil? ? "en attente du score" : "#{cadre_info.compatibilite}" %>
+						          <% else %>
+						            test non initier
+						          <% end %>
+						        </td>
+						        
+						        <td>
+						          <%= cadre_info.status %>  
+						        </td>
+
+						        <td >
+						          <a href="<%= admin_cadre_show_profile_path(cadre_info.id) %>"><i class="far fa-eye" data-method="GET"></i></a>
+						        </td>
+
+						      </tr>
+						<% end %>
+					</table>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

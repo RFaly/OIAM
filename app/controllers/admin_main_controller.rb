@@ -1,6 +1,6 @@
 class AdminMainController < ApplicationAdminController
   before_action :authenticate_admin!
-  
+
   def messaging
 
   end
@@ -19,7 +19,7 @@ class AdminMainController < ApplicationAdminController
     @messages = @contact.message_admin_cadres.order(created_at: :ASC)
     @newMessage = MessageAdminCadre.new
   end
-  
+
   def post_messaging
     @admin = current_admin
     @cadre = Cadre.all

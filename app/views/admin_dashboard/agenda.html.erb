@@ -1,12 +1,15 @@
 <% @title="Agenda" %>
-<link rel="stylesheet" href="/css/client_profil.css" />
-<link rel="stylesheet" type="text/css" href="/css/agenda.scss">
+<link rel="stylesheet" type="text/css" href="/css/agenda.css">
 <style>
   .cont-calendar {
     position: relative;
-    width: 800px;
   }
 
+  .table {
+    width: 100%;
+    margin-bottom: 0px !important;
+    color: #212529;
+}
 
   .table td, .table th {
     padding: 20px;
@@ -18,7 +21,6 @@
     border-right: 1px solid #d6b36a;
 }
 
-
 .table thead th {
     vertical-align: bottom;
     border-bottom: 2px solid #d6b36a;
@@ -26,20 +28,23 @@
     text-transform: uppercase;
 }
 
-
 .calendar-title {
   text-transform: uppercase;
 }
 
 .calendrier {
-    width: 800px;
     border: 2px solid #d6b36a;
 }
 
 .today {
-  background: #d6b36a;
+  background: #fad390;
   color: #fff;
 }
+/*
+.past {
+  background: #ecf0f1;
+  color: #fff;
+} */
 
 .calendar-heading {
   padding: 20px;
@@ -52,6 +57,102 @@
 .tt {
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.ag-btn {
+  background: #d6b36a;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px 20px;
+  border: none;
+  outline: none !important;
+}
+
+.ag-btn-sl {
+  background: #d6b36a;
+  color: #fff !important;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px 20px;
+  border: none;
+  outline: none !important;
+}
+
+.ag-btn-sl a {
+  color: #fff !important;
+}
+
+.mod-btn {
+  background:  #d6b36a;
+  color: #fff;
+  font-size: 12px;
+  padding: 10px 20px;
+  border: none;
+  border: 1px solid #d6b36a;
+}
+
+.mod-btn-sec {
+  background: #fff;
+  color: #d6b36a;
+  border: 1px solid #d6b36a;
+  font-size: 12px;
+  padding: 10px 20px;
+}
+
+.modal-body a {
+  font-size: 14px;
+}
+
+.ag-btn-sl:hover, .ag-btn-sl:focus {
+  background: #e3d7bf  !important;
+  box-shadow:0 1px 0 rgba(255,255,255,.4) !important;
+}
+
+.ag-btn-sl span {
+  position: absolute;
+  margin-top: 30px;
+  color: #fff;
+  background:#e3d7bf;
+  padding:15px;
+  border-radius:3px;
+  box-shadow:0 0 2px rgba(0,0,0,.5);
+  transform:scale(0) rotate(-12deg);
+  transition:all .25s;
+  opacity:0;
+}
+
+.ag-btn-sl:hover span, .ag-btn-sl:focus span {
+  transform:scale(1) rotate(0);
+   opacity:1;
+}
+
+.ag-btn:hover, .ag-btn:focus {
+  background: #e3d7bf  !important;
+  box-shadow:0 1px 0 rgba(255,255,255,.4) !important;
+}
+
+.ag-btn span {
+  position: absolute;
+  margin-top: 30px;
+  color: #fff;
+  background:#e3d7bf;
+  padding:15px;
+  border-radius:3px;
+  box-shadow:0 0 2px rgba(0,0,0,.5);
+  transform:scale(0) rotate(-12deg);
+  transition:all .15s;
+  opacity:0;
+}
+
+.ag-btn:hover span, .ag-btn:focus span {
+  transform:scale(1) rotate(0);
+   opacity:1;
+}
+
+.close span {
+  color: #d6b36a;
+  outline: none;
 }
 
 </style>
@@ -77,11 +178,12 @@
 
               <% unless agendas.empty? %>
               <% if agendas.count > 1 %>
-               
+
                   <!-- Button trigger modal -->
                   <div>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-<%= date.day %>">
+                    <button type="button" class="ag-btn" data-toggle="modal" data-target="#exampleModal-<%= date.day %>">
                       Entretien fit
+                      <span>Vous avez des entretiens fit...</span>
                     </button>
                   </div>
                                 <!-- Modal -->
@@ -90,19 +192,20 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                            <span aria-hidden="true">X</span>
                           </button>
                         </div>
                         <div class="modal-body">
                           <% agendas.each do |agenda| %>
+                          <div class="cont-entr">
                             <a href="<%= post_avis_candidats_fit_path(agenda.cadre_info.id) %>">
-                              <%= agenda.cadre_info.last_name.upcase %> <%= agenda.cadre_info.first_name.capitalize %> à <%= agenda.entretien_date.strftime("%H:%M")  %><br>
+                              <%= agenda.cadre_info.first_name.upcase %> <%= agenda.cadre_info.last_name.capitalize %> à <%= agenda.entretien_date.strftime("%Hh%M")  %><br>
                             </a>
+                          </div>
                           <% end %>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <button type="button" class="mod-btn" data-dismiss="modal">Fermer</button>
                         </div>
                       </div>
                     </div>
@@ -110,13 +213,16 @@
                 <% else %>
                   <% agendas.each do |agenda| %>
                   <div>
-                    <a href="<%= post_avis_candidats_fit_path(agenda.cadre_info.id) %>">
-                      Entretien fit  
-                    </a>
+                    <button type="button"  class="ag-btn-sl">
+                      <a href="<%= post_avis_candidats_fit_path(agenda.cadre_info.id) %>">
+                      Entretien fit
+                      <span>Vous avez un entretien fit...</span>
+                      </a>
+                    </button>
                   </div>
                   <% end %>
                 <% end %>
-              <% end %>  
+              <% end %>
               <% end %>
             </div>
 
@@ -130,11 +236,11 @@
 </div>
 
 <script type="text/javascript">
-  
+
 
   $(".click-me-in-js").click(function(){
     $("#list-date-"+$(this).data().id).show()
-  });  
+  });
 
 
 /*----------------------------------------------*/

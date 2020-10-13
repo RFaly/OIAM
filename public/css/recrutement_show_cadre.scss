@@ -8,6 +8,8 @@
   font: $ffsentence;
   .rsc-header {
     .rsc-header-image {
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       h4 {
         padding: 20px 0;
@@ -80,6 +82,8 @@
     .rsc-body-empty {
       border: 2px solid $main_theme_color;
       padding: 50px 20px;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       //   width: 50%;
       margin: 50px auto;
@@ -110,6 +114,8 @@
     .rsc-date-futur {
       background: $main_theme_color;
       background: linear-gradient(90deg, $main_theme_color 35%, #d6b46ac9 100%);
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       color: white;
       font-weight: 600;
@@ -217,6 +223,8 @@
         margin: 50px auto;
         border: 2px solid $main_theme_color;
         // padding: 50px;
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
         a {
           font: $ffbtn;
@@ -235,7 +243,8 @@
         margin: 50px auto;
         border: 2px solid $main_theme_color;
         // padding: 20px 50px;
-
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
         h3 {
           font: $ffsentence;
@@ -347,6 +356,8 @@
       // css candidat accepted
       .dscdp-accepted {
         padding-bottom: 70px;
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
         .dscdpa-box {
           margin: 0 auto;
@@ -405,6 +416,8 @@
           color: $main_theme_color;
         }
         p {
+          text-align: -webkit-center;
+          text-align: -moz-center;
           text-align: center;
           font: $ffsentence;
           margin: 10px 0;
@@ -415,6 +428,8 @@
             width: 150px;
             margin: 30px auto;
             border: 2px solid $main_theme_color;
+            text-align: -webkit-center;
+            text-align: -moz-center;
             text-align: center;
             padding: 10px 0;
             a {
@@ -472,6 +487,8 @@
         }
         .label {
           margin: 30px;
+          text-align: -webkit-center;
+          text-align: -moz-center;
           text-align: center;
         }
         .text-area {
@@ -511,6 +528,8 @@
         border: 2px solid $main_theme_color;
         width: 80%;
         margin: 50px auto;
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
       }
     }
@@ -521,6 +540,8 @@
       padding: 50px 10px;
       margin: 0 auto;
       font: $ffsentence;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       .vct-btn {
         cursor: pointer;
@@ -646,6 +667,8 @@
     color: white;
     font: $ffbtn;
     h4 {
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
     }
     .fselect {
@@ -664,6 +687,8 @@
         background: transparent;
         border: 2px solid #fff;
         width: 86px;
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
         cursor: pointer;
         &:hover,
@@ -713,6 +738,8 @@
     color: white;
     background: $secondary_text_color_button;
     font: $ffsentence;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     padding: 30px;
     margin-top: 11px;
@@ -775,6 +802,8 @@
     color: white;
     font: $ffbtn;
     h4 {
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
     }
     .fselect {
@@ -793,6 +822,8 @@
         background: transparent;
         border: 2px solid #fff;
         width: 86px;
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
         cursor: pointer;
         &:hover,
@@ -842,6 +873,8 @@
     color: white;
     background: $secondary_text_color_button;
     font: $ffsentence;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     padding: 30px;
     margin-top: 11px;

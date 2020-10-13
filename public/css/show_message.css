@@ -26,6 +26,8 @@
 }
 
 .show-message-box .title {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   font: 500 18px Raleway, sans-serif;
   color: #d6b36a;
@@ -130,6 +132,7 @@
 
 .show-message-box .input textarea {
   min-height: 50px;
+  max-height: 130px;
   height: 50px;
   padding: 10px;
   border-radius: 0;

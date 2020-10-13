@@ -185,6 +185,8 @@ p {
 }
 
 .facture-footer {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   width: 100%;
   left: 0;

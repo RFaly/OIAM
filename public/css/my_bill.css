@@ -24,6 +24,8 @@
 }
 
 .bill-box .title {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   font: 500 18px Raleway, sans-serif;
   color: #d6b36a;
@@ -56,6 +58,8 @@
   padding: 10px 0;
   width: 200px;
   border: 2px solid #d6b36a;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 

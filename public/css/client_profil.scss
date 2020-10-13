@@ -56,6 +56,8 @@
     justify-content: space-between;
     .cpe-naf {
       p {
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
       }
     }
@@ -68,6 +70,8 @@
     }
   }
   .cp-flex-t {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
   }
   // .cpe-adress {
@@ -103,6 +107,8 @@
     padding: 10px;
     .cp-infos-r {
       padding: 10px;
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       h5 {
         color: $main_theme_color;
@@ -124,6 +130,8 @@
     }
   }
   .cp-entreprise-name {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     h5 {
       font-size: 25px;
@@ -146,6 +154,8 @@
     }
   }
   .cp-link {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     padding: 25px;
     padding-bottom: 40px;

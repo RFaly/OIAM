@@ -1,0 +1,168 @@
+<% @title="Candidats" %>
+
+
+<link rel="stylesheet" href="/css/mes_cand_admin.css" />
+
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
+
+<!-- render table -->
+<!-- render table -->
+<!-- render table -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+<script src="https://unpkg.com/tableexport.jquery.plugin/libs/jsPDF/jspdf.min.js"></script>
+<script src="https://unpkg.com/tableexport.jquery.plugin/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/export/bootstrap-table-export.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+
+<!-- render table -->
+<!-- render table -->
+<!-- render table -->
+<div class="client-column">
+  <div class="client-menu-left">
+    <%= render partial: "admin_cadre/left_menu_link" %>
+  </div>
+
+  <div class="cp-box">
+  	<div>
+  		<div class="fcp-box">
+      <h3 class="title" style="color: #d6b36a !important;">TOUS LES CANDIDATS</h3>
+      <div class="fc-item">
+        <div class="fc-item-all">
+
+<!--         	CANDIDATS  -->
+        <div class="nw-cont">
+
+          <% if @cadre_infos.empty? %>
+             "Aucun candidat inscrit"
+          <% else %>
+
+          <% end %>
+
+<!-- ======================================================================================================================== -->
+
+
+
+<div class="container">
+
+<div id="toolbar">
+    <select class="form-control">
+        <option value="all">Export All</option>
+        <option value="selected">Export Selected</option>
+    </select>
+</div>
+
+<table id="table" 
+       data-toggle="table"
+       data-search="true"
+       data-filter-control="true" 
+       data-show-export="true"
+       data-click-to-select="true"
+       data-toolbar="#toolbar"
+       class="table-responsive"
+       >
+  <thead>
+    <tr>
+      <th data-field="state" data-checkbox="true"></th>
+      <th>Photo</th>
+      
+      <th data-field="nom" data-filter-control="input" data-sortable="true">Nom</th>
+
+      <th data-field="prenom" data-filter-control="input" data-sortable="true">Prénom</th>
+
+      <th data-field="potential_test" data-filter-control="input" data-sortable="true">Test potentiel</th>
+      <th data-field="fit_test" data-filter-control="input" data-sortable="true">Test fit</th>
+      <th data-field="status" data-filter-control="select" data-sortable="true">Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% index_val = 0 %>
+    <% @cadre_infos.each do |cadre_info| %>
+      <tr>
+        <td class="bs-checkbox "><input data-index="<%= index_val %>" name="btSelectItem" type="checkbox"></td>
+
+        <% if cadre_info.image.nil? %>
+          <td class="add-image-link" data-link="/image/profie.png">
+            <img src='/image/profie.png' alt='photo de profil' width='120px' />
+          </td>
+        <% else %>
+          <td class="add-image-link" data-link="<%= cadre_info.image %>">
+            <img src='<%= cadre_info.image %>' alt='photo de profil' width='120px' />
+          </td>
+        <% end %>
+
+        <td>
+          <%= cadre_info.last_name %>
+        </td>
+
+        <td>
+          <%= cadre_info.first_name %>
+        </td>
+
+        <td>
+          <% if cadre_info.potential_test %>
+            <%= cadre_info.score_potential.nil? ? "en attente du score" : "#{cadre_info.score_potential}" %>
+          <% else %>
+            test non initier
+          <% end %>
+        </td>
+
+        <td>
+          <% if cadre_info.fit_test %>
+            <%= cadre_info.score_fit.nil? ? "en attente du score" : "#{cadre_info.compatibilite}" %>
+          <% else %>
+            test non initier
+          <% end %>
+        </td>
+        
+        <td>
+          <%= cadre_info.status %>  
+        </td>
+
+        <td class="add-link-js" data-link="<%= admin_cadre_show_profile_path(cadre_info.id) %>">
+          <a href="<%= admin_cadre_show_profile_path(cadre_info.id) %>"><i class="far fa-eye" data-method="GET"></i></a>
+        </td>
+
+      </tr>
+      <% index_val += 1 %>
+    <% end %>
+
+  </tbody>
+
+</table>
+
+</div>
+
+
+<!-- ======================================================================================================================== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+       
+        </div>
+        </div>
+      </div>
+    </div>
+  	</div>
+  </div>
+</div>

@@ -105,7 +105,7 @@ body{
 	color: #D6B36A;
 }
 
-	
+
 
 	.refused{
 		position: relative;
@@ -147,7 +147,7 @@ body{
 		font-weight: bold;
 	}
 
-	
+
 
 	.etape{
 		color: #000;
@@ -227,7 +227,7 @@ body{
 	.content{
 		display: flex;
 	}
-	
+
 	.offre-content{
 		display: flex;
 		flex-wrap: wrap;

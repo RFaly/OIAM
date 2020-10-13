@@ -6,6 +6,8 @@
   margin: 0 auto;
   .title {
     font: $ffbtn;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     text-transform: uppercase;
     color: $main_theme_color;
@@ -22,6 +24,8 @@
     align-items: center;
     border: 2px solid $main_theme_color;
     margin-top: 150px;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     a {
       font: $ffbtn;
@@ -95,6 +99,8 @@
         }
         .content {
           font: $ffbtn;
+          text-align: -webkit-center;
+          text-align: -moz-center;
           text-align: center;
           font-size: 12px;
           position: absolute;

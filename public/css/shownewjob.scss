@@ -54,6 +54,8 @@
           }
         }
         .local {
+          text-align: -webkit-center;
+          text-align: -moz-center;
           text-align: center;
           img {
             margin-right: 10px;
@@ -67,6 +69,8 @@
         }
       }
       .so-content {
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
         margin: 25px 0;
         .first-content {
@@ -109,6 +113,8 @@
     font: $ffsentence;
     margin: 0 auto;
     margin-top: 50px;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     border: 2px solid $main_theme_color;
     padding: 30px;

@@ -7,6 +7,8 @@
   font: $ffsentence;
   .title {
     font: $ffbtn;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     text-transform: uppercase;
     color: $main_theme_color;
@@ -53,6 +55,8 @@
       .cadre-box-info {
         width: 100%;
         background: white;
+        text-align: -webkit-center;
+        text-align: -moz-center;
         text-align: center;
         padding: 5px 0;
         font: $ffsentence;

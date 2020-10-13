@@ -19,10 +19,10 @@
     <h2 class="main-title">MA MESSAGERIE</h2>
     <% if @contactClient.count == 0 %>
     <div class="mes">
-      <h4>Aucun contact d'un candidat</h4>
+      <h4>Aucun contact d'un recruteur</h4>
     </div>
     <% else %>
-    <% @contactClient.each do |contact| %>
+    <% @contactClient.each do |contact| %><% nbr = contact.mp_admin_not_see %>
     <a href="<%= show_message_recruteur_path(contact.client.id) %>" class="btn-voir ">
     <div class="message">
       <div class="block-image">
@@ -34,6 +34,9 @@
       <div class="message-content">
         <div class="recruteur-name"><%= contact.client.first_name %> <%= contact.client.last_name %></div>
       </div>
+      <% unless nbr == 0 %>
+            <span class="alert-info"><%= nbr %></span>
+      <% end %>
       <div class="connected-times">
           <% unless contact.client.is_online? %>
             <span class="not-connected">Connectée il y a <%= time_ago_in_words(contact.client.online_time) %></span>

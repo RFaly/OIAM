@@ -1,5 +1,24 @@
 <!-- appel css  -->
 <link rel="stylesheet" href="/css/burger_admin.css" />
+<style>
+
+  .cont-bag {
+    position: relative;
+  }
+
+  .not-bdg {
+    padding:  5px 8px;
+    position: absolute;
+    background: #d6b36a;
+    color: #fff;
+    font-size: 14px;
+    border: 1px solid #fff;
+     border-radius: 999px;
+     left: 125px;
+     bottom: 12px;
+  }
+
+</style>
 <link rel="stylesheet" href="/css/navbar_admin.css" />
 <!-- body html  -->
   <nav class="navb">
@@ -19,16 +38,24 @@
     </div>
     <div class="navbar-content">
       <ul class="navbar-ul">
-        <li class="act"><a href="<%= admin_dashboard_agenda_path %>" class="navbar-item">Agenda</a></li>
-        <li><a href="<%= admin_cadre_main_path %>" class="navbar-item">Candidats</a></li>
+        <li class="act"><a href="<%= admin_dashboard_agenda_path %>" class="navbar-item">Dashboard</a></li>
+        <li><a href="<%= admin_cadre_all_path %>" class="navbar-item">Candidats</a></li>
         <li>
           <a href="<%= admin_client_main_path %>" class="navbar-item">Clients</a>
         </li>
          <li><a href="<%= admin_messaging_candidat_path %>" class="navbar-item">Messagerie</a></li>
         <li><a href="<%= admin_main_notification_path %>" class="navbar-item">Notifications</a>
+          <div class="cont-bag">
           <% if admin_signed_in? %>
-            <span class="badge badge-primary"><%= current_admin.numberOfNotification %></span>
+            <% if current_admin.numberOfNotification == 0 %>
+
+            <% elsif current_admin.numberOfNotification >= 9 %>
+            <span class="not-bdg">9+</span>
+            <% else %>
+            <span class="not-bdg"><%= current_admin.numberOfNotification %></span>
+            <% end %>
           <% end %>
+          </div>
          </li>
       </ul>
       <div class="dropup1">

@@ -8,7 +8,11 @@
     <a href="<%= show_my_messages_cadre_path(contact.client.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>">
     <div class="message">
       <div class="block-image">
-        <%= image_tag(contact.client.image, alt: 'photo de profil', class:"pdp" )%>
+        <% if contact.client.image.nil? %>
+          <img src="/image/profie.png" class="pdp" alt='photo de profil'>
+        <% else %>
+          <%= image_tag(contact.client.image, alt: 'photo de profil', class:"pdp" )%>
+        <% end %>
         <% if contact.client.is_online? %>
           <span class="connected"></span>
         <% end %>

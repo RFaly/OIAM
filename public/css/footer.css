@@ -52,6 +52,8 @@
 }
 
 .footer-oiam .footer-bottom .social {
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
 }
 

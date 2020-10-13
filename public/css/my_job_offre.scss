@@ -13,6 +13,8 @@
   align-items: center;
   border: 2px solid $main_theme_color;
   margin-top: 150px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   text-align: center;
   a {
     font: $ffbtn;
@@ -32,6 +34,8 @@
 .co-with-job {
   padding: 5px;
   h5 {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     font: $ffbtn;
     color: $main_theme_color;
@@ -39,6 +43,8 @@
     margin-bottom: 50px;
   }
   .btn-newjob-div {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     margin: 90px 0;
 

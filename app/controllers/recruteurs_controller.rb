@@ -479,7 +479,7 @@ class RecruteursController < ApplicationController
 		@promise = PromiseToHire.find_by_id(params[:promise_id])
 		@offre_job = @facture.promise_to_hire.offre_job
 		@promise.update(payed:true)
-		flash[:notice] = "J'atteste régler cette facture par virement dans les 15jours."
+		flash[:notice] = "J'atteste régler cette facture par virement dans les 15 jours."
 		redirect_to show_my_bills_path(@facture.id)
 	end
 
@@ -513,7 +513,7 @@ class RecruteursController < ApplicationController
 				)
 			end
 
-			flash[:notice] = "ordre de virement bien sauvegarder."
+			flash[:notice] = "ordre de virement bien sauvegardé."
 		else
 			flash[:alert] = errorMessage
 		end

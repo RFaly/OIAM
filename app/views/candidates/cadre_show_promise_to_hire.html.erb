@@ -23,16 +23,16 @@
 					<div class="cadre-info-content disable bor-me"><%= @cadre.first_name %><span class="user-info">Prénoms</span></div>
 					<div class="cadre-info-content calen">
 						<% if @promise.birthday_cadre.nil? %>
-							<span class="input-cnt"><%= f.text_field :birthday_cadre, class:"calendar", id:"calendar" %><div class="user-info inpt" id="dat-nai">Date de naissance</div></span><br><span class="calendar-err error"></span>
+							<span class="input-cnt"><%= f.text_field :birthday_cadre, class:"calendar", id:"calendar", required:true %><div class="user-info inpt" id="dat-nai">Date de naissance</div></span><br><span class="calendar-err error"></span>
 						<% else %>
-							<span class="input-cnt"><%= f.text_field :birthday_cadre, class:"calendar", id:"calendar", disabled: true %><span class="user-info inpt">Date de naissance</span></span><br>
+							<span class="input-cnt"><%= f.text_field :birthday_cadre, class:"calendar", id:"calendar", disabled: true, required:true %><span class="user-info inpt">Date de naissance</span></span><br>
 						<% end %>
 					</div>
 					<div class="cadre-info-content">
 						<% if @promise.birthplace_cadre.nil? %>
-							<span class="input-cnt"><%= f.text_field :birthplace_cadre, class:"lieu-naiss" %><span class="user-info inpt" id="leu-nai">Lieu de naissance</span></span><br><span class="lieu-naiss-err error"></span>
+							<span class="input-cnt"><%= f.text_field :birthplace_cadre, class:"lieu-naiss", required:true %><span class="user-info inpt" id="leu-nai">Lieu de naissance</span></span><br><span class="lieu-naiss-err error"></span>
 						<% else %>
-							<span class="input-cnt"><%= f.text_field :birthplace_cadre, placeholder:"Lieu de naissance", class:"lieu-naiss", disabled: true %><span class="user-info inpt">Lieu de naissance</span></span><br>
+							<span class="input-cnt"><%= f.text_field :birthplace_cadre, placeholder:"Lieu de naissance", class:"lieu-naiss", disabled: true, required:true %><span class="user-info inpt">Lieu de naissance</span></span><br>
 						<% end %>
 					</div>
 					<div class="cadre-info-content">
@@ -53,7 +53,11 @@
 				<div class="date-prise dat-p"><%= @promise.time_trying %></div>
 			</div>
 			<div class="promese-info dis-me">
-				<div class="date-prise-label">Rémunération fixe <br>(€ bruts mensuels)</div>
+				<div class="date-prise-label">Rémunération fixe (k€ bruts annuels)</div>
+				<div class="date-prise"><%= @job.remuneration %></div>
+			</div>
+			<div class="promese-info dis-me">
+				<div class="date-prise-label">Rémunération fixe (€ bruts mensuels)</div>
 				<div class="date-prise"><%= @promise.remuneration_fixe %></div>
 			</div>
 			<div class="pro-info">
@@ -89,9 +93,9 @@
 				<div class="renum">Rémunération variable  (k€ bruts annuels)</div>
 				<div class="mounth">
 					<% if @promise.remuneration_variable %>
-						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois" checked=""> <span class="go-right">OUI </span><%= @promise.remuneration_var_info %><br>
+						<%= f.text_field :remuneration_var_info, class:"renum-var", disabled: true %>
 					<% else %>
-						<input type="radio" value="{:class=>&quot;js-post-mois&quot;}" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info_classjs-post-mois" checked="" disabled> <span class="go-right">NON</span>
+						<input class="renum-var" disabled="disabled" type="text" value="0" name="promise_to_hire[remuneration_var_info]" id="promise_to_hire_remuneration_var_info">
 					<% end %>
 				</div>
 			</div>
@@ -184,127 +188,125 @@
 
 
 <script type="text/javascript">
-	function shwoMyImage(input) {
-		if (input.files && input.files[0]) {
-			var reader = new FileReader();
-			reader.onload = function(e) {
-				$('#signature').css('background-image', 'url(' + e.target.result + ')');
-			}
-			reader.readAsDataURL(input.files[0]);
+function shwoMyImage(input) {
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			$('#signature').css('background-image', 'url(' + e.target.result + ')');
 		}
+		reader.readAsDataURL(input.files[0]);
 	}
-	$("#promise_to_hire_signature_candidat").change(function() {
-		shwoMyImage(this);
-	});
-	$(document).ready(function() {
-	  $('#file-cin-content').hide()
-	    $('.cin').change(function(e) {
-	        var file = e.target.files[0].name;
-	        $('#cin-filename').text(file);
-	        $('#file-cin-content').show()
-	    });
+}
+$("#promise_to_hire_signature_candidat").change(function() {
+	shwoMyImage(this);
+});
+$(document).ready(function() {
+	$('#file-cin-content').hide()
+		$('.cin').change(function(e) {
+				var file = e.target.files[0].name;
+				$('#cin-filename').text(file);
+				$('#file-cin-content').show()
+		});
 
-	   $('#file-atest-content').hide()
-	    $('.atest').change(function(e) {
-	        var file = e.target.files[0].name;
-	        $('#atest-filename').text(file);
-	        $('#file-atest-content').show()
-	    });
+	 $('#file-atest-content').hide()
+		$('.atest').change(function(e) {
+				var file = e.target.files[0].name;
+				$('#atest-filename').text(file);
+				$('#file-atest-content').show()
+		});
 
-	    $('#file-rib-content').hide()
-	    $('.rib').change(function(e) {
-	        var file = e.target.files[0].name;
-	        $('#rib-filename').text(file);
-	        $('#file-rib-content').show()
-	    });
+		$('#file-rib-content').hide()
+		$('.rib').change(function(e) {
+				var file = e.target.files[0].name;
+				$('#rib-filename').text(file);
+				$('#file-rib-content').show()
+		});
 
-	    $('.calen input').focus(function(){
-	    	$('#dat-nai').hide();
-	    })
+		$('.calen input').focus(function(){
+			$('#dat-nai').hide();
+		})
 
-	    $('.calen input').focusout(function(){
-	    	if ($('#calendar').val() <= 0) {
-	    		$('.calendar-err').html('Champs obligatoire');
-	    		$('#dat-nai').show();
-	    		return false;
-	    	}else{
-	    		$(this).css("outline", ("none")) ;
-	    		$('.calendar-err').hide();
-	    		$('#dat-nai').show();
-	    		return true;
-	    	}
-	    })
+		$('.calen input').focusout(function(){
+			if ($('#calendar').val() <= 0) {
+				$('.calendar-err').html('Champs obligatoire');
+				$('#dat-nai').show();
+				return false;
+			}else{
+				$(this).css("outline", ("none")) ;
+				$('.calendar-err').hide();
+				$('#dat-nai').show();
+				return true;
+			}
+		})
 
-	    $('.lieu-naiss').focus(function(){
-	    	$('#leu-nai').hide();
-	    })
+		$('.lieu-naiss').focus(function(){
+			$('#leu-nai').hide();
+		})
 
-	    $('.lieu-naiss').focusout(function(){
-	    	if ($(this).val() <= 0) {
-	    		$('.lieu-naiss-err').html('Champs obligatoire');
-	    		$('#leu-nai').show();
-	    		return false;
-	    	}else{
-	    		$(this).css("outline", ("none")) ;
-	    		$('#leu-nai').show();
-	    		$('.lieu-naiss-err').hide();
-	    		return true;
-	    	}
-	    })
+		$('.lieu-naiss').focusout(function(){
+			if ($(this).val() <= 0) {
+				$('.lieu-naiss-err').html('Champs obligatoire');
+				$('#leu-nai').show();
+				return false;
+			}else{
+				$(this).css("outline", ("none")) ;
+				$('#leu-nai').show();
+				$('.lieu-naiss-err').hide();
+				return true;
+			}
+		})
 
-	    $('.number-only').focus(function(){
-	    	$('#num-soc').hide();
-	    })
+		$('.number-only').focus(function(){
+			$('#num-soc').hide();
+		})
 
-	    $('.number-only').focusout(function(){
-	    	var value = $(this).val();
-	    	if (value <= 0) {
-	    		console.log(value.length)
-	    		$('.secur-social-err').html('Champs obligatoire');
-	    		$('#num-soc').show();
-	    		return false;
-	    	}
-	    	else if (value.length !== 13){
-	    		$('.secur-social-err').show();
-	    		$('.secur-social-err').html('Numero de securité invalide (13 chiffres)');
-	    		$('#num-soc').show();
-	    		return false;
-	    	} else {
-	    		$(this).css("outline", ("none")) ;
-	    		$('.secur-social-err').hide();
-	    		$('#num-soc').show();
-	    		return true;
-	    	}
-	    })
-
-
-	    $('.edit_promise_to_hire').attr("name","formulaire");
+		$('.number-only').focusout(function(){
+			var value = $(this).val();
+			if (value <= 0) {
+				console.log(value.length)
+				$('.secur-social-err').html('Champs obligatoire');
+				$('#num-soc').show();
+				return false;
+			}
+			else if (value.length !== 13){
+				$('.secur-social-err').show();
+				$('.secur-social-err').html('Numero de securité invalide (13 chiffres)');
+				$('#num-soc').show();
+				return false;
+			} else {
+				$(this).css("outline", ("none")) ;
+				$('.secur-social-err').hide();
+				$('#num-soc').show();
+				return true;
+			}
+		})
 
 
-	    $('.btn-valide').click(function(){
-	    	var form = document.forms.formulaire;
-	    	var booli = true;
-	    	for (var i = 0; i < form.length; i++) {
-	    		if((form[i].value == 0 || form[i].value.length == 0 )&& form[i].type != "file"){
-	    			form[i].style.outline = "1px solid red";
-	    			form[i].nextSibling.nextSibling.innerHTML = "Champs Obligatoire";
-	    			$('#btn-valid-error').html("*Verifier que vous avez remplis tous les formulaires");
-	    			$('#btn-valid-error').show(300);
-		    		setTimeout(function(){
-		    			$('#btn-valid-error').hide(500);
-		    		}, 5000);
-	    		}
-	    	}
-	    	if ($('#signature').val() <= 0 || $('.cin').val() <= 0 || $('.atest').val() <= 0 || $('.rib').val()) {
-	    		$('#btn-valid-error').html("*Verifier que vous avez remplis tous les formulaires");
-	    		$('#btn-valid-error').show(300);
-	    		setTimeout(function(){
-	    			$('#btn-valid-error').hide(300);
-	    		}, 5000);
-	    	}
-	    	return true;
-	    })
+		$('.edit_promise_to_hire').attr("name","formulaire");
 
+
+		$('.btn-valide').click(function(){
+			var form = document.forms.formulaire;
+			var booli = true;
+			for (var i = 0; i < form.length; i++) {
+				if((form[i].value == 0 || form[i].value.length == 0 ) && form[i].type != "file"){
+					form[i].style.outline = "1px solid red";
+					form[i].nextSibling.nextSibling.innerHTML = "Champs Obligatoire";
+				}
+			}
+
+			if ($('#signature').val() != 0 || $('.cin').val() != 0 || $('.atest').val() != 0 || $('.rib').val()) {
+				return true;
+			}
+			else {
+				$('#btn-valid-error').html("*Verifier que vous avez remplis tous les formulaires");
+				$('#btn-valid-error').show(300);
+				setTimeout(function(){
+					$('#btn-valid-error').hide(300);
+				}, 5000);
+				return false;
+			}
+		})
 
 
 

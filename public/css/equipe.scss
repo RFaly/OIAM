@@ -20,6 +20,8 @@
   padding-top: 70px;
   background-color: $secondary_text_color_button;
   .eq-title {
+    text-align: -webkit-center;
+    text-align: -moz-center;
     text-align: center;
     text-transform: uppercase;
     color: white;
@@ -38,6 +40,8 @@
       }
     }
     .eq-content {
+      text-align: -webkit-center;
+      text-align: -moz-center;
       text-align: center;
       .eq-name {
         font: $ffbtn;

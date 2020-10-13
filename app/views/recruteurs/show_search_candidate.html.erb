@@ -25,11 +25,11 @@
             </div>
 
             <div class="local">
-              <p>Type de poste : <% unless @cadre.metier.nil? %> <%= @cadre.metier.name %> <% end %></p>
-              <p>Profession : <%= @cadre.job %></p>
-              <p>Disponibilité : <%= @cadre.disponibilite %></p>
-              <p>Salaire(Brut annuel) : <%= @cadre.question4 %>k€</p>
-              <p>Mobilité : <%= @cadre.mobilite_name %></p>
+              <p>Type de poste : <span class="color-ye"><% unless @cadre.metier.nil? %> <%= @cadre.metier.name %> <% end %></span></p>
+              <p>Profession : <span class="color-ye"><%= @cadre.job %></span></p>
+              <p>Disponibilité : <span class="color-ye"><%= @cadre.disponibilite %></span></p>
+              <p>Salaire (Brut annuel) : <span class="color-ye"><%= @cadre.question4 %>k€</span></p>
+              <p>Mobilité : <span class="color-ye"><%= @cadre.mobilite_name %></span></p>
             </div>
             <div class="ssc-btn"><%= link_to "VISUALISER LE CV", @cadre.cv %></div>
           </div>
