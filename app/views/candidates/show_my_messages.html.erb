@@ -12,7 +12,7 @@
 				<% @messages.each do |message| %>
 				<div class="<% if message.is_client %>her-message<% else %>my-message<% end %>" data-store-id="<%= message.id %>">
 					<% if message.is_client %>
-						<div id="image" class="pdp-c" style="background: url(<%= @img%>) center no-repeat; background-size: cover">
+						<div id="image" class="pdp-c" style="background: url(<% if @img %> <%=@img%><% else %> /image/profie.png <% end %>) center no-repeat; background-size: cover">
 						</div>
 					<% end %>
 					<%= message.content %>
