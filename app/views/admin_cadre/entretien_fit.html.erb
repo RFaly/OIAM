@@ -133,98 +133,53 @@
   <div class="cp-box">
   	<div>
   		<div class="fcp-box">
-      <h3 class="title" style="color: #d6b36a !important;">ENTRETIEN FIT</h3>
-      <h3 class="title t2">Choisissez la suite a donner a ces candidats et rediger votre avis recruteur</h3>
-      <br><br><br>
-          <a class="a" href="<%= admin_dashboard_candidate_path %>">
-            SÉLECTIONNER DES CANDIDATS À SUIVRE
-          </a>
-      <div class="fc-item">
-        <div class="fc-item-all">
+        <h3 class="title" style="color: #d6b36a !important;">ENTRETIEN FIT</h3>
 
 <!--  CANDIDATS  -->
-
-        <!-- <% unless @cadres.empty? %>
-          <% @cadres.each do |cadre| %>
-            <div class="list-candidat">
-              <div class="fci-image">
-                <% unless cadre.image.nil? %>
-                  <%= image_tag(cadre.image, alt: 'photo de profil')%>
-                <% else %>
-                  <img src="/image/profie.png" alt="photo profil candidats">
-                <% end %>
-              </div>
-              <div class="fci-infos">
-                <p class="name"><%= cadre.first_name %> <%= cadre.last_name %> </p>
-                <p class="score">Score OIAM : <span><%= cadre.score_potential %></span></p>
-
-                <div class="ico-cand">
-                  <a href="<%= post_avis_candidats_fit_path(cadre.id) %>">GERER</a>
-                </div>
-
-                <div style="margin-top: 10px">
-                  <% unless cadre.agenda_admin.nil? %>
-                    <p>
-                      <i class="fas fa-edit fa-lg"></i>Entretien fit le:
-                      <span data-times="<%= cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
-                    </p>
-                  <% else %>
-                    <p>
-                      <i class="fas fa-edit fa-lg"></i>Entretien fit en attente.
-                    </p>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-          <% end %> -->
-    <!-- -----------------------------------------------------------------------------------------------------------------       -->
 
         <div class="nw-cont">
           <div class="cont-candd">
 
           <!-- --------------------------------------------------------------- -->
           <!--  CANDIDATS ANAKY RAY NO ETO RY FALY -->
-          <% unless @cadres.empty? %>
-          <% @cadres.each do |cadre| %>
-           <div class="candd">
-             <div class="row">
-             <div class="col-sm-3">
-               <% unless cadre.image.nil? %>
-                 <%= image_tag(cadre.image, alt: 'photo de profil', style: 'width:120px')%>
-               <% else %>
-                  <img src="/image/profie.png" alt="photo profil candidats", width="120px" />
-               <% end %>
-             </div>
-             <div class="col-sm-6">
-               <div class="desc-candd">
-                 <h4 class="name"><%= cadre.first_name %> <%= cadre.last_name %></h4>
-                 <h4 class="score">Score OIAM : <span><%= cadre.score_potential %></h4>
-                  <% unless cadre.agenda_admin.nil? %>
-                   <h4 class="entr-fit"><i class="fas fa-edit fa-lg"></i>Entretien fit le:   <span data-times="<%= cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span></h4>
+          <% if @cadre_infos.empty? %>
+            Aucun candidats pour le test fit
+          <% else %>
+            <% @cadre_infos.each do |cadre| %>
+             <div class="candd">
+               <div class="row">
+               <div class="col-sm-3">
+                 <% unless cadre.image.nil? %>
+                   <%= image_tag(cadre.image, alt: 'photo de profil', style: 'width:120px')%>
                  <% else %>
-                   <h4 class="entr-fit"><i class="fas fa-edit fa-lg"></i>Entretien fit en attente.</h4>
-                  <% end %>
+                    <img src="/image/profie.png" alt="photo profil candidats", width="120px" />
+                 <% end %>
+               </div>
+               <div class="col-sm-6">
+                 <div class="desc-candd">
+                   <h4 class="name"><%= cadre.first_name %> <%= cadre.last_name %></h4>
+                   <h4 class="score">Score OIAM : <span><%= cadre.score_potential %></h4>
+                    <% unless cadre.agenda_admin.nil? %>
+                     <h4 class="entr-fit"><i class="fas fa-edit fa-lg"></i>Entretien fit le:   <span data-times="<%= cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span></h4>
+                   <% else %>
+                     <h4 class="entr-fit"><i class="fas fa-edit fa-lg"></i>Entretien fit en attente.</h4>
+                    <% end %>
+                 </div>
+               </div>
+               <div class="col-sm-3">
+                 <div class="cont-btn">
+                 <a href="<%= post_avis_candidats_fit_path(cadre.id) %>">GERER</a>
+                 </div>
+               </div>
                </div>
              </div>
-             <div class="col-sm-3">
-               <div class="cont-btn">
-               <a href="<%= post_avis_candidats_fit_path(cadre.id) %>">GERER</a>
-               </div>
-             </div>
-             </div>
-           </div>
-           <% end %>
+             <% end %>
            <% end %>
              <!-- --------------------------------------------------------------------- -->
 
            </div>
          </div>
 
-<!-- ----------------------------------------------------------------------------------------------------------- -->
-
-      </div>
-      </div>
 
     </div>
 

@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="/css/mes_cand_admin.css" />
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
+
+<div class="client-column">
+	<div class="client-menu-left">
+		<%= render partial: "admin_cadre/left_menu_link" %>
+	</div>
+	<div class="cp-box">
+  		<div class="fcp-box">
+			<h3 class="title" style="color: #d6b36a !important;">CANDIDAT NON ADMIS</h3>
+
+			<div>
+				<span class="btn btn-primary" id="potential_test_js">TEST POTENTIEL</span>
+				<span class="btn btn-primary" id="fit_test_js">TEST FIT</span>
+				<span class="btn btn-primary" id="rehetra_js">TOUS</span>
+			</div>
+
+			<div class="fc-item">
+				<% @cadre_infos.each do |cadre| %>
+					<div class="candd click_<%= cadre.not_admited_test %>">
+		               <div class="row">
+		               <div class="col-sm-3">
+		                 <% unless cadre.image.nil? %>
+		                   <%= image_tag(cadre.image, alt: 'photo de profil', style: 'width:120px')%>
+		                 <% else %>
+		                    <img src="/image/profie.png" alt="photo profil candidats", width="120px" />
+		                 <% end %>
+		               </div>
+		               <div class="col-sm-6">
+		                 <div class="desc-candd">
+		                   <h4 class="name"><%= cadre.first_name %> <%= cadre.last_name %></h4>
+		                   <h4 class="score">Test Potentiel : <span><%= cadre.score_potential %></span></h4>
+		                   <h4 class="score">Test Fit : <%= cadre.score_fit.nil? ? "test non initier" : "#{cadre.compatibilite}" %></h4>
+		                 </div>
+		               </div>
+		               <div class="col-sm-3">
+		                 <div class="cont-btn">
+		                 	<a class='btn btn-primary' href="<%= admin_cadre_show_profile_path(cadre.id) %>">Voir</a>
+		                 </div>
+		               </div>
+		               </div>
+		             </div>
+				<% end %>
+				<p id="para-info-js" style="display: none;">Aucun candidats</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$("#potential_test_js").click(function () {
+		$(".click_potential_test").show(300);
+		$(".click_fit_test").hide(300);
+		$("#para-info-js").hide()
+		if ($(".click_potential_test").length == 0) {
+			$("#para-info-js").show()
+		}
+	});
+	$("#fit_test_js").click(function () {
+		$(".click_fit_test").show(300);
+		$(".click_potential_test").hide(300);
+		$("#para-info-js").hide()
+		if ($(".click_fit_test").length == 0) {
+			$("#para-info-js").show()
+		}
+	});
+	$("#rehetra_js").click(function(){
+		$(".click_fit_test").show(300);
+		$(".click_potential_test").show(300);
+		$("#para-info-js").hide()
+		if ($(".click_fit_test").length == 0 && $(".click_potential_test").length == 0) {
+			$("#para-info-js").show()
+		}
+	});
+</script>
