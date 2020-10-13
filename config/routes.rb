@@ -238,8 +238,8 @@ Rails.application.routes.draw do
 
   # routes dans le dashboard
 
-  post 'secret-oiam-page/admin/:id/suivre-candidate', to:'admin_dashboard#add_favorite_cadre', as:'add_favorite_cadre'
-  delete 'secret-oiam-page/admin/:id/remove-candidate', to:'admin_dashboard#rmv_favorite_cadre', as:'rmv_favorite_cadre'
+  # post 'secret-oiam-page/admin/:id/suivre-candidate', to:'admin_dashboard#add_favorite_cadre', as:'add_favorite_cadre'
+  # delete 'secret-oiam-page/admin/:id/remove-candidate', to:'admin_dashboard#rmv_favorite_cadre', as:'rmv_favorite_cadre'
 
   # get 'secret-oiam-page/admin/dashboard', to: 'admin_dashboard#main', as: 'admin_dashboard_main'
   get 'secret-oiam-page/admin/dashboard/demandes-de-contacts', to: 'admin_dashboard#contact_us', as: 'dashboard_contact_us'

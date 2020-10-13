@@ -9,7 +9,9 @@ class Admin < ApplicationRecord
 
   has_many :cadre_infos
 
-  has_many :notifications
+  has_many :notification_see_admins
+  has_many :notification_admins, through: :notification_see_admins
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -17,7 +19,13 @@ class Admin < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def numberOfNotification
-    self.notifications.where(view:false).count
+    number = 0
+    NotificationAdmin.all.each do |notice_admin|
+      unless notice_admin.view(self)
+        number += 1
+      end
+    end
+    return number
   end
 
   def number_message_not_see

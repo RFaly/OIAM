@@ -503,15 +503,11 @@ class RecruteursController < ApplicationController
 
 			name_entreprise = @facture.client.entreprise.name
 
-			Admin.all.each do |admin|
-				Notification.create(
-					admin: admin,
+				NotificationAdmin.create(
 					object: "#{name_entreprise}",
 					message: "L'entreprise #{name_entreprise} a payé sa facture oiam.",
-					link: "/",
-					view: false
+					link: "/", genre: 2
 				)
-			end
 
 			flash[:notice] = "ordre de virement bien sauvegardé."
 		else

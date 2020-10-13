@@ -364,16 +364,14 @@ class CandidatesController < ApplicationController
       @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score].to_i)
 
       #notifaka
-      Admin.all.each do |admin|
-        Notification.create(
-          admin: admin,
-          object: "Nouveau candidat: #{@cadreInfo.first_name} #{@cadreInfo.last_name}",
-          message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name[0].upcase}. viens de finir le test potentiel.",
-          link: "#{post_avis_candidats_fit_path(@cadreInfo.id,notification:"fit")}",
-          genre: 2,
-          view: false
-        )
-      end
+
+      NotificationAdmin.create(
+        object: "Nouveau candidat: #{@cadreInfo.first_name} #{@cadreInfo.last_name}",
+        message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name[0].upcase}. viens de finir le test potentiel.",
+        link: "#{post_avis_candidats_fit_path(@cadreInfo.id,notification:"fit")}",
+        genre: 2)
+
+
       flash[:notice] = "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a été notifié par email du résultat du test !"
     end
     redirect_to nothing_path
@@ -397,10 +395,14 @@ class CandidatesController < ApplicationController
   # Resultat test
   def resultatsTest
     @cadreInfo = CadreInfo.find_by_confirm_token(cookies.encrypted[:oiam_cadre])
-    unless @cadreInfo.potential_test
-      @cadreInfo.update(potential_test:true)
+    if @cadreInfo.nil?
+      redirect_back(fallback_location: root_path)
+    else
+      unless @cadreInfo.potential_test
+        flash[:notice] = "En attente du résultat de votre test potentiel."
+        @cadreInfo.update(potential_test:true)
+      end
     end
-    flash[:notice] = "En attente du résultat de votre test potentiel."
   end
 
   def getScoresPotential

@@ -262,23 +262,7 @@
                 <img src="/image/profie.png" alt="photo profil candidats">
               <% end %>
           </div>
-
-          <div class="fci-icon">
-              <% unless @cadre.admin.nil? %>
-                <% if @cadre.admin == current_admin %>
-                  <%= link_to rmv_favorite_cadre_path(id:@cadre.id), method: :delete, "data-confirm":"Êtes-vous sure de retirer cet(te) cadre de votre liste de candidat à suivre ?" do %>
-                    <img src="/image/Vector-24.png" alt="logo oiam favorie" title="retirer" width="30px">
-                  <% end %>
-                <% else %>
-                  <img src="/image/Vector-24.png" alt="logo oiam favorie" title="retirer" width="30px">
-                <% end %>
-              <% else %>
-                <%= link_to add_favorite_cadre_path(id:@cadre.id), method: :post do %>
-                  <img src="/image/Vector-22.png" alt="logo oiam non favorie" width="30px" title="suivre">
-                <% end %>
-              <% end %>
-            </div>
-
+          
           <div class="cd-info-be">
             <p class="name"><%= @cadre.first_name %> <%= @cadre.last_name %> </p>
             <p class="score">Score OIAM : <span><%= @cadre.score_potential %></span></p>
