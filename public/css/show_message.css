@@ -132,6 +132,7 @@
 
 .show-message-box .input textarea {
   min-height: 50px;
+  max-height: 130px;
   height: 50px;
   padding: 10px;
   border-radius: 0;
