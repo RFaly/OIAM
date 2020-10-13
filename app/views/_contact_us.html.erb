@@ -6,21 +6,21 @@
 <!-- body html  -->
 <div class="contact-us">
   <h2>CONTACTEZ-NOUS</h2>
-  <%= form_tag url_for('#'),method:'post' do %>
-  <div class="contact-change">
-    <input type="text" placeholder="Prénom" class="contact-item" />
-    <input type="text" placeholder="Nom" class="contact-item" />
-  </div>
-  <div class="contact-change">
-    <input type="text" placeholder="Société" class="contact-item" />
-    <input type="text" placeholder="Fonction" class="contact-item" />
-  </div>
-  <input type="text" name="name" placeholder="E-mail" />
-  <input type="text" name="name" placeholder="Téléphone" class="contact-item" />
-  <input type="text" name="name" placeholder="Comment nous avez-vous connu ?" />
-  <textarea name="message" placeholder="Rédiger un message" class="textarea"></textarea>
-  <div class="sub">
-    <input type="submit" value="Envoyer" class="submit" />
-  </div>
+  <%= form_tag url_for(save_contact_us_path),method:'post' do %>
+    <div class="contact-change">
+      <input type="text" name="first_name" placeholder="Prénom" class="contact-item" />
+      <input type="text" name="last_name" placeholder="Nom" class="contact-item" />
+    </div>
+    <div class="contact-change">
+      <input type="text" name="society" placeholder="Société" class="contact-item" />
+      <input type="text" name="function" placeholder="Fonction" class="contact-item" />
+    </div>
+    <input type="text" name="mail" placeholder="E-mail" />
+    <input type="text" name="telephone" placeholder="Téléphone" class="contact-item" />
+    <input type="text" name="how" placeholder="Comment nous avez-vous connu ?" />
+    <textarea name="message" placeholder="Rédiger un message" class="textarea"></textarea>
+    <div class="sub">
+      <input type="submit" value="Envoyer" class="submit" />
+    </div>
   <%end%>
 </div>

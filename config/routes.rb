@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get '/oiam', to: 'static_page#nothing', as: 'nothing'
 
+  post '/contact/save', to: 'static_page#save_contact_us', as: 'save_contact_us'
+  post '/contact/subscriber', to: 'static_page#save_app_subscriber', as: 'save_app_subscriber'
 
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Client ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	devise_for :clients, path: 'clients', controllers: {
