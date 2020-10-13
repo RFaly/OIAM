@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/css/mes_cand_admin.css" />
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
+<div class="client-column">
+  <div class="client-menu-left">
+    <%= render partial: "admin_dashboard/left_menu_link" %>
+  </div>
+  <div class="cp-box">
+  		<% if @subscribers.empty? %>
+  			Aucun abonné
+  		<% else %>
+			<table class="table">
+				<tr>
+					<td>email</td>
+				</tr>
+			<% @subscribers.each do |subscriber| %>
+				<tr class="aler info">
+					<td><%= subscriber.email %></td>
+				</tr>
+			<% end %>
+			</table>
+		<% end %>
+	</div>
+</div>
