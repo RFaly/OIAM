@@ -19,7 +19,13 @@ class Admin < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def numberOfNotification
-    self.notifications.where(view:false).count
+    number = 0
+    NotificationAdmin.all.each do |notice_admin|
+      unless notice_admin.view(self)
+        number += 1
+      end
+    end
+    return number
   end
 
   def number_message_not_see

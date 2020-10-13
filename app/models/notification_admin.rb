@@ -4,6 +4,15 @@ class NotificationAdmin < ApplicationRecord
 	has_many :notification_see_admins
   has_many :admins, through: :notification_see_admins
 
+
+  def view(current_admin)
+    if self.notification_see_admins.where(admin: current_admin, notification_admin:self).empty?
+      false
+    else
+      true
+    end
+  end
+
 	private
 
   def confirmation_token
