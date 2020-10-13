@@ -59,11 +59,13 @@
   font: 550 18px Raleway, sans-serif;
 }
 
-.fcp-box .fc-item-empty .fc-item-btn:hover, .fcp-box .fc-item-empty .fc-item-btn:active {
+.fcp-box .fc-item-empty .fc-item-btn:hover,
+.fcp-box .fc-item-empty .fc-item-btn:active {
   background: #d6b36a;
 }
 
-.fcp-box .fc-item-empty .fc-item-btn:hover a, .fcp-box .fc-item-empty .fc-item-btn:active a {
+.fcp-box .fc-item-empty .fc-item-btn:hover a,
+.fcp-box .fc-item-empty .fc-item-btn:active a {
   color: white;
 }
 
@@ -75,7 +77,6 @@
 }
 
 .fcp-box .fc-item-all {
-  display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
@@ -126,7 +127,8 @@
   color: #d6b36a;
 }
 
-.fcp-box .fc-item-all .list-candidat:hover .fci-infos, .fcp-box .fc-item-all .list-candidat:active .fci-infos {
+.fcp-box .fc-item-all .list-candidat:hover .fci-infos,
+.fcp-box .fc-item-all .list-candidat:active .fci-infos {
   height: 170px;
   transition: all 500ms ease-in-out;
 }
@@ -146,7 +148,8 @@
   color: #d6b36a;
 }
 
-.fcp-box .fc-item-btn2 a span:hover, .fcp-box .fc-item-btn2 a span:active {
+.fcp-box .fc-item-btn2 a span:hover,
+.fcp-box .fc-item-btn2 a span:active {
   opacity: 0.7;
   text-decoration: underline;
 }
