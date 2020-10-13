@@ -65,20 +65,20 @@
     <table>
       <tr>
         <td class="bolder">Total net HT</td>
-        <td class="bolder"><%= @valueR %>,00 €</td>
+        <td class="bolder"><%= @valueR %>,0 €</td>
       </tr>
       <tr>
         <td>TVA 20,00%</td>
-        <td><%= (@valueR * 20)/100  %>,00  €</td>
+        <td><%= (@valueR * 20)/100  %>,0 €</td>
       </tr>
       <tr>
         <td class="bolder">Montant total TTC</td>
-        <td class="bolder"><%= @valueR +(@valueR * 20)/100  %>,00 €</td>
+        <td class="bolder"><%= @valueR +(@valueR * 20)/100  %>,0 €</td>
       </tr>
       <tr class="spec">
         <td>
           Paiement par virement <br />
-          bancaire du 30/04/2020
+          bancaire du <%=  @promise.date_poste %>
         </td>
         <td>8 722,00 €</td>
       </tr>

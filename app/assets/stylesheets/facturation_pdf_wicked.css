@@ -131,11 +131,11 @@ p {
 .note-box table {
   width: 40%;
   border-collapse: collapse;
-  margin-bottom: 130px;
+  margin-bottom: 180px;
 }
 
 .note-box table td {
-  padding: 5px 30px;
+  padding: 5px 20px;
   background: #fff;
   text-align: right;
 }
@@ -147,7 +147,7 @@ p {
 }
 
 .note-box table .spec td {
-  padding: 10px 30px;
+  padding: 10px 20px;
 }
 
 .note-box table .spec .bor {
