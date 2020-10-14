@@ -5,6 +5,10 @@
   line-height: 1.5;
 }
 
+.option-center {
+  background: red;
+}
+
 #loading-indicator {
   position: fixed;
   z-index: 200;

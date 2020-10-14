@@ -6,30 +6,37 @@
 // 	$("#departmentInput").val(sessionStorage.getItem("departement"));
 // }
 
+//fixed form description
+$('#descriptif-mission').on('input', function () {
+  let text = $(this).val();
+  text = text.replace(/ /g, '[sp]');
+  text = text.replace(/\n/g, '[nl]');
+  $('#descriptif-mission2').val(text);
+});
 /* INITIALISER LES VALEURS */
 var franceData = [
-  { region: 'Auvergne-Rhône-Alpes', departement: ["Tous les départements",'Ain', 'Allier', 'Ardèche ', 'Cantal', 'Drôme', 'Isère', 'Loire ', 'Haute-Loire ', 'Puy-de-Dôme', ' Rhône + Métropole de Lyon', 'Savoie', 'Haute-Savoie'] },
-  { region: 'Bourgogne-Franche-Comté', departement: ["Tous les départements","Côte-d'Or", 'Doubs', 'Jura', 'Nièvre', 'Haute-Saône', 'Saône-et-Loire', 'Yonne', 'Territoire de Belfort'] },
-  { region: 'Bretagne', departement: ["Tous les départements","Côtes-d'Armor", 'Finistère', 'Ille-et-Vilaine', 'Morbihan'] },
-  { region: 'Centre-Val de Loire', departement: ["Tous les départements",'Cher', 'Eure-et-Loir', 'Indre', 'Indre-et-Loire', 'Loir-et-Cher', 'Loiret'] },
-  { region: 'Corse', departement: ["Tous les départements",'Corse-du-Sud', 'Haute-Corse'] },
-  { region: 'Grand Est', departement: ["Tous les départements",'Ardennes', 'Aube', 'Marne', 'Haute-Marne', 'Meurthe-et-Moselle', 'Meuse', 'Moselle', 'Bas-Rhin', 'Haut-Rhin', 'Vosges'] },
-  { region: 'Hauts-de-France', departement: ["Tous les départements",'Aisne', 'Nord', 'Oise', 'Pas-de-Calais', 'Somme'] },
-  { region: 'Île-de-France', departement: ["Tous les départements",'Paris', 'Seine-et-Marne', 'Yvelines', 'Essonne', 'Hauts-de-Seine', 'Seine-Saint-Denis', 'Val-de-Marne', "Val-d'Oise"] },
-  { region: 'Normandie', departement: ["Tous les départements",'Calvados', 'Eure', 'Manche', 'Orne', 'Seine-Maritime'] },
-  { region: 'Nouvelle-Aquitaine', departement: ["Tous les départements",'Charente', 'Charente-Maritime', 'Corrèze', 'Creuse', 'Dordogne', 'Gironde', 'Landes', 'Lot-et-Garonne', 'Pyrénées-Atlantiques', 'Deux-Sèvres', 'Vienne', 'Haute-Vienne'] },
-  { region: 'Occitanie', departement: ["Tous les départements",'Ariège', 'Aude', 'Aveyron', 'Gard', 'Haute-Garonne', 'Gers', 'Hérault', 'Lot', 'Lozère', 'Hautes-Pyrénées', 'Pyrénées-Orientales', 'Tarn', 'Tarn-et-Garonne'] },
-  { region: 'Pays de la Loire', departement: ["Tous les départements",'Loire-Atlantique', 'Maine-et-Loire', 'Mayenne', 'Sarthe', 'Vendée'] },
-  { region: "Provence-Alpes-Côte d'Azur", departement: ["Tous les départements",'Alpes-de-Haute-Provence', 'Hautes-Alpes', 'Alpes-Maritimes', 'Bouches-du-Rhône', 'Var', 'Vaucluse'] },
+  { region: 'Auvergne-Rhône-Alpes', departement: ['Tous les départements', 'Ain', 'Allier', 'Ardèche ', 'Cantal', 'Drôme', 'Isère', 'Loire ', 'Haute-Loire ', 'Puy-de-Dôme', ' Rhône + Métropole de Lyon', 'Savoie', 'Haute-Savoie'] },
+  { region: 'Bourgogne-Franche-Comté', departement: ['Tous les départements', "Côte-d'Or", 'Doubs', 'Jura', 'Nièvre', 'Haute-Saône', 'Saône-et-Loire', 'Yonne', 'Territoire de Belfort'] },
+  { region: 'Bretagne', departement: ['Tous les départements', "Côtes-d'Armor", 'Finistère', 'Ille-et-Vilaine', 'Morbihan'] },
+  { region: 'Centre-Val de Loire', departement: ['Tous les départements', 'Cher', 'Eure-et-Loir', 'Indre', 'Indre-et-Loire', 'Loir-et-Cher', 'Loiret'] },
+  { region: 'Corse', departement: ['Tous les départements', 'Corse-du-Sud', 'Haute-Corse'] },
+  { region: 'Grand Est', departement: ['Tous les départements', 'Ardennes', 'Aube', 'Marne', 'Haute-Marne', 'Meurthe-et-Moselle', 'Meuse', 'Moselle', 'Bas-Rhin', 'Haut-Rhin', 'Vosges'] },
+  { region: 'Hauts-de-France', departement: ['Tous les départements', 'Aisne', 'Nord', 'Oise', 'Pas-de-Calais', 'Somme'] },
+  { region: 'Île-de-France', departement: ['Tous les départements', 'Paris', 'Seine-et-Marne', 'Yvelines', 'Essonne', 'Hauts-de-Seine', 'Seine-Saint-Denis', 'Val-de-Marne', "Val-d'Oise"] },
+  { region: 'Normandie', departement: ['Tous les départements', 'Calvados', 'Eure', 'Manche', 'Orne', 'Seine-Maritime'] },
+  { region: 'Nouvelle-Aquitaine', departement: ['Tous les départements', 'Charente', 'Charente-Maritime', 'Corrèze', 'Creuse', 'Dordogne', 'Gironde', 'Landes', 'Lot-et-Garonne', 'Pyrénées-Atlantiques', 'Deux-Sèvres', 'Vienne', 'Haute-Vienne'] },
+  { region: 'Occitanie', departement: ['Tous les départements', 'Ariège', 'Aude', 'Aveyron', 'Gard', 'Haute-Garonne', 'Gers', 'Hérault', 'Lot', 'Lozère', 'Hautes-Pyrénées', 'Pyrénées-Orientales', 'Tarn', 'Tarn-et-Garonne'] },
+  { region: 'Pays de la Loire', departement: ['Tous les départements', 'Loire-Atlantique', 'Maine-et-Loire', 'Mayenne', 'Sarthe', 'Vendée'] },
+  { region: "Provence-Alpes-Côte d'Azur", departement: ['Tous les départements', 'Alpes-de-Haute-Provence', 'Hautes-Alpes', 'Alpes-Maritimes', 'Bouches-du-Rhône', 'Var', 'Vaucluse'] },
   { region: 'Toutes les régions', departement: ['Tous les départements'] },
 ];
 var listOptionRegion = '';
 var listOptionDepartment = '';
 for (var i = 0; i < franceData.length; i++) {
-  listOptionRegion += '<option data-index="' + i + '" value="' + franceData[i].region + '">' + franceData[i].region + '</option>';
+  listOptionRegion += '<option data-index="' + i + '" value="' + franceData[i].region + '">&#160; &#160;' + franceData[i].region + '&#160; &#160;</option>';
   var departments = franceData[i].departement;
   for (var j = departments.length - 1; j >= 0; j--) {
-    listOptionDepartment += '<option data-index="' + i + '" value="' + departments[j] + '">' + departments[j] + '</option>';
+    listOptionDepartment += '<option data-index="' + i + '" value="' + departments[j] + '">&#160; &#160;' + departments[j] + '&#160; &#160;</option>';
   }
 }
 $('#regionInput').html(listOptionRegion);
@@ -40,9 +47,9 @@ $('#departmentInput').html(listOptionDepartment);
 $('#paysInput').change(function () {
   sessionStorage.setItem('country', this.value);
   if ($(this).val() == 'France') {
-    var listOptionRegion = "<option value=''>Région</option>";
+    var listOptionRegion = "<option value=''disabled >&#160; &#160;Région&#160; &#160;</option>";
     for (var i = 0; i < franceData.length; i++) {
-      listOptionRegion += '<option data-index="' + i + '" value="' + franceData[i].region + '">' + franceData[i].region + '</option>';
+      listOptionRegion += '<option data-index="' + i + '" value="' + franceData[i].region + '">&#160; &#160;' + franceData[i].region + '&#160; &#160;</option>';
     }
     $('#regionInput').html(listOptionRegion);
     sessionStorage.setItem('country', 'France');
@@ -59,7 +66,7 @@ $('#regionInput').change(function () {
     if ($(allOptions[i]).val() == $(this).val()) {
       let currentDepartment = franceData[allOptions[i].dataset.index].departement;
       for (var j = 0; j < currentDepartment.length; j++) {
-        listDepartement += '<option data-index="' + allOptions[i].dataset.index + '" value="' + currentDepartment[j] + '">' + currentDepartment[j] + '</option>';
+        listDepartement += '<option data-index="' + allOptions[i].dataset.index + '" value="' + currentDepartment[j] + '">&#160; &#160;' + currentDepartment[j] + '&#160; &#160;</option>';
       }
       $('#paysInput').val('France');
       sessionStorage.setItem('country', 'France');
@@ -204,6 +211,7 @@ $('#co-dp-btn').click(function () {
     $('#departmentInput').val().length >= 1 &&
     $('#intitule-pote').val().length >= 1 &&
     $('#descriptif-mission').val().length >= 1 &&
+    $('#metier-input').val().length >= 1 &&
     $('#rattachement').val().length >= 1 &&
     $('#remuneration-anne').val().length >= 1 &&
     $('#datepicker').val().length >= 1 &&
@@ -219,7 +227,7 @@ $('#co-dp-btn').click(function () {
     }
     for (i = round(parseInt($('#remuneration').val())); i <= 350; i += 10) {
       let a = i + 10;
-      html += '<option value=' + a + '>' + a + 'k€ bruts annuels </option>';
+      html += '<option value=' + a + '>&#160; &#160;' + a + 'k€ bruts annuels &#160; &#160;</option>';
     }
     $('#remuneration-max').html(html);
 
