@@ -3,10 +3,14 @@ class AdminClientController < ApplicationAdminController
 
   #recrutement en cours
   def main
-    @offre = OffreJob.all
-    @cadre = Cadre.all
+    @offres = OffreJob.all
   end
-  
+
+  #show recrutement en cours
+  def show_recrutment
+    @offre = OffreJob.find_by(id: params[:id])
+  end
+
   def offer
   	@offre = OffreJob.all
   end
