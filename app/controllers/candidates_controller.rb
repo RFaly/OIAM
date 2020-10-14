@@ -443,12 +443,15 @@ class CandidatesController < ApplicationController
     year = date[2].to_i
     hour = time[0].to_i
     min = time[1].to_i
+
     @agenda = AgendaAdmin.new(entretien_date:DateTime.new(year,month,day,hour,min).utc,cadre_info:@cadreInfo)
+    
     if @agenda.save
       @cadreInfo.update(fit_test:true)
     else
       flash[:alert] = @agenda.errors.details
     end
+
   end
 
 #END ---------------------------------------------------------------------
@@ -583,9 +586,13 @@ class CandidatesController < ApplicationController
       @promise.update(birthday_cadre: params[:promise_to_hire][:birthday_cadre], birthplace_cadre: params[:promise_to_hire][:birthplace_cadre], ns_sociale_cadre: params[:promise_to_hire][:ns_sociale_cadre], signature_candidat: file_sinc.url, cin_pass_port: file_cin.url, security_certificate: file_sc.url, rib: filerib.url, repons_cadre:true)
       @offreJob = @promise.offre_job
       @offreJob.next_stape
+      
+      # calcul prix honoraire oiam
+      prix = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2))) * 10 * 20
+      pcalcul = (prix/1000).round(2)
+      facture = Facture.create(prix: pcalcul,promise_to_hire:@promise,client:@promise.offre_job.client)
 
       #notifaka
-      facture = Facture.create(prix:(@offreJob.remuneration * 1000 * 20)/100,promise_to_hire:@promise,client:@promise.offre_job.client)
       Notification.create(client: facture.client,link: "#{paye_my_bills_path(facture.id,notification:"entretien")}",genre: 2,view: false)
       #créé un cacture rib:"/image/OIAM_DIAMOND.png",
 

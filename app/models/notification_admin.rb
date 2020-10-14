@@ -13,6 +13,10 @@ class NotificationAdmin < ApplicationRecord
     end
   end
 
+  def offre_job
+    return OffreJob.find_by_id(self.medel_id)
+  end
+
 	private
 
   def confirmation_token
