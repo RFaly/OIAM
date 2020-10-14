@@ -85,16 +85,9 @@
         <div class="dp-input hide-right">
           <select id="remuneration-anne" name="offre_job[remuneration_anne]" class="co-select">
             <option value="<%= @offre.remuneration_anne.to_i %>" selected hidden><%= @offre.remuneration_anne.to_i %></option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
+            <% i = 1 %> <%21.times do %>
+            <option value="<%= i %>"><%= i %></option>
+            <%i += 5 %><% end %>
           </select>
         </div>
         <span class="input-error remuneration-anne-error"></span>

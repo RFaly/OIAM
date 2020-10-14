@@ -6,6 +6,13 @@
 // 	$("#departmentInput").val(sessionStorage.getItem("departement"));
 // }
 
+//fixed form description
+$('#descriptif-mission').on('input', function () {
+  let text = $(this).val();
+  text = text.replace(/ /g, '[sp]');
+  text = text.replace(/\n/g, '[nl]');
+  $('#descriptif-mission2').val(text);
+});
 /* INITIALISER LES VALEURS */
 var franceData = [
   { region: 'Auvergne-Rhône-Alpes', departement: ['Tous les départements', 'Ain', 'Allier', 'Ardèche ', 'Cantal', 'Drôme', 'Isère', 'Loire ', 'Haute-Loire ', 'Puy-de-Dôme', ' Rhône + Métropole de Lyon', 'Savoie', 'Haute-Savoie'] },
@@ -204,6 +211,7 @@ $('#co-dp-btn').click(function () {
     $('#departmentInput').val().length >= 1 &&
     $('#intitule-pote').val().length >= 1 &&
     $('#descriptif-mission').val().length >= 1 &&
+    $('#metier-input').val().length >= 1 &&
     $('#rattachement').val().length >= 1 &&
     $('#remuneration-anne').val().length >= 1 &&
     $('#datepicker').val().length >= 1 &&
