@@ -325,6 +325,7 @@ html{
     margin-bottom: 20px;
     margin-right: 10px;
     padding-left: 15px;
+		padding-right: 30px;
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance:none;
@@ -540,6 +541,6 @@ html{
 }
   @media only screen and (min-width: 1280px){
     .main{
-      margin:  100px 100px;
+      margin:  100px 170px;
     }
   }
