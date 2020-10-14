@@ -12,7 +12,9 @@
         <hr>
         <a href="<%= noficication.link %>" class="notif-link <% unless noficication.view %>seen<% end %>">
           <div class="notification-content">
-            <div class="c" style="background: url(<%= noficication.cadre_info.image %>) center no-repeat; background-size: cover"></div>
+            <% link = noficication.genre == 2 ? "/image/document1.png" : "#{noficication.cadre_info.image}" %>
+            <div class="c" style="background: url(<%= link %>) center no-repeat; background-size: cover"></div>
+
             <div class="nc-item">
               <p class="name"><%= noficication.object %></p>
               <p class="notif"><%= noficication.message %></p>

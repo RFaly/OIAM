@@ -473,8 +473,10 @@ class RecruteursController < ApplicationController
 		@offre_job = @promise.offre_job
 	end
 
+	#eto
 	def paye_my_bills
 		# OffreJob.find_by_id(params[:offre_job_id])
+		helpers.updateNotification(params[:secure])
 		@facture = Facture.find_by_id(params[:facture_id])
 		@promise = PromiseToHire.find_by_id(params[:promise_id])
 		@offre_job = @facture.promise_to_hire.offre_job
@@ -519,7 +521,7 @@ class RecruteursController < ApplicationController
 
 #Mes notifications
 	def notifications
-		@notifications = current_client.notifications.where.not(genre:2).order("created_at DESC")
+		@notifications = current_client.notifications.order("created_at DESC")
 	end
 
 	def show_promise_to_hire

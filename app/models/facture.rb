@@ -16,5 +16,14 @@ class Facture < ApplicationRecord
 			genre: 1,
 			medel_id: offreJob.id
 		)
+
+		Notification.create(
+      client: self.client,
+      link: "#{paye_my_bills_path(self.id,notification:"entretien")}",
+      object: "Facture OIAM",
+      message: "Précalcul honoraires OIAM",
+      genre: 2,
+      view: false
+    )
 	end
 end
