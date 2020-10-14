@@ -85,7 +85,7 @@
         <div class="dp-input hide-right">
           <select id="remuneration-anne" name="offre_job[remuneration_anne]" class="co-select">
             <option value="<%= @offre.remuneration_anne.to_i %>" selected hidden><%= @offre.remuneration_anne.to_i %></option>
-            <% i = 1 %> <%21.times do %>
+            <% i = 0 %> <%21.times do %>
             <option value="<%= i %>"><%= i %></option>
             <%i += 5 %><% end %>
           </select>
