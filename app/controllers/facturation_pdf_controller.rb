@@ -1,7 +1,13 @@
 class FacturationPdfController < ApplicationController
-  before_action :authenticate_cadre!,only: [:promise_cadre]
-  before_action :authenticate_client! , except: :promise_cadre
+  before_action :authenticate_cadre!, only: [:promise_cadre]
+  # before_action :authenticate_client! , except: :promise_cadre
   def index
+    if current_admin.nil? && current_client.nil?
+      flash[:alert] = "Ooups!"
+      redirect_to root_path
+      return
+    end
+
     @facture = Facture.find_by_id(params[:id_factures])
     if (@facture.created_at.day < 10)
       @day = "0"+ @facture.created_at.day.to_s
@@ -19,8 +25,7 @@ class FacturationPdfController < ApplicationController
       @facture_id = "0"+ @facture_id
     end
     @promise = @facture.promise_to_hire
-    test = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2))) * 10 * 20
-    @pcalcul = (test/1000).round(2)
+    @pcalcul = @facture.prix
     respond_to do |format|
       format.pdf {render layout: 'facture_layout.html',
                     template: 'facturation_pdf/reporte',
@@ -38,15 +43,17 @@ class FacturationPdfController < ApplicationController
     end
   end
   def promise
-    @promise = PromiseToHire.find_by_id(params[:id_promise])
-		@job = @promise.offre_job
-    @cadre = @promise.cadre.cadre_info
-    respond_to do |format|
-      format.pdf {render layout: 'promise_layout.html',
-                    template: 'facturation_pdf/promise',
-                    pdf:"Promesse b'embauche OIAM ",
-                    margin: { top: 15, bottom: 15, left: 10, right: 10 }
-                  }
+    unless current_admin.nil? || current_client.nil?
+      @promise = PromiseToHire.find_by_id(params[:id_promise])
+  		@job = @promise.offre_job
+      @cadre = @promise.cadre.cadre_info
+      respond_to do |format|
+        format.pdf {render layout: 'promise_layout.html',
+                      template: 'facturation_pdf/promise',
+                      pdf:"Promesse b'embauche OIAM ",
+                      margin: { top: 15, bottom: 15, left: 10, right: 10 }
+                    }
+      end
     end
   end
   def promise_cadre

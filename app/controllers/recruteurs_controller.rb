@@ -534,6 +534,8 @@ class RecruteursController < ApplicationController
 		@cadre = Cadre.find_by_id(params[:id_cadre])
 		if @job.nil? || @cadre.nil?
 			#errors
+			flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
+			redirect_back(fallback_location: root_path)
 		end
 		@cadre = @cadre.cadre_info
 		@promise = PromiseToHire.new
@@ -576,9 +578,7 @@ class RecruteursController < ApplicationController
 			oFc = @job.my_top_five_candidates.find_by(cadre:@cadre)
 			#notifaka
 			# Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une promesse d'embauche.",link: "#{cadre_show_promise_to_hire_path(@promise.id,notification:"entretien")}",genre: 2,medel_id: @job.id,view: false)
-
 			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une promesse d'embauche.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"entretien")}",genre: 2, medel_id: @job.id, view:false)
-
       #mettre à jour l'etap au dernière étape
 			oFc.update(etapes:@job.numberEntretien + 1,status:nil)
 			@job.update(etapes: 2 + @job.numberEntretien + 1)

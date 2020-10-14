@@ -32,18 +32,13 @@ class OffreJob < ApplicationRecord
 
 	def notified_admin
 		name_entreprise = self.client.entreprise.name
-		admins = Admin.all
-		# admins.each do |admin|
-		# 	Notification.create(
-		# 		admin: admin,
-		# 		object: "#{name_entreprise}",
-		# 		message: "#{name_entreprise} a publié un offre d'emploi.",
-		# 		link: "#{url_helpers.admin_client_show_offer_path(self.id,notification:"offre")}",
-		# 		genre: 1,
-		# 		medel_id: self.id,
-		# 		view: false
-		# 	)
-		# end
+		NotificationAdmin.create(
+			object: "#{name_entreprise}",
+			message: "#{name_entreprise} a publié une nouvelle offre d'emploi.",
+			link: "#{url_helpers.admin_client_show_offer_path(self.id,notification:"offre")}",
+			genre: 1,
+			medel_id: self.id
+		)
 	end
 
 	def type_deplacement_name
