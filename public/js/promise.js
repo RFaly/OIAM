@@ -83,6 +83,10 @@ $(document).ready(function () {
     var oiam = ($('#renumeration-fixe').val() * pop * 20) / 100;
     $('#pc-calcul').html(oiam.toFixed(2) + '€');
   });
+  $('#post_oui').on('focus', function () {
+    var oiam = (($('#renumeration-fixe').val() * pop + $('#js-input-choix').val() * 1000) * 20) / 100;
+    $('#pc-calcul').html(oiam.toFixed(2) + '€');
+  });
   //  on load
   if ($('#post_13').is(':checked')) {
     pop = 13;

@@ -22,9 +22,7 @@
     <li><%= link_to "MES OFFRES D'EMPLOI", my_job_offers_path %></li>
     <li><%= link_to "MES CANDIDATS FAVORIS", favorite_candidates_path %></li>
     <li><%= link_to "MON SUIVI RECRUTEMENT", my_recruitment_follow_path %></li>
-    <li><%= link_to "MES FACTURES", my_bills_path %>
-      <div class="first" <%if (notice[:facture] == 0) %>hidden<% end %>><% if notice[:facture] < 9 %><%= notice[:facture] %><% else %>+9<% end %></div>
-    </li>
+    <li><%= link_to "MES FACTURES", my_bills_path %></li>
     <li><%= link_to "MES NOTIFICATIONS", client_notifications_path %>
       <div <%if (notice[:all] == 0) %>hidden<% end %>><% if notice[:all] < 9 %><%= notice[:all] %><% else %>+9<% end %></div>
     </li>

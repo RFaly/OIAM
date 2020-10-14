@@ -473,8 +473,10 @@ class RecruteursController < ApplicationController
 		@offre_job = @promise.offre_job
 	end
 
+	#eto
 	def paye_my_bills
 		# OffreJob.find_by_id(params[:offre_job_id])
+		helpers.updateNotification(params[:secure])
 		@facture = Facture.find_by_id(params[:facture_id])
 		@promise = PromiseToHire.find_by_id(params[:promise_id])
 		@offre_job = @facture.promise_to_hire.offre_job
@@ -519,7 +521,7 @@ class RecruteursController < ApplicationController
 
 #Mes notifications
 	def notifications
-		@notifications = current_client.notifications.where.not(genre:2).order("created_at DESC")
+		@notifications = current_client.notifications.order("created_at DESC")
 	end
 
 	def show_promise_to_hire
@@ -534,6 +536,8 @@ class RecruteursController < ApplicationController
 		@cadre = Cadre.find_by_id(params[:id_cadre])
 		if @job.nil? || @cadre.nil?
 			#errors
+			flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
+			redirect_back(fallback_location: root_path)
 		end
 		@cadre = @cadre.cadre_info
 		@promise = PromiseToHire.new
@@ -576,9 +580,7 @@ class RecruteursController < ApplicationController
 			oFc = @job.my_top_five_candidates.find_by(cadre:@cadre)
 			#notifaka
 			# Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une promesse d'embauche.",link: "#{cadre_show_promise_to_hire_path(@promise.id,notification:"entretien")}",genre: 2,medel_id: @job.id,view: false)
-
 			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une promesse d'embauche.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"entretien")}",genre: 2, medel_id: @job.id, view:false)
-
       #mettre à jour l'etap au dernière étape
 			oFc.update(etapes:@job.numberEntretien + 1,status:nil)
 			@job.update(etapes: 2 + @job.numberEntretien + 1)

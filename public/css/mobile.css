@@ -5,6 +5,10 @@
   line-height: 1.5;
 }
 
+.option-center {
+  background: red;
+}
+
 #loading-indicator {
   position: fixed;
   z-index: 200;
@@ -810,9 +814,6 @@
     padding: 0;
     margin: 0 auto;
   }
-  .create-offre-box .detail-post-box .dp-input {
-    width: 70%;
-  }
   .create-offre-box .detail-post-box .dp-input-renumeration .value-renum {
     margin-left: 3%;
     width: 80%;
@@ -1263,7 +1264,7 @@
     left: 1px;
   }
   .create-offre-box .detail-post-box .dp-input {
-    width: 50%;
+    width: 85%;
   }
   .create-offre-box .detail-post-box .dp-input-renumeration .value-renum {
     margin-left: 3%;
@@ -1562,7 +1563,7 @@
     left: 12%;
   }
   .create-offre-box .detail-post-box .dp-input {
-    width: 35%;
+    width: 70%;
   }
   .create-offre-box .detail-post-box .dp-input-renumeration .value-renum {
     width: 87%;

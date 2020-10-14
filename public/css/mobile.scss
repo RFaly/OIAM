@@ -7,6 +7,10 @@
   line-height: 1.5;
   // z-index: 1;
 }
+/////////////@at-root
+.option-center {
+  background: red;
+}
 // css load
 #loading-indicator {
   position: fixed;
@@ -973,11 +977,11 @@
     padding: 0;
     margin: 0 auto;
 
-    .detail-post-box {
-      .dp-input {
-        width: 70%;
-      }
-    }
+    // .detail-post-box {
+    //   .dp-input {
+    //     width: 70%;
+    //   }
+    // }
     .detail-post-box {
       .dp-input-renumeration {
         .value-renum {
@@ -1558,7 +1562,7 @@
   .create-offre-box {
     .detail-post-box {
       .dp-input {
-        width: 50%;
+        width: 85%;
       }
     }
     .detail-post-box {
@@ -1969,7 +1973,7 @@
   .create-offre-box {
     .detail-post-box {
       .dp-input {
-        width: 35%;
+        width: 70%;
       }
     }
     .detail-post-box {
