@@ -17,6 +17,11 @@ class AdminClientController < ApplicationAdminController
   end
 
   def factures
+    @facture = Facture.all
+  end
+
+  def show_facture
+    @facture = Facture.find_by(id: params[:id])
   end
 
 end

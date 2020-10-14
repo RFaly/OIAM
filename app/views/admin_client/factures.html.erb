@@ -10,13 +10,19 @@
         <h5>FACTURES CLIENT</h5>
         <hr />
         <div class="coj-box" id="offre">
+          <% if  @facture.count == 0 %>
+           Aucune facture pour le moment
+          <% else %>
+          <% @facture.each do |facture| %>
           <div class="cjo-image">
             <img src="/image/document.png" alt="icone doc" />
           </div>
-          <div class="cjo-content">Lorem ...</div>
+          <div class="cjo-content"><%= facture.client.entreprise.name %></div>
           <div class="cjo-link-items">
-            <div class="cjo-link"><%= link_to "VOIR FACTURE"%></div>
+            <div class="cjo-link"><%= link_to "VOIR FACTURE", admin_client_show_facture_path(facture.id) %></div>
           </div>
+          <% end %>
+          <% end %>
         </div>
         <hr />
         <%# end %>
