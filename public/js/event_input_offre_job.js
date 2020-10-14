@@ -33,10 +33,10 @@ var franceData = [
 var listOptionRegion = '';
 var listOptionDepartment = '';
 for (var i = 0; i < franceData.length; i++) {
-  listOptionRegion += '<option data-index="' + i + '" value="' + franceData[i].region + '">&#160; &#160; &#160; &#160; &#160;' + franceData[i].region + '&#160; &#160; &#160; &#160; &#160;</option>';
+  listOptionRegion += '<option data-index="' + i + '" value="' + franceData[i].region + '">&#160; &#160;' + franceData[i].region + '&#160; &#160;</option>';
   var departments = franceData[i].departement;
   for (var j = departments.length - 1; j >= 0; j--) {
-    listOptionDepartment += '<option data-index="' + i + '" value="' + departments[j] + '">&#160; &#160; &#160; &#160; &#160;' + departments[j] + '&#160; &#160; &#160; &#160; &#160;</option>';
+    listOptionDepartment += '<option data-index="' + i + '" value="' + departments[j] + '">&#160; &#160;' + departments[j] + '&#160; &#160;</option>';
   }
 }
 $('#regionInput').html(listOptionRegion);
@@ -47,9 +47,9 @@ $('#departmentInput').html(listOptionDepartment);
 $('#paysInput').change(function () {
   sessionStorage.setItem('country', this.value);
   if ($(this).val() == 'France') {
-    var listOptionRegion = "<option value=''disabled >&#160; &#160; &#160; &#160; &#160;Région&#160; &#160; &#160; &#160; &#160;</option>";
+    var listOptionRegion = "<option value=''disabled >&#160; &#160;Région&#160; &#160;</option>";
     for (var i = 0; i < franceData.length; i++) {
-      listOptionRegion += '<option data-index="' + i + '" value="' + franceData[i].region + '">&#160; &#160; &#160; &#160; &#160;' + franceData[i].region + '&#160; &#160; &#160; &#160; &#160;</option>';
+      listOptionRegion += '<option data-index="' + i + '" value="' + franceData[i].region + '">&#160; &#160;' + franceData[i].region + '&#160; &#160;</option>';
     }
     $('#regionInput').html(listOptionRegion);
     sessionStorage.setItem('country', 'France');
@@ -66,7 +66,7 @@ $('#regionInput').change(function () {
     if ($(allOptions[i]).val() == $(this).val()) {
       let currentDepartment = franceData[allOptions[i].dataset.index].departement;
       for (var j = 0; j < currentDepartment.length; j++) {
-        listDepartement += '<option data-index="' + allOptions[i].dataset.index + '" value="' + currentDepartment[j] + '">&#160; &#160; &#160; &#160; &#160;' + currentDepartment[j] + '&#160; &#160; &#160; &#160; &#160;</option>';
+        listDepartement += '<option data-index="' + allOptions[i].dataset.index + '" value="' + currentDepartment[j] + '">&#160; &#160;' + currentDepartment[j] + '&#160; &#160;</option>';
       }
       $('#paysInput').val('France');
       sessionStorage.setItem('country', 'France');
@@ -227,7 +227,7 @@ $('#co-dp-btn').click(function () {
     }
     for (i = round(parseInt($('#remuneration').val())); i <= 350; i += 10) {
       let a = i + 10;
-      html += '<option value=' + a + '>&#160; &#160; &#160; &#160; &#160;' + a + 'k€ bruts annuels &#160; &#160; &#160; &#160; &#160;</option>';
+      html += '<option value=' + a + '>&#160; &#160;' + a + 'k€ bruts annuels &#160; &#160;</option>';
     }
     $('#remuneration-max').html(html);
 
