@@ -1,36 +1,77 @@
+<style type="text/css">
+  .flex-container{
+    display: flex;
+  }
+  .flex-container div {
+    border: 2px solid red;
+    padding: 2px;
+    margin-left: 3px;
+  }
+</style>
 <% @title="Clients" %>
 <!-- call css  -->
   <link rel="stylesheet" href="/css/my_job_offre.css" />
 <!-- body html  -->
 <div class="client-column">
-  <div class="client-menu-left"><%= render "admin_client/left_menu_link" %></div>
+
+  <div class="client-menu-left">
+    <%= render "admin_client/left_menu_link" %>
+  </div>
+
   <div class="cp-box">
     <div class="box-inside">
-      <% if @offre.count == 0 %>
-      <div class="co-any-job">
-        <p>Il n'y  a aucun recrutement</p>
-      </div>
-      <% else %>
-      <div class="co-with-job">
-        <h5>RECRUTEMENT EN COURS</h5>
 
-        <% @offre.each do |offre| %>
-        <hr />
-        <div class="coj-box" id="offre<%= offre.id %>">
-          <div class="cjo-image">
-            <img src="/image/work.png" alt="icone work" />
-          </div>
-          <div class="cjo-content"><%= offre.client.entreprise.name.upcase %></div>
-          <div class="cjo-link-items">
-            <div class="cjo-link"><%= link_to "VOIR RECRUTEMENT"%></div>
-          </div>
+      <% if @offres.empty?%>
+        <div class="co-any-job">
+          <p>Il n'y  a aucun recrutement</p>
         </div>
-        <hr />
-        <% end %>
-        <% end %>
-      </div>
+      <% else %>
+
+        <div class="co-with-job">
+          <h5>RECRUTEMENT EN COURS</h5>
+
+          <% @offres.each do |offre| %>
+
+            <div class="container">
+
+              <h2>Poste: <%= link_to "#{offre.intitule_pote}", admin_client_show_offer_path(offre.id)%></h2>
+              
+              <%= link_to "Evolution", admin_show_recrutment_path(offre.id)%>
+              
+              <strong><i>actuelement à l'étapes: <%= offre.etapes %></i></strong>
+
+              <div class="flex-container">
+
+                <div>Publication <span class="badge-success">1</span></div>
+                
+                <div>Sélection <span class="badge-success">2</span></div>
+
+                <% etape = 2 %>
+                <% offre.numberEntretien.times do |i| %>
+                  <% etape += 1 %>
+                  <% if i == 0 %>
+                    <div>1er entretien <span class="badge-success"><%= etape %></span></div>
+                  <% else %>
+                    <div><%=i+1%>e entretien <span class="badge-success"><%= etape %></span></div>
+                  <% end %>
+                <% end %>
+
+                <div>Promesse d'embauche <span class="badge-success"><%= etape + 1 %></span> </div>
+
+                <div>Recrutement <span class="badge-success"><%= etape + 2 %></span> </div>
+
+              </div>
+
+            </div>
+
+          <% end %>
+
+        </div>
+
+      <% end %>
     </div>
   </div>
+
 </div>
 
 <!-- <script type="text/javascript">

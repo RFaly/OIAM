@@ -232,6 +232,8 @@ Rails.application.routes.draw do
 
   # route admin client
   get 'secret-oiam-page/admin/client/recrutement-en-cours', to: 'admin_client#main', as: 'admin_client_main'
+  get 'secret-oiam-page/admin/client/n/:id/recrutement-en-cours', to: 'admin_client#show_recrutment', as: 'admin_show_recrutment'
+  
   get 'secret-oiam-page/admin/client/offres-d-emploi', to: 'admin_client#offer', as: 'admin_client_offer'
   get 'secret-oiam-page/admin/client/offres-d-emploi/voir-{:id} offre', to: 'admin_client#show_offer', as: 'admin_client_show_offer'
   get 'secret-oiam-page/admin/client/factures-client', to: 'admin_client#factures', as: 'admin_client_factures'
