@@ -592,8 +592,6 @@ class CandidatesController < ApplicationController
       pcalcul = (prix/1000).round(2)
       facture = Facture.create(prix: pcalcul,promise_to_hire:@promise,client:@promise.offre_job.client)
 
-      #notifaka
-      Notification.create(client: facture.client,link: "#{paye_my_bills_path(facture.id,notification:"entretien")}",genre: 2,view: false)
       #créé un cacture rib:"/image/OIAM_DIAMOND.png",
 
       oFc = @offreJob.my_top_five_candidates.find_by(cadre:current_cadre)
