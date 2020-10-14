@@ -9,6 +9,7 @@ class AdminClientController < ApplicationAdminController
   #show recrutement en cours
   def show_recrutment
     @offre = OffreJob.find_by(id: params[:id])
+    @oFcs = @offre.offre_for_candidates.where(accepted_postule:true)
   end
 
   def offer
