@@ -705,7 +705,11 @@ class RecruteursController < ApplicationController
     end
 		@contact.message_client_cadres.where(client_see:false).update(client_see:true)
     @messages = @contact.message_client_cadres.order(created_at: :ASC)
-    @newMessage = MessageClientCadre.new
+	@newMessage = MessageClientCadre.new
+	respond_to do |format|
+		format.html { }
+		format.js { }
+	end
   end
 
   def post_my_message

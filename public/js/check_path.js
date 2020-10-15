@@ -1,7 +1,7 @@
 $(document).ready(function () {
   // add space before option
-  $('option').prepend(' &#160; &#160; ');
-  $('option').append(' &#160; &#160; ');
+  $('option').prepend('&#160; &#160;');
+  $('option').append('&#160; &#160;');
   // flash animation
   if ($('.flash').html().length == 6) {
     $('.flash').hide();
