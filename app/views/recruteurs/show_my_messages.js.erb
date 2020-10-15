@@ -1,2 +1,3 @@
-document.getElementById("chat-out").insertAdjacentHTML("beforeend",
-"<li>nouveau livre </li>")
+
+$("#chat-out").html("")
+$("#chat-out").html("<%= j render 'show_my_messages', cadre: @cadre,messages: @messages %>")

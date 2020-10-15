@@ -102,11 +102,11 @@
   font-weight: bold;
 }
 
-.chat-out {
+#chat-out {
   position: fixed;
   width: 400px;
-  background: #000;
   bottom: 0;
-  right: 50px;
+  right: 2px;
+  z-index: 200;
   height: 500px;
 }

@@ -1,17 +1,14 @@
-<% content_for :head_style do %>
-<link rel="stylesheet" href="/css/show_message.css" />
-<% end %>
+
 <!-- body html  -->
 <div class="client-column">
-  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
-  <div class="cp-box">
-    <div class="show-message-box" id="real-show-message">
+    <div class="show-message-box" id="partial-show-message">
       <div class="smb-message-m">
         <span hidden id="Profilher" data-image="<%= @cadre.cadre_info.image%>" /></span>
         <div class="name-box">
+          <div id="close-mp">+</div>
           <div id="image" style="background: url(<%= @cadre.cadre_info.image%>) center no-repeat; background-size: cover">
             <% if @cadre.is_online? %>
-              <div class="connected"> </div>
+              <div id="connected"> </div>
             <% end %>
           </div>
           <div class="name-connect">
@@ -40,7 +37,8 @@
           <input type="hidden" name="message_client_cadre[cadre_id]" value="<%=@cadre.id%>" id="is_client_session" data-client="true" />
           <input type="hidden" name="message_client_cadre[contact_id]" value="<%=@contact.id%>" />
           <div class="input-items">
-            <textarea required="required" rows="3" class="form-control" name="message_client_cadre[content]" placeholder="Répondre ..." id="message_client_cadre_content"></textarea>
+            <input type="text " required="required" rows="3" class="form-control" name="message_client_cadre[content]" placeholder="Répondre ..." id="message_client_cadre_content" >
+            <!-- <textarea required="required" rows="3" class="form-control" name="message_client_cadre[content]" placeholder="Répondre ..." id="message_client_cadre_content"></textarea> -->
           </div>
           <button type="submit">
             <img src="/image/send.png" alt="send" id="sender" />
@@ -49,9 +47,12 @@
         </div>
       </div>
     </div>
-  </div>
 </div>
-
+<script>
+  $('#close-mp').click(function(){
+    $("#chat-out").html("")
+  });
+</script>
 <!-- call js  -->
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/client_message.js"></script>
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/synchrone_message.js"></script>
