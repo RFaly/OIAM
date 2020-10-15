@@ -42,22 +42,15 @@
 
 <script>
 $(function () {
-    var maxL = 50;
-    $('.description').each(function (i, div) {
+	var maxL = 50;
+  $('.description').each(function(){
+		var description = $(this).text();
+		if (description.length > maxL) {
+			var begin = description.substr(0, maxL), end = description.substr(maxL);
+			$(this).html(begin)
+				.append($('<a class="readmore"/>').attr('href', '').html('...'))
+		}
+	});
 
-        var text = $(div).text();
-        if(text.length > maxL) {
-
-            var begin = text.substr(0, maxL),
-                end = text.substr(maxL);
-
-            $(this).html(begin)
-                .append($('<a class="readmore"/>').attr('href', '').html('...'));
-                .append($('<div class="hidden" />').html(end));
-        }
-    });
-    $(document).on('click', '.readmore', function () {
-        $(this).next('.hidden').slideDown(750);
-    })
 })
 </script>
