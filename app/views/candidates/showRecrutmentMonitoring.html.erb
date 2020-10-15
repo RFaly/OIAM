@@ -124,7 +124,7 @@
 					      	<%= link_to "Promesse d'embauche", cadre_show_promise_to_hire_path(@promise.id), :class => "btn-prom" %>
 						</div>
 						<div class="prom-hire-down">
-							<%= link_to "TELECHARGER", :class => "btn-down" %>
+							<%= link_to "TELECHARGER",promise_cadre_pdf_path(@promise),class:"btn-down" %>
 						</div>
 					</div>
 <!-- -------------------------------------------------- -->

@@ -684,17 +684,7 @@ class RecruteursController < ApplicationController
     @candidats = Cadre.all
     @contactListes = current_client.contact_client_cadres
   end
-=begin
-	<h2>Liste de tous les CADRES dans le site</h2>
-	<% @candidats.each do |cadre| %>
-		<div>
-			<a href="<%= rzshowMessages_path(cadre.id) %>">
-			<%= cadre.cadre_info.first_name %> <%= cadre.cadre_info.last_name %>
-			</a>
-		</div>
-	<% end %>
-=end
-
+  
   def show_my_messages
     @cadre = Cadre.find_by_id(params[:id])
     @contact = ContactClientCadre.where(cadre: @cadre, client:current_client)
