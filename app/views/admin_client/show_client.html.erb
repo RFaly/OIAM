@@ -1,1 +1,49 @@
-<%= @client.entreprise.name %>
+<div class="row">
+  <div class="col-4">
+  	<img src="<%= @client.image %>" alt="photo profil candidats", width="150px", height="150px"  style="background-size: cover"/>
+  </div>
+  <div class="col-8">
+  	<p><%= @client.first_name.capitalize %> <%= @client.last_name.capitalize %></p>
+  	<p><%= @client.fonction %></p>
+  	<p>Email : <%= @client.mail %></p>
+	<p>Telephone : <%= @client.telephone %></p>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col">
+    	<p>Adresse</p>
+    	<p><%= @client.entreprise.adresse %></p>
+    </div>
+    <div class="col">
+    	<%= @client.entreprise.name.upcase %>
+    	<p>Ville</p>
+    	<p><%= @client.entreprise.city %></p>
+    </div>
+    <div class="col">
+		<p>Code Postal</p>
+    	<p><%= @client.entreprise.postal_code %></p>
+    </div>
+</div>
+
+<div class="row">
+   	<div class="col">
+   		<p>Numéro de siret</p>
+    	<p><%= @client.entreprise.siret %></p>
+    </div>
+    <div class="col">
+   		<p>Site web</p>
+    	<p><%= @client.entreprise.site %></p>    	
+    </div>
+</div>
+
+<div class="row">
+   	<div class="col">
+   		<p>Description</p>
+    	<p><%= @client.entreprise.description %></p>
+    </div>
+    <div class="col">
+   		<p>Code NAF</p>
+    	<p><%= @client.entreprise.code_naf %></p>    	
+    </div>
+</div>

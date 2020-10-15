@@ -1,5 +1,5 @@
 
-<div class="candd">
+<div class="cd-box">
 	<% @client.each do |client| %>
 	   	<div class="row">
 	        <div class="col-sm-3">
@@ -8,6 +8,7 @@
 	        <div class="col-sm-6">
 	            <div class="desc-candd">
 	                <p>Entreprise : <%= client.entreprise.name %></p>
+	                <p><%= client.first_name.upcase %> <%= client.first_name.capitalize %></p>
 	            </div>
 	        </div>
 	        <div class="col-sm-3">
