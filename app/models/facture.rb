@@ -26,4 +26,12 @@ class Facture < ApplicationRecord
       view: false
     )
 	end
+
+	def status
+		if self.ov.nil?
+			"trosa"
+		else
+			"paye"
+		end
+	end
 end

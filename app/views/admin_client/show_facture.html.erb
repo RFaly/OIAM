@@ -1,0 +1,16 @@
+
+   
+  
+  RIB  <a href="/image/rib.jpg"> TÉLÉCHARGER </a><br>
+  FACTURE <a href="<%= @facture.id %>">TÉLÉCHARGER</a><br>
+  <% if @facture.is_payed == true %>
+  	Ordre de virement  <a href="<%= @facture.ov %>"> TÉLÉCHARGER </a><br>
+  <% else %>
+  	 <p>Vous avez confirmé de régler la facture par virement dans les 15 jours.</p>
+  <% end %>
+  Nom prénom candidat : <%= @facture.client.first_name.upcase %> <%= @facture.client.last_name.capitalize %><br>
+  Entreprise : <%= @facture.client.entreprise.name.capitalize %><br>
+  Intitulé du poste  : <%= @facture.promise_to_hire.offre_job.intitule_pote %><br>
+  Précalcul honoraires OIAM : <%= @facture.prix %> k€
+
+
