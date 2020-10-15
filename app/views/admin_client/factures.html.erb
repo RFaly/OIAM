@@ -1,16 +1,14 @@
-
 <style>
   .filter-cand span:hover {
     background: #fff;
     color: #e3d7bf;
     border: 1px solid #e3d7bf;
   }
-
 </style>
 
 <% @title="Clients" %>
 <!-- call css  -->
-  <link rel="stylesheet" href="/css/my_job_offre.css" />
+<link rel="stylesheet" href="/css/my_job_offre.css" />
 <!-- body html  -->
 <div class="client-column">
   <div class="client-menu-left"><%= render "admin_client/left_menu_link" %></div>
@@ -23,32 +21,63 @@
           <span id="sans_ov_js">En cours</span>
           <span id="rehetra_js">TOUS</span>
         </div>
-        <hr />
         <div class="coj-box" id="offre">
-          <% if  @facture.empty? %>
-           <p>Aucune facture pour le moment</p>
-          <% else %>
-            <% @facture.each do |facture| %>
-            <div class="<%= facture.status %>-js">
-                <div class="cjo-image">
-                  <img src="/image/document.png" alt="icone doc" />
-                </div>
-                <div class="cjo-content"><%= facture.client.entreprise.name %></div>
-                <div class="cjo-link-items">
-                  <div class="cjo-link"><%= link_to "VOIR FACTURE", admin_client_show_facture_path(facture.id) %></div>
-                </div>
+          <% if @facture.empty? %>
+          <hr />
+          <p>Aucune facture pour le moment</p>
+          <hr />
+          <% else %> <% @facture.each do |facture| %>
+          <div class="<%= facture.status %>-js">
+            <hr />
+            <div class="cjo-image">
+              <img src="/image/document.png" alt="icone doc" />
             </div>
-            <% end %>
-          <% end %>
+            <div class="cjo-content"><%= facture.client.entreprise.name %></div>
+            <div class="cjo-link-items">
+              <div class="cjo-link"><%= link_to "VOIR FACTURE", admin_client_show_facture_path(facture.id) %></div>
+            </div>
+            <hr />
+          </div>
+          <% end %> <% end %>
         </div>
-        <hr />
-        <div >
-          <p id="js-tsisy" style="display: none;">Aucune facture pour le moment</p>
+        <div>
+          <p id="js-tsisy" style="display: none">Aucune facture pour le moment</p>
         </div>
-        <%# end %>
-        <%# end %>
+        <%# end %> <%# end %>
       </div>
     </div>
   </div>
 </div>
-
+<script>
+  $('#sans_ov_js').click(function () {
+    if ($('.trosa-js').length != 0) {
+      $('.trosa-js').show(100);
+      $('#js-tsisy').hide();
+      $('.paye-js').hide();
+    } else {
+      $('.paye-js').hide();
+      $('#js-tsisy').css('display', 'block');
+    }
+  });
+  $('#ov_ok_js').click(function () {
+    if ($('.paye-js').length != 0) {
+      $('.trosa-js').hide();
+      $('#js-tsisy').hide();
+      $('.paye-js').show(100);
+    } else {
+      $('.trosa-js').hide();
+      $('#js-tsisy').css('display', 'block');
+    }
+  });
+  $('#rehetra_js').click(function () {
+    if ($('.paye-js').length != 0 || $('.trosa-js').length != 0) {
+      $('.paye-js').show(100);
+      $('.trosa-js').show(100);
+      $('#js-tsisy').hide();
+    } else {
+      $('.paye-js').hide();
+      $('.trosa-js').hide();
+      $('#js-tsisy').css('display', 'block');
+    }
+  });
+</script>
