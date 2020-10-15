@@ -21,7 +21,7 @@
           <a href="<%= show_my_messages_client_path(contact.cadre.id) %>" class="link <% unless nbr == 0 %>color<% end %>" data-remote="true">
             <div class="name">
               <%= contact.cadre.cadre_info.first_name %> <%= contact.cadre.cadre_info.last_name %><% unless nbr == 0 %>
-              <span>(<%= nbr %>)</span>
+              <span id="number-unsee">(<%= nbr %>)</span>
               <% end %>
             </div>
 
