@@ -170,7 +170,9 @@ body{
   margin-bottom: 15px;
 }
 
-
+.main{
+  padding: 20px;
+}
 
 
 .hidden { display: none; }
@@ -256,7 +258,7 @@ body{
   display: flex;
   position: relative;
   margin-bottom: 30px;
-  grid-column-gap: 10px;
+  grid-column-gap: 2%;
 }
 
 .bar-long{
