@@ -17,4 +17,12 @@ class Facture < ApplicationRecord
 			medel_id: offreJob.id
 		)
 	end
+
+	def status
+		if self.ov.nil?
+			"trosa"
+		else
+			"paye"
+		end
+	end
 end

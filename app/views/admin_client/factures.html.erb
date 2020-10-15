@@ -1,5 +1,15 @@
+
+<style>
+  .filter-cand span:hover {
+    background: #fff;
+    color: #e3d7bf;
+    border: 1px solid #e3d7bf;
+  }
+
+</style>
+
 <% @title="Clients" %>
-<<!-- call css  -->
+<!-- call css  -->
   <link rel="stylesheet" href="/css/my_job_offre.css" />
 <!-- body html  -->
 <div class="client-column">
@@ -8,26 +18,37 @@
     <div class="box-inside">
       <div class="co-with-job">
         <h5>FACTURES CLIENT</h5>
+        <div class="filter-cand">
+          <span id="ov_ok_js">Traiter</span>
+          <span id="sans_ov_js">En cours</span>
+          <span id="rehetra_js">TOUS</span>
+        </div>
         <hr />
         <div class="coj-box" id="offre">
-          <% if  @facture.count == 0 %>
-           Aucune facture pour le moment
+          <% if  @facture.empty? %>
+           <p>Aucune facture pour le moment</p>
           <% else %>
-          <% @facture.each do |facture| %>
-          <div class="cjo-image">
-            <img src="/image/document.png" alt="icone doc" />
-          </div>
-          <div class="cjo-content"><%= facture.client.entreprise.name %></div>
-          <div class="cjo-link-items">
-            <div class="cjo-link"><%= link_to "VOIR FACTURE", admin_client_show_facture_path(facture.id) %></div>
-          </div>
-          <% end %>
+            <% @facture.each do |facture| %>
+            <div class="<%= facture.status %>-js">
+                <div class="cjo-image">
+                  <img src="/image/document.png" alt="icone doc" />
+                </div>
+                <div class="cjo-content"><%= facture.client.entreprise.name %></div>
+                <div class="cjo-link-items">
+                  <div class="cjo-link"><%= link_to "VOIR FACTURE", admin_client_show_facture_path(facture.id) %></div>
+                </div>
+            </div>
+            <% end %>
           <% end %>
         </div>
         <hr />
+        <div >
+          <p id="js-tsisy" style="display: none;">Aucune facture pour le moment</p>
+        </div>
         <%# end %>
         <%# end %>
       </div>
     </div>
   </div>
 </div>
+
