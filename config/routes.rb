@@ -239,6 +239,10 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/client/factures-client', to: 'admin_client#factures', as: 'admin_client_factures'
   get 'secret-oiam-page/admin/client/factures-client/:id', to: 'admin_client#show_facture', as: 'admin_client_show_facture'
 
+  # route carte client
+  get 'secret-oiam-page/admin/client/carte-client', to: 'admin_client#carte_client', as: 'admin_client_carte_client'
+  get 'secret-oiam-page/admin/client/carte-client/:id', to: 'admin_client#show_client', as: 'admin_client_show_client'
+
   # routes dans le dashboard
 
   # post 'secret-oiam-page/admin/:id/suivre-candidate', to:'admin_dashboard#add_favorite_cadre', as:'add_favorite_cadre'
