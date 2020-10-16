@@ -150,3 +150,99 @@
 .co-with-job .cjo-link-items .cjo-delete img {
   width: 100%;
 }
+
+.row {
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  border-top: 1px solid #ccc;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.col-sm-3 h3 {
+  font-size: 21px;
+  font-weight: 200;
+  font-family: Questrial, sans-serif;
+  text-align: left;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.step-pst {
+  display: flex;
+  grid-column-gap: 2%;
+  margin-top: 20px;
+  position: relative;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.etp-bdg-success {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #d6b36a;
+  color: #fff;
+  text-align: center;
+  justify-content: center;
+  font-style: 14px;
+  font-weight: bold;
+  font-family: Questrial, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  line-height: 3.2;
+}
+
+.etp-bdg-wait {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #ededed;
+  color: #ccc;
+  text-align: center;
+  justify-content: center;
+  font-style: 14px;
+  font-weight: bold;
+  font-family: Questrial, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  line-height: 3.2;
+}
+
+.etp-etp {
+  display: block;
+  position: relative;
+  width: 80px;
+  height: 50px;
+}
+
+.etp-tt {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: Questrial, sans-serif;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.arr-success {
+  font-size: 40px;
+  color: #d6b36a;
+}
+
+.arr-wait {
+  font-size: 40px;
+  color: #ededed;
+}
+
+.in-ps {
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 26px;
+  color: #d6b36a;
+  font-family: Questrial, sans-serif;
+  font-weight: bold;
+}
