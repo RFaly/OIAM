@@ -292,3 +292,13 @@
   font-size: 40px;
   color: #ededed;
 }
+
+.ll-etp {
+  text-decoration: none;
+  color: #000;
+}
+
+.ll-etp:hover {
+  text-decoration: none;
+  color: #000;
+}

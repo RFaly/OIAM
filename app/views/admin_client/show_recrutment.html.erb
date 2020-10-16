@@ -1,6 +1,7 @@
 <% @title="Clients" %>
 <!-- call css  -->
-<link rel="stylesheet" href="/css/my_job_offre.css" />
+<link rel="stylesheet" href="/css/jb_offr_cl.css" />
+  <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <!-- body html  -->
 <div class="client-column">
 
@@ -10,18 +11,18 @@
 
 	<div class="cp-box">
 
-		<h2>Poste: <strong><%= link_to "#{@offre.intitule_pote}", admin_client_show_offer_path(@offre.id)%></strong></h2>
+		<h2 class="in-ps">Poste: <strong><%= link_to "#{@offre.intitule_pote}", admin_client_show_offer_path(@offre.id)%></strong></h2>
 
 		<% if @oFcs.empty? %>
 
-			Tsy misy cadre selectionner
+			Aucun cadre selectioner
 
 		<% else %>
 
 			<% @oFcs.each do |oFc| %>
-				<div class="row">
+				<div class="row container-fluid">
 					<div class="col-sm-3">
-						<%= image_tag(oFc.cadre.cadre_info.image, alt: 'photo de profil', class:"pdp_mandona", width:"150px" )%>
+						<%= image_tag(oFc.cadre.cadre_info.image, alt: 'photo de profil', class:"pdp_mandona", width:"120px", height:"120px" )%>
 					</div>
 
 					<div class="col-sm-3">
@@ -30,31 +31,33 @@
 
 					<div class="col-sm-6">
 
-						<div>
+						<div class="step-pst">
 							<% etape = 0 %>
 							<% @offre.numberEntretien.times do |i| %>
 								<% etape += 1 %>
 								<% if i == 0 %>
-									<span class="list-etapes">1er entretien <span class="badge-success"><%= etape %></span></span>
+								<div class="etp-etp">
+									<div class="<% if oFc.etapes >= etape %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><% if oFc.etapes >= etape %><i class="fas fa-check"></i><% else %><%= etape %><% end %></div>
+									<div class="etp-tt">1er entretien</div>
+								</div>
+								<div><i class="fas fa-long-arrow-alt-right <%if oFc.etapes >= etape + 1 %>arr-success<% else %>arr-wait<% end %>"></i></div>
 								<% else %>
-									<span class="list-etapes"><%= i+1 %>e entretien <span class="badge-success"><%= etape %></span></span>
+								<div class="etp-etp">
+									<div class="<% if oFc.etapes >= etape %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><% if oFc.etapes >= etape %><i class="fas fa-check"></i><% else %><%= etape %><% end %></div>
+									<div class="etp-tt"><%= i+1 %>e entretien</div>
+								</div>
+								<div><i class="fas fa-long-arrow-alt-right <%if oFc.etapes >= etape + 1 %>arr-success<% else %>arr-wait<% end %>"></i></div>
 								<% end %>
 							<% end %>
-							<span class="list-etapes">Promesse d'embauche <span class="badge-success"><%= etape + 1 %></span></span>
-						</div>
-
-						<div class="btn-info">
-							<!-- oFc.status == "refusé" -->
-							le cadre est à l'étape n° :
-								<strong><%= oFc.etapes %></strong> <br>
-							nombre d'etape total :
-								<strong><%= @offre.numberEntretien + 1 %></strong>
+							<div class="etp-etp">
+								<div class="<% if oFc.etapes >= etape + 1 %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><% if oFc.etapes >= etape + 1 %><i class="fas fa-check"></i><% else %><%= etape + 1 %><% end %></div>
+								<div class="etp-tt">Promesse d'embauche</div>
+							</div>
 						</div>
 
 					</div>
 
 				</div>
-				<hr>
 			<% end %>
 		<% end %>
 
