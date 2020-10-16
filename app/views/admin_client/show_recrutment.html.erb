@@ -9,9 +9,9 @@
 	</div>
 
 	<div class="cp-box">
-		
+
 		<h2>Poste: <strong><%= link_to "#{@offre.intitule_pote}", admin_client_show_offer_path(@offre.id)%></strong></h2>
-		
+
 		<% @oFcs.each do |oFc| %>
 			<div class="row">
 				<div class="col-sm-3">
@@ -39,14 +39,14 @@
 
 					<div class="btn-info">
 						<!-- oFc.status == "refusé" -->
-						le cadre est à l'étape n° : 
+						le cadre est à l'étape n° :
 							<strong><%= oFc.etapes %></strong> <br>
-						nombre d'etape total : 
+						nombre d'etape total :
 							<strong><%= @offre.numberEntretien + 1 %></strong>
 					</div>
 
 				</div>
-				
+
 			</div>
 			<hr>
 		<% end %>

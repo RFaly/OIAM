@@ -136,8 +136,8 @@ input[type="color"]:focus,
 
 <div id="toolbar">
     <select class="form-control">
-        <option value="all">Export All</option>
-        <option value="selected">Export Selected</option>
+        <option value="all">Tout exporter</option>
+        <option value="selected">Exporter la sélection</option>
     </select>
 </div>
 
@@ -237,7 +237,9 @@ input[type="color"]:focus,
   	</div>
   </div>
 </div>
-<!-- <script type="text/javascript">
-  // var error = $('.no-records-found td').text();
-  $('.no-records-found td').text('Aucun Candidats');
-</script> -->
+<script>
+  $("input.form-control.search-input").attr("placeholder", "Rechercher");
+  // srch = document.querySelector('.form-control.search-input');
+  // console.log(srch);
+  // srch.placeholder='Rechercher';
+</script>

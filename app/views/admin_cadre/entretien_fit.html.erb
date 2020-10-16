@@ -1,5 +1,5 @@
 <% @title="Candidats" %>
-<link rel="stylesheet" href="/css/client_profil.css" />
+<link rel="stylesheet" href="/css/ag-admin.css" />
 <link rel="stylesheet" href="/css/mes_cand_admin.css" />
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <style>
@@ -145,7 +145,7 @@
           <!-- --------------------------------------------------------------- -->
           <!--  CANDIDATS ANAKY RAY NO ETO RY FALY -->
           <% if @cadre_infos.empty? %>
-            Aucun candidats pour le test fit
+            Aucun candidat pour le test fit
           <% else %>
             <% @cadre_infos.each do |cadre| %>
              <div class="candd">
@@ -162,7 +162,7 @@
                    <h4 class="name"><%= cadre.first_name %> <%= cadre.last_name %></h4>
                    <h4 class="score">Score OIAM : <span><%= cadre.score_potential %></h4>
                     <% unless cadre.agenda_admin.nil? %>
-                     <h4 class="entr-fit"><i class="fas fa-edit fa-lg"></i>Entretien fit le:   <span data-times="<%= cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span></h4>
+                     <h4 class="entr-fit"><i class="fas fa-edit fa-lg"></i>Entretien fit le:   <span data-times="<%= cadre.agenda_admin.entretien_date.strftime("%Y/%m/%d à %Hh%M") %>" class="currentDateEntretien"></span></h4>
                    <% else %>
                      <h4 class="entr-fit"><i class="fas fa-edit fa-lg"></i>Entretien fit en attente.</h4>
                     <% end %>
