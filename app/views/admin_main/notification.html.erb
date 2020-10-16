@@ -93,12 +93,12 @@
               <div class="row">
                 <div class="col-sm-3">
                   <% if noficication.genre == 1 %>
-                    <img src="<%= noficication.offre_job.image %>" width="120px">
+                    <img src="<%= noficication.offre_job.image %>" width="120px" height="120px">
                   <% else %>
                     <% if noficication.medel_id.nil? %>
-                      <img src="/image/profie.png" alt="photo profil candidats" width="120px">
+                      <img src="/image/profie.png" alt="photo profil candidats" width="120px" height="120px">
                     <% else %>
-                      <img src="<%= noficication.cadre_info.image %>" width="120px">
+                      <img src="<%= noficication.cadre_info.image %>" width="120px" height="120px">
                     <% end %>
                   <% end %>
                 </div>
