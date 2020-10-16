@@ -17,6 +17,15 @@ class NotificationAdmin < ApplicationRecord
     return OffreJob.find_by_id(self.medel_id)
   end
 
+  def client_image
+    c = Client.find_by_id(self.medel_id)
+    if c.image.nil?
+      "/image/profie.png"
+    else
+      c.image
+    end
+  end
+
 	private
 
   def confirmation_token
