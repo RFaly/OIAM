@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # routes pdf 
   get '/recruteur/mes-factures/%:id_factures.26#%/facturation_pdf.pdf',to: 'facturation_pdf#index',as: 'facturation_pdf_to_pdf'
   get '/recruteur/offre-d-emploi/%:id_promise.26#%/contrat-d-embauche.pdf',to: 'facturation_pdf#promise',as: 'promise_pdf'
-  get '/cadre/suivi-recrutement/%:id_promise.26#%/contrat-d-embauche',to: 'facturation_pdf#promise_cadre',as: 'promise_cadre_pdf'
+  get '/cadre/suivi-recrutement/%:id_promise.26#%/contrat-d-embauche.pdf',to: 'facturation_pdf#promise_cadre',as: 'promise_cadre_pdf'
 	#~~~~~~~~~~~~~~~~~~~~ Accueil ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   root to: 'static_page#home'
   get '/welcome', to: 'static_page#allHome', as: 'welcome'
@@ -196,7 +196,10 @@ Rails.application.routes.draw do
   # get 'secret-oiam-page/admin', to: 'admin_main#home', as: 'admin_main_home'
   get 'secret-oiam-page/admin/notifications', to: 'admin_main#notification', as: 'admin_main_notification'
   get 'secret-oiam-page/admin/mon-profil', to: 'admin_main#my_profil', as: 'admin_main_my_profil'
-
+  
+  #edit profil
+  get 'secret-oiam-page/admin/mon-profil/edit', to: 'admin_main#my_profil_edit', as: 'admin_main_my_profil_edit'
+  patch 'secret-oiam-page/admin/mon-profil/save', to: 'admin_main#update_my_profil', as: 'admin_main_update_my_profil'
   # routes message admin
   get 'secret-oiam-page/admin/messages-candidats', to: 'admin_main#message_candidat', as: 'admin_messaging_candidat'
   get 'secret-oiam-page/admin/messages-recruteurs', to: 'admin_main#message_recruteur', as: 'admin_messaging_recruteur'
@@ -239,6 +242,10 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/client/factures-client', to: 'admin_client#factures', as: 'admin_client_factures'
   get 'secret-oiam-page/admin/client/factures-client/:id', to: 'admin_client#show_facture', as: 'admin_client_show_facture'
 
+  # route carte client
+  get 'secret-oiam-page/admin/client/carte-client', to: 'admin_client#carte_client', as: 'admin_client_carte_client'
+  get 'secret-oiam-page/admin/client/carte-client/:id', to: 'admin_client#show_client', as: 'admin_client_show_client'
+
   # routes dans le dashboard
 
   # post 'secret-oiam-page/admin/:id/suivre-candidate', to:'admin_dashboard#add_favorite_cadre', as:'add_favorite_cadre'
@@ -249,6 +256,7 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/dashboard/abonné-newsletter', to: 'admin_dashboard#subscribers', as: 'dashboard_subscribers'
   
   get 'secret-oiam-page/admin/dashboard/agenda', to: 'admin_dashboard#agenda', as: 'admin_dashboard_agenda'
+  get 'secret-oiam-page/admin/dashboard/statistique', to: 'admin_dashboard#statistics', as: 'admin_dashboard_statistics'
   get 'secret-oiam-page/admin/dashboard/offres-en-cours', to: 'admin_dashboard#offer', as: 'admin_dashboard_offer'
 
   get 'secret-oiam-page/admin/dashboard/candidats-a-suivre', to: 'admin_dashboard#candidate', as: 'admin_dashboard_candidate'

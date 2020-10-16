@@ -23,14 +23,16 @@
                 <img src="/image/mess.png" alt="logo mail" class="cp-icone cpr-i-mail" />
                 <p>Email :<strong> <%= current_admin.email %></strong> </p>
               </div>
-              <div class="cpr-r">
-                <img src="/image/call.png" alt="logo mail" class="cp-icone" />
-                <p>Telephone: <strong>222.333.4444.55</strong></p>
-              </div>
             </div>
           </td>
         </tr>
       </table>
     </div>
+    <div>
+      <%= link_to "MODIFIER", admin_main_my_profil_edit_path %>
+      <%= link_to "mdp", edit_admin_main_path %>
+    </div>
+    </div>
   </div>
 </div>
+

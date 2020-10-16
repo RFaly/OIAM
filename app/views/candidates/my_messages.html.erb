@@ -14,7 +14,7 @@
           <%= image_tag(contact.client.image, alt: 'photo de profil', class:"pdp" )%>
         <% end %>
         <% if contact.client.is_online? %>
-          
+
           <span class="connected"></span>
         <% end %>
         </div>
@@ -24,7 +24,7 @@
           <% unless nbr == 0 %>
             <span class="alert-info"><%= nbr %></span>
           <% end %>
-          <% unless contact.message_client_cadres.last.is_client %>vous : <%end%> <%= contact.message_client_cadres.last.content %>
+          <% unless contact.message_client_cadres.last.is_client %>Vous : <%end%> <%= contact.message_client_cadres.last.content %>
         </div>
       </div>
       <div class="connected-times">
@@ -35,5 +35,8 @@
     </div>
     </a>
     <% end %>
+    <div class="message-container">
+      
+    </div>
   </div>
 </div>

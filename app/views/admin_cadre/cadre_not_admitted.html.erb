@@ -1,4 +1,3 @@
-<% @title="Candidats" %>
 <link rel="stylesheet" href="/css/mes_cand_admin.css" />
 <style>
 	.filter-cand {
@@ -30,7 +29,7 @@
 		text-transform: uppercase;
 		background: #d6b36a;
 		color: #fff;
-		padding: 10px 40px;
+		padding: 10px 30px;
 		cursor: pointer;
 		font-size: 14px;
 		cursor: pointer;
@@ -46,6 +45,7 @@
 
 	.myCand {
 		margin-top: 20px;
+		padding: 20px;
 		border: 1px solid #ccc;
 	}
 
@@ -74,10 +74,6 @@
 		margin-top: 20px;
 	}
 
-	.ss {
-		border-right: 1px solid #ccc;
-	}
-
 </style>
 <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 
@@ -99,14 +95,14 @@
 				<% @cadre_infos.each do |cadre| %>
 					<div class="candd click_<%= cadre.not_admited_test %>">
 		               <div class="row myCand">
-		               <div class="col-sm-3 ss">
+		               <div class="col-sm-3">
 		                 <% unless cadre.image.nil? %>
 		                   <%= image_tag(cadre.image, alt: 'photo de profil', style: 'width:120px; heigh:120px', class: 'cd-pdp')%>
 		                 <% else %>
 		                    <img src="/image/profie.png" alt="photo profil candidats", width="120px" />
 		                 <% end %>
 		               </div>
-		               <div class="col-sm-6 ss">
+		               <div class="col-sm-6">
 		                 <div class="desc-candd">
 		                   <h4 class="name"><%= cadre.first_name %> <%= cadre.last_name %></h4>
 		                   <h4 class="score">Test Potentiel : <span><%= cadre.score_potential %></span></h4>

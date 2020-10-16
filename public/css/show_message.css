@@ -22,7 +22,23 @@
   position: relative;
   width: 90%;
   margin: 0 auto;
+  background: white;
+}
+
+.show-message-box#real-show-message {
   height: 700px;
+}
+
+.show-message-box#real-show-message .content {
+  height: 550px;
+}
+
+.show-message-box#partial-show-message {
+  height: 100%;
+}
+
+.show-message-box#partial-show-message .content {
+  height: 320px;
 }
 
 .show-message-box .title {
@@ -36,6 +52,7 @@
 }
 
 .show-message-box .name-box {
+  position: relative;
   background: #d6b36a;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
@@ -44,6 +61,20 @@
   font-size: 30px;
   line-height: 1;
   color: white;
+}
+
+.show-message-box .name-box #close-mp {
+  cursor: pointer;
+  transform: rotate(45deg);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 45px;
 }
 
 .show-message-box .name-box #image {
@@ -79,8 +110,6 @@
   margin-bottom: 5px;
   overflow-y: auto;
   padding: 20px;
-  min-height: 550px;
-  max-height: 550px;
 }
 
 .show-message-box .content .my-message {
@@ -130,7 +159,8 @@
   position: relative;
 }
 
-.show-message-box .input textarea {
+.show-message-box .input textarea,
+.show-message-box .input input {
   min-height: 50px;
   max-height: 130px;
   height: 50px;
@@ -139,7 +169,8 @@
   border: 1.5px solid #d6b36a;
 }
 
-.show-message-box .input textarea:focus {
+.show-message-box .input textarea:focus,
+.show-message-box .input input:focus {
   outline: none;
   box-shadow: 1px 1px 3px 1px #d6b36a;
 }

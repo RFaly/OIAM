@@ -25,7 +25,14 @@
             <input type="text" value="<%= @cadre.first_name %>" readonly class="input" />
         </div>
         <div class="pch-div">
-            <%unless @promise.birthday_cadre.nil? %><% @datebirth = @promise.birthday_cadre.split('-')%> <% @pbc = "#{@datebirth[2]}/#{@datebirth[1]}/#{@datebirth[0]}"%>
+            <%unless @promise.birthday_cadre.nil? %>
+            <% @datebirthd = @promise.birthday_cadre%>
+            <%if @datebirthd.include?('-') %>
+                <% @datebirth = @datebirthd.split('-')%>
+                <% @pbc = "#{@datebirth[2]}/#{@datebirth[1]}/#{@datebirth[0]}"%>
+            <%else %>
+                <%@pbc =  @datebirthd%>
+            <%end %>
             <label>Date de naissance</label>
             <% end%> <input type="text" id="date" value="<%= @pbc ? @pbc : "Date de naissance" %>" readonly class="<%unless @promise.birthday_cadre.nil? %> input <% end%>"/>
             <%= image_tag wicked_pdf_asset_base64("calendar.png") -%>

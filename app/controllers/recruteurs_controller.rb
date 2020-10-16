@@ -50,7 +50,7 @@ class RecruteursController < ApplicationController
 
 #Mes offres d’emploi
 	def my_job_offers
-		@offres = current_client.offre_jobs
+		@offres = current_client.offre_jobs.order("created_at DESC")
 	end
 
 	def newJob
@@ -380,23 +380,23 @@ class RecruteursController < ApplicationController
 
 #Mes candidats favoris
 	def favorite_candidates
-		@offres = current_client.offre_jobs
+		@offres = current_client.offre_jobs.order("created_at DESC")
 	end
 
 	def show_favorite_cadres
 		@offre = OffreJob.find_by_id(params[:id])
-		@oFcs = @offre.my_top_five_candidates
+		@oFcs = @offre.my_top_five_candidates.order("created_at DESC")
 		#repons_cadre in offre_job
 	end
 
 #Mon suivi recrutement
 	def my_recruitment_follow
-		@offres = current_client.offre_jobs
+		@offres = current_client.offre_jobs.order("created_at DESC")
 	end
 
 	def recruitment_liste_cadre
 		@offre = OffreJob.find_by_id(params[:offre_id])
-		@oFcs = @offre.offre_for_candidates.where(accepted_postule:true)
+		@oFcs = @offre.offre_for_candidates.where(accepted_postule:true).order("created_at DESC")
 	end
 
 	def recruitment_show_cadre
@@ -464,7 +464,7 @@ class RecruteursController < ApplicationController
 
 #Mes factures
 	def my_bills
-		@factures = Facture.all
+		@factures = Facture.all.order("created_at DESC")
 	end
 
 	def show_my_bills
@@ -681,20 +681,10 @@ class RecruteursController < ApplicationController
 
 #~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~~~~~
   def my_messages
-    @candidats = Cadre.all
-    @contactListes = current_client.contact_client_cadres
+    @candidats = Cadre.all.order("created_at DESC")
+    @contactListes = current_client.contact_client_cadres.order("updated_at DESC")
   end
-=begin
-	<h2>Liste de tous les CADRES dans le site</h2>
-	<% @candidats.each do |cadre| %>
-		<div>
-			<a href="<%= rzshowMessages_path(cadre.id) %>">
-			<%= cadre.cadre_info.first_name %> <%= cadre.cadre_info.last_name %>
-			</a>
-		</div>
-	<% end %>
-=end
-
+  
   def show_my_messages
     @cadre = Cadre.find_by_id(params[:id])
     @contact = ContactClientCadre.where(cadre: @cadre, client:current_client)
@@ -705,7 +695,11 @@ class RecruteursController < ApplicationController
     end
 		@contact.message_client_cadres.where(client_see:false).update(client_see:true)
     @messages = @contact.message_client_cadres.order(created_at: :ASC)
-    @newMessage = MessageClientCadre.new
+	@newMessage = MessageClientCadre.new
+	respond_to do |format|
+		format.html { }
+		format.js { }
+	end
   end
 
   def post_my_message

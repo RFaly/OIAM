@@ -6,7 +6,19 @@
   position: relative;
   width: 90%;
   margin: 0 auto;
-  height: 700px;
+  background: white;
+  &#real-show-message {
+    height: 700px;
+    .content {
+      height: 550px;
+    }
+  }
+  &#partial-show-message {
+    height: 100%;
+    .content {
+      height: 320px;
+    }
+  }
   .title {
     text-align: -webkit-center;
     text-align: -moz-center;
@@ -18,6 +30,7 @@
   }
   /////////////////@at-root
   .name-box {
+    position: relative;
     background: $main_theme_color;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
@@ -26,6 +39,19 @@
     font-size: 30px;
     line-height: 1;
     color: white;
+    #close-mp {
+      cursor: pointer;
+      transform: rotate(45deg);
+      width: 45px;
+      height: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 45px;
+    }
     #image {
       position: relative;
       content: '';
@@ -57,8 +83,7 @@
     margin-bottom: 5px;
     overflow-y: auto;
     padding: 20px;
-    min-height: 550px;
-    max-height: 550px;
+    // height: 550px;
     .my-message {
       max-width: 85%;
       margin: 5px 0;
@@ -102,7 +127,8 @@
   .input {
     // margin-top: 10px;
     position: relative;
-    textarea {
+    textarea,
+    input {
       min-height: 50px;
       max-height: 130px;
       height: 50px;

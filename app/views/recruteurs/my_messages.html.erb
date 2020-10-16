@@ -1,5 +1,7 @@
 <% content_for :head_style do %>
 <link rel="stylesheet" href="/css/message.css" />
+
+<link rel="stylesheet" href="/css/show_message.css" />
 <% end %>
 <!-- body html  -->
 <div class="client-column">
@@ -16,10 +18,10 @@
             <span class="connected"></span>
             <% end %>
           </div>
-          <a href="<%= show_my_messages_client_path(contact.cadre.id) %>" class="link <% unless nbr == 0 %>color<% end %>">
+          <a href="<%= show_my_messages_client_path(contact.cadre.id) %>" class="link <% unless nbr == 0 %>color<% end %>" data-remote="true">
             <div class="name">
               <%= contact.cadre.cadre_info.first_name %> <%= contact.cadre.cadre_info.last_name %><% unless nbr == 0 %>
-              <span>(<%= nbr %>)</span>
+              <span id="number-unsee">(<%= nbr %>)</span>
               <% end %>
             </div>
 
@@ -39,14 +41,6 @@
         <% end %>
       </div>
     </div>
-    <!-- <div class="click btn btn-success">click</div>
-    <div class="chat-out" style="display: none">cwx</div> -->
+    <div id="chat-out"></div>
   </div>
 </div>
-<!-- <script>
-  $('.click').click(function () {
-    $('.chat-out').fadeIn(500);
-    document.cookie = 'username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC';
-  });
-  localStorage.setItem('monChat', 'Tom');
-</script> -->

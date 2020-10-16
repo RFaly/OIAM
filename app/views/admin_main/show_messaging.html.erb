@@ -48,13 +48,29 @@
 
 	.chat-body {
 		overflow-y: scroll;
-		/* overflow: hidden; */
 		padding-top: 50px;
 		padding-left: 30px;
 		padding-right: 30px;
-		border-left: 1px solid #ccc;
+		border-left: 2px solid #ccc;
 		/* border-right: 1px solid #ccc; */
 		height: 450px;
+		padding-bottom: 20px;
+	}
+
+	.chat-body::-webkit-scrollbar {
+		width: 5px;
+	}
+
+	.chat-body::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.chat-body::-webkit-scrollbar-thumb {
+		background: #d6b36a;
+	}
+
+	.chat-body::-webkit-scrollbar-thumb:hover {
+		background: #d6b36a;
 	}
 
 	.hr-msg {
@@ -66,6 +82,7 @@
 		width: 60px;
 		height: 60px;
 		border-radius: 50%;
+		border: 2px solid #d6b36a;
 	}
 
 	.hr-image {
@@ -91,7 +108,7 @@
 
 	.m-msg {
 		float: right;
-		margin-top: 30px;
+		margin-top: 20px;
 		background: #e3d7bf;
 		width: 60%;
 		border-radius: 10px;
@@ -110,7 +127,6 @@
 
 	.sd {
 		display: flex;
-		margin-top: 20px;
 	}
 
 	.sd-input {
@@ -121,7 +137,7 @@
 		float: right;
 	}
 
-	.sd-input input {
+	.sd-input input{
 		padding-left: 10px;
 		padding-right: 20px;
 		padding-top: 20px;
@@ -130,11 +146,22 @@
 		border: 1px solid #d6b36a;
 	}
 
+	.sd textarea {
+		resize: none;
+	}
+
 	.ms-in {
 		width: 100%;
-		padding: 10px;
+		padding: 15px;
 		outline: none;
-		border: 1px solid #d6b36a;
+		border: none;
+		border-top: 1px solid #d6b36a;
+		border-bottom: 1px solid #d6b36a;
+		border-left: 1px solid #d6b36a;
+		text-align: left;
+		word-wrap: break-word;
+		font-family: Questrial, sans-serif;
+		font-size: 14px;
 	}
 
 	.sd button {
@@ -142,9 +169,9 @@
 		border: none;
 		outline: none;
 		padding: 10px;
-		border-right: 1px solid #ccc;
-		border-bottom: 1px solid #ccc;
-		border-top: 1px solid #ccc;
+		border-right: 1px solid #d6b36a;
+		border-bottom: 1px solid #d6b36a;
+		border-top: 1px solid #d6b36a;
 	}
 
 	.dt {
@@ -163,10 +190,10 @@
 		<div class="fcp-box">
 			<div class="chat-info">
 				<div class="img">
-					<img src="" alt="avatar">
+					<img src="<%= @contact.cadre.cadre_info.image %>" alt="avatar">
 				</div>
 				<div class="desc">
-					<h1 class="name">JEAN</h1>
+					<h1 class="name"><%= @contact.cadre.cadre_info.first_name %> <%= @contact.cadre.cadre_info.last_name %></h1>
 					<p class="online">
 						<small>
 							En ligne</small>
@@ -179,14 +206,13 @@
 		<% unless message.is_admin %>
 		<div class="hr-msg">
 			<div class="hr-image">
-				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar">
+				<img src="<%= @contact.cadre.cadre_info.image %>" alt="avatar">
 			</div>
 			<div class="hr-mg">
 				<p><%= message.content %></p>
 			</div>
 		</div>
-		<% end %>
-		<% if message.is_admin %>
+		<% else %>
 		<div class="m-msg">
 			<p><%= message.content %></p>
 		</div>
@@ -196,7 +222,7 @@
 
 	<%= form_tag(post_messaging_path) do %>
 	<div class="sd">
-			<input placeholder="répondre..." class="ms-in" name="message_admin_cadre[content]" id="message_admin_cadre_content">
+			<textarea placeholder="répondre..." class="ms-in" name="message_admin_cadre[content]" id="message_admin_cadre_content"></textarea>
 			<button type="submit">
 				<img src="/image/send.png" alt="send" class="ms-im"/>
 				<!-- <%= submit_tag("ENVOYER") %> -->
@@ -204,7 +230,9 @@
 	</div>
 	<% end %>
 
-
 	</div>
 </div>
 </div>
+<script type="text/javascript">
+	$(".chat-body").animate({ scrollTop: 20000000 }, "slow");
+</script>

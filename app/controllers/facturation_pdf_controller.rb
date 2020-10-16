@@ -43,17 +43,20 @@ class FacturationPdfController < ApplicationController
     end
   end
   def promise
-    unless current_admin.nil? || current_client.nil?
-      @promise = PromiseToHire.find_by_id(params[:id_promise])
-  		@job = @promise.offre_job
-      @cadre = @promise.cadre.cadre_info
-      respond_to do |format|
-        format.pdf {render layout: 'promise_layout.html',
-                      template: 'facturation_pdf/promise',
-                      pdf:"Promesse b'embauche OIAM ",
-                      margin: { top: 15, bottom: 15, left: 10, right: 10 }
-                    }
-      end
+    if current_admin.nil? && current_client.nil?
+      flash[:alert] = "Ooups!"
+      redirect_to root_path
+      return
+    end
+    @promise = PromiseToHire.find_by_id(params[:id_promise])
+    @job = @promise.offre_job
+    @cadre = @promise.cadre.cadre_info
+    respond_to do |format|
+      format.pdf {render layout: 'promise_layout.html',
+                    template: 'facturation_pdf/promise',
+                    pdf:"Promesse b'embauche OIAM ",
+                    margin: { top: 15, bottom: 15, left: 10, right: 10 }
+                  }
     end
   end
   def promise_cadre

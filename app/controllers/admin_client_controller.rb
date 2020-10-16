@@ -3,7 +3,7 @@ class AdminClientController < ApplicationAdminController
 
   #recrutement en cours
   def main
-    @offres = OffreJob.all
+    @offres = OffreJob.all.order('created_at DESC')
   end
 
   #show recrutement en cours
@@ -13,7 +13,7 @@ class AdminClientController < ApplicationAdminController
   end
 
   def offer
-  	@offre = OffreJob.all
+  	@offre = OffreJob.all.order('created_at DESC')
   end
 
   def show_offer
@@ -22,11 +22,22 @@ class AdminClientController < ApplicationAdminController
   end
 
   def factures
-    @facture = Facture.all
+    @facture = Facture.all.order('created_at DESC')
   end
 
   def show_facture
     @facture = Facture.find_by(id: params[:id])
+    @pTh = @facture.promise_to_hire
+    @cadreInfo = @pTh.cadre.cadre_info
+    @client = @facture.client
   end
 
+  def carte_client
+    @client = Client.all.order('created_at DESC')
+  end
+
+  def show_client
+    helpers.updateAdminNotification(params[:secure],current_admin)
+    @client = Client.find_by(id: params[:id])
+  end
 end

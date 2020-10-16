@@ -256,8 +256,8 @@ body{
 		margin: auto;
 		width: 450px;
 		display: flex;
-	    flex-wrap: wrap;
-	    justify-content: center;
+	  flex-wrap: wrap;
+	  justify-content: center;
 	}
 
 	.container-flex{
@@ -268,7 +268,7 @@ body{
 	}
 
 	.main-title{
-		font-size: 30px;
+		font-size: 20px;
 		margin-top: 50px;
 		margin-bottom: 100px;
 	}

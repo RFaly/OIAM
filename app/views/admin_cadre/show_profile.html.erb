@@ -1,5 +1,10 @@
 <% @title="Candidats" %>
-<link rel="stylesheet" type="text/css" href="/css/candidat_my_profil.css" />
+<style>
+	* {
+		line-height: 30px !important;
+	}
+</style>
+<link rel="stylesheet" type="text/css" href="/css/cd_prfl.css" />
 
 <div class="content">
 	<div class="left_link">
@@ -40,7 +45,7 @@
 		           	  PAS DE DÉPLACEMENT
 		        <% end %>
 				</span></p>
-				<p>Salaire (Brut annuel) : <span> <%= @cadre_info.question4.to_i %> k€</span></p>
+				<p>Salaire (Brut annuel) : <br> <span> <%= @cadre_info.question4.to_i %> k€</span></p>
 			</div>
 		<div class="block-right">
 			<div class="block-right-content">
@@ -72,15 +77,39 @@
 	            		<img src="/image/profie.png" alt="photo profil candidats", width="150px", class="pdp" />
 					</div>
 					<div class="user_name"><%= @cadre_info.first_name %> <%= @cadre_info.last_name %> <br></div>
-					<p>Adresse : <span><%= @cadre_info.adresse %></span></p>
-					<p>Code postal : <span><%= @cadre_info.postal_code %></span></p>
-					<p>Ville : <span><%= @cadre_info.city %></span></p>
-					<p>Telephone : <span><%= @cadre_info.telephone %></span></p>
+					<p>Adresse : <br> <span><%= @cadre_info.adresse %></span></p>
+					<p>Code postal : <br> <span><%= @cadre_info.postal_code %></span></p>
+					<p>Ville : <br> <span><%= @cadre_info.city %></span></p>
+					<p>Telephone : <br> <span><%= @cadre_info.telephone %></span></p>
           			<% if @cadre_info.status == "non admis" %>
-						<p>Statut : <%= @cadre_info.status %> </p>
+						<p>Statut : <br> <span><%= @cadre_info.status %><span></p>
 					<% else %>
-	            		<p>Statut :<%= @cadre_info.status %> </p>
+	            		<p>Statut : <br> <span><%= @cadre_info.status %><span></p>
 					<% end %>
+				</div>
+				<div class="block-right">
+					<div class="block-right-content">
+						<div class="questionnaire">
+							<h2 class="questionnaire-title">Que faites-vous actuellement et que recherchez-vous comme type de poste ?</h2>
+							<p>Type de poste : <%= @cadre_info.metier.name %><br>Profession : <%= @cadre_info.job %></p>
+						</div>
+						<div class="questionnaire">
+							<h2 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h2>
+							<p><%= @cadre_info.question2 %></p>
+						</div>
+						<div class="questionnaire">
+							<h2 class="questionnaire-title">Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?</h2>
+							<p><%= @cadre_info.question3 %></p>
+						</div>
+						<div class="questionnaire">
+							<h2 class="questionnaire-title">Quel est le minimum salarial FIXE en dessous duquel il n’est pas nécessaire de vous contacter ?</h2>
+							<p><%= @cadre_info.question4.to_i %> k€</p>
+						</div>
+						<div class="questionnaire">
+							<h2 class="questionnaire-title">Parlez-nous de vous</h2>
+							<p><%= @cadre_info.question5 %></p>
+						</div>
+					</div>
 				</div>
 		<% end %>
 	</div>

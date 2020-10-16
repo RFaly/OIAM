@@ -1,0 +1,392 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 18px;
+}
+
+body{
+  font-family: 'Questrial', sans-serif;
+  margin: 0;
+  line-height: 1.5;
+}
+
+#confirmed-profil{
+  display:none;
+}
+
+.content{
+  margin: auto;
+}
+
+.main{
+	margin: 30px;
+	margin-top: 12px;
+}
+
+
+  .btn-dispo{
+    padding-top: 15px;
+    font-size: 12px;
+    width: 330px;
+  }
+
+
+
+.pdp{
+  object-fit: cover;
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.user_name{
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: 50px;
+  font-weight: 600;
+}
+
+.block-left p{
+  text-align: center;
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+.block-left{
+  margin-bottom: 30px;
+}
+
+.block-left span{
+  color: #D6B36A;
+  margin-left: 5px;
+}
+
+.questionnaire-title{
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.questionnaire{
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.questionnaire p{
+  text-align: justify;
+  opacity: .7;
+}
+
+.btn-edit{
+  display: block;
+  margin: auto;
+  width: 250px;
+  height: 50px;
+  border: 1px solid #D6B36A;
+  padding: 13px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #D6B36A;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+
+.btn-edit:hover{
+  text-decoration: none;
+  background: #D6B36A;
+  color: #ffffff;
+}
+
+.block-button{
+  display: block;
+  margin: auto;
+  margin-top: auto;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+  .btn-orange{
+    background: #D6B36A;
+    color: #fff;
+  }
+
+  .btn-orange:hover{
+    background: none;
+    color: #D6B36A;
+  }
+
+.btn-dispo{
+    padding-top: 15px;
+    font-size: 12px;
+    width: 330px;
+    text-align: center;
+  }
+
+  .recrutement-content{
+  display: block;
+  margin: auto;
+}
+
+.recrutement{
+  display: block;
+  margin: auto;
+  border: 1px solid #D6B36A;
+  width: 450px;
+  height: 200px;
+  padding: 20px;
+  position: relative;
+
+}
+
+.recrutement h4{
+  margin-bottom: 30px;
+}
+
+.btn-recrutement{
+  margin-left: 38px;
+}
+
+@media only screen and (min-width: 800px){
+
+
+  .block-button{
+    text-align: center;
+  }
+
+  .btn-edit{
+    display: inline-block;
+		margin-left: 20px;
+  }
+
+  .btn-dispo{
+    padding-top: 15px;
+    font-size: 12px;
+    width: 330px;
+  }
+
+}
+
+@media only screen and (min-width: 900px){
+  .content{
+    display: flex;
+  }
+
+
+
+  .main{
+    display: flex;
+		height: 1150px;
+  }
+
+  .left_link{
+  margin-top: 15px;
+}
+
+  .block-left{
+    padding-right: 50px;
+		width: 60%;
+  }
+
+  .block-left p{
+    line-height: 40px;
+  }
+
+  .block-button{
+    align-items: flex-end;
+    width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		flex-flow: unset;
+  }
+
+  .block-left{
+    padding-left: 20px;
+  }
+
+  .left_link{
+    margin-top: 20px;
+    border-right: 1px solid #D6B36A;
+  }
+
+  .main{
+		margin-top: 28px;
+    margin-left: 0;
+  }
+
+
+  .btn-dispo{
+    padding-top: 15px;
+    font-size: 12px;
+    width: 330px;
+  }
+
+   .recrutement{{
+    position: relative;
+    left: 30%;
+  }
+
+}
+
+@media only screen and (min-width: 900px){
+  .btn-edit{
+    display: inline-block;
+  }
+
+
+}
+
+
+@media only screen and (min-width: 1024px){
+  .content{
+    padding-right: 50px;
+  }
+
+  .btn-edit{
+    display: inline-block;
+		text-align: center;
+  }
+
+
+.recrutement-content{
+  display: block;
+  margin: auto;
+  padding-top: 50px;
+}
+
+.recrutement{
+  display: block;
+  margin: auto;
+  border: 1px solid #D6B36A;
+  width: 450px;
+  height: 200px;
+  padding: 20px;
+  position: relative;
+  left: 40%;
+}
+
+.recrutement h4{
+  margin-bottom: 30px;
+}
+
+.btn-recrutement{
+  margin-left: 38px;
+}
+
+	.block-image{
+		display: block;
+		margin: auto;
+		width: 250px;
+		height: 300px;
+		border: 1px solid #D6B36A;
+		margin-bottom: 20px;
+	}
+
+	.block-right{
+		margin-bottom: 0;
+	}
+
+  .offre-perso{
+    position: relative;
+    top: 50%;;
+  }
+
+
+
+.block-right{
+  position: relative;
+  height: 900px;
+}
+
+.block-right-content{
+  background: #f0f2f4;
+  padding: 20px;
+  height: auto;
+  margin-bottom: 100px;
+}
+
+  .block-button{
+    position: relative;
+    bottom:0;
+    height: 10%;
+  }
+
+  .validate-profil{
+    display: block;
+    margin: auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  #js-show-in-validate-profil{
+    border: 1px solid #D6B36A;
+    text-align: center;
+    width: 500px;
+    height: 400px;
+    padding: 50px;
+    transition: all 500ms ease-in-out;
+  }
+
+  #js-show-in-validate-profil h4{
+    margin-bottom: 30px;
+  }
+
+  .check{
+    margin-bottom: 50px;
+  }
+}

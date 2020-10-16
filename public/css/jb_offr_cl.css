@@ -1,0 +1,248 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+  border-left: 1px solid #d6b36a;
+}
+
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.co-any-job {
+  font: 16px Questrial, sans-serif;
+  padding: 10px;
+  width: 70%;
+  height: 250px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 2px solid #d6b36a;
+  margin-top: 150px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
+  text-align: center;
+}
+
+.co-any-job a {
+  font: 500 18px Raleway, sans-serif;
+  color: #d6b36a;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 2px solid #d6b36a;
+}
+
+.co-any-job a:hover,
+.co-any-job a:active {
+  background: #d6b36a;
+  text-decoration: none;
+  color: white;
+}
+
+.co-with-job {
+  padding: 5px;
+}
+
+.co-with-job h5 {
+  text-align: -webkit-center;
+  text-align: -moz-center;
+  text-align: center;
+  font: 500 18px Raleway, sans-serif;
+  color: #d6b36a;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+.co-with-job .btn-newjob-div {
+  text-align: -webkit-center;
+  text-align: -moz-center;
+  text-align: center;
+  margin: 90px 0;
+}
+
+.co-with-job .btn-newjob-div .btn-newjob {
+  font: 500 18px Raleway, sans-serif;
+  color: #d6b36a;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 2px solid #d6b36a;
+}
+
+.co-with-job .btn-newjob-div .btn-newjob:hover,
+.co-with-job .btn-newjob-div .btn-newjob:active {
+  background: #d6b36a;
+  text-decoration: none;
+  color: white;
+}
+
+.co-with-job .coj-box {
+  margin: 50px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.co-with-job .coj-box .cjo-image {
+  width: 30px;
+}
+
+.co-with-job .coj-box .cjo-image img {
+  width: 100%;
+}
+
+.co-with-job .coj-box .cjo-content {
+  font: 16px Questrial, sans-serif;
+  font-size: 18px;
+  color: #d6b36a;
+}
+
+.co-with-job .coj-box .cjo-link {
+  display: flex;
+  align-items: center;
+  font: 500 18px Raleway, sans-serif;
+  font-size: 16px;
+  padding: 2px 6px;
+  border: 2px solid #d6b36a;
+}
+
+.co-with-job .coj-box .cjo-link:hover,
+.co-with-job .coj-box .cjo-link:active {
+  background: #d6b36a;
+  text-decoration: none;
+}
+
+.co-with-job .coj-box .cjo-link:hover a,
+.co-with-job .coj-box .cjo-link:active a {
+  color: white;
+}
+
+.co-with-job .coj-box .cjo-link a {
+  font: 500 18px Raleway, sans-serif;
+  padding: 10px 20px;
+  color: #d6b36a;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.co-with-job .cjo-link-items {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+}
+
+.co-with-job .cjo-link-items .cjo-delete {
+  align-self: center;
+  width: 25px;
+}
+
+.co-with-job .cjo-link-items .cjo-delete img {
+  width: 100%;
+}
+
+.row {
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  border-top: 1px solid #ccc;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.col-sm-3 h3 {
+  font-size: 21px;
+  font-weight: 200;
+  font-family: Questrial, sans-serif;
+  text-align: left;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.step-pst {
+  display: flex;
+  grid-column-gap: 2%;
+  margin-top: 20px;
+  position: relative;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.etp-bdg-success {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #d6b36a;
+  color: #fff;
+  text-align: center;
+  justify-content: center;
+  font-style: 14px;
+  font-weight: bold;
+  font-family: Questrial, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  line-height: 3.2;
+}
+
+.etp-bdg-wait {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #ededed;
+  color: #ccc;
+  text-align: center;
+  justify-content: center;
+  font-style: 14px;
+  font-weight: bold;
+  font-family: Questrial, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  line-height: 3.2;
+}
+
+.etp-etp {
+  display: block;
+  position: relative;
+  width: 80px;
+  height: 50px;
+}
+
+.etp-tt {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: Questrial, sans-serif;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.arr-success {
+  font-size: 40px;
+  color: #d6b36a;
+}
+
+.arr-wait {
+  font-size: 40px;
+  color: #ededed;
+}
+
+.in-ps {
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 26px;
+  color: #d6b36a;
+  font-family: Questrial, sans-serif;
+  font-weight: bold;
+}
