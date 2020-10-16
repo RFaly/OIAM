@@ -8,9 +8,9 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Admis potential", "Admis fit", "refusé potential", "refusé fit"],
+    labels: ["Admis", "Fit refusé", "Potential refusé", "Abandon ou en cours"],
     datasets: [{
-      data: [55, 20, 15,10],
+      data: $("#myPieChart").data().array,
       backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', "#ccc"],
       hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', "#cc6"],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
@@ -32,5 +32,17 @@ var myPieChart = new Chart(ctx, {
       display: false
     },
     cutoutPercentage: 80,
+
+    tooltips: {
+      callbacks: {
+        label: function(tooltipItem, chart) {
+          var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+          return datasetLabel +' '+chart.labels[tooltipItem.index] + ': '+chart.datasets[0].data[tooltipItem.index]+'%';
+
+// return ' : ';
+
+        }
+      }
+    }
   },
 });

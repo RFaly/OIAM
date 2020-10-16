@@ -33,7 +33,7 @@ var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["Tous les candidats", "c. admis", "c. refusés","c. en test","c. recrutés","clients", "annonces"],
+    labels: ["Tous les candidats", "c. admis", "c. non admis","c. en test","clients", "annonces","c. embauchés"],
     datasets: [{
       label: "nombre",
       
@@ -45,7 +45,7 @@ var myLineChart = new Chart(ctx, {
       hoverBorderColor: "rgba(78, 0, 223, 1)",
       hoverBorderWidth: 3,
 
-      data: [10000, 20000, 15000, 25000, 20000, 30000, 25000],
+      data: $("#myAreaChart").data().array,
     }],
   },
   options: {
