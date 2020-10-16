@@ -196,7 +196,10 @@ Rails.application.routes.draw do
   # get 'secret-oiam-page/admin', to: 'admin_main#home', as: 'admin_main_home'
   get 'secret-oiam-page/admin/notifications', to: 'admin_main#notification', as: 'admin_main_notification'
   get 'secret-oiam-page/admin/mon-profil', to: 'admin_main#my_profil', as: 'admin_main_my_profil'
-
+  
+  #edit profil
+  get 'secret-oiam-page/admin/mon-profil/edit', to: 'admin_main#my_profil_edit', as: 'admin_main_my_profil_edit'
+  patch 'secret-oiam-page/admin/mon-profil/save', to: 'admin_main#update_my_profil', as: 'admin_main_update_my_profil'
   # routes message admin
   get 'secret-oiam-page/admin/messages-candidats', to: 'admin_main#message_candidat', as: 'admin_messaging_candidat'
   get 'secret-oiam-page/admin/messages-recruteurs', to: 'admin_main#message_recruteur', as: 'admin_messaging_recruteur'
