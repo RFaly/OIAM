@@ -37,12 +37,12 @@ var myLineChart = new Chart(ctx, {
     datasets: [{
       label: "nombre",
       
-      backgroundColor: "rgba(78, 115, 223, 1)",
-      borderColor: "rgba(78, 115, 223, 1)",
+      backgroundColor: "#d6b36a",
+      borderColor: "#d6b36a",
       borderWidth: 3,
 
-      hoverBackgroundColor: "rgba(100, 0, 0, 1)",
-      hoverBorderColor: "rgba(78, 0, 223, 1)",
+      hoverBackgroundColor: "#e3cb9a",
+      hoverBorderColor: "#e3cb9a",
       hoverBorderWidth: 3,
 
       data: $("#myAreaChart").data().array,

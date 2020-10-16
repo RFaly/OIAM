@@ -8,11 +8,11 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Admis", "Fit refusé", "Potential refusé", "Abandon ou en cours"],
+    labels: ["Admis", "Fit refusé", "Potentiel refusé", "Abandon ou en cours"],
     datasets: [{
       data: $("#myPieChart").data().array,
-      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', "#ccc"],
-      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', "#cc6"],
+      backgroundColor: ['#d6b36a', '#E73E01', '#ED7F10', "#e3d7bf"],
+      hoverBackgroundColor: ['#f2d496', '#fc5858', '#fca044', "#e3dbcc"],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
     }],
   },
