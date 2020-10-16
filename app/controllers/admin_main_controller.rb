@@ -15,15 +15,12 @@ class AdminMainController < ApplicationAdminController
     @contact.message_admin_cadres.where(admin_see:false).update(admin_see:true)
     @messages = @contact.message_admin_cadres.order(created_at: :ASC)
     @newMessage = MessageAdminCadre.new
-
-    puts "********************" * 5
-      puts params[:id]
-      puts @contact
-    puts "********************" * 5
   end
 
   def post_messaging
+    @admin = current_admin
     @cadre = Cadre.find_by_id(params[:id])
+    @contactCadre = current_admin.contact_admin_cadres
     @contact = ContactAdminCadre.where(cadre: @cadre, admin:current_admin)
     if @contact.nil?
       @contact = ContactAdminCadre.create(cadre: @cadre, admin:current_admin)
@@ -33,7 +30,7 @@ class AdminMainController < ApplicationAdminController
     @newMessage = MessageAdminCadre.new(content:@content, cadre_see: false, contact_admin_cadre: @contact, is_admin: true)
     if @newMessage.save
       @contact.message_admin_cadres.update(cadre_see: false )
-      redirect_to admin_show_messaging_path(@cadre)
+      redirect_to admin_show_messaging_path(@admin)
     else
       flash[:alert] = @newMessage.errors.details
     end

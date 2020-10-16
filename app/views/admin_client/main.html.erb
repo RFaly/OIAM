@@ -1,77 +1,68 @@
-<style type="text/css">
-  .flex-container{
-    display: flex;
-  }
-  .flex-container div {
-    border: 2px solid red;
-    padding: 2px;
-    margin-left: 3px;
-  }
-</style>
 <% @title="Clients" %>
 <!-- call css  -->
-  <link rel="stylesheet" href="/css/my_job_offre.css" />
+  <link rel="stylesheet" href="/css/job_cl_admin.css" />
+  <!-- <link rel="stylesheet" href="/css/step_cl_admin.scss"> -->
 <!-- body html  -->
 <div class="client-column">
-
   <div class="client-menu-left">
     <%= render "admin_client/left_menu_link" %>
   </div>
-
   <div class="cp-box">
     <div class="box-inside">
-
       <% if @offres.empty?%>
         <div class="co-any-job">
           <p>Il n'y  a aucun recrutement</p>
         </div>
       <% else %>
-
         <div class="co-with-job">
           <h5>RECRUTEMENT EN COURS</h5>
-
           <% @offres.each do |offre| %>
-
             <div class="container">
-
-              <h2>Poste: <%= link_to "#{offre.intitule_pote}", admin_client_show_offer_path(offre.id)%></h2>
-              
-              <%= link_to "Evolution", admin_show_recrutment_path(offre.id)%>
-              
-              <strong><i>actuelement à l'étapes: <%= offre.etapes %></i></strong>
-
-              <div class="flex-container">
-
-                <div>Publication <span class="badge-success">1</span></div>
-                
-                <div>Sélection <span class="badge-success">2</span></div>
-
+              <div class="cl-pst">
+              <h2>Poste: <strong class="cl-inti"><%= link_to "#{offre.intitule_pote}", admin_client_show_offer_path(offre.id)%></strong></h2>
+              <!-- <h3 class="etp"><%= link_to "Evolution", admin_show_recrutment_path(offre.id)%>
+              <strong><i>actuelement à l'étapes: <%= offre.etapes %></i></strong></h3> -->
+              <div class="etp-cont container-fluid">
+                <div class="etp-etp">
+                  <div class="<% if offre.etapes >= 1 %>etp-bdg-successs<% else %>etp-bdg-wait<% end %>">1</div>
+                  <div class="etp-tt">Publication</div>
+                </div>
+                <div class="etp-etp">
+                  <div class="<% if offre.etapes >= 2 %>etp-bdg-success<% else %>etp-bdg-wait<% end %>">2</div>
+                  <div class="etp-tt">Sélection</div>
+                </div>
                 <% etape = 2 %>
                 <% offre.numberEntretien.times do |i| %>
                   <% etape += 1 %>
                   <% if i == 0 %>
-                    <div>1er entretien <span class="badge-success"><%= etape %></span></div>
+                  <div class="etp-etp">
+                    <div class="<% if offre.etapes >= etape %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><%= etape %></div>
+                    <div class="etp-tt">1er entretien</div>
+                  </div>
                   <% else %>
-                    <div><%=i+1%>e entretien <span class="badge-success"><%= etape %></span></div>
+                  <div class="etp-etp">
+                    <div class="<% if offre.etapes >= etape %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><%= etape %></div>
+                    <div class="etp-tt"><%=i+1%>e entretien</div>
+                  </div>
                   <% end %>
                 <% end %>
-
-                <div>Promesse d'embauche <span class="badge-success"><%= etape + 1 %></span> </div>
-
-                <div>Recrutement <span class="badge-success"><%= etape + 2 %></span> </div>
-
+                <div class="etp-etp">
+                  <div class="<% if offre.etapes >= etape + 1 %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><%= etape + 1 %></div>
+                  <div class="etp-tt">Promesse d'embauche</div>
+                </div>
+                <div class="etp-etp">
+                  <div class="<% if offre.etapes >= etape + 2 %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><%= etape + 2 %></div>
+                  <div class="etp-tt">Recrutement</div>
+                </div>
+                    <!-- <div class="etp-ln-success"></div> -->
               </div>
-
+              </div>
             </div>
-
           <% end %>
-
         </div>
-
       <% end %>
     </div>
   </div>
-
 </div>
 
 <!-- <script type="text/javascript">

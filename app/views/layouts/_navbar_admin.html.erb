@@ -7,13 +7,12 @@
   }
 
   .not-bdg {
-    padding:  5px 8px;
+    padding:  4px 10px;
     position: absolute;
     background: #d6b36a;
     color: #fff;
     font-size: 14px;
     border: 1px solid #fff;
-     border-radius: 999px;
      left: 125px;
      bottom: 12px;
   }
@@ -50,9 +49,9 @@
             <% if current_admin.numberOfNotification == 0 %>
 
             <% elsif current_admin.numberOfNotification >= 9 %>
-            <span class="not-bdg">9+</span>
+            <span class="not-bdg rounded-circle">9+</span>
             <% else %>
-            <span class="not-bdg"><%= current_admin.numberOfNotification %></span>
+            <span class="not-bdg rounded-circle"><%= current_admin.numberOfNotification %></span>
             <% end %>
           <% end %>
           </div>
