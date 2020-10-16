@@ -34,4 +34,21 @@ class Facture < ApplicationRecord
 			"paye"
 		end
 	end
+
+	def numero_facture
+		day = self.created_at.day < 10 ? "0"+ self.created_at.day.to_s : day = self.created_at.day
+    
+    month = self.created_at.month < 10 ? month = "0"+ self.created_at.month.to_s : month = self.created_at.month
+    
+    year = self.created_at.year
+
+    facture_id = self.id.to_s
+
+    while (facture_id.length < 5) do
+      facture_id = "0"+ facture_id
+    end
+
+    return "FACT-#{year}#{month}#{day}-#{facture_id}"
+    
+	end
 end
