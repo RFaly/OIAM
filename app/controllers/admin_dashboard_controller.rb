@@ -8,7 +8,18 @@ class AdminDashboardController < ApplicationAdminController
   end
 
   def statistics
+    cadreInfos = CadreInfo.all
     
+    c_admis = cadreInfos.where(is_recrute:true)
+    c_no_admis = cadreInfos.where(is_recrute:false)
+    en_cours = cadreInfos.where(is_recrute:nil)
+    
+    total = cadreInfos.count
+
+    @c_admis = (c_admis.count * 100.0)/ total
+    @c_no_admis = (c_no_admis.count * 100.0)/ total
+    @en_cours = (en_cours.count * 100.0)/ total
+
   end
 
   def contact_us
