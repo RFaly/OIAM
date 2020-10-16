@@ -1,0 +1,15 @@
+<%= form_for @admin , url: admin_main_update_my_profil_path do |f| %>
+	<label for="nom"><span class="label">Nom*</span>
+        <%= f.text_field :first_name %>
+    </label><br>
+    <label for="nom"><span class="label">Prenom*</span>
+        <%= f.text_field :last_name %>
+    </label><br>
+    <label for="nom"><span class="label">Metier*</span>
+        <%= f.text_field :metier %>
+    </label><br>
+    <label for="email"><span class="label">E-mail*</span>
+        <%= f.text_field :email %>
+    </label><br>
+<%= f.submit :valider, class: 'lien lienconnec' %>
+<% end %>

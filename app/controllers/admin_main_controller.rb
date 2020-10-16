@@ -35,18 +35,7 @@ class AdminMainController < ApplicationAdminController
       flash[:alert] = @newMessage.errors.details
     end
   end
-
-
-
-  def notification
-    @notifications = NotificationAdmin.order("created_at DESC")
-  end
-
-  def my_profil
-
-  end
-
-  def message_candidat
+ def message_candidat
     @admin = Admin.all
     @cadre = Cadre.find_by_id(params[:id])
     @contactCadre = current_admin.contact_admin_cadres
@@ -106,6 +95,29 @@ class AdminMainController < ApplicationAdminController
       redirect_to show_message_recruteur_path(@admin)
     else
       flash[:alert] = @newMessage.errors.details
+    end
+  end
+
+
+  def notification
+    @notifications = NotificationAdmin.order("created_at DESC")
+  end
+
+  def my_profil
+
+  end
+
+  def my_profil_edit
+    @admin = current_admin
+  end
+
+  def update_my_profil
+    @admin = current_admin
+    @admin.update(params.require(:admin).permit(:first_name,:last_name,:metier,:email))
+    if @admin.save
+      redirect_to admin_main_my_profil_path
+    else
+      flash[:alert] = errorMessage
     end
   end
 end
