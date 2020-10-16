@@ -34,6 +34,7 @@ class AdminClientController < ApplicationAdminController
   end
 
   def show_client
+    helpers.updateAdminNotification(params[:secure],current_admin)
     @client = Client.find_by(id: params[:id])
   end
 end

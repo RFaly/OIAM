@@ -1,0 +1,41 @@
+@import 'config';
+.ecp-box {
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 50px 10px;
+  .title {
+    text-align: center;
+    font: $ffbtn;
+    color: $main_theme_color;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+  .field {
+    input {
+      border: none;
+      outline: none;
+      padding: 10px;
+      background: $secondary_element_color;
+    }
+  }
+  .actions {
+    input {
+      border: none;
+      outline: none;
+      font: $ffbtn;
+      color: $main_theme_color;
+      text-decoration: none;
+      text-transform: uppercase;
+      border: 2px solid $main_theme_color;
+      padding: 10px 20px;
+      margin: 20px;
+      background: transparent;
+      &:hover,
+      &:active {
+        color: white;
+        background: $main_theme_color;
+      }
+    }
+  }
+}

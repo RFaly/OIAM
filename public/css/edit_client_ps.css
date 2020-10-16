@@ -1,0 +1,39 @@
+.ecp-box {
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 50px 10px;
+}
+
+.ecp-box .title {
+  text-align: center;
+  font: 500 18px Raleway, sans-serif;
+  color: #d6b36a;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+.ecp-box .field input {
+  border: none;
+  outline: none;
+  padding: 10px;
+  background: #f0f2f4;
+}
+
+.ecp-box .actions input {
+  border: none;
+  outline: none;
+  font: 500 18px Raleway, sans-serif;
+  color: #d6b36a;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 2px solid #d6b36a;
+  padding: 10px 20px;
+  margin: 20px;
+  background: transparent;
+}
+
+.ecp-box .actions input:hover, .ecp-box .actions input:active {
+  color: white;
+  background: #d6b36a;
+}

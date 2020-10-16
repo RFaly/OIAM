@@ -94,6 +94,8 @@
                 <div class="col-sm-3">
                   <% if noficication.genre == 1 %>
                     <img src="<%= noficication.offre_job.image %>" width="120px" height="120px">
+                  <% elsif noficication.genre == 5 %>
+                      <img src="<%= noficication.client_image %>" alt="photo profil candidats" width="120px" height="120px">
                   <% else %>
                     <% if noficication.medel_id.nil? %>
                       <img src="/image/profie.png" alt="photo profil candidats" width="120px" height="120px">

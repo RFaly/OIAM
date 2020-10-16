@@ -26,7 +26,7 @@
 				<p>Ville : <span><%= @cadre_info.city %></span></p>
 				<p>Telephone : <span><%= @cadre_info.telephone %></span></p>
 				<p>Score du test : <span><%= @cadre_info.score_potential %></span></p>
-				<p>Type de poste :<br> <span style="text-transform:uppercase;"><%= @cadre_info.metier %>
+				<p>Type de poste :<br> <span style="text-transform:uppercase;"><%= @cadre_info.metier.name %>
 				</span><br>
 				Profession :<br> <span style="text-transform:uppercase;"> <%= @cadre_info.job %>
 				</span>
@@ -51,7 +51,7 @@
 			<div class="block-right-content">
 				<div class="questionnaire">
 					<h2 class="questionnaire-title">Que faites-vous actuellement et que recherchez-vous comme type de poste ?</h2>
-					<p>Type de poste : <%= @cadre_info.metier %><br>Profession : <%= @cadre_info.job %></p>
+					<p>Type de poste : <%= @cadre_info.metier.name %><br>Profession : <%= @cadre_info.job %></p>
 				</div>
 				<div class="questionnaire">
 					<h2 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h2>
@@ -91,7 +91,7 @@
 					<div class="block-right-content">
 						<div class="questionnaire">
 							<h2 class="questionnaire-title">Que faites-vous actuellement et que recherchez-vous comme type de poste ?</h2>
-							<p>Type de poste : <%= @cadre_info.metier %><br>Profession : <%= @cadre_info.job %></p>
+							<p>Type de poste : <%= @cadre_info.metier.name %><br>Profession : <%= @cadre_info.job %></p>
 						</div>
 						<div class="questionnaire">
 							<h2 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h2>

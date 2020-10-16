@@ -20,9 +20,13 @@
           <% @offres.each do |offre| %>
             <div class="container">
               <div class="cl-pst">
-              <h2>Poste: <strong class="cl-inti"><%= link_to "#{offre.intitule_pote}", admin_client_show_offer_path(offre.id)%></strong></h2>
-              <!-- <h3 class="etp"><%= link_to "Evolution", admin_show_recrutment_path(offre.id)%>
-              <strong><i>actuelement à l'étapes: <%= offre.etapes %></i></strong></h3> -->
+              <h2>poste : <strong class="cl-inti"><%= link_to "#{offre.intitule_pote}", admin_client_show_offer_path(offre.id)%></strong></h2>
+
+              <a href="<%= admin_show_recrutment_path(offre.id) %>">
+                
+              
+                
+
               <div class="etp-cont container-fluid">
                 <div class="etp-etp">
                   <div class="<% if offre.etapes >= 1 %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><% if offre.etapes >= 1 %><i class="fas fa-check"></i><% else %>1<% end %></div>
@@ -71,6 +75,9 @@
                   <div class="etp-tt">Recrutement</div>
                 </div>
               </div>
+
+              </a>
+
               </div>
             </div>
           <% end %>
