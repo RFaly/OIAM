@@ -1,14 +1,51 @@
 <style>
-  .filter-cand span:hover {
-    background: #fff;
-    color: #e3d7bf;
-    border: 1px solid #e3d7bf;
-  }
+ .filter-cand {
+   border-bottom: 1px solid #ccc;
+   padding-bottom: 10px;
+   display: flex;
+   justify-content: flex-end;
+ }
+
+ .filter-cand span {
+   background: #e3d7bf;
+   padding: 5px 15px;
+   font-size: 12px;
+   font-family: Questrial, sans-serif;
+   color: #fff;
+   border: 1px solid #e3d7bf;
+   cursor: pointer;
+   margin: 1px;
+ }
+
+ .filter-cand span:hover {
+   background: #fff;
+   color: #e3d7bf;
+   border: 1px solid #e3d7bf;
+ }
+
+ .acc {
+   font-size: 12px;
+   text-transform: uppercase;
+   font-family: Questrial, sans-serif;
+   text-align: center;
+ }
+
+ .co-with-job h5 {
+    text-align: -webkit-center;
+    text-align: -moz-center;
+    text-align: center;
+    font: 500 18px Raleway, sans-serif;
+    color: #d6b36a;
+    text-transform: uppercase;
+    margin-bottom: 0px !important;
+}
+
+
 </style>
 
 <% @title="Clients" %>
 <!-- call css  -->
-<link rel="stylesheet" href="/css/my_job_offre.css" />
+<link rel="stylesheet" href="/css/cl_jb_offr.css" />
 <!-- body html  -->
 <div class="client-column">
   <div class="client-menu-left"><%= render "admin_client/left_menu_link" %></div>
@@ -19,12 +56,12 @@
         <div class="filter-cand">
           <span id="ov_ok_js">Traiter</span>
           <span id="sans_ov_js">En cours</span>
-          <span id="rehetra_js">TOUS</span>
+          <span id="rehetra_js">Tous</span>
         </div>
         <div class="coj-box" id="offre">
           <% if @facture.empty? %>
           <hr />
-          <p>Aucune facture pour le moment</p>
+          <p class="acc">Aucune facture pour le moment</p>
           <hr />
           <% else %> <% @facture.each do |facture| %>
           <div class="<%= facture.status %>-js">
@@ -41,7 +78,7 @@
           <% end %> <% end %>
         </div>
         <div>
-          <p id="js-tsisy" style="display: none">Aucune facture pour le moment</p>
+          <p id="js-tsisy" style="display: none" class="acc">Aucune facture pour le moment</p>
         </div>
         <%# end %> <%# end %>
       </div>

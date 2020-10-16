@@ -1,6 +1,7 @@
 <% @title="Clients" %>
 <!-- call css  -->
   <link rel="stylesheet" href="/css/job_cl_admin.css" />
+  <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
   <!-- <link rel="stylesheet" href="/css/step_cl_admin.scss"> -->
 <!-- body html  -->
 <div class="client-column">
@@ -24,37 +25,51 @@
               <strong><i>actuelement à l'étapes: <%= offre.etapes %></i></strong></h3> -->
               <div class="etp-cont container-fluid">
                 <div class="etp-etp">
-                  <div class="<% if offre.etapes >= 1 %>etp-bdg-successs<% else %>etp-bdg-wait<% end %>">1</div>
+                  <div class="<% if offre.etapes >= 1 %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><% if offre.etapes >= 1 %><i class="fas fa-check"></i><% else %>1<% end %></div>
                   <div class="etp-tt">Publication</div>
                 </div>
+
+                <div><i class="fas fa-long-arrow-alt-right <%if offre.etapes >= 2 %>arr-success<% else %>arr-wait<% end %>"></i></div>
+
                 <div class="etp-etp">
-                  <div class="<% if offre.etapes >= 2 %>etp-bdg-success<% else %>etp-bdg-wait<% end %>">2</div>
+                  <div class="<% if offre.etapes >= 2 %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><% if offre.etapes >=2 %><i class="fas fa-check"></i><% else %>2<% end %></div>
                   <div class="etp-tt">Sélection</div>
                 </div>
+
+                <div><i class="fas fa-long-arrow-alt-right <%if offre.etapes >= 3 %>arr-success<% else %>arr-wait<% end %>"></i></div>
+
                 <% etape = 2 %>
                 <% offre.numberEntretien.times do |i| %>
                   <% etape += 1 %>
                   <% if i == 0 %>
                   <div class="etp-etp">
-                    <div class="<% if offre.etapes >= etape %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><%= etape %></div>
+                    <div class="<% if offre.etapes >= etape %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><% if offre.etapes >= etape %><i class="fas fa-check"></i><% else %><%= etape %><% end %></div>
                     <div class="etp-tt">1er entretien</div>
                   </div>
+
+                  <div><i class="fas fa-long-arrow-alt-right <%if offre.etapes >= etape + 1 %>arr-success<% else %>arr-wait<% end %>"></i></div>
+
                   <% else %>
                   <div class="etp-etp">
-                    <div class="<% if offre.etapes >= etape %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><%= etape %></div>
+                    <div class="<% if offre.etapes >= etape %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><% if offre.etapes >= etape %><i class="fas fa-check"></i><% else %><%= etape %><% end %></div>
                     <div class="etp-tt"><%=i+1%>e entretien</div>
                   </div>
+
+                  <div><i class="fas fa-long-arrow-alt-right <%if offre.etapes >= etape + 1 %>arr-success<% else %>arr-wait<% end %>"></i></div>
+
                   <% end %>
                 <% end %>
                 <div class="etp-etp">
-                  <div class="<% if offre.etapes >= etape + 1 %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><%= etape + 1 %></div>
+                  <div class="<% if offre.etapes >= etape + 1 %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><% if offre.etapes >= etape + 1 %><i class="fas fa-check"></i><% else %><%= etape + 1 %><% end %></div>
                   <div class="etp-tt">Promesse d'embauche</div>
                 </div>
+
+                <div><i class="fas fa-long-arrow-alt-right <%if offre.etapes >= etape + 2 %>arr-success<% else %>arr-wait<% end %>"></i></div>
+
                 <div class="etp-etp">
-                  <div class="<% if offre.etapes >= etape + 2 %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><%= etape + 2 %></div>
+                  <div class="<% if offre.etapes >= etape + 2 %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><% if offre.etapes >= etape + 2 %><i class="fas fa-check"></i><% else %><%= etape + 2 %><% end %></div>
                   <div class="etp-tt">Recrutement</div>
                 </div>
-                    <!-- <div class="etp-ln-success"></div> -->
               </div>
               </div>
             </div>

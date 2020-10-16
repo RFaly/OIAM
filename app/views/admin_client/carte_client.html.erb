@@ -1,21 +1,35 @@
+  <link rel="stylesheet" href="/css/cl_jb_offr.css" />
+<!-- body html  -->
+<div class="client-column">
+  <div class="client-menu-left"><%= render "admin_client/left_menu_link" %></div>
+  <div class="cp-box">
+    <div class="box-inside">
+      <% if @client.empty? %>
+      <div class="co-any-job">
+        <p>Il n'y a aucun client.</p>
+      </div>
+      <% else %>
+      <div class="co-with-job">
+        <h5>TOUS LES CLIENTS</h5>
 
-<div class="cd-box">
-	<% @client.each do |client| %>
-	   	<div class="row">
-	        <div class="col-sm-3">
-	            <img src="<%= client.image %>" alt="photo profil candidats", width="150px", height="150px"  style="background-size: cover"/>
-	        </div>
-	        <div class="col-sm-6">
-	            <div class="desc-candd">
-	                <p>Entreprise : <%= client.entreprise.name %></p>
-	                <p><%= client.first_name.upcase %> <%= client.first_name.capitalize %></p>
-	            </div>
-	        </div>
-	        <div class="col-sm-3">
-	            <div class="cont-btn">
-	                <a href="<%= admin_client_show_client_path(client.id) %>">VOIR L'OFFRE</a>
-	            </div>
-	        </div>
-	    </div>
-    <% end %>
+        <% @client.each do |client| %>
+        <hr />
+        <div class="coj-box" id="offre<%= client.id %>">
+          <div class="cjo-image">
+            <img src="/image/work.png" alt="icone work" />
+          </div>
+          <div class="cjo-content">
+						Entreprise : <%= client.entreprise.name %>
+						<hr>
+						<%= client.first_name.upcase %> <%= client.first_name.capitalize %>
+					</div>
+          <div class="cjo-link-items">
+            <div class="cjo-link"><%= link_to "VOIR L'OFFRE", admin_client_show_client_path(client.id)%></div>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

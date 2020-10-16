@@ -48,7 +48,6 @@
 
 	.chat-body {
 		overflow-y: scroll;
-		/* overflow: hidden; */
 		padding-top: 50px;
 		padding-left: 30px;
 		padding-right: 30px;
@@ -56,6 +55,22 @@
 		/* border-right: 1px solid #ccc; */
 		height: 450px;
 		padding-bottom: 20px;
+	}
+
+	.chat-body::-webkit-scrollbar {
+		width: 5px;
+	}
+
+	.chat-body::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.chat-body::-webkit-scrollbar-thumb {
+		background: #d6b36a;
+	}
+
+	.chat-body::-webkit-scrollbar-thumb:hover {
+		background: #d6b36a;
 	}
 
 	.hr-msg {
@@ -145,6 +160,8 @@
 		border-left: 1px solid #d6b36a;
 		text-align: left;
 		word-wrap: break-word;
+		font-family: Questrial, sans-serif;
+		font-size: 14px;
 	}
 
 	.sd button {
