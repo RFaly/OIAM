@@ -12,43 +12,50 @@
 
 		<h2>Poste: <strong><%= link_to "#{@offre.intitule_pote}", admin_client_show_offer_path(@offre.id)%></strong></h2>
 
-		<% @oFcs.each do |oFc| %>
-			<div class="row">
-				<div class="col-sm-3">
-					<%= image_tag(oFc.cadre.cadre_info.image, alt: 'photo de profil', class:"pdp_mandona", width:"150px" )%>
-				</div>
+		<% if @oFcs.empty? %>
 
-				<div class="col-sm-3">
-					<h3><%= oFc.cadre.cadre_info.first_name %> <%= oFc.cadre.cadre_info.last_name %></h3>
-				</div>
+			Tsy misy cadre selectionner
 
-				<div class="col-sm-6">
+		<% else %>
 
-					<div>
-						<% etape = 0 %>
-						<% @offre.numberEntretien.times do |i| %>
-							<% etape += 1 %>
-							<% if i == 0 %>
-								<span class="list-etapes">1er entretien <span class="badge-success"><%= etape %></span></span>
-							<% else %>
-								<span class="list-etapes"><%= i+1 %>e entretien <span class="badge-success"><%= etape %></span></span>
+			<% @oFcs.each do |oFc| %>
+				<div class="row">
+					<div class="col-sm-3">
+						<%= image_tag(oFc.cadre.cadre_info.image, alt: 'photo de profil', class:"pdp_mandona", width:"150px" )%>
+					</div>
+
+					<div class="col-sm-3">
+						<h3><%= oFc.cadre.cadre_info.first_name %> <%= oFc.cadre.cadre_info.last_name %></h3>
+					</div>
+
+					<div class="col-sm-6">
+
+						<div>
+							<% etape = 0 %>
+							<% @offre.numberEntretien.times do |i| %>
+								<% etape += 1 %>
+								<% if i == 0 %>
+									<span class="list-etapes">1er entretien <span class="badge-success"><%= etape %></span></span>
+								<% else %>
+									<span class="list-etapes"><%= i+1 %>e entretien <span class="badge-success"><%= etape %></span></span>
+								<% end %>
 							<% end %>
-						<% end %>
-						<span class="list-etapes">Promesse d'embauche <span class="badge-success"><%= etape + 1 %></span></span>
-					</div>
+							<span class="list-etapes">Promesse d'embauche <span class="badge-success"><%= etape + 1 %></span></span>
+						</div>
 
-					<div class="btn-info">
-						<!-- oFc.status == "refusé" -->
-						le cadre est à l'étape n° :
-							<strong><%= oFc.etapes %></strong> <br>
-						nombre d'etape total :
-							<strong><%= @offre.numberEntretien + 1 %></strong>
+						<div class="btn-info">
+							<!-- oFc.status == "refusé" -->
+							le cadre est à l'étape n° :
+								<strong><%= oFc.etapes %></strong> <br>
+							nombre d'etape total :
+								<strong><%= @offre.numberEntretien + 1 %></strong>
+						</div>
+
 					</div>
 
 				</div>
-
-			</div>
-			<hr>
+				<hr>
+			<% end %>
 		<% end %>
 
 	</div>
