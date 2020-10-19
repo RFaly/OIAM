@@ -38,19 +38,30 @@ function creatAndApendNewMessage(data) {
   );
 }
 
+
+
 function getMyMessage() {
-  var storeId = $('div[data-store-id]').last().data().storeId;
-  $.getJSON(path_url, function (data) {
-    var my_data = data;
-    for (var i = 0; i < my_data.length; i++) {
-      if (my_data[i].id == storeId) {
-        for (var j = i + 1; j < my_data.length; j++) {
-          creatAndApendNewMessage(my_data[j]);
+  var storeId = $('div[data-store-id]')
+  if (storeId.length == 0) {
+
+  }else{
+    storeId = storeId.last().data().storeId;
+    $.getJSON(path_url, function (data) {
+      var my_data = data;
+      for (var i = 0; i < my_data.length; i++) {
+        if (my_data[i].id == storeId) {
+          for (var j = i + 1; j < my_data.length; j++) {
+            creatAndApendNewMessage(my_data[j]);
+          }
+          break;
         }
-        break;
       }
-    }
-  });
+    });
+  }
 }
 
 setInterval(getMyMessage, 1000);
+
+
+
+

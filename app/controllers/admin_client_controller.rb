@@ -40,4 +40,14 @@ class AdminClientController < ApplicationAdminController
     helpers.updateAdminNotification(params[:secure],current_admin)
     @client = Client.find_by(id: params[:id])
   end
+
+  def all_promisetohire
+    @promise = PromiseToHire.all
+  end
+
+  def show_promisetohire
+    @promise = PromiseToHire.find_by_id(params[:id])
+    @job = @promise.offre_job
+    @cadre = @promise.cadre.cadre_info
+  end
 end

@@ -11,6 +11,18 @@
     font-family: Raleway, sans-serif;
   }
 
+  .cont-ms {
+    position: relative;
+  }
+
+  .ms-main {
+    position: fixed;
+    right: 20px;
+    width: 400px;
+    bottom: 10px;
+    z-index: 6;
+  }
+
 </style>
 <div class="all-content">
   <div class="left-content"><%= render partial: "admin_main/left_menu_message_link" %></div>
@@ -23,7 +35,7 @@
     </div>
     <% else %>
     <% @contactCadre.each do |contact| %> <% nbr = contact.mp_admin_not_see %>
-    <a href="<%= admin_show_messaging_path(contact.cadre.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>">
+    <a href="<%= admin_show_messaging_path(contact.cadre.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>" data-remote="true">
     <div class="message">
       <div class="block-image">
         <% if contact.cadre.cadre_info.image.nil? %>
@@ -38,10 +50,12 @@
       <div class="message-content">
         <div class="recruteur-name"><%= contact.cadre.cadre_info.first_name %> <%= contact.cadre.cadre_info.last_name %></div>
         <div class="message-body">
+          <% unless contact.message_admin_cadres.last.is_admin %>
           <% unless nbr == 0 %>
             <span class="alert-info"><%= nbr %></span>
           <% end %>
-          <% unless contact.message_admin_cadres.last.is_admin %>vous : <%end%> <%= contact.message_admin_cadres.last.content %>
+          <% end %>
+          <% if contact.message_admin_cadres.last.is_admin %>vous : <%end%> <%= contact.message_admin_cadres.last.content %>
         </div>
       </div>
       <div class="connected-times">
@@ -53,5 +67,8 @@
     </a>
     <% end %>
     <% end %>
+  </div>
+  <div class="cont-ms">
+    <div class="ms-main"></div>
   </div>
 </div>

@@ -54,7 +54,7 @@ class FacturationPdfController < ApplicationController
     respond_to do |format|
       format.pdf {render layout: 'promise_layout.html',
                     template: 'facturation_pdf/promise',
-                    pdf:"Promesse b'embauche OIAM ",
+                    pdf:"Promesse d'embauche OIAM ",
                     margin: { top: 15, bottom: 15, left: 10, right: 10 }
                   }
     end
@@ -67,7 +67,7 @@ class FacturationPdfController < ApplicationController
     respond_to do |format|
       format.pdf {render layout: 'promise_cadre.html',
                     template: 'facturation_pdf/promise_cadre',
-                    pdf: "Promesse b'embauche OIAM ",
+                    pdf: "Promesse d'embauche OIAM ",
                     margin: { top: 15, bottom: 15, left: 10, right: 10 }
                   }
     end

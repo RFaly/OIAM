@@ -1,11 +1,10 @@
 <link rel="stylesheet" type="text/css" href="/css/my_messages.css" />
 <div class="all-content">
   <div class="left-content"><%= render partial: "candidates/left_link_bar" %></div>
-
   <div class="main">
     <h2 class="main-title">CHATS</h2>
     <% @contactListes.each do |contact| %> <% nbr = contact.mp_cadre_not_see %>
-    <a href="<%= show_my_messages_cadre_path(contact.client.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>">
+    <a href="<%= show_my_messages_cadre_path(contact.client.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>" data-remote="true">
     <div class="message">
       <div class="block-image">
         <% if contact.client.image.nil? %>
@@ -35,8 +34,6 @@
     </div>
     </a>
     <% end %>
-    <div class="message-container">
-      
-    </div>
+    <div class="message-containera"></div>
   </div>
 </div>

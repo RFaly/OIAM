@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  #Notification cron job
+  get '/727562792f67656dnotifed_cron_job732f322e372e302f', to: 'notifications#entretien_client_fit', as: 'notifed_entretien_client_fit'
+  get '/6f6c696e696c6c6number_notice2f646570656e6465', to: 'notifications#number_notice', as: 'notifed_number_notice'
+  get '/6e2f657874b378number_message38365f36342d6c696e', to: 'notifications#number_message', as: 'notifed_number_message'
+
   # routes pdf 
   get '/recruteur/mes-factures/%:id_factures.26#%/facturation_pdf.pdf',to: 'facturation_pdf#index',as: 'facturation_pdf_to_pdf'
   get '/recruteur/offre-d-emploi/%:id_promise.26#%/contrat-d-embauche.pdf',to: 'facturation_pdf#promise',as: 'promise_pdf'
@@ -120,6 +125,11 @@ Rails.application.routes.draw do
 
   get '/cadre/fit-test', to: 'candidates#testfit', as: 'testfit'
   post '/cadre/save-entretien-date', to:'candidates#saveEntretientDate',as:'saveEntretientDate'
+
+  #maketo
+  post '/cadre/score-resultats-test-potentiel', to:"candidates#createScorePototial", as:'createScorePototial'
+
+
 
   #formation liste
 
@@ -245,6 +255,10 @@ Rails.application.routes.draw do
   # route carte client
   get 'secret-oiam-page/admin/client/carte-client', to: 'admin_client#carte_client', as: 'admin_client_carte_client'
   get 'secret-oiam-page/admin/client/carte-client/:id', to: 'admin_client#show_client', as: 'admin_client_show_client'
+
+  # route promise to hire
+  get 'secret-oiam-page/admin/promesse-d-embauche', to: 'admin_client#all_promisetohire', as: 'admin_client_all_promise_to_hire'
+  get 'secret-oiam-page/admin/promesse-d-embauche/:id', to: 'admin_client#show_promisetohire', as: 'admin_client_show_promise_to_hire' 
 
   # routes dans le dashboard
 

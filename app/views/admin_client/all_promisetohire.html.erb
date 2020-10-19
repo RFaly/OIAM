@@ -1,0 +1,22 @@
+<% @promise.each do |promise|%>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Logo</th>
+      <th scope="col">Nom entreprise</th>
+      <th scope="col">Intituler du poste</th>
+      <th scope="col">Cadre recruter</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><img src="<%= promise.offre_job.image %>"alt="photo profil candidats", width="150px", height="150px" ></th>
+      <td><%= promise.offre_job.client.entreprise.name.upcase %></td>
+      <td><%= promise.offre_job.intitule_pote %></td>
+      <td><%= promise.cadre.cadre_info.first_name.capitalize %> <%= promise.cadre.cadre_info.last_name.capitalize %></td>
+      <td><a href="<%= admin_client_show_promise_to_hire_path(promise.id) %>">Voir</a></td>
+    </tr>
+  </tbody>
+</table>
+<% end %>
