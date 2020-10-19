@@ -166,6 +166,12 @@ html{
 		margin-bottom: 50px;
 	}
 
+.message-containera{
+	position: fixed;
+	bottom: 15px;
+	right: 40px;
+}
+
 	.left-content{
 		border-right: 1px solid #d6b36a;
 	}

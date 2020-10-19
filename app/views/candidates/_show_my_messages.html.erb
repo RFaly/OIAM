@@ -1,13 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/css/show_my_messages.css">
-<div class="content">
-	<div class="left-link-bar">
-		<%= render partial: "candidates/left_link_bar" %>
-	</div>
-
-	<div class="main-content">
 		<div class="main-container">
 			<span hidden id="Profilher" data-image="<%= @img%>"></span>
-			<h2 class="sender-name"><%= @client.first_name %> <%= @client.last_name %> </h2>
+			<h2 class="sender-name"><%= @client.first_name %> <%= @client.last_name %> <span id="btn-hide">x</span> </h2>
 			<div class="boit-reception" id="js-add-new-message">
 				<% @messages.each do |message| %>
 				<div class="<% if message.is_client %>her-message<% else %>my-message<% end %>" data-store-id="<%= message.id %>">
@@ -33,8 +27,6 @@
 			<% end %>
 			</div>
 		</div>
-	</div>
-</div>
 <script>
 	if (document.URL.indexOf('#') == -1) {
 		// Set the URL to whatever it was plus "#".
@@ -46,6 +38,10 @@
 	   //scroll bottom
 	var container = document.querySelector('#js-add-new-message');
 	container.scrollTop = container.scrollHeight;
+
+	$('#btn-hide').click(function(){
+		$(".message-containera").html("");
+	})
 </script>
 
 <script type="text/javascript" src="/js/synchrone_message.js"></script>
