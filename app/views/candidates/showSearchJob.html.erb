@@ -47,13 +47,13 @@
     <div class="description-title">
       <h3>PROCESSUS RH</h3>
       <p>
-        <% case @offre.numberEntretien.to_i %> 
-          <% when 1 %> 
-        1 entretien RH 
-          <% when 2 %> 
-        1 entretien RH + 1 entretien manager 
-          <% when 3 %> 
-        1 entretien RH + 2 entretien manager 
+        <% case @offre.numberEntretien.to_i %>
+          <% when 1 %>
+        1 entretien RH
+          <% when 2 %>
+        1 entretien RH + 1 entretien manager
+          <% when 3 %>
+        1 entretien RH + 2 entretien manager
         <% end %>
       </p>
     </div>
@@ -75,7 +75,7 @@
     </div>
     <% else %> <% if @ofc.accepted_postule == true %> <% if @agendat_client.nil? %>
     <span class="btn btn-primare width-extend"> Vous êtes selectioner parmi les 5 candidats favoris pour ce poste. </span>
-    <% else %> <%= link_to "MON SUIVI RECRUTEMENT", show_recrutment_monitoring_path(@ofc.id), class:'btn btn-primary' %> <% end %> <% elsif @ofc.accepted_postule == false %>
+    <% else %> <%= link_to "MON SUIVI RECRUTEMENT", show_recrutment_monitoring_path(@ofc.id), class:'btn-suivi' %> <% end %> <% elsif @ofc.accepted_postule == false %>
     <div>
       <span class="btn btn-primare">Le recruteur à réfuser votre candidature</span>
     </div>
@@ -93,6 +93,6 @@
   });
 
   $('#send-candidature').bind('ajax:complete', function () {
-    $('#link-to-send-post').html('<span class="btn btn-primary">VOUS AVEZ POSTULÉ À CETTE OFFRE</span>');
+    $('#link-to-send-post').html('<span class="btn-suivi">VOUS AVEZ POSTULÉ À CETTE OFFRE</span>');
   });
 </script>
