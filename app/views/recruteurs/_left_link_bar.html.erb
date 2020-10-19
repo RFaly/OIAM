@@ -6,7 +6,7 @@
 <% end %>
 
 <!-- html body  -->
-<div class="left-menu-r">
+<div class="left-menu-r" data-link="<%= notifed_number_notice_path %>" id="getLinkNoticeJS" >
   <div class="btn-menu-r">
     <span class="btn-menu-burger open"> </span>
   </div>
@@ -24,7 +24,7 @@
     <li><%= link_to "MON SUIVI RECRUTEMENT", my_recruitment_follow_path %></li>
     <li><%= link_to "MES FACTURES", my_bills_path %></li>
     <li><%= link_to "MES NOTIFICATIONS", client_notifications_path %>
-      <div <%if (notice[:all] == 0) %>hidden<% end %>><% if notice[:all] < 9 %><%= notice[:all] %><% else %>+9<% end %></div>
+      <div <%if (notice[:all] == 0) %>hidden<% end %> id="noticeNumberJS"><% if notice[:all] < 9 %><%= notice[:all] %><% else %>+9<% end %></div>
     </li>
     <li><%= link_to "MA MESSAGERIE", my_messages_client_path %>
       <div class="last" <%if (current_client.number_message_not_see == 0) %>hidden<% end %>><% if current_client.number_message_not_see < 9 %><%= current_client.number_message_not_see %><% else %>+9<% end %></div>
@@ -33,3 +33,21 @@
 </div>
 <!-- appel js menu_recruteur.js  -->
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/menu_recruteur.js"></script>
+
+<script>
+  var path_url = $("#getLinkNoticeJS").data().link
+  var div = $("#noticeNumberJS")
+  function getNumberNotice() {
+    $.getJSON(path_url, function (data) {
+      var my_data = data;
+      div.html(my_data.number_notice_client)
+      div.removeAttr("hidden")
+      if (my_data.number_notice_client == 0){
+        div.hide()
+      }else{
+        div.show()
+      }
+    });
+  }
+  setInterval(getNumberNotice, 3000);
+</script>

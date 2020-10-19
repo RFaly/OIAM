@@ -39,10 +39,16 @@ class NotificationsController < ApplicationController
   end
 
   def number_notice
+  	@number_notice_client = 0
+  	unless current_client.nil?
+  		@number_notice_client = current_client.notifications.where(view:false).count
+  	end
 
-
-
-
+  	@number_notice_cadre = 0
+  	unless current_cadre.nil?
+  		@number_notice_cadre = current_cadre.notifications.where(view:false).count
+  	end
+  	
   end
-  
+
 end

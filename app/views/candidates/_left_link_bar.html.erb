@@ -4,7 +4,7 @@
 	<link rel="stylesheet" href="/css/user_menu.css" />
 <% end %>
 <!-- html body  -->
-<div class="left-menu-r">
+<div class="left-menu-r" data-link="<%= notifed_number_notice_path %>" id="getLinkNoticeJS">
   <div class="btn-menu-r">
     <span class="btn-menu-burger open"> </span>
   </div>
@@ -20,8 +20,9 @@
 	<li><%= link_to "MON SUIVI RECRUTEMENT", recrutment_monitoring_path %></li>
 	<li>
 		<%= link_to "MES NOTIFICATIONS", cadres_notifications_path %>
-		<div <%if (notice[:all] == 0) %>hidden<% end %>><%= notice[:all] %></div>
-		<div <%if (notice[:all] == 0) %>hidden<% end %>><% if notice[:all] < 9 %><%= notice[:all] %><% else %>+9<% end %></div>
+
+		<div <%if (notice[:all] == 0) %>hidden<% end %> id="noticeNumberJS"><% if notice[:all] < 9 %><%= notice[:all] %><% else %>+9<% end %></div>
+
 	</li>
 	<li><%= link_to "MA MESSAGERIE", my_messages_cadre_path %>
 		<div class="last" <%if (current_cadre.number_message_not_see == 0) %>hidden<% end %>><% if current_cadre.number_message_not_see < 9 %><%= current_cadre.number_message_not_see %><% else %>+9<% end %></div>
@@ -31,12 +32,23 @@
 <!-- appel js menu_recruteur.js  -->
 <script data-turbolinks-track="reload" src="/js/menu_recruteur.js"></script>
 
+<script>
+	var path_url = $("#getLinkNoticeJS").data().link
+	var div = $("#noticeNumberJS")
+	function getNumberNotice() {
+	  $.getJSON(path_url, function (data) {
+		var number_notice_cadre = data.number_notice_cadre;
+		if (div.html()!=number_notice_cadre){
+			div.html(number_notice_cadre)
+			div.removeAttr("hidden")
+		    if (number_notice_cadre == 0){
+		      div.hide()
+		    }else{
+		      div.show()
+		    }
+		}
+	  });
+	}
+	setInterval(getNumberNotice, 3000);
 
-<!--
-
-
-<% notice[:received] %>
-<% notice[:suivi] %>
-
-
--->
+</script>
