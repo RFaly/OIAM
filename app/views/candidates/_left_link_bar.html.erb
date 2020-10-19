@@ -5,7 +5,7 @@
 <% end %>
 <!-- html body  -->
 
-<div class="left-menu-r" data-link="<%= notifed_number_notice_path %>" data-linkSms="<%= notifed_number_message_path %>" id="getLinkNoticeJS">
+<div class="left-menu-r" data-link="<%= notifed_number_notice_path %>" data-linksms="<%= notifed_number_message_path %>" id="getLinkNoticeJS">
   <div class="btn-menu-r">
     <span class="btn-menu-burger open"> </span>
   </div>
@@ -37,8 +37,8 @@
 
 
 /*-----------------------------number notice---------------------------------*/
-window.setInterval(countNumberNotification, 3000, $("#noticeNumberJS"), $("#getLinkNoticeJS").data().link);
-function countNumberNotification(div,pathUrl){
+window.setInterval(countNumberNotification, 3000, $("#noticeNumberJS"), $("#getLinkNoticeJS").data().link,$("#getLinkNoticeJS").data().linksms,$("#noticeSmsJS"));
+function countNumberNotification(div,pathUrl,pathSms,divSms){
 	$.getJSON(pathUrl, function (data) {
 		let number_notice_cadre = data.number_notice_cadre;
 		if (div.html()!=number_notice_cadre){
@@ -51,32 +51,23 @@ function countNumberNotification(div,pathUrl){
 		    }
 		}
 	});
+	countMessageNotifed(pathSms,divSms);
 }
 /*-----------------------------number sms---------------------------------*/
 
-
-
-// window.setInterval(getNumberSms, 3000, $("#noticeNumberJS"), $("#getLinkNoticeJS").data().linkSms);
-// function getNumberSms(div,pathUrl) {
-//   $.getJSON(pathUrl, function (dataNotif) {
-//   	console.log("+++")
-//   	console.log(dataNotif)
-// 	console.log("+++")
-// 	let number_message_cadre = dataNotif.number_message_cadre;
-// 	if (div.html()!=number_message_cadre){
-// 		div.html(number_message_cadre)
-// 	    if (number_message_cadre == 0){
-// 	      div.hide()
-// 	    }else{
-// 		  div.removeAttr("hidden")
-// 	      div.show()
-// 	    }
-// 	}
-//   });
-// }
-
-
-
-	
+function countMessageNotifed(pathSms,divSms){
+	$.getJSON(pathSms, function (dataNotif) {
+		let number_message_cadre = dataNotif.number_message_cadre;
+		if (divSms.html()!=number_message_cadre){
+			divSms.html(number_message_cadre)
+		    if (number_message_cadre == 0){
+		      divSms.hide()
+		    }else{
+			  divSms.removeAttr("hidden")
+		      divSms.show()
+		    }
+		}
+	});
+}
 
 </script>
