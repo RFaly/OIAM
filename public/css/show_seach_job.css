@@ -146,22 +146,25 @@ html{
   color: rgba(0, 0, 0, 0.5);
 }
 
-.btn-primary{
+.btn-suivi{
   display: block;
   margin: auto;
   max-width: 350px;
-  height: 50px;
+  height: auto;
   font-size: 16px;
   border: 1px solid #D6B36A;
   background: none;
   border-radius:0;
   color: #D6B36A;
-  padding: 12px;
+  padding: 20px;
+	text-decoration: none;
+	text-align: center;
 }
 
-.btn-primary:hover{
+.btn-suivi:hover{
   background: #D6B36A;
   color: #fff;
+	text-decoration: none;
   border: none;
 }
 
