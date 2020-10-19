@@ -38,12 +38,19 @@ function creatAndApendNewMessage(data) {
   );
 }
 
-function getMyMessage() {
-  var storeId = $('div[data-store-id]').last().data().storeId;
+
+var storeId = $('div[data-store-id]')
+
+if (storeId.length > 0) {
+  window.setInterval(getMyMessage, 1000, storeId);
+}
+
+function getMyMessage(divId) {
+  let storeIdWa = divId.last().data().storeId;
   $.getJSON(path_url, function (data) {
     var my_data = data;
     for (var i = 0; i < my_data.length; i++) {
-      if (my_data[i].id == storeId) {
+      if (my_data[i].id == storeIdWa) {
         for (var j = i + 1; j < my_data.length; j++) {
           creatAndApendNewMessage(my_data[j]);
         }
@@ -53,4 +60,7 @@ function getMyMessage() {
   });
 }
 
-setInterval(getMyMessage, 1000);
+
+
+
+

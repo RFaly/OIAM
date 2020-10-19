@@ -35,19 +35,22 @@
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/menu_recruteur.js"></script>
 
 <script>
-  var path_url = $("#getLinkNoticeJS").data().link
-  var div = $("#noticeNumberJS")
-  function getNumberNotice() {
-    $.getJSON(path_url, function (data) {
-      var my_data = data;
-      div.html(my_data.number_notice_client)
-      div.removeAttr("hidden")
-      if (my_data.number_notice_client == 0){
-        div.hide()
-      }else{
-        div.show()
-      }
-    });
-  }
-  setInterval(getNumberNotice, 3000);
+
+/*-----------------------------number notice---------------------------------*/
+window.setInterval(getNumberNotice, 3000, $("#getLinkNoticeJS").data().link,$("#noticeNumberJS"));
+function getNumberNotice(pathClientUrl, divBe){
+  $.getJSON(pathClientUrl, function (data) {
+    divBe.html(data.number_notice_client)
+    divBe.removeAttr("hidden")
+    if (data.number_notice_client == 0){
+      divBe.hide()
+    }else{
+      divBe.show()
+    }
+  });
+}
+/*-----------------------------number sms---------------------------------*/
+
+
+
 </script>
