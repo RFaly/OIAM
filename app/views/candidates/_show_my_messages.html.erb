@@ -1,7 +1,8 @@
 <link rel="stylesheet" type="text/css" href="/css/show_my_messages.css">
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 		<div class="main-container">
 			<span hidden id="Profilher" data-image="<%= @img%>"></span>
-			<h2 class="sender-name"><%= @client.first_name %> <%= @client.last_name %> <span id="btn-hide">x</span> </h2>
+			<h2 class="sender-name"><%= @client.first_name %> <%= @client.last_name %> <span id="btn-hide"><i class="fas fa-times"></i></span> </h2>
 			<div class="boit-reception" id="js-add-new-message">
 				<% @messages.each do |message| %>
 				<div class="<% if message.is_client %>her-message<% else %>my-message<% end %>" data-store-id="<%= message.id %>">

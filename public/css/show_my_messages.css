@@ -159,7 +159,8 @@ body {
   width: 100%;
   padding: 15px;
   border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
 
 #btn-hide{
@@ -170,6 +171,7 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
+
 
 .boit-reception {
   display: block;
@@ -218,8 +220,8 @@ body {
 #image {
   content: '';
   position: absolute;
-  width: 54px;
-  height: 54px;
+  width: 45px;
+  height: 45px;
   border-radius: 36px;
   bottom: -42px;
   left: -25px;
@@ -268,6 +270,7 @@ input[type='submit'] {
   z-index: 1;
   width: 100%;
   background: #fff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .main-container::after{
@@ -287,7 +290,7 @@ input[type='submit'] {
 
   .boit-reception {
     max-height: 300px;
-    width: 300px;
+    width: 100%;
     overflow-y: scroll;
   }
 }
