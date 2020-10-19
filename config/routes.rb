@@ -126,6 +126,7 @@ Rails.application.routes.draw do
   get '/cadre/fit-test', to: 'candidates#testfit', as: 'testfit'
   post '/cadre/save-entretien-date', to:'candidates#saveEntretientDate',as:'saveEntretientDate'
 
+  #maketo
   post '/cadre/score-resultats-test-potentiel', to:"candidates#createScorePototial", as:'createScorePototial'
 
 

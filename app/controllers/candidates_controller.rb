@@ -454,6 +454,13 @@ class CandidatesController < ApplicationController
 
   end
 
+#maketo
+  def createScorePototial
+    puts "--"*32
+    puts params.inspect
+    puts "--"*32
+  end
+
 #END ---------------------------------------------------------------------
 
 
