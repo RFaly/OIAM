@@ -15,6 +15,12 @@ class AdminMainController < ApplicationAdminController
     @contact.message_admin_cadres.where(admin_see:false).update(admin_see:true)
     @messages = @contact.message_admin_cadres.order(created_at: :ASC)
     @newMessage = MessageAdminCadre.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def post_messaging

@@ -30,14 +30,14 @@
                   <div class="etp-tt">Publication</div>
                 </div>
 
-                <div><i class="fas fa-long-arrow-alt-right <%if offre.etapes >= 2 %>arr-success<% else %>arr-wait<% end %>"></i></div>
+                <div><i class="fas fa-minus <%if offre.etapes >= 2 %>arr-success<% else %>arr-wait<% end %>"></i></div>
 
                 <div class="etp-etp">
                   <div class="<% if offre.etapes >= 2 %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><% if offre.etapes >=2 %><i class="fas fa-check"></i><% else %>2<% end %></div>
                   <div class="etp-tt">Sélection</div>
                 </div>
 
-                <div><i class="fas fa-long-arrow-alt-right <%if offre.etapes >= 3 %>arr-success<% else %>arr-wait<% end %>"></i></div>
+                <div><i class="fas fa-minus <%if offre.etapes >= 3 %>arr-success<% else %>arr-wait<% end %>"></i></div>
 
                 <% etape = 2 %>
                 <% offre.numberEntretien.times do |i| %>
@@ -48,7 +48,7 @@
                     <div class="etp-tt">1er entretien</div>
                   </div>
 
-                  <div><i class="fas fa-long-arrow-alt-right <%if offre.etapes >= etape + 1 %>arr-success<% else %>arr-wait<% end %>"></i></div>
+                  <div><i class="fas fa-minus <%if offre.etapes >= etape + 1 %>arr-success<% else %>arr-wait<% end %>"></i></div>
 
                   <% else %>
                   <div class="etp-etp">
@@ -56,7 +56,7 @@
                     <div class="etp-tt"><%=i+1%>e entretien</div>
                   </div>
 
-                  <div><i class="fas fa-long-arrow-alt-right <%if offre.etapes >= etape + 1 %>arr-success<% else %>arr-wait<% end %>"></i></div>
+                  <div><i class="fas fa-minus <%if offre.etapes >= etape + 1 %>arr-success<% else %>arr-wait<% end %>"></i></div>
 
                   <% end %>
                 <% end %>
@@ -65,7 +65,7 @@
                   <div class="etp-tt">Promesse d'embauche</div>
                 </div>
 
-                <div><i class="fas fa-long-arrow-alt-right <%if offre.etapes >= etape + 2 %>arr-success<% else %>arr-wait<% end %>"></i></div>
+                <div><i class="fas fa-minus <%if offre.etapes >= etape + 2 %>arr-success<% else %>arr-wait<% end %>"></i></div>
 
                 <div class="etp-etp">
                   <div class="<% if offre.etapes >= etape + 2 %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><% if offre.etapes >= etape + 2 %><i class="fas fa-check"></i><% else %><%= etape + 2 %><% end %></div>

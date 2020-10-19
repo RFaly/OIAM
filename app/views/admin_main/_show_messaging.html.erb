@@ -1,0 +1,290 @@
+<% @title="Messagerie" %>
+<link rel="stylesheet" href="/css/show_admin_message.css" />
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
+<style media="screen">
+  .clear {
+    clear: both;
+  }
+	.chat-info {
+		display: flex;
+		padding: 10px;
+		background: #d6b36a;
+		color: #fff;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border: none;
+    position: relative;
+	}
+
+	.img img {
+		width: 50px;
+		height: 50px;
+		border: 2px solid #e3d7bf;
+		border-radius: 50%;
+		background-position: center;
+		background-image: cover;
+	}
+
+	.img {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.desc {
+		padding-left: 10px;
+	}
+
+	.name {
+		font-size: 24px;
+		font-weight: bold;
+		font-family: Questrial, sans-serif;
+    padding-top: 5px;
+	}
+
+	.online small {
+		font-size: 12px;
+		font-family: Questrial, sans-serif;
+    padding-top: 5px;
+	}
+
+	.chat-body {
+		overflow-y: scroll;
+		padding-top: 20px;
+		padding-left: 15px;
+		padding-right: 15px;
+		border-left: 2px solid #ccc;
+		border-right: 2px solid #ccc;
+		height: 400px;
+		padding-bottom: 20px;
+    background: #fff !important;
+    z-index: 6;
+	}
+
+	.chat-body::-webkit-scrollbar {
+		width: 5px;
+	}
+
+	.chat-body::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.chat-body::-webkit-scrollbar-thumb {
+		background: #d6b36a;
+	}
+
+	.chat-body::-webkit-scrollbar-thumb:hover {
+		background: #d6b36a;
+	}
+
+	.hr-msg {
+		display: flex;
+    margin-top: 5px;
+    text-align: left;
+    position: relative;
+	}
+
+	.hr-image img {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		border: 2px solid #d6b36a;
+	}
+
+	.hr-image {
+		padding-right: 20px;
+    z-index: 3;
+	}
+
+	.hr-mg {
+		background: #d6b36a;
+		text-align: left;
+		padding: 20px;
+		border-radius: 10px;
+		width: 60%;
+    bottom: 20px;
+	}
+
+	.hr-mg p {
+		color: #fff;
+		font-size: 14px;
+		font-family: Questrial, sans-serif;
+		width: 100%;
+		word-wrap: break-word;
+		text-align: justify;
+	}
+
+	.m-msg {
+		float: right;
+		margin-top: 5px;
+		background: #e3d7bf;
+		width: 60%;
+		border-radius: 10px;
+		padding: 20px;
+		text-align: left;
+	}
+
+	.m-msg p {
+		color: #fff;
+		font-size: 14px;
+		font-family: Questrial, sans-serif;
+		width: 100%;
+		word-wrap: break-word;
+		text-align: justify;
+	}
+
+	.sd {
+		display: flex;
+    background: #fff !important;
+	}
+
+	.sd-input {
+		float: left;
+	}
+
+	.sd-btn {
+		float: right;
+	}
+
+	.sd-input input{
+		padding-left: 10px;
+		padding-right: 20px;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		outline: none;
+		border: 1px solid #d6b36a;
+	}
+
+	.sd textarea {
+		resize: none;
+	}
+
+	.ms-in {
+		width: 100%;
+		padding: 15px;
+		outline: none;
+		border: none;
+		border-top: 1px solid #d6b36a;
+		border-bottom: 1px solid #d6b36a;
+		border-left: 1px solid #d6b36a;
+		text-align: left;
+		word-wrap: break-word;
+		font-family: Questrial, sans-serif;
+		font-size: 14px;
+	}
+
+	.sd button {
+		background: #fff;
+		border: none;
+		outline: none;
+		padding: 10px;
+		border-right: 1px solid #d6b36a;
+		border-bottom: 1px solid #d6b36a;
+		border-top: 1px solid #d6b36a;
+	}
+
+	.dt {
+		float: right;
+		color: white;
+		font-size: 10px;
+		font-family: Questrial, sans-serif;
+	}
+
+  .chat-all {
+    -webkit-box-shadow: 4px 12px 24px -15px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 12px 24px -15px rgba(0,0,0,0.75);
+    box-shadow: 4px 12px 24px -15px rgba(0,0,0,0.75);
+  }
+
+  .hide {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+
+  .hide i {
+    font-size: 30px;
+  }
+
+  #ic-hide {
+    cursor: pointer;
+  }
+
+  .online-dot {
+    background: green;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 8;
+    left: 30px;
+    top: 30px;
+  }
+
+  .dot {
+    background: green;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 4;
+    left: 65px;
+    top: 50px;
+  }
+
+</style>
+<!-- body html  -->
+<div class="chat-all">
+			<div class="chat-info">
+				<div class="img">
+					<img src="<%= @contact.cadre.cadre_info.image %>" alt="avatar">
+				</div>
+				<div class="desc">
+					<h1 class="name"><%= @contact.cadre.cadre_info.first_name %> <%= @contact.cadre.cadre_info.last_name %></h1>
+					<p class="online">
+						<small>
+							En ligne</small>
+					</p>
+				</div>
+        <div class="hide">
+          <i class="fas fa-times" id="ic-hide"></i>
+        </div>
+        <span class="dot"></span>
+	</div>
+
+	<div class="chat-body">
+		<% @messages.each do |message| %>
+		<% unless message.is_admin %>
+		<div class="hr-msg">
+			<div class="hr-image">
+				<img src="<%= @contact.cadre.cadre_info.image %>" alt="avatar">
+			</div>
+			<div class="hr-mg">
+				<p><%= message.content %></p>
+			</div>
+      <span class="online-dot"></span>
+		</div>
+		<% else %>
+		<div class="m-msg">
+			<p><%= message.content %></p>
+		</div>
+    <div class="clear"></div>
+		<% end %>
+		<% end %>
+	</div>
+
+	<%= form_tag(post_messaging_path) do %>
+	<div class="sd">
+			<textarea placeholder="répondre..." class="ms-in" name="message_admin_cadre[content]" id="message_admin_cadre_content"></textarea>
+			<button type="submit">
+				<img src="/image/send.png" alt="send" class="ms-im"/>
+				<!-- <%= submit_tag("ENVOYER") %> -->
+			</button>
+	</div>
+	<% end %>
+  </div>
+<script type="text/javascript">
+	$(".chat-body").animate({ scrollTop: 20000000 }, "slow");
+  $('#ic-hide').click(function () {
+    $('.ms-main').html('');
+  });
+</script>

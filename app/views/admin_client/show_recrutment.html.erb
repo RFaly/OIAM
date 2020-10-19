@@ -11,7 +11,10 @@
 
 	<div class="cp-box">
 
-		<h2 class="in-ps">Poste: <strong><%= link_to "#{@offre.intitule_pote}", admin_client_show_offer_path(@offre.id)%></strong></h2>
+		<h2 class="in-ps">Poste:
+      <strong class="in-tt"><%= link_to "#{@offre.intitule_pote}", admin_client_show_offer_path(@offre.id)%>
+      </strong>
+    </h2>
 
 		<% if @oFcs.empty? %>
 
@@ -40,13 +43,13 @@
 									<div class="<% if oFc.etapes >= etape %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><% if oFc.etapes >= etape %><i class="fas fa-check"></i><% else %><%= etape %><% end %></div>
 									<div class="etp-tt">1er entretien</div>
 								</div>
-								<div><i class="fas fa-long-arrow-alt-right <%if oFc.etapes >= etape + 1 %>arr-success<% else %>arr-wait<% end %>"></i></div>
+								<div><i class="fas fa-minus <%if oFc.etapes >= etape + 1 %>arr-success<% else %>arr-wait<% end %>"></i></div>
 								<% else %>
 								<div class="etp-etp">
 									<div class="<% if oFc.etapes >= etape %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><% if oFc.etapes >= etape %><i class="fas fa-check"></i><% else %><%= etape %><% end %></div>
 									<div class="etp-tt"><%= i+1 %>e entretien</div>
 								</div>
-								<div><i class="fas fa-long-arrow-alt-right <%if oFc.etapes >= etape + 1 %>arr-success<% else %>arr-wait<% end %>"></i></div>
+								<div><i class="fas fa-minus <%if oFc.etapes >= etape + 1 %>arr-success<% else %>arr-wait<% end %>"></i></div>
 								<% end %>
 							<% end %>
 							<div class="etp-etp">
