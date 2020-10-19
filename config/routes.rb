@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  get '/notifed_entretien_client_fit', to: 'notifications#entretien_client_fit', as: 'notifed_entretien_client_fit'
+  get '/notifed_number_notice', to: 'notifications#number_notice', as: 'notifed_number_notice'
+
   # routes pdf 
   get '/recruteur/mes-factures/%:id_factures.26#%/facturation_pdf.pdf',to: 'facturation_pdf#index',as: 'facturation_pdf_to_pdf'
   get '/recruteur/offre-d-emploi/%:id_promise.26#%/contrat-d-embauche.pdf',to: 'facturation_pdf#promise',as: 'promise_pdf'

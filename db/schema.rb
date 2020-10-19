@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_121332) do
+ActiveRecord::Schema.define(version: 2020_10_19_064450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_10_13_121332) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "accepted"
+    t.boolean "notifed", default: false
     t.index ["admin_id"], name: "index_agenda_admins_on_admin_id"
     t.index ["cadre_info_id"], name: "index_agenda_admins_on_cadre_info_id"
   end
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_10_13_121332) do
     t.boolean "repons_client", default: true
     t.boolean "repons_cadre"
     t.boolean "is_update"
+    t.boolean "notifed", default: false
     t.index ["offre_for_candidate_id"], name: "index_agenda_clients_on_offre_for_candidate_id"
   end
 
