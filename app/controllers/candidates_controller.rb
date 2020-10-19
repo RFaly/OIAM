@@ -290,7 +290,7 @@ class CandidatesController < ApplicationController
     @cadre = current_cadre
     @agendas = @oFc.agenda_clients.order('created_at DESC')[0]
     # @promise = @offreJob.promise_to_hires.find_by(cadre:@cadre)
-    @promise = @offreJob.promise_to_hires.joins(:cadre).find_by(cadre:current_cadre) 
+    @promise = @offreJob.promise_to_hires.joins(:cadre).find_by(cadre:current_cadre)
 
   end
 
@@ -435,7 +435,7 @@ class CandidatesController < ApplicationController
 
   def saveEntretientDate
     @cadreInfo = CadreInfo.find_by_confirm_token(cookies.encrypted[:oiam_cadre])
-    
+
     date = params[:date].split("-")
     time = params[:time].split(":")
     day = date[0].to_i
@@ -445,7 +445,7 @@ class CandidatesController < ApplicationController
     min = time[1].to_i
 
     @agenda = AgendaAdmin.new(entretien_date:DateTime.new(year,month,day,hour,min).utc,cadre_info:@cadreInfo)
-    
+
     if @agenda.save
       @cadreInfo.update(fit_test:true)
     else
@@ -484,6 +484,10 @@ class CandidatesController < ApplicationController
     @contact.message_client_cadres.where(cadre_see:false).update(cadre_see:true)
     @messages = @contact.message_client_cadres.order(created_at: :ASC)
     @newMessage = MessageClientCadre.new
+    respond_to do |format|
+  		format.html { }
+  		format.js { }
+  	end
   end
 
   def post_my_message
@@ -586,7 +590,7 @@ class CandidatesController < ApplicationController
       @promise.update(birthday_cadre: params[:promise_to_hire][:birthday_cadre], birthplace_cadre: params[:promise_to_hire][:birthplace_cadre], ns_sociale_cadre: params[:promise_to_hire][:ns_sociale_cadre], signature_candidat: file_sinc.url, cin_pass_port: file_cin.url, security_certificate: file_sc.url, rib: filerib.url, repons_cadre:true)
       @offreJob = @promise.offre_job
       @offreJob.next_stape
-      
+
       # calcul prix honoraire oiam
       prix = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2))) * 10 * 20
       pcalcul = (prix/1000).round(2)
@@ -599,7 +603,7 @@ class CandidatesController < ApplicationController
       last_name = current_cadre.cadre_info.last_name
       # notifaka eto
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. vient d'accepter votre proposition d'embauche !",link: "#{recruitment_show_cadre_path(oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
-      
+
       oFc = @offreJob.is_in_this_job(current_cadre)
 
       redirect_to show_recrutment_monitoring_path(oFc.id)
@@ -655,7 +659,7 @@ class CandidatesController < ApplicationController
     unless region.empty?
       unless region == "all"
         region = Region.find_by_id(region)
-        @offres = @offres.where(region: region.name)  
+        @offres = @offres.where(region: region.name)
       end
     end
 
