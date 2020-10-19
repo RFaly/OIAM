@@ -168,8 +168,10 @@ html{
 
 .message-containera{
 	position: fixed;
-	bottom: 15px;
-	right: 40px;
+	bottom: 0;
+	right: 10px;
+	padding: 15px;
+	width: 350px;
 }
 
 	.left-content{
