@@ -4,7 +4,8 @@
 	<link rel="stylesheet" href="/css/user_menu.css" />
 <% end %>
 <!-- html body  -->
-<div class="left-menu-r">
+
+<div class="left-menu-r" data-link="<%= notifed_number_notice_path %>" data-linkSms="<%= notifed_number_message_path %>" id="getLinkNoticeJS">
   <div class="btn-menu-r">
     <span class="btn-menu-burger open"> </span>
   </div>
@@ -20,23 +21,62 @@
 	<li><%= link_to "MON SUIVI RECRUTEMENT", recrutment_monitoring_path %></li>
 	<li>
 		<%= link_to "MES NOTIFICATIONS", cadres_notifications_path %>
-		<div <%if (notice[:all] == 0) %>hidden<% end %>><%= notice[:all] %></div>
-		<div <%if (notice[:all] == 0) %>hidden<% end %>><% if notice[:all] < 9 %><%= notice[:all] %><% else %>+9<% end %></div>
+
+		<div <%if (notice[:all] == 0) %>hidden<% end %> id="noticeNumberJS"><% if notice[:all] < 9 %><%= notice[:all] %><% else %>+9<% end %></div>
+
 	</li>
 	<li><%= link_to "MA MESSAGERIE", my_messages_cadre_path %>
-		<div class="last" <%if (current_cadre.number_message_not_see == 0) %>hidden<% end %>><% if current_cadre.number_message_not_see < 9 %><%= current_cadre.number_message_not_see %><% else %>+9<% end %></div>
+		<div id="noticeSmsJS" class="last" <%if (current_cadre.number_message_not_see == 0) %>hidden<% end %>><% if current_cadre.number_message_not_see < 9 %><%= current_cadre.number_message_not_see %><% else %>+9<% end %></div>
 	</li>
   </ul>
 </div>
 <!-- appel js menu_recruteur.js  -->
 <script data-turbolinks-track="reload" src="/js/menu_recruteur.js"></script>
 
-
-<!--
-
-
-<% notice[:received] %>
-<% notice[:suivi] %>
+<script>
 
 
--->
+/*-----------------------------number notice---------------------------------*/
+window.setInterval(countNumberNotification, 3000, $("#noticeNumberJS"), $("#getLinkNoticeJS").data().link);
+function countNumberNotification(div,pathUrl){
+	$.getJSON(pathUrl, function (data) {
+		let number_notice_cadre = data.number_notice_cadre;
+		if (div.html()!=number_notice_cadre){
+			div.html(number_notice_cadre)
+		    if (number_notice_cadre == 0){
+		      div.hide()
+		    }else{
+			  div.removeAttr("hidden")
+		      div.show()
+		    }
+		}
+	});
+}
+/*-----------------------------number sms---------------------------------*/
+
+
+
+// window.setInterval(getNumberSms, 3000, $("#noticeNumberJS"), $("#getLinkNoticeJS").data().linkSms);
+// function getNumberSms(div,pathUrl) {
+//   $.getJSON(pathUrl, function (dataNotif) {
+//   	console.log("+++")
+//   	console.log(dataNotif)
+// 	console.log("+++")
+// 	let number_message_cadre = dataNotif.number_message_cadre;
+// 	if (div.html()!=number_message_cadre){
+// 		div.html(number_message_cadre)
+// 	    if (number_message_cadre == 0){
+// 	      div.hide()
+// 	    }else{
+// 		  div.removeAttr("hidden")
+// 	      div.show()
+// 	    }
+// 	}
+//   });
+// }
+
+
+
+	
+
+</script>
