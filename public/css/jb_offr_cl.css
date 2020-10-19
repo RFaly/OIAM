@@ -241,8 +241,12 @@
 .in-ps {
   text-align: center;
   padding-bottom: 20px;
-  font-size: 26px;
-  color: #d6b36a;
+  font-size: 16px;
   font-family: Questrial, sans-serif;
+}
+
+.in-ps a {
+  color: #d6b36a;
   font-weight: bold;
+  font-size: 28px;
 }

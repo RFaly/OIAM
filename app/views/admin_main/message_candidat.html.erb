@@ -11,6 +11,18 @@
     font-family: Raleway, sans-serif;
   }
 
+  .cont-ms {
+    position: relative;
+  }
+
+  .ms-main {
+    position: fixed;
+    right: 20px;
+    width: 400px;
+    bottom: 10px;
+    z-index: 6;
+  }
+
 </style>
 <div class="all-content">
   <div class="left-content"><%= render partial: "admin_main/left_menu_message_link" %></div>
@@ -23,7 +35,7 @@
     </div>
     <% else %>
     <% @contactCadre.each do |contact| %> <% nbr = contact.mp_admin_not_see %>
-    <a href="<%= admin_show_messaging_path(contact.cadre.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>">
+    <a href="<%= admin_show_messaging_path(contact.cadre.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>" data-remote="true">
     <div class="message">
       <div class="block-image">
         <% if contact.cadre.cadre_info.image.nil? %>
@@ -53,5 +65,8 @@
     </a>
     <% end %>
     <% end %>
+  </div>
+  <div class="cont-ms">
+    <div class="ms-main"></div>
   </div>
 </div>
