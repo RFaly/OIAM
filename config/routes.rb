@@ -246,6 +246,10 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/client/carte-client', to: 'admin_client#carte_client', as: 'admin_client_carte_client'
   get 'secret-oiam-page/admin/client/carte-client/:id', to: 'admin_client#show_client', as: 'admin_client_show_client'
 
+  # route promise to hire
+  get 'secret-oiam-page/admin/promesse-d-embauche', to: 'admin_client#all_promisetohire', as: 'admin_client_all_promise_to_hire'
+  get 'secret-oiam-page/admin/promesse-d-embauche/:id', to: 'admin_client#show_promisetohire', as: 'admin_client_show_promise_to_hire' 
+
   # routes dans le dashboard
 
   # post 'secret-oiam-page/admin/:id/suivre-candidate', to:'admin_dashboard#add_favorite_cadre', as:'add_favorite_cadre'
