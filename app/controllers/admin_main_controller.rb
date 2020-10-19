@@ -25,11 +25,12 @@ class AdminMainController < ApplicationAdminController
 
   def post_messaging
     @admin = current_admin
-    @cadre = Cadre.find_by_id(params[:id])
-    @contactCadre = current_admin.contact_admin_cadres
+    @cadre = Cadre.all
     @contact = ContactAdminCadre.where(cadre: @cadre, admin:current_admin)
-    if @contact.nil?
+    if @contact.count == 0
       @contact = ContactAdminCadre.create(cadre: @cadre, admin:current_admin)
+    else
+      @contact = @contact.first
     end
     @contact.message_admin_cadres.where(admin_see:false).update(admin_see:true)
     @content = params[:message_admin_cadre][:content]
@@ -40,6 +41,7 @@ class AdminMainController < ApplicationAdminController
     else
       flash[:alert] = @newMessage.errors.details
     end
+   
   end
  def message_candidat
     @admin = Admin.all
