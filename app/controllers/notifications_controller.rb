@@ -39,6 +39,10 @@ class NotificationsController < ApplicationController
   end
 
   def number_notice
-  	
+
+
+
+
   end
+  
 end

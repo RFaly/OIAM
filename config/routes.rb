@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  get '/notifed_entretien_client_fit', to: 'notifications#entretien_client_fit', as: 'notifed_entretien_client_fit'
+  #Notification cron job
+  get '/727562792f67656dnotifed_cron_job732f322e372e302f', to: 'notifications#entretien_client_fit', as: 'notifed_entretien_client_fit'
   get '/notifed_number_notice', to: 'notifications#number_notice', as: 'notifed_number_notice'
 
   # routes pdf 

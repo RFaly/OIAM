@@ -3,7 +3,13 @@
 while true
 do
 	/bin/sleep 5
-	/bin/curl -k http://localhost:3000/notifed_entretien_client_fit.json
+	/bin/curl -k http://localhost:3000/727562792f67656dnotifed_cron_job732f322e372e302f.json
 done
 
-# sudo chmod +x /my_sh_file.sh
+
+#http://fc16455.online-server.cloud/727562792f67656dnotifed_cron_job732f322e372e302f.json
+#http://c8b0600.online-server.cloud/727562792f67656dnotifed_cron_job732f322e372e302f.json
+
+# sudo chmod +x cron_job_notification_oiam
+# ./cron_job_notification_oiam.sh
+
