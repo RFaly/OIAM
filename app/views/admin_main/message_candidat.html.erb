@@ -50,10 +50,12 @@
       <div class="message-content">
         <div class="recruteur-name"><%= contact.cadre.cadre_info.first_name %> <%= contact.cadre.cadre_info.last_name %></div>
         <div class="message-body">
+          <% unless contact.message_admin_cadres.last.is_admin %>
           <% unless nbr == 0 %>
             <span class="alert-info"><%= nbr %></span>
           <% end %>
-          <% unless contact.message_admin_cadres.last.is_admin %>vous : <%end%> <%= contact.message_admin_cadres.last.content %>
+          <% end %>
+          <% if contact.message_admin_cadres.last.is_admin %>vous : <%end%> <%= contact.message_admin_cadres.last.content %>
         </div>
       </div>
       <div class="connected-times">
