@@ -25,9 +25,18 @@ WickedPdf.config = {
   #
   # use_xvfb: true,
  }
-if Rails.env.staging? || Rails.env.production?
-  exe_path = Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s
+# if Rails.env.staging? || Rails.env.production?
+#   exe_path = Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s
+# else
+#   exe_path = Rails.root.join('bin', 'wkhtmltopdf').to_s
+#   # exe_path = '/usr/local/bin/wkhtmltopdf'
+# end
+if Rails.env.production?
+  WickedPdf.config = {
+     :exe_path => Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s
+  }
 else
-  exe_path = Rails.root.join('bin', 'wkhtmltopdf').to_s
-  # exe_path = '/usr/local/bin/wkhtmltopdf'
+   WickedPdf.config = {
+      :exe_path => '/Users/josegranado/.rvm/gems/ruby-2.1.5@rails4.1.0/bin/wkhtmltopdf'
+   }
 end
