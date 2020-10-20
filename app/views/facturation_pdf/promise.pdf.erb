@@ -35,7 +35,7 @@
             <%end %>
             <label>Date de naissance</label>
             <% end%> <input type="text" id="date" value="<%= @pbc ? @pbc : "Date de naissance" %>" readonly class="<%unless @promise.birthday_cadre.nil? %> input <% end%>"/>
-            <%= image_tag wicked_pdf_asset_base64("calendar.png") -%>
+            <%= image_tag wicked_pdf_asset_base64("calendar.png") %>
         </div>
         <div class="pch-div">
             <% unless @promise.birthplace_cadre.nil?%>
@@ -50,9 +50,9 @@
         </div>
     </div>
     <hr />
-    <div class="pc-form pc-form1 "><div class='label'>Date de prise de poste</div> <% priseDate = @promise.date_poste ? @promise.date_poste : @job.date_poste %> <%= f.text_field :date_poste,readonly:'true',id:'datepicker' %><%= image_tag wicked_pdf_asset_base64("calendar.png") -%></div>
+    <div class="pc-form pc-form1 "><div class='label'>Date de prise de poste</div> <% priseDate = @promise.date_poste ? @promise.date_poste : @job.date_poste %> <%= f.text_field :date_poste,readonly:'true',id:'datepicker' %><%= image_tag wicked_pdf_asset_base64("calendar.png") %></div>
     <hr />
-    <div class="pc-form pc-form1"><div class='label'>Période d'essai</div><% periodessay = @promise.time_trying ? @promise.time_trying : (@promise.date_poste.to_date + 120 ).strftime("%d/%m/%Y") %> <input type="text" value="<%= periodessay %>" id="date" readonly /><%= image_tag wicked_pdf_asset_base64("calendar.png") -%></div>
+    <div class="pc-form pc-form1"><div class='label'>Période d'essai</div><% periodessay = @promise.time_trying ? @promise.time_trying : (@promise.date_poste.to_date + 120 ).strftime("%d/%m/%Y") %> <input type="text" value="<%= periodessay %>" id="date" readonly /><%= image_tag wicked_pdf_asset_base64("calendar.png") %></div>
     <hr />
     <div class="pc-form pc-form1">
         <div class='label'>Rémunération fixe (k€ bruts annuels)</div>
@@ -66,19 +66,19 @@
         <div class='check'>
             <label id="conditioncheck">
             12 mois <%= f.radio_button :remuneration_fixe_date, "12", id:'post_12', class:'js-post-mois',disabled:'true'%>
-            <span class="checkmark"><%if (@promise.remuneration_fixe_date == '12' ) %><%= image_tag wicked_pdf_asset_base64("checkeed.png") -%><%end%></span>
+            <span class="checkmark"><%if (@promise.remuneration_fixe_date == '12' ) %><%= image_tag wicked_pdf_asset_base64("checkeed.png") %><%end%></span>
             </label>
         </div>
         <div class='check'>
             <label id="conditioncheck">
             13 mois <%= f.radio_button :remuneration_fixe_date, "13", id:'post_13', class:'js-post-mois',disabled:'true' %>
-            <span class="checkmark"><%if (@promise.remuneration_fixe_date == '13' ) %><%= image_tag wicked_pdf_asset_base64("checkeed.png") -%><%end%></span>
+            <span class="checkmark"><%if (@promise.remuneration_fixe_date == '13' ) %><%= image_tag wicked_pdf_asset_base64("checkeed.png") %><%end%></span>
             </label>
         </div>
         <div class='check'>
             <label id="conditioncheck">
             <%if (@promise.remuneration_fixe_date == '13' || @promise.remuneration_fixe_date == '12') %> Personnalisé <input type="radio" disabled /><% else %><%= @promise.remuneration_fixe_date %> mois <input type="radio" checked disabled /><%end %>
-            <span class="checkmark"><%unless (@promise.remuneration_fixe_date == '13' || @promise.remuneration_fixe_date == '12') %><%= image_tag wicked_pdf_asset_base64("checkeed.png") -%><% end%></span>
+            <span class="checkmark"><%unless (@promise.remuneration_fixe_date == '13' || @promise.remuneration_fixe_date == '12') %><%= image_tag wicked_pdf_asset_base64("checkeed.png") %><% end%></span>
             </label>
         </div>
         </div>
@@ -90,14 +90,14 @@
             <div class='check2'>
                 <label id="conditioncheck">
                 Oui <%= f.radio_button :remuneration_variable, "true", id:'post_oui', class:'js-post-choix',disabled:true%>
-                <span class="checkmark"><%if (@promise.remuneration_variable) %><%= image_tag wicked_pdf_asset_base64("checkeed.png") -%><%end%></span>
+                <span class="checkmark"><%if (@promise.remuneration_variable) %><%= image_tag wicked_pdf_asset_base64("checkeed.png") %><%end%></span>
                 </label>
             </div>
             <div><%if (@promise.remuneration_variable) %> <input type="text" value=" <%=@promise.remuneration_var_info %> k€ annuels " readonly /> <%end%></div>
             <div class='check2'>
                 <label id="conditioncheck">
                 Non <%= f.radio_button :remuneration_variable, "false", id:'post_nom', class:'js-post-choix',disabled:true%>
-                <span class="checkmark"><%unless (@promise.remuneration_variable) %><%= image_tag wicked_pdf_asset_base64("checkeed.png") -%><%end%></span>
+                <span class="checkmark"><%unless (@promise.remuneration_variable) %><%= image_tag wicked_pdf_asset_base64("checkeed.png") %><%end%></span>
                 </label>
             </div>
         </div>
