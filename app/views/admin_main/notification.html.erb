@@ -76,13 +76,15 @@
     text-align: center;
     color: #d6b36a;
   }
+
+  .all-content {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 </style>
 
 
 <div class="all-content">
-  <div class="left-link">
-    <%= render partial: "admin_main/left_menu_link" %>
-  </div>
   <div class="right-link">
     <h5 class="title">NOTIFICATIONS</h5>
         <% unless @notifications.empty?%>
