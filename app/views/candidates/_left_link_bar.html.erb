@@ -1,73 +1,82 @@
 <% notice = current_cadre.numberOfNotification %>
 <!-- appel css user-menu.css  -->
 <% content_for :head_style do %>
-	<link rel="stylesheet" href="/css/user_menu.css" />
+<link rel="stylesheet" href="/css/user_menu.css" />
 <% end %>
 <!-- html body  -->
 
-<div class="left-menu-r" data-link="<%= notifed_number_notice_path %>" data-linksms="<%= notifed_number_message_path %>" id="getLinkNoticeJS">
-  <div class="btn-menu-r">
-    <span class="btn-menu-burger open"> </span>
-  </div>
-  <div class="left-menu-photo">
-    	<%= image_tag(current_cadre.cadre_info.image, alt: 'photo de profil', class:"pdp" )%>
-  </div>
-  <ul class="left-menu-content">
-	<li><%= link_to "MON PROFIL", my_profil_path %></li>
-	<li><%= link_to "MES TESTS", main_test_path %></li>
-	<li><%= link_to "MES OFFRES REÇUES", received_job_path %></li>
-	<li><%= link_to "RECHERCHE D’OFFRES", searchJob_path %></li>
-	<li><%= link_to "MES OFFRES FAVORIS", favoriteJob_path %></li>
-	<li><%= link_to "MON SUIVI RECRUTEMENT", recrutment_monitoring_path %></li>
-	<li>
-		<%= link_to "MES NOTIFICATIONS", cadres_notifications_path %>
+<div class="left-menu-r" data-link="<%= notifed_number_notice_path %>" data-linksms="<%= notifed_number_message_path %>"
+	id="getLinkNoticeJS">
+	<div class="btn-menu-r">
+		<span class="btn-menu-burger open"> </span>
+	</div>
+	<div class="left-menu-photo">
+		<%= image_tag(current_cadre.cadre_info.image, alt: 'photo de profil', class:"pdp" )%>
+	</div>
+	<ul class="left-menu-content">
+		<li><%= link_to "MON PROFIL", my_profil_path %></li>
+		<li><%= link_to "MES TESTS", main_test_path %></li>
+		<li><%= link_to "MES OFFRES REÇUES", received_job_path %></li>
+		<li><%= link_to "RECHERCHE D’OFFRES", searchJob_path %></li>
+		<li><%= link_to "MES OFFRES FAVORIS", favoriteJob_path %></li>
+		<li><%= link_to "MON SUIVI RECRUTEMENT", recrutment_monitoring_path %></li>
+		<li>
+			<%= link_to "MES NOTIFICATIONS", cadres_notifications_path %>
 
-		<div <%if (notice[:all] == 0) %>hidden<% end %> id="noticeNumberJS"><% if notice[:all] < 9 %><%= notice[:all] %><% else %>+9<% end %></div>
+			<div <%if (notice[:all] == 0) %>hidden<% end %> id="noticeNumberJS">
+				<% if notice[:all] < 9 %><%= notice[:all] %><% else %>+9<% end %></div>
 
-	</li>
-	<li><%= link_to "MA MESSAGERIE", my_messages_cadre_path %>
-		<div id="noticeSmsJS" class="last" <%if (current_cadre.number_message_not_see == 0) %>hidden<% end %>><% if current_cadre.number_message_not_see < 9 %><%= current_cadre.number_message_not_see %><% else %>+9<% end %></div>
-	</li>
-  </ul>
+		</li>
+		<li><%= link_to "MA MESSAGERIE", my_messages_cadre_path %>
+			<div id="noticeSmsJS" class="last" <%if (current_cadre.number_message_not_see == 0) %>hidden<% end %>>
+				<% if current_cadre.number_message_not_see < 9 %><%= current_cadre.number_message_not_see %><% else %>+9<% end %>
+			</div>
+		</li>
+	</ul>
 </div>
 <!-- appel js menu_recruteur.js  -->
 <script data-turbolinks-track="reload" src="/js/menu_recruteur.js"></script>
 
 <script>
+	/*-----------------------------number notice---------------------------------*/
+	window.setInterval(countNumberNotification, 3000, $("#noticeNumberJS"), $("#getLinkNoticeJS").data().link, $(
+		"#getLinkNoticeJS").data().linksms, $("#noticeSmsJS"));
 
+	function countNumberNotification(div, pathUrl, pathSms, divSms) {
+		$.getJSON(pathUrl, function (data) {
+			let number_notice_cadre = data.number_notice_cadre;
+			if (div.html() != number_notice_cadre) {
+				if (number_notice_cadre > 9) {
+					number_notice_cadre = "+9"
+				}
+				div.html(number_notice_cadre)
+				if (number_notice_cadre == 0) {
+					div.hide()
+				} else {
+					div.removeAttr("hidden")
+					div.show()
+				}
+			}
+		});
+		countMessageNotifed(pathSms, divSms);
+	}
+	/*-----------------------------number sms---------------------------------*/
 
-/*-----------------------------number notice---------------------------------*/
-window.setInterval(countNumberNotification, 3000, $("#noticeNumberJS"), $("#getLinkNoticeJS").data().link,$("#getLinkNoticeJS").data().linksms,$("#noticeSmsJS"));
-function countNumberNotification(div,pathUrl,pathSms,divSms){
-	$.getJSON(pathUrl, function (data) {
-		let number_notice_cadre = data.number_notice_cadre;
-		if (div.html()!=number_notice_cadre){
-			div.html(number_notice_cadre)
-		    if (number_notice_cadre == 0){
-		      div.hide()
-		    }else{
-			  div.removeAttr("hidden")
-		      div.show()
-		    }
-		}
-	});
-	countMessageNotifed(pathSms,divSms);
-}
-/*-----------------------------number sms---------------------------------*/
-
-function countMessageNotifed(pathSms,divSms){
-	$.getJSON(pathSms, function (dataNotif) {
-		let number_message_cadre = dataNotif.number_message_cadre;
-		if (divSms.html()!=number_message_cadre){
-			divSms.html(number_message_cadre)
-		    if (number_message_cadre == 0){
-		      divSms.hide()
-		    }else{
-			  divSms.removeAttr("hidden")
-		      divSms.show()
-		    }
-		}
-	});
-}
-
+	function countMessageNotifed(pathSms, divSms) {
+		$.getJSON(pathSms, function (dataNotif) {
+			let number_message_cadre = dataNotif.number_message_cadre;
+			if (divSms.html() != number_message_cadre) {
+				if (number_message_cadre > 9) {
+					number_message_cadre = "+9"
+				}
+				divSms.html(number_message_cadre)
+				if (number_message_cadre == 0) {
+					divSms.hide()
+				} else {
+					divSms.removeAttr("hidden")
+					divSms.show()
+				}
+			}
+		});
+	}
 </script>

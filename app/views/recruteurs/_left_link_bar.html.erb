@@ -41,7 +41,11 @@ window.setInterval(getNumberNotice, 3000, $("#getLinkNoticeJS").data().link,$("#
 
 function getNumberNotice(pathClientUrl, divBe,pathSmsWa,divSmse){
   $.getJSON(pathClientUrl, function (data) {
-    divBe.html(data.number_notice_client)
+    let number_notice_client = data.number_notice_client
+    if (number_notice_client > 9 ){
+      number_notice_client = "+9"
+    }
+    divBe.html(number_notice_client)
     divBe.removeAttr("hidden")
     if (data.number_notice_client == 0){
       divBe.hide()
@@ -57,6 +61,9 @@ function countMessageNotifedClient(pathSmsWa,divSmse){
   $.getJSON(pathSmsWa, function (dataNSms) {
     let number_message_client = dataNSms.number_message_client;
     if (divSmse.html()!=number_message_client){
+      if ( number_message_client > 9 ){
+        number_message_client = "+9"
+      }
       divSmse.html(number_message_client)
         if (number_message_client == 0){
           divSmse.hide()
