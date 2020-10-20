@@ -96,11 +96,11 @@
 	}
 
 	.hr-mg {
-		background: #d6b36a;
+		background: #e3d7bf;
 		text-align: left;
 		padding: 20px;
 		border-radius: 10px;
-		width: 60%;
+		/* width: 60%; */
     bottom: 20px;
 	}
 
@@ -116,8 +116,8 @@
 	.m-msg {
 		float: right;
 		margin-top: 5px;
-		background: #e3d7bf;
-		width: 60%;
+		background: #d6b36a;
+		/* width: 60%; */
 		border-radius: 10px;
 		padding: 20px;
 		text-align: left;
@@ -236,19 +236,26 @@
 <div class="chat-all">
 			<div class="chat-info">
 				<div class="img">
+          <a href="<%= admin_cadre_show_profile_path(@contact.cadre.cadre_info.id) %>">
 					<img src="<%= @contact.cadre.cadre_info.image %>" alt="avatar">
+          </a>
 				</div>
 				<div class="desc">
 					<h1 class="name"><%= @contact.cadre.cadre_info.first_name %> <%= @contact.cadre.cadre_info.last_name %></h1>
 					<p class="online">
-						<small>
-							En ligne</small>
+            <% if @contact.cadre.is_online? %>
+						<small>En ligne</small>
+            <% else %>
+            <small>Connectée il y a <%= time_ago_in_words(@contact.cadre.online_time) %></small>
+            <% end %>
 					</p>
 				</div>
         <div class="hide">
           <i class="fas fa-times" id="ic-hide"></i>
         </div>
+        <% if @contact.cadre.is_online? %>
         <span class="dot"></span>
+        <% end %>
 	</div>
 
 	<div class="chat-body">
@@ -261,7 +268,7 @@
 			<div class="hr-mg">
 				<p><%= message.content %></p>
 			</div>
-      <span class="online-dot"></span>
+      <!-- <span class="online-dot"></span> -->
 		</div>
 		<% else %>
 		<div class="m-msg">

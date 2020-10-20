@@ -1,25 +1,24 @@
 <% @title="Messagerie" %>
 <link rel="stylesheet" href="/css/show_admin_message.css" />
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
 <style media="screen">
-	.fcp-box {
-		width: 90%;
-		justify-content: center;
-		margin: 0 auto;
-	}
-
+  .clear {
+    clear: both;
+  }
 	.chat-info {
 		display: flex;
-		padding: 20px;
+		padding: 10px;
 		background: #d6b36a;
 		color: #fff;
 		border-top-left-radius: 10px;
 		border-top-right-radius: 10px;
 		border: none;
+    position: relative;
 	}
 
 	.img img {
-		width: 75px;
-		height: 75px;
+		width: 50px;
+		height: 50px;
 		border: 2px solid #e3d7bf;
 		border-radius: 50%;
 		background-position: center;
@@ -36,25 +35,29 @@
 	}
 
 	.name {
-		font-size: 32px;
+		font-size: 24px;
 		font-weight: bold;
 		font-family: Questrial, sans-serif;
+    padding-top: 5px;
 	}
 
 	.online small {
-		font-size: 14px;
+		font-size: 12px;
 		font-family: Questrial, sans-serif;
+    padding-top: 5px;
 	}
 
 	.chat-body {
 		overflow-y: scroll;
-		padding-top: 50px;
-		padding-left: 30px;
-		padding-right: 30px;
+		padding-top: 20px;
+		padding-left: 15px;
+		padding-right: 15px;
 		border-left: 2px solid #ccc;
-		/* border-right: 1px solid #ccc; */
-		height: 450px;
+		border-right: 2px solid #ccc;
+		height: 400px;
 		padding-bottom: 20px;
+    background: #fff !important;
+    z-index: 6;
 	}
 
 	.chat-body::-webkit-scrollbar {
@@ -75,26 +78,30 @@
 
 	.hr-msg {
 		display: flex;
-		position: relative;
+    margin-top: 5px;
+    text-align: left;
+    position: relative;
 	}
 
 	.hr-image img {
-		width: 60px;
-		height: 60px;
+		width: 40px;
+		height: 40px;
 		border-radius: 50%;
 		border: 2px solid #d6b36a;
 	}
 
 	.hr-image {
 		padding-right: 20px;
+    z-index: 3;
 	}
 
 	.hr-mg {
-		background: #d6b36a;
+		background: #e3d7bf;
 		text-align: left;
 		padding: 20px;
 		border-radius: 10px;
-		width: 60%;
+		/* width: 60%; */
+    bottom: 20px;
 	}
 
 	.hr-mg p {
@@ -108,9 +115,9 @@
 
 	.m-msg {
 		float: right;
-		margin-top: 20px;
-		background: #e3d7bf;
-		width: 60%;
+		margin-top: 5px;
+		background: #d6b36a;
+		/* width: 60%; */
 		border-radius: 10px;
 		padding: 20px;
 		text-align: left;
@@ -127,6 +134,7 @@
 
 	.sd {
 		display: flex;
+    background: #fff !important;
 	}
 
 	.sd-input {
@@ -181,24 +189,73 @@
 		font-family: Questrial, sans-serif;
 	}
 
+  .chat-all {
+    -webkit-box-shadow: 4px 12px 24px -15px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 12px 24px -15px rgba(0,0,0,0.75);
+    box-shadow: 4px 12px 24px -15px rgba(0,0,0,0.75);
+  }
+
+  .hide {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+
+  .hide i {
+    font-size: 30px;
+  }
+
+  #ic-hide {
+    cursor: pointer;
+  }
+
+  .online-dot {
+    background: green;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 8;
+    left: 30px;
+    top: 30px;
+  }
+
+  .dot {
+    background: green;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 4;
+    left: 65px;
+    top: 50px;
+  }
 
 </style>
 <!-- body html  -->
-<div class="client-column">
-	<div class="client-menu-left"><%= render "admin_main/left_menu_message_link" %></div>
-	<div class="cp-box">
-		<div class="fcp-box">
+<div class="chat-all">
 			<div class="chat-info">
 				<div class="img">
+          <a href="<%= admin_client_show_profile_path(@contact.client.id) %>">
 					<img src="<%= @contact.client.image %>" alt="avatar">
+          </a>
 				</div>
 				<div class="desc">
 					<h1 class="name"><%= @contact.client.first_name %> <%= @contact.client.last_name %></h1>
 					<p class="online">
-						<small>
-							En ligne</small>
+            <% if @contact.client.is_online? %>
+						<small>En ligne</small>
+            <% else %>
+            <small>Connectée il y a <%= time_ago_in_words(@contact.client.online_time) %></small>
+            <% end %>
 					</p>
 				</div>
+        <div class="hide">
+          <i class="fas fa-times" id="ic-hide"></i>
+        </div>
+        <% if @contact.client.is_online? %>
+        <span class="dot"></span>
+        <% end %>
 	</div>
 
 	<div class="chat-body">
@@ -211,28 +268,30 @@
 			<div class="hr-mg">
 				<p><%= message.content %></p>
 			</div>
+      <!-- <span class="online-dot"></span> -->
 		</div>
 		<% else %>
 		<div class="m-msg">
 			<p><%= message.content %></p>
 		</div>
+    <div class="clear"></div>
 		<% end %>
 		<% end %>
 	</div>
 
 	<%= form_tag(post_message_recruteur_path) do %>
 	<div class="sd">
-			<textarea placeholder="répondre..." class="ms-in" name="message_admin_cadre[content]" id="message_admin_cadre_content"></textarea>
+			<textarea placeholder="répondre..." class="ms-in" name="message_admin_client[content]" id="message_admin_client_content"></textarea>
 			<button type="submit">
 				<img src="/image/send.png" alt="send" class="ms-im"/>
 				<!-- <%= submit_tag("ENVOYER") %> -->
 			</button>
 	</div>
 	<% end %>
-
-	</div>
-</div>
-</div>
+  </div>
 <script type="text/javascript">
 	$(".chat-body").animate({ scrollTop: 20000000 }, "slow");
+  $('#ic-hide').click(function () {
+    $('.ms-main').html('');
+  });
 </script>

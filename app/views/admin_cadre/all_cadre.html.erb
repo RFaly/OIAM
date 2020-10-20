@@ -237,9 +237,10 @@ input[type="color"]:focus,
   	</div>
   </div>
 </div>
-<script>
-  $("input.form-control.search-input").attr("placeholder", "Rechercher");
-  // srch = document.querySelector('.form-control.search-input');
-  // console.log(srch);
-  // srch.placeholder='Rechercher';
+<script type="text/javascript">
+  /
+  $(document).ready(function(){
+    $('.bootstrap-table .fixed-table-container .table tbody tr.no-records-found td').html("Aucun candidats pour le moment");
+    $("input.form-control.search-input").attr("placeholder", "Rechercher");
+});
 </script>
