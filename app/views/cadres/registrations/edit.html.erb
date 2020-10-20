@@ -3,11 +3,12 @@
   <h2 class="edit-inscription-title">Edit <%= resource_name.to_s.humanize %> CANDIDAT</h2>
 
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :class=> 'form-for' })do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :class=> 'form_for' })do |f| %>
     <%= render "cadres/shared/error_messages", resource: resource %>
 
     <div class="field">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "champs" %>
+      <span></span>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -15,22 +16,24 @@
     <% end %>
 
     <div class="field">
-      <%= f.password_field :password, autocomplete: "new-password", class: "champs", placeholder: "Nouveau mot de passe" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "champs", id: "new_password", placeholder: "Nouveau mot de passe" %>
     </div>
 
     <div class="field">
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "champs", placeholder: "Confirmer nouveau mot de passe" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "champs", id: "confirm_password", placeholder: "Confirmer nouveau mot de passe" %>
+      <span id="confirm_pass_error"></span>
     </div>
 
     <div class="field">
-      <%= f.password_field :current_password, autocomplete: "current-password", class: "champs", placeholder: "Nouveau mot de passe" %>
+      <%= f.password_field :current_password, autocomplete: "current-password", class: "champs", placeholder: "Ancien mot de passe", required: true %>
     </div>
-
+    <span id="all_confirm_pass_error"></span>
     <div class="actions">
-      <%= f.submit "Update" %>
+      <%= f.submit "MODIFIER"%>
     </div>
   <% end %>
 
   <%= link_to "Back", :back %>
 
 </div>
+<script src="/js/edit_inscription_cadre.js"></script>
