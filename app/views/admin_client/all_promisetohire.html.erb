@@ -1,4 +1,3 @@
-<% @promise.each do |promise|%>
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -10,13 +9,15 @@
     </tr>
   </thead>
   <tbody>
+    <% @promise.each do |promise|%>
     <tr>
       <th scope="row"><img src="<%= promise.offre_job.image %>"alt="photo profil candidats", width="150px", height="150px" ></th>
-      <td><%= promise.offre_job.client.entreprise.name.upcase %></td>
-      <td><%= promise.offre_job.intitule_pote %></td>
-      <td><%= promise.cadre.cadre_info.first_name.capitalize %> <%= promise.cadre.cadre_info.last_name.capitalize %></td>
+      <td><a href="<%= admin_client_show_client_path(promise.offre_job.client.entreprise.id) %>"><%= promise.offre_job.client.entreprise.name.upcase %></a></td>
+      <td><a href="<%= admin_client_show_offer_path(promise.offre_job.id) %>"><%= promise.offre_job.intitule_pote %></a></td>
+      <td><a href="<%= admin_cadre_show_profile_path(promise.cadre.cadre_info.id) %>"><%= promise.cadre.cadre_info.first_name.capitalize %> <%= promise.cadre.cadre_info.last_name.capitalize %></a></td>
       <td><a href="<%= admin_client_show_promise_to_hire_path(promise.id) %>">Voir</a></td>
     </tr>
+    <% end %>
   </tbody>
 </table>
-<% end %>
+
