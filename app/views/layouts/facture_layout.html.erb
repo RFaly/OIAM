@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>facture</title>
+    <meta charset="UTF-8" />
+    <%= csrf_meta_tags %> <%= csp_meta_tag %> <%= wicked_pdf_stylesheet_link_tag "facturation_pdf_wicked" %>
+  </head>
 
-<head>
-  <title>facture</title>
-  <meta charset="UTF-8" />
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <%= wicked_pdf_stylesheet_link_tag "facturation_pdf_wicked" %>
-</head>
-
-<body>
-  <%= yield %>
-</body>
-
+  <body>
+    <%= yield %>
+  </body>
 </html>
