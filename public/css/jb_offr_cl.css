@@ -193,7 +193,8 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  padding: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .etp-bdg-wait {
@@ -210,7 +211,8 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  padding: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .etp-etp {
