@@ -51,9 +51,9 @@
         <div class="recruteur-name"><%= contact.client.first_name %> <%= contact.client.last_name %></div>
         <div class="message-body">
           <% unless contact.message_admin_clients.last.is_admin %>
-          <% unless nbr == 0 %>
-            <span class="alert-info"><%= nbr %></span>
-          <% end %>
+            <% unless nbr == 0 %>
+              <span class="alert-info"><%= nbr %></span>
+            <% end %>
           <% end %>
           <% if contact.message_admin_clients.last.is_admin %>vous : <%end%> <%= contact.message_admin_clients.last.content %>
         </div>
