@@ -35,7 +35,7 @@
     </div>
     <% else %>
     <% @contactClient.each do |contact| %> <% nbr = contact.mp_admin_not_see %>
-    <a href="<%= show_message_recruteur_path(contact.client.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>">
+    <a href="<%= show_message_recruteur_path(contact.client.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>" data-remote="true">
     <div class="message">
       <div class="block-image">
         <% if contact.client.image.nil? %>
@@ -50,12 +50,14 @@
       <div class="message-content">
         <div class="recruteur-name"><%= contact.client.first_name %> <%= contact.client.last_name %></div>
         <div class="message-body">
-          <% unless contact.message_admin_clients.last.is_admin %>
-            <% unless nbr == 0 %>
-              <span class="alert-info"><%= nbr %></span>
-            <% end %>
-          <% end %>
-          <% if contact.message_admin_clients.last.is_admin %>vous : <%end%> <%= contact.message_admin_clients.last.content %>
+          -----------------------------------------------------
+          <%# unless contact.message_admin_clients.last.is_admin %>
+            <%# unless nbr == 0 %>
+              <!-- <span class="alert-info"><%#= nbr %></span> -->
+            <%# end %>
+          <%# end %>
+          <%# if contact.message_admin_clients.last.is_admin %>vous : <%#end%> <%#= contact.message_admin_clients.last.content %>
+          -------------------------------------------------------------
         </div>
       </div>
       <div class="connected-times">

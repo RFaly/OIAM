@@ -93,10 +93,11 @@
 	.hr-image {
 		padding-right: 20px;
     z-index: 3;
+    margin-top: 5px;
 	}
 
 	.hr-mg {
-		background: #e3d7bf;
+		background: #f0f2f4;
 		text-align: left;
 		padding: 20px;
 		border-radius: 10px;
@@ -105,7 +106,7 @@
 	}
 
 	.hr-mg p {
-		color: #fff;
+		color: #000;
 		font-size: 14px;
 		font-family: Questrial, sans-serif;
 		width: 100%;
@@ -236,34 +237,34 @@
 <div class="chat-all">
 			<div class="chat-info">
 				<div class="img">
-          <a href="<%= admin_client_show_profile_path(@contact.client.id) %>">
-					<img src="<%= @contact.client.image %>" alt="avatar">
+          <a href="<%= admin_client_show_client_path(@contacts.client.id) %>">
+					<img src="<%= @contacts.client.image %>" alt="avatar">
           </a>
 				</div>
 				<div class="desc">
-					<h1 class="name"><%= @contact.client.first_name %> <%= @contact.client.last_name %></h1>
+					<h1 class="name"><%= @contacts.client.first_name %> <%= @contacts.client.last_name %></h1>
 					<p class="online">
-            <% if @contact.client.is_online? %>
+            <% if @contacts.client.is_online? %>
 						<small>En ligne</small>
             <% else %>
-            <small>Connectée il y a <%= time_ago_in_words(@contact.client.online_time) %></small>
+            <small>Connectée il y a <%= time_ago_in_words(@contacts.client.online_time) %></small>
             <% end %>
 					</p>
 				</div>
         <div class="hide">
           <i class="fas fa-times" id="ic-hide"></i>
         </div>
-        <% if @contact.client.is_online? %>
+        <% if @contacts.client.is_online? %>
         <span class="dot"></span>
         <% end %>
 	</div>
 
 	<div class="chat-body">
-		<% @messages.each do |message| %>
+		<% @message.each do |message| %>
 		<% unless message.is_admin %>
 		<div class="hr-msg">
 			<div class="hr-image">
-				<img src="<%= @contact.client.image %>" alt="avatar">
+				<img src="<%= @contacts.client.image %>" alt="avatar">
 			</div>
 			<div class="hr-mg">
 				<p><%= message.content %></p>
