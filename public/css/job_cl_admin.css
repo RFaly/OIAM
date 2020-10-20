@@ -216,7 +216,7 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  line-height: 3.2;
+  padding: 10px;
 }
 
 /* .etp-bdg-success::before {
@@ -244,7 +244,7 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  line-height: 3.2;
+  padding: 10px;
 }
 
 /* .etp-bdg-wait::before {
