@@ -63,13 +63,26 @@ body {
   text-transform: uppercase;
 }
 
+.mandona{
+  color: red;
+}
+
+.field{
+  margin-bottom: 30px;
+}
+
+#confirm_pass_error{
+  color: #fe1b00;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
 .champs{
   position: relative;
   display: block;
   text-align: center;
   padding: 8px;
   margin: auto;
-  margin-bottom: 30px;
   width: 100%;
   height: 40px;
   background: #f0f2f4;
