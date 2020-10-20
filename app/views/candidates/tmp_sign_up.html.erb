@@ -2,7 +2,8 @@
 <link rel="stylesheet" type="text/css" href="/css/tmp_sign_up.css" />
 <!-- body html  -->
 <h2 class="inscription">INSCRIPTION</h2>
-<%= form_for @cadreInfo, class:"test" ,url: tmp_create_sign_up_path do |f| %> <%= f.text_field :last_name, autofocus: true, autocomplete: "NOM", required: true, placeholder:"NOM", class:"champs",id:'recruteur-last-name' %>
+<%= form_for @cadreInfo, class:"test" ,url: tmp_create_sign_up_path do |f| %>
+<%= f.text_field :last_name, autofocus: true, autocomplete: "NOM", required: true, placeholder:"NOM", class:"champs",id:'recruteur-last-name' %>
 <div class="input-error-div">
   <span class="input-error" id="recruteur-last-name-error"></span>
 </div>
@@ -42,3 +43,8 @@
 <!-- javascript inscription  -->
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/inscription.js"></script>
 <!-- javascript inscription  -->
+<script>
+  $(document).ready(function () {
+    stopSpinner();
+  });
+</script>
