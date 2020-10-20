@@ -24,11 +24,11 @@
 
 			<% @oFcs.each do |oFc| %>
 				<div class="row container-fluid">
-					<div class="col-sm-3">
+					<div class="col-sm-2">
 						<%= image_tag(oFc.cadre.cadre_info.image, alt: 'photo de profil', class:"pdp_mandona", width:"120px", height:"120px" )%>
 					</div>
 
-					<div class="col-sm-3">
+					<div class="col-sm-2 justify-content-center align-items-center">
 						<h3><%= oFc.cadre.cadre_info.first_name %> <%= oFc.cadre.cadre_info.last_name %></h3>
 					</div>
 
@@ -58,6 +58,10 @@
 							</div>
 						</div>
 
+					</div>
+
+					<div class="col-sm-2 d-flex justify-content-center align-items-center">
+						<a href="<%= manage_recrutment_admin_path(oFc.id) %>" class="btn-primary">GERER</a>
 					</div>
 
 				</div>

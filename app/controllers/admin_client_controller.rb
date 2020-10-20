@@ -12,6 +12,18 @@ class AdminClientController < ApplicationAdminController
     @oFcs = @offre.offre_for_candidates.where(accepted_postule:true)
   end
 
+  def manage_recrutment_admin
+    @oFc = OffreForCandidate.find_by_id(params[:id])
+
+
+    @offreJob = @oFc.offre_job
+    @cadre = @oFc.cadre
+    @agendas = @oFc.agenda_clients.order('created_at DESC')[0]
+    # @promise = @offreJob.promise_to_hires.find_by(cadre:@cadre)
+    @promise = @offreJob.promise_to_hires.joins(:cadre).find_by(cadre:@cadre)
+
+  end
+
   def offer
   	@offre = OffreJob.all.order('created_at DESC')
   end
