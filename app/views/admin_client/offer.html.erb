@@ -112,43 +112,8 @@
       <div class="fc-item">
         <div class="fc-item-all">
 
-
-<!-- ------------------------------------------------------------------------------------- -->
-<!--         	CANDIDATS  -->
-        <!-- <% if @offre.count == 0 %>
-          <p>il n'y a aucun offre d'emploi </p>
-        <% else %>
-          <% @offre.each do |offre| %>
-            <div class="list-candidat">
-              <div class="fci-image">
-  					    <img src="<%= offre.image %>" alt="photo entreprise">
-              </div>
-              <div class="fci-icon">
-                <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
-              </div>
-              <div class="fci-infos">
-                <p class="name"><%= offre.client.entreprise.name %></p>
-                <p>À proposer une offre</p>
-                <p class="poste">Poste : <%= offre.intitule_pote %></p>
-                <div class="ico-cand">
-                	<a href="<%= admin_client_show_offer_path(offre.id) %>" class="btn-see">Voir L'offre</a>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %> -->
-
-
-        <!-- ---------------------------------------------------------------------------- -->
-
-
-        <!-- -----------------------------------------------------------------------------------------------------------------       -->
-
             <div class="nw-cont">
               <div class="cont-candd">
-
-              <!-- --------------------------------------------------------------- -->
-              <!--  CANDIDATS ANAKY RAY NO ETO RY FALY -->
               <% if @offre.count == 0 %>
               <h4>Il n'y a aucun offre d'emploi</h4>
               <% else %>
@@ -160,7 +125,7 @@
                  </div>
                  <div class="col-sm-6">
                    <div class="desc-candd">
-                     <h4 class="name">Entreprise : <%= offre.client.entreprise.name %></h4>
+                     <h4 class="name">Entreprise : <a href="<%= admin_client_show_client_path(offre.client.entreprise.id) %>"><%= offre.client.entreprise.name %></a></h4>
                      <h4 class="score">Poste : <%= offre.intitule_pote %></h4>
                      <h4 class="prop">À proposer une offre</h4>
                    </div>
@@ -178,9 +143,6 @@
 
                </div>
              </div>
-
-    <!-- ----------------------------------------------------------------------------------------------------------- -->
-
 
 
         </div>
