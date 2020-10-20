@@ -18,13 +18,13 @@ class Facture < ApplicationRecord
 		)
 
 		Notification.create(
-      client: self.client,
-      link: "#{paye_my_bills_path(self.id,notification:"entretien")}",
-      object: "Facture OIAM",
-      message: "Précalcul honoraires OIAM",
-      genre: 2,
-      view: false
-    )
+	      client: self.client,
+	      link: "#{url_helpers.paye_my_bills_path(self.id,notification:"entretien")}",
+	      object: "Facture OIAM",
+	      message: "Précalcul honoraires OIAM",
+	      genre: 2,
+	      view: false
+	    )
 	end
 
 	def status
