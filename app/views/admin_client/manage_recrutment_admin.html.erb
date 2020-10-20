@@ -67,160 +67,110 @@
 			<% if @oFc.etapes == @offreJob.numberEntretien + 1 %>
 				<% if @promise.repons_cadre.nil? %> <!-- demande la validation du promesse d'embauche -->
 					Dernière étape réussi!
-					Ce candidat n'a pas encore validé sa promesse d'embauche
-				<% else %>
+					Ce candidat n'a pas encore validé sa promesse d'embauche.
 					<!-- après validation promesse d'embauche -->
-					<% unless @promise.ask_salar %> <!-- prime non réçue -->
-						<% if @promise.client_time_trying && @promise.cadre_time_trying %> <!-- periode essai validé par cadre et client -->
+				<% else %>
+					<!-- prime non réçue -->
+					<% unless @promise.ask_salar %>
+						<!-- periode d'essai validé par cadre et client -->
+						<% if @promise.client_time_trying && @promise.cadre_time_trying %>
 							<div class="felicitations">
 								L'entreprise a valider sa période d’essai. Il peut dès à présent recevoir la prime One in a Million.
 								DONNER LA PRIME
 							</div>
 						<% else %>
-							<% if @promise.client_time_trying == false %><!-- periode d'essai refusé par le client -->
+							<!-- periode d'essai refusé par le client -->
+							<% if @promise.client_time_trying == false %>
 								<div class="felicitations">
-									<center>
-										L'entreprise n'a pas validé votre période d’essai. <br>
- 										Rupture de la période d’essai le <%= @promise.rupture_time_trying %>.
- 									</center>
+									L'entreprise n'a pas validé votre période d’essai. <br>
+ 									Rupture de la période d’essai le <%= @promise.rupture_time_trying %>.
 								</div>
 							<% else %>
 								<!-- periode essai validé par cadre -->
 								<% if @promise.cadre_time_trying %>
 									<div class="felicitations">
-										<h2>Bravo, vous avez validé votre période d’essai !<br>Nous attendons maintenant la confirmation de votre employeur pour vous verser votre prime One in a Million.</h2>
+										Ce candidat a validé sa période d’essai !<br>
+										Confirmation du periode d'essai par l'employeur en attente.
 									</div>
 								<!-- periode essai NON validé par cadre -->
 								<% else %>
 									<div class="prime">
-										<h2>Bravo pour la signature de votre promesse d’embauche ! Votre contrat débutera le <strong><%= @promise.date_poste %></strong>. One in a Million tient à vous féliciter en vous offrant une prime de 1000€ dès votre période d’essai validée.</h2>
-										<% if DateTime.strptime("#{@promise.time_trying}", '%j/%m/%Y').future? %> <!-- si non fin periode d'essai -->
-											<span class="btn-invalid" id="" onclick="alert('Validable à la fin de la période d\'essai (<%= @promise.time_trying %>).');">J'AI VALIDÉ MA PÉRIODE D'ESSAI</span>
-										<% else %> <!-- si fin periode d'essai -->
-											<!-- actualise la page -->
-											<%= link_to validate_time_trying_cadre_path(confirm_token:@promise.confirm_token), method: :post, class:"btn-valid" do %>
-												J'AI VALIDÉ MA PÉRIODE D'ESSAI
-											<% end %>
-										<% end %>
+										<h2>Le contrat débutera le <strong><%= @promise.date_poste %></strong>.</h2>
+										<h2>Fin periode d'essai le: <%= @promise.time_trying %></h2>
+										<div>
+											One in a Million offre une prime de 1000€ dès la période d’essai validée.
+										</div>
 									</div>
 								<% end %>
 							<% end %>
 						<% end %>
 					<% else %> <!-- recevoir ma prime vao cliky -->
 						<div class="felicitations">
-							<center>Encore toutes nos félicitations, et à très bientôt sur One in a Million.</center>
+							<center>{} a demandé de recevoir sa prime de 1000€.</center>
+							Confirmer le payement de 1000€ ver le candidat
+							input OV
 						</div>
 					<% end %>
 <!-- -------------------------------------------------- -->
 					<div class="prom-hire">
 						<div class="prom-hire-content">
 							<img width="50px" src="/image/compteR.png" alt="icone" />
-					      	<%= link_to "Promesse d'embauche", cadre_show_promise_to_hire_path(@promise.id), :class => "btn-prom" %>
+					      	<%= link_to "Promesse d'embauche", admin_client_show_promise_to_hire_path(@promise.id), :class => "btn-prom" %>
 						</div>
 						<div class="prom-hire-down">
-							<%= link_to "TELECHARGER",promise_cadre_pdf_path(@promise),class:"btn-down" %>
+							<%= link_to "TELECHARGER",promise_pdf_path(@promise),class:"btn-down" %>
 						</div>
 					</div>
 <!-- -------------------------------------------------- -->
 				<% end %>
-				<!-- <div>
-					<a href="<%= show_my_messages_cadre_path(@offreJob.client.id) %>">Chat en ligne</a>
-					<a href = "mailto: <%= @offreJob.client.mail %>">Mail</a>
-				</div> -->
+
 			<% else %>
+
 				<!-- unless aucun entretien -->
-				<div class=" <% if @agendas.entretien_date > DateTime.now.utc %> proposition-entretien <% elsif @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil?%> rencontred <% end %>">
 				<% unless @agendas.nil? %>
 					<!-- condition pour afficher si la date est passé ou non? -->
 					<!-- if date entretien future -->
 					<% if @agendas.entretien_date > DateTime.now.utc %>
-						<% show = true %>
 						<p class="new-proposition">
 							<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
-								<span class="title-entretien">Vous avez accepté la demande d'entretien qui aura lieu le  </span> <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+								L'entretien et validé et aura lieu le <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
 							<% else %>
-								<span class="title-entretien">Nouvelle proposition d'entretien le </span> <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+								Nouvelle proposition d'entretien le <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+								<!-- <h5>En attente de confirmation</h5> -->
 							<% end %>
+							<div>
+								Modifier la date de l'entretien
+							</div>
 						</p>
-
 						<!-- candidat a accepter l'entretien -->
 						<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
-							<div class="entretien-accepted" style="display:none;">
-								Vous avez accepté la demande d'entretien.
-							</div>
-						<!-- candidat a accepter l'entretien sous condition -->
-						<% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
-							<% date = DateTime.parse(@agendas.alternative) %>
-							<p class="new-proposition-date">
-								<span class="title-entretien">Changement de la date d'entretien envoyée pour le </span><span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>, en attente de réponse.
-							</p>
+							(Entretien validé et confirmé)
 						<!-- candidat a reffuser l'entretien -->
 						<% elsif @agendas.repons_cadre == false %>
-							<% show = false %>
-							<p class="new-proposition">
-								<span class="title-entretien">Vous avez refusé l'entretien</span>
-								<% unless @agendas.alternative.nil? %>
-									<br>Motif: <%= @agendas.alternative %>
-								<% end %>
-							</p>
-						<!-- le recruteur a reffuser l'entretien -->
-						<% elsif @agendas.repons_client == false %>
-							<% show = false %>
-							<!-- mety hisy -->
+							<span>Le candidat a refusé l'entretien</span>
+							<% unless @agendas.alternative.nil? %>
+								<br>Motif: <%= @agendas.alternative %>
+							<% end %>
 						<% else %>
-							<p class="donne-rep">
-								<%= link_to "DONNER UNE RÉPONSE", received_job_path, class:"give-answer" %>
-							</p>
+							En attente de validation de l'entretien.
 						<% end %>
 
-						<% if show %> <!-- afficher ce petit compte à rebours mandona -->
-							<div id="futureTimeClock" data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="entretien-hours <%if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %> move-me <% end %>">
-								<p class="entretien-info">Temps restant avant entretien</p>
-								<div class="hours-entretien-info">
-									<div class="entretien-days-left">
-										<p id="js-days" class="days-number"></p>
-										<span class="days-letter">jours</span>
-									</div>
-									<div class="entretien-days-left">
-										<span id="js-hours" class="days-number"></span>
-										<span class="days-letter">heures</span>
-									</div>
-									<div class="entretien-days-left">
-										<span id="js-minutes" class="days-number"></span>
-										<span class="days-letter">minute</span>
-									</div>
-									<div class="entretien-days-left">
-										<span id="js-seconds" class="days-number">0</span>
-										<span class="days-letter">seconde</span>
-									</div>
-								</div>
-
-							</div>
-						<% end %>
-
-					<% else %> <!-- si la date de l'entretien est passé -->
+					<!-- si la date de l'entretien est passé -->
+					<% else %>
 
 						<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
+
 							<div id="js-main-bloc-information" class="rencontre">
-								<p>Vous avez rencontré <%= @offreJob.client.first_name %> <%= @offreJob.client.last_name %>  le <%= @agendas.entretien_date.strftime("%d/%m/%Y") %></p>
+								<p>Date d'entretien passé <%= @agendas.entretien_date.strftime("%d/%m/%Y") %></p>
 							</div>
 
 							<% if @oFc.status == "accepted" %>
-								<%= @offreJob.client.entreprise.name %> a validé votre candidature pour la prochaine étape.
+								Retenue pour la prochaine étape.
 							<% else %>
 								<p>
 									<b>En attente du retour du recruteur.</b>
 								</p>
 							<% end %>
-
-							<div class="contact-recruteur">
-								<div class="contact-recruteur-img">
-									<a href="<%= show_my_messages_cadre_path(@offreJob.client.id) %>"><img src="/image/chatS.png" height="36px" width="36px">Chat en ligne</a>
-								</div>
-								<div class="contact-recruteur-img">
-									<a href = "mailto: <%= @offreJob.client.mail %>"><img src="/image/mailS.png" height="36px" width="45px">Chat par Email</a>
-								</div>
-							</div>
 
 						<% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
 
