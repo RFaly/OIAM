@@ -17,7 +17,7 @@
         <div class="pb-flex">
           <div class="left">FACTURE <%= @offre_job.intitule_pote %></div>
           <div class="pb-btn">
-            <a href="<%= facturation_pdf_to_pdf_path(@facture) %>" target="_blank"> TÉLÉCHARGER </a>
+            <a href="<%= facturation_pdf_to_pdf_path(@facture) %>"> TÉLÉCHARGER </a>
           </div>
         </div>
 
@@ -29,7 +29,8 @@
           <input type="hidden" name="offre_job_id" value="<%= @offre_job.id %>" />
           <label id="checkbox1">
             J'atteste régler cette facture par virement dans les 15 jours.
-            <input type="checkbox" id="check1" name="confirm" value="1" autofocus="true" required /><span class="checkmark"></span>
+            <input type="checkbox" id="check1" name="confirm" value="1" autofocus="true" required /><span
+              class="checkmark"></span>
           </label>
           <%= submit_tag("VALIDER",id:"valide") %> <% end %>
         </div>
