@@ -41,6 +41,45 @@
     margin-bottom: 0px !important;
 }
 
+tr th {
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #d6b36a;
+}
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: none !important;
+}
+
+.co-with-job .coj-box {
+    margin: 5px 5px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.links-all {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cjo-content a {
+  color: #000;
+  text-transform: uppercase;
+  font-size: 16px;
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.cjo-content a:hover {
+  text-decoration: none;
+}
+
 
 </style>
 
@@ -100,19 +139,19 @@
                       </a>
                     </div>
                   </td>
-                  <td>
+                  <td class="links-all">
                     <table>
                       <tr>
                         <td>
                           <div class="cjo-link">
-                            <i class="far fa-eye" data-method="GET" style="color: #d6b36a"></i>
+                            <i class="far fa-eye" data-method="GET" style="color: #e3d7bf"></i>
                             <%= link_to "FACTURE", admin_client_show_facture_path(facture.id) %>
                           </div>
                         </td>
                         <td>
                           <div class="cjo-link">
-                            <i class="far fa-eye" data-method="GET" style="color: #d6b36a"></i>
-                            <%= link_to "PROMESSE D'EMBAUCHE", '' %>
+                            <i class="far fa-eye" data-method="GET" style="color: #e3d7bf"></i>
+                            <%= link_to "PROMESSE D'EMBAUCHE", admin_client_show_promise_to_hire_path(facture.promise_to_hire.id) %>
                           </div>
                         </td>
                       </tr>
@@ -125,9 +164,9 @@
           <% end %>
 
         </div>
-        
+
         <p id="js-tsisy" style="display: none" class="acc">Aucune facture pour le moment</p>
-        
+
 
       </div>
 

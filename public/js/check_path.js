@@ -25,8 +25,7 @@ $(document).ready(function () {
   }
   // scroll all
   if (!(path == 'welcome' || path == 'equipe' || path == ' ' || path == 'méthodologie')) {
-    $('html, body').animate(
-      {
+    $('html, body').animate({
         scrollTop: $('#elementtoScroll').offset().top,
       },
       800

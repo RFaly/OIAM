@@ -41,7 +41,7 @@ class AdminMainController < ApplicationAdminController
     else
       flash[:alert] = @newMessage.errors.details
     end
-   
+
   end
  def message_candidat
     @admin = Admin.all
@@ -84,22 +84,28 @@ class AdminMainController < ApplicationAdminController
     @contacts.message_admin_clients.where(admin_see:false).update(admin_see:true)
     @message = @contacts.message_admin_clients.order(created_at: :ASC)
     @newMessage = MessageAdminClient.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def post_message_recruteur
     @admin = current_admin
     @client = Client.all
-    @contacts = ContactAdminClient.where(client: @client, admin:current_admin)
-    if @contacts.count == 0
-      @contacts = ContactAdminClient.create(client: @client, admin:current_admin)
+    @contact = ContactAdminClient.where(client: @client, admin:current_admin)
+    if @contact.count == 0
+      @contact = ContactAdminClient.create(client: @client, admin:current_admin)
     else
-      @contacts = @contacts.first
+      @contact = @contact.first
     end
-    @contacts.message_admin_clients.where(admin_see:false).update(admin_see:true)
+    @contact.message_admin_clients.where(admin_see:false).update(admin_see:true)
     @content = params[:message_admin_client][:content]
-    @newMessage = MessageAdminClient.new(content:@content, client_see: false, contact_admin_client: @contacts, is_admin: true)
+    @newMessage = MessageAdminClient.new(content:@content, client_see: false, contact_admin_client: @contact, is_admin: true)
     if @newMessage.save
-      @contacts.message_admin_clients.update(client_see: false )
+      @contact.message_admin_clients.update(client_see: false )
       redirect_to show_message_recruteur_path(@admin)
     else
       flash[:alert] = @newMessage.errors.details

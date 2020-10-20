@@ -1,4 +1,22 @@
 <% @title="Clients" %>
+<style media="screen">
+  .gerer-btn {
+    background: #d6b36a;
+    color: #fff;
+    border: 1px solid #d6b36a;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .gerer-btn:hover {
+    background: #fff;
+    color: #d6b36a;
+    border: 1px solid #d6b36a;
+    text-decoration: none;
+  }
+</style>
 <!-- call css  -->
 <link rel="stylesheet" href="/css/jb_offr_cl.css" />
   <script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
@@ -11,7 +29,7 @@
 
 	<div class="cp-box">
 
-		<h2 class="in-ps">Poste:
+		<h2 class="in-ps">Poste :
       <strong class="in-tt"><%= link_to "#{@offre.intitule_pote}", admin_client_show_offer_path(@offre.id)%>
       </strong>
     </h2>
@@ -43,13 +61,13 @@
 									<div class="<% if oFc.etapes >= etape %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><% if oFc.etapes >= etape %><i class="fas fa-check"></i><% else %><%= etape %><% end %></div>
 									<div class="etp-tt">1er entretien</div>
 								</div>
-								<div><i class="fas fa-minus <%if oFc.etapes >= etape + 1 %>arr-success<% else %>arr-wait<% end %>"></i></div>
+								<div><i class="fas fa-long-arrow-alt-right <%if oFc.etapes >= etape + 1 %>arr-success<% else %>arr-wait<% end %>"></i></div>
 								<% else %>
 								<div class="etp-etp">
 									<div class="<% if oFc.etapes >= etape %>etp-bdg-success<% else %>etp-bdg-wait<% end %>"><% if oFc.etapes >= etape %><i class="fas fa-check"></i><% else %><%= etape %><% end %></div>
 									<div class="etp-tt"><%= i+1 %>e entretien</div>
 								</div>
-								<div><i class="fas fa-minus <%if oFc.etapes >= etape + 1 %>arr-success<% else %>arr-wait<% end %>"></i></div>
+								<div><i class="fas fa-long-arrow-alt-right <%if oFc.etapes >= etape + 1 %>arr-success<% else %>arr-wait<% end %>"></i></div>
 								<% end %>
 							<% end %>
 							<div class="etp-etp">
@@ -61,7 +79,7 @@
 					</div>
 
 					<div class="col-sm-2 d-flex justify-content-center align-items-center">
-						<a href="<%= manage_recrutment_admin_path(oFc.id) %>" class="btn-primary">GERER</a>
+						<a href="<%= manage_recrutment_admin_path(oFc.id) %>" class="gerer-btn">GERER</a>
 					</div>
 
 				</div>
