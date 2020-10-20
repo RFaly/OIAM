@@ -1,12 +1,12 @@
 class FacturationPdfController < ApplicationController
-  before_action :authenticate_cadre!, only: [:promise_cadre]
+  # before_action :authenticate_cadre!, only: [:promise_cadre]
   # before_action :authenticate_client! , except: :promise_cadre
   def index
-    if current_admin.nil? && current_client.nil?
-      flash[:alert] = "Ooups!"
-      redirect_to root_path
-      return
-    end
+    # if current_admin.nil? && current_client.nil?
+    #   flash[:alert] = "Ooups!"
+    #   redirect_to root_path
+    #   return
+    # end
 
     @facture = Facture.find_by_id(params[:id_factures])
     if (@facture.created_at.day < 10)
@@ -43,11 +43,11 @@ class FacturationPdfController < ApplicationController
     end
   end
   def promise
-    if current_admin.nil? && current_client.nil?
-      flash[:alert] = "Ooups!"
-      redirect_to root_path
-      return
-    end
+    # if current_admin.nil? && current_client.nil?
+    #   flash[:alert] = "Ooups!"
+    #   redirect_to root_path
+    #   return
+    # end
     @promise = PromiseToHire.find_by_id(params[:id_promise])
     @job = @promise.offre_job
     @cadre = @promise.cadre.cadre_info
