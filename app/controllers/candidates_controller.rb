@@ -267,7 +267,7 @@ class CandidatesController < ApplicationController
     tmp_oFcs = OffreForCandidate.where(cadre: current_cadre).order("created_at DESC")
     @oFcs = []
     tmp_oFcs.each do |oFc|
-      next if oFc.accepted_postule == true && oFc.repons_postule.nil? && oFc.agenda_clients.empty?
+      next if ((oFc.accepted_postule.nil? || oFc.accepted_postule == true) && oFc.repons_postule.nil? && oFc.agenda_clients.empty?)
       @oFcs.push(oFc)
     end
 	end
