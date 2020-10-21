@@ -2,7 +2,6 @@
 $("#calendar").datepicker({
   dateFormat: "dd/mm/yy",
   inline: true,
-  minDate: 0,
   showOtherMonths: true,
   dayNamesMin: ["D", "L", "M", "M", "J", "V", "S"],
   monthNames: [
