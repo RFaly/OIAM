@@ -29,7 +29,7 @@ class FacturationPdfController < ApplicationController
     respond_to do |format|
       format.pdf {render layout: 'facture_layout.html',
                     template: 'facturation_pdf/reporte',
-                    pdf: 'Facture oiam',
+                    pdf: 'Facture',
                     margin: { top: 10, bottom: 10, left: 10, right: 10 },
                     header: {
                       html: { template: 'facturation_pdf/header' },
@@ -38,7 +38,8 @@ class FacturationPdfController < ApplicationController
                     footer: {
                       html: { template: 'facturation_pdf/footer' },
                       spacing: -15
-                    }
+                    },
+                    :save_to_file => Rails.root.join('public/facture', "Facture#{@facture.numero_facture}.pdf")
                   }
     end
   end
