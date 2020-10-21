@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/6f6c696e696c6c6number_notice2f646570656e6465', to: 'notifications#number_notice', as: 'notifed_number_notice'
   get '/6e2f657874b378number_message38365f36342d6c696e', to: 'notifications#number_message', as: 'notifed_number_message'
 
-  # routes pdf 
+  # routes pdf
   get '/recruteur/mes-factures/%:id_factures.26#%/facturation_pdf.pdf',to: 'facturation_pdf#index',as: 'facturation_pdf_to_pdf'
   get '/recruteur/offre-d-emploi/%:id_promise.26#%/contrat-d-embauche.pdf',to: 'facturation_pdf#promise',as: 'promise_pdf'
   get '/cadre/suivi-recrutement/%:id_promise.26#%/contrat-d-embauche.pdf',to: 'facturation_pdf#promise_cadre',as: 'promise_cadre_pdf'
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/welcome', to: 'static_page#allHome', as: 'welcome'
 
   get '/méthodologie', to: 'static_page#methodology', as: 'methodology'
+  get '/politique_confidentialite', to: 'static_page#politique_confidentialite', as: 'confidentialite'
   get '/equipe', to: 'static_page#equipe', as: 'equipe'
   get '/portfolio', to: 'static_page#portfolio', as: 'portfolio'
   get '/contact', to: 'static_page#contact', as: 'contact'
@@ -206,7 +207,7 @@ Rails.application.routes.draw do
   # get 'secret-oiam-page/admin', to: 'admin_main#home', as: 'admin_main_home'
   get 'secret-oiam-page/admin/notifications', to: 'admin_main#notification', as: 'admin_main_notification'
   get 'secret-oiam-page/admin/mon-profil', to: 'admin_main#my_profil', as: 'admin_main_my_profil'
-  
+
   #edit profil
   get 'secret-oiam-page/admin/mon-profil/edit', to: 'admin_main#my_profil_edit', as: 'admin_main_my_profil_edit'
   patch 'secret-oiam-page/admin/mon-profil/save', to: 'admin_main#update_my_profil', as: 'admin_main_update_my_profil'
@@ -247,7 +248,7 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin/client/recrutement-en-cours', to: 'admin_client#main', as: 'admin_client_main'
   get 'secret-oiam-page/admin/client/n/:id/recrutement-en-cours', to: 'admin_client#show_recrutment', as: 'admin_show_recrutment'
   get 'secret-oiam-page/admin/client/manage/:id/recrutement-en-cours', to: 'admin_client#manage_recrutment_admin', as: 'manage_recrutment_admin'
-  
+
   get 'secret-oiam-page/admin/client/offres-d-emploi', to: 'admin_client#offer', as: 'admin_client_offer'
   get 'secret-oiam-page/admin/client/offres-d-emploi/voir-{:id} offre', to: 'admin_client#show_offer', as: 'admin_client_show_offer'
   get 'secret-oiam-page/admin/client/factures-client', to: 'admin_client#factures', as: 'admin_client_factures'
@@ -259,7 +260,7 @@ Rails.application.routes.draw do
 
   # route promise to hire
   get 'secret-oiam-page/admin/promesse-d-embauche', to: 'admin_client#all_promisetohire', as: 'admin_client_all_promise_to_hire'
-  get 'secret-oiam-page/admin/promesse-d-embauche/:id', to: 'admin_client#show_promisetohire', as: 'admin_client_show_promise_to_hire' 
+  get 'secret-oiam-page/admin/promesse-d-embauche/:id', to: 'admin_client#show_promisetohire', as: 'admin_client_show_promise_to_hire'
 
   # routes dans le dashboard
 
@@ -269,7 +270,7 @@ Rails.application.routes.draw do
   # get 'secret-oiam-page/admin/dashboard', to: 'admin_dashboard#main', as: 'admin_dashboard_main'
   get 'secret-oiam-page/admin/dashboard/demandes-de-contacts', to: 'admin_dashboard#contact_us', as: 'dashboard_contact_us'
   get 'secret-oiam-page/admin/dashboard/abonné-newsletter', to: 'admin_dashboard#subscribers', as: 'dashboard_subscribers'
-  
+
   get 'secret-oiam-page/admin/dashboard/agenda', to: 'admin_dashboard#agenda', as: 'admin_dashboard_agenda'
   get 'secret-oiam-page/admin/dashboard/statistique', to: 'admin_dashboard#statistics', as: 'admin_dashboard_statistics'
   get 'secret-oiam-page/admin/dashboard/offres-en-cours', to: 'admin_dashboard#offer', as: 'admin_dashboard_offer'
