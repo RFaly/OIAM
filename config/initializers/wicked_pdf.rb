@@ -30,13 +30,14 @@
 # else
 #   exe_path = Rails.root.join('bin', 'wkhtmltopdf').to_s
 #   # exe_path = '/usr/local/bin/wkhtmltopdf'
+# # end
+WickedPdf.config = { :exe_path => '/opt/bin/wkthmltopdf' }
+# if Rails.env.production?
+#   WickedPdf.config = {
+#      :exe_path => Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s
+#   }
+# else
+#    WickedPdf.config = {
+#       :exe_path => '/Users/josegranado/.rvm/gems/ruby-2.1.5@rails4.1.0/bin/wkhtmltopdf'
+#    }
 # end
-if Rails.env.production?
-  WickedPdf.config = {
-     :exe_path => Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s
-  }
-else
-   WickedPdf.config = {
-      :exe_path => '/Users/josegranado/.rvm/gems/ruby-2.1.5@rails4.1.0/bin/wkhtmltopdf'
-   }
-end
