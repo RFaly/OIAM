@@ -65,22 +65,16 @@
         <li><a href="#" class="navbar-item">Agenda</a></li>
         <li><a href="#" class="navbar-item">Administration</a></li>
       </ul>
-      <div class="dropup1">
+
+      <div>
         <% if admin_signed_in? %>
-            <div class="dropup-btn1" data-toggle="dropdown">
-              Mon profil
-            </div>
-              <div class="dropup-content1">
-                <%= link_to destroy_admin_session_path, method:"delete" do %>
-                <div class="dropup-item1">Se déconnecter</div>
-                <% end %>
-              </div>
+            <%= link_to destroy_admin_session_path, method:"delete" do %>
+              Se déconnecter
+            <% end %>
         <% else %>
-          <div class="dropup-btn1" data-toggle="dropdown">
-            <a href="<%= new_admin_session_path %>">Se connecter</a>
-          </div>
+          <a href="<%= new_admin_session_path %>">Se connecter</a>
         <% end %>
-    </div>
+      </div>
   </div>
 </nav>
 <!-- //*********************************// -->

@@ -1,4 +1,6 @@
 class AdminClientsController < ApplicationAdminController
+	before_action :authenticate_admin!
+	
   def be_processed
   end
 
