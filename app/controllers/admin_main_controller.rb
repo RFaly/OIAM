@@ -37,7 +37,6 @@ class AdminMainController < ApplicationAdminController
     @newMessage = MessageAdminCadre.new(content:@content, cadre_see: false, contact_admin_cadre: @contact, is_admin: true)
     if @newMessage.save
       @contact.message_admin_cadres.update(cadre_see: false )
-      redirect_to admin_show_messaging_path(@admin)
     else
       flash[:alert] = @newMessage.errors.details
     end
@@ -106,7 +105,6 @@ class AdminMainController < ApplicationAdminController
     @newMessage = MessageAdminClient.new(content:@content, client_see: false, contact_admin_client: @contact, is_admin: true)
     if @newMessage.save
       @contact.message_admin_clients.update(client_see: false )
-      redirect_to show_message_recruteur_path(@admin)
     else
       flash[:alert] = @newMessage.errors.details
     end
