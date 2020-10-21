@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-  get 'admin_clients/be_processed'
-  get 'admin_clients/pending'
-  get 'admin_clients/processed'
-  get 'admin_clients/messaging'
-  get 'admin_candidats/be_processed'
-  get 'admin_candidats/pending'
-  get 'admin_candidats/processed'
-  get 'admin_candidats/messaging'
-
   #Notification cron job
   get '/727562792f67656dnotifed_cron_job732f322e372e302f', to: 'notifications#entretien_client_fit', as: 'notifed_entretien_client_fit'
   get '/6f6c696e696c6c6number_notice2f646570656e6465', to: 'notifications#number_notice', as: 'notifed_number_notice'
@@ -212,8 +203,17 @@ Rails.application.routes.draw do
     password: 'mot-de-passe', confirmation: 'verification', edit: 'editer'
   }
 
+  #clients
+  get 'secret-oiam-page/admin-clients/a-traiter', to: 'admin_clients#be_processed', as: 'clients_be_processed'
+  get 'secret-oiam-page/admin-clients/en-attente', to: 'admin_clients#pending', as: 'clients_pending'
+  get 'secret-oiam-page/admin-clients/traitées', to: 'admin_clients#processed', as: 'clients_processed'
+  get 'secret-oiam-page/admin-clients/messageries', to: 'admin_clients#messaging', as: 'clients_messaging'
   
-
+  #cadre
+  get 'secret-oiam-page/admin-candidats/a-traiter', to: 'admin_candidats#be_processed', as: 'candidats_be_processed'
+  get 'secret-oiam-page/admin-candidats/en-attente', to: 'admin_candidats#pending', as: 'candidats_pending'
+  get 'secret-oiam-page/admin-candidats/traitées', to: 'admin_candidats#processed', as: 'candidats_processed'
+  get 'secret-oiam-page/admin-candidats/messageries', to: 'admin_candidats#messaging', as: 'candidats_messaging'
 
 end
 
