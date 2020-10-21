@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  get 'admin_clients/be_processed'
+  get 'admin_clients/pending'
+  get 'admin_clients/processed'
+  get 'admin_clients/messaging'
+  get 'admin_candidats/be_processed'
+  get 'admin_candidats/pending'
+  get 'admin_candidats/processed'
+  get 'admin_candidats/messaging'
+
   #Notification cron job
   get '/727562792f67656dnotifed_cron_job732f322e372e302f', to: 'notifications#entretien_client_fit', as: 'notifed_entretien_client_fit'
   get '/6f6c696e696c6c6number_notice2f646570656e6465', to: 'notifications#number_notice', as: 'notifed_number_notice'
@@ -196,7 +205,7 @@ Rails.application.routes.draw do
 
   #~~~~~~~~~~~~~~~~~~~~~~~~ Admin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Lien pour authentification admin
-  devise_for :admins, path: 'secret-oiam-page/admin',:skip => [:registrations], controllers: {
+  devise_for :admins, path: 'oiam-secret-page/admin',:skip => [:registrations], controllers: {
     sessions: "admins/sessions"
   }, path_names: {
     sign_in: 'se-connecter', sign_out: 'se-deconneter', cancel: 'supprimer',
