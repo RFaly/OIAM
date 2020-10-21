@@ -70,3 +70,4 @@ gem 'simple_calendar', '~> 2.0'
 gem "letter_opener", :group => :development
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary-edge',  group: [:production, :staging]
