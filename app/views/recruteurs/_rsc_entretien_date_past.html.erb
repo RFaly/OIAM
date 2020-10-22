@@ -1,58 +1,154 @@
-<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %> <% if @oFc.status == "waiting" || @oFc.status == "accepted" %> <% if @oFc.status == "waiting" %>
-<div class="dscdp-accepted" id="dscdp-waiting"><%= render partial: "recruteurs/repons_waiting" %></div>
-<% else %>
-<div class="dscdp-accepted" id="dscdp-accepted"><%= render partial: "recruteurs/repons_accepted" %></div>
-<%end %> <% else %>
-
-<div id="js-main-bloc-information" class="dscdp-validation">
-  <h3>Suivi recrutement</h3>
-
-  <p>Vous avez rencontré <a href="#"><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %> </a> le <strong> <%= @agendas.entretien_date.strftime("%d/%m/%Y") %></strong> , comment s'est déroulé votre entretien ?</p>
-
-  <div class="dscdp-link">
-    <div class="dscdp-link-item" id="accepted-js">
-      <%= link_to notice_refused_post_path(repons: 'accepted', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true do %>CANDIDAT RETENU <br />
-      POUR LA PROCHAINE ETAPE<%end%>
+<% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
+  <% #debut waiting || accepted %>
+  <% if @oFc.status == "waiting" || @oFc.status == "accepted" %>
+    <% if @oFc.status == "waiting" %>
+      <div class="dscdp-accepted" id="dscdp-waiting">
+        <%= render partial: "recruteurs/repons_waiting" %>
+      </div>
+    <% else %>
+      <div class="dscdp-accepted" id="dscdp-accepted">
+        <%= render partial: "recruteurs/repons_accepted" %>
+      </div>
+    <% end %>
+  <% else %>
+    <div id="js-main-bloc-information" class="dscdp-validation">
+      <h3>Suivi recrutement</h3>
+      <p>Vous avez rencontré <a href="<%= show_search_candidate_path(@cadre.id, offre_id: @offre.id) %>"><%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %></a> le <strong> <%= @agendas.entretien_date.strftime("%d/%m/%Y") %></strong> , comment s'est déroulé votre entretien ?</p>
+      <div class="dscdp-link">
+        <div class="dscdp-link-item" id="accepted-js">
+          <%= link_to notice_refused_post_path(repons: 'accepted', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true do %>CANDIDAT RETENU <br />
+          POUR LA PROCHAINE ETAPE<%end%>
+        </div>
+        <div class="dscdp-link-item" id="waiting-js"><%= link_to "CANDIDAT EN ATTENTE", notice_refused_post_path(repons: 'waiting', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true, class:'link' %></div>
+        <div class="dscdp-link-item"><span id="js-ca_confirmchoice">CANDIDAT REFUSE</span></div>
+        <br />
+        <!-- Alerte notification if refused candidat -->
+        <div id="js-show_ca_confirmchoice" style="display: none" class="dscdp-refus">
+          <p>Attention ! Ce candidat figure parmi les meilleurs du marché et ne peut vous être réservé exclusivement et nous portons à votre attention qu'une réponse rapide favorise la réussite du recrutement.</p>
+          <div class="dscdpr-flex">
+            <%= link_to "VOIR LE CANDIDAT", show_search_candidate_path(@cadre.id, offre_id: @offre.id) %> <%= link_to "Valider", notice_refused_post_path(repons: 'refused', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true, id:"js-ca_confirmchoice" %>
+            <div class="js-retour-choice">Annuler</div>
+          </div>
+        </div>
+      </div>
+      <div class="dscdp-contact">
+        <a href="<%= show_my_messages_client_path(@cadre.id) %>">
+          <img src="/image/chatS.png" alt="Icon chat" />
+          <div>Chat en ligne</div>
+        </a>
+        <a href="mailto: <%= @cadre.cadre_info.mail %>">
+          <img src="/image/mailS.png" alt="icon mail" />
+          <div>Mail</div>
+        </a>
+        <a href="<%= @cadre.cadre_info.compte_rendu %>">
+          <img src="/image/compteR.png" alt="icon compte rendu" />
+          <div>Compte rendu</div>
+        </a>
+      </div>
     </div>
-    <div class="dscdp-link-item" id="waiting-js"><%= link_to "CANDIDAT EN ATTENTE", notice_refused_post_path(repons: 'waiting', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true, class:'link' %></div>
-    <div class="dscdp-link-item"><span id="js-ca_confirmchoice">CANDIDAT REFUSE</span></div>
-
-    <br />
-
-    <!-- Alerte notification if refused candidat -->
-    <div id="js-show_ca_confirmchoice" style="display: none" class="dscdp-refus">
-      <p>Attention ! Ce candidat figure parmi les meilleurs du marché et ne peut vous être réservé exclusivement et nous portons à votre attention qu'une réponse rapide favorise la réussite du recrutement.</p>
-
-      <div class="dscdpr-flex">
-        <%= link_to "VOIR LE CANDIDAT", show_search_candidate_path(@cadre.id, offre_id: @offre.id) %> <%= link_to "Valider", notice_refused_post_path(repons: 'refused', oFc_id: @oFc.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true, id:"js-ca_confirmchoice" %>
-        <div class="js-retour-choice">Annuler</div>
+  <% #fin waiting || accepted %>
+  <% end %>
+<!-- fin choice status waiting || refusing -->
+<% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
+  <div class="rscdp-empty">
+    L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> est passé.<br>
+    <% date = DateTime.parse(@agendas.alternative) %>
+    <div class="new-date">
+      Le candidat a accepté la demande d'entretien à condition de changer la date à <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+      <div class="link">
+        <% if date.future? %>
+          <%= link_to "ACCEPTER SA PROPOSITION", update_entretien_client_path(repons: '1', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
+        <% else %>
+          La date que le candidat a proposée est passé.
+        <% end %>
+      </div>
+      <div class="link ssc-btn ssc-pe" id="dateEntretien1">
+        PROPOSER UNE NOUVELLE DATE
+      </div>
+      <div class="link2">
+        <%= link_to "REFUSER SA PROPOSTION ET SA CANDIDATURE", update_entretien_client_path(repons: '0', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
       </div>
     </div>
   </div>
-  <div class="dscdp-contact">
-    <a href="<%= show_my_messages_client_path(@cadre.id) %>">
-      <img src="/image/chatS.png" alt="Icon chat" />
-      <div>Chat en ligne</div>
-    </a>
-    <a href="mailto: <%= @cadre.cadre_info.mail %>">
-      <img src="/image/mailS.png" alt="icon mail" />
-      <div>Mail</div>
-    </a>
-    <a href="<%= @cadre.cadre_info.compte_rendu %>">
-      <img src="/image/compteR.png" alt="icon compte rendu" />
-      <div>Compte rendu</div>
-    </a>
+
+<!-- ---------------------------------------------------------------- -->
+  <div class="ssc-planification1">
+    <div class="hiddenDate1" style="display: none;" id="js-form-show">
+      <%= form_tag(update_entretien_client_path, remote: true, id:"send-data-form") do %>
+
+      <div class="date">
+        <input type="text" name="date" id="datepicker" />
+      </div>
+
+      <div class="js-timeContainer" style="display: none;">
+        <h4 id="showDateLong"></h4>
+
+        <div class="fselect">
+          <span id="reditDate" class="badge badge-secondary">modifier la date</span>
+          <div class="firstSelection">
+            <div class="js-hoursTime" data-time="08:00">08:00</div>
+            <div class="js-hoursTime" data-time="09:00">09:00</div>
+            <div class="js-hoursTime" data-time="10:00">10:00</div>
+            <div class="js-hoursTime" data-time="11:00">11:00</div>
+          </div>
+          <div class="firstSelection">
+            <div class="js-hoursTime" data-time="12:00">12:00</div>
+            <div class="js-hoursTime" data-time="13:00">13:00</div>
+            <div class="js-hoursTime" data-time="14:00">14:00</div>
+            <div class="js-hoursTime" data-time="15:00">15:00</div>
+          </div>
+          <div class="firstSelection">
+            <div class="js-hoursTime" data-time="16:00">16:00</div>
+            <div class="js-hoursTime" data-time="17:00">17:00</div>
+            <div class="js-hoursTime" data-time="18:00">18:00</div>
+            <div class="js-hoursTime" data-time="19:00">19:00</div>
+          </div>
+
+          <input type="hidden" name="time" id="input-time" />
+          <input type="hidden" name="cadre_id" value="<%= @cadre.id %>" />
+          <input type="hidden" name="offre_id" value="<%= @offre.id %>" />
+          <input type="hidden" name="ac_id" value="<%= @agendas.id %>" />
+          <input type="hidden" name="repons" value="2" />
+          
+
+          <div class="planQ-btn">
+            <%= submit_tag("VALIDER", id:"valid-submit", disabled:"disabled" )%>
+          </div>
+          
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+    <div id="send-data-form-ok-success" class="ssc-send" style="display: none;">
+      <h4>Nouvelle demande d'entretien envoyée</h4>
+      <img src="/image/check.png" alt="OK" />
+      <div>
+        <div class="datetime">
+          <div id="dateShowOk"></div>
+          <div id="timeShowOk"></div>
+        </div>
+        <div class="ssc-send-btn">
+          VALIDER
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-<% end %>
-<!-- fin choice status waiting || refusing -->
-
-<% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %> <% elsif @agendas.repons_cadre == false %> <% elsif @agendas.repons_client == false %> <% else %>
-<div class="rscdp-empty">
-  Le candidat n’a pas donné suite à votre demande d’entretien. Vous avez la possibilité de choisir un autre candidat dans la limite des
-  <a>5 candidats maximum</a>.
-</div>
+<% elsif @agendas.repons_cadre == false %>
+  <div class="rscdp-empty">
+    L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> est passé.<br>
+    Le candidat a refusé l'entretien
+    <% unless @agendas.alternative.nil? %>
+    <div>
+        motif: <%= @agendas.alternative %>
+    </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="rscdp-empty">
+    Le candidat n’a pas donné suite à votre demande d’entretien. Vous avez la possibilité de choisir un autre candidat dans la limite des
+    <a>5 candidats maximum</a>.
+  </div>
 <% end %>
 
 <div class="dscdp-accepted js-uniq-waiting" id="dscdp-waiting" style="display: none"><%= render partial: "recruteurs/repons_waiting" %></div>
