@@ -2,22 +2,41 @@ class NotificationsController < ApplicationController
 	#cron job for entretien
   def entretien_client_fit
   	current_date = DateTime.now.utc
-  	# pour entretien cadre client #cron job for cadre client
-  	agendaClients = AgendaClient.where(notifed:false,repons_client:true,repons_cadre:true,alternative:nil)
+
+  	agendaClients = AgendaClient.where(notifed:false)
   	agendaClients.each do |agendaClient|
       # si la date de l'entretien est passé
 	    if agendaClient.entretien_date < current_date
 	    	oFc = agendaClient.offre_for_candidate
-				Notification.create(
-					client: oFc.offre_job.client,
-					object: "Suivi recrutement",
-					message: "Vous avez rencontré #{oFc.cadre.cadre_info.first_name} #{oFc.cadre.cadre_info.last_name}, comment s'est déroulé votre entretien ?",
-					link: "#{recruitment_show_cadre_path(oFc.id,notification:"entretien")}",
-					genre: 1,
-					medel_id: oFc.cadre.id,
-					view: false
-				)
-	    	agendaClient.update(notifed:true)
+        message = ""
+        if agendaClient.repons_client == true && agendaClient.repons_cadre == true && agendaClient.alternative.nil?
+          message = "Vous avez rencontré #{oFc.cadre.cadre_info.first_name} #{oFc.cadre.cadre_info.last_name}, comment s'est déroulé votre entretien ?"
+        elsif agendaClient.repons_client == true && agendaClient.repons_cadre == true && !agendaClient.alternative.nil?
+          message = "La date de l'entretien avec #{oFc.cadre.cadre_info.first_name} #{oFc.cadre.cadre_info.last_name} est passée, le candidat a proposé une autre date."
+        elsif agendaClient.repons_cadre.nil?
+          message = "La date de l'entretien avec #{oFc.cadre.cadre_info.first_name} #{oFc.cadre.cadre_info.last_name} est passée mais ce candidat n’a pas donné suite à votre demande d’entretien."
+          Notification.create(
+            cadre: oFc.cadre,
+            object: "Suivi recrutement",
+            message: "La date de l'entretien avec l'entreprise #{oFc.offre_job.client.entreprise.name} est passée mais vous n'avez donner aucune réponse à la demande d’entretien.",
+            link: "#{show_recrutment_monitoring_path(oFc.id,notification:"entretien")}",
+            genre: 1,
+            medel_id: oFc.cadre.id,
+            view: false
+          )
+        end
+        unless message.empty?
+  				Notification.create(
+  					client: oFc.offre_job.client,
+  					object: "Suivi recrutement",
+  					message: message,
+  					link: "#{recruitment_show_cadre_path(oFc.id,notification:"entretien")}",
+  					genre: 1,
+  					medel_id: oFc.cadre.id,
+  					view: false
+  				)
+  	    	agendaClient.update(notifed:true)
+        end
 	    end
   	end
 
@@ -36,6 +55,7 @@ class NotificationsController < ApplicationController
 	    	agendaAdmin.update(notifed:true)
 	    end
   	end
+
   end
 
   def number_notice
