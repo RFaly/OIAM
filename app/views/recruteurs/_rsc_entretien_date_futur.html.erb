@@ -12,16 +12,19 @@
             <% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
                 <% date = DateTime.parse(@agendas.alternative) %>
                 <div class="new-date">
-                    Le candidat a accepté la demande d'entretien à condition de changer la date <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
-                    <div class="link">
-                        <%= link_to "ACCEPTER SA PROPOSITION", update_entretien_client_path(repons: '1', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
-                    </div>
-                    
-                    <div class="link ssc-btn ssc-pe" id="dateEntretien1">
-                        PROPOSER UNE NOUVELLE DATE
-                    </div>
-                    <div class="link2">
-                      <%= link_to "REFUSER SA PROPOSTION ET SA CANDIDATURE", update_entretien_client_path(repons: '0', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
+                  Le candidat a accepté la demande d'entretien à condition de changer la date  à <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+                  <div class="link">
+                    <% if date.future? %>
+                      <%= link_to "ACCEPTER SA PROPOSITION", update_entretien_client_path(repons: '1', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
+                    <% else %>
+                      La date que le candidat a proposée est passé.
+                    <% end %>
+                  </div>
+                  <div class="link ssc-btn ssc-pe" id="dateEntretien1">
+                    PROPOSER UNE NOUVELLE DATE
+                  </div>
+                  <div class="link2">
+                    <%= link_to "REFUSER SA PROPOSTION ET SA CANDIDATURE", update_entretien_client_path(repons: '0', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
                   </div>
                 </div>
             <!-- candidat a reffuser l'entretien -->
