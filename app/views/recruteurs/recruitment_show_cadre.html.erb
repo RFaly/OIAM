@@ -22,7 +22,8 @@
         <% if @agendas.nil? %>
         <div class="rsc-body-empty">
           <p>Vous n'avez pas encore planifié d'entretien avec ce candidat.</p>
-          <div class="link"><%= link_to "PLANIFIER UN ENTRETIEN", show_search_candidate_path(@cadre.id, offre_id: @offre.id)%></div>
+          <div class="link">
+            <%= link_to "PLANIFIER UN ENTRETIEN", show_search_candidate_path(@cadre.id, offre_id: @offre.id)%></div>
         </div>
 
         <% else %>
@@ -75,22 +76,27 @@
               <div>
                 <label id="conditioncheck">
                   Adresse de l'entreprise
-                  <input type="radio" checked="checked" required name="adresse" id="adresse1" value="<%= current_client.entreprise.adresse %>" class="js-input-adresse" data-value="none" />
+                  <input type="radio" checked="checked" required name="adresse" id="adresse1"
+                    value="<%= current_client.entreprise.adresse %>" class="js-input-adresse" data-value="none" />
                   <span class="checkmark"></span>
                 </label>
               </div>
               <div class="with-input">
                 <label id="conditioncheck">
                   Autre lieu :
-                  <input type="radio" required name="adresse" id="adresse2" data-value="autre" class="js-input-adresse" />
+                  <input type="radio" required name="adresse" id="adresse2" data-value="autre"
+                    class="js-input-adresse" />
                   <span class="checkmark"></span>
                 </label>
-                <input type="text" name="adresse_name" id="js-adresse_name_input" style="display: none" disabled="disabled" placeholder="L'adresse ..." class="with-input-item" />
+                <input type="text" name="adresse_name" id="js-adresse_name_input" style="display: none"
+                  disabled="disabled" placeholder="L'adresse ..." class="with-input-item" />
               </div>
               <div>
                 <label id="conditioncheck">
                   <%= current_client.first_name %> <%= current_client.last_name %> , <%= current_client.fonction %>
-                  <input type="radio" checked="checked" required name="name" value="<%= current_client.first_name %> <%= current_client.last_name %>" id="name_client" class="js-input-name" />
+                  <input type="radio" checked="checked" required name="name"
+                    value="<%= current_client.first_name %> <%= current_client.last_name %>" id="name_client"
+                    class="js-input-name" />
                   <span class="checkmark"></span>
                 </label>
               </div>
@@ -100,7 +106,8 @@
                   <input type="radio" required name="name" id="autre_personne" value="1" class="js-input-name" />
                   <span class="checkmark"></span>
                 </label>
-                <input type="text" name="client_name" id="client_name_input" style="display: none" disabled="disabled" placeholder="Nom et prénoms" class="with-input-item" />
+                <input type="text" name="client_name" id="client_name_input" style="display: none" disabled="disabled"
+                  placeholder="Nom et prénoms" class="with-input-item" />
               </div>
 
               <input type="hidden" name="time" id="input-time" />
@@ -129,7 +136,8 @@
                 <%= current_client.entreprise.city %>
               </span>
               <br />
-              <span id="nameShowOk"> <%= current_client.fonction %> : <%= current_client.first_name %> <%= current_client.last_name %> </span>
+              <span id="nameShowOk"> <%= current_client.fonction %> : <%= current_client.first_name %>
+                <%= current_client.last_name %> </span>
             </div>
             <div class="ssc-send-btn" id="last-validation">VALIDER</div>
           </div>
@@ -140,7 +148,7 @@
   </div>
 </div>
 <script>
-  if ($('#futureTimeClock')[0]) {
+  $(document).ready(function () {
     if (document.URL.indexOf('#') == -1) {
       // Set the URL to whatever it was plus "#".
       url = document.URL + '#';
@@ -149,16 +157,19 @@
       //Reload the page
       location.reload(true);
     }
-  }
+    // if ($('#futureTimeClock')[0]) {
+    // }
 
-  $('#last-validation').click(function () {
-    location.reload(true);
+    $('#last-validation').click(function () {
+      location.reload(true);
+    });
   });
 </script>
 <!-- call js  -->
 <script type="text/javascript" src="/js/recrutement_show.js"></script>
 
-<script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
+</script>
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/entretien_client.js"></script>
