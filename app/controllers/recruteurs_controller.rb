@@ -345,13 +345,13 @@ class RecruteursController < ApplicationController
 		name_entreprise = current_client.entreprise.name
     case params[:repons]
     when "0" #REFUSER
-      @agendaClient.update(repons_client: false)
+      @agendaClient.update(repons_client: false,notifed:false)
       @oFc.update(status:"refused")
       #notifaka
 			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a refusé votre proposition pour la date de l'entretien.",link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offreJob.id,view: false)
     when "1"	#ACCEPTER
 			date = DateTime.parse(@agendaClient.alternative)
-      @agendaClient.update(entretien_date:date.utc,alternative: nil, repons_cadre:true, is_update:true,repons_client: true)
+      @agendaClient.update(entretien_date:date.utc,alternative: nil, repons_cadre:true, is_update:true,repons_client: true,notifed:false)
     	#notifaka
 			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a accepté votre proposition pour la date d'entretien.",link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offreJob.id,view: false)
     when "2"
@@ -363,7 +363,7 @@ class RecruteursController < ApplicationController
       hour = time[0].to_i
       min = time[1].to_i
       date_time = DateTime.new(year,month,day,hour,min).utc
-      @agendaClient.update(entretien_date: date_time, alternative: nil, repons_cadre:nil, is_update:true)
+      @agendaClient.update(entretien_date: date_time, alternative: nil, repons_cadre:nil, is_update:true, notifed:false)
       #notifaka
 			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a proposé une autre date pour l'entretien.",link: "#{received_job_path(notification:"entretien")}",genre: 1,medel_id: @offreJob.id,view: false)
     else
