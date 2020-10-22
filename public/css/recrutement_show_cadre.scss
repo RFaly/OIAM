@@ -6,14 +6,17 @@
   width: 95%;
   margin: 0 auto;
   font: $ffsentence;
+
   .rsc-header {
     .rsc-header-image {
       text-align: -webkit-center;
       text-align: -moz-center;
       text-align: center;
+
       h4 {
         padding: 20px 0;
       }
+
       img,
       .c {
         margin: 0 auto;
@@ -21,25 +24,31 @@
         height: 200px;
         border-radius: 50%;
       }
+
       a {
         color: black;
+
         &:hover {
           color: $main_theme_color;
         }
       }
     }
+
     .rsc-header-travel {
       display: flex;
       justify-content: center;
+
       .rsch-item {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+
         .cl {
           width: 100%;
           display: flex;
           align-items: center;
         }
+
         .circle {
           display: flex;
           justify-content: center;
@@ -50,24 +59,29 @@
           border-radius: 50%;
           font: 600 16px roboto, sans-serif;
           color: white;
+
           &.color {
             background: $main_theme_color;
           }
         }
+
         .line {
           content: ' ';
           height: 2px;
           background-color: $secondary_element_color;
+
           &.color {
             background: $main_theme_color;
           }
         }
+
         .content {
           margin-top: 5px;
           align-self: center;
           font: $ffbtn;
           font-size: 16px;
         }
+
         .content-last {
           width: 27px;
           margin-left: -26px;
@@ -76,8 +90,10 @@
       }
     }
   }
+
   .rsc-body {
     margin-top: 30px;
+
     // empty entretien
     .rsc-body-empty {
       border: 2px solid $main_theme_color;
@@ -87,29 +103,35 @@
       text-align: center;
       //   width: 50%;
       margin: 50px auto;
+
       p {
         margin-bottom: 50px;
       }
+
       .link {
         border: 2px solid $main_theme_color;
         margin: 0 auto;
         padding: 12px 0;
         padding-top: 13px;
+
         a {
           color: $main_theme_color;
           font: $ffbtn;
           text-decoration: none;
           text-transform: uppercase;
         }
+
         &:hover,
         &:active {
           background: $main_theme_color;
+
           a {
             color: white;
           }
         }
       }
     }
+
     // date futur entretien suivi recrutement
     .rsc-date-futur {
       background: $main_theme_color;
@@ -120,24 +142,30 @@
       color: white;
       font-weight: 600;
       padding: 20px 0;
+
       .rscdf-header {
         padding: 20px;
         padding-bottom: 10px;
       }
+
       .rscdf-content {
         display: flex;
         flex-direction: row-reverse;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
+
         .rscdf-item1 {
           padding: 15px;
+
           .refus {
             div {
               margin: 10px;
             }
           }
+
           .new-date {
+
             // width: 450px;
             .link {
               // width: 70%;
@@ -146,6 +174,7 @@
               border: 2px solid white;
               padding: 10px 0;
               margin: 10px auto;
+
               a {
                 cursor: pointer;
                 color: white;
@@ -153,21 +182,25 @@
                 // padding: 10px 32px;
                 text-decoration: none;
               }
+
               &:hover,
               &:active {
                 background: white;
                 color: $main_theme_color;
+
                 a {
                   color: $main_theme_color;
                 }
               }
             }
+
             .link2 {
               // width: 100%;
               font: $ffbtn;
               border: 2px solid white;
               padding: 10px 0;
               margin: 10px auto;
+
               a {
                 color: white;
                 cursor: pointer;
@@ -175,9 +208,11 @@
                 text-decoration: none;
                 // padding: 10px 15px;
               }
+
               &:hover,
               &:active {
                 background: white;
+
                 a {
                   color: $main_theme_color;
                 }
@@ -185,28 +220,35 @@
             }
           }
         }
+
         .rscdf-item2 {
           padding: 10px 30px;
           border-right: 2px solid white;
           border-left: 2px solid white;
+
           h4 {
             font-weight: 600;
             margin-bottom: 20px;
           }
+
           .date-items {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+
             .date {
               padding: 10px;
               margin: 10px 5px;
+
               &:first-child {
                 padding-left: 20px;
                 padding-right: 20px;
               }
+
               span {
                 font-size: 50px;
               }
+
               p {
                 margin: 0;
               }
@@ -215,6 +257,7 @@
         }
       }
     }
+
     // date past entretien suivi recrutement
     .rsc-date-past {
       .rscdp-empty {
@@ -226,15 +269,18 @@
         text-align: -webkit-center;
         text-align: -moz-center;
         text-align: center;
+
         a {
           font: $ffbtn;
           color: $main_theme_color;
+
           &:hover,
           &:active {
             color: #d6b46ab6;
           }
         }
       }
+
       // css validation candidat
       .dscdp-validation {
         font: $ffsentence;
@@ -246,27 +292,33 @@
         text-align: -webkit-center;
         text-align: -moz-center;
         text-align: center;
+
         h3 {
           font: $ffsentence;
           color: $main_theme_color;
           text-align: left;
         }
+
         p {
           margin: 30px 0;
+
           a {
             color: black;
             font-weight: 520;
           }
         }
+
         .dscdp-link {
           .dscdp-link-item {
             // width: 280px;
             margin: 15px auto;
             border: 2px solid $main_theme_color;
             padding: 13px 0;
+
             .link {
               // padding: 12px 35px;
             }
+
             a {
               color: $main_theme_color;
               text-transform: uppercase;
@@ -274,6 +326,7 @@
               font: $ffbtn;
               // padding: 22px 10px;
             }
+
             span {
               cursor: pointer;
               text-transform: uppercase;
@@ -282,12 +335,15 @@
               color: $main_theme_color;
               // padding: 16px 55px;
             }
+
             &:hover,
             &:active {
               background: $main_theme_color;
+
               a {
                 color: white;
               }
+
               span {
                 color: white;
               }
@@ -295,22 +351,26 @@
           }
         }
       }
+
       .dscdp-contact {
         display: flex;
         flex-wrap: wrap;
         margin-top: 35px;
         justify-content: center;
+
         a {
           color: $main_theme_color;
           font: $ffsentence;
           font-weight: 600;
           margin: 10px;
+
           img {
             width: 55px;
             height: 30px;
           }
         }
       }
+
       // css refus candidat
       .dscdp-refus {
         top: 30%;
@@ -318,6 +378,7 @@
         position: absolute;
         z-index: 200;
         width: 80%;
+
         .dscdpr-flex {
           a {
             display: block;
@@ -329,12 +390,14 @@
             text-transform: uppercase;
             text-decoration: none;
             font: $ffbtn;
+
             &:hover,
             &:active {
               color: $main_theme_color;
               background: white;
             }
           }
+
           div {
             cursor: pointer;
             width: 190px;
@@ -345,6 +408,7 @@
             text-transform: uppercase;
             text-decoration: none;
             font: $ffbtn;
+
             &:hover,
             &:active {
               color: $main_theme_color;
@@ -353,26 +417,32 @@
           }
         }
       }
+
       // css candidat accepted
       .dscdp-accepted {
         padding-bottom: 70px;
         text-align: -webkit-center;
         text-align: -moz-center;
         text-align: center;
+
         .dscdpa-box {
           margin: 0 auto;
           border: 2px solid $main_theme_color;
+
           h3 {
             font: $ffsentence;
             color: $main_theme_color;
             text-align: left;
           }
+
           h5 {
             font: $ffsentence;
           }
         }
+
         .dscdp-link {
           margin-top: 35px;
+
           .dscdp-link-item {
             cursor: pointer;
             text-transform: uppercase;
@@ -382,19 +452,23 @@
             margin: 20px auto;
             border: 2px solid $main_theme_color;
             padding: 13px 0;
+
             .link {
               // padding: 12px 35px;
             }
+
             a {
               color: $main_theme_color;
               text-transform: uppercase;
               text-decoration: none;
               font: $ffbtn;
             }
+
             &:hover,
             &:active {
               color: white;
               background: $main_theme_color;
+
               a {
                 color: white;
               }
@@ -403,18 +477,22 @@
         }
       }
     }
+
     // promesse d embauche
     .rsc-body-promise {
       padding: 20px 0;
+
       .dscdpa-box {
         font: $ffsentence;
         border: 2px solid $main_theme_color;
         // padding: 30px;
         // width: 50%;
         margin: 20px auto;
+
         h3 {
           color: $main_theme_color;
         }
+
         p {
           text-align: -webkit-center;
           text-align: -moz-center;
@@ -423,6 +501,7 @@
           margin: 10px 0;
           // padding: 0 30px;
         }
+
         .dscdp-link {
           &-item {
             width: 150px;
@@ -432,6 +511,7 @@
             text-align: -moz-center;
             text-align: center;
             padding: 10px 0;
+
             a {
               padding: 10px 50px;
               font: $ffbtn;
@@ -439,24 +519,29 @@
               text-decoration: none;
               color: $main_theme_color;
             }
+
             &:hover {
               background: $main_theme_color;
+
               a {
                 color: white;
               }
             }
           }
+
           .dscdp-contact {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
             margin-top: 20px;
+
             a {
               margin: 10px;
               display: flex;
               flex-direction: column;
               align-items: center;
               color: $main_theme_color;
+
               img {
                 width: 55px;
                 height: 30px;
@@ -466,44 +551,53 @@
         }
       }
     }
+
     // candidat refusé
     .rsc-body-refuse {
       .rscr-form-box {
         font: $ffsentence;
         width: 80%;
         margin: 0 auto;
+
         .rscr-head {
           padding: 20px;
           width: 180px;
           border: 2px solid $main_theme_color;
+
           img {
             display: block;
             width: 35px;
             height: 35px;
           }
+
           p {
             margin: 0;
           }
         }
+
         .label {
           margin: 30px;
           text-align: -webkit-center;
           text-align: -moz-center;
           text-align: center;
         }
+
         .text-area {
           width: 80%;
           margin: 0 auto;
+
           textarea {
             border: none;
             border-radius: 0;
             background: $secondary_element_color;
+
             &:focus {
               outline: 2px solid $main_theme_color;
               box-shadow: 1px 1px 5px 1px $main_theme_color;
             }
           }
         }
+
         .submit {
           input {
             border-radius: 0;
@@ -512,16 +606,19 @@
             font: $ffbtn;
             width: 100%;
             padding: 10px;
+
             &:hover,
             &:active {
               background: $main_theme_color;
               color: white;
             }
           }
+
           margin: 30px auto;
           width: 150px;
         }
       }
+
       .rscr-result {
         padding: 20px;
         font: $ffsentence;
@@ -533,6 +630,7 @@
         text-align: center;
       }
     }
+
     // VALIDATION Candidat
     .validation-cadre-trying {
       border: 2px solid $main_theme_color;
@@ -543,6 +641,7 @@
       text-align: -webkit-center;
       text-align: -moz-center;
       text-align: center;
+
       .vct-btn {
         cursor: pointer;
         text-transform: uppercase;
@@ -554,40 +653,48 @@
         font: $ffbtn;
         color: $main_theme_color;
         border: 2px solid $main_theme_color;
+
         a {
           text-decoration: none;
           color: $main_theme_color;
         }
+
         &:hover,
         &:active {
           background: $main_theme_color;
           color: white;
+
           a {
             color: white;
           }
         }
       }
+
       .datte-past {
         input {
           margin-top: 30px;
         }
+
         input[type='date'] {
           background: $secondary_element_color;
           border: none;
           border-radius: 0;
           padding: 10px 20px;
           margin: 10px;
+
           &:focus {
             box-shadow: $box-shadow;
             outline: 2px solid $main_theme_color;
           }
         }
+
         input[type='submit'] {
           border: 2px solid $main_theme_color;
           border-radius: 0;
           padding: 10px 20px;
           font: $ffbtn;
           color: $main_theme_color;
+
           &:hover,
           &:active {
             background: $main_theme_color;
@@ -596,19 +703,23 @@
         }
       }
     }
+
     // after promise
     .after-promise {
       color: $main_theme_color;
       width: 70%;
       margin: 0 auto;
+
       .ap-left {
         a {
           color: $main_theme_color;
         }
       }
+
       .ap-right {
         padding: 8px 0;
         border: 2px solid $main_theme_color;
+
         a {
           font: $ffbtn;
           font-size: 16px;
@@ -617,20 +728,24 @@
           color: $main_theme_color;
           padding: 10px 30px;
         }
+
         &:hover,
         &:active {
           background: $main_theme_color;
+
           a {
             color: white;
           }
         }
       }
+
       .ap-box {
         margin: 30px 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
+
         img {
           margin-right: 10px;
           width: 55px;
@@ -640,6 +755,7 @@
     }
   }
 }
+
 // planification entretien
 .ssc-planification {
   margin: 0 auto;
@@ -649,9 +765,11 @@
   width: 80%;
   padding: 0 10%;
   z-index: 200;
+
   // date validation
   .date {
     opacity: 0;
+
     input {
       top: -3px;
       border-radius: 0;
@@ -659,6 +777,7 @@
       position: absolute;
     }
   }
+
   // hour validation
   .js-timeContainer {
     padding: 30px;
@@ -666,22 +785,27 @@
     background: $secondary_text_color_button;
     color: white;
     font: $ffbtn;
+
     h4 {
       text-align: -webkit-center;
       text-align: -moz-center;
       text-align: center;
     }
+
     .fselect {
       width: 95%;
       margin: 0 auto;
+
       #reditDate {
         cursor: pointer;
       }
+
       .firstSelection {
         display: flex;
         justify-content: space-between;
         margin: 20px 0;
       }
+
       .js-hoursTime {
         padding: 5px;
         background: transparent;
@@ -691,6 +815,7 @@
         text-align: -moz-center;
         text-align: center;
         cursor: pointer;
+
         &:hover,
         &:active {
           background: white;
@@ -699,9 +824,11 @@
       }
     }
   }
+
   .with-input {
     align-items: center;
     display: flex;
+
     .with-input-item {
       border-radius: 0;
       outline: none;
@@ -712,14 +839,17 @@
       padding-left: 5px;
       border: none;
       background: $secondary_element_color;
+
       &:focus {
         outline: 1px solid white;
         box-shadow: $box-shadow;
       }
     }
   }
+
   .planQ-btn {
     text-align: right;
+
     input {
       font: $ffbtn;
       background: transparent;
@@ -727,6 +857,7 @@
       border-radius: 0;
       color: white;
       padding: 10px 30px;
+
       &:hover,
       &:active {
         background: white;
@@ -734,6 +865,7 @@
       }
     }
   }
+
   .ssc-send {
     color: white;
     background: $secondary_text_color_button;
@@ -743,11 +875,13 @@
     text-align: center;
     padding: 30px;
     margin-top: 11px;
+
     img {
       width: 40px;
       height: 48px;
       margin: 10px 0;
     }
+
     .datetime {
       background: white;
       width: 90%;
@@ -756,11 +890,13 @@
       font: $ffbtn;
       padding: 20px;
     }
+
     a {
       text-decoration: none;
       text-transform: uppercase;
       color: $main_theme_color;
     }
+
     .ssc-send-btn {
       cursor: pointer;
       border: 2px solid white;
@@ -769,6 +905,7 @@
       width: 150px;
       margin-top: 30px;
       margin-left: auto;
+
       &:hover,
       &:active {
         background: white;
@@ -777,16 +914,19 @@
     }
   }
 }
+
 .ssc-planification1 {
   position: relative;
   margin-top: -270px;
   margin-bottom: 270px;
   width: 60%;
   z-index: 200;
+
   // date validation
   .date {
     opacity: 1;
     text-align: left;
+
     input {
       top: -3px;
       border-radius: 0;
@@ -794,6 +934,7 @@
       position: absolute;
     }
   }
+
   // hour validation
   .js-timeContainer {
     padding: 30px;
@@ -801,22 +942,27 @@
     background: $secondary_text_color_button;
     color: white;
     font: $ffbtn;
+
     h4 {
       text-align: -webkit-center;
       text-align: -moz-center;
       text-align: center;
     }
+
     .fselect {
       width: 95%;
       margin: 0 auto;
+
       #reditDate {
         cursor: pointer;
       }
+
       .firstSelection {
         display: flex;
         justify-content: space-between;
         margin: 20px 0;
       }
+
       .js-hoursTime {
         padding: 5px;
         background: transparent;
@@ -826,6 +972,7 @@
         text-align: -moz-center;
         text-align: center;
         cursor: pointer;
+
         &:hover,
         &:active {
           background: white;
@@ -834,9 +981,11 @@
       }
     }
   }
+
   .with-input {
     align-items: center;
     display: flex;
+
     .with-input-item {
       border-radius: 0;
       outline: none;
@@ -847,14 +996,17 @@
       padding-left: 5px;
       border: none;
       background: $secondary_element_color;
+
       &:focus {
         outline: 1px solid white;
         box-shadow: $box-shadow;
       }
     }
   }
+
   .planQ-btn {
     text-align: right;
+
     input {
       font: $ffbtn;
       background: transparent;
@@ -862,6 +1014,7 @@
       border-radius: 0;
       color: white;
       padding: 10px 30px;
+
       &:hover,
       &:active {
         background: white;
@@ -869,6 +1022,7 @@
       }
     }
   }
+
   .ssc-send {
     color: white;
     background: $secondary_text_color_button;
@@ -878,11 +1032,13 @@
     text-align: center;
     padding: 30px;
     margin-top: 11px;
+
     img {
       width: 40px;
       height: 48px;
       margin: 10px 0;
     }
+
     .datetime {
       background: white;
       width: 90%;
@@ -891,6 +1047,7 @@
       font: $ffbtn;
       padding: 20px;
     }
+
     .ssc-send-btn {
       cursor: pointer;
       border: 2px solid white;
@@ -899,6 +1056,7 @@
       width: 150px;
       margin-top: 30px;
       margin-left: auto;
+
       &:hover,
       &:active {
         background: white;
@@ -907,19 +1065,23 @@
     }
   }
 }
+
 .ssc-invite {
   padding: 10px;
   color: white;
   background: $main_theme_color;
 }
+
 // date picker
 #ui-datepicker-div {
   width: 600px;
   color: white;
 }
+
 .ui-datepicker {
   &-calendar {
     padding: 30px;
+
     td {
       height: 60px;
 
@@ -928,18 +1090,22 @@
       }
     }
   }
+
   &-header {
     padding: 50px;
   }
+
   &-next {
     top: 40px;
     right: 10%;
   }
+
   &-prev {
     top: 40px;
     right: 20%;
   }
 }
+
 // check box
 #conditioncheck {
   font: $ffsentence;
@@ -951,6 +1117,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
   input {
     position: absolute;
     opacity: 0;
@@ -958,6 +1125,7 @@
     height: 0;
     width: 0;
   }
+
   .checkmark {
     position: absolute;
     top: -2px;
@@ -966,17 +1134,21 @@
     width: 20px;
     border: 2px solid white;
   }
-  &:hover input ~ .checkmark {
+
+  &:hover input~.checkmark {
     background-color: $secondary_text_color_button;
   }
+
   .checkmark:after {
     content: '';
     position: absolute;
     display: none;
   }
-  input:checked ~ .checkmark:after {
+
+  input:checked~.checkmark:after {
     display: block;
   }
+
   .checkmark:after {
     left: 6px;
     top: -7px;

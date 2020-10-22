@@ -1,12 +1,12 @@
 class FacturationPdfController < ApplicationController
-  before_action :authenticate_cadre!, only: [:promise_cadre]
+  # before_action :authenticate_cadre!, only: [:promise_cadre]
   # before_action :authenticate_client! , except: :promise_cadre
   def index
-    if current_admin.nil? && current_client.nil?
-      flash[:alert] = "Ooups!"
-      redirect_to root_path
-      return
-    end
+    # if current_admin.nil? && current_client.nil?
+    #   flash[:alert] = "Ooups!"
+    #   redirect_to root_path
+    #   return
+    # end
 
     @facture = Facture.find_by_id(params[:id_factures])
     if (@facture.created_at.day < 10)
@@ -40,15 +40,16 @@ class FacturationPdfController < ApplicationController
                       spacing: -15
                     },
                     :save_to_file => Rails.root.join('public/facture', "Facture#{@facture.numero_facture}.pdf")
+                    # :save_only    => true
                   }
     end
   end
   def promise
-    if current_admin.nil? && current_client.nil?
-      flash[:alert] = "Ooups!"
-      redirect_to root_path
-      return
-    end
+    # if current_admin.nil? && current_client.nil?
+    #   flash[:alert] = "Ooups!"
+    #   redirect_to root_path
+    #   return
+    # end
     @promise = PromiseToHire.find_by_id(params[:id_promise])
     @job = @promise.offre_job
     @cadre = @promise.cadre.cadre_info

@@ -43,8 +43,7 @@
   border: 2px solid #d6b36a;
 }
 
-.co-any-job a:hover,
-.co-any-job a:active {
+.co-any-job a:hover, .co-any-job a:active {
   background: #d6b36a;
   text-decoration: none;
   color: white;
@@ -80,8 +79,7 @@
   border: 2px solid #d6b36a;
 }
 
-.co-with-job .btn-newjob-div .btn-newjob:hover,
-.co-with-job .btn-newjob-div .btn-newjob:active {
+.co-with-job .btn-newjob-div .btn-newjob:hover, .co-with-job .btn-newjob-div .btn-newjob:active {
   background: #d6b36a;
   text-decoration: none;
   color: white;
@@ -117,14 +115,12 @@
   border: 2px solid #d6b36a;
 }
 
-.co-with-job .coj-box .cjo-link:hover,
-.co-with-job .coj-box .cjo-link:active {
+.co-with-job .coj-box .cjo-link:hover, .co-with-job .coj-box .cjo-link:active {
   background: #d6b36a;
   text-decoration: none;
 }
 
-.co-with-job .coj-box .cjo-link:hover a,
-.co-with-job .coj-box .cjo-link:active a {
+.co-with-job .coj-box .cjo-link:hover a, .co-with-job .coj-box .cjo-link:active a {
   color: white;
 }
 
