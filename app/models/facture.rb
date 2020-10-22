@@ -9,17 +9,18 @@ class Facture < ApplicationRecord
 		promise = self.promise_to_hire
 		offreJob = promise.offre_job
 		name_entreprise = offreJob.client.entreprise.name
+		
 		NotificationAdmin.create(
 			object: "#{name_entreprise}",
 			message: "#{name_entreprise} a embaucher un candidat, facture précalcul honoraires OIAM",
 			link: "#{url_helpers.admin_client_show_facture_path(self.id)}",
-			genre: 1,
+			genre: 3,
 			medel_id: offreJob.id
 		)
 
 		Notification.create(
 	      client: self.client,
-	      link: "#{url_helpers.paye_my_bills_path(self.id,notification:"entretien")}",
+	      link: "#{url_helpers.show_my_bills_path(self.id,notification:"entretien")}",
 	      object: "Facture OIAM",
 	      message: "Précalcul honoraires OIAM",
 	      genre: 2,

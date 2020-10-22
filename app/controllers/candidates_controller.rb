@@ -227,14 +227,14 @@ class CandidatesController < ApplicationController
 
     case params[:reponse]
     when "0"
-      @agendaClient.update(alternative:params[:alternative],repons_cadre: false)
+      @agendaClient.update(alternative:params[:alternative],repons_cadre: false,notifed:false)
       #notifaka
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a refusé votre demande d'entretien.",link: "#{recruitment_show_cadre_path(@oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
 
       flash[:notice] = "Votre réponse est envoyé avec succes."
       redirect_to show_recrutment_monitoring_path(@oFc.id)
     when "1"
-      @agendaClient.update(repons_cadre:true)
+      @agendaClient.update(repons_cadre:true,notifed:false)
       #notifaka
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a accepté votre demande d'entretien.",link: "#{recruitment_show_cadre_path(@oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
 
@@ -249,7 +249,7 @@ class CandidatesController < ApplicationController
       hour = time[0].to_i
       min = time[1].to_i
       date_time = DateTime.new(year,month,day,hour,min).utc
-      @agendaClient.update(alternative: date_time.to_s, repons_cadre:true)
+      @agendaClient.update(alternative: date_time.to_s, repons_cadre:true,notifed:false)
       flash[:notice] = "Votre réponse est envoyé avec succes."
 
       #notifaka
