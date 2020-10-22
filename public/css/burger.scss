@@ -1,6 +1,6 @@
 .btn-btn {
-  top: 28px;
-  right: 60px;
+  top: 20px;
+  right: 40px;
   z-index: 2;
   position: absolute;
   height: 30px;
@@ -9,6 +9,7 @@
   cursor: pointer;
   box-sizing: border-box;
 }
+
 .btn-btn-burger {
   position: absolute;
   width: 100%;
@@ -17,6 +18,7 @@
   background: grey;
   transition: all 500ms ease-in;
 }
+
 .btn-btn-burger::before {
   content: ' ';
   position: absolute;
@@ -25,6 +27,7 @@
   height: 5px;
   background: grey;
 }
+
 .btn-btn-burger::after {
   content: ' ';
   position: absolute;
@@ -33,16 +36,19 @@
   height: 5px;
   background: grey;
 }
+
 .btn-btn .open {
   transform: rotate(720deg);
   transition: all 500ms ease-in-out;
   background: transparent;
 }
+
 .btn-btn-burger.open::before {
   width: 125%;
   transition: all 500ms ease-in-out;
   transform: rotate(45deg) translate(4px, 10px);
 }
+
 .btn-btn-burger.open::after {
   width: 125%;
   transition: all 500ms ease-in-out;

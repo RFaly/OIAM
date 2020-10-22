@@ -1,7 +1,7 @@
 $(document).ready(function () {
   // js btn burger menu recruteur
   let check = true;
-  if (screen.width < 700) {
+  if (screen.width < 900) {
     $('.btn-menu-burger').removeClass('open');
     $('.left-menu-r').addClass('open');
     $('.left-menu-photo').addClass('open');
@@ -18,7 +18,7 @@ $(document).ready(function () {
         $('.line-white2').css('height', $('.code-naf-flex').height() + 5);
       } else {
         $('.line-white2').css('height', $('.code-naf-flex').height() + 25);
-        
+
       }
       check = false;
     } else {
@@ -30,7 +30,7 @@ $(document).ready(function () {
         $('.line-white2').css('height', $('.code-naf-flex').height() + 45);
       } else {
         $('.line-white2').css('height', $('.code-naf-flex').height() + 25);
-        
+
       }
       check = true;
     }

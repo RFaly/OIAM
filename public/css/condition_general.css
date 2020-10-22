@@ -1,4 +1,4 @@
-.content{
+.content {
   font-family: 'Raleway', sans-serif;
   font-size: 16px;
   margin: 15px;
@@ -10,26 +10,26 @@
   margin-bottom: 100px;
 }
 
-.oiam-title{
+.oiam-title {
   color: #d6b36a;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
 }
 
-.maj{
+.maj {
   text-align: center;
   font-size: 16px;
   margin: 20px;
   margin-bottom: 50px;
 }
 
-.step{
+.step {
   font-weight: bold;
   font-size: 16px;
   margin: 50px 0;
 }
 
-.donne-perso{
+.donne-perso {
   margin-left: 50px;
 }
