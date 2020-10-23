@@ -99,11 +99,15 @@ class CandidatesController < ApplicationController
 
   end
 
+
 	def searchJob
     validate_info_cadre
+    @offre_par_page = 5
     @metiers = Metier.all
     @regions = Region.all
-    @offres = OffreJob.where(is_publish:true)
+    @nombre_offres = ((OffreJob.where(is_publish:true).all.count)/@offre_par_page).floor
+    @page = params.fetch(:page, 0).to_i
+    @offres = OffreJob.where(is_publish:true).offset(@page * @offre_par_page).limit(@offre_par_page)
 	end
 
   def jobsPersonalized
