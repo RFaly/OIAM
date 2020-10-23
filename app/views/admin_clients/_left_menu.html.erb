@@ -1,0 +1,17 @@
+<!-- appel css user-menu.css  -->
+<link rel="stylesheet" href="/css/admin_main_menu.css" />
+<!-- html body  -->
+<div class="left-menu-r">
+  <div class="btn-menu-r">
+    <span class="btn-menu-burger open"> </span>
+  </div>
+  <ul class="left-menu-content">
+    <li><a href="<%= clients_be_processed_path %>">A TRAITER</a></li>
+    <li><a href="<%= clients_pending_path %>">EN ATTENTE</a></li>
+    <li><a href="<%= clients_processed_path %>">TRAITEES</a></li>
+    <li><a href="<%= clients_messaging_path %>">MESSAGERIE</a></li>
+  </ul>
+</div>
+<!-- appel js menu_recruteur.js  -->
+<script data-turbolinks-track="reload" src="/js/admin_main_menu.js"></script>
+<script data-turbolinks-track="reload" src="/js/menu_recruteur.js"></script>

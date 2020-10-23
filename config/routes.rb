@@ -197,94 +197,24 @@ Rails.application.routes.draw do
 
   #~~~~~~~~~~~~~~~~~~~~~~~~ Admin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Lien pour authentification admin
-  devise_for :admins, path: 'secret-oiam-page/admin',:skip => [:registrations], controllers: {
+  devise_for :admins, path: 'oiam-secret-page/admin',:skip => [:registrations], controllers: {
     sessions: "admins/sessions"
   }, path_names: {
     sign_in: 'se-connecter', sign_out: 'se-deconneter', cancel: 'supprimer',
     password: 'mot-de-passe', confirmation: 'verification', edit: 'editer'
   }
-  # routes principale dans admin_main
-  # get 'secret-oiam-page/admin', to: 'admin_main#home', as: 'admin_main_home'
-  get 'secret-oiam-page/admin/notifications', to: 'admin_main#notification', as: 'admin_main_notification'
-  get 'secret-oiam-page/admin/mon-profil', to: 'admin_main#my_profil', as: 'admin_main_my_profil'
 
-  #edit profil
-  get 'secret-oiam-page/admin/mon-profil/edit', to: 'admin_main#my_profil_edit', as: 'admin_main_my_profil_edit'
-  patch 'secret-oiam-page/admin/mon-profil/save', to: 'admin_main#update_my_profil', as: 'admin_main_update_my_profil'
-  # routes message admin
-  get 'secret-oiam-page/admin/messages-candidats', to: 'admin_main#message_candidat', as: 'admin_messaging_candidat'
-  get 'secret-oiam-page/admin/messages-recruteurs', to: 'admin_main#message_recruteur', as: 'admin_messaging_recruteur'
-
-  #route message admin
-  get 'secret-oiam-page/admin/messages/:id', to: 'admin_main#show_messaging', as: 'admin_show_messaging'
-  post 'secret-oiam-page/admin/send-message', to: 'admin_main#post_messaging', as: 'post_messaging'
-  get 'secret-oiam-page/admin/messages/:id/recruteur', to: 'admin_main#show_message_recruteur', as:'show_message_recruteur'
-  post 'secret-oiam-page/admin/send-message-recruteur', to: 'admin_main#post_message_recruteur', as: 'post_message_recruteur'
-
-  # route admin cadre
-  get 'secret-oiam-page/admin/candidats/tous-les-candidats', to: 'admin_cadre#all_cadre', as: 'admin_cadre_all'
-  get 'secret-oiam-page/admin/candidats/:id/tous-les-candidats/', to: 'admin_cadre#show_profile', as: 'admin_cadre_show_profile'
-
-  get 'secret-oiam-page/admin/candidats/mes-candidats/candidats-non-admis', to: 'admin_cadre#cadre_not_admitted', as: 'cadre_not_admitted'
-  get 'secret-oiam-page/admin/candidats/mes-candidats/candidats-admis', to: 'admin_cadre#cadre_admitted', as: 'cadre_admitted'
-
-
-  get 'secret-oiam-page/admin/candidats/entretien-fit', to: 'admin_cadre#entretien_fit', as: 'admin_cadre_entretien_fit'
-  get 'secret-oiam-page/admin/candidats/entretien-fit/:id/avis-recruteur', to: 'admin_cadre#show_accepted_cadre', as: 'post_avis_candidats_fit'
-
-  post 'secret-oiam-page/admin/candidats/entretien-fit', to: 'admin_cadre#candidate_to_cadre', as: 'candidate_to_cadre'
-  post 'secret-oiam-page/admin/candidats/entretien-fit/ok', to: 'admin_cadre#accepted_or_reffused', as: 'accepted_or_reffused'
-
-
-  # get 'secret-oiam-page/admin/cadre/envoyer-un-message', to: 'admin_cadre#send_message', as: 'admin_cadre_send_message'
-
-  get 'secret-oiam-page/admin/candidats/coaching-workshop', to: 'admin_cadre#coaching_workshop', as: 'admin_cadre_coaching_workshop'
-
-  get 'secret-oiam-page/admin/candidats/envoyer-un-message/envoyer', to: 'admin_cadre#message', as: 'message_candidats'
-  get 'secret-oiam-page/admin/candidats/coaching-workshop/accept_workshop', to: 'admin_cadre#accept_workshop', as: 'accept_workshop'
-  get 'secret-oiam-page/admin/candidats/coaching-workshop/cancel_workshop', to: 'admin_cadre#cancel_workshop', as: 'cancel_workshop'
-
-  # route admin client
-  get 'secret-oiam-page/admin/client/recrutement-en-cours', to: 'admin_client#main', as: 'admin_client_main'
-  get 'secret-oiam-page/admin/client/n/:id/recrutement-en-cours', to: 'admin_client#show_recrutment', as: 'admin_show_recrutment'
-  get 'secret-oiam-page/admin/client/manage/:id/recrutement-en-cours', to: 'admin_client#manage_recrutment_admin', as: 'manage_recrutment_admin'
-
-  get 'secret-oiam-page/admin/client/offres-d-emploi', to: 'admin_client#offer', as: 'admin_client_offer'
-  get 'secret-oiam-page/admin/client/offres-d-emploi/voir-{:id} offre', to: 'admin_client#show_offer', as: 'admin_client_show_offer'
-  get 'secret-oiam-page/admin/client/factures-client', to: 'admin_client#factures', as: 'admin_client_factures'
-  get 'secret-oiam-page/admin/client/factures-client/:id', to: 'admin_client#show_facture', as: 'admin_client_show_facture'
-
-  # route carte client
-  get 'secret-oiam-page/admin/client/carte-client', to: 'admin_client#carte_client', as: 'admin_client_carte_client'
-  get 'secret-oiam-page/admin/client/carte-client/:id', to: 'admin_client#show_client', as: 'admin_client_show_client'
-
-  # route promise to hire
-  get 'secret-oiam-page/admin/promesse-d-embauche', to: 'admin_client#all_promisetohire', as: 'admin_client_all_promise_to_hire'
-  get 'secret-oiam-page/admin/promesse-d-embauche/:id', to: 'admin_client#show_promisetohire', as: 'admin_client_show_promise_to_hire'
-
-  # routes dans le dashboard
-
-  # post 'secret-oiam-page/admin/:id/suivre-candidate', to:'admin_dashboard#add_favorite_cadre', as:'add_favorite_cadre'
-  # delete 'secret-oiam-page/admin/:id/remove-candidate', to:'admin_dashboard#rmv_favorite_cadre', as:'rmv_favorite_cadre'
-
-  # get 'secret-oiam-page/admin/dashboard', to: 'admin_dashboard#main', as: 'admin_dashboard_main'
-  get 'secret-oiam-page/admin/dashboard/demandes-de-contacts', to: 'admin_dashboard#contact_us', as: 'dashboard_contact_us'
-  get 'secret-oiam-page/admin/dashboard/abonné-newsletter', to: 'admin_dashboard#subscribers', as: 'dashboard_subscribers'
-
-  get 'secret-oiam-page/admin/dashboard/agenda', to: 'admin_dashboard#agenda', as: 'admin_dashboard_agenda'
-  get 'secret-oiam-page/admin/dashboard/statistique', to: 'admin_dashboard#statistics', as: 'admin_dashboard_statistics'
-  get 'secret-oiam-page/admin/dashboard/offres-en-cours', to: 'admin_dashboard#offer', as: 'admin_dashboard_offer'
-
-  get 'secret-oiam-page/admin/dashboard/candidats-a-suivre', to: 'admin_dashboard#candidate', as: 'admin_dashboard_candidate'
-  get 'secret-oiam-page/admin/dashboard/:id/candidats-a-suivre', to: 'admin_dashboard#show_candidate', as: 'admin_dashboard_show_candidate'
-
-
-  get 'secret-oiam-page/admin/dashboard/taches', to: 'admin_dashboard#tache', as: 'admin_dashboard_tache'
-
-  # routes dans tache
-  get 'secret-oiam-page/admin/dashboard/taches/mes-factures', to: 'admin_dashboard#factures', as: 'admin_dashboard_tache_factures'
-  get 'secret-oiam-page/admin/dashboard/taches/mes-relances-clients', to: 'admin_dashboard#relances', as: 'admin_dashboard_tache_relances'
-  get 'secret-oiam-page/admin/dashboard/taches/mes-taches-a-faire', to: 'admin_dashboard#taches', as: 'admin_dashboard_tache_taches'
+  #clients
+  get 'secret-oiam-page/admin-clients/a-traiter', to: 'admin_clients#be_processed', as: 'clients_be_processed'
+  get 'secret-oiam-page/admin-clients/en-attente', to: 'admin_clients#pending', as: 'clients_pending'
+  get 'secret-oiam-page/admin-clients/traitées', to: 'admin_clients#processed', as: 'clients_processed'
+  get 'secret-oiam-page/admin-clients/messageries', to: 'admin_clients#messaging', as: 'clients_messaging'
+  
+  #cadre
+  get 'secret-oiam-page/admin-candidats/a-traiter', to: 'admin_candidats#be_processed', as: 'candidats_be_processed'
+  get 'secret-oiam-page/admin-candidats/en-attente', to: 'admin_candidats#pending', as: 'candidats_pending'
+  get 'secret-oiam-page/admin-candidats/traitées', to: 'admin_candidats#processed', as: 'candidats_processed'
+  get 'secret-oiam-page/admin-candidats/messageries', to: 'admin_candidats#messaging', as: 'candidats_messaging'
 
 end
 
