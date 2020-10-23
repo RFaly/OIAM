@@ -9,19 +9,18 @@ $('#dateEntretien').click(function () {
     $('.ssc-planification').height(535);
     $('.ssc-planification').css('margin-bottom', 0);
   }
+  // $(document).mouseup(function (e) {
+  //   var container = $('#ui-datepicker-div');
+  //   if (!container1.is(e.target) && container1.has(e.target).length === 0) {
+  //     // if the target of the click isn't the container nor a descendant of the container
+  //     if (!container.is(e.target) && container.has(e.target).length === 0) {
+  //       $('.ssc-planification').height(0);
+  //       $('.ssc-planification').css('margin-top', 100);
+  //     }
+  //   }
+  // });
 });
 
-$(document).mouseup(function (e) {
-  var container = $('#ui-datepicker-div');
-  var container1 = $('.js-timeContainer');
-  if (!container1.is(e.target) && container1.has(e.target).length === 0) {
-    // if the target of the click isn't the container nor a descendant of the container
-    if (!container.is(e.target) && container.has(e.target).length === 0) {
-      $('.ssc-planification').height(0);
-      $('.ssc-planification').css('margin-bottom', 90);
-    }
-  }
-});
 
 
 

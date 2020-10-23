@@ -4,22 +4,27 @@
 .select-cadre-box {
   width: 95%;
   margin: 0 auto;
+
   #send-data-form {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+
     .search-large {
       // width: 50%;
     }
+
     .search-short {
       // width: 25%;
     }
+
     .co-input {
       // margin-bottom: 30px;
       text-align: -webkit-center;
       text-align: -moz-center;
       text-align: center;
+
       select {
         font: $ffsentence;
         text-align: -webkit-center;
@@ -38,6 +43,7 @@
         // -ms-text-align-last: center;
         // text-align-last: center;
         padding-right: 33px;
+
         option {
           text-align: -webkit-center;
           text-align: -moz-center;
@@ -46,6 +52,7 @@
           -ms-text-align-last: center;
           text-align-last: center;
         }
+
         &:focus {
           border-radius: none;
           outline: 1px solid $main_theme_color;
@@ -53,8 +60,10 @@
         }
       }
     }
+
     .hide-right {
       position: relative;
+
       &::before {
         content: ' ';
         position: absolute;
@@ -64,6 +73,7 @@
         height: 100%;
       }
     }
+
     .td-button {
       input {
         display: flex;
@@ -78,6 +88,7 @@
         font-size: 15px;
         color: $main_theme_color;
         cursor: pointer;
+
         &:hover,
         &:active {
           background: $main_theme_color;
@@ -86,9 +97,11 @@
       }
     }
   }
+
   .select-cadre-list {
     width: 95%;
     margin: 30px auto;
+
     .flex-candidates {
       display: flex;
       flex-wrap: wrap;
@@ -96,31 +109,38 @@
       background: $select_color;
       padding: 10px 30px;
       margin: 30px 0;
+
       .js-candidates-list {
         margin: 20px 0;
         width: 80px;
         height: 108px;
         border: 2px solid $main_theme_color;
+
         &[data-info='false'] {
           border: none;
         }
+
         img {
           width: 82px;
           height: 110px;
         }
       }
+
       .validation {
         margin: 20px 0;
         height: 46px;
         align-self: flex-end;
+
         .submit-validation {
           align-self: flex-end;
+
           #boutton-bottom {
             padding: 10px 20px;
             color: $main_theme_color;
             background: transparent;
             font: $ffbtn;
             border: 2px solid $main_theme_color;
+
             &:hover,
             &:active {
               background-color: $main_theme_color;
@@ -130,24 +150,30 @@
         }
       }
     }
+
     .select-cadre-list-items {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+
       .cadre-box {
         margin: 30px 0;
-        height: 430px;
+        height: 460px;
         position: relative;
         overflow: hidden;
+
         .cadre-box-image {
           position: relative;
+
           .cbi-photo {
             width: 100%;
+
             img,
             .c {
               width: 100%;
             }
           }
+
           .icone {
             position: absolute;
             cursor: pointer;
@@ -158,6 +184,7 @@
             height: 0;
             border-top: 67px solid $main_theme_color;
             border-left: 70px solid transparent;
+
             img {
               position: absolute;
               top: -58px;
@@ -166,6 +193,7 @@
             }
           }
         }
+
         .cadre-box-info {
           width: 100%;
           background: white;
@@ -174,11 +202,13 @@
           text-align: center;
           padding: 5px 0;
           font: $ffsentence;
+
           p {
             span {
               color: $main_theme_color;
             }
           }
+
           .name {
             text-transform: uppercase;
             font: $ffbtn;

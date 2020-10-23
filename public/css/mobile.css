@@ -36,11 +36,7 @@
 }
 
 .flash {
-  position: fixed;
   display: none;
-  z-index: 500;
-  top: 90px;
-  right: 50px;
   overflow: hidden;
   border-right: 7px solid rgba(141, 141, 141, 0.5);
   height: 60px;
@@ -159,6 +155,12 @@
 }
 
 @media screen and (min-width: 320px) {
+  .flash {
+    position: fixed;
+    z-index: 500;
+    top: 90px;
+    right: 10px;
+  }
   body {
     overflow-x: hidden;
   }
@@ -678,6 +680,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .flash {
+    right: 50px;
+  }
   .pay-bill-box .pb-flex {
     flex-direction: row;
     justify-content: space-between;
