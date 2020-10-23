@@ -135,7 +135,7 @@ body{
 .btn-edit{
   display: block;
   margin: auto;
-  width: 250px;
+  width: auto;
   height: 50px;
   border: 1px solid #D6B36A;
   padding: 13px;
@@ -174,7 +174,7 @@ body{
 .btn-dispo{
     padding-top: 15px;
     font-size: 12px;
-    width: 330px;
+    width: auto;
     text-align: center;
   }
 

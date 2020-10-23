@@ -582,19 +582,6 @@ body {
   color: #d6b36a;
 }
 
-.btn-invalid {
-  background-color: #d6b36a;
-  width: auto;
-  height: auto;
-  color: #fff;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 0;
-  margin-top: 20px;
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
 .btn-valid {
   background-color: #d6b36a;
   width: auto;
@@ -614,12 +601,71 @@ body {
   text-decoration: none;
 }
 
+.prime{
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  border: 1px solid #d6b36a;
+  padding: 5px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.btn-invalid {
+    display: block;
+    margin: 0 auto;
+    background-color: #d6b36a;
+    width: auto;
+    height: auto;
+    color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 0;
+    margin-top: 20px;
+    font-size: 12px;
+    cursor: not-allowed;
+    text-align: center;
+    opacity: 0.7;
+}
+
 .prime h2 {
   margin-bottom: 40px;
 }
 
 .btn-invalid:hover {
   color: #fff;
+}
+
+.btn-prom {
+  color: #000;
+  position: relative;
+  top: -16px;
+  font-size: 16px;
+}
+
+.btn-prom:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.prom-hire-down a {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: auto;
+  height: auto;
+  font-size: 16px;
+  padding: 20px;
+  color: #d6b36a;
+  border: 1px solid #d6b36a;
+  border-radius: 0;
+}
+
+.prom-hire-down a:hover {
+  background-color: #d6b36a;
+  color: #fff;
+  border: 1px solid #d6b36a;
+  text-decoration: none;
 }
 
 @media only screen and (min-width: 900px) {
@@ -642,6 +688,20 @@ body {
     margin-top: 20px;
     padding-right: 2px;
     border-right: 1px solid #d6b36a;
+  }
+
+  .btn-invalid {
+    background-color: #d6b36a;
+    width: auto;
+    height: auto;
+    color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 0;
+    margin-top: 20px;
+    font-size: 18px;
+    cursor: not-allowed;
+    opacity: 0.7;
   }
 
   .main {
@@ -706,35 +766,6 @@ body {
     grid-column-gap: 23%;
     margin-top: 80px;
     margin-bottom: 100px;
-  }
-
-  .prom-hire-down a {
-    width: 250px;
-    height: 50px;
-    font-size: 16px;
-    padding: 20px;
-    color: #d6b36a;
-    border: 1px solid #d6b36a;
-    border-radius: 0;
-  }
-
-  .prom-hire-down a:hover {
-    background-color: #d6b36a;
-    color: #fff;
-    border: 1px solid #d6b36a;
-    text-decoration: none;
-  }
-
-  .btn-prom {
-    color: #000;
-    position: relative;
-    top: -16px;
-    font-size: 16px;
-  }
-
-  .btn-prom:hover {
-    color: #000;
-    text-decoration: underline;
   }
 }
 
