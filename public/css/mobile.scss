@@ -7,10 +7,12 @@
   line-height: 1.5;
   // z-index: 1;
 }
+
 /////////////@at-root
 .option-center {
   background: red;
 }
+
 // css load
 #loading-indicator {
   position: fixed;
@@ -37,16 +39,18 @@
     background-size: cover;
   }
 }
+
 // flash scss
 .flash {
-  position: fixed;
+  // position: fixed;
   display: none;
-  z-index: 500;
-  top: 90px;
-  right: 50px;
+  // z-index: 500;
+  // top: 90px;
+  // right: 50px;
   overflow: hidden;
   border-right: 7px solid rgba(141, 141, 141, 0.5);
   height: 60px;
+
   .flash-notice,
   .flash-alert {
     transform: translateX(500px);
@@ -58,25 +62,31 @@
     color: white;
     font: $ffbtn;
     font-size: 15px;
+
     .icon {
       width: 35px;
       margin-right: 16px;
+
       img {
         width: 100%;
       }
     }
   }
+
   .active {
     transform: translateX(0);
     transition: all 1000ms ease-in-out;
   }
+
   .flash-notice {
     background: $main_theme_color;
   }
+
   .flash-alert {
     background: #bb3f3f;
   }
 }
+
 .bg-uniq {
   // margin-top: -600px;
   // padding-top: 492px;
@@ -86,6 +96,7 @@
   background: url(/image/background2.jpg) no-repeat center;
   background-size: cover;
 }
+
 // .felicitation-box {
 //   position: fixed;
 //   top: 0;
@@ -110,14 +121,17 @@
   left: 1.5vw;
   width: 98%;
   height: 98vh;
+
   h1 {
     margin-bottom: 50px;
   }
+
   &-btn {
     width: 255px;
     margin: 50px auto;
     padding: 10px 0;
     border: 2px solid $main_theme_color;
+
     a {
       // background: #000;
       padding: 10px 5px;
@@ -126,15 +140,18 @@
       text-decoration: none;
       color: $main_theme_color;
     }
+
     &:hover,
     &:active {
       background: $main_theme_color;
+
       a {
         text-decoration: none;
         color: white;
       }
     }
   }
+
   .diamond {
     position: fixed;
     top: -1vh;
@@ -150,57 +167,83 @@
     width: 100%;
     height: auto;
   }
+
   @keyframes pluie {
     to {
       transform: translateY(105vh);
     }
   }
 }
+
 @media screen and (min-width: 320px) {
+
+  // flash scss
+  .flash {
+    position: fixed;
+    z-index: 500;
+    top: 90px;
+    right: 10px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
   // footer mail
   #input-mail {
     flex-direction: column;
   }
+
   // bg unique
   .bg-uniq {
     margin-top: -450px;
     padding-top: 492px;
   }
+
   // landing page
   .logo-g {
     display: none;
   }
+
   .box-1 {
     width: 100%;
+
     .box-1-btn {
       align-self: center;
     }
+
     .box-1-content {
       text-align: -webkit-center;
       text-align: -moz-center;
       text-align: center;
     }
+
     .box-1-logo {
       width: 65%;
     }
   }
+
   // navbar's elements
   ///////////////////////////////////////////
   .navb {
     padding: 5px 50px;
     background-color: $secondary_text_color_button;
   }
+
   .navbar-content {
     display: none;
+
     li {
       margin: 30px 0;
     }
   }
+
   .navbar-item:hover,
   .navbar-item:active {
     background-color: white;
     color: $secondary_text_color_button;
   }
+
   //////
 
   .dropup-btn1 {
@@ -210,57 +253,73 @@
     text-align: center;
     background-color: white;
     color: $secondary_text_color_button;
+
     &:hover {
       background-color: rgba(255, 255, 255, 0.432);
     }
   }
+
   .dropup-content1 {
     border: 2px white solid;
+
     .dropup-item1:active {
       background-color: white;
       color: $secondary_text_color_button;
     }
   }
+
   .dropup1 {
     margin-bottom: 10px;
   }
+
   // Page d'accueil général
   ////////////////////////////////////////////////////
 
   .accueilg-btn1 {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+
     .cadre-btn1 {
-      margin: 0 1em;
+      margin: 1em;
+
       a {
         padding: 12px 55px;
       }
     }
+
     .recruteur-btn1 {
-      margin: 0 1em;
+      margin: 1em;
+
       a {
         padding: 12px 30px;
       }
     }
   }
+
   .picto1 {
     display: none;
   }
+
   .accueilg-content1 {
     margin: 0 auto;
+
     .ac-item2 {
       margin: 60px 0;
     }
   }
+
   // footer
   ////////////////////////////////////////
   .footer-bottom {
     justify-content: center;
     flex-direction: column;
     align-content: space-between;
+
     div {
       margin-bottom: 10px;
     }
   }
+
   // contact
   ////////////////////////////////////
 
@@ -268,37 +327,51 @@
   ////////////////////////////////@extend
   .accueil-recruteur {
     width: 90%;
+
     .title-ar {
       font: $ffbtn;
     }
+
     .ar-item {
       p {
         text-align: justify;
       }
     }
   }
+
   // inscription recruteur
   ///////////////////////////////////////@extend
   .details-r {
+    width: 90%;
+
     .dr-item {
       margin-top: 40px;
       width: 100%;
     }
   }
+
   .inscription-r {
     margin: 20px auto;
   }
+
   .travel-parcours {
     width: 400px;
+
     .line {
-      width: 80px;
+      width: 62px;
     }
+
     ol {
-      width: 400px;
+      width: 360px;
       font: $ffbtn;
       font-size: 12px;
     }
   }
+
+  .condition-content {
+    width: 90%;
+  }
+
   .phone-number-add {
     .before-number {
       padding: 3px;
@@ -306,33 +379,41 @@
       top: 28px;
     }
   }
+
   // equipe equipe responsive
   .eq-all {
+
     .equip1,
     .equip2 {
       flex-direction: column;
       align-items: center;
     }
   }
+
   .equipe-box {
     width: 90%;
     padding-bottom: 50px;
+
     .eq-box-eq {
       padding-bottom: 20px;
       width: 200px;
       margin-top: 120px;
+
       .eq-image {
         width: 150px;
       }
     }
   }
+
   // emnuel profil
   .big-box {
     top: 150px;
   }
+
   .emmanuel-profil {
     .emmanuel-box {
       width: 100%;
+
       .about {
         .content {
           padding: 10px;
@@ -340,47 +421,58 @@
       }
     }
   }
+
   // menu left recruteur
   .left-menu-r {
     &.open {
       width: 50px;
     }
   }
+
   .btn-menu-r {
     right: 7px;
   }
+
   .left-menu-photo.open {
     opacity: 0;
   }
+
   // client profil
   .cp-table-box {
     td {
       padding: 5px 0px;
     }
+
     .table-td {
       flex-wrap: wrap;
       justify-content: center;
+
       .cp-infos-r {
         width: 80%;
       }
+
       .cpr-r {
         img {
           left: -7%;
         }
       }
     }
+
     .cp-flex-t {
       flex-direction: column;
     }
+
     .line-white,
     .line-white2 {
       display: none;
     }
+
     .cp-icon-text {
       img {
         left: 35px;
       }
     }
+
     .cpe-description,
     .cpe-naf,
     .cpe-adress,
@@ -389,41 +481,51 @@
       text-align: -moz-center;
       text-align: center;
     }
+
     .cpe-naf {
       width: 100%;
     }
   }
+
   // client edit profil
   .cp-edit-table-box {
     .cp-edit-form {
       width: 100%;
     }
+
     td {
       padding: 5px 0px;
     }
+
     .table-td {
       flex-wrap: wrap;
       justify-content: center;
+
       .cp-infos-r {
         width: 90%;
+
         input {
           width: 100%;
         }
       }
+
       .cpr-r {
         img {
           left: 6%;
         }
       }
     }
+
     .cp-flex-t {
       flex-direction: column;
     }
+
     .cp-icon-text {
       img {
         left: 35px;
       }
     }
+
     .cpe-description,
     .cpe-naf {
       text-align: -webkit-center;
@@ -431,13 +533,16 @@
       text-align: center;
     }
   }
+
   // mes offres d emploi :
   .coj-box {
     flex-wrap: wrap;
+
     .cjo-content {
       width: 50%;
     }
   }
+
   // création d offre
   .create-offre-box {
     width: 90%;
@@ -447,12 +552,14 @@
     .detail-post-box {
       .dp-input {
         width: 90%;
+
         input,
         select,
         textarea {
           width: 100%;
         }
       }
+
       .dp-input-renumeration {
         .value-renum {
           margin-left: 6%;
@@ -460,76 +567,108 @@
         }
       }
     }
+
     .dp-input-checkbox1 {
       padding-left: 10%;
+
       span {
         margin-left: -50px;
       }
     }
+
     .travel-creation {
       width: 90%;
+
       .line {
         width: 38%;
       }
+
       ol {
         width: 115%;
         margin-left: -10%;
       }
     }
   }
+
   .context-offre-box {
     text-align: -webkit-center;
     text-align: -moz-center;
     text-align: center;
+    width: 100%;
+
     #co-input-submit {
       display: none;
     }
+
     #co-input-submit-1 {
       width: 150px;
       margin: 0 auto;
+
       input {
         width: 100%;
         padding: 10px 20px;
       }
     }
+
     .co-input-image {
       align-items: center;
       flex-direction: column;
     }
+
     .cp-input-check {
       flex-wrap: wrap;
     }
   }
+
   // show new job
   .show-job-box {
     .travel-creation {
       width: 90%;
+
       .line {
         width: 30%;
       }
+
       ol {
         width: 115%;
         margin-left: -10%;
       }
     }
   }
+
+  .show-pb2-btn {
+
+    div {
+      width: 90%;
+
+      a {
+        padding: 13px 3px;
+      }
+    }
+  }
+
   .show-publication {
     width: 90%;
     margin: 0 auto;
     font: $ffsentence;
+
     .sjb-content {
       .show-einfos {
         flex-direction: column;
+
         .logo {
           align-self: center;
         }
+
         .local {
           width: 100%;
         }
       }
     }
+
     .so-btn {
       flex-direction: column;
+
       a {
         margin-bottom: 15px;
         text-align: -webkit-center;
@@ -538,24 +677,30 @@
       }
     }
   }
+
   .show-pb2 {
-    width: 70%;
+    width: 90%;
   }
+
   // search cadre
   .select-cadre-box {
     .search {
+
       &-large,
       &-short {
         width: 95%;
         margin: 0 auto;
       }
+
       .td-button {
         margin: 10px auto;
       }
+
       .co-input {
         margin-bottom: 30px;
       }
     }
+
     .select-cadre-list {
       .validation {
         .submit-validation {
@@ -565,32 +710,39 @@
         }
       }
     }
+
     .select-cadre-list-items {
       .cadre-box {
         width: 200px;
+
         .cadre-box-image {
           position: relative;
+
           .cbi-photo {
             width: 100%;
+
             img,
             .c {
               height: 280px;
             }
           }
         }
-        .cadre-box-info {
-        }
+
+        .cadre-box-info {}
       }
     }
   }
+
   // show search candidate
   .ssc-box {
     .ssc-all-infos {
       flex-direction: column;
       flex-wrap: wrap;
+
       .image {
         margin: 0 auto;
         width: 90%;
+
         img,
         .c {
           margin: 0 auto;
@@ -598,39 +750,54 @@
           height: 300px;
         }
       }
+
       .ssc-infos {
         width: 280px;
       }
     }
+
     .ssc-question {
       width: 100%;
     }
+
     .ssc-rest {
       flex-direction: column-reverse;
       flex-wrap: wrap;
+
       .ssc-rest-btn {
         width: 280px;
       }
+
       .ssc-oiam {
         width: 85%;
       }
     }
+
     // plannification entretien
+    .ssc-planification {
+      margin-left: -8px;
+      width: 90%;
+    }
   }
+
+
   // show candidat favorit
   .fc-item-all {
     .list-candidat {
       margin: 30px 0;
+
       .fci-infos {
-        height: 170px;
+        height: 190px;
       }
     }
   }
+
   // suivi de recrutement index
   .rf-box {
     .rf-items {
       margin-bottom: 65px;
     }
+
     .rf-items-flex {
       .timeline {
         .line {
@@ -640,9 +807,11 @@
           height: 2px;
           background-color: $secondary_element_color;
         }
+
         .content {
           top: 30px;
         }
+
         .content2,
         .content4,
         .content6 {
@@ -651,95 +820,123 @@
       }
     }
   }
+
   // suivi show post
   .rlc-box {
     .rlc-empty {
       width: 90%;
       margin: 0 auto;
     }
+
     .rlc-items {
       margin-bottom: 50px;
     }
   }
+
   // recrutement show cadre
   .rsc-box {
     .rsc-header-travel {
       .line {
         width: 69.1%;
       }
+
       .content {
         width: 90px;
         margin-left: -12px;
       }
     }
+
     .rsc-body {
       .rsc-body-empty {
         width: 100%;
+
         .link {
           width: 200px;
+
           a {
             padding: 10px 10px;
           }
         }
       }
+
       .rsc-date-past {
         .rscdp-empty {
           width: 90%;
           padding: 10px;
         }
+
         .dscdp-validation {
           width: 95%;
           padding: 20px 5px;
+
           .dscdp-link-item {
             width: 250px;
+
             a {
               padding: 22px 1px;
             }
+
             .link {
               padding: 12px 20px;
             }
+
             span {
               padding: 16px 40px;
             }
           }
         }
+
         .dscdpa-box {
           width: 95%;
           padding: 20px 5px;
+
           .dscdp-link-item {
             width: 250px;
+
             a {
               padding: 14px 14px;
             }
           }
         }
       }
+
       // VALIDATION Candidat
       .validation-cadre-trying {
         width: 90%;
+
         .vct-btn {
           width: 200px;
         }
       }
     }
+
     .rscdf-content {
       .new-date {
         width: 90%;
+
         .link {
           width: 80%;
+
           a {
             padding: 10px 0;
           }
         }
+
         .link2 {
           width: 100%;
+
           a {
             padding: 10px 0;
           }
         }
       }
     }
+
+    .ap-box {
+      flex-wrap: wrap;
+    }
   }
+
   // promesse suivi recrutement
   .rsc-body-promise {
     .dscdpa-box {
@@ -747,6 +944,7 @@
       padding: 10px;
     }
   }
+
   // chat index
   .message-box {
     .message-contact-items {
@@ -756,19 +954,49 @@
       }
     }
   }
+
   // 404
   .link {
     a {
       padding: 12px 3px;
     }
   }
+
+  // facture 
+  .pay-bill-box {
+    .pb-flex {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
 }
 
 @media screen and (min-width: 768px) {
+
+  // flash scss
+  .flash {
+    right: 50px;
+  }
+
+  // facture 
+  .pay-bill-box {
+    .pb-flex {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .import-button {
+      align-self: flex-end;
+    }
+  }
+
   // footer mail
   #input-mail {
     flex-direction: row;
   }
+
   ////////////////////////////////////////
   .box-1 {
     .box-1-logo {
@@ -781,26 +1009,32 @@
   .logo-g {
     display: none;
   }
+
   .picto1 {
     align-self: center;
     display: block;
     width: 90px;
+
     img {
       width: 100%;
     }
   }
+
   // navbar
   /////////////////////////////
   .navb {
     padding: 5px 50px;
     background-color: $secondary_text_color_button;
   }
+
   .navbar-content {
     display: none;
+
     li {
       margin: 30px 0;
     }
   }
+
   .dropup-btn1 {
     text-align: -webkit-center;
     text-align: -moz-center;
@@ -808,37 +1042,55 @@
     background-color: white;
     width: 180px;
   }
+
   // accueil général
   .first-btn1 {
     margin-top: 50px;
   }
+
   .accueilg-content1 {
     margin: 0 auto;
+
     .ac-item2 {
       display: flex;
       justify-content: space-between;
+
       .accueilg-item1 {
         width: 70%;
       }
     }
+
     .ac-item21 {
       flex-direction: row-reverse;
     }
   }
+
   // footer
 
   // inscription recruteur
+  .details-r {
+    width: 50%;
+  }
+
+  .condition-content {
+    width: 70%;
+    padding: 10px;
+  }
+
   .travel-parcours {
     width: 680px;
+
     .line {
       width: 180px;
     }
+
     ol {
       width: 750px;
       font-size: 14px;
       margin-left: -20px;
     }
   }
+
   .phone-number-add {
     .before-number {
       font-size: 16px;
@@ -849,26 +1101,32 @@
 
   // equipe equipe responsive
   .eq-all {
+
     .equip1,
     .equip2 {
       flex-direction: row;
     }
   }
+
   .equipe-box {
     width: 90%;
+
     .eq-box-eq {
       margin-top: 170px;
       padding-bottom: 20px;
       width: 250px;
+
       .eq-image {
         width: 180px;
       }
     }
   }
+
   // emnuel profil
   .big-box {
     top: 100px;
   }
+
   .emmanuel-profil {
     .emmanuel-box {
       .about {
@@ -878,99 +1136,121 @@
       }
     }
   }
+
   // menu left recruteur
   .left-menu-r {
     &.open {
       width: 100px;
     }
   }
+
   .btn-menu-r {
     right: 6px;
   }
+
   .left-menu-photo.open {
     opacity: 1;
   }
+
   // client profil
   // client profil
   .cp-table-box {
     td {
       padding: 5px 40px;
     }
+
     .table-td {
       justify-content: flex-start;
       padding-left: 30px;
+
       .cp-infos-r {
         width: 50%;
       }
+
       .cpr-r {
         img {
           left: 6%;
         }
       }
     }
+
     .cp-flex-t {
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
     }
+
     .line-white,
     .line-white2 {
       display: block;
     }
+
     .cp-icon-text {
       img {
         left: -30px;
       }
     }
+
     .cpe-description,
     .cpe-naf {
       text-align: left;
     }
+
     .cpe-description,
     .cpe-site {
       width: 50%;
     }
+
     .cpe-site {
       text-align: right;
+
       .site {
         left: inherit;
         right: 123px;
       }
+
       h5 {
         padding-right: 40px;
       }
     }
+
     .cpe-naf {
       width: auto;
     }
   }
+
   // client edit profil
   // client edit profil
   .cp-edit-table-box {
     .table-td {
       flex-wrap: nowrap;
       justify-content: space-between;
+
       .cp-infos-r {
         width: 50%;
       }
     }
+
     .cp-flex-t {
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
     }
+
     .cp-icon-text {
       img {
         left: -5px;
       }
     }
   }
+
   // mes offres d emploi :
   .coj-box {
     .cjo-content {
       width: 40%;
     }
   }
+
   // création d offre
   .create-offre-box {
     width: 90%;
@@ -990,78 +1270,113 @@
         }
       }
     }
+
     .dp-input-checkbox1 {
       span {
         margin-left: 0;
       }
     }
+
     .travel-creation {
       width: 70%;
+
       .line {
         width: 38%;
       }
+
       ol {
         width: 115%;
         margin-left: -10%;
       }
     }
   }
+
   .context-offre-box {
+    width: 80%;
+
     #co-input-submit-1 {
       display: none;
     }
+
     #co-input-submit {
       display: block;
       width: 320px;
       margin: 0 auto;
       text-align: left;
+
       label {
         margin-left: 10%;
       }
+
       input {
         width: 100%;
         padding: 12px 10px;
       }
     }
+
     .co-input-image {
       flex-direction: row;
       justify-content: center;
+
       img {
         align-self: flex-end;
       }
+
       label {
         align-self: flex-end;
         margin: 0;
       }
     }
   }
+
   // show new job
   .show-job-box {
     .travel-creation {
       width: 70%;
+
       .line {
         width: 38%;
       }
+
       ol {
         width: 115%;
         margin-left: -10%;
       }
     }
+
+
+
     .sjb-content {
       .show-einfos {
         flex-direction: row;
         flex-wrap: wrap;
+
         .local {
           width: 70%;
         }
       }
     }
+
     .so-btn {
       flex-direction: row;
       flex-wrap: wrap;
     }
   }
+
+  .show-pb2-btn {
+
+    div {
+      width: 320px;
+
+      a {
+        padding: 13px 50px;
+      }
+    }
+  }
+
   .show-pb2 {
+    width: 70%;
+
     a {
       width: 70%;
     }
@@ -1075,6 +1390,7 @@
           .validation-bt1 {
             display: none;
           }
+
           .validation-bt {
             display: block;
           }
@@ -1082,33 +1398,47 @@
       }
     }
   }
+
   // show search candidate
   .ssc-box {
     .ssc-all-infos {
       flex-direction: row;
       flex-wrap: wrap;
+
       .image {
         margin: 0 auto;
         width: 90%;
+
         img,
         .c {
           width: 90%;
           height: 300px;
         }
       }
+
       .ssc-infos {
         width: 250px;
       }
     }
+
     .ssc-question {
       width: 60%;
     }
+
+    .ssc-planification {
+      margin-left: 0;
+      margin-right: auto;
+      width: 80%;
+    }
+
   }
+
   // suivi de recrutement index
   .rf-box {
     .rf-items {
       margin-bottom: 65px;
     }
+
     .rf-items-flex {
       .timeline {
         .line {
@@ -1118,9 +1448,11 @@
           height: 2px;
           background-color: $secondary_element_color;
         }
+
         .content {
           top: 35px;
         }
+
         .content2,
         .content4,
         .content6 {
@@ -1129,6 +1461,7 @@
       }
     }
   }
+
   // suivi show post
   .rlc-box {
     .rlc-empty {
@@ -1136,60 +1469,79 @@
       margin-top: 70px;
     }
   }
+
   // recrutement show cadre
   .rsc-box {
+    .ap-box {
+      flex-wrap: nowrap;
+    }
+
     .rsc-header-travel {
       .line {
         width: 69.1%;
       }
+
       .content {
         width: 90px;
         margin-left: -12px;
       }
     }
+
     .rsc-body {
       .rsc-body-empty {
         width: 90%;
+
         .link {
           width: 300px;
+
           a {
             padding: 10px 30px;
           }
         }
       }
+
       .rsc-date-past {
         .rscdp-empty {
           width: 70%;
           padding: 20px;
         }
+
         .dscdp-validation {
           width: 70%;
           padding: 20px 25px;
         }
+
         .dscdpa-box {
           width: 70%;
           padding: 20px 25px;
         }
       }
+
       // VALIDATION Candidat
       .validation-cadre-trying {
         width: 80%;
+
         .vct-btn {
           width: 250px;
         }
       }
     }
+
     .rscdf-content {
       .new-date {
         width: 450px;
+
         .link {
           width: 70%;
+
           a {
             padding: 10px 32px;
           }
         }
+
         .link2 {
           width: 95%;
+
           a {
             padding: 10px 5px;
           }
@@ -1197,6 +1549,7 @@
       }
     }
   }
+
   // chat index
   .message-box {
     .message-contact-items {
@@ -1206,10 +1559,12 @@
       }
     }
   }
+
   // 404
   .link {
     margin: 0 auto;
     width: 330px;
+
     a {
       padding: 12px 8px;
     }
@@ -1217,19 +1572,23 @@
 }
 
 @media screen and (min-width: 992px) {
+
   // bg unique
   .bg-uniq {
     margin-top: -505px;
     padding-top: 550px;
   }
+
   // landing page
   // landing page
   .box-1 {
     width: 50%;
+
     .box-1-btn {
       align-self: flex-start;
       margin-left: 10%;
     }
+
     .box-1-logo {
       width: 70%;
     }
@@ -1238,6 +1597,7 @@
       text-align: left;
     }
   }
+
   // .box-2 {
   //   display: block;
   //   width: 50%;
@@ -1252,16 +1612,19 @@
     background: #fcfcfc url(/image/picture_photo_0ae4b3.png) no-repeat right;
     background-size: 110% 100%;
   }
+
   // navbar
   ////////////////////////
   .navdiv {
     height: 500px;
     padding-bottom: 70px;
   }
+
   .logo-g {
     display: block;
     width: 38%;
   }
+
   .navb {
     padding: 15px 0;
     background-color: transparent;
@@ -1269,6 +1632,7 @@
     justify-content: space-around;
     align-items: center;
   }
+
   .navbar-content {
     display: flex;
     justify-content: space-around;
@@ -1276,25 +1640,31 @@
     align-self: center;
     align-items: center;
   }
+
   .navbar-ul {
     display: flex;
     justify-content: space-between;
     margin-bottom: inherit;
+
     .navbar-item:hover {
       background-color: transparent;
       color: $main_theme_color;
     }
   }
+
   .navbar-logo {
     width: 5%;
+
     img {
       margin-left: 60%;
     }
   }
+
   ///
   .dropup1 {
     margin: 0;
   }
+
   .dropup-btn1 {
     text-align: -webkit-center;
     text-align: -moz-center;
@@ -1302,6 +1672,7 @@
     background-color: $secondary_text_color_button;
     color: white;
     width: 160px;
+
     &:hover {
       background-color: rgba(255, 255, 255, 0.61);
       box-shadow: $box-shadow;
@@ -1321,9 +1692,11 @@
     text-align: center;
     z-index: 20;
   }
+
   .btn-btn {
     display: none;
   }
+
   // navbar background
   ////////////////////////////////////////////////
 
@@ -1331,6 +1704,7 @@
     background: url(/image/BANNIERE.png) no-repeat center;
     background-size: cover;
   }
+
   // navbar accueilg and accueil g
   ////////////////////////////////////////////////
   .bg-accueil1 {
@@ -1342,34 +1716,42 @@
     background: url(/image/BANNIERE.png) no-repeat center;
     background-size: cover;
   }
+
   .accueilg-btn1 {
     margin-bottom: 70px;
+
     .cadre-btn1,
     .recruteur-btn1 {
       margin: 0 2em;
     }
   }
+
   .first-btn1 {
     position: absolute;
     width: 100%;
     top: 320px;
   }
+
   .accueilg-content1 {
     margin: 0 auto;
     margin-top: 250px;
+
     .ac-item2 {
       margin: 110px 0;
     }
   }
+
   // footer
   .footer-bottom {
     flex-wrap: wrap;
     justify-content: space-between;
     flex-direction: row;
+
     .footer-c {
       width: 65%;
     }
   }
+
   .social {
     a {
       margin-left: 5px;
@@ -1383,10 +1765,12 @@
       display: flex;
       justify-content: space-between;
     }
+
     .contact-item {
       width: 48%;
     }
   }
+
   // accueil recruteur
   //////////////////@exten
   .accueil-recruteur {
@@ -1394,10 +1778,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+
     .title-ar {
       font: $ffbtn;
       font-size: 16px;
     }
+
     .ar-vertical-line {
       position: absolute;
       left: 50%;
@@ -1406,11 +1792,14 @@
       height: 720px;
       background-color: black;
     }
+
     .ar-item {
       width: 48%;
     }
+
     .ar-item2 {
       align-self: flex-start;
+
       p,
       h2 {
         text-align: right;
@@ -1424,50 +1813,72 @@
     .dr-item-fad {
       width: 66%;
     }
+
     .dr-item-postal {
       width: 30%;
       margin-right: 3%;
     }
   }
+
+  .condition-content {
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
   .travel-parcours {
     width: 680px;
+
     ol {
       width: 780px;
       margin-left: -38px;
     }
   }
+
   .inscription-r {
     margin: 50px auto;
   }
+
   // equipe equipe responsive
   .eq-all {
+
     .equip1,
     .equip2 {
       flex-direction: row;
     }
   }
+
   .equipe-box {
     padding-bottom: 70px;
     width: 80%;
+
     .eq-box-eq {
       margin-top: 200px;
       width: 300px;
+
       .eq-image {
         width: 250px;
       }
     }
   }
+
   // emnuel profil
   .big-box {
     top: 540px;
   }
+
   .emmanuel-profil {
     padding: 50px;
+
     .profil {
       align-self: flex-start;
     }
+
     .emmanuel-box {
       width: 50%;
+
       .about {
         .content {
           padding: 20px 50px;
@@ -1475,15 +1886,18 @@
       }
     }
   }
+
   // menu left recruteur
   .left-menu-r {
     &.open {
       width: 120px;
     }
   }
+
   .btn-menu-r {
     right: 15px;
   }
+
   // client profil
   .table-td {
     .cpr-r {
@@ -1498,27 +1912,33 @@
     td {
       padding: 5px 60px;
     }
+
     .table-td {
       justify-content: flex-start;
       flex-wrap: nowrap;
       padding-left: 50px;
+
       .cp-infos-r {
         width: 70%;
       }
+
       .cpr-r {
         img {
           left: 20%;
         }
       }
     }
+
     .cp-flex-t {
       flex-wrap: no-wrap;
     }
+
     .cp-icon-text {
       img {
         left: -40px;
       }
     }
+
     .cpe-site {
       .site {
         left: inherit;
@@ -1526,11 +1946,13 @@
       }
     }
   }
+
   // client edit profil
   .cp-edit-table-box {
     .table-td {
       justify-content: flex-start;
       flex-wrap: nowrap;
+
       // padding-left: 50px;
       #recruteur-fonction,
       #cp-full-name,
@@ -1538,26 +1960,31 @@
       #recruteur-phone {
         width: 60%;
       }
+
       .cp-infos-r {
         width: 70%;
       }
+
       .cpr-r {
         img {
           left: 10%;
         }
       }
     }
+
     .cp-flex-t {
       flex-direction: row;
       flex-wrap: no-wrap;
       justify-content: space-between;
     }
+
     .cp-icon-text {
       img {
         left: 1px;
       }
     }
   }
+
   // création d offre
   .create-offre-box {
     .detail-post-box {
@@ -1565,6 +1992,7 @@
         width: 85%;
       }
     }
+
     .detail-post-box {
       .dp-input-renumeration {
         .value-renum {
@@ -1573,58 +2001,67 @@
         }
       }
     }
+
     .dp-input-checkbox1 {
       padding-left: 4%;
     }
+
     .travel-creation {
       width: 450px;
+
       .line {
         width: 173px;
       }
+
       ol {
         width: 510px;
         margin-left: -8%;
       }
     }
   }
+
   // show new job
   .show-job-box {
     .travel-creation {
       width: 450px;
+
       .line {
         width: 173px;
       }
+
       ol {
         width: 510px;
         margin-left: -8%;
       }
     }
+
     .sjb-content {
       width: 80%;
       margin: 0 auto;
+
       .show-einfos {
         flex-wrap: nowrap;
         justify-content: space-evenly;
+
         .local {
           width: 65%;
         }
       }
     }
+
     .so-btn {
       flex-wrap: nowrap;
     }
-    .show-pb2-btn {
-      a {
-        width: 70%;
-      }
-    }
+
     .show-pb2 {
       width: 65%;
+
       a {
         width: 45%;
       }
     }
   }
+
   // search cadre
   .select-cadre-box {
     .search {
@@ -1633,32 +2070,39 @@
         margin: 0;
         margin-right: 20px;
       }
+
       &-short {
         width: 220px;
         margin: 0;
       }
+
       .td-button {
         margin-right: 0;
       }
+
       .co-input {
         margin: 10px 0;
       }
     }
+
     .select-cadre-list {
       .validation {
         .submit-validation {
           .validation-bt1 {
             display: none;
           }
+
           .validation-bt {
             display: block;
           }
         }
       }
     }
+
     .select-cadre-list-items {
       .cadre-box {
         width: 235px;
+
         &:hover,
         &:active {
           .cadre-box-info {
@@ -1666,16 +2110,20 @@
             transition: all 500ms ease-in-out;
           }
         }
+
         .cadre-box-image {
           position: relative;
+
           .cbi-photo {
             width: 100%;
+
             img,
             .c {
               height: 350px;
             }
           }
         }
+
         .cadre-box-info {
           position: absolute;
           height: 70px;
@@ -1686,29 +2134,42 @@
       }
     }
   }
+
   // show search candidate
   .ssc-box {
     .ssc-all-infos {
       flex-direction: row;
       flex-wrap: nowrap;
+
       .ssc-infos {
         width: 300px;
       }
     }
+
     .ssc-question {
       width: 60%;
     }
+
     .ssc-rest {
       flex-direction: row;
       flex-wrap: nowrap;
+
       .ssc-rest-btn {
         width: 300px;
       }
+
       .ssc-oiam {
         width: 60%;
       }
     }
+
+    // plannification entretien
+    // .ssc-planification {
+    //   // margin-left: 0;
+    //   width: 80%;
+    // }
   }
+
   // show candidat favorit
   .fc-item-all {
     .list-candidat {
@@ -1717,10 +2178,12 @@
       }
     }
   }
+
   // suivi de recrutement index
   .rf-box {
     .rf-items-flex {
       margin-left: 60px;
+
       .timeline {
         .line {
           width: 58px;
@@ -1729,12 +2192,14 @@
           height: 2px;
           background-color: $secondary_element_color;
         }
+
         .content {
           top: 35px;
         }
       }
     }
   }
+
   // suivi show post
   .rlc-box {
     .rlc-empty {
@@ -1742,83 +2207,103 @@
       margin-top: 90px;
     }
   }
+
   // recrutement show cadre
   .rsc-box {
     .rsc-header-travel {
       .line {
         width: 77.3%;
       }
+
       .content {
         width: 150px;
         margin-left: -30px;
       }
+
       .circle-last {
         margin-top: 5px;
       }
     }
+
     .rsc-body {
       .rsc-body-empty {
         width: 70%;
       }
+
       .rsc-date-past {
         .rscdp-empty {
           width: 60%;
           padding: 30px;
         }
+
         .dscdp-validation {
           width: 65%;
           padding: 20px 45px;
+
           .dscdp-link-item {
             width: 280px;
+
             a {
               padding: 22px 10px;
             }
+
             .link {
               padding: 12px 35px;
             }
+
             span {
               padding: 16px 55px;
             }
           }
         }
+
         .dscdpa-box {
           width: 65%;
           padding: 20px 45px;
+
           .dscdp-link-item {
             width: 280px;
+
             a {
               padding: 14px 28px;
             }
           }
         }
       }
+
       .rscdf-content {
         .new-date {
           width: 450px;
+
           .link2 {
             width: 100%;
+
             a {
               padding: 10px 15px;
             }
           }
         }
       }
+
       // VALIDATION Candidat
       .validation-cadre-trying {
         width: 70%;
       }
     }
   }
+
   // promesse suivi recrutement
   .rsc-body-promise {
     .dscdpa-box {
       width: 60%;
       padding: 20px;
+
       p {
         padding: 0 10px;
       }
     }
   }
+
   // chat index
   .message-box {
     .message-contact-items {
@@ -1832,16 +2317,19 @@
 }
 
 @media screen and (min-width: 1200px) {
+
   // landing page
   .box-1 {
     .box-1-btn {
       // align-self: flex-end;
     }
   }
+
   .box {
     background: #fcfcfc url(/image/picture_photo_0ae4b3.png) no-repeat right;
     background-size: 85% 100%;
   }
+
   // navbar
   /////////////////////
   .navbar-content {
@@ -1849,6 +2337,7 @@
     width: 70%;
     align-items: center;
   }
+
   .navbar-ul {
     width: 70%;
     margin-bottom: inherit;
@@ -1857,14 +2346,17 @@
   .logo-g {
     width: 35%;
   }
+
   .dropup-content1 {
     right: 5.2%;
   }
+
   // navbar background all
   ///////////////////////////////////////////////
   .navdiv {
     padding-bottom: 100px;
   }
+
   // nabar bg accueil
   ///////////////////////////////////////////////
 
@@ -1872,17 +2364,21 @@
   .accueilg-btn1 {
     .cadre-btn1 {
       margin: 0 2em;
+
       a {
         padding: 12px 65px;
       }
     }
+
     .recruteur-btn1 {
       margin: 0 2em;
+
       a {
         padding: 12px 44px;
       }
     }
   }
+
   .accueilg-content1 {
     margin-top: 220px;
   }
@@ -1894,16 +2390,19 @@
       font-size: 20px;
     }
   }
+
   // inscription recruteur
   ///////////////////////////////////////@extend
 
   .travel-parcours {
     width: 700px;
+
     ol {
       width: 790px;
       margin-left: -45px;
     }
   }
+
   .inscription-r {
     margin: 60px auto;
   }
@@ -1912,6 +2411,7 @@
   .equipe-box {
     padding-bottom: 100px;
   }
+
   // client profil
   .table-td {
     .cpr-r {
@@ -1920,25 +2420,31 @@
       }
     }
   }
+
   // emnuel profil
   .emmanuel-profil {
     .profil {
       align-self: auto;
     }
+
     .emmanuel-box {
       width: 65%;
     }
   }
+
   // client profil
   .cp-table-box {
     td {
       padding: 5px 60px;
     }
+
     .table-td {
       justify-content: space-between;
+
       .cp-infos-r {
         width: 72%;
       }
+
       .cpr-r {
         img {
           left: 25%;
@@ -1946,22 +2452,28 @@
       }
     }
   }
+
   // client edit profil
   .cp-edit-table-box {
     td {
       padding: 5px 30px;
     }
+
     .table-td {
+
       #recruteur-fonction,
       #cp-full-name,
       #recruteur-mail,
       #recruteur-phone {
         width: 50%;
       }
+
       justify-content: space-between;
+
       .cp-infos-r {
         width: 72%;
       }
+
       .cpr-r {
         img {
           left: 12%;
@@ -1969,6 +2481,7 @@
       }
     }
   }
+
   // création d offre
   .create-offre-box {
     .detail-post-box {
@@ -1976,6 +2489,7 @@
         width: 70%;
       }
     }
+
     .detail-post-box {
       .dp-input-renumeration {
         .value-renum {
@@ -1983,36 +2497,45 @@
         }
       }
     }
+
     .dp-input-checkbox1 {
       padding-left: 6%;
     }
+
     .travel-creation {
       width: 600px;
+
       .line {
         width: 248px;
       }
+
       ol {
         width: 664px;
         margin-left: -7%;
       }
     }
   }
+
   // show new job
   .show-job-box {
     .travel-creation {
       width: 600px;
+
       .line {
         width: 248px;
       }
+
       ol {
         width: 664px;
         margin-left: -7%;
       }
     }
+
     // .show-pb2 {
     //   width: 50%;
     // }
   }
+
   // search cadre
   .select-cadre-box {
     .search {
@@ -2020,14 +2543,17 @@
         margin: 0;
         width: 50%;
       }
+
       .search-short {
         width: 25%;
       }
+
       .td-button {
         margin: 0;
       }
     }
   }
+
   // show search candidate
   .ssc-box {
     .ssc-all-infos {
@@ -2035,39 +2561,54 @@
         .image {
           margin: 0 auto;
           width: 80%;
+
           img,
           .c {
             width: 88%;
             height: 300px;
           }
         }
+
         width: 350px;
       }
+
       .ssc-question {
         width: 68%;
       }
     }
+
     .ssc-rest {
       flex-direction: row;
       flex-wrap: nowrap;
+
       .ssc-rest-btn {
         width: 350px;
       }
+
       .ssc-oiam {
         width: 68%;
       }
     }
+
+    // plannification entretien
+    .ssc-planification {
+      margin-left: auto;
+      width: 60%;
+    }
   }
+
   // show candidat favorit
   .fc-item-all {
     .list-candidat {
       margin: 30px 50px;
     }
   }
+
   // suivi de recrutement index
   .rf-box {
     .rf-items-flex {
       margin-left: 60px;
+
       .timeline {
         .line {
           width: 70px;
@@ -2079,56 +2620,67 @@
       }
     }
   }
+
   // suivi show post
   .rlc-box {
     .rlc-empty {
       width: 50%;
       margin-top: 90px;
     }
+
     .rlc-items {
       margin: 0 50px;
       margin-bottom: 70px;
     }
   }
+
   // recrutement show cadre
   .rsc-box {
     .rsc-body {
       .rsc-body-empty {
         width: 50%;
       }
+
       .rsc-date-past {
         .rscdp-empty {
           width: 55%;
           padding: 50px;
         }
+
         .dscdp-validation {
           width: 60%;
           padding: 20px 50px;
         }
+
         .dscdpa-box {
           width: 60%;
           padding: 20px 40px;
         }
       }
+
       // VALIDATION Candidat
       .validation-cadre-trying {
         width: 60%;
+
         .vct-btn {
           width: 350px;
         }
       }
     }
   }
+
   // promesse suivi recrutement
   .rsc-body-promise {
     .dscdpa-box {
       width: 50%;
       padding: 30px;
+
       p {
         padding: 0 30px;
       }
     }
   }
+
   // chat index
   .message-box {
     .message-contact-items {
@@ -2138,11 +2690,14 @@
     }
   }
 }
+
 @media screen and (min-width: 1500px) {
+
   // bg unique
   .bg-uniq {
     margin-top: -605px;
   }
+
   // landing page
 
   // navbar
@@ -2164,6 +2719,7 @@
     width: 100%;
     top: 380px;
   }
+
   .bg-accueil1 {
     height: 750px;
   }
@@ -2180,26 +2736,32 @@
         display: flex;
         justify-content: space-between;
         width: 50%;
+
         .co-input {
           width: 49%;
         }
       }
+
       .search-short {
         width: 37%;
         display: flex;
         justify-content: space-between;
+
         .co-input {
           width: 49%;
         }
       }
     }
   }
+
   // show search candidate
   .ssc-box {
     .ssc-all-infos {
       .ssc-infos {
         width: 380px;
+
         .image {
+
           img,
           .c {
             width: 70%;
@@ -2208,54 +2770,65 @@
         }
       }
     }
+
     .ssc-question {
       width: 80%;
     }
+
     .ssc-rest {
       .ssc-rest-btn {
         width: 380px;
       }
+
       .ssc-oiam {
         width: 68%;
       }
     }
   }
+
   // suivi show post
   .rlc-box {
     .rlc-empty {
       width: 40%;
       margin-top: 100px;
     }
+
     .rlc-items {
       margin: 0 80px;
       margin-bottom: 80px;
     }
   }
+
   // recrutement show cadre
   .rsc-box {
     .rsc-body {
       .rsc-body-empty {
         width: 50%;
       }
+
       .rsc-date-past {
         .rscdp-empty {
           width: 40%;
         }
+
         .dscpd-validation {
           width: 50%;
         }
+
         .dscdpa-box {
           width: 50%;
         }
       }
     }
   }
+
   // promesse suivi recrutement
   .rsc-body-promise {
     .dscdpa-box {
       width: 40%;
     }
   }
+
   // chat index
   .message-box {
     .message-contact-items {
@@ -2265,7 +2838,9 @@
     }
   }
 }
+
 @media screen and (min-width: 2500px) {
+
   // navbar
   // /////////////////////
   .navdiv {
@@ -2283,6 +2858,7 @@
   .first-btn1 {
     top: 450px;
   }
+
   .bg-accueil1 {
     height: 800px;
   }
@@ -2299,26 +2875,32 @@
         display: flex;
         justify-content: space-between;
         width: 55%;
+
         .co-input {
           width: 49%;
         }
       }
+
       .search-short {
         width: 40%;
         display: flex;
         justify-content: space-between;
+
         .co-input {
           width: 49%;
         }
       }
     }
   }
+
   // show search candidate
   .ssc-box {
     .ssc-all-infos {
       .ssc-infos {
         width: 400px;
+
         .image {
+
           img,
           .c {
             width: 70%;
@@ -2327,13 +2909,16 @@
         }
       }
     }
+
     .ssc-question {
       width: 90%;
     }
+
     .ssc-rest {
       .ssc-rest-btn {
         width: 400px;
       }
+
       .ssc-oiam {
         width: 90%;
       }

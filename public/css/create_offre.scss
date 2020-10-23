@@ -1,6 +1,7 @@
 @import 'config';
 @import 'pagemenu';
 @import 'datepicker';
+
 // line travel create offre
 .create-offre-box {
   padding: 20px 0;
@@ -8,8 +9,10 @@
   text-align: -webkit-center;
   text-align: -moz-center;
   text-align: center;
+
   .travel-creation {
     margin: 0 auto;
+
     .circle {
       background-color: $secondary_element_color;
       width: 35px;
@@ -21,15 +24,18 @@
       border-radius: 50%;
       color: white;
     }
+
     .line {
       content: ' ';
       align-self: center;
       height: 2px;
       background-color: $secondary_element_color;
     }
+
     .travelc-image {
       display: flex;
     }
+
     ol {
       margin-top: 10px;
       list-style: none;
@@ -38,16 +44,20 @@
       font: $ffbtn;
       font-size: 16px;
     }
+
     .color-bg {
       background-color: $main_theme_color;
     }
   }
+
   // end line
   .detail-post-box {
     padding: 20px 0;
     margin: 30px auto;
+
     #offre_job_contrat_cdi {
       width: 40px;
+
       &:hover,
       &:active,
       &:focus {
@@ -55,13 +65,16 @@
         box-shadow: none;
       }
     }
+
     #descriptif-mission {
       height: 150px;
       text-align: left;
     }
+
     #intitule-pote {
       height: 44px;
     }
+
     .list {
       font: $ffsentence;
       list-style: none;
@@ -70,16 +83,19 @@
       max-height: 200px;
       overflow-x: auto;
       border-top: 0px;
+
       li {
         border: 1px solid rgba(0, 0, 0, 0.125);
         padding: 0.75rem 1.25rem;
         // background: #000;
       }
+
       li:hover {
         background: $main_theme_color;
         color: white;
       }
     }
+
     #datepicker {
       cursor: pointer;
       text-align: -webkit-center;
@@ -88,16 +104,20 @@
       -moz-text-align-last: center;
       -ms-text-align-last: center;
       text-align-last: center;
+
       &::-webkit-inner-spin-button,
       &::-webkit-calendar-picker-indicator {
         // display: none;
         background: transparent;
         -webkit-appearance: none;
       }
+
       background: $secondary_element_color url('/image/calendar.png') no-repeat right 0.5rem center/21px 24px;
     }
+
     .dp-input {
       margin: 6px auto 30px auto;
+
       input,
       select,
       textarea {
@@ -107,12 +127,14 @@
         border: none;
         padding: 10px 0;
         border-radius: 0;
+
         &:focus {
           border-radius: none;
           outline: 1px solid $main_theme_color;
           box-shadow: 1px 1px 5px 1px $main_theme_color;
         }
       }
+
       textarea {
         padding-left: 10px;
         resize: both;
@@ -123,6 +145,7 @@
         background: $secondary_element_color;
       }
     }
+
     // custom check box
     .dp-input-checkbox1 {
       font: $ffsentence;
@@ -135,6 +158,7 @@
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+
       input {
         position: absolute;
         opacity: 0;
@@ -142,6 +166,7 @@
         height: 0;
         width: 0;
       }
+
       .checkmark {
         position: absolute;
         top: -2px;
@@ -150,20 +175,25 @@
         width: 20px;
         background-color: #c4c4c4;
       }
-      &:hover input ~ .checkmark {
+
+      &:hover input~.checkmark {
         background-color: $main_theme_color;
       }
-      input:checked ~ .checkmark {
+
+      input:checked~.checkmark {
         background-color: $secondary_element_color;
       }
+
       .checkmark:after {
         content: '';
         position: absolute;
         display: none;
       }
-      input:checked ~ .checkmark:after {
+
+      input:checked~.checkmark:after {
         display: block;
       }
+
       .checkmark:after {
         left: 5px;
         top: -7px;
@@ -176,23 +206,27 @@
         transform: rotate(45deg);
       }
     }
+
     ///end custom
     .dp-input-renumeration {
       font: $ffbtn;
       width: 90%;
       margin-top: 30px;
       margin-bottom: 40px;
+
       .dp-input-flex {
         display: flex;
         align-items: center;
         justify-content: space-between;
       }
+
       input {
         -webkit-appearance: none;
         width: 92%;
         height: 0px;
         padding: 0;
         padding-top: 5px;
+
         &:focus {
           border: none;
           box-shadow: none;
@@ -213,6 +247,7 @@
           outline: none;
           cursor: pointer;
         }
+
         &::-ms-thumb {
           width: 0;
           height: 0;
@@ -226,6 +261,7 @@
           background: transparent;
           cursor: pointer;
         }
+
         &::-moz-range-thumb {
           width: 0;
           height: 0;
@@ -240,12 +276,15 @@
           cursor: pointer;
         }
       }
+
       .span1 {
         width: 45px;
       }
+
       .value-renum {
         height: 20px;
         position: relative;
+
         div {
           color: white;
           left: 50%;
@@ -258,6 +297,7 @@
         }
       }
     }
+
     .co-dp-btn {
       font: $ffbtn;
       text-align: -webkit-center;
@@ -270,6 +310,7 @@
       margin-bottom: 20px;
       width: 170px;
       cursor: pointer;
+
       &:hover,
       &:active {
         background: $main_theme_color;
@@ -277,17 +318,20 @@
       }
     }
   }
+
   .context-offre-box {
     display: none;
     padding: 20px;
     margin: 30px auto;
     text-align: left;
-    width: 80%;
+
+    // width: 80%;
     .co-input {
       margin: 6px auto 30px auto;
       text-align: -webkit-center;
       text-align: -moz-center;
       text-align: center;
+
       input,
       select,
       textarea {
@@ -299,43 +343,53 @@
         width: 100%;
         padding: 10px 0;
         border-radius: 0;
+
         &:focus {
           border-radius: none;
           outline: 1px solid $main_theme_color;
           box-shadow: 1px 1px 5px 1px $main_theme_color;
         }
       }
+
       input,
       textarea {
         background: $secondary_element_color;
       }
+
       #addImage {
         width: 100px;
         height: 100px;
       }
     }
+
     .co-input-image {
       display: flex;
       // justify-content: center;
       margin: 50px auto;
+
       img {
         // align-self: flex-end;
       }
+
       .c {
         width: 100%;
         height: 100%;
       }
+
       label {
+
         // align-self: flex-end;
         .first-p {
           color: $main_theme_color;
         }
+
         .last-p {
           margin: 0;
           margin-top: 15px;
           cursor: pointer;
           text-decoration: underline;
         }
+
         font: $ffbtn;
         text-align: -webkit-center;
         text-align: -moz-center;
@@ -343,18 +397,22 @@
         margin-left: 30px;
       }
     }
+
     .cp-input-check {
       margin: 15px auto 40px auto;
       display: flex;
       justify-content: flex-start;
+
       .cp-input-ckeck-label {
         margin-left: 0;
         margin-right: 80px;
         margin-bottom: 20px;
         font: $ffsentence;
       }
+
       #cp-input-check {
         width: 60px;
+
         &:focus,
         &:active {
           outline: 0;
@@ -362,6 +420,7 @@
         }
       }
     }
+
     .co-input-submit {
       input {
         font: $ffbtn;
@@ -370,11 +429,13 @@
         background: transparent;
         margin: 35px auto 10px auto;
         cursor: pointer;
+
         &:hover,
         &:active {
           background: $main_theme_color;
           color: white;
         }
+
         &:focus,
         &:active {
           outline: 0;
@@ -382,6 +443,7 @@
         }
       }
     }
+
     #co-input-submit3 {
       input {
         width: 185px;
@@ -389,6 +451,7 @@
       }
     }
   }
+
   // radio chack
   .cp-input-ckeck-label {
     display: block;
@@ -401,11 +464,13 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
     input {
       position: absolute;
       opacity: 0;
       cursor: pointer;
     }
+
     .cp-radio {
       position: absolute;
       top: -2px;
@@ -415,20 +480,25 @@
       background-color: $secondary_element_color;
       border-radius: 50%;
     }
-    &:hover input ~ .cp-radio {
+
+    &:hover input~.cp-radio {
       background-color: $main_theme_color;
     }
-    input:checked ~ .cp-radio {
+
+    input:checked~.cp-radio {
       background-color: $secondary_element_color;
     }
+
     .cp-radio:after {
       content: '';
       position: absolute;
       display: none;
     }
-    input:checked ~ .cp-radio:after {
+
+    input:checked~.cp-radio:after {
       display: block;
     }
+
     .cp-radio:after {
       top: 5px;
       left: 5px;
@@ -438,6 +508,7 @@
       background: #c4c4c4;
     }
   }
+
   // end radio
   .co-select {
     -webkit-appearance: none;
@@ -452,6 +523,7 @@
     -ms-text-align-last: center;
     text-align: -webkit-center;
     text-align-last: center;
+
     option {
       font: $ffsentence;
       text-align: -webkit-center;
@@ -465,8 +537,10 @@
       text-align-last: center;
     }
   }
+
   .hide-right {
     position: relative;
+
     &::before {
       content: ' ';
       position: absolute;
@@ -485,13 +559,16 @@
   display: block;
   margin: -15px 0 20px 0;
 }
+
 #ui-datepicker-div {
   width: 300px;
   color: white;
 }
+
 .ui-datepicker {
   &-calendar {
     padding: 20px;
+
     td {
       height: 40px;
 
@@ -501,16 +578,19 @@
       }
     }
   }
+
   &-header {
     text-align: -webkit-center;
     text-align: -moz-center;
     text-align: center;
     padding: 30px;
   }
+
   &-next {
     top: 28px;
     right: 5%;
   }
+
   &-prev {
     top: 28px;
     left: 5%;

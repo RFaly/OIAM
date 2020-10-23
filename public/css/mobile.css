@@ -159,6 +159,9 @@
 }
 
 @media screen and (min-width: 320px) {
+  body {
+    overflow-x: hidden;
+  }
   #input-mail {
     flex-direction: column;
   }
@@ -220,16 +223,17 @@
     margin-bottom: 10px;
   }
   .accueilg-btn1 {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
   }
   .accueilg-btn1 .cadre-btn1 {
-    margin: 0 1em;
+    margin: 1em;
   }
   .accueilg-btn1 .cadre-btn1 a {
     padding: 12px 55px;
   }
   .accueilg-btn1 .recruteur-btn1 {
-    margin: 0 1em;
+    margin: 1em;
   }
   .accueilg-btn1 .recruteur-btn1 a {
     padding: 12px 30px;
@@ -260,6 +264,9 @@
   .accueil-recruteur .ar-item p {
     text-align: justify;
   }
+  .details-r {
+    width: 90%;
+  }
   .details-r .dr-item {
     margin-top: 40px;
     width: 100%;
@@ -271,12 +278,15 @@
     width: 400px;
   }
   .travel-parcours .line {
-    width: 80px;
+    width: 62px;
   }
   .travel-parcours ol {
-    width: 400px;
+    width: 360px;
     font: 500 18px Raleway, sans-serif;
     font-size: 12px;
+  }
+  .condition-content {
+    width: 90%;
   }
   .phone-number-add .before-number {
     padding: 3px;
@@ -426,6 +436,7 @@
     text-align: -webkit-center;
     text-align: -moz-center;
     text-align: center;
+    width: 100%;
   }
   .context-offre-box #co-input-submit {
     display: none;
@@ -455,6 +466,12 @@
     width: 115%;
     margin-left: -10%;
   }
+  .show-pb2-btn div {
+    width: 90%;
+  }
+  .show-pb2-btn div a {
+    padding: 13px 3px;
+  }
   .show-publication {
     width: 90%;
     margin: 0 auto;
@@ -479,7 +496,7 @@
     text-align: center;
   }
   .show-pb2 {
-    width: 70%;
+    width: 90%;
   }
   .select-cadre-box .search-large, .select-cadre-box .search-short {
     width: 95%;
@@ -537,11 +554,15 @@
   .ssc-box .ssc-rest .ssc-oiam {
     width: 85%;
   }
+  .ssc-box .ssc-planification {
+    margin-left: -8px;
+    width: 90%;
+  }
   .fc-item-all .list-candidat {
     margin: 30px 0;
   }
   .fc-item-all .list-candidat .fci-infos {
-    height: 170px;
+    height: 190px;
   }
   .rf-box .rf-items {
     margin-bottom: 65px;
@@ -635,6 +656,9 @@
   .rsc-box .rscdf-content .new-date .link2 a {
     padding: 10px 0;
   }
+  .rsc-box .ap-box {
+    flex-wrap: wrap;
+  }
   .rsc-body-promise .dscdpa-box {
     width: 80%;
     padding: 10px;
@@ -646,9 +670,21 @@
   .link a {
     padding: 12px 3px;
   }
+  .pay-bill-box .pb-flex {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media screen and (min-width: 768px) {
+  .pay-bill-box .pb-flex {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .pay-bill-box .import-button {
+    align-self: flex-end;
+  }
   #input-mail {
     flex-direction: row;
   }
@@ -698,6 +734,13 @@
   }
   .accueilg-content1 .ac-item21 {
     flex-direction: row-reverse;
+  }
+  .details-r {
+    width: 50%;
+  }
+  .condition-content {
+    width: 70%;
+    padding: 10px;
   }
   .travel-parcours {
     width: 680px;
@@ -831,6 +874,9 @@
     width: 115%;
     margin-left: -10%;
   }
+  .context-offre-box {
+    width: 80%;
+  }
   .context-offre-box #co-input-submit-1 {
     display: none;
   }
@@ -879,6 +925,15 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
+  .show-pb2-btn div {
+    width: 320px;
+  }
+  .show-pb2-btn div a {
+    padding: 13px 50px;
+  }
+  .show-pb2 {
+    width: 70%;
+  }
   .show-pb2 a {
     width: 70%;
   }
@@ -907,6 +962,11 @@
   .ssc-box .ssc-question {
     width: 60%;
   }
+  .ssc-box .ssc-planification {
+    margin-left: 0;
+    margin-right: auto;
+    width: 80%;
+  }
   .rf-box .rf-items {
     margin-bottom: 65px;
   }
@@ -928,6 +988,9 @@
   .rlc-box .rlc-empty {
     width: 70%;
     margin-top: 70px;
+  }
+  .rsc-box .ap-box {
+    flex-wrap: nowrap;
   }
   .rsc-box .rsc-header-travel .line {
     width: 69.1%;
@@ -1166,6 +1229,12 @@
     width: 30%;
     margin-right: 3%;
   }
+  .condition-content {
+    opacity: 0.5;
+  }
+  .condition-content:hover {
+    opacity: 1;
+  }
   .travel-parcours {
     width: 680px;
   }
@@ -1306,9 +1375,6 @@
   }
   .show-job-box .so-btn {
     flex-wrap: nowrap;
-  }
-  .show-job-box .show-pb2-btn a {
-    width: 70%;
   }
   .show-job-box .show-pb2 {
     width: 65%;
@@ -1625,6 +1691,10 @@
   }
   .ssc-box .ssc-rest .ssc-oiam {
     width: 68%;
+  }
+  .ssc-box .ssc-planification {
+    margin-left: auto;
+    width: 60%;
   }
   .fc-item-all .list-candidat {
     margin: 30px 50px;

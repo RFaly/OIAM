@@ -35,7 +35,8 @@ class OffreJob < ApplicationRecord
 		NotificationAdmin.create(
 			object: "#{name_entreprise}",
 			message: "#{name_entreprise} a publié une nouvelle offre d'emploi.",
-			link: "#{url_helpers.admin_client_show_offer_path(self.id,notification:"offre")}",
+			# link: "#{url_helpers.admin_client_show_offer_path(self.id,notification:"offre")}",
+			link:"/",
 			genre: 1,
 			medel_id: self.id
 		)

@@ -13,6 +13,7 @@
     padding: 10px 0;
     background: transparent;
     border: 2px solid $main_theme_color;
+
     a {
       padding: 10px 43px;
       font: $ffbtn;
@@ -20,88 +21,108 @@
       text-transform: uppercase;
       text-decoration: none;
     }
+
     &#ssc-btn2 {
       a {
         padding: 10px 30px;
       }
     }
+
     &:hover,
     &:active {
       a {
         color: white;
       }
+
       background: $main_theme_color;
     }
   }
+
   .ssc-all-infos {
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
+
     .ssc-infos {
       font: $ffsentence;
       text-align: -webkit-center;
       text-align: -moz-center;
       text-align: center;
+
       .image {
+
         img,
         .c {
           height: 300px;
         }
       }
+
       .infos {
         margin: 15px 0;
+
         .name {
           text-transform: capitalize;
         }
+
         p {
           margin: 0;
         }
+
         span {
           color: $main_theme_color;
         }
+
         .local {
           margin: 25px 0;
         }
       }
     }
+
     .ssc-question {
       padding: 20px;
       //   width: 60%;
       text-align: justify;
       background: $secondary_element_color;
+
       .title {
         margin-bottom: 10px;
         color: $main_theme_color;
         font-size: 20px;
       }
+
       .questionnaire-title {
         font: $ffbtn;
         font-size: 20px;
       }
     }
   }
+
   .ssc-rest {
     z-index: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     .ssc-rest-btn {
       position: relative;
       padding: 20px 0;
       text-align: -webkit-center;
       text-align: -moz-center;
       text-align: center;
+
       .ssc-message {
         a {
           padding: 10px 67px;
         }
       }
+
       .ssc-pe {
         cursor: pointer;
         margin-top: 20px;
         padding: 12px 0;
         font: $ffbtn;
         color: $main_theme_color;
+
         &:hover,
         &:active {
           color: white;
@@ -113,29 +134,34 @@
         background: $main_theme_color;
       }
     }
+
     .ssc-oiam {
       background: $secondary_element_color;
       padding: 20px;
 
       text-align: justify;
+
       h5 {
         font: $ffbtn;
         font-size: 20px;
       }
     }
   }
+
   // planification entretien
   .ssc-planification {
-    margin: 0 auto;
+    // margin: 0 auto;
     position: relative;
     margin-top: -90px;
     margin-bottom: 90px;
-    width: 60%;
+    // width: 60%;
     // padding: 0 10%;
     z-index: 200;
+
     // date validation
     .date {
       opacity: 0;
+
       input {
         top: -3px;
         border-radius: 0;
@@ -143,6 +169,7 @@
         position: absolute;
       }
     }
+
     // hour validation
     .js-timeContainer {
       padding: 30px;
@@ -150,22 +177,27 @@
       background: $secondary_text_color_button;
       color: white;
       font: $ffbtn;
+
       h4 {
         text-align: -webkit-center;
         text-align: -moz-center;
         text-align: center;
       }
+
       .fselect {
         width: 95%;
         margin: 0 auto;
+
         #reditDate {
           cursor: pointer;
         }
+
         .firstSelection {
           display: flex;
           justify-content: space-between;
           margin: 20px 0;
         }
+
         .js-hoursTime {
           padding: 5px;
           background: transparent;
@@ -175,6 +207,7 @@
           text-align: -moz-center;
           text-align: center;
           cursor: pointer;
+
           &:hover,
           &:active {
             background: white;
@@ -183,9 +216,11 @@
         }
       }
     }
+
     .with-input {
       align-items: center;
       display: flex;
+
       .with-input-item {
         border-radius: 0;
         outline: none;
@@ -196,14 +231,17 @@
         padding-left: 5px;
         border: none;
         background: $secondary_element_color;
+
         &:focus {
           outline: 1px solid white;
           box-shadow: $box-shadow;
         }
       }
     }
+
     .planQ-btn {
       text-align: right;
+
       input {
         font: $ffbtn;
         background: transparent;
@@ -211,6 +249,7 @@
         border-radius: 0;
         color: white;
         padding: 10px 30px;
+
         &:hover,
         &:active {
           background: white;
@@ -218,6 +257,7 @@
         }
       }
     }
+
     .ssc-send {
       color: white;
       background: $secondary_text_color_button;
@@ -227,11 +267,13 @@
       text-align: center;
       padding: 30px;
       margin-top: 11px;
+
       img {
         width: 40px;
         height: 48px;
         margin: 10px 0;
       }
+
       .datetime {
         background: white;
         width: 90%;
@@ -240,11 +282,13 @@
         font: $ffbtn;
         padding: 20px;
       }
+
       a {
         text-decoration: none;
         text-transform: uppercase;
         color: white;
       }
+
       .ssc-send-btn {
         cursor: pointer;
         border: 2px solid white;
@@ -253,6 +297,7 @@
         width: 150px;
         margin-top: 30px;
         margin-left: auto;
+
         &:hover,
         &:active {
           background: white;
@@ -262,14 +307,30 @@
     }
   }
 }
+
 // date picker
-#ui-datepicker-div {
-  width: 600px;
-  color: white;
+@media screen and (min-width: 320px) {
+  #ui-datepicker-div {
+    width: 80%;
+    color: white;
+  }
 }
+
+@media screen and (min-width: 998px) {
+  #ui-datepicker-div {
+    width: 600px;
+  }
+}
+
+// #ui-datepicker-div {
+//   width: 600px;
+//   color: white;
+// }
+
 .ui-datepicker {
   &-calendar {
     padding: 30px;
+
     td {
       height: 60px;
 
@@ -278,18 +339,22 @@
       }
     }
   }
+
   &-header {
     padding: 50px;
   }
+
   &-next {
     top: 40px;
     right: 10%;
   }
+
   &-prev {
     top: 40px;
     right: 20%;
   }
 }
+
 // check box
 #conditioncheck {
   font: $ffsentence;
@@ -301,6 +366,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
   input {
     position: absolute;
     opacity: 0;
@@ -308,6 +374,7 @@
     height: 0;
     width: 0;
   }
+
   .checkmark {
     position: absolute;
     top: -2px;
@@ -316,17 +383,21 @@
     width: 20px;
     border: 2px solid white;
   }
-  &:hover input ~ .checkmark {
+
+  &:hover input~.checkmark {
     background-color: $secondary_text_color_button;
   }
+
   .checkmark:after {
     content: '';
     position: absolute;
     display: none;
   }
-  input:checked ~ .checkmark:after {
+
+  input:checked~.checkmark:after {
     display: block;
   }
+
   .checkmark:after {
     left: 6px;
     top: -7px;

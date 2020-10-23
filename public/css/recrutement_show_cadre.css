@@ -776,7 +776,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .rsc-box .rsc-body .after-promise .ap-box img {

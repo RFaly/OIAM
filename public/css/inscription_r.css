@@ -9,7 +9,6 @@
 
 .details-r {
   display: none;
-  width: 50%;
   margin: 0 auto;
   margin-bottom: 50px;
 }
@@ -76,7 +75,7 @@
   display: none;
 }
 
-.details-r-condition p {
+.details-r-condition #det-p {
   font: 16px Questrial, sans-serif;
   text-align: -webkit-center;
   text-align: -moz-center;
@@ -84,18 +83,11 @@
 }
 
 .details-r-condition .condition-content {
-  width: 70%;
   max-height: 400px;
   overflow-x: auto;
   margin: 20px auto;
   text-align: justify;
   background-color: #f0f2f4;
-  padding: 40px;
-  opacity: 0.5;
-}
-
-.details-r-condition .condition-content:hover {
-  opacity: 1;
 }
 
 .details-r-condition .condition-content .dc-1 {

@@ -35,7 +35,6 @@
 
 .pay-bill-box .pb-flex {
   display: flex;
-  justify-content: space-between;
   margin-top: 15px;
   flex-wrap: wrap;
 }
@@ -111,7 +110,6 @@
 }
 
 .pay-bill-box .button-2 .import-button {
-  align-self: flex-end;
   margin: 0 20px;
 }
 

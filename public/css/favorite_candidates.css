@@ -115,16 +115,25 @@
   margin-bottom: 20px;
 }
 
-.fc-box .fc-body .fc-body-empty .show-pb2-btn a {
-  color: #d6b36a;
+.fc-box .fc-body .fc-body-empty .show-pb2-btn div {
   border: 2px solid #d6b36a;
+  padding: 10px 0;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.fc-box .fc-body .fc-body-empty .show-pb2-btn div a {
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  padding: 10px 30px;
+  color: #d6b36a;
   font: 500 18px Raleway, sans-serif;
 }
 
-.fc-box .fc-body .fc-body-empty .show-pb2-btn a:hover, .fc-box .fc-body .fc-body-empty .show-pb2-btn a:active {
+.fc-box .fc-body .fc-body-empty .show-pb2-btn div:hover, .fc-box .fc-body .fc-body-empty .show-pb2-btn div:active {
   background: #d6b36a;
+}
+
+.fc-box .fc-body .fc-body-empty .show-pb2-btn div:hover a, .fc-box .fc-body .fc-body-empty .show-pb2-btn div:active a {
   color: white;
 }

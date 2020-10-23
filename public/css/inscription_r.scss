@@ -1,16 +1,20 @@
 @import 'config';
+
 .inscription-r {
   width: 90%;
   height: auto;
+
   ol {
     margin-bottom: 80px;
   }
 }
+
 .details-r {
   display: none;
-  width: 50%;
+  // width: 50%;
   margin: 0 auto;
   margin-bottom: 50px;
+
   .dr-item {
     border-radius: 0;
     border: none;
@@ -20,6 +24,7 @@
     text-align: -moz-center;
     text-align: center;
     font: $ffsentence;
+
     &:focus {
       border-radius: none;
       outline: none;
@@ -27,6 +32,7 @@
       box-shadow: 1px 1px 5px 1px $main_theme_color;
     }
   }
+
   .details-btn {
     width: 150px;
     margin: 30px auto;
@@ -38,14 +44,17 @@
     border: 2px solid $main_theme_color;
     color: $main_theme_color;
     padding: 10px 0;
+
     &:hover,
     &:active {
       color: white;
       background-color: $main_theme_color;
     }
   }
+
   #city {
     opacity: 0.5;
+
     &:focus,
     &:active,
     &:hover {
@@ -54,10 +63,12 @@
       box-shadow: none;
     }
   }
+
   .dr-textarea {
     padding-top: 25px;
     opacity: 0.5;
     height: 70px;
+
     &:focus,
     &:active,
     &:hover {
@@ -67,51 +78,59 @@
     }
   }
 }
+
 .details-r-condition {
   display: none;
-  p {
+
+  #det-p {
     font: $ffsentence;
     text-align: -webkit-center;
     text-align: -moz-center;
     text-align: center;
   }
+
   .condition-content {
-    width: 70%;
+    // width: 70%;
     max-height: 400px;
     overflow-x: auto;
     margin: 20px auto;
     text-align: justify;
     background-color: $secondary_element_color;
-    padding: 40px;
-    opacity: 0.5;
-    &:hover {
-      opacity: 1;
-    }
+    // padding: 40px;
+    // opacity: 0.5;
+
+
     .dc-1 {
       margin: 20px 0;
       font: $ffsentence;
       font-size: 12px;
+
       ol {
         margin: 10px;
         list-style: decimal;
       }
+
       h4 {
         font: $ffbtn;
         margin: 10px 0;
       }
     }
   }
+
   .condition-check {
     width: 70%;
     margin: 30px auto;
+
     label {
       font: $ffsentence;
     }
   }
 }
+
 .dr-btn {
   width: 150px;
   margin: 70px auto;
+
   .dr-btn-btn {
     cursor: pointer;
     font: $ffbtn;
@@ -122,6 +141,7 @@
     border: 2px solid $main_theme_color;
     background-color: white;
     color: $main_theme_color;
+
     &:hover,
     &:active {
       background-color: $main_theme_color;
@@ -129,9 +149,11 @@
     }
   }
 }
+
 // line de parcours
 .travel-parcours {
   margin: 0 auto;
+
   .circle {
     background-color: $secondary_element_color;
     width: 35px;
@@ -143,38 +165,46 @@
     border-radius: 50%;
     color: white;
   }
+
   .line {
     content: ' ';
     align-self: center;
     height: 2px;
     background-color: $secondary_element_color;
   }
+
   .travel-image {
     display: flex;
   }
+
   ol {
     margin-top: 10px;
     list-style: none;
     display: flex;
     justify-content: space-between;
   }
+
   .color-bg {
     background-color: $main_theme_color;
   }
 }
+
 // line parcours end
 .details-r.open {
   display: block;
 }
+
 .input-error {
   color: #ff0000;
   font: $ffbtn;
   font-size: 13px;
 }
+
 .password-r,
 .cpass-r {
   font: $ffbtn;
 }
+
 #recruteur-phone {
   background: $secondary_element_color url(/image/tel.png) no-repeat left 0.2rem center/70px 33px;
 }
@@ -184,6 +214,7 @@
   max-height: 300px;
   overflow-y: auto;
   display: none;
+
   .code-naf-list-item {
     font: $ffsentence;
     list-style: none;
@@ -193,11 +224,13 @@
     border-top: 0px;
     cursor: pointer;
   }
+
   li:hover {
     background: $main_theme_color;
     color: white;
   }
 }
+
 // / custom check box
 #condition-check {
   font: $ffsentence;
@@ -210,6 +243,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
   input {
     position: absolute;
     opacity: 0;
@@ -217,6 +251,7 @@
     height: 0;
     width: 0;
   }
+
   .checkmark {
     position: absolute;
     top: -2px;
@@ -225,20 +260,25 @@
     width: 20px;
     background-color: #c4c4c4;
   }
-  &:hover input ~ .checkmark {
+
+  &:hover input~.checkmark {
     background-color: $main_theme_color;
   }
-  input:checked ~ .checkmark {
+
+  input:checked~.checkmark {
     background-color: $secondary_element_color;
   }
+
   .checkmark:after {
     content: '';
     position: absolute;
     display: none;
   }
-  input:checked ~ .checkmark:after {
+
+  input:checked~.checkmark:after {
     display: block;
   }
+
   .checkmark:after {
     left: 5px;
     top: -7px;

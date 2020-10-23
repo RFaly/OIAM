@@ -13,7 +13,7 @@ class Facture < ApplicationRecord
 		NotificationAdmin.create(
 			object: "#{name_entreprise}",
 			message: "#{name_entreprise} a embaucher un candidat, facture précalcul honoraires OIAM",
-			link: "#{url_helpers.admin_client_show_facture_path(self.id)}",
+			link: "/",
 			genre: 3,
 			medel_id: offreJob.id
 		)
