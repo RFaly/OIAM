@@ -368,7 +368,7 @@ class CandidatesController < ApplicationController
       NotificationAdmin.create(
         object: "Nouveau candidat: #{@cadreInfo.first_name} #{@cadreInfo.last_name}",
         message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name[0].upcase}. viens de finir le test potentiel.",
-        link: "#{(@cadreInfo.id,notification:"fit")}",
+        link: "/",
         genre: 2)
 
 
