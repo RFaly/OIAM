@@ -669,6 +669,13 @@
     width: 70%;
     margin: 10px 0;
   }
+  #chat-out {
+    position: fixed;
+    width: 400px;
+    bottom: 0;
+    right: -9px;
+    z-index: 200;
+  }
   .link a {
     padding: 12px 3px;
   }
@@ -1049,6 +1056,9 @@
   .message-box .message-contact-items .link {
     width: 80%;
     margin-left: 5px;
+  }
+  #chat-out {
+    right: 2px;
   }
   .link {
     margin: 0 auto;

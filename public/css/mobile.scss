@@ -953,6 +953,15 @@
         margin: 10px 0;
       }
     }
+
+  }
+
+  #chat-out {
+    position: fixed;
+    width: 400px;
+    bottom: 0;
+    right: -9px;
+    z-index: 200;
   }
 
   // 404
@@ -1558,6 +1567,10 @@
         margin-left: 5px;
       }
     }
+  }
+
+  #chat-out {
+    right: 2px;
   }
 
   // 404

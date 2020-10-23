@@ -100,11 +100,3 @@
   color: #d6b36a;
   font-weight: bold;
 }
-
-#chat-out {
-  position: fixed;
-  width: 400px;
-  bottom: 0;
-  right: 2px;
-  z-index: 200;
-}
