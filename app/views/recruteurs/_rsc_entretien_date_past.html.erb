@@ -58,35 +58,41 @@
 <% end %>
 <!-- fin choice status waiting || refusing -->
 <% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
-<div class="rscdp-empty">
-  L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>"
-    class="currentDateEntretien"></span> est passé.<br>
+<div class="rscdp-empty2">
+  <p>
+    L'entretien du <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>"
+      class="currentDateEntretien"></span> est passé.
+  </p>
   <% date = DateTime.parse(@agendas.alternative) %>
   <div class="new-date">
     Le candidat a accepté la demande d'entretien à condition de changer la date à <span
       data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
-    <div class="link">
+    <div class="link-to-link">
       <% if date.future? %>
-      <%= link_to "ACCEPTER SA PROPOSITION", update_entretien_client_path(repons: '1', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
+      <div class="link">
+        <%= link_to "ACCEPTER SA PROPOSITION", update_entretien_client_path(repons: '1', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
+      </div>
       <% else %>
-      La date que le candidat a proposée est passé.
+      <div class="link-span">
+        La date que le candidat a proposée est passé.
+      </div>
       <% end %>
     </div>
     <div class="link ssc-btn ssc-pe" id="dateEntretien1">
       PROPOSER UNE NOUVELLE DATE
     </div>
-    <div class="link2">
+    <div class="link">
       <%= link_to "REFUSER SA PROPOSTION ET SA CANDIDATURE", update_entretien_client_path(repons: '0', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
     </div>
   </div>
 </div>
 
 <!-- ---------------------------------------------------------------- -->
-<div class="ssc-planification1">
+<div class="ssc-planification1 ssc-planification1-rscdp-empty2">
   <div class="hiddenDate1" style="display: none;" id="js-form-show">
     <%= form_tag(update_entretien_client_path, remote: true, id:"send-data-form") do %>
 
-    <div class="date">
+    <div class="date date-rscdp-empty2">
       <input type="text" name="date" id="datepicker" />
     </div>
 

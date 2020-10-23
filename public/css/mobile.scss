@@ -637,7 +637,6 @@
   }
 
   .show-pb2-btn {
-
     div {
       width: 90%;
 
@@ -780,7 +779,6 @@
     }
   }
 
-
   // show candidat favorit
   .fc-item-all {
     .list-candidat {
@@ -865,6 +863,24 @@
           padding: 10px;
         }
 
+        .rscdp-empty2 {
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+
+        .ssc-planification1-rscdp-empty2 {
+          width: 100%;
+          margin-top: -90px;
+          margin-bottom: 90px;
+          margin-left: -36px;
+
+          .date-rscdp-empty2 {
+            input {
+              // left: -30px;
+            }
+          }
+        }
+
         .dscdp-validation {
           width: 95%;
           padding: 20px 5px;
@@ -935,6 +951,22 @@
     .ap-box {
       flex-wrap: wrap;
     }
+
+    .ssc-planification {
+      margin-top: -200px;
+      margin-left: -31px;
+      width: 100%;
+      padding: 0 4%;
+
+      .date {
+        input {
+          top: -78px;
+          border-radius: 0;
+          font-size: 0.002px;
+          position: absolute;
+        }
+      }
+    }
   }
 
   // promesse suivi recrutement
@@ -953,7 +985,6 @@
         margin: 10px 0;
       }
     }
-
   }
 
   #chat-out {
@@ -971,7 +1002,7 @@
     }
   }
 
-  // facture 
+  // facture
   .pay-bill-box {
     .pb-flex {
       flex-direction: column;
@@ -979,7 +1010,6 @@
       align-items: center;
     }
   }
-
 }
 
 @media screen and (min-width: 768px) {
@@ -989,7 +1019,7 @@
     right: 50px;
   }
 
-  // facture 
+  // facture
   .pay-bill-box {
     .pb-flex {
       flex-direction: row;
@@ -1353,8 +1383,6 @@
       }
     }
 
-
-
     .sjb-content {
       .show-einfos {
         flex-direction: row;
@@ -1373,7 +1401,6 @@
   }
 
   .show-pb2-btn {
-
     div {
       width: 320px;
 
@@ -1439,7 +1466,6 @@
       margin-right: auto;
       width: 80%;
     }
-
   }
 
   // suivi de recrutement index
@@ -1515,6 +1541,13 @@
           padding: 20px;
         }
 
+        .ssc-planification1-rscdp-empty2 {
+          width: 100%;
+
+          .date-rscdp-empty2 {}
+
+        }
+
         .dscdp-validation {
           width: 70%;
           padding: 20px 25px;
@@ -1537,6 +1570,11 @@
     }
 
     .rscdf-content {
+      .rscdf-item2 {
+        border-right: 2px solid white;
+        border-left: 2px solid white;
+      }
+
       .new-date {
         width: 450px;
 
@@ -1554,6 +1592,22 @@
           a {
             padding: 10px 5px;
           }
+        }
+      }
+    }
+
+    .ssc-planification {
+      margin-left: 4px;
+      width: auto;
+
+      // padding: 0 4%;
+      .js-timeContainer {
+        width: 600px;
+      }
+
+      .date {
+        input {
+          top: -3px;
         }
       }
     }
@@ -2249,6 +2303,19 @@
           padding: 30px;
         }
 
+        .rscdp-empty2 {
+          width: 70%;
+          padding: 50px;
+        }
+
+        .ssc-planification1-rscdp-empty2 {
+          width: 700px;
+          margin-bottom: 190px;
+
+          .date-rscdp-empty2 {}
+
+        }
+
         .dscdp-validation {
           width: 65%;
           padding: 20px 45px;
@@ -2301,6 +2368,24 @@
       // VALIDATION Candidat
       .validation-cadre-trying {
         width: 70%;
+      }
+    }
+
+    .ssc-planification {
+      margin: 0 auto;
+      margin-top: -190px;
+      width: 700px;
+
+      .js-timeContainer {
+        width: 600px;
+        margin: 0 auto;
+      }
+
+      .date {
+        input {
+          left: 7.1%;
+          top: -3px;
+        }
       }
     }
   }

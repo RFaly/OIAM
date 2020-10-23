@@ -611,6 +611,16 @@
     width: 90%;
     padding: 10px;
   }
+  .rsc-box .rsc-body .rsc-date-past .rscdp-empty2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .ssc-planification1-rscdp-empty2 {
+    width: 100%;
+    margin-top: -90px;
+    margin-bottom: 90px;
+    margin-left: -36px;
+  }
   .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
     width: 95%;
     padding: 20px 5px;
@@ -660,6 +670,18 @@
   }
   .rsc-box .ap-box {
     flex-wrap: wrap;
+  }
+  .rsc-box .ssc-planification {
+    margin-top: -200px;
+    margin-left: -31px;
+    width: 100%;
+    padding: 0 4%;
+  }
+  .rsc-box .ssc-planification .date input {
+    top: -78px;
+    border-radius: 0;
+    font-size: 0.002px;
+    position: absolute;
   }
   .rsc-body-promise .dscdpa-box {
     width: 80%;
@@ -1024,6 +1046,9 @@
     width: 70%;
     padding: 20px;
   }
+  .rsc-box .rsc-body .rsc-date-past .ssc-planification1-rscdp-empty2 {
+    width: 100%;
+  }
   .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
     width: 70%;
     padding: 20px 25px;
@@ -1037,6 +1062,10 @@
   }
   .rsc-box .rsc-body .validation-cadre-trying .vct-btn {
     width: 250px;
+  }
+  .rsc-box .rscdf-content .rscdf-item2 {
+    border-right: 2px solid white;
+    border-left: 2px solid white;
   }
   .rsc-box .rscdf-content .new-date {
     width: 450px;
@@ -1052,6 +1081,16 @@
   }
   .rsc-box .rscdf-content .new-date .link2 a {
     padding: 10px 5px;
+  }
+  .rsc-box .ssc-planification {
+    margin-left: 4px;
+    width: auto;
+  }
+  .rsc-box .ssc-planification .js-timeContainer {
+    width: 600px;
+  }
+  .rsc-box .ssc-planification .date input {
+    top: -3px;
   }
   .message-box .message-contact-items .link {
     width: 80%;
@@ -1499,6 +1538,14 @@
     width: 60%;
     padding: 30px;
   }
+  .rsc-box .rsc-body .rsc-date-past .rscdp-empty2 {
+    width: 70%;
+    padding: 50px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .ssc-planification1-rscdp-empty2 {
+    width: 700px;
+    margin-bottom: 190px;
+  }
   .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
     width: 65%;
     padding: 20px 45px;
@@ -1536,6 +1583,19 @@
   }
   .rsc-box .rsc-body .validation-cadre-trying {
     width: 70%;
+  }
+  .rsc-box .ssc-planification {
+    margin: 0 auto;
+    margin-top: -190px;
+    width: 700px;
+  }
+  .rsc-box .ssc-planification .js-timeContainer {
+    width: 600px;
+    margin: 0 auto;
+  }
+  .rsc-box .ssc-planification .date input {
+    left: 7.1%;
+    top: -3px;
   }
   .rsc-body-promise .dscdpa-box {
     width: 60%;

@@ -223,8 +223,8 @@
 
         .rscdf-item2 {
           padding: 10px 30px;
-          border-right: 2px solid white;
-          border-left: 2px solid white;
+          // border-right: 2px solid white;
+          // border-left: 2px solid white;
 
           h4 {
             font-weight: 600;
@@ -279,6 +279,56 @@
             color: #d6b46ab6;
           }
         }
+      }
+
+      .rscdp-empty2 {
+        font: $ffsentence;
+        // width: 55%;
+        margin: 50px auto;
+        border: 2px solid $main_theme_color;
+        // padding: 50px;
+        // padding-top: 20px;
+        // padding-bottom: 20px;
+        text-align: -webkit-center;
+        text-align: -moz-center;
+        text-align: center;
+
+        .link-span {
+          color: $main_theme_color;
+          margin: 10px 0;
+        }
+
+        .link {
+          cursor: pointer;
+          margin: 20px auto;
+          border: 2px solid $main_theme_color;
+          width: 300px;
+          padding: 10px 0;
+          font: $ffbtn;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: $main_theme_color;
+
+          a {
+            color: $main_theme_color;
+            text-transform: uppercase;
+            text-decoration: none;
+          }
+
+          &:hover,
+          &:active {
+            background: $main_theme_color;
+            color: white;
+
+            a {
+              color: white;
+            }
+          }
+        }
+      }
+
+      .ssc-planification1-rscdp-empty2 {
+        .date-rscdp-empty2 {}
       }
 
       // css validation candidat
@@ -760,22 +810,22 @@
 .ssc-planification {
   margin: 0 auto;
   position: relative;
-  margin-top: -270px;
+  // margin-top: -270px;
   margin-bottom: 270px;
   width: 80%;
-  padding: 0 10%;
+  // padding: 0 10%;
   z-index: 200;
 
   // date validation
   .date {
     opacity: 0;
 
-    input {
-      top: -3px;
-      border-radius: 0;
-      font-size: 0.002px;
-      position: absolute;
-    }
+    // input {
+    //   top: -3px;
+    //   border-radius: 0;
+    //   font-size: 0.002px;
+    //   position: absolute;
+    // }
   }
 
   // hour validation
@@ -828,6 +878,7 @@
   .with-input {
     align-items: center;
     display: flex;
+    flex-wrap: wrap;
 
     .with-input-item {
       border-radius: 0;
@@ -991,7 +1042,7 @@
       outline: none;
       box-shadow: none;
       padding: 2px;
-      margin-top: -9px;
+      // margin-top: -9px;
       margin-left: 10px;
       padding-left: 5px;
       border: none;
@@ -1073,10 +1124,30 @@
 }
 
 // date picker
-#ui-datepicker-div {
-  width: 600px;
-  color: white;
+// date picker
+@media screen and (min-width: 320px) {
+  #ui-datepicker-div {
+    width: 90%;
+    color: white;
+  }
 }
+
+@media screen and (min-width: 768px) {
+  #ui-datepicker-div {
+    width: 600px;
+  }
+}
+
+// @media screen and (min-width: 998px) {
+//   #ui-datepicker-div {
+//     width: 600px;
+//   }
+// }
+
+// #ui-datepicker-div {
+//   width: 600px;
+//   color: white;
+// }
 
 .ui-datepicker {
   &-calendar {
@@ -1112,6 +1183,7 @@
   display: block;
   position: relative;
   padding-left: 30px;
+  margin: 9px 0;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
