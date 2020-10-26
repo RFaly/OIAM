@@ -286,6 +286,7 @@ body{
 @media only screen and (min-width: 900px){
   .btn-edit{
     display: inline-block;
+		min-width: 250px;
   }
 
 

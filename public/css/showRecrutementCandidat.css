@@ -500,7 +500,8 @@ body {
   margin: auto;
   text-align: center;
   padding: 20px;
-  width: 450px;
+  width: 100%;
+  max-width: 450px;
   height: auto;
   color: #000;
   font-size: 16px;
@@ -533,11 +534,12 @@ body {
   display: block;
   margin: auto;
   border: 1px solid #d6b36a;
-  width: 500px;
+  width: auto;
   height: auto;
   padding: 20px;
   text-align: center;
   font-size: 16px;
+  max-width: 500px;
 }
 
 .entretien-passer {
@@ -557,7 +559,8 @@ body {
 .felicitations {
   display: block;
   margin: 0 auto;
-  width: 600px;
+  width: auto;
+  max-width: 600px;
   text-align: center;
   height: auto;
   border: 1px solid #d6b36a;
@@ -653,6 +656,7 @@ body {
   margin: 0 auto;
   text-align: center;
   width: auto;
+  max-width: 600px;
   height: auto;
   font-size: 16px;
   padding: 20px;
@@ -668,9 +672,19 @@ body {
   text-decoration: none;
 }
 
+.prom-hire-content{
+  text-align: center;
+  margin: 20px;
+}
+
+
 @media only screen and (min-width: 900px) {
   .content {
     display: flex;
+  }
+
+  .prom-hire-content{
+    margin: 10px;
   }
 
   .main {

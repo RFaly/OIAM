@@ -102,7 +102,7 @@ class CandidatesController < ApplicationController
 
 	def searchJob
     validate_info_cadre
-    @offre_par_page = 5
+    @offre_par_page = 10
     @metiers = Metier.all
     @regions = Region.all
     @nombre_offres = ((OffreJob.where(is_publish:true).all.count)/@offre_par_page).floor
