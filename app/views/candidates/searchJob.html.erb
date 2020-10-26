@@ -75,17 +75,6 @@
 		<div class="post_info" id="list-offre-job-js">
 			<%= render "searchJob" %>
 		</div>
-		<div class="next-page">
-			<% nombre_offres = @nombre_offres  %>
-			<% if @page == 0 %>
-				<a href="<%= searchJob_path(page: @page + 1 )%>">SUIVANT<span class="crochet"> ></span></a>
-			<% elsif @page ==  nombre_offres %>
-				<a href="<%= searchJob_path(page: @page - 1 )%>">PRECEDENT <span class="crochet"> ></span> </a>
-			<% else %>
-				<a href="<%= searchJob_path(page: @page - 1 )%>"><span class="crochet">< </span>PRECEDENT</a>
-				<a href="<%= searchJob_path(page: @page + 1 )%>">SUIVANT <span class="crochet"> ></span> </a>
-			<% end %>
-		</div>
 	</div>
 
 
