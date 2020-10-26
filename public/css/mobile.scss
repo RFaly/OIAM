@@ -116,11 +116,11 @@
 
   background: linear-gradient(#ffffff, #f4e8ca);
   position: fixed;
-  z-index: 4;
-  top: 1.5vh;
-  left: 1.5vw;
-  width: 98%;
-  height: 98vh;
+  z-index: 202;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
 
   h1 {
     margin-bottom: 50px;
@@ -176,7 +176,6 @@
 }
 
 @media screen and (min-width: 320px) {
-
   // flash scss
   .flash {
     position: fixed;
@@ -382,7 +381,6 @@
 
   // equipe equipe responsive
   .eq-all {
-
     .equip1,
     .equip2 {
       flex-direction: column;
@@ -424,13 +422,33 @@
 
   // menu left recruteur
   .left-menu-r {
+    z-index: 200;
+    padding: 10px;
+    background: white;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+
     &.open {
+      background: transparent;
+      top: 51px;
       width: 50px;
+
+      .btn-menu-r {
+        right: 7px;
+      }
     }
   }
 
   .btn-menu-r {
-    right: 7px;
+    right: 20px;
+  }
+
+  .left-menu-content {
+    li {
+      margin: 40px 0;
+    }
   }
 
   .left-menu-photo.open {
@@ -480,10 +498,8 @@
       text-align: -webkit-center;
       text-align: -moz-center;
       text-align: center;
-    }
-
-    .cpe-naf {
       width: 100%;
+      margin-bottom: 15px;
     }
   }
 
@@ -527,10 +543,18 @@
     }
 
     .cpe-description,
+    .cpe-naf,
+    .cpe-adress,
+    .cpe-site {
+      margin: 10px 0;
+    }
+
+    .cpe-description,
     .cpe-naf {
       text-align: -webkit-center;
       text-align: -moz-center;
       text-align: center;
+      width: 100%;
     }
   }
 
@@ -539,7 +563,8 @@
     flex-wrap: wrap;
 
     .cjo-content {
-      width: 50%;
+      margin-left: 5px;
+      width: 80%;
     }
   }
 
@@ -684,7 +709,6 @@
   // search cadre
   .select-cadre-box {
     .search {
-
       &-large,
       &-short {
         width: 95%;
@@ -726,8 +750,6 @@
             }
           }
         }
-
-        .cadre-box-info {}
       }
     }
   }
@@ -752,6 +774,7 @@
 
       .ssc-infos {
         width: 280px;
+        margin: 0 auto;
       }
     }
 
@@ -774,8 +797,8 @@
 
     // plannification entretien
     .ssc-planification {
-      margin-left: -8px;
-      width: 90%;
+      // margin-left: -8px;
+      width: 100%;
     }
   }
 
@@ -872,13 +895,7 @@
           width: 100%;
           margin-top: -90px;
           margin-bottom: 90px;
-          margin-left: -36px;
-
-          .date-rscdp-empty2 {
-            input {
-              // left: -30px;
-            }
-          }
+          // margin-left: -36px;
         }
 
         .dscdp-validation {
@@ -954,9 +971,9 @@
 
     .ssc-planification {
       margin-top: -200px;
-      margin-left: -31px;
+      // margin-left: -31px;
       width: 100%;
-      padding: 0 4%;
+      // padding: 0 4%;
 
       .date {
         input {
@@ -1010,10 +1027,48 @@
       align-items: center;
     }
   }
+
+  // promesse create
+  .promise {
+    .pc-head {
+      .pch-left {
+        width: 60%;
+        margin: 0 auto;
+      }
+
+      .pch-right {
+        margin: 0 auto;
+      }
+    }
+
+    .pc-form {
+      label,
+      input,
+      .right {
+        margin: 0 auto;
+      }
+
+      label {
+        width: 42%;
+        margin-top: 5px;
+      }
+    }
+
+    .p-sign {
+      .signature {
+        margin: 10px auto;
+      }
+    }
+
+    .pc-sign-cadre {
+      .image {
+        margin: 0 auto;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
-
   // flash scss
   .flash {
     right: 50px;
@@ -1140,7 +1195,6 @@
 
   // equipe equipe responsive
   .eq-all {
-
     .equip1,
     .equip2 {
       flex-direction: row;
@@ -1177,13 +1231,30 @@
   }
 
   // menu left recruteur
+  .cp-box {
+    border-left: 1px solid $main_theme_color;
+  }
+
   .left-menu-r {
+    position: relative;
+    width: 300px;
+    padding: 70px 0;
+    height: auto;
+
     &.open {
+      top: 0;
       width: 100px;
     }
   }
 
+  .left-menu-content {
+    li {
+      margin: 42px 0;
+    }
+  }
+
   .btn-menu-r {
+    top: 0;
     right: 6px;
   }
 
@@ -1281,10 +1352,20 @@
         left: -5px;
       }
     }
+
+    .cpe-naf {
+      width: 35%;
+    }
+
+    .cpe-description {
+      width: 60%;
+    }
   }
 
   // mes offres d emploi :
   .coj-box {
+    justify-content: space-between;
+
     .cjo-content {
       width: 40%;
     }
@@ -1464,7 +1545,7 @@
     .ssc-planification {
       margin-left: 0;
       margin-right: auto;
-      width: 80%;
+      // width: 80%;
     }
   }
 
@@ -1543,9 +1624,6 @@
 
         .ssc-planification1-rscdp-empty2 {
           width: 100%;
-
-          .date-rscdp-empty2 {}
-
         }
 
         .dscdp-validation {
@@ -1636,11 +1714,56 @@
       padding: 12px 8px;
     }
   }
+
+  // promesse create
+  .promise {
+    .pc-head {
+      .pch-left {
+        width: 40%;
+        margin: 0;
+      }
+
+      .pch-right {
+        margin: 0;
+      }
+    }
+
+    .pc-form {
+      label,
+      input,
+      .right {
+        margin: 0;
+      }
+
+      input {
+        margin: 10px 0;
+        margin-left: 10px;
+      }
+
+      label {
+        width: 40%;
+        margin-top: 5px;
+      }
+    }
+
+    .p-sign {
+      .signature {
+        margin: 10px 0;
+        margin-left: 10px;
+      }
+    }
+
+    .pc-sign-cadre {
+      .image {
+        margin: 10px 0;
+        margin-left: 10px;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 992px) {
-
-  // bg unique
+  // bg uniqqqqqqqqqqqqqqqqqqqqqqqqqqqqque
   .bg-uniq {
     margin-top: -505px;
     padding-top: 550px;
@@ -1910,7 +2033,6 @@
 
   // equipe equipe responsive
   .eq-all {
-
     .equip1,
     .equip2 {
       flex-direction: row;
@@ -1958,6 +2080,10 @@
   .left-menu-r {
     &.open {
       width: 120px;
+
+      .btn-menu-r {
+        right: 16px;
+      }
     }
   }
 
@@ -2049,6 +2175,10 @@
       img {
         left: 1px;
       }
+    }
+
+    .cpe-naf {
+      width: 208px;
     }
   }
 
@@ -2210,6 +2340,7 @@
 
       .ssc-infos {
         width: 300px;
+        margin: 0;
       }
     }
 
@@ -2231,10 +2362,11 @@
     }
 
     // plannification entretien
-    // .ssc-planification {
-    //   // margin-left: 0;
-    //   width: 80%;
-    // }
+    .ssc-planification {
+      margin-left: auto;
+      margin-right: 0;
+      width: 600px;
+    }
   }
 
   // show candidat favorit
@@ -2309,11 +2441,9 @@
         }
 
         .ssc-planification1-rscdp-empty2 {
-          width: 700px;
+          width: 600px;
+          margin-left: auto;
           margin-bottom: 190px;
-
-          .date-rscdp-empty2 {}
-
         }
 
         .dscdp-validation {
@@ -2415,13 +2545,7 @@
 }
 
 @media screen and (min-width: 1200px) {
-
   // landing page
-  .box-1 {
-    .box-1-btn {
-      // align-self: flex-end;
-    }
-  }
 
   .box {
     background: #fcfcfc url(/image/picture_photo_0ae4b3.png) no-repeat right;
@@ -2558,7 +2682,6 @@
     }
 
     .table-td {
-
       #recruteur-fonction,
       #cp-full-name,
       #recruteur-mail,
@@ -2689,10 +2812,10 @@
     }
 
     // plannification entretien
-    .ssc-planification {
-      margin-left: auto;
-      width: 60%;
-    }
+    // .ssc-planification {
+    //   margin-left: auto;
+    //   width: 60%;
+    // }
   }
 
   // show candidat favorit
@@ -2765,6 +2888,10 @@
         }
       }
     }
+
+    .ssc-planification1-rscdp-empty2 {
+      margin-right: auto;
+    }
   }
 
   // promesse suivi recrutement
@@ -2790,7 +2917,6 @@
 }
 
 @media screen and (min-width: 1500px) {
-
   // bg unique
   .bg-uniq {
     margin-top: -605px;
@@ -2859,7 +2985,6 @@
         width: 380px;
 
         .image {
-
           img,
           .c {
             width: 70%;
@@ -2938,7 +3063,6 @@
 }
 
 @media screen and (min-width: 2500px) {
-
   // navbar
   // /////////////////////
   .navdiv {
@@ -2998,7 +3122,6 @@
         width: 400px;
 
         .image {
-
           img,
           .c {
             width: 70%;

@@ -16,6 +16,7 @@
   text-align: -webkit-center;
   text-align: -moz-center;
   text-align: center;
+
   a {
     font: $ffbtn;
     color: $main_theme_color;
@@ -23,6 +24,7 @@
     text-decoration: none;
     text-transform: uppercase;
     border: 2px solid $main_theme_color;
+
     &:hover,
     &:active {
       background: $main_theme_color;
@@ -31,8 +33,10 @@
     }
   }
 }
+
 .co-with-job {
   padding: 5px;
+
   h5 {
     text-align: -webkit-center;
     text-align: -moz-center;
@@ -42,6 +46,7 @@
     text-transform: uppercase;
     margin-bottom: 50px;
   }
+
   .btn-newjob-div {
     text-align: -webkit-center;
     text-align: -moz-center;
@@ -55,6 +60,7 @@
       text-decoration: none;
       text-transform: uppercase;
       border: 2px solid $main_theme_color;
+
       &:hover,
       &:active {
         background: $main_theme_color;
@@ -63,38 +69,47 @@
       }
     }
   }
+
   .coj-box {
-    margin: 50px 5px;
+    margin: 25px 5px;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
+
     .cjo-image {
       width: 30px;
+
       img {
         width: 100%;
       }
     }
+
     .cjo-content {
       // width: 30%;
       font: $ffsentence;
       font-size: 18px;
       color: $main_theme_color;
     }
+
     .cjo-link {
       display: flex;
       align-items: center;
+      margin: 5px;
       font: $ffbtn;
       font-size: 16px;
       padding: 2px 6px;
       border: 2px solid $main_theme_color;
+
       &:hover,
       &:active {
         background: $main_theme_color;
         text-decoration: none;
+
         a {
           color: white;
         }
       }
+
       a {
         font: $ffbtn;
         padding: 10px 20px;
@@ -105,13 +120,16 @@
       }
     }
   }
+
   .cjo-link-items {
     display: flex;
     justify-content: space-between;
     width: 250px;
+
     .cjo-delete {
       align-self: center;
       width: 25px;
+
       img {
         width: 100%;
       }

@@ -165,7 +165,6 @@
           }
 
           .new-date {
-
             // width: 450px;
             .link {
               // width: 70%;
@@ -328,7 +327,9 @@
       }
 
       .ssc-planification1-rscdp-empty2 {
-        .date-rscdp-empty2 {}
+        .date-rscdp-empty2 {
+          opacity: 0;
+        }
       }
 
       // css validation candidat
@@ -1124,25 +1125,31 @@
 }
 
 // date picker
-// date picker
 @media screen and (min-width: 320px) {
   #ui-datepicker-div {
-    width: 90%;
+    width: 95%;
     color: white;
   }
 }
 
 @media screen and (min-width: 768px) {
   #ui-datepicker-div {
-    width: 600px;
+    width: 82.5%;
+    color: white;
   }
 }
 
-// @media screen and (min-width: 998px) {
+// @media screen and (min-width: 768px) {
 //   #ui-datepicker-div {
 //     width: 600px;
 //   }
 // }
+
+@media screen and (min-width: 998px) {
+  #ui-datepicker-div {
+    width: 600px;
+  }
+}
 
 // #ui-datepicker-div {
 //   width: 600px;
@@ -1207,7 +1214,7 @@
     border: 2px solid white;
   }
 
-  &:hover input~.checkmark {
+  &:hover input ~ .checkmark {
     background-color: $secondary_text_color_button;
   }
 
@@ -1217,7 +1224,7 @@
     display: none;
   }
 
-  input:checked~.checkmark:after {
+  input:checked ~ .checkmark:after {
     display: block;
   }
 

@@ -87,15 +87,14 @@ $(document).ready(function () {
       $('#entreprise_siret').val().split(' ').join('').length == 14 &&
       $('#entreprise_site').val().length >= 1 &&
       $('#code_naf').val().length >= 1 &&
-      $('#entreprise_description').val() != "Aucune description d'entreprise correspondante!!" &&
+      $('#entreprise_description').html() != "Aucune description d'entreprise correspondante!!" &&
       $('#city').val() != 'Aucune ville correspondante!!'
     ) {
       $('.ir-l1').addClass('color-bg');
       $('.ir-c1').addClass('color-bg');
       $('.dr-1').hide();
       $('.dr-2').fadeIn(800);
-      $('html, body').animate(
-        {
+      $('html, body').animate({
           scrollTop: $('#elementtoScrollToID').offset().top,
         },
         500
@@ -115,8 +114,7 @@ $(document).ready(function () {
       $('.ir-c2').addClass('color-bg');
       $('.dr-2').hide();
       $('.dr-3').fadeIn(800);
-      $('html, body').animate(
-        {
+      $('html, body').animate({
           scrollTop: $('#elementtoScrollToID').offset().top,
         },
         500
@@ -135,8 +133,7 @@ $(document).ready(function () {
       $('.ir-c3').addClass('color-bg');
       $('.dr-3').hide();
       $('.details-r-condition').fadeIn(800);
-      $('html, body').animate(
-        {
+      $('html, body').animate({
           scrollTop: $('#elementtoScrollToID').offset().top,
         },
         500
@@ -150,7 +147,7 @@ $(document).ready(function () {
 /////////////////////////////////////////////////
 // submit 4 validation
 $('#cpe-submit').hover(function () {
-  if ($('#entreprise_description').val() != "Aucune description d'entreprise correspondante!!" && $('#city').val() != 'Aucune ville correspondante!!' && $('#recruteur-phone').val().split(' ').join('').length == 9) {
+  if ($('#entreprise_description').html() != "Aucune description d'entreprise correspondante!!" && $('#city').val() != 'Aucune ville correspondante!!' && $('#recruteur-phone').val().split(' ').join('').length == 9) {
     $('#submit-error4').hide();
 
     $(this).prop('disabled', false);
@@ -328,7 +325,8 @@ function add_list() {
     // console.log(value);
     // add value to input
     naf.val(codenaf);
-    $('#entreprise_description').val(value);
+    $('#entreprise_description1').val(value);
+    $('#entreprise_description').html(value);
     // hide list
     $('#code-naf-list').css('display', 'none');
     // check error
@@ -358,7 +356,8 @@ function check_inside_list(test) {
     var value = $(e.target).html().split(' ').splice(1).join(' ');
     var codenaf = $(e.target).html().split(' ')[0];
     // get value and add it to input
-    $('#entreprise_description').val(value);
+    $('#entreprise_description1').val(value);
+    $('#entreprise_description').html(value);
     naf.val(codenaf);
     // hide list after click
     $('#code-naf-list').css('display', 'none');

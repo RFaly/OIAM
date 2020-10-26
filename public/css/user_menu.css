@@ -1,7 +1,4 @@
 .left-menu-r {
-  width: 300px;
-  position: relative;
-  padding: 70px 0;
   text-align: -webkit-center;
   text-align: -moz-center;
   text-align: center;
@@ -15,7 +12,6 @@
 
 .left-menu-r .left-menu-content li {
   position: relative;
-  margin: 42px 0;
 }
 
 .left-menu-r .left-menu-content li a {

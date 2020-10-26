@@ -8,7 +8,6 @@
   width: 100%;
   min-height: 80vh;
   padding-top: 15px;
-  border-left: 1px solid #d6b36a;
 }
 
 .box-inside {
@@ -86,9 +85,8 @@
 }
 
 .co-with-job .coj-box {
-  margin: 50px 5px;
+  margin: 25px 5px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -109,6 +107,7 @@
 .co-with-job .coj-box .cjo-link {
   display: flex;
   align-items: center;
+  margin: 5px;
   font: 500 18px Raleway, sans-serif;
   font-size: 16px;
   padding: 2px 6px;

@@ -97,11 +97,11 @@
   justify-content: center;
   background: linear-gradient(#ffffff, #f4e8ca);
   position: fixed;
-  z-index: 4;
-  top: 1.5vh;
-  left: 1.5vw;
-  width: 98%;
-  height: 98vh;
+  z-index: 202;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
 }
 
 .felicitation h1 {
@@ -321,11 +321,28 @@
   .emmanuel-profil .emmanuel-box .about .content {
     padding: 10px;
   }
+  .left-menu-r {
+    z-index: 200;
+    padding: 10px;
+    background: white;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+  }
   .left-menu-r.open {
+    background: transparent;
+    top: 51px;
     width: 50px;
   }
-  .btn-menu-r {
+  .left-menu-r.open .btn-menu-r {
     right: 7px;
+  }
+  .btn-menu-r {
+    right: 20px;
+  }
+  .left-menu-content li {
+    margin: 40px 0;
   }
   .left-menu-photo.open {
     opacity: 0;
@@ -360,9 +377,8 @@
     text-align: -webkit-center;
     text-align: -moz-center;
     text-align: center;
-  }
-  .cp-table-box .cpe-naf {
     width: 100%;
+    margin-bottom: 15px;
   }
   .cp-edit-table-box .cp-edit-form {
     width: 100%;
@@ -390,16 +406,24 @@
     left: 35px;
   }
   .cp-edit-table-box .cpe-description,
+  .cp-edit-table-box .cpe-naf,
+  .cp-edit-table-box .cpe-adress,
+  .cp-edit-table-box .cpe-site {
+    margin: 10px 0;
+  }
+  .cp-edit-table-box .cpe-description,
   .cp-edit-table-box .cpe-naf {
     text-align: -webkit-center;
     text-align: -moz-center;
     text-align: center;
+    width: 100%;
   }
   .coj-box {
     flex-wrap: wrap;
   }
   .coj-box .cjo-content {
-    width: 50%;
+    margin-left: 5px;
+    width: 80%;
   }
   .create-offre-box {
     width: 90%;
@@ -542,6 +566,7 @@
   }
   .ssc-box .ssc-all-infos .ssc-infos {
     width: 280px;
+    margin: 0 auto;
   }
   .ssc-box .ssc-question {
     width: 100%;
@@ -557,8 +582,7 @@
     width: 85%;
   }
   .ssc-box .ssc-planification {
-    margin-left: -8px;
-    width: 90%;
+    width: 100%;
   }
   .fc-item-all .list-candidat {
     margin: 30px 0;
@@ -619,7 +643,6 @@
     width: 100%;
     margin-top: -90px;
     margin-bottom: 90px;
-    margin-left: -36px;
   }
   .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
     width: 95%;
@@ -673,9 +696,7 @@
   }
   .rsc-box .ssc-planification {
     margin-top: -200px;
-    margin-left: -31px;
     width: 100%;
-    padding: 0 4%;
   }
   .rsc-box .ssc-planification .date input {
     top: -78px;
@@ -705,6 +726,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .promise .pc-head .pch-left {
+    width: 60%;
+    margin: 0 auto;
+  }
+  .promise .pc-head .pch-right {
+    margin: 0 auto;
+  }
+  .promise .pc-form label,
+  .promise .pc-form input,
+  .promise .pc-form .right {
+    margin: 0 auto;
+  }
+  .promise .pc-form label {
+    width: 42%;
+    margin-top: 5px;
+  }
+  .promise .p-sign .signature {
+    margin: 10px auto;
+  }
+  .promise .pc-sign-cadre .image {
+    margin: 0 auto;
   }
 }
 
@@ -813,10 +856,24 @@
   .emmanuel-profil .emmanuel-box .about .content {
     padding: 10px 25px;
   }
+  .cp-box {
+    border-left: 1px solid #d6b36a;
+  }
+  .left-menu-r {
+    position: relative;
+    width: 300px;
+    padding: 70px 0;
+    height: auto;
+  }
   .left-menu-r.open {
+    top: 0;
     width: 100px;
   }
+  .left-menu-content li {
+    margin: 42px 0;
+  }
   .btn-menu-r {
+    top: 0;
     right: 6px;
   }
   .left-menu-photo.open {
@@ -882,6 +939,15 @@
   }
   .cp-edit-table-box .cp-icon-text img {
     left: -5px;
+  }
+  .cp-edit-table-box .cpe-naf {
+    width: 35%;
+  }
+  .cp-edit-table-box .cpe-description {
+    width: 60%;
+  }
+  .coj-box {
+    justify-content: space-between;
   }
   .coj-box .cjo-content {
     width: 40%;
@@ -999,7 +1065,6 @@
   .ssc-box .ssc-planification {
     margin-left: 0;
     margin-right: auto;
-    width: 80%;
   }
   .rf-box .rf-items {
     margin-bottom: 65px;
@@ -1105,6 +1170,34 @@
   }
   .link a {
     padding: 12px 8px;
+  }
+  .promise .pc-head .pch-left {
+    width: 40%;
+    margin: 0;
+  }
+  .promise .pc-head .pch-right {
+    margin: 0;
+  }
+  .promise .pc-form label,
+  .promise .pc-form input,
+  .promise .pc-form .right {
+    margin: 0;
+  }
+  .promise .pc-form input {
+    margin: 10px 0;
+    margin-left: 10px;
+  }
+  .promise .pc-form label {
+    width: 40%;
+    margin-top: 5px;
+  }
+  .promise .p-sign .signature {
+    margin: 10px 0;
+    margin-left: 10px;
+  }
+  .promise .pc-sign-cadre .image {
+    margin: 10px 0;
+    margin-left: 10px;
   }
 }
 
@@ -1332,6 +1425,9 @@
   .left-menu-r.open {
     width: 120px;
   }
+  .left-menu-r.open .btn-menu-r {
+    right: 16px;
+  }
   .btn-menu-r {
     right: 15px;
   }
@@ -1385,6 +1481,9 @@
   }
   .cp-edit-table-box .cp-icon-text img {
     left: 1px;
+  }
+  .cp-edit-table-box .cpe-naf {
+    width: 208px;
   }
   .create-offre-box .detail-post-box .dp-input {
     width: 85%;
@@ -1487,6 +1586,7 @@
   }
   .ssc-box .ssc-all-infos .ssc-infos {
     width: 300px;
+    margin: 0;
   }
   .ssc-box .ssc-question {
     width: 60%;
@@ -1500,6 +1600,11 @@
   }
   .ssc-box .ssc-rest .ssc-oiam {
     width: 60%;
+  }
+  .ssc-box .ssc-planification {
+    margin-left: auto;
+    margin-right: 0;
+    width: 600px;
   }
   .fc-item-all .list-candidat .fci-infos {
     height: 92px;
@@ -1543,7 +1648,8 @@
     padding: 50px;
   }
   .rsc-box .rsc-body .rsc-date-past .ssc-planification1-rscdp-empty2 {
-    width: 700px;
+    width: 600px;
+    margin-left: auto;
     margin-bottom: 190px;
   }
   .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
@@ -1767,10 +1873,6 @@
   .ssc-box .ssc-rest .ssc-oiam {
     width: 68%;
   }
-  .ssc-box .ssc-planification {
-    margin-left: auto;
-    width: 60%;
-  }
   .fc-item-all .list-candidat {
     margin: 30px 50px;
   }
@@ -1812,6 +1914,9 @@
   }
   .rsc-box .rsc-body .validation-cadre-trying .vct-btn {
     width: 350px;
+  }
+  .rsc-box .ssc-planification1-rscdp-empty2 {
+    margin-right: auto;
   }
   .rsc-body-promise .dscdpa-box {
     width: 50%;

@@ -8,9 +8,10 @@ $(document).ready(function () {
   });
 
   $('#code_naf').on('input', function () {
-    $('#entreprise_description').val(verifyCodeNaf(this.value));
+    $('#entreprise_description1').val(verifyCodeNaf(this.value));
+    $('#entreprise_description').html(verifyCodeNaf(this.value));
   });
-  
+
 });
 
 function verifyCity(zip = '*') {
@@ -19,19 +20,19 @@ function verifyCity(zip = '*') {
     if (data[i].zip_code == zip) {
       nameCity = data[i].name;
       break;
-    } 
+    }
   }
   return nameCity;
 }
+
 function verifyCodeNaf(code = '*') {
   var description = "Aucune description d'entreprise correspondante!!";
   var code_naf_valide = false;
   for (var i = code_naf.length - 1; i >= 0; i--) {
     if (code_naf[i].code == code) {
       description = code_naf[i].info;
-       break;
+      break;
     }
   }
   return description;
 }
-
