@@ -197,7 +197,7 @@ Rails.application.routes.draw do
 
   #~~~~~~~~~~~~~~~~~~~~~~~~ Admin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Lien pour authentification admin
-  devise_for :admins, path: 'oiam-secret-page/admin',:skip => [:registrations], controllers: {
+  devise_for :admins, path: 'secret-oiam-page/admin',:skip => [:registrations], controllers: {
     sessions: "admins/sessions"
   }, path_names: {
     sign_in: 'se-connecter', sign_out: 'se-deconneter', cancel: 'supprimer',
@@ -215,6 +215,14 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin-candidats/en-attente', to: 'admin_candidats#pending', as: 'candidats_pending'
   get 'secret-oiam-page/admin-candidats/traitées', to: 'admin_candidats#processed', as: 'candidats_processed'
   get 'secret-oiam-page/admin-candidats/messageries', to: 'admin_candidats#messaging', as: 'candidats_messaging'
+
+  #messagerie cadre
+  get 'secret-oiam-page/admin-candidats/messageries/:id', to: 'admin_candidats#show_message', as: 'candidats_show_message'
+  post 'secret-oiam-page/admin-candidats/send/messages', to: 'admin_candidats#post_message', as: 'candidats_post_message'
+
+  #messagerie clients
+  get 'secret-oiam-page/admin-clients/messageries/:id', to: 'admin_clients#show_message', as: 'clients_show_message'
+  post 'secret-oiam-page/admin-clients/send/messagers', to: 'admin_clients#post_message', as: 'clients_post_message'
 
 end
 
