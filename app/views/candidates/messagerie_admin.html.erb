@@ -1,0 +1,43 @@
+<link rel="stylesheet" type="text/css" href="/css/main_test.css">
+
+<div class="all-content">
+	<div class="left-link">
+		<%= render partial: "candidates/left_link_bar" %>
+	</div>
+  <div class="cp-box">
+  	<h1>Messagerie</h1>
+   	<div class="card">
+	  	<div class="card-body">
+	  	    <% if @contactCadre.count == 0 %>
+			    <div class="mes">
+			      <h4>Aucun contact d'un candidat</h4>
+			    </div>
+    		<% else %>
+    			<% @contactCadre.each do |contact| %> 
+    				<a href="<%= show_message_admin_path(contact.admin.id) %>" class="btn-voir ">
+    				<div class="message">
+      					<div class="message-content">
+        					<div class="recruteur-name">
+        						<%= contact.admin.first_name %> <%= contact.admin.last_name %>
+        					</div>
+        					<div class="message-body">
+        					<% nbr = contact.message_admin_cadres.where(cadre_see: false).count %>
+					          <% unless contact.message_admin_cadres.last.is_admin %>
+					          	vous : <%= contact.message_admin_cadres.last.content %>
+					          <%else%>
+						          <% if nbr > 0 %>
+						          		<%= nbr %> <%= contact.message_admin_cadres.last.content %>
+						          	<%else%>
+						          		<%= contact.message_admin_cadres.last.content %>
+						         	<%end%> 
+					          <%end%>
+					        </div>
+      					</div>
+    				</div>
+    				</a>
+    			<% end %>
+    		<% end %>
+	  	</div>
+	</div>
+ </div>
+</div>

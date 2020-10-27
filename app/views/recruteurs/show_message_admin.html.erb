@@ -1,0 +1,64 @@
+<% content_for :head_style do %>
+  	<link rel="stylesheet" href="/css/suivi_show_post.css" />
+<% end %>
+<style>
+	.fcp-box {
+		width: 90%;
+		justify-content: center;
+		margin: 0 auto;
+	}
+		.hr-msg {
+		display: flex;
+		position: relative;
+	}
+		.hr-mg {
+		background: #d6b36a;
+		text-align: left;
+		padding: 20px;
+		border-radius: 10px;
+		width: 60%;
+	}
+
+		.m-msg {
+		margin-left: auto;
+		margin-top: 20px;
+		background: #e3d7bf;
+		width: 60%;
+		border-radius: 10px;
+		padding: 20px;
+		text-align: left;
+	}
+</style>
+
+<div class="all-content">
+	
+  	<div class="cp-box">
+   		<div class="fcp-box">
+			<div class="chat-body">
+				<% @messages.each do |message| %>
+					<% if message.is_admin %>
+						<div class="hr-msg">
+							<div class="hr-mg">
+								<p><%= message.content %></p>
+							</div>
+						</div>
+					<% else %>
+						<div class="m-msg">
+							<p><%= message.content %></p>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
+			<%= form_tag(post_message_client_admin_path) do %>
+				<div class="sd">
+					<input type="hidden" name="id_contact" value="<%= @contact.id%>">
+					<input type="hidden" name="id_admin" value="<%= @admin.id %>">
+					<textarea placeholder="répondre..." class="ms-in" name="message_admin_cadre[content]" id="message_admin_cadre_content"></textarea>
+					<button type="submit">
+						<img src="/image/send.png" alt="send" class="ms-im"/>
+					</button>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

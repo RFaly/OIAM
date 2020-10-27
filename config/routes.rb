@@ -96,6 +96,12 @@ Rails.application.routes.draw do
 
   # barre de recherche candidat
   post '/recruteur/recherche-cadre', to: 'recruteurs#search_bar_cadre', as: "search_bar_cadre"
+
+  #messagerie admin
+  get '/recruteur/messagerie/admin', to: 'recruteurs#messagerie_admin', as: 'messagerie_client_admin'
+  get '/recruteur/messagerie/admin/:id', to: 'recruteurs#show_message_admin', as: 'show_message_client_admin'
+  post '/recruteur/send-message/admin', to: 'recruteurs#post_message_admin', as: 'post_message_client_admin'
+
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   get '/cadre', to: 'candidates#main', as: 'main_cadre'
@@ -137,6 +143,12 @@ Rails.application.routes.draw do
   get 'cadre/formation', to: 'formation_candidate#index', as: 'formation_all'
   get 'cadre/formation/:formation_id/:name', to: 'formation_candidate#date_rdv', as: 'formation_date_rdv'
   post 'cadre/formation/save', to: 'formation_candidate#save_rdv', as: 'formation_save_rdv'
+
+
+  #messagerie pour admin
+  get '/cadre/messagerie/admin', to:'candidates#messagerie_admin', as: 'messagerie_admin'
+  get '/cadre/messagerie/admin/:id', to:'candidates#show_message_admin', as: 'show_message_admin'
+  post '/cadre/send-message/admin', to:'candidates#post_message_admin', as: 'post_message_admin'
 
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
