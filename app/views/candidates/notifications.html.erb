@@ -8,42 +8,35 @@
 	<div class="right-link">
 		<h5 class="titles">NOTIFICATIONS</h5>
 	      <% unless @notifications.empty?%>
-			  <% @notifications.each do |noficication| %>
-
-			  <% next if noficication.offre_job.nil? %>
-					<a href="<%= noficication.link %>" class="btn-voir">
-	      		<div class="notif-container" role="alert">
-		      		<% if noficication.view %>
-									<div class="notif-info no-col">
+					  <% @notifications.each do |noficication| %>
+					  <% next if noficication.offre_job.nil? %>
+							<a href="<%= noficication.link %>" class="btn-voir">
+			      		<div class="notif-container" role="alert">
+				      		<% if noficication.view %>
+											<div class="notif-info no-col">
+												<div class="notif-image">
+													<img src="<%= noficication.offre_job.image %>" class="pdp">
+												</div>
+												<div class="notif-info-content notif-see">
+													<h4 class="alert-heading"><%= noficication.object %></h4>
+													<p class="notif-mes"><%= noficication.message %></p>
+												</div>
+											</div>
+				      		<% else %>
+									<div class="notif-info">
 										<div class="notif-image">
 											<img src="<%= noficication.offre_job.image %>" class="pdp">
 										</div>
-										<div class="notif-info-content notif-see">
+										<div class="notif-info-content">
 											<h4 class="alert-heading"><%= noficication.object %></h4>
 											<p class="notif-mes"><%= noficication.message %></p>
 										</div>
-										<div class="mb-0 notif-see">
-											<span data-times="<%= noficication.created_at.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
-										</div>
 									</div>
-		      		<% else %>
-							<div class="notif-info">
-								<div class="notif-image">
-									<img src="<%= noficication.offre_job.image %>" class="pdp">
-								</div>
-								<div class="notif-info-content">
-									<h4 class="alert-heading"><%= noficication.object %></h4>
-									<p class="notif-mes"><%= noficication.message %></p>
-								</div>
-								<div class="mb-0">
-									<span data-times="<%= noficication.created_at.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
-								</div>
-							</div>
-		      		<% end %>
+				      		<% end %>
 
-				</div>
-				</a>
-	      	<% end %>
+						</div>
+						</a>
+			      	<% end %>
 	      <% else %>
 	      	Aucune notification
 	      <% end %>
