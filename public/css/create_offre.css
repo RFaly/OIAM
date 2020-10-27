@@ -600,19 +600,6 @@
   text-align-last: center;
 }
 
-.create-offre-box .hide-right {
-  position: relative;
-}
-
-.create-offre-box .hide-right::before {
-  content: ' ';
-  position: absolute;
-  right: 0;
-  background: #f0f2f4;
-  width: 14px;
-  height: 100%;
-}
-
 .input-error {
   color: red;
   font: 500 18px Raleway, sans-serif;
