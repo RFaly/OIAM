@@ -106,4 +106,31 @@ end
 # entretien fit
 @cadre_infos = CadreInfo.where(is_recrute:nil).where.not(score_potential:nil)
 
+
+
+
+
+
+<div class="mandona">
+    <!-- <h2>Candidats à relancer pour les ateliers coaching</h2> -->
+    <% unless @cadreInfoRefuseds.empty? %>
+      <% @cadreInfoRefuseds.each do |cadreInfoRefused| %>
+        <div data-name=".coaching" class="orange">
+          <img src='/image/profie.png' alt='photo de profil' width='120px' height="120px" /> <br>
+          <%= cadreInfoRefused.first_name %> <%= cadreInfoRefused.last_name %> <br>
+          Score potentiel: <%= cadreInfoRefused.score_potential %> <br>
+          <% unless cadreInfoRefused.score_fit.nil? %>
+            Score fit: <%= cadreInfoRefused.score_fit %><br>
+            <!-- #cadreInfoRefused.compatibilite -->
+          <% else %>
+            Score fit: ~ <br>
+        <% end %>
+        <a href="#">VOIR</a>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
+
+
 =end

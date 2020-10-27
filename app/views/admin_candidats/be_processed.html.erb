@@ -1,4 +1,12 @@
 <link rel="stylesheet" href="/css/admin_prms.css" />
+<style>
+	.orange{
+		border: 3px solid orange;
+		width: 200px;
+		display: inline-block;
+		margin: 0 12px;
+	}	
+</style>
 
 <div class="client-column">
   <div class="client-menu-left">
@@ -9,52 +17,53 @@
   		<h1>A traiter</h1>
   		
 		<div class="mandona">
-		    <h2>Test potentiel non terminé (en cours d eroute),récupérer son nom et email)</h2>
+		    <!-- <h2>Test potentiel non terminé (en cours d eroute),récupérer son nom et email)</h2> -->
 
 		    <% unless @cadreInfoPotentielNotEnds.empty? %>
 		    	<% @cadreInfoPotentielNotEnds.each do |cadreInfoPotentielNotEnd| %>
-			    	<div>
-			    		<img src='/image/profie.png' alt='photo de profil' width='120px' height="120px" /> <br>
-			    		<%= cadreInfoPotentielNotEnd.first_name %> <%= cadreInfoPotentielNotEnd.last_name %> <br>
-			    		<a href="#">VOIR</a>
-			    	</div>
+		    		<div data-name=".test-potentiel" class="orange">
+						<!-- <img src='/image/profie.png'/> <br> -->
+					    <h2>TEST POTENTIEL</h2>
+					    <div>
+					    	<%= cadreInfoPotentielNotEnd.first_name %> <%= cadreInfoPotentielNotEnd.last_name %>
+					    </div>
+					    <div>
+					    	Date d'entrée: <%= cadreInfoPotentielNotEnd.created_at.strftime("%d/%m/%Y") %>
+					    </div>
+					    <div>
+					    	Date limite: ~
+					    </div>
+					    <div>
+					    	<a href="#">GERER</a>
+					    </div>
+					</div>
 		    	<% end %>
 		    <% end %>
+
 		</div>
 
-		<div class="mandona">
-		    <h2>Candidats à relancer pour les ateliers coaching</h2>
 
-		    <% unless @cadreInfoRefuseds.empty? %>
-		    	<% @cadreInfoRefuseds.each do |cadreInfoRefused| %>
-		    		<div>
-			    		<img src='/image/profie.png' alt='photo de profil' width='120px' height="120px" /> <br>
-			    		<%= cadreInfoRefused.first_name %> <%= cadreInfoRefused.last_name %> <br>
-			    		Score potentiel: <%= cadreInfoRefused.score_potential %> <br>
-			    		<% unless cadreInfoRefused.score_fit.nil? %>
-			    			Score fit: <%= cadreInfoRefused.score_fit %><br>
-			    			<!-- #cadreInfoRefused.compatibilite -->
-			    		<% else %>
-			    			Score fit: ~ <br>
-						<% end %>
-						<a href="#">VOIR</a>
-		    		</div>
-		    	<% end %>
-		    <% end %>
-		</div>
+
 
 		<div class="mandona">
-		    <h2>RDV Entretiens FIT à valider(nom+prenom, date+horaire rdv)</h2>
+		    <!-- <h2>RDV Entretiens FIT à valider(nom+prenom, date+horaire rdv)</h2> -->
 
 		    <% unless @cadreInfoFits.empty? %>
 		    	<% @cadreInfoFits.each do |cadreInfoFit| %>
-		    		<div>
-		    			<img src='/image/profie.png' alt='photo de profil' width='120px' height="120px" /> <br>
-			    		<%= cadreInfoFit.first_name %> <%= cadreInfoFit.last_name %> <br>
-
-			    		Score potentiel: <%= cadreInfoFit.score_potential %> <br>
-			    		Rdv: <span data-times="<%= cadreInfoFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> <br>
-			    		<a href="#">GERER</a>
+		    		<div data-name=".test-fit-validate" class="orange">
+		    			<h2>VALIDER TEST FIT</h2>
+		    			<div>
+			    			<%= cadreInfoFit.first_name %> <%= cadreInfoFit.last_name %>
+			    		</div>
+			    		<div>
+					    	Date d'entrée: <span data-times="<%= cadreInfoFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+					    </div>
+					    <div>
+					    	Date limite: ~
+					    </div>
+					    <div>
+					    	<a href="#">GERER</a>
+					    </div>
 			    	</div>
 		    	<% end %>
 		    <% end %>
@@ -127,10 +136,8 @@
 		    		<div>
 		    			<img src='<%= cifo.image %>' alt='photo de profil' width='120px' height="120px" /><br>
 			    		<%= cifo.first_name %> <%= cifo.last_name %> <br>
-			    		
 			    		Score potentiel: <%= cifo.score_potential %> <br>
 			    		Compatibilité: <%= cifo.compatibilite %> <br>
-			    		
 			    		<a href="#">VOIR</a>
 			    	</div>
 		    	<% end %>
@@ -139,7 +146,6 @@
 
 		<div class="mandona">
 		    <h2>Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu</h2>
-
 		    <% unless @cadreInfoNotPromiseToHires.empty? %>
 		    	<% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
 		    		<% cINPT = cadreInfoNotPromiseToHire.cadre_info %>
