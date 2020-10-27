@@ -21,7 +21,7 @@
 
 		    <% unless @cadreInfoPotentielNotEnds.empty? %>
 		    	<% @cadreInfoPotentielNotEnds.each do |cadreInfoPotentielNotEnd| %>
-		    		<div data-name=".test-potentiel" class="orange">
+		    		<div data-name=".cadreInfoPotentielNotEnd" class="orange">
 						<!-- <img src='/image/profie.png'/> <br> -->
 					    <h2>TEST POTENTIEL</h2>
 					    <div>
@@ -50,7 +50,7 @@
 
 		    <% unless @cadreInfoFits.empty? %>
 		    	<% @cadreInfoFits.each do |cadreInfoFit| %>
-		    		<div data-name=".test-fit-validate" class="orange">
+		    		<div data-name=".cadreInfoFit" class="orange">
 		    			<h2>VALIDER TEST FIT</h2>
 		    			<div>
 			    			<%= cadreInfoFit.first_name %> <%= cadreInfoFit.last_name %>
@@ -75,7 +75,7 @@
 
 		    <% unless @cadreInfoEnterScoreFits.empty? %>
 		    	<% @cadreInfoEnterScoreFits.each do |cadreInfoEnterScoreFit| %>
-		    		<div data-name=".test-fit-effectuer" class="orange">
+		    		<div data-name=".cadreInfoEnterScoreFit" class="orange">
 		    			<h2>EFFECTUER TEST FIT</h2>
 		    			<div>
 		    				<%= cadreInfoEnterScoreFit.first_name %> <%= cadreInfoEnterScoreFit.last_name %>
@@ -100,7 +100,7 @@
 		    <% unless @cacadreInfoInCompleteInfoProfils.empty? %>
 		    	<% @cacadreInfoInCompleteInfoProfils.each do |cacadreInfoInCompleteInfoProfil| %>
 		    	<% cfo = cacadreInfoInCompleteInfoProfil %>
-		    		<div data-name=".not-completed" class="orange">
+		    		<div data-name=".cacadreInfoInCompleteInfoProfil" class="orange">
 		    			<h2>PROFIL NON COMPLETE</h2>
 		    			<div>
 			    			<%= cfo.first_name %> <%= cfo.last_name %>
@@ -126,7 +126,7 @@
 		    <% unless @cadreNotInOffreForCandidates.empty? %>
 		    	<% @cadreNotInOffreForCandidates.each do |cadreNotInOffreForCandidate| %>
 		    		<% cifo = cadreNotInOffreForCandidate.cadre_info %>
-		    		<div data-name=".not-in-oFc" class="orange">
+		    		<div data-name=".cadreNotInOffreForCandidate" class="orange">
 		    			<h2>PROFIL NON COMPLETE</h2>
 		    			<div>
 			    			<%= cifo.first_name %> <%= cifo.last_name %>
@@ -151,7 +151,7 @@
 		    <% unless @cadreInfoRecrutmentActs.empty? %>
 		    	<% @cadreInfoRecrutmentActs.each do |cadreInfoRecrutmentAct| %>
 		    		<% cifo = cadreInfoRecrutmentAct %>
-		    		<div data-name=".not-in-oFc" class="orange">
+		    		<div data-name=".cadreInfoRecrutmentAct" class="orange">
 		    			<h2>PROFIL NON COMPLETE</h2>
 		    			<div>
 			    			<%= cifo.first_name %> <%= cifo.last_name %>
@@ -175,14 +175,20 @@
 		    <% unless @cadreInfoNotPromiseToHires.empty? %>
 		    	<% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
 		    		<% cINPT = cadreInfoNotPromiseToHire.cadre_info %>
-		    		<div>
-		    			<img src='<%= cINPT.image %>' alt='photo de profil' width='120px' height="120px" /><br>
-			    		<%= cINPT.first_name %> <%= cINPT.last_name %> <br>
-			    		
-			    		Score potentiel: <%= cINPT.score_potential %> <br>
-			    		Compatibilité: <%= cINPT.compatibilite %> <br>
-			    		
-			    		<a href="#">VOIR</a>
+			    	<div data-name=".cadreInfoNotPromiseToHire" class="orange">
+		    			<h2>PROFIL NON COMPLETE</h2>
+		    			<div>
+			    			<%= cINPT.first_name %> <%= cINPT.last_name %>
+		    			</div>
+		    			<div>
+		    				Datee d'entrée: ~
+		    			</div>
+		    			<div>
+		    				Date limite: ~
+		    			</div>
+		    			<div>
+			    			<a href="#">GERER</a>
+		    			</div>
 			    	</div>
 		    	<% end %>
 		    <% end %>
@@ -194,14 +200,20 @@
 		    <% unless @cadreInfoValidateTimeTryings.empty? %>
 		    	<% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
 		    		<% cINPT = cadreInfoValidateTimeTrying %>
-		    		<div>
-		    			<img src='<%= cINPT.image %>' alt='photo de profil' width='120px' height="120px" /><br>
-			    		<%= cINPT.first_name %> <%= cINPT.last_name %> <br>
-			    		
-			    		Score potentiel: <%= cINPT.score_potential %> <br>
-			    		Compatibilité: <%= cINPT.compatibilite %> <br>
-			    		
-			    		<a href="#">VOIR</a>
+			    	<div data-name=".cadreInfoValidateTimeTrying" class="orange">
+		    			<h2>PROFIL NON COMPLETE</h2>
+		    			<div>
+			    			<%= cINPT.first_name %> <%= cINPT.last_name %>
+		    			</div>
+		    			<div>
+		    				Datee d'entrée: ~
+		    			</div>
+		    			<div>
+		    				Date limite: ~
+		    			</div>
+		    			<div>
+			    			<a href="#">GERER</a>
+		    			</div>
 			    	</div>
 		    	<% end %>
 		    <% end %>
@@ -213,14 +225,20 @@
 		    <% unless @cadreInfoPrimNotReceiveds.empty? %>
 		    	<% @cadreInfoPrimNotReceiveds.each do |cadreInfoPrimNotReceived| %>
 		    		<% cINPT = cadreInfoPrimNotReceived %>
-		    		<div>
-		    			<img src='<%= cINPT.image %>' alt='photo de profil' width='120px' height="120px" /><br>
-			    		<%= cINPT.first_name %> <%= cINPT.last_name %> <br>
-			    		
-			    		Score potentiel: <%= cINPT.score_potential %> <br>
-			    		Compatibilité: <%= cINPT.compatibilite %> <br>
-			    		
-			    		<a href="#">VOIR</a>
+		    		<div data-name=".cadreInfoValidateTimeTrying" class="orange">
+		    			<h2>PROFIL NON COMPLETE</h2>
+		    			<div>
+			    			<%= cINPT.first_name %> <%= cINPT.last_name %>
+		    			</div>
+		    			<div>
+		    				Datee d'entrée: ~
+		    			</div>
+		    			<div>
+		    				Date limite: ~
+		    			</div>
+		    			<div>
+			    			<a href="#">GERER</a>
+		    			</div>
 			    	</div>
 		    	<% end %>
 		    <% end %>
