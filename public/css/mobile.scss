@@ -42,11 +42,7 @@
 
 // flash scss
 .flash {
-  // position: fixed;
   display: none;
-  // z-index: 500;
-  // top: 90px;
-  // right: 50px;
   overflow: hidden;
   border-right: 7px solid rgba(141, 141, 141, 0.5);
   height: 60px;
@@ -88,8 +84,6 @@
 }
 
 .bg-uniq {
-  // margin-top: -600px;
-  // padding-top: 492px;
   padding-bottom: 100px;
   width: 100%;
   z-index: -1;
