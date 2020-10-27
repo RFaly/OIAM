@@ -71,74 +71,100 @@
 		</div>
 
 		<div class="mandona">
-		    <h2>Entretiens FIT à effectuer(nom+prénom+date)</h2>
+		    <!-- <h2>Entretiens FIT à effectuer(nom+prénom+date)</h2> -->
 
 		    <% unless @cadreInfoEnterScoreFits.empty? %>
 		    	<% @cadreInfoEnterScoreFits.each do |cadreInfoEnterScoreFit| %>
-		    		<div>
-		    			<img src='/image/profie.png' alt='photo de profil' width='120px' height="120px" /> <br>
-			    		<%= cadreInfoEnterScoreFit.first_name %> <%= cadreInfoEnterScoreFit.last_name %> <br>
-			    		Score potentiel: <%= cadreInfoEnterScoreFit.score_potential %> <br>
-			    		Score fit: ~ <br>
-			    		Rdv: <span data-times="<%= cadreInfoEnterScoreFit.cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> <br>
-			    		<a href="#">GERER</a>
+		    		<div data-name=".test-fit-effectuer" class="orange">
+		    			<h2>EFFECTUER TEST FIT</h2>
+		    			<div>
+		    				<%= cadreInfoEnterScoreFit.first_name %> <%= cadreInfoEnterScoreFit.last_name %>
+		    			</div>
+		    			<div>
+		    				Datee d'entrée: <span data-times="<%= cadreInfoEnterScoreFit.cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+		    			</div>
+						<div>
+					    	Date limite: ~
+					    </div>
+					    <div>
+					    	<a href="#">GERER</a>
+					    </div>
 			    	</div>
 		    	<% end %>
 		    <% end %>
 		</div>
 
 		<div class="mandona">
-		    <h2>Profil non complété</h2>
+		    <!-- <h2>Profil non complété</h2> -->
 
 		    <% unless @cacadreInfoInCompleteInfoProfils.empty? %>
 		    	<% @cacadreInfoInCompleteInfoProfils.each do |cacadreInfoInCompleteInfoProfil| %>
 		    	<% cfo = cacadreInfoInCompleteInfoProfil %>
-		    		<div>
-		    			<% if cfo.image.nil? %>
-							<img src='/image/profie.png' alt='photo de profil' width='120px' height="120px" /><br>
-						<% else %>
-							<img src='<%= cfo.image %>' alt='photo de profil' width='120px' height="120px" /><br>
-						<% end %>
-			    		<%= cfo.first_name %> <%= cfo.last_name %> <br>
-			    		Score potentiel: <%= cfo.score_potential %> <br>
-			    		Compatibilité: <%= cfo.compatibilite %> <br>
-			    		<a href="#">VOIR</a>
+		    		<div data-name=".not-completed" class="orange">
+		    			<h2>PROFIL NON COMPLETE</h2>
+		    			<div>
+			    			<%= cfo.first_name %> <%= cfo.last_name %>
+		    			</div>
+		    			<div>
+		    				Datee d'entrée: ~
+		    			</div>
+		    			<div>
+		    				Date limite: ~
+		    			</div>
+		    			<div>
+			    			<a href="#">GERER</a>
+		    			</div>
 			    	</div>
 		    	<% end %>
 		    <% end %>
+
 		</div>
 
 		<div class="mandona">
-		    <h2>Liste des candidats qui n'ont pas encore postulé à une offre ou qui ne sont pas dans un process de recrutement</h2>
+<!-- <h2>Liste des candidats qui n'ont pas encore postulé à une offre ou qui ne sont pas dans un process de recrutement</h2> -->
 
 		    <% unless @cadreNotInOffreForCandidates.empty? %>
 		    	<% @cadreNotInOffreForCandidates.each do |cadreNotInOffreForCandidate| %>
 		    		<% cifo = cadreNotInOffreForCandidate.cadre_info %>
-		    		<div>
-		    			<img src='<%= cifo.image %>' alt='photo de profil' width='120px' height="120px" /><br>
-			    		<%= cifo.first_name %> <%= cifo.last_name %> <br>
-			    		
-			    		Score potentiel: <%= cifo.score_potential %> <br>
-			    		Compatibilité: <%= cifo.compatibilite %> <br>
-
-			    		<a href="#">VOIR</a>
+		    		<div data-name=".not-in-oFc" class="orange">
+		    			<h2>PROFIL NON COMPLETE</h2>
+		    			<div>
+			    			<%= cifo.first_name %> <%= cifo.last_name %>
+		    			</div>
+		    			<div>
+		    				Datee d'entrée: ~
+		    			</div>
+		    			<div>
+		    				Date limite: ~
+		    			</div>
+		    			<div>
+			    			<a href="#">GERER</a>
+		    			</div>
 			    	</div>
 		    	<% end %>
 		    <% end %>
 		</div>
 
 		<div class="mandona">
-		    <h2>Liste des candidats qui n'ont pas eu de retour du recruteur suit au rdv déjà passé.</h2>
+		    <!-- <h2>Liste des candidats qui n'ont pas eu de retour du recruteur suit au rdv déjà passé.</h2> -->
 
 		    <% unless @cadreInfoRecrutmentActs.empty? %>
 		    	<% @cadreInfoRecrutmentActs.each do |cadreInfoRecrutmentAct| %>
 		    		<% cifo = cadreInfoRecrutmentAct %>
-		    		<div>
-		    			<img src='<%= cifo.image %>' alt='photo de profil' width='120px' height="120px" /><br>
-			    		<%= cifo.first_name %> <%= cifo.last_name %> <br>
-			    		Score potentiel: <%= cifo.score_potential %> <br>
-			    		Compatibilité: <%= cifo.compatibilite %> <br>
-			    		<a href="#">VOIR</a>
+		    		<div data-name=".not-in-oFc" class="orange">
+		    			<h2>PROFIL NON COMPLETE</h2>
+		    			<div>
+			    			<%= cifo.first_name %> <%= cifo.last_name %>
+		    			</div>
+		    			<div>
+		    				Datee d'entrée: ~
+		    			</div>
+		    			<div>
+		    				Date limite: ~
+		    			</div>
+		    			<div>
+			    			<a href="#">GERER</a>
+		    			</div>
 			    	</div>
 		    	<% end %>
 		    <% end %>
