@@ -25,13 +25,13 @@
 			<%= f.label :question2, "Où souhaitez-vous travailler et acceptez-vous les déplacements ?",class:"label-content" %>
 
 			<div class="depl-content">
-				<div class="dp-input hide-right"><%= f.select :country , options_for_select([["France", "France"]]),{}, class:'co-select', required:true, id:'paysInput', title:'Pays',autofocus:true, class:"champ"%></div>
+				<div class="dp-input "><%= f.select :country , options_for_select([["France", "France"]]),{}, class:'co-select', required:true, id:'paysInput', title:'Pays',autofocus:true, class:"champ"%></div>
 	        	<span class="input-error country-error"></span>
 
-	        	<div class="dp-input hide-right"><%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région',autofocus:true, class:"champ"%></div>
+	        	<div class="dp-input "><%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région',autofocus:true, class:"champ"%></div>
 	        	<span class="input-error region-error"></span>
 
-	        	<div class="dp-input hide-right"><%= f.select :ville, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autofocus:true, class:"champ"%></div>
+	        	<div class="dp-input "><%= f.select :ville, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autofocus:true, class:"champ"%></div>
 	       		<span class="input-error departement-error"></span>
 	       		<div class="check">
 	       			<div class="accepter-container"> <%= f.label :deplacement, "Accepter déplacement", class:"accepter" %> </div>

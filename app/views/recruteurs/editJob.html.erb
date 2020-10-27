@@ -25,17 +25,17 @@
       <%= form_for @offre , url: updateJob_path(@offre.id) do |f| %>
       <div class="detail-post-box">
         <label>LOCALISATION</label>
-        <div class="dp-input hide-right">
+        <div class="dp-input">
           <select id="paysInput" name="offre_job[country]" class="co-select" autofocus>
             <option value="France" selected>France</option>
           </select>
         </div>
         <span class="input-error country-error"></span>
 
-        <div class="dp-input hide-right"><%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région',autocomplete: "region" %></div>
+        <div class="dp-input"><%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région',autocomplete: "region" %></div>
         <span class="input-error region-error"></span>
 
-        <div class="dp-input hide-right"><%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autocomplete: "departement" %></div>
+        <div class="dp-input"><%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autocomplete: "departement" %></div>
         <span class="input-error departement-error"></span>
 
         <label for="metier-input">Fonction</label>
@@ -82,7 +82,7 @@
 
         <%= f.label :remuneration_anne, "RÉMUNÉRATION PROPOSÉE VARIABLE (K€ BRUTS ANNUELS)" %>
 
-        <div class="dp-input hide-right">
+        <div class="dp-input">
           <select id="remuneration-anne" name="offre_job[remuneration_anne]" class="co-select">
             <option value="<%= @offre.remuneration_anne.to_i %>" selected hidden><%= @offre.remuneration_anne.to_i %></option>
             <% i = 0 %> <%21.times do %>
@@ -102,7 +102,7 @@
         </label>
 
         <%= f.label :type_deplacement, "LE POSTE IMPLIQUE-T-IL DES DÉPLACEMENTS ?" %>
-        <div class="dp-input hide-right">
+        <div class="dp-input">
           <select id="type-deplacement" name="offre_job[type_deplacement]" class="co-select">
             <option value="<%= @offre.type_deplacement %>" selected hidden><%= @offre.type_deplacement_name %></option>
             <option value="0">Pas de déplacements</option>
@@ -125,7 +125,7 @@
 
       <div class="context-offre-box">
         <%= f.label :question1, "QUELLE POURRAIT-ÊTRE LA RÉMUNÉRATION MAXIMALE POUR LE CANDIDAT IDÉAL ?", class:"ggag" %>
-        <div class="co-input hide-right">
+        <div class="co-input">
           <select id="question1" name="offre_job[question1]" class="co-select">
             <option value="<%= @offre.question1 %>" selected hidden><%= @offre.question1 %> k€ bruts annuels</option>
             <option value="60">60k€ bruts annuels</option>
@@ -167,7 +167,7 @@
         <span class="input-error" id="question2-error"></span>
 
         <%= f.label :numberEntretien, "QUEL SERA VOTRE PROCESSUS DE RECRUTEMENT ?", class:"ggag" %>
-        <div class="co-input hide-right">
+        <div class="co-input">
           <select id="question3" name="offre_job[numberEntretien]" class="co-select">
             <option value="<%= @offre.numberEntretien %>" selected hidden><% case @offre.numberEntretien.to_i %><% when 1 %>1 entretien RH<% when 2 %>1 entretien RH + 1 entretien Manager<% when 3 %>1 entretien RH + 2 entretiens Manager<% end %></option>
             <option value="1">1 entretien RH</option>
@@ -190,7 +190,7 @@
         </div>
 
         <%= f.label :question5, "PRÉSENTER LE CONTEXTE D’OUVERTURE DE CE POSTE.", class:"ggag" %>
-        <div class="co-input hide-right">
+        <div class="co-input">
           <select id="question5" name="offre_job[question5]" class="co-select">
             <option value="<%= @offre.question5 %>" selected hidden><%= @offre.question5 %></option>
             <option value="Remplacement">Remplacement</option>
