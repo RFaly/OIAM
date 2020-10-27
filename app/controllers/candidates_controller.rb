@@ -706,17 +706,17 @@ class CandidatesController < ApplicationController
 
 
 def messagerie_admin
-    @@admin = Admin.find_by_id(params[:id])
-    @contactCadre = current_cadre.contact_admin_cadres
-    @contact = ContactAdminCadre.where(cadre: current_cadre, admin:@admin)
-    if @contact.count == 0
-      @contact = ContactAdminCadre.create(cadre: current_cadre, admin:@admin)
-    else
-      @contact = @contact.first
-    end
-    @contact.message_admin_cadres.where(cadre_see: false).update(cadre_see: true)
-    @messages = @contact.message_admin_cadres.order(created_at: :ASC)
-    @newMessage = MessageAdminCadre.new
+  @admin = Admin.find_by_id(params[:id])
+  @contactCadre = current_cadre.contact_admin_cadres
+  @contact = ContactAdminCadre.where(cadre: current_cadre, admin:@admin)
+  if @contact.count == 0
+    @contact = ContactAdminCadre.create(cadre: current_cadre, admin:@admin)
+  else
+    @contact = @contact.first
+  end
+  @contact.message_admin_cadres.where(cadre_see: false).update(cadre_see: true)
+  @messages = @contact.message_admin_cadres.order(created_at: :ASC)
+  @newMessage = MessageAdminCadre.new
 end
 
 def show_message_admin

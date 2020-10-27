@@ -4,20 +4,21 @@
 .rlc-box {
   width: 95%;
   margin: 0 auto;
+
   .rlc-empty {
     text-align: -webkit-center;
     text-align: -moz-center;
     text-align: center;
     padding: 30px 20px;
-    // width: 50%;
-    // margin-top: 90px;
     border: 2px solid $main_theme_color;
+
     h5 {
       font: $ffsentence;
       margin-top: 20px;
       margin-bottom: 30px;
       font-size: 20px;
     }
+
     .show-pb2-btn {
       a {
         text-transform: uppercase;
@@ -29,6 +30,7 @@
         padding: 10px 30px;
         border: 2px solid $main_theme_color;
         color: $main_theme_color;
+
         &:hover,
         &:active {
           background: $main_theme_color;
@@ -37,13 +39,16 @@
       }
     }
   }
+
   .rlc-content {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+
     a {
       text-decoration: none;
     }
+
     .rlc-items {
       border: 2px solid $main_theme_color;
       background: white;
@@ -55,10 +60,12 @@
       color: black;
       font: $ffsentence;
       font-size: 14px;
+
       h5 {
         font: $ffbtn;
         margin: 10px 0;
       }
+
       img,
       .c {
         margin: 0 auto;
@@ -66,12 +73,14 @@
         height: 200px;
         border-radius: 50%;
       }
+
       .refus {
         img {
           width: 35px;
           height: 35px;
         }
       }
+
       .loading {
         content: ' ';
         width: 90%;
@@ -82,6 +91,7 @@
         background: -o-linear-gradient(90deg, $main_theme_color 4%, $secondary_element_color 3%);
         background: -moz-linear-gradient(90deg, $main_theme_color 4%, $secondary_element_color 3%);
         background: linear-gradient(90deg, $main_theme_color 4%, $secondary_element_color 3%);
+
         .pre-load {
           content: ' ';
           height: 10px;
@@ -89,10 +99,12 @@
           background: $main_theme_color;
         }
       }
+
       &:hover,
       &:active {
         background: rgba(255, 255, 255, 0.897);
         box-shadow: 0.5px 0.5px 3px 0.5px $main_theme_color;
+
         h5 {
           color: $main_theme_color;
         }

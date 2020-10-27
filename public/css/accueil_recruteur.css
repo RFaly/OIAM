@@ -40,7 +40,7 @@
 .accueil-recruteur .accueil-r-btn a:hover, .accueil-recruteur .accueil-r-btn a:active {
   text-decoration: none;
   background-color: white;
-  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+  box-shadow: 1px 0px 3px 1px rgba(214, 214, 214, 0.3);
   color: #e3d7bf;
 }
 

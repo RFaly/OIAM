@@ -743,6 +743,47 @@ class RecruteursController < ApplicationController
     end
   end
 
+
+  def messagerie_admin
+  	@admin = Admin.find_by_id(params[:id])
+    @contactClient = current_client.contact_admin_clients
+    @contact = ContactAdminClient.where(client: current_client, admin:@admin)
+    if @contact.count == 0
+      @contact = ContactAdminClient.create(client: current_client, admin:@admin)
+    else
+      @contact = @contact.first
+    end
+    @contact.message_admin_clients.where(client_see: false).update(client_see: true)
+    @messages = @contact.message_admin_clients.order(created_at: :ASC)
+    @newMessage = MessageAdminClient.new
+  end
+
+  def show_message_admin
+  	@admin = Admin.find_by_id(params[:id])
+	@contact = ContactAdminClient.find_by(client:current_client, admin:@admin)
+	if @contact.nil?
+	    @contact = ContactAdminClient.create(client:current_client, admin:@admin)    
+	else
+	    @contact.message_admin_clients.where(client_see:false).update(client_see:true)
+	end
+    @messages = @contact.message_admin_clients.order(created_at: :ASC)
+    @newMessage = MessageAdminClient.new
+  end
+
+  def post_message_admin
+  	@admin = Admin.find_by_id(params[:id_admin])
+	@contact = ContactAdminClient.find_by(id: params[:id_contact], admin: @admin, client: current_client)
+	@content = params[:message_admin_client][:content]
+	@newMessage = MessageAdminClient.new(content: @content, admin_see: false, contact_admin_client: @contact, is_admin: false)
+	@contact.message_admin_clients.where(client_see:false).update(client_see:true)
+	if @newMessage.save      
+	    redirect_to show_message_client_admin_path(@admin)
+	else
+	    flash[:alert] = @newMessage.errors.details
+	    redirect_back(fallback_location: root_path)
+	end
+  end
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	private

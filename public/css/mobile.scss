@@ -16,7 +16,7 @@
 // css load
 #loading-indicator {
   position: fixed;
-  z-index: 200;
+  z-index: 900;
   top: 0px;
   left: 0px;
   right: 0;
@@ -42,11 +42,7 @@
 
 // flash scss
 .flash {
-  // position: fixed;
   display: none;
-  // z-index: 500;
-  // top: 90px;
-  // right: 50px;
   overflow: hidden;
   border-right: 7px solid rgba(141, 141, 141, 0.5);
   height: 60px;
@@ -88,8 +84,6 @@
 }
 
 .bg-uniq {
-  // margin-top: -600px;
-  // padding-top: 492px;
   padding-bottom: 100px;
   width: 100%;
   z-index: -1;
@@ -97,14 +91,6 @@
   background-size: cover;
 }
 
-// .felicitation-box {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100vh;
-//   background: rgba(red, 0.5);
-// }
 .felicitation {
   text-align: -webkit-center;
   text-align: -moz-center;
@@ -1383,11 +1369,6 @@
     padding: 0;
     margin: 0 auto;
 
-    // .detail-post-box {
-    //   .dp-input {
-    //     width: 70%;
-    //   }
-    // }
     .detail-post-box {
       .dp-input-renumeration {
         .value-renum {
@@ -1684,7 +1665,6 @@
       margin-left: 4px;
       width: auto;
 
-      // padding: 0 4%;
       .js-timeContainer {
         width: 600px;
       }
@@ -1778,7 +1758,6 @@
   }
 
   // landing page
-  // landing page
   .box-1 {
     width: 50%;
 
@@ -1796,16 +1775,6 @@
     }
   }
 
-  // .box-2 {
-  //   display: block;
-  //   width: 50%;
-  //   height: 99.5vh;
-  //   background: url(/image/picture_photo_0ae4b3.jpg) no-repeat center;
-  //   background-size: cover;
-  //   // img {
-  //   //   width: 100%;
-  //   // }
-  // }
   .box {
     background: #fcfcfc url(/image/picture_photo_0ae4b3.png) no-repeat right;
     background-size: 110% 100%;
@@ -2763,9 +2732,6 @@
       }
     }
 
-    // .show-pb2 {
-    //   width: 50%;
-    // }
   }
 
   // search cadre
@@ -2821,12 +2787,6 @@
         width: 68%;
       }
     }
-
-    // plannification entretien
-    // .ssc-planification {
-    //   margin-left: auto;
-    //   width: 60%;
-    // }
   }
 
   // show candidat favorit

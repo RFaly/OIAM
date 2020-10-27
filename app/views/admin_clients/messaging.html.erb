@@ -1,65 +1,60 @@
-<link rel="stylesheet" href="/css/admin_prms.css" />
+<link rel="stylesheet" type="text/css" href="/admins/css/message.css" />
 <style media="screen">
-  .cp-box h1 {
-    font-size: 16px;
-    font-family: Raleway, sans-serif;
-    text-transform: uppercase;
-    text-align: center;
-    color: #d6b36a;
+.box-msg {
+  border: 1px solid #ccc;
+  -webkit-box-shadow: 2px 2px 6px 0px rgba(50, 50, 50, 0.37);
+  -moz-box-shadow:    2px 2px 6px 0px rgba(50, 50, 50, 0.37);
+  box-shadow:         2px 2px 6px 0px rgba(50, 50, 50, 0.37);
+  margin-top: 10px;
+}
+
+  .clr-bx {
+    webkit-box-shadow: 2px 2px 6px 0px rgba(214,179,106, 1);
+    -moz-box-shadow:    2px 2px 6px 0px rgba(214,179,106, 1);
+    box-shadow:         2px 2px 6px 0px rgba(214,179,106, 1);
   }
 </style>
-<div class="client-column">
-  	<div class="client-menu-left">
-    	<%= render partial: "admin_clients/left_menu" %>
-  	</div>
-
-</div>
-
-  	<div class="cp-box">
-  		<h1>Messagerie</h1>
-		<div class="card">
-		  	<div class="card-body">
-		  	    <% if @contactClient.nil? %>
-				    <div class="mes">
-				      <h4>Aucun contact d'un candidat</h4>
-				    </div>
-				<% else %>
-					<% @contactClient.each do |contact| %><% nbr = contact.mp_admin_not_see %>
-						<a href="<%= clients_show_message_path(contact.client.id) %>" class="btn-voir  <% if nbr == 0 %>color<% end %>">
-						<div class="message">
-							<div class="block-image">
-						        <% if contact.client.image.nil? %>
-						          <img src="/image/profie.png" class="pdp" alt='photo de profil'>
-						        <% else %>
-						          <%= image_tag(contact.client.image, alt: 'photo de profil', class:"pdp" )%>
-						        <% end %>
-						        <% if contact.client.is_online? %>
-						          <span class="connected"></span>
-						        <% end %>
-					        </div>
-		  					<div class="message-content">
-		    					<div class="recruteur-name">
-		    						Entreprise :<%= contact.client.entreprise.name %>  Recruteur: <%= contact.client.first_name %> <%= contact.client.last_name %>
-		    					</div>
-		    					<div class="message-body">
-						          <% unless contact.message_admin_clients.last.is_admin %>
-							          <% unless nbr == 0 %>
-							            <span class="alert-info"><%= nbr %></span>
-							          <% end %>
-						          <% end %>
-						          <% if contact.message_admin_clients.last.is_admin %>vous : <%end%> <%= contact.message_admin_clients.last.content %>
-					       		</div>
-		  					</div>
-		  					<div class="connected-times">
-					          <% unless contact.client.is_online? %>
-					            <span class="not-connected">Connectée il y a <%= time_ago_in_words(contact.client.online_time) %></span>
-					          <% end %>
-					        </div>
-						</div>
-						</a>
-					<% end %>
-				<% end %>
-		  	</div>
-		</div>  		
-  	</div>
+<div class="all-content">
+  <div class="left-content"><%= render partial: "admin_clients/left_menu" %></div>
+  <div class="main">
+    <h2 class="main-title">MESSAGERIE</h2>
+    <% unless @contactClient.empty? %>
+    <% @contactClient.each do |contact| %> <% nbr = contact.mp_admin_not_see %>
+    <div class="<% if nbr == 0 %>box-msg<% else %>clr-bx<% end %>">
+    <a href="<%= clients_show_message_path(contact.client.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>">
+    <div class="message">
+      <div class="block-image">
+        <% if contact.client.image.nil? %>
+          <img src="/image/profie.png" class="pdp" alt='photo de profil'>
+        <% else %>
+          <%= image_tag(contact.client.image, alt: 'photo de profil', class:"pdp" )%>
+        <% end %>
+        <% if contact.client.is_online? %>
+          <span class="connected"></span>
+        <% end %>
+        </div>
+      <div class="message-content">
+        <div class="recruteur-name">
+          Entreprise: <%= contact.client.first_name %> <%= contact.client.last_name %>
+        </div>
+        <div class="message-body">
+          <% unless nbr == 0 %>
+            <span class="alert-info"><%= nbr %></span>
+          <% end %>
+          <% if contact.message_admin_clients.last.is_admin %>vous : <%end%> <%= contact.message_admin_clients.last.content %>
+        </div>
+      </div>
+      <div class="connected-times">
+          <% unless contact.client.is_online? %>
+            <span class="not-connected">Connectée il y a <%= time_ago_in_words(contact.client.online_time) %></span>
+          <% end %>
+        </div>
+    </div>
+    </a>
+    </div>
+    <% end %>
+    <% else %>
+      Vous n'avez aucun contact d'un client pour le moment...
+    <% end %>
+  </div>
 </div>

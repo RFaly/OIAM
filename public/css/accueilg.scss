@@ -1,14 +1,17 @@
 @import 'config';
+
 .accueilg-btn1 {
   margin-top: 70px;
   display: flex;
   justify-content: center;
+
   a {
     color: white;
     font: $ffbtn;
     font-weight: 500;
     text-decoration: none;
     background-color: $secondary_text_color_button;
+
     &:hover {
       text-decoration: none;
       color: $secondary_text_color_button;
@@ -17,21 +20,25 @@
     }
   }
 }
+
 .accueilg-content1 {
   width: 85%;
   box-sizing: border-box;
   margin-bottom: 100px;
+
   h2 {
     font: $ffbtn;
     font-size: 20px;
     color: $main_theme_color;
     margin: 15px 0;
   }
+
   p {
     font: $ffsentence;
     text-align: justify;
     line-height: 1.5;
   }
+
   .cc-accueuil1 {
     text-align: -webkit-center;
     text-align: -moz-center;

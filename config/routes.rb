@@ -96,6 +96,12 @@ Rails.application.routes.draw do
 
   # barre de recherche candidat
   post '/recruteur/recherche-cadre', to: 'recruteurs#search_bar_cadre', as: "search_bar_cadre"
+
+  #messagerie admin
+  get '/recruteur/messagerie/admin', to: 'recruteurs#messagerie_admin', as: 'messagerie_client_admin'
+  get '/recruteur/messagerie/admin/:id', to: 'recruteurs#show_message_admin', as: 'show_message_client_admin'
+  post '/recruteur/send-message/admin', to: 'recruteurs#post_message_admin', as: 'post_message_client_admin'
+
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   get '/cadre', to: 'candidates#main', as: 'main_cadre'

@@ -2,7 +2,7 @@ $('#dateEntretien').click(function () {
   if ($('.hiddenDate').is(':visible')) {
     $('.hiddenDate').hide();
     $('.ssc-planification').height(0);
-    $('.ssc-planification').css('margin-bottom', 90);
+    $('.ssc-planification').css('margin-bottom', 110);
   } else {
     $('.hiddenDate').show();
     $('#datepicker').focus();
