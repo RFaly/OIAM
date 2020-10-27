@@ -5,191 +5,212 @@
     <%= render partial: "admin_candidats/left_menu" %>
   </div>
 
-  <div class="cp-box">
-  	<h1>A traiter</h1>
+  	<div class="cp-box">
+  		<h1>A traiter</h1>
+  		
+		<div class="mandona">
+		    <h2>Test potentiel non terminé (en cours d eroute),récupérer son nom et email)</h2>
 
+		    <% unless @cadreInfoPotentielNotEnds.empty? %>
+		    	<% @cadreInfoPotentielNotEnds.each do |cadreInfoPotentielNotEnd| %>
+			    	<div>
+			    		<img src='/image/profie.png' alt='photo de profil' width='120px' height="120px" /> <br>
+			    		<%= cadreInfoPotentielNotEnd.first_name %> <%= cadreInfoPotentielNotEnd.last_name %> <br>
+			    		<a href="#">VOIR</a>
+			    	</div>
+		    	<% end %>
+		    <% end %>
+		</div>
 
-	<div class="mandona">
-	    <h2>Test potentiel non terminé (en cours d eroute),récupérer son nom et email)</h2>
+		<div class="mandona">
+		    <h2>Candidats à relancer pour les ateliers coaching</h2>
 
-	    <% if @cadreInfoPotentielNotEnds.empty? %>
-	    	<i>aucun candidat à traiter</i>
-	    <% else %>
-	    	<% @cadreInfoPotentielNotEnds.each do |cadreInfoPotentielNotEnd| %>
-		    	<div>
-		    		<%= cadreInfoPotentielNotEnd.first_name %>
-		    		<%= cadreInfoPotentielNotEnd.last_name %>
-		    		<%= cadreInfoPotentielNotEnd.image %>
-		    		<%= cadreInfoPotentielNotEnd.score_fit %>
-		    		<%= cadreInfoPotentielNotEnd.score_potential %>
-		    	</div>
-	    	<% end %>
-	    <% end %>
-	</div>
+		    <% unless @cadreInfoRefuseds.empty? %>
+		    	<% @cadreInfoRefuseds.each do |cadreInfoRefused| %>
+		    		<div>
+			    		<img src='/image/profie.png' alt='photo de profil' width='120px' height="120px" /> <br>
+			    		<%= cadreInfoRefused.first_name %> <%= cadreInfoRefused.last_name %> <br>
+			    		Score potentiel: <%= cadreInfoRefused.score_potential %> <br>
+			    		<% unless cadreInfoRefused.score_fit.nil? %>
+			    			Score fit: <%= cadreInfoRefused.score_fit %><br>
+			    			<!-- #cadreInfoRefused.compatibilite -->
+			    		<% else %>
+			    			Score fit: ~ <br>
+						<% end %>
+						<a href="#">VOIR</a>
+		    		</div>
+		    	<% end %>
+		    <% end %>
+		</div>
 
-	<div class="mandona">
-	    <h2>Candidats à relancer pour les ateliers coaching</h2>
+		<div class="mandona">
+		    <h2>RDV Entretiens FIT à valider(nom+prenom, date+horaire rdv)</h2>
 
-	    <% if @cadreInfoRefuseds.empty? %>
-	    	<i>aucun candidat à traiter</i>
-	    <% else %>
-	    	<% @cadreInfoRefuseds.each do |cadreInfoRefused| %>
-	    		<div>
-		    		<%= cadreInfoRefused.first_name %>
-		    		<%= cadreInfoRefused.last_name %>
-		    		<%= cadreInfoRefused.image %>
-		    		<%= cadreInfoRefused.score_fit %>
-		    		<%= cadreInfoRefused.score_potential %>
-	    		</div>
-	    	<% end %>
-	    <% end %>
-	</div>
+		    <% unless @cadreInfoFits.empty? %>
+		    	<% @cadreInfoFits.each do |cadreInfoFit| %>
+		    		<div>
+		    			<img src='/image/profie.png' alt='photo de profil' width='120px' height="120px" /> <br>
+			    		<%= cadreInfoFit.first_name %> <%= cadreInfoFit.last_name %> <br>
 
-	<div class="mandona">
-	    <h2>RDV Entretiens FIT à valider(nom+prenom, date+horaire rdv)</h2>
+			    		Score potentiel: <%= cadreInfoFit.score_potential %> <br>
+			    		Rdv: <span data-times="<%= cadreInfoFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> <br>
+			    		<a href="#">GERER</a>
+			    	</div>
+		    	<% end %>
+		    <% end %>
 
-	    <% if @cadreInfoFits.empty? %>
-	    	<i>aucun candidat à traiter</i>
-	    <% else %>
-	    	<% @cadreInfoFits.each do |cadreInfoFit| %>
-	    		<div>
-		    		<%= cadreInfoFit.first_name %>
-		    		<%= cadreInfoFit.last_name %>
-		    		<%= cadreInfoFit.image %>
-		    		<%= cadreInfoFit.score_fit %>
-		    		<%= cadreInfoFit.score_potential %>
-		    	</div>
-	    	<% end %>
-	    <% end %>
-	</div>
+		</div>
 
-	<div class="mandona">
-	    <h2>Entretiens FIT à effectuer(nom+prénom+date)</h2>
+		<div class="mandona">
+		    <h2>Entretiens FIT à effectuer(nom+prénom+date)</h2>
 
-	    <% if @cadreInfoEnterScoreFits.empty? %>
-	    	<i>aucun candidat à traiter</i>
-	    <% else %>
-	    	<% @cadreInfoEnterScoreFits.each do |cadreInfoEnterScoreFit| %>
-	    		<div>
-		    		<%= cadreInfoEnterScoreFit.first_name %>
-		    		<%= cadreInfoEnterScoreFit.last_name %>
-		    		<%= cadreInfoEnterScoreFit.image %>
-		    		<%= cadreInfoEnterScoreFit.score_fit %>
-		    		<%= cadreInfoEnterScoreFit.score_potential %>
-		    	</div>
-	    	<% end %>
-	    <% end %>
-	</div>
+		    <% unless @cadreInfoEnterScoreFits.empty? %>
+		    	<% @cadreInfoEnterScoreFits.each do |cadreInfoEnterScoreFit| %>
+		    		<div>
+		    			<img src='/image/profie.png' alt='photo de profil' width='120px' height="120px" /> <br>
+			    		<%= cadreInfoEnterScoreFit.first_name %> <%= cadreInfoEnterScoreFit.last_name %> <br>
+			    		Score potentiel: <%= cadreInfoEnterScoreFit.score_potential %> <br>
+			    		Score fit: ~ <br>
+			    		Rdv: <span data-times="<%= cadreInfoEnterScoreFit.cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span> <br>
+			    		<a href="#">GERER</a>
+			    	</div>
+		    	<% end %>
+		    <% end %>
+		</div>
 
-	<div class="mandona">
-	    <h2>Profil non complété</h2>
+		<div class="mandona">
+		    <h2>Profil non complété</h2>
 
-	    <% if @cacadreInfoInCompleteInfoProfils.empty? %>
-	    	<i>aucun candidat à traiter</i>
-	    <% else %>
-	    	<% @cacadreInfoInCompleteInfoProfils.each do |cacadreInfoInCompleteInfoProfil| %>
-	    		<div>
-		    		<%= cacadreInfoInCompleteInfoProfil.first_name %>
-		    		<%= cacadreInfoInCompleteInfoProfil.last_name %>
-		    		<%= cacadreInfoInCompleteInfoProfil.image %>
-		    		<%= cacadreInfoInCompleteInfoProfil.score_fit %>
-		    		<%= cacadreInfoInCompleteInfoProfil.score_potential %>
-		    	</div>
-	    	<% end %>
-	    <% end %>
-	</div>
+		    <% unless @cacadreInfoInCompleteInfoProfils.empty? %>
+		    	<% @cacadreInfoInCompleteInfoProfils.each do |cacadreInfoInCompleteInfoProfil| %>
+		    	<% cfo = cacadreInfoInCompleteInfoProfil %>
+		    		<div>
+		    			<% if cfo.image.nil? %>
+							<img src='/image/profie.png' alt='photo de profil' width='120px' height="120px" /><br>
+						<% else %>
+							<img src='<%= cfo.image %>' alt='photo de profil' width='120px' height="120px" /><br>
+						<% end %>
+			    		<%= cfo.first_name %> <%= cfo.last_name %> <br>
+			    		Score potentiel: <%= cfo.score_potential %> <br>
+			    		Compatibilité: <%= cfo.compatibilite %> <br>
+			    		<a href="#">VOIR</a>
+			    	</div>
+		    	<% end %>
+		    <% end %>
+		</div>
 
-	<div class="mandona">
-	    <h2>Liste des candidats qui n'ont pas encore postulé à une offre ou qui ne sont pas dans un process de recrutement</h2>
+		<div class="mandona">
+		    <h2>Liste des candidats qui n'ont pas encore postulé à une offre ou qui ne sont pas dans un process de recrutement</h2>
 
-	    <% if @cadreNotInOffreForCandidates.empty? %>
-	    	<i>aucun candidat à traiter</i>
-	    <% else %>
-	    	<% @cadreNotInOffreForCandidates.each do |cadreNotInOffreForCandidate| %>
-	    		<div>
-		    		<%= cadreNotInOffreForCandidate.first_name %>
-		    		<%= cadreNotInOffreForCandidate.last_name %>
-		    		<%= cadreNotInOffreForCandidate.image %>
-		    		<%= cadreNotInOffreForCandidate.score_fit %>
-		    		<%= cadreNotInOffreForCandidate.score_potential %>
-		    		cadreNotInOffreForCandidate.cadre_info
-		    	</div>
-	    	<% end %>
-	    <% end %>
-	</div>
+		    <% unless @cadreNotInOffreForCandidates.empty? %>
+		    	<% @cadreNotInOffreForCandidates.each do |cadreNotInOffreForCandidate| %>
+		    		<% cifo = cadreNotInOffreForCandidate.cadre_info %>
+		    		<div>
+		    			<img src='<%= cifo.image %>' alt='photo de profil' width='120px' height="120px" /><br>
+			    		<%= cifo.first_name %> <%= cifo.last_name %> <br>
+			    		
+			    		Score potentiel: <%= cifo.score_potential %> <br>
+			    		Compatibilité: <%= cifo.compatibilite %> <br>
 
-	<div class="mandona">
-	    <h2>Liste des candidats qui n'ont pas eu de retour du recruteur suit au rdv déjà passé.</h2>
+			    		<a href="#">VOIR</a>
+			    	</div>
+		    	<% end %>
+		    <% end %>
+		</div>
 
-	    <% if @cadreInfoRecrutmentActs.empty? %>
-	    	<i>aucun candidat à traiter</i>
-	    <% else %>
-	    	<% @cadreInfoRecrutmentActs.each do |cadreInfoRecrutmentAct| %>
-	    		<div>
-		    		<%= cadreInfoRecrutmentAct.first_name %>
-		    		<%= cadreInfoRecrutmentAct.last_name %>
-		    		<%= cadreInfoRecrutmentAct.image %>
-		    		<%= cadreInfoRecrutmentAct.score_fit %>
-		    		<%= cadreInfoRecrutmentAct.score_potential %>
-				</div>
-	    	<% end %>
-	    <% end %>
-	</div>
+		<div class="mandona">
+		    <h2>Liste des candidats qui n'ont pas eu de retour du recruteur suit au rdv déjà passé.</h2>
 
-	<div class="mandona">
-	    <h2>Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu</h2>
+		    <% unless @cadreInfoRecrutmentActs.empty? %>
+		    	<% @cadreInfoRecrutmentActs.each do |cadreInfoRecrutmentAct| %>
+		    		<% cifo = cadreInfoRecrutmentAct %>
+		    		<div>
+		    			<img src='<%= cifo.image %>' alt='photo de profil' width='120px' height="120px" /><br>
+			    		<%= cifo.first_name %> <%= cifo.last_name %> <br>
+			    		
+			    		Score potentiel: <%= cifo.score_potential %> <br>
+			    		Compatibilité: <%= cifo.compatibilite %> <br>
+			    		
+			    		<a href="#">VOIR</a>
+			    	</div>
+		    	<% end %>
+		    <% end %>
+		</div>
 
-	    <% if @cadreInfoNotPromiseToHires.empty? %>
-	    	<i>aucun candidat à traiter</i>
-	    <% else %>
-	    	<% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
-	    		<div>
-		    		<%= cadreInfoNotPromiseToHire.first_name %>
-		    		<%= cadreInfoNotPromiseToHire.last_name %>
-		    		<%= cadreInfoNotPromiseToHire.image %>
-		    		<%= cadreInfoNotPromiseToHire.score_fit %>
-		    		<%= cadreInfoNotPromiseToHire.score_potential %>
-				</div>
-	    	<% end %>
-	    <% end %>
-	</div>
+		<div class="mandona">
+		    <h2>Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu</h2>
 
-	<div class="mandona">
-	    <h2>Liste des candidats qui sont arrivés au bout de leur période d'essai et qui n'ont pas encore été validés dans le système.</h2>
+		    <% unless @cadreInfoNotPromiseToHires.empty? %>
+		    	<% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
+		    		<% cINPT = cadreInfoNotPromiseToHire.cadre_info %>
+		    		<div>
+		    			<img src='<%= cINPT.image %>' alt='photo de profil' width='120px' height="120px" /><br>
+			    		<%= cINPT.first_name %> <%= cINPT.last_name %> <br>
+			    		
+			    		Score potentiel: <%= cINPT.score_potential %> <br>
+			    		Compatibilité: <%= cINPT.compatibilite %> <br>
+			    		
+			    		<a href="#">VOIR</a>
+			    	</div>
+		    	<% end %>
+		    <% end %>
+		</div>
 
-	    <% if @cadreInfoValidateTimeTryings.empty? %>
-	    	<i>aucun candidat à traiter</i>
-	    <% else %>
-	    	<% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
-	    		<div>
-		    		<%= cadreInfoValidateTimeTrying.first_name %>
-		    		<%= cadreInfoValidateTimeTrying.last_name %>
-		    		<%= cadreInfoValidateTimeTrying.image %>
-		    		<%= cadreInfoValidateTimeTrying.score_fit %>
-		    		<%= cadreInfoValidateTimeTrying.score_potential %>
-		    	</div>
-	    	<% end %>
-	    <% end %>
-	</div>
+		<div class="mandona">
+		    <h2>Liste des candidats qui sont arrivés au bout de leur période d'essai et qui n'ont pas encore été validés dans le système.</h2>
 
-	<div class="mandona">
-	    <h2>Liste des candidats qui n'ont pas reçu leur prime</h2>
+		    <% unless @cadreInfoValidateTimeTryings.empty? %>
+		    	<% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
+		    		<% cINPT = cadreInfoValidateTimeTrying %>
+		    		<div>
+		    			<img src='<%= cINPT.image %>' alt='photo de profil' width='120px' height="120px" /><br>
+			    		<%= cINPT.first_name %> <%= cINPT.last_name %> <br>
+			    		
+			    		Score potentiel: <%= cINPT.score_potential %> <br>
+			    		Compatibilité: <%= cINPT.compatibilite %> <br>
+			    		
+			    		<a href="#">VOIR</a>
+			    	</div>
+		    	<% end %>
+		    <% end %>
+		</div>
 
-	    <% if @cadreInfoPrimNotReceiveds.empty? %>
-	    	<i>aucun candidat à traiter</i>
-	    <% else %>
-	    	<% @cadreInfoPrimNotReceiveds.each do |cadreInfoPrimNotReceived| %>
-	    		<div>
-		    		<%= cadreInfoPrimNotReceived.first_name %>
-		    		<%= cadreInfoPrimNotReceived.last_name %>
-		    		<%= cadreInfoPrimNotReceived.image %>
-		    		<%= cadreInfoPrimNotReceived.score_fit %>
-		    		<%= cadreInfoPrimNotReceived.score_potential %>
-		    	</div>
-	    	<% end %>
-	    <% end %>
-	</div>
+		<div class="mandona">
+		    <h2>Liste des candidats qui n'ont pas reçu leur prime</h2>
 
+		    <% unless @cadreInfoPrimNotReceiveds.empty? %>
+		    	<% @cadreInfoPrimNotReceiveds.each do |cadreInfoPrimNotReceived| %>
+		    		<% cINPT = cadreInfoPrimNotReceived %>
+		    		<div>
+		    			<img src='<%= cINPT.image %>' alt='photo de profil' width='120px' height="120px" /><br>
+			    		<%= cINPT.first_name %> <%= cINPT.last_name %> <br>
+			    		
+			    		Score potentiel: <%= cINPT.score_potential %> <br>
+			    		Compatibilité: <%= cINPT.compatibilite %> <br>
+			    		
+			    		<a href="#">VOIR</a>
+			    	</div>
+		    	<% end %>
+		    <% end %>
+		</div>
 
-  </div>
+  	</div>
 </div>
+
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
+<script type="text/javascript">
+  var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+  var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+  let $elementDate = $('.currentDateEntretien');
+  $elementDate.each(function () {
+    let dateUTC = moment.utc($(this).data().times);
+    let dateGet = new Date(dateUTC.local());
+    let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+    let minute = dateGet.getMinutes()
+    if((minute+"").length == 1){
+      minute = "0"+minute
+    }
+    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ minute );
+  });
+</script>

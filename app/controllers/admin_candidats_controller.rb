@@ -53,6 +53,7 @@ class AdminCandidatsController < ApplicationAdminController
         @cadreInfoRecrutmentActs.push(oFc.cadre.cadre_info)
       end
     end
+    @cadreInfoRecrutmentActs.uniq!
 
     # 12. Accepter/Refuser une promesse d’embauche
     # Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu
@@ -66,16 +67,18 @@ class AdminCandidatsController < ApplicationAdminController
         @cadreInfoValidateTimeTryings.push(pTH.cadre.cadre_info)
       end
     end
+    @cadreInfoValidateTimeTryings.uniq!
 
     # 14: Recevoir sa prime
     # Liste des candidats qui n'ont pas reçu leur prime
     @cadreInfoPrimNotReceiveds = []
     pTHs = PromiseToHire.where(client_time_trying:true,cadre_time_trying:true,repons_client:true,repons_cadre:true,prime_received:false)
     pTHs.each do |pTH|
-      if DateTime.strptime("#{pTH}",'%j/%m/%Y').past?
+      if DateTime.strptime("#{pTH.time_trying}",'%j/%m/%Y').past?
         @cadreInfoPrimNotReceiveds.push(pTH.cadre.cadre_info)
       end
     end
+    @cadreInfoPrimNotReceiveds.uniq!
 
   end
 
