@@ -318,7 +318,7 @@
 
 .ssc-box .ssc-planification .with-input .with-input-item:focus {
   outline: 1px solid white;
-  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+  box-shadow: 1px 0px 3px 1px rgba(214, 214, 214, 0.3);
 }
 
 .ssc-box .ssc-planification .planQ-btn {

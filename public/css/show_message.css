@@ -129,7 +129,7 @@
   border-radius: 8px;
   max-width: 80%;
   text-align: justify;
-  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+  box-shadow: 1px 0px 3px 1px rgba(214, 214, 214, 0.3);
   background: #f0f2f4;
   float: left;
   margin: 30px 0;
@@ -138,7 +138,7 @@
 }
 
 .show-message-box .content .her-message #image {
-  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+  box-shadow: 1px 0px 3px 1px rgba(214, 214, 214, 0.3);
   position: absolute;
   align-self: flex-end;
   left: -35px;

@@ -764,7 +764,7 @@
 }
 
 .rsc-box .rsc-body .validation-cadre-trying .datte-past input[type='date']:focus {
-  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+  box-shadow: 1px 0px 3px 1px rgba(214, 214, 214, 0.3);
   outline: 2px solid #d6b36a;
 }
 
@@ -903,7 +903,7 @@
 
 .ssc-planification .with-input .with-input-item:focus {
   outline: 1px solid white;
-  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+  box-shadow: 1px 0px 3px 1px rgba(214, 214, 214, 0.3);
 }
 
 .ssc-planification .planQ-btn {
@@ -1054,7 +1054,7 @@
 
 .ssc-planification1 .with-input .with-input-item:focus {
   outline: 1px solid white;
-  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+  box-shadow: 1px 0px 3px 1px rgba(214, 214, 214, 0.3);
 }
 
 .ssc-planification1 .planQ-btn {
