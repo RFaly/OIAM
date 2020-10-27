@@ -138,6 +138,12 @@ Rails.application.routes.draw do
   get 'cadre/formation/:formation_id/:name', to: 'formation_candidate#date_rdv', as: 'formation_date_rdv'
   post 'cadre/formation/save', to: 'formation_candidate#save_rdv', as: 'formation_save_rdv'
 
+
+  #messagerie pour admin
+  get '/cadre/messagerie/admin', to:'candidates#messagerie_admin', as: 'messagerie_admin'
+  get '/cadre/messagerie/admin/:id', to:'candidates#show_message_admin', as: 'show_message_admin'
+  post '/cadre/send-message/admin', to:'candidates#post_message_admin', as: 'post_message_admin'
+
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	devise_for :cadres, path: 'cadre', controllers: {
