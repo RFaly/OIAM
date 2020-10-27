@@ -176,6 +176,7 @@
 }
 
 @media screen and (min-width: 320px) {
+
   // flash scss
   .flash {
     position: fixed;
@@ -381,6 +382,7 @@
 
   // equipe equipe responsive
   .eq-all {
+
     .equip1,
     .equip2 {
       flex-direction: column;
@@ -709,6 +711,7 @@
   // search cadre
   .select-cadre-box {
     .search {
+
       &-large,
       &-short {
         width: 95%;
@@ -1042,6 +1045,7 @@
     }
 
     .pc-form {
+
       label,
       input,
       .right {
@@ -1069,6 +1073,7 @@
 }
 
 @media screen and (min-width: 768px) {
+
   // flash scss
   .flash {
     right: 50px;
@@ -1195,6 +1200,7 @@
 
   // equipe equipe responsive
   .eq-all {
+
     .equip1,
     .equip2 {
       flex-direction: row;
@@ -1729,6 +1735,7 @@
     }
 
     .pc-form {
+
       label,
       input,
       .right {
@@ -1763,6 +1770,7 @@
 }
 
 @media screen and (min-width: 992px) {
+
   // bg uniqqqqqqqqqqqqqqqqqqqqqqqqqqqqque
   .bg-uniq {
     margin-top: -505px;
@@ -2033,6 +2041,7 @@
 
   // equipe equipe responsive
   .eq-all {
+
     .equip1,
     .equip2 {
       flex-direction: row;
@@ -2504,6 +2513,7 @@
     .ssc-planification {
       margin: 0 auto;
       margin-top: -190px;
+      margin-bottom: 250px;
       width: 700px;
 
       .js-timeContainer {
@@ -2682,6 +2692,7 @@
     }
 
     .table-td {
+
       #recruteur-fonction,
       #cp-full-name,
       #recruteur-mail,
@@ -2917,6 +2928,7 @@
 }
 
 @media screen and (min-width: 1500px) {
+
   // bg unique
   .bg-uniq {
     margin-top: -605px;
@@ -2985,6 +2997,7 @@
         width: 380px;
 
         .image {
+
           img,
           .c {
             width: 70%;
@@ -3063,6 +3076,7 @@
 }
 
 @media screen and (min-width: 2500px) {
+
   // navbar
   // /////////////////////
   .navdiv {
@@ -3122,6 +3136,7 @@
         width: 400px;
 
         .image {
+
           img,
           .c {
             width: 70%;
