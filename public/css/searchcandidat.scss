@@ -48,19 +48,6 @@
       }
     }
 
-    .hide-right {
-      position: relative;
-
-      &::before {
-        content: ' ';
-        position: absolute;
-        right: 0;
-        background: $secondary_element_color;
-        width: 14px;
-        height: 100%;
-      }
-    }
-
     .td-button {
       input {
         display: flex;

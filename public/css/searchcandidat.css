@@ -62,19 +62,6 @@
   box-shadow: 1px 1px 5px 1px #d6b36a;
 }
 
-.select-cadre-box #send-data-form .hide-right {
-  position: relative;
-}
-
-.select-cadre-box #send-data-form .hide-right::before {
-  content: ' ';
-  position: absolute;
-  right: 0;
-  background: #f0f2f4;
-  width: 14px;
-  height: 100%;
-}
-
 .select-cadre-box #send-data-form .td-button input {
   display: flex;
   justify-content: center;
