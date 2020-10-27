@@ -212,7 +212,7 @@
 			<div class="chat-info">
 				<div class="img">
 					<img src="<%= @contact.client.image %>" alt="avatar">
-					<% if @contact.cadre.is_online? %>
+					<% if @contact.client.is_online? %>
 					<span class="dot-online"></span>
 					<% end %>
 				</div>
@@ -233,7 +233,7 @@
 		<% unless message.is_admin %>
 		<div class="hr-msg">
 			<div class="hr-image">
-				<img src="<%= @contact.cadre.cadre_info.image %>" alt="avatar">
+				<img src="<%= @contact.client.image %>" alt="avatar">
 			</div>
 			<div class="hr-mg">
 				<p><%= message.content %></p>
@@ -251,7 +251,7 @@
 	<%= form_tag(clients_post_message_path) do %>
 	<div class="sd">
 			<input type="hidden" name="id_contact" value="<%= @contact.id%>">
-			<input type="hidden" name="id_cadre" value="<%= @client.id %>">
+			<input type="hidden" name="id_client" value="<%= @client.id %>">
 			<input placeholder="répondre..." class="ms-in" name="message_admin_client[content]" id="message_admin_client_content"></input>
 			<button type="submit">
 				<img src="/image/send.png" alt="send" class="ms-im"/>

@@ -1,10 +1,26 @@
 <link rel="stylesheet" type="text/css" href="/admins/css/message.css" />
 <div class="all-content">
   <div class="left-content"><%= render partial: "admin_candidats/left_menu" %></div>
+  <style media="screen">
+    .box-msg {
+      border: 1px solid #ccc;
+      -webkit-box-shadow: 2px 2px 6px 0px rgba(50, 50, 50, 0.37);
+      -moz-box-shadow:    2px 2px 6px 0px rgba(50, 50, 50, 0.37);
+      box-shadow:         2px 2px 6px 0px rgba(50, 50, 50, 0.37);
+      margin-top: 10px;
+    }
+
+      .clr-bx {
+        webkit-box-shadow: 2px 2px 6px 0px rgba(214,179,106, 1);
+        -moz-box-shadow:    2px 2px 6px 0px rgba(214,179,106, 1);
+        box-shadow:         2px 2px 6px 0px rgba(214,179,106, 1);
+      }
+  </style>
   <div class="main">
     <h2 class="main-title">MESSAGERIE</h2>
     <% unless @contactCadre.empty? %>
     <% @contactCadre.each do |contact| %> <% nbr = contact.mp_admin_not_see %>
+    <div class="<% if nbr == 0 %>box-msg<% else %>clr-bx<% end %>">
     <a href="<%= candidats_show_message_path(contact.cadre.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>">
     <div class="message">
       <div class="block-image">
@@ -33,6 +49,7 @@
         </div>
     </div>
     </a>
+    </div>
     <% end %>
     <% else %>
       Vous n'avez aucun contact d'un candidat pour le moment...
