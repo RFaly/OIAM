@@ -51,7 +51,7 @@
 
 	.chat-body {
 		overflow-y: scroll;
-		padding-top: 50px;
+		padding-top: 30px;
 		padding-left: 30px;
 		padding-right: 30px;
 		border-left: 2px solid #ccc;
@@ -79,6 +79,7 @@
 	.hr-msg {
 		display: flex;
 		position: relative;
+		margin-top: 10px;
 	}
 
 	.hr-image img {
@@ -97,8 +98,8 @@
 		text-align: left;
 		padding: 5px 20px;
 		border-radius: 50px;
-		margin-top: 10px;
 		width: 50%;
+		margin-top: 10px;
 	}
 
 	.hr-mg p {
@@ -254,7 +255,7 @@
 	<div class="sd">
 			<input type="hidden" name="id_contact" value="<%= @contact.id%>">
 			<input type="hidden" name="id_cadre" value="<%= @cadre.id %>">
-			<input placeholder="répondre..." class="ms-in" name="message_admin_cadre[content]" id="message_admin_cadre_content"></input>
+			<input placeholder="répondre..." class="ms-in" name="message_admin_cadre[content]" id="message_admin_cadre_content" autocomplete="off"></input>
 			<button type="submit">
 				<img src="/image/send.png" alt="send" class="ms-im"/>
 			</button>
