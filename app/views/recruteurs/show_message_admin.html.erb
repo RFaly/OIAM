@@ -1,17 +1,11 @@
-<link rel="stylesheet" href="/css/admin_prms.css" />
-
+<% content_for :head_style do %>
+  	<link rel="stylesheet" href="/css/suivi_show_post.css" />
+<% end %>
 <style>
-	
 	.fcp-box {
 		width: 90%;
 		justify-content: center;
 		margin: 0 auto;
-	}
-	.hr-image img {
-		width: 60px;
-		height: 60px;
-		border-radius: 50%;
-		border: 2px solid #d6b36a;
 	}
 		.hr-msg {
 		display: flex;
@@ -34,24 +28,16 @@
 		padding: 20px;
 		text-align: left;
 	}
-
 </style>
 
-
-<div class="client-column">
-  	<div class="client-menu-left">
-    	<%= render partial: "admin_candidats/left_menu" %>
-  	</div>
-
+<div class="all-content">
+	
   	<div class="cp-box">
    		<div class="fcp-box">
 			<div class="chat-body">
 				<% @messages.each do |message| %>
-					<% unless message.is_admin %>
+					<% if message.is_admin %>
 						<div class="hr-msg">
-							<div class="hr-image">
-								<img src="<%= @contact.client.image %>" alt="avatar" >
-							</div>
 							<div class="hr-mg">
 								<p><%= message.content %></p>
 							</div>
@@ -63,18 +49,16 @@
 					<% end %>
 				<% end %>
 			</div>
-		</div>
-		<div class="mandona">
-			<%= form_tag(clients_post_message_path) do %>
+			<%= form_tag(post_message_client_admin_path) do %>
 				<div class="sd">
-					<input type="hidden" name="id_contact" value="<%= @contact.id %>">
-					<input type="hidden" name="id_client" value="<%= @client.id %>">
-					<textarea placeholder="répondre..." class="ms-in" name="message_admin_client[content]" id="message_admin_cadre_content"></textarea>
+					<input type="hidden" name="id_contact" value="<%= @contact.id%>">
+					<input type="hidden" name="id_admin" value="<%= @admin.id %>">
+					<textarea placeholder="répondre..." class="ms-in" name="message_admin_cadre[content]" id="message_admin_cadre_content"></textarea>
 					<button type="submit">
 						<img src="/image/send.png" alt="send" class="ms-im"/>
 					</button>
 				</div>
 			<% end %>
 		</div>
- 	</div>
+	</div>
 </div>
