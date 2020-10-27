@@ -1,6 +1,4 @@
-<% content_for :head_style do %>
-  	<link rel="stylesheet" href="/css/suivi_show_post.css" />
-<% end %>
+
 <style>
 	.fcp-box {
 		width: 90%;
@@ -29,10 +27,13 @@
 		text-align: left;
 	}
 </style>
-
-<div class="all-content">
-	
-  	<div class="cp-box">
+<% content_for :head_style do %>
+  <link rel="stylesheet" href="/css/suivi_show_post.css" />
+<% end %>
+<!-- body html  -->
+<div class="client-column">
+  <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>  
+  <div class="cp-box">
    		<div class="fcp-box">
 			<div class="chat-body">
 				<% @messages.each do |message| %>
@@ -53,12 +54,12 @@
 				<div class="sd">
 					<input type="hidden" name="id_contact" value="<%= @contact.id%>">
 					<input type="hidden" name="id_admin" value="<%= @admin.id %>">
-					<textarea placeholder="répondre..." class="ms-in" name="message_admin_cadre[content]" id="message_admin_cadre_content"></textarea>
+					<textarea placeholder="répondre..." class="ms-in" name="message_admin_client[content]" id="message_admin_cadre_content"></textarea>
 					<button type="submit">
 						<img src="/image/send.png" alt="send" class="ms-im"/>
 					</button>
 				</div>
 			<% end %>
 		</div>
-	</div>
+ </div>
 </div>
