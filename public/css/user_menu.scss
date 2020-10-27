@@ -1,8 +1,9 @@
 @import 'config';
+
 .left-menu-r {
-  width: 300px;
-  position: relative;
-  padding: 70px 0;
+  // width: 300px;
+  // position: relative;
+  // padding: 70px 0;
   text-align: -webkit-center;
   text-align: -moz-center;
   text-align: center;
@@ -11,19 +12,23 @@
 
   .left-menu-content {
     list-style: none;
+
     li {
       position: relative;
-      margin: 42px 0;
+      // margin: 42px 0;
+
       a {
         text-decoration: none;
         color: black;
         font: $ffbtn;
         font-size: 16px;
+
         &:hover,
         &:active {
           color: $main_theme_color;
         }
       }
+
       div {
         position: absolute;
         display: flex;
@@ -39,22 +44,27 @@
         width: 30px;
         height: 30px;
         border-radius: 50%;
+
         &.first {
           right: 62px;
         }
+
         &.last {
           right: 54px;
         }
       }
     }
+
     .color-this {
       color: $main_theme_color;
     }
   }
+
   .left-menu-photo {
     width: 110px;
     margin: 0 auto;
     height: 110px;
+
     img,
     .c {
       border-radius: 50%;
@@ -62,6 +72,7 @@
       height: 100%;
     }
   }
+
   // open class
   .left-menu-photo.open {
     transition: all 500ms ease-in-out;
@@ -72,12 +83,15 @@
     left: 10px;
     z-index: -1;
   }
+
   .left-menu-content.open {
     display: none;
   }
+
   &.open {
     transition: all 500ms ease-in-out;
   }
+
   // ************************************************
   // menu burger
   // **********************************************
@@ -91,6 +105,7 @@
     cursor: pointer;
     box-sizing: border-box;
   }
+
   .btn-menu-burger {
     position: absolute;
     width: 100%;
@@ -100,6 +115,7 @@
     background: $main_theme_color;
     transition: all 500ms ease-in-out;
   }
+
   .btn-menu-burger::before {
     content: ' ';
     position: absolute;
@@ -109,6 +125,7 @@
     height: 5px;
     background: $main_theme_color;
   }
+
   .btn-menu-burger::after {
     content: ' ';
     position: absolute;
@@ -118,16 +135,19 @@
     height: 5px;
     background: $main_theme_color;
   }
+
   .btn-menu-r .open {
     transform: rotate(720deg);
     transition: all 500ms ease-in-out;
     background: transparent;
   }
+
   .btn-menu-burger.open::before {
     width: 125%;
     transition: all 500ms ease-in-out;
     transform: rotate(45deg) translate(12px, 5px);
   }
+
   .btn-menu-burger.open::after {
     width: 125%;
     transition: all 500ms ease-in-out;

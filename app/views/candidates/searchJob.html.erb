@@ -18,10 +18,10 @@
 					<% end %>
 				</select>
 				<select name="metier" id="" class="seacrh-drop">
-					<option value="" disabled selected>Fonction</option>
-					<% @metiers.each do |metier| %>
-		              <option value="<%= metier.id %>"><%= metier.name %></option>
-		            <% end %>
+						<option value="" disabled selected>Fonction</option>
+						<% @metiers.each do |metier| %>
+			              <option value="<%= metier.id %>"><%= metier.name %></option>
+			      <% end %>
 				</select>
 			</div>
 			<div class="bar-court">
@@ -74,17 +74,6 @@
 			<% end %>
 		<div class="post_info" id="list-offre-job-js">
 			<%= render "searchJob" %>
-		</div>
-		<div class="next-page">
-			<% nombre_offres = @nombre_offres  %>
-			<% if @page == 0 %>
-				<a href="<%= searchJob_path(page: @page + 1 )%>">SUIVANT<span class="crochet"> ></span></a>
-			<% elsif @page ==  nombre_offres %>
-				<a href="<%= searchJob_path(page: @page - 1 )%>">PRECEDENT <span class="crochet"> ></span> </a>
-			<% else %>
-				<a href="<%= searchJob_path(page: @page - 1 )%>"><span class="crochet">< </span>PRECEDENT</a>
-				<a href="<%= searchJob_path(page: @page + 1 )%>">SUIVANT <span class="crochet"> ></span> </a>
-			<% end %>
 		</div>
 	</div>
 

@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="/css/admin_prms.css" />
+
+<style>
+	.fcp-box {
+		width: 90%;
+		justify-content: center;
+		margin: 0 auto;
+	}
+	.hr-image img {
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		border: 2px solid #d6b36a;
+	}
+		.hr-msg {
+		display: flex;
+		position: relative;
+	}
+		.hr-mg {
+		background: #d6b36a;
+		text-align: left;
+		padding: 20px;
+		border-radius: 10px;
+		width: 60%;
+	}
+
+		.m-msg {
+		margin-left: auto;
+		margin-top: 20px;
+		background: #e3d7bf;
+		width: 60%;
+		border-radius: 10px;
+		padding: 20px;
+		text-align: left;
+	}
+</style>
+
+
+<div class="client-column">
+  	<div class="client-menu-left">
+    	<%= render partial: "admin_candidats/left_menu" %>
+  	</div>
+
+  	<div class="cp-box">
+   		<div class="fcp-box">
+			<div class="chat-body">
+				<% @messages.each do |message| %>
+				<% unless message.is_admin %>
+				<div class="hr-msg">
+					<div class="hr-image">
+						<img src="<%= @contact.cadre.cadre_info.image %>" alt="avatar" >
+					</div>
+					<div class="hr-mg">
+						<p><%= message.content %></p>
+					</div>
+				</div>
+				<% else %>
+				<div class="m-msg">
+					<p><%= message.content %></p>
+				</div>
+				<% end %>
+				<% end %>
+			</div>
+			<%= form_tag(candidats_post_message_path) do %>
+				<div class="sd">
+					<input type="hidden" name="id_contact" value="<%= @contact.id%>">
+					<input type="hidden" name="id_cadre" value="<%= @cadre.id %>">
+					<textarea placeholder="répondre..." class="ms-in" name="message_admin_cadre[content]" id="message_admin_cadre_content"></textarea>
+					<button type="submit">
+						<img src="/image/send.png" alt="send" class="ms-im"/>
+					</button>
+				</div>
+			<% end %>
+		</div>
+ 	</div>
+</div>

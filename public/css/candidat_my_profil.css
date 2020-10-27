@@ -202,9 +202,11 @@ body{
   margin-left: 38px;
 }
 
+.content{
+	display: flex;
+}
+
 @media only screen and (min-width: 800px){
-
-
   .block-button{
     text-align: center;
   }
@@ -223,9 +225,7 @@ body{
 }
 
 @media only screen and (min-width: 900px){
-  .content{
-    display: flex;
-  }
+
 
 
 
@@ -286,6 +286,7 @@ body{
 @media only screen and (min-width: 900px){
   .btn-edit{
     display: inline-block;
+		min-width: 250px;
   }
 
 

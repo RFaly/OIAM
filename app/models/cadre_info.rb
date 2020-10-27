@@ -1,7 +1,7 @@
 class CadreInfo < ApplicationRecord
 	before_create :confirmation_token
 	has_one :agenda_admin
-	
+
 	belongs_to :cadre, optional: true
 	belongs_to :admin, optional: true
 
@@ -15,7 +15,7 @@ class CadreInfo < ApplicationRecord
 		500
 	end
 
-	def status
+	def status_state
 		if self.is_recrute.nil?
 			"en cours"
 		elsif self.is_recrute
@@ -57,6 +57,4 @@ class CadreInfo < ApplicationRecord
       self.confirm_token = SecureRandom.urlsafe_base64.to_s
     end
   end
-
-
 end

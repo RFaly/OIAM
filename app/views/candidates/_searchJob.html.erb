@@ -41,6 +41,17 @@
 <% else %>
 <p class="alert success" >Les nouvelles offres d'emploi seront disponibles très prochainement!</p>
 <% end %>
+<div class="next-page">
+	<% nombre_offres = @nombre_offres  %>
+	<% if @page == 0 %>
+		<a href="<%= searchJob_path(page: @page + 1 )%>">SUIVANT<span class="crochet"> ></span></a>
+	<% elsif @page ==  nombre_offres %>
+		<a href="<%= searchJob_path(page: @page - 1 )%>"><span class="crochet"> < </span>PRECEDENT</a>
+	<% else %>
+		<a href="<%= searchJob_path(page: @page - 1 )%>"><span class="crochet">< </span>PRECEDENT |</a>
+		<a href="<%= searchJob_path(page: @page + 1 )%>">| SUIVANT <span class="crochet"> ></span> </a>
+	<% end %>
+</div>
 
 <script>
 $(function () {
