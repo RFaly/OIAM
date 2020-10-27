@@ -7,5 +7,189 @@
 
   <div class="cp-box">
   	<h1>A traiter</h1>
+
+
+	<div class="mandona">
+	    <h2>Test potentiel non terminé (en cours d eroute),récupérer son nom et email)</h2>
+
+	    <% if @cadreInfoPotentielNotEnds.empty? %>
+	    	<i>aucun candidat à traiter</i>
+	    <% else %>
+	    	<% @cadreInfoPotentielNotEnds.each do |cadreInfoPotentielNotEnd| %>
+		    	<div>
+		    		<%= cadreInfoPotentielNotEnd.first_name %>
+		    		<%= cadreInfoPotentielNotEnd.last_name %>
+		    		<%= cadreInfoPotentielNotEnd.image %>
+		    		<%= cadreInfoPotentielNotEnd.score_fit %>
+		    		<%= cadreInfoPotentielNotEnd.score_potential %>
+		    	</div>
+	    	<% end %>
+	    <% end %>
+	</div>
+
+	<div class="mandona">
+	    <h2>Candidats à relancer pour les ateliers coaching</h2>
+
+	    <% if @cadreInfoRefuseds.empty? %>
+	    	<i>aucun candidat à traiter</i>
+	    <% else %>
+	    	<% @cadreInfoRefuseds.each do |cadreInfoRefused| %>
+	    		<div>
+		    		<%= cadreInfoRefused.first_name %>
+		    		<%= cadreInfoRefused.last_name %>
+		    		<%= cadreInfoRefused.image %>
+		    		<%= cadreInfoRefused.score_fit %>
+		    		<%= cadreInfoRefused.score_potential %>
+	    		</div>
+	    	<% end %>
+	    <% end %>
+	</div>
+
+	<div class="mandona">
+	    <h2>RDV Entretiens FIT à valider(nom+prenom, date+horaire rdv)</h2>
+
+	    <% if @cadreInfoFits.empty? %>
+	    	<i>aucun candidat à traiter</i>
+	    <% else %>
+	    	<% @cadreInfoFits.each do |cadreInfoFit| %>
+	    		<div>
+		    		<%= cadreInfoFit.first_name %>
+		    		<%= cadreInfoFit.last_name %>
+		    		<%= cadreInfoFit.image %>
+		    		<%= cadreInfoFit.score_fit %>
+		    		<%= cadreInfoFit.score_potential %>
+		    	</div>
+	    	<% end %>
+	    <% end %>
+	</div>
+
+	<div class="mandona">
+	    <h2>Entretiens FIT à effectuer(nom+prénom+date)</h2>
+
+	    <% if @cadreInfoEnterScoreFits.empty? %>
+	    	<i>aucun candidat à traiter</i>
+	    <% else %>
+	    	<% @cadreInfoEnterScoreFits.each do |cadreInfoEnterScoreFit| %>
+	    		<div>
+		    		<%= cadreInfoEnterScoreFit.first_name %>
+		    		<%= cadreInfoEnterScoreFit.last_name %>
+		    		<%= cadreInfoEnterScoreFit.image %>
+		    		<%= cadreInfoEnterScoreFit.score_fit %>
+		    		<%= cadreInfoEnterScoreFit.score_potential %>
+		    	</div>
+	    	<% end %>
+	    <% end %>
+	</div>
+
+	<div class="mandona">
+	    <h2>Profil non complété</h2>
+
+	    <% if @cacadreInfoInCompleteInfoProfils.empty? %>
+	    	<i>aucun candidat à traiter</i>
+	    <% else %>
+	    	<% @cacadreInfoInCompleteInfoProfils.each do |cacadreInfoInCompleteInfoProfil| %>
+	    		<div>
+		    		<%= cacadreInfoInCompleteInfoProfil.first_name %>
+		    		<%= cacadreInfoInCompleteInfoProfil.last_name %>
+		    		<%= cacadreInfoInCompleteInfoProfil.image %>
+		    		<%= cacadreInfoInCompleteInfoProfil.score_fit %>
+		    		<%= cacadreInfoInCompleteInfoProfil.score_potential %>
+		    	</div>
+	    	<% end %>
+	    <% end %>
+	</div>
+
+	<div class="mandona">
+	    <h2>Liste des candidats qui n'ont pas encore postulé à une offre ou qui ne sont pas dans un process de recrutement</h2>
+
+	    <% if @cadreNotInOffreForCandidates.empty? %>
+	    	<i>aucun candidat à traiter</i>
+	    <% else %>
+	    	<% @cadreNotInOffreForCandidates.each do |cadreNotInOffreForCandidate| %>
+	    		<div>
+		    		<%= cadreNotInOffreForCandidate.first_name %>
+		    		<%= cadreNotInOffreForCandidate.last_name %>
+		    		<%= cadreNotInOffreForCandidate.image %>
+		    		<%= cadreNotInOffreForCandidate.score_fit %>
+		    		<%= cadreNotInOffreForCandidate.score_potential %>
+		    		cadreNotInOffreForCandidate.cadre_info
+		    	</div>
+	    	<% end %>
+	    <% end %>
+	</div>
+
+	<div class="mandona">
+	    <h2>Liste des candidats qui n'ont pas eu de retour du recruteur suit au rdv déjà passé.</h2>
+
+	    <% if @cadreInfoRecrutmentActs.empty? %>
+	    	<i>aucun candidat à traiter</i>
+	    <% else %>
+	    	<% @cadreInfoRecrutmentActs.each do |cadreInfoRecrutmentAct| %>
+	    		<div>
+		    		<%= cadreInfoRecrutmentAct.first_name %>
+		    		<%= cadreInfoRecrutmentAct.last_name %>
+		    		<%= cadreInfoRecrutmentAct.image %>
+		    		<%= cadreInfoRecrutmentAct.score_fit %>
+		    		<%= cadreInfoRecrutmentAct.score_potential %>
+				</div>
+	    	<% end %>
+	    <% end %>
+	</div>
+
+	<div class="mandona">
+	    <h2>Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu</h2>
+
+	    <% if @cadreInfoNotPromiseToHires.empty? %>
+	    	<i>aucun candidat à traiter</i>
+	    <% else %>
+	    	<% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
+	    		<div>
+		    		<%= cadreInfoNotPromiseToHire.first_name %>
+		    		<%= cadreInfoNotPromiseToHire.last_name %>
+		    		<%= cadreInfoNotPromiseToHire.image %>
+		    		<%= cadreInfoNotPromiseToHire.score_fit %>
+		    		<%= cadreInfoNotPromiseToHire.score_potential %>
+				</div>
+	    	<% end %>
+	    <% end %>
+	</div>
+
+	<div class="mandona">
+	    <h2>Liste des candidats qui sont arrivés au bout de leur période d'essai et qui n'ont pas encore été validés dans le système.</h2>
+
+	    <% if @cadreInfoValidateTimeTryings.empty? %>
+	    	<i>aucun candidat à traiter</i>
+	    <% else %>
+	    	<% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
+	    		<div>
+		    		<%= cadreInfoValidateTimeTrying.first_name %>
+		    		<%= cadreInfoValidateTimeTrying.last_name %>
+		    		<%= cadreInfoValidateTimeTrying.image %>
+		    		<%= cadreInfoValidateTimeTrying.score_fit %>
+		    		<%= cadreInfoValidateTimeTrying.score_potential %>
+		    	</div>
+	    	<% end %>
+	    <% end %>
+	</div>
+
+	<div class="mandona">
+	    <h2>Liste des candidats qui n'ont pas reçu leur prime</h2>
+
+	    <% if @cadreInfoPrimNotReceiveds.empty? %>
+	    	<i>aucun candidat à traiter</i>
+	    <% else %>
+	    	<% @cadreInfoPrimNotReceiveds.each do |cadreInfoPrimNotReceived| %>
+	    		<div>
+		    		<%= cadreInfoPrimNotReceived.first_name %>
+		    		<%= cadreInfoPrimNotReceived.last_name %>
+		    		<%= cadreInfoPrimNotReceived.image %>
+		    		<%= cadreInfoPrimNotReceived.score_fit %>
+		    		<%= cadreInfoPrimNotReceived.score_potential %>
+		    	</div>
+	    	<% end %>
+	    <% end %>
+	</div>
+
+
   </div>
 </div>
