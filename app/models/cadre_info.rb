@@ -13,7 +13,7 @@ class CadreInfo < ApplicationRecord
 	#constance score minimum test potential
 	def self.min_score
 		500
-	ende
+	end
 
 	def status_state
 		if self.is_recrute.nil?

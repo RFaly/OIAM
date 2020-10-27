@@ -55,9 +55,18 @@ class AdminCandidatsController < ApplicationAdminController
 11. Accepter/Refuser une demande d’entretien{
   # Liste des candidats qui n'ont pas eu de retour du recruteur suit au rdv déjà passé.
   
+  oFcs = OffreForCandidate.all
+  oFcs.each do |oFc|
+
+    agendat_client = oFc.agenda_clients.last
+
+
+
+
+
+  end
+
   
-
-
 
   
 
