@@ -1,6 +1,6 @@
 <!-- call css  -->
 <% content_for :head_style do %>
-  <link rel="stylesheet" href="/css/shownewjob.css" />
+<link rel="stylesheet" href="/css/shownewjob.css" />
 <% end %>
 
 <!-- body html  -->
@@ -37,8 +37,9 @@
           <div class="show-einfos">
             <div class="logo">
               <% unless @offre.image.nil? %>
-                <div class="c" style="background: url(<%= @offre.image%>) center no-repeat; background-size: cover"></div>
-               <% end %>
+              <div class="c" style="background: url(<%= @offre.image%>) center no-repeat; background-size: contain">
+              </div>
+              <% end %>
             </div>
             <div class="local">
               <p><%= @offre.intitule_pote %></p>
@@ -62,7 +63,7 @@
               <%= @offre.question2 %>
             </div>
           </div>
-         
+
           <div class="so-content">
             <p>RATTACHEMENT HIÉRARCHIQUE</p>
             <div><%= @offre.rattachement %></div>
@@ -85,11 +86,11 @@
             <div>
               <% case @offre.numberEntretien.to_i %>
               <% when 1 %>
-                1 entretien RH
+              1 entretien RH
               <% when 2 %>
-                1 entretien RH + 1 entretien Manager
+              1 entretien RH + 1 entretien Manager
               <% when 3 %>
-                1 entretien RH + 2 entretiens Manager
+              1 entretien RH + 2 entretiens Manager
               <% end %>
             </div>
           </div>
@@ -109,23 +110,25 @@
         </div>
         <div class="so-btn">
           <%= link_to "MODIFIER", editJob_path(@offre.id), class:'so-btn-btn' %> <% unless @offre.is_publish %>
-              <%= link_to publish_path(@offre.id), method: :patch, class: 'link-delete so-btn-btn', :remote => true do %>PUBLIER<% end %>
-            <% else %>
-              <% if @offre.my_top_five_candidates.count < 5 %>
-                  <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id) %>
-                  <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %>
-              <% else %>
-                  <%= link_to "Mon suivi recrutement", recruitment_liste_cadre_path(@offre.id) %>
-              <% end %>
-            <% end %>
+          <%= link_to publish_path(@offre.id), method: :patch, class: 'link-delete so-btn-btn', :remote => true do %>PUBLIER<% end %>
+          <% else %>
+          <% if @offre.my_top_five_candidates.count < 5 %>
+          <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id) %>
+          <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %>
+          <% else %>
+          <%= link_to "Mon suivi recrutement", recruitment_liste_cadre_path(@offre.id) %>
+          <% end %>
+          <% end %>
         </div>
       </div>
       <div class="show-pb2" style="display: none;" id="publish-ajax">
         <!-- - apercu photo a1 et a2  -->
         <p>Votre offre d’emploi a bien été publiée.</p>
         <img src="/image/check.png" alt="image checked" class="check" />
-        <p>Vous disposez désormais de 15 jours pour sélectionner 5 candidats recommandés par notre algorithme ou en recherchant directement dans notre base de données.</p>
-        <p class="p-icon">Vous pouvez sauvegarder les profils avec l’icône <img src="/image/Vector-24.png" alt="diamond icone" /></p>
+        <p>Vous disposez désormais de 15 jours pour sélectionner 5 candidats recommandés par notre algorithme ou en
+          recherchant directement dans notre base de données.</p>
+        <p class="p-icon">Vous pouvez sauvegarder les profils avec l’icône <img src="/image/Vector-24.png"
+            alt="diamond icone" /></p>
 
         <div class="show-pb2-btn">
           <%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id) %>

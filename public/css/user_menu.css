@@ -14,10 +14,6 @@
   position: relative;
 }
 
-.pdp{
-  object-fit: cover;
-}
-
 .left-menu-r .left-menu-content li a {
   text-decoration: none;
   color: black;

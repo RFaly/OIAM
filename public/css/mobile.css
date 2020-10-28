@@ -1560,8 +1560,11 @@
     width: 235px;
   }
   .select-cadre-box .select-cadre-list-items .cadre-box:hover .cadre-box-info, .select-cadre-box .select-cadre-list-items .cadre-box:active .cadre-box-info {
-    height: 170px;
+    height: 220px;
     transition: all 500ms ease-in-out;
+  }
+  .select-cadre-box .select-cadre-list-items .cadre-box:hover .cadre-box-info p, .select-cadre-box .select-cadre-list-items .cadre-box:active .cadre-box-info p {
+    margin-bottom: .5rem;
   }
   .select-cadre-box .select-cadre-list-items .cadre-box .cadre-box-image {
     position: relative;
