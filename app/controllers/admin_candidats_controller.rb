@@ -12,7 +12,7 @@ class AdminCandidatsController < ApplicationAdminController
 
     # 3. Ouverture Mail2 Résultat
     # Candidats à relancer pour les ateliers coaching
-    @cadreInfoRefuseds = allCadreInfos.where(is_recrute:false)
+    # @cadreInfoRefuseds = allCadreInfos.where(is_recrute:false)
 
     # 4. Clique sur lien TP positif et planifie un entretien FIT
     # RDV Entretiens FIT à valider(nom+prenom, date+horaire rdv)
@@ -33,13 +33,14 @@ class AdminCandidatsController < ApplicationAdminController
 
     # 9. Cherche un offre d’emploi
     # Liste des candidats qui n'ont pas encore postulé à une offre ou qui ne sont pas dans un process de recrutement
-    @cadreNotInOffreForCandidates = Cadre.all - Cadre.joins(:offre_for_candidates).distinct
+    # @cadreNotInOffreForCandidates = Cadre.all - Cadre.joins(:offre_for_candidates).distinct
 
     # 10. Postule à une offre d’emploi{}
 
     # 11. Accepter/Refuser une demande d’entretien
     # Liste des candidats qui n'ont pas eu de retour du recruteur suit au rdv déjà passé.
-    @cadreInfoRecrutmentActs = []
+=begin    
+     @cadreInfoRecrutmentActs = []
     oFcs = OffreForCandidate.where(status:nil)
 
     oFcs.each do |oFc|
@@ -50,6 +51,7 @@ class AdminCandidatsController < ApplicationAdminController
       end
     end
     @cadreInfoRecrutmentActs.uniq!
+=end
 
     # 12. Accepter/Refuser une promesse d’embauche
     # Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu
@@ -97,6 +99,16 @@ class AdminCandidatsController < ApplicationAdminController
     @messages = @contact.message_admin_cadres.order(created_at: :ASC)
     @newMessage = MessageAdminCadre.new
   end
+
+  def be_processed_inscription
+    @cadre_info = CadreInfo.find_by_id(params[:id])
+  end
+
+  def be_processed_validate_entretien_fit
+    @cadre_info = CadreInfo.find_by_id(params[:id])
+  end
+
+
 
   def show_message
     @cadre = Cadre.find_by_id(params[:id])

@@ -228,6 +228,11 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin-candidats/traitées', to: 'admin_candidats#processed', as: 'candidats_processed'
   get 'secret-oiam-page/admin-candidats/messageries', to: 'admin_candidats#messaging', as: 'candidats_messaging'
 
+  get 'secret-oiam-page/admin-candidats/a-traiter/inscription/:id', to: 'admin_candidats#be_processed_inscription', as: 'cbp_inscription'
+  get 'secret-oiam-page/admin-candidats/a-traiter/entretin-fit/:id', to: 'admin_candidats#be_processed_validate_entretien_fit', as: 'cbp_validate_entretien_fit'
+
+
+
   #messagerie cadre
   get 'secret-oiam-page/admin-candidats/messageries/:id', to: 'admin_candidats#show_message', as: 'candidats_show_message'
   post 'secret-oiam-page/admin-candidats/send/messages', to: 'admin_candidats#post_message', as: 'candidats_post_message'
