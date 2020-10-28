@@ -8,7 +8,7 @@ class AdminCandidatsController < ApplicationAdminController
 
     # 2. Tests Potential
     # Test potentiel non terminé (en cours d eroute),récupérer son nom et email)
-    @cadreInfoPotentielNotEnds = []
+    @cadreInfoPotentielNotEnds = allCadreInfos.where(is_recrute:nil,score_potential:nil)
 
     # 3. Ouverture Mail2 Résultat
     # Candidats à relancer pour les ateliers coaching
