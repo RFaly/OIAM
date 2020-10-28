@@ -20,9 +20,9 @@
 
 	    <% unless @cadreInfoPotentielNotEnds.empty? %>
 	    	<% @cadreInfoPotentielNotEnds.each do |cadreInfoPotentielNotEnd| %>
-	    		<div data-name=".cadreInfoPotentielNotEnd" class="orange">
+	    		<div data-name=".INSCRIPTION" class="orange">
 					<!-- <img src='/image/profie.png'/> <br> -->
-				    <h2>TEST POTENTIEL</h2>
+				    <h2>INSCRIPTION</h2>
 				    <div>
 				    	<%= cadreInfoPotentielNotEnd.first_name %> <%= cadreInfoPotentielNotEnd.last_name %>
 				    </div>
@@ -39,18 +39,17 @@
 	    	<% end %>
 	    <% end %>
 
-
 		<!-- <h2>RDV Entretiens FIT à valider(nom+prenom, date+horaire rdv)</h2> -->
 
 	    <% unless @cadreInfoFits.empty? %>
 	    	<% @cadreInfoFits.each do |cadreInfoFit| %>
-	    		<div data-name=".cadreInfoFit" class="orange">
-	    			<h2>VALIDER TEST FIT</h2>
+	    		<div data-name=".INSCRIPTION" class="orange">
+	    			<h2>INSCRIPTION</h2>
 	    			<div>
 		    			<%= cadreInfoFit.first_name %> <%= cadreInfoFit.last_name %>
 		    		</div>
 		    		<div>
-				    	Date d'entrée: <span data-times="<%= cadreInfoFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+				    	Date d'entrée: <span data-times="<%= cadreInfoFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
 				    </div>
 				    <div>
 				    	Date limite: ~
@@ -62,18 +61,17 @@
 	    	<% end %>
 	    <% end %>
 
-
 		<!-- <h2>Entretiens FIT à effectuer(nom+prénom+date)</h2> -->
 
 	    <% unless @cadreInfoEnterScoreFits.empty? %>
 	    	<% @cadreInfoEnterScoreFits.each do |cadreInfoEnterScoreFit| %>
-	    		<div data-name=".cadreInfoEnterScoreFit" class="orange">
-	    			<h2>EFFECTUER TEST FIT</h2>
+	    		<div data-name=".INSCRIPTION" class="orange">
+	    			<h2>INSCRIPTION</h2>
 	    			<div>
 	    				<%= cadreInfoEnterScoreFit.first_name %> <%= cadreInfoEnterScoreFit.last_name %>
 	    			</div>
 	    			<div>
-	    				Datee d'entrée: <span data-times="<%= cadreInfoEnterScoreFit.cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+	    				Date d'entrée: <span data-times="<%= cadreInfoEnterScoreFit.cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
 	    			</div>
 					<div>
 				    	Date limite: ~
@@ -90,13 +88,13 @@
 	    <% unless @cacadreInfoInCompleteInfoProfils.empty? %>
 	    	<% @cacadreInfoInCompleteInfoProfils.each do |cacadreInfoInCompleteInfoProfil| %>
 	    	<% cfo = cacadreInfoInCompleteInfoProfil %>
-	    		<div data-name=".cacadreInfoInCompleteInfoProfil" class="orange">
-	    			<h2>PROFIL NON COMPLETE</h2>
+	    		<div data-name=".ADMISSION" class="orange">
+	    			<h2>ADMISSION</h2>
 	    			<div>
 		    			<%= cfo.first_name %> <%= cfo.last_name %>
 	    			</div>
 	    			<div>
-	    				Datee d'entrée: ~
+	    				Date d'entrée: ~
 	    			</div>
 	    			<div>
 	    				Date limite: ~
@@ -108,67 +106,25 @@
 	    	<% end %>
 	    <% end %>
 
-<!-- <h2>Liste des candidats qui n'ont pas encore postulé à une offre ou qui ne sont pas dans un process de recrutement</h2> -->
-
-	    <% unless @cadreNotInOffreForCandidates.empty? %>
-	    	<% @cadreNotInOffreForCandidates.each do |cadreNotInOffreForCandidate| %>
-	    		<% cifo = cadreNotInOffreForCandidate.cadre_info %>
-	    		<div data-name=".cadreNotInOffreForCandidate" class="orange">
-	    			<h2>PROFIL NON COMPLETE</h2>
-	    			<div>
-		    			<%= cifo.first_name %> <%= cifo.last_name %>
-	    			</div>
-	    			<div>
-	    				Datee d'entrée: ~
-	    			</div>
-	    			<div>
-	    				Date limite: ~
-	    			</div>
-	    			<div>
-		    			<a href="#">GERER</a>
-	    			</div>
-		    	</div>
-	    	<% end %>
-	    <% end %>
+		<!-- <h2>Liste des candidats qui n'ont pas encore postulé à une offre ou qui ne sont pas dans un process de recrutement</h2> -->
 
 		<!-- <h2>Liste des candidats qui n'ont pas eu de retour du recruteur suit au rdv déjà passé.</h2> -->
 
-	    <% unless @cadreInfoRecrutmentActs.empty? %>
-	    	<% @cadreInfoRecrutmentActs.each do |cadreInfoRecrutmentAct| %>
-	    		<% cifo = cadreInfoRecrutmentAct %>
-	    		<div data-name=".cadreInfoRecrutmentAct" class="orange">
-	    			<h2>PROFIL NON COMPLETE</h2>
-	    			<div>
-		    			<%= cifo.first_name %> <%= cifo.last_name %>
-	    			</div>
-	    			<div>
-	    				Datee d'entrée: ~
-	    			</div>
-	    			<div>
-	    				Date limite: ~
-	    			</div>
-	    			<div>
-		    			<a href="#">GERER</a>
-	    			</div>
-		    	</div>
-	    	<% end %>
-	    <% end %>
-
-
 	    <!-- <h2>Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu</h2> -->
+
 	    <% unless @cadreInfoNotPromiseToHires.empty? %>
 	    	<% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
 	    		<% cINPT = cadreInfoNotPromiseToHire.cadre_info %>
-		    	<div data-name=".cadreInfoNotPromiseToHire" class="orange">
-	    			<h2>PROFIL NON COMPLETE</h2>
+		    	<div data-name=".PROMESSE-D-EMBAUCHE" class="orange">
+	    			<h2>PROMESSE D'EMBAUCHE</h2>
 	    			<div>
 		    			<%= cINPT.first_name %> <%= cINPT.last_name %>
 	    			</div>
 	    			<div>
-	    				Datee d'entrée: ~
+	    				Date d'entrée: <%= cINPT.promise_not_reponded[1] %>
 	    			</div>
 	    			<div>
-	    				Date limite: ~
+	    				Date limite: <%= cINPT.promise_not_reponded[0] %>
 	    			</div>
 	    			<div>
 		    			<a href="#">GERER</a>
@@ -181,17 +137,17 @@
 
 	    <% unless @cadreInfoValidateTimeTryings.empty? %>
 	    	<% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
-	    		<% cINPT = cadreInfoValidateTimeTrying %>
-		    	<div data-name=".cadreInfoValidateTimeTrying" class="orange">
-	    			<h2>PROFIL NON COMPLETE</h2>
+	    		<% pThWa = cadreInfoValidateTimeTrying[0] %>
+		    	<div data-name=".PROMESSE-D-EMBAUCHE" class="orange">
+	    			<h2>PROMESSE D'EMBAUCHE</h2>
 	    			<div>
-		    			<%= cINPT.first_name %> <%= cINPT.last_name %>
+		    			<%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
 	    			</div>
 	    			<div>
-	    				Datee d'entrée: ~
+	    				Date d'entrée: <%= pThWa.offre_job.date_poste %>
 	    			</div>
 	    			<div>
-	    				Date limite: ~
+	    				Date limite: <%= pThWa.time_trying %>
 	    			</div>
 	    			<div>
 		    			<a href="#">GERER</a>
@@ -204,17 +160,17 @@
 
 	    <% unless @cadreInfoPrimNotReceiveds.empty? %>
 	    	<% @cadreInfoPrimNotReceiveds.each do |cadreInfoPrimNotReceived| %>
-	    		<% cINPT = cadreInfoPrimNotReceived %>
-	    		<div data-name=".cadreInfoValidateTimeTrying" class="orange">
-	    			<h2>PROFIL NON COMPLETE</h2>
+	    		<% pThWa = cadreInfoPrimNotReceived[0] %>
+	    		<div data-name=".PRIME" class="orange">
+	    			<h2>PRIME</h2>
 	    			<div>
-		    			<%= cINPT.first_name %> <%= cINPT.last_name %>
+		    			<%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
 	    			</div>
 	    			<div>
-	    				Datee d'entrée: ~
+	    				Date d'entrée: <%= pThWa.offre_job.date_poste %>
 	    			</div>
 	    			<div>
-	    				Date limite: ~
+	    				Date limite: <%= pThWa.time_trying %>
 	    			</div>
 	    			<div>
 		    			<a href="#">GERER</a>
@@ -231,7 +187,7 @@
 <script type="text/javascript">
   var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
   var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
-  let $elementDate = $('.currentDateEntretien');
+  let $elementDate = $('.currentDatentretien');
   $elementDate.each(function () {
     let dateUTC = moment.utc($(this).data().times);
     let dateGet = new Date(dateUTC.local());

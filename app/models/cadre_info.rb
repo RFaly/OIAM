@@ -50,6 +50,15 @@ class CadreInfo < ApplicationRecord
 		self.score_fit * 10
 	end
 
+	def promise_not_reponded
+		pth = self.cadre.promise_to_hires.where(repons_cadre:nil).first
+		if pth.offre_job.nil?
+			[pth.date_de_validite," ~ "]
+		else
+			[pth.date_de_validite,pth.offre_job.date_poste]
+		end
+	end
+
   private
 
   def confirmation_token

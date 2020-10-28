@@ -64,7 +64,7 @@ class AdminCandidatsController < ApplicationAdminController
     @cadreInfoValidateTimeTryings = []
     PromiseToHire.all.each do |pTH|
       if DateTime.strptime("#{pTH.time_trying}","%j/%m/%Y").past? && (pTH.client_time_trying.nil? || pTH.cadre_time_trying.nil?)
-        @cadreInfoValidateTimeTryings.push(pTH.cadre.cadre_info)
+        @cadreInfoValidateTimeTryings.push([pTH,pTH.cadre.id])
       end
     end
     @cadreInfoValidateTimeTryings.uniq!
@@ -75,7 +75,7 @@ class AdminCandidatsController < ApplicationAdminController
     pTHs = PromiseToHire.where(client_time_trying:true,cadre_time_trying:true,repons_client:true,repons_cadre:true,prime_received:false)
     pTHs.each do |pTH|
       if DateTime.strptime("#{pTH.time_trying}",'%j/%m/%Y').past?
-        @cadreInfoPrimNotReceiveds.push(pTH.cadre.cadre_info)
+        @cadreInfoPrimNotReceiveds.push([pTH,pTH.cadre.id])
       end
     end
     @cadreInfoPrimNotReceiveds.uniq!
@@ -131,6 +131,48 @@ end
     <% end %>
 </div>
 
+<% unless @cadreNotInOffreForCandidates.empty? %>
+  <% @cadreNotInOffreForCandidates.each do |cadreNotInOffreForCandidate| %>
+    <% cifo = cadreNotInOffreForCandidate.cadre_info %>
+    <div data-name=".cadreNotInOffreForCandidate" class="orange">
+      <h2>PROFIL NON COMPLETE</h2>
+      <div>
+        <%= cifo.first_name %> <%= cifo.last_name %>
+      </div>
+      <div>
+        Datee d'entrée: ~
+      </div>
+      <div>
+        Date limite: ~
+      </div>
+      <div>
+        <a href="#">GERER</a>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 
+
+
+<% unless @cadreInfoRecrutmentActs.empty? %>
+  <% @cadreInfoRecrutmentActs.each do |cadreInfoRecrutmentAct| %>
+    <% cifo = cadreInfoRecrutmentAct %>
+    <div data-name=".cadreInfoRecrutmentAct" class="orange">
+      <h2>PROFIL NON COMPLETE</h2>
+      <div>
+        <%= cifo.first_name %> <%= cifo.last_name %>
+      </div>
+      <div>
+        Datee d'entrée: ~
+      </div>
+      <div>
+        Date limite: ~
+      </div>
+      <div>
+        <a href="#">GERER</a>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 
 =end
