@@ -8,7 +8,6 @@
   width: 100%;
   min-height: 80vh;
   padding-top: 15px;
-  border-left: 1px solid #d6b36a;
 }
 
 .box-inside {
@@ -308,8 +307,6 @@
 
 .rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item2 {
   padding: 10px 30px;
-  border-right: 2px solid white;
-  border-left: 2px solid white;
 }
 
 .rsc-box .rsc-body .rsc-date-futur .rscdf-content .rscdf-item2 h4 {
@@ -357,6 +354,51 @@
 
 .rsc-box .rsc-body .rsc-date-past .rscdp-empty a:hover, .rsc-box .rsc-body .rsc-date-past .rscdp-empty a:active {
   color: #d6b46ab6;
+}
+
+.rsc-box .rsc-body .rsc-date-past .rscdp-empty2 {
+  font: 16px Questrial, sans-serif;
+  margin: 50px auto;
+  border: 2px solid #d6b36a;
+  text-align: -webkit-center;
+  text-align: -moz-center;
+  text-align: center;
+}
+
+.rsc-box .rsc-body .rsc-date-past .rscdp-empty2 .link-span {
+  color: #d6b36a;
+  margin: 10px 0;
+}
+
+.rsc-box .rsc-body .rsc-date-past .rscdp-empty2 .link {
+  cursor: pointer;
+  margin: 20px auto;
+  border: 2px solid #d6b36a;
+  width: 300px;
+  padding: 10px 0;
+  font: 500 18px Raleway, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #d6b36a;
+}
+
+.rsc-box .rsc-body .rsc-date-past .rscdp-empty2 .link a {
+  color: #d6b36a;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.rsc-box .rsc-body .rsc-date-past .rscdp-empty2 .link:hover, .rsc-box .rsc-body .rsc-date-past .rscdp-empty2 .link:active {
+  background: #d6b36a;
+  color: white;
+}
+
+.rsc-box .rsc-body .rsc-date-past .rscdp-empty2 .link:hover a, .rsc-box .rsc-body .rsc-date-past .rscdp-empty2 .link:active a {
+  color: white;
+}
+
+.rsc-box .rsc-body .rsc-date-past .ssc-planification1-rscdp-empty2 .date-rscdp-empty2 {
+  opacity: 0;
 }
 
 .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
@@ -722,7 +764,7 @@
 }
 
 .rsc-box .rsc-body .validation-cadre-trying .datte-past input[type='date']:focus {
-  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+  box-shadow: 1px 0px 3px 1px rgba(214, 214, 214, 0.3);
   outline: 2px solid #d6b36a;
 }
 
@@ -787,22 +829,13 @@
 .ssc-planification {
   margin: 0 auto;
   position: relative;
-  margin-top: -270px;
   margin-bottom: 270px;
   width: 80%;
-  padding: 0 10%;
   z-index: 200;
 }
 
 .ssc-planification .date {
   opacity: 0;
-}
-
-.ssc-planification .date input {
-  top: -3px;
-  border-radius: 0;
-  font-size: 0.002px;
-  position: absolute;
 }
 
 .ssc-planification .js-timeContainer {
@@ -853,6 +886,7 @@
 .ssc-planification .with-input {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .ssc-planification .with-input .with-input-item {
@@ -869,7 +903,7 @@
 
 .ssc-planification .with-input .with-input-item:focus {
   outline: 1px solid white;
-  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+  box-shadow: 1px 0px 3px 1px rgba(214, 214, 214, 0.3);
 }
 
 .ssc-planification .planQ-btn {
@@ -1012,7 +1046,6 @@
   outline: none;
   box-shadow: none;
   padding: 2px;
-  margin-top: -9px;
   margin-left: 10px;
   padding-left: 5px;
   border: none;
@@ -1021,7 +1054,7 @@
 
 .ssc-planification1 .with-input .with-input-item:focus {
   outline: 1px solid white;
-  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+  box-shadow: 1px 0px 3px 1px rgba(214, 214, 214, 0.3);
 }
 
 .ssc-planification1 .planQ-btn {
@@ -1089,9 +1122,24 @@
   background: #d6b36a;
 }
 
-#ui-datepicker-div {
-  width: 600px;
-  color: white;
+@media screen and (min-width: 320px) {
+  #ui-datepicker-div {
+    width: 95%;
+    color: white;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #ui-datepicker-div {
+    width: 82.5%;
+    color: white;
+  }
+}
+
+@media screen and (min-width: 998px) {
+  #ui-datepicker-div {
+    width: 600px;
+  }
 }
 
 .ui-datepicker-calendar {
@@ -1125,6 +1173,7 @@
   display: block;
   position: relative;
   padding-left: 30px;
+  margin: 9px 0;
   cursor: pointer;
   user-select: none;
 }

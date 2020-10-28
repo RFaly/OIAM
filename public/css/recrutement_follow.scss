@@ -4,6 +4,7 @@
 .r-follow-box {
   width: 90%;
   margin: 0 auto;
+
   .title {
     font: $ffbtn;
     text-align: -webkit-center;
@@ -12,6 +13,7 @@
     text-transform: uppercase;
     color: $main_theme_color;
   }
+
   .co-any-job {
     font: $ffsentence;
     padding: 10px;
@@ -27,6 +29,7 @@
     text-align: -webkit-center;
     text-align: -moz-center;
     text-align: center;
+
     a {
       font: $ffbtn;
       color: $main_theme_color;
@@ -34,6 +37,7 @@
       text-decoration: none;
       text-transform: uppercase;
       border: 2px solid $main_theme_color;
+
       &:hover,
       &:active {
         background: $main_theme_color;
@@ -42,6 +46,7 @@
       }
     }
   }
+
   .rf-box {
     padding: 20px;
     margin-top: 30px;
@@ -49,23 +54,26 @@
     .rf-items-title {
       display: flex;
       align-items: center;
+
       a {
         font: $ffbtn;
         font-size: 20px;
         color: $main_theme_color;
+
         &:hover {
           color: #d6b46ae3;
         }
       }
+
       img {
         width: 30px;
         height: 30px;
         margin-right: 25px;
       }
     }
+
     .rf-items-flex {
       display: flex;
-      //   margin-left: 50px;
 
       .timeline {
         position: relative;
@@ -83,20 +91,23 @@
           font: 600 14px roboto, sans-serif;
           border-radius: 50%;
           color: white;
+
           &.color {
             background-color: $main_theme_color;
           }
         }
+
         .line {
-          //   width: 70px;
           content: ' ';
           align-self: center;
           height: 2px;
           background-color: $secondary_element_color;
+
           &.color {
             background-color: $main_theme_color;
           }
         }
+
         .content {
           font: $ffbtn;
           text-align: -webkit-center;
@@ -106,6 +117,7 @@
           position: absolute;
           left: -20px;
         }
+
         .content2 {
           left: -10px;
         }

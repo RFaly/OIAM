@@ -43,7 +43,7 @@
 								<% if aClient[:agenda_client].is_update %>
 									<%= link_to "DÉJA ENGAGÉ", post_repons_received_job_path(alternative:'Déjà engagé', reponse:0, offre_id: aClient[:offre_id], agenda_id: aClient[:agenda_client].id), class:'btn-voir btn-alternative', 'data-items':"#{aClient[:agenda_client].id}", method: :post %>
 								<% else %>
-									<span class="btn-voir btn-alternative" data-items="alterna-<%= aClient[:offre_id] %>" id="alterna-<%= aClient[:offre_id] %>">ALTERNATIVE</span>
+									<div class="btn-voir btn-alternative" data-items="alterna-<%= aClient[:offre_id] %>" id="alterna-<%= aClient[:offre_id] %>">ALTERNATIVE</div>
 									<span class="alternatives" id="alter-<%= aClient[:offre_id] %>" >
 										<%= link_to "DÉJA ENGAGÉ", post_repons_received_job_path(alternative:'Déjà engagé', reponse:0, offre_id: aClient[:offre_id], agenda_id: aClient[:agenda_client].id), class:'engage js-repons-send-post inline', 'data-items':"#{aClient[:agenda_client].id}", method: :post %><br><br>
 										<span class="js-proposer-date" id="dateEntretien" data-items="<%= aClient[:agenda_client].id %>">PROPOSER UNE AUTRE DATE</span>
@@ -107,5 +107,5 @@
 <!-- appel js  -->
 <script type="text/javascript" src="/js/moment-js.js"></script>
 
-<script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/jquery-ui.min.js"></script>
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/entretien_edit_cadre.js.erb"></script>

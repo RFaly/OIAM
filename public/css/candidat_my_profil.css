@@ -135,7 +135,7 @@ body{
 .btn-edit{
   display: block;
   margin: auto;
-  width: 250px;
+  min-width: 220px;
   height: 50px;
   border: 1px solid #D6B36A;
   padding: 13px;
@@ -174,7 +174,7 @@ body{
 .btn-dispo{
     padding-top: 15px;
     font-size: 12px;
-    width: 330px;
+    width: auto;
     text-align: center;
   }
 
@@ -202,9 +202,11 @@ body{
   margin-left: 38px;
 }
 
+.content{
+	display: flex;
+}
+
 @media only screen and (min-width: 800px){
-
-
   .block-button{
     text-align: center;
   }
@@ -223,9 +225,7 @@ body{
 }
 
 @media only screen and (min-width: 900px){
-  .content{
-    display: flex;
-  }
+
 
 
 
@@ -286,6 +286,7 @@ body{
 @media only screen and (min-width: 900px){
   .btn-edit{
     display: inline-block;
+		min-width: 250px;
   }
 
 

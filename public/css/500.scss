@@ -1,4 +1,5 @@
 @import 'config';
+
 body {
   height: 90vh;
   font: $ffbtn;
@@ -9,10 +10,12 @@ body {
   text-align: -moz-center;
   text-align: center;
   flex-direction: column;
+
   div {
     padding: 50px;
-    border: 2px solid rgba(0, 0, 0, 0.418);
+    border: 2px solid $main_theme_color;
   }
+
   span {
     display: flex;
     justify-content: center;
@@ -21,6 +24,7 @@ body {
     font-size: 126px;
     word-spacing: -30px;
     color: #e6b85f;
+
     img {
       margin-top: 50px;
       margin-bottom: -50px;
@@ -28,6 +32,7 @@ body {
       margin: 0;
     }
   }
+
   h1 {
     font-size: 18px;
   }

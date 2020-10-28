@@ -40,6 +40,22 @@
     bottom: 42px;
   }
 
+  .log-btn a {
+    background: #e3d7bf;
+    padding: 10px 30px;
+    border: 1px solid #e3d7bf;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .log-btn a:hover {
+    background: #fff;
+    color: #e3d7bf;
+    border: 1px solid #e3d7bf;
+  }
+
+
 </style>
 <link rel="stylesheet" href="/css/navbar_admin.css" />
 <!-- body html  -->
@@ -66,7 +82,7 @@
         <li><a href="#" class="navbar-item">Administration</a></li>
       </ul>
 
-      <div>
+      <div class="log-btn">
         <% if admin_signed_in? %>
             <%= link_to destroy_admin_session_path, method:"delete" do %>
               Se déconnecter

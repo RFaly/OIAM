@@ -18,9 +18,7 @@
 
   .pb-flex {
     display: flex;
-    // justify-content: space-between;
     margin-top: 15px;
-    // align-items: center;
     flex-wrap: wrap;
 
     .left {
@@ -96,7 +94,6 @@
     }
 
     .import-button {
-      // align-self: flex-end;
       margin: 0 20px;
 
       span {

@@ -96,6 +96,12 @@ Rails.application.routes.draw do
 
   # barre de recherche candidat
   post '/recruteur/recherche-cadre', to: 'recruteurs#search_bar_cadre', as: "search_bar_cadre"
+
+  #messagerie admin
+  get '/recruteur/messagerie/admin', to: 'recruteurs#messagerie_admin', as: 'messagerie_client_admin'
+  get '/recruteur/messagerie/admin/:id', to: 'recruteurs#show_message_admin', as: 'show_message_client_admin'
+  post '/recruteur/send-message/admin', to: 'recruteurs#post_message_admin', as: 'post_message_client_admin'
+
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   get '/cadre', to: 'candidates#main', as: 'main_cadre'
@@ -137,6 +143,12 @@ Rails.application.routes.draw do
   get 'cadre/formation', to: 'formation_candidate#index', as: 'formation_all'
   get 'cadre/formation/:formation_id/:name', to: 'formation_candidate#date_rdv', as: 'formation_date_rdv'
   post 'cadre/formation/save', to: 'formation_candidate#save_rdv', as: 'formation_save_rdv'
+
+
+  #messagerie pour admin
+  get '/cadre/messagerie/admin', to:'candidates#messagerie_admin', as: 'messagerie_admin'
+  get '/cadre/messagerie/admin/:id', to:'candidates#show_message_admin', as: 'show_message_admin'
+  post '/cadre/send-message/admin', to:'candidates#post_message_admin', as: 'post_message_admin'
 
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -197,7 +209,7 @@ Rails.application.routes.draw do
 
   #~~~~~~~~~~~~~~~~~~~~~~~~ Admin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Lien pour authentification admin
-  devise_for :admins, path: 'oiam-secret-page/admin',:skip => [:registrations], controllers: {
+  devise_for :admins, path: 'secret-oiam-page/admin',:skip => [:registrations], controllers: {
     sessions: "admins/sessions"
   }, path_names: {
     sign_in: 'se-connecter', sign_out: 'se-deconneter', cancel: 'supprimer',
@@ -215,6 +227,14 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin-candidats/en-attente', to: 'admin_candidats#pending', as: 'candidats_pending'
   get 'secret-oiam-page/admin-candidats/traitées', to: 'admin_candidats#processed', as: 'candidats_processed'
   get 'secret-oiam-page/admin-candidats/messageries', to: 'admin_candidats#messaging', as: 'candidats_messaging'
+
+  #messagerie cadre
+  get 'secret-oiam-page/admin-candidats/messageries/:id', to: 'admin_candidats#show_message', as: 'candidats_show_message'
+  post 'secret-oiam-page/admin-candidats/send/messages', to: 'admin_candidats#post_message', as: 'candidats_post_message'
+
+  #messagerie clients
+  get 'secret-oiam-page/admin-clients/messageries/:id', to: 'admin_clients#show_message', as: 'clients_show_message'
+  post 'secret-oiam-page/admin-clients/send/messagers', to: 'admin_clients#post_message', as: 'clients_post_message'
 
 end
 

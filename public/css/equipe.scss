@@ -6,6 +6,7 @@
   justify-content: space-around;
   align-items: center;
   width: 100%;
+
   .equip1,
   .equip2 {
     width: 80%;
@@ -14,11 +15,13 @@
     flex-wrap: wrap;
   }
 }
+
 .equipe-box {
   height: auto;
   margin: 0 auto;
   padding-top: 70px;
   background-color: $secondary_text_color_button;
+
   .eq-title {
     text-align: -webkit-center;
     text-align: -moz-center;
@@ -28,46 +31,57 @@
     font: $ffbtn;
     font-size: 28px;
   }
+
   .eq-box-eq {
     background-color: white;
     box-shadow: $box-shadow;
+
     .eq-image {
       margin: -40% auto;
       margin-bottom: 50px;
+
       img {
         border-radius: 50%;
         width: 100%;
       }
     }
+
     .eq-content {
       text-align: -webkit-center;
       text-align: -moz-center;
       text-align: center;
+
       .eq-name {
         font: $ffbtn;
         font-size: 18px;
         margin-bottom: 25px;
       }
+
       .eq-des {
         font: $ffsentence;
       }
     }
   }
+
   .box-spec {
     cursor: pointer;
+
     a {
       text-decoration: none;
       color: black;
     }
+
     &:hover,
     &:active {
       box-shadow: 1px 1px 10px 1px $main_theme_color;
+
       a {
         color: $main_theme_color;
       }
     }
   }
 }
+
 // profil d'emmanuel css
 .big-box {
   // top: 500px;
@@ -80,6 +94,7 @@
   display: none;
   align-items: center;
 }
+
 .emmanuel-profil {
   font: $ffsentence;
   background: white;
@@ -89,10 +104,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+
   .bg-border {
     border-radius: 10px;
     background: $secondary_element_color;
   }
+
   .closed {
     cursor: pointer;
     top: 0;
@@ -104,6 +121,7 @@
     transform: rotate(45deg);
     color: $main_theme_color;
   }
+
   .title {
     border-bottom: 2px solid white;
     padding: 18px 0;
@@ -113,6 +131,7 @@
     font: $ffbtn;
     text-transform: uppercase;
     color: $main_theme_color;
+
     img {
       width: 20px;
       height: 20px;
@@ -123,6 +142,7 @@
   .profil {
     margin: 10px;
     width: 300px;
+
     .photo {
       content: ' ';
       width: 260px;
@@ -132,6 +152,7 @@
       background: url(/image/emma1.jpg) top;
       background-size: cover;
     }
+
     .content-item {
       width: 90%;
       padding-bottom: 5px;
@@ -139,10 +160,12 @@
       margin-bottom: 20px;
       border-bottom: 2px solid white;
     }
+
     .name,
     .post {
       font: $ffbtn;
     }
+
     .localisation {
       img {
         width: 15px;
@@ -151,22 +174,24 @@
       }
     }
   }
+
   .emmanuel-box {
-    // width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     .about {
       margin: 10px;
 
       .content {
-        // padding: 20px 50px;
         text-align: justify;
+
         p {
           margin-top: 20px;
         }
       }
     }
+
     .contact {
       margin: 10px;
 
@@ -175,10 +200,12 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
         padding: 30px 10px;
+
         a:hover,
         a:active {
           text-decoration: none;
         }
+
         img {
           height: 34px;
         }

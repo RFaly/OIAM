@@ -1,7 +1,7 @@
 class CadreInfo < ApplicationRecord
 	before_create :confirmation_token
 	has_one :agenda_admin
-	
+
 	belongs_to :cadre, optional: true
 	belongs_to :admin, optional: true
 
@@ -15,7 +15,7 @@ class CadreInfo < ApplicationRecord
 		500
 	end
 
-	def status
+	def status_state
 		if self.is_recrute.nil?
 			"en cours"
 		elsif self.is_recrute
@@ -50,6 +50,15 @@ class CadreInfo < ApplicationRecord
 		self.score_fit * 10
 	end
 
+	def promise_not_reponded
+		pth = self.cadre.promise_to_hires.where(repons_cadre:nil).first
+		if pth.offre_job.nil?
+			[pth.date_de_validite," ~ "]
+		else
+			[pth.date_de_validite,pth.offre_job.date_poste]
+		end
+	end
+
   private
 
   def confirmation_token
@@ -57,6 +66,4 @@ class CadreInfo < ApplicationRecord
       self.confirm_token = SecureRandom.urlsafe_base64.to_s
     end
   end
-
-
 end

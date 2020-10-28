@@ -62,103 +62,86 @@ html{
     margin: 0;
   }
 
-.all-content{
-  margin: 20px;
-  font-size: 14px;
-}
 
-  .titles{
-		color: #d6b36a;
-		font-size: 20px;
-		text-align: center;
-		margin-top: 20px;
-    padding-bottom: 50px;
+	.all-content{
+		margin: 15px;
 	}
 
+	.titles{
+		color: #d6b36a;
+		margin-bottom: 20px;
+		text-align: center;
+		font-size: 16px;
+	}
 
-  .notif-info{
-    display: flex;
-    grid-column-gap: 5%;
-  }
+	.notif-info{
+		display: flex;
+	}
 
-  .notif-image{
-    width: 20%;
-  }
+	.notif-image{
+		display: block;
+		margin: 0 auto;
+		width: 20%;
+		height: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 
-  .pdp{
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
-		border-radius: 50%;
+	.pdp{
+		width: 60px;
+		height: 60px;
+		border-radius: 100%;
 		object-fit: cover;
-  }
+	}
 
-  .notif-info-content{
-    width: 60%;
-    padding: 20px;
-  }
+	.notif-info{
+		border-top: 1px solid #f0f2f4;
+		padding: 15px;
+	}
 
+	.btn-voir{
+		color: #000;
+	}
 
-  .mb-0{
-    width: 20%;
-    padding: 15px;
-  }
+	.btn-voir:hover{
+		color: #000;
+		text-decoration: none;
+	}
 
-
-.btn-voir{
-  color: #d6b36a;
-  text-decoration: none;
+.alert-heading{
+	font-weight: bold;
+	margin-bottom: 15px;
 }
 
-.btn-voir:hover{
-  text-decoration: none;
-  color: #d6b36a;
+.notif-info-content{
+	width: 80%;
+	color: #D6B36A;
+	padding: 10px;
 }
 
 .notif-see{
-  color: #000;
+	color: #000;
 }
 
+@media only screen and (min-width: 600px) {
+	.all-content{
+		display: flex;
+	}
 
-@media only screen and (min-width: 900px){
-  .all-content{
-    display: flex;
-    grid-column-gap: 5%;
-    margin-top: 20px;
-    font-size: 18px;
-  }
+	.right-link{
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+		margin: 20px;
+	}
 
-  .left-link{
-    border-right: 1px solid #d6b36a;
-    padding: 0;
-  }
+	.pdp{
+		width: 80px;
+		height: 80px;
+	}
 
-  .pdp{
-    width: 100px;
-    height: 100px;
-  }
-
-  .notif-info{
-    padding: 10px 0;
-    border-top: 2px solid #f0f2f4;
-    grid-column-gap: 0;
-    width: 100%;
-  }
-
-  .mb-0{
-    position: relative;
-  }
-
-  .currentDateEntretien{
-    position: absolute;
-    bottom: 10px;
-    opacity: .7;
-    font-size: 10px;
-  }
-
-  .right-link{
-    width: 100%;
-  }
-
+	.left-link{
+		border-right: 1px solid #D6B36A;
+	}
 }

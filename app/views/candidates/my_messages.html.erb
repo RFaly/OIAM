@@ -3,6 +3,7 @@
   <div class="left-content"><%= render partial: "candidates/left_link_bar" %></div>
   <div class="main">
     <h2 class="main-title">CHATS</h2>
+    <% unless @contactListes.empty? %>
     <% @contactListes.each do |contact| %> <% nbr = contact.mp_cadre_not_see %>
     <a href="<%= show_my_messages_cadre_path(contact.client.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>" data-remote="true">
     <div class="message">
@@ -33,6 +34,9 @@
         </div>
     </div>
     </a>
+    <% end %>
+    <% else %>
+      Vous n'avez pas encore de message pour le moment...
     <% end %>
     <div class="message-containera"></div>
   </div>

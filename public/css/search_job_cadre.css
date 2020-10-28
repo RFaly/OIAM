@@ -67,6 +67,10 @@ body{
   margin-left: 5px;
 }
 
+.left_link{
+  height: 100%;
+}
+
 .seacrh-drop{
   display: block;
   margin: auto;
@@ -127,6 +131,7 @@ body{
   width: 100%;
   height: auto;
   margin-bottom: 10px;
+  object-fit: cover;
 }
 
 .job_info p{
@@ -174,13 +179,35 @@ body{
   padding: 20px;
 }
 
+.next-page{
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.next-page a{
+  color: #D6B36A;
+}
+
+.crochet{
+  font-size: 23px;
+}
+
+.all-content{
+  display: flex;
+  margin-top: 10px;
+}
 
 .hidden { display: none; }
 .readmore { margin: 0 5px;cursor: pointer; color: #000; text-decoration: none;cursor: default; pointer-events: none;text-decoration: none; col}
-@media only screen and (min-width: 900px){
-  .all-content{
-    display: flex;
-  }
+  @media only screen and (min-width: 900px){
+
+
+.next-page{
+  text-align: right;
+}
 
   .no-flex{
     clear: both;
@@ -244,6 +271,7 @@ body{
   .main{
     border-left: 1px solid #D6B36A;
     padding-left: 15px;
+    margin-top: 12px;
   }
 
 .action img{

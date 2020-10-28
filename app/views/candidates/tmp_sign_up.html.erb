@@ -17,7 +17,7 @@
 </div>
 <div class="ville-adresse">
   <%= f.text_field :postal_code, autofocus: true, autocomplete: "ADRESSE", required: true, placeholder:"CODE POSTAL", class:"champs ville code_postal",id:"postal_code" %> <%= f.text_field :city, autofocus: true, autocomplete: "VILLE", required: true, placeholder:"VILLE", class:"champs ville
-  city",id:"city" %>
+  city",id:"city", readonly: "true" %>
 </div>
 <div class="input-error-div">
   <span class="input-error" id="entreprise-postal-error"></span>

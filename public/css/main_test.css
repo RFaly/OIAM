@@ -92,15 +92,9 @@ body{
 	top: 20px;
 	left: 0;
 	right: 0;
-	width: 220px;
 }
 
-.image{
-	position: absolute;
-	top: -10px;
-	left: 0;
-	width: 50px;
-}
+
 
 .btn-download{
 	width: 150px;
@@ -116,20 +110,18 @@ body{
 .btn-download:hover{
 	background: #d6b36a;
 	color: #fff;
+	text-decoration: none;
 }
 
-.certificat p{
-	margin-bottom: 20px;
+.certificat{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
 }
 
-.imprimer{
-	color: #d6b36a;
-	font-weight: bold;
-}
 
-.imprimer:hover{
-	color: #d6b36a;
-}
+
+
 
 p span{
 	float: right;
@@ -142,9 +134,6 @@ p span{
 		display: inline-block;
 	}
 
-	.image{
-		position: absolute;
-	}
 
 	.resultat{
 		margin-bottom: 50px;
@@ -183,9 +172,6 @@ p span{
 		margin-bottom: 100px;
 	}
 
-	.button{
-		float: right;
-	}
 
 	.certificat p{
 		float: left;

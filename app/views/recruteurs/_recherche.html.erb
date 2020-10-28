@@ -1,7 +1,7 @@
 <%= form_tag(search_bar_cadre_path, remote:true, id:"send-data-form") do %>
 <input type="hidden" name="id" value="<%= @offre.id %>" />
 <div class="search-large">
-  <div class="co-input hide-right">
+  <div class="co-input ">
     <select name="region" id="cars" class="co-select">
       <option value="" disabled selected>Localisation</option>
       <option value="all">France entière</option>
@@ -10,7 +10,7 @@
       <% end %>
     </select>
   </div>
-  <div class="co-input hide-right">
+  <div class="co-input ">
     <select name="metier" id="cars" class="co-select">
       <option value="" disabled selected>Fonction</option>
       <% @metiers.each do |metier| %>
@@ -20,7 +20,7 @@
   </div>
 </div>
 <div class="search-short">
-  <div class="co-input hide-right">
+  <div class="co-input ">
     <select name="remuneration" id="cars" class="co-select">
       <option value="" disabled selected>Rémunération</option>
       <option value="60">60k€</option>
@@ -55,7 +55,7 @@
       <option value="350">350k€</option>
     </select>
   </div>
-  <div class="co-input hide-right">
+  <div class="co-input ">
     <select name="disponility" id="cars" class="co-select">
       <option value="" disabled selected>Disponibilité</option>
       <option value="IMMÉDIATE">IMMÉDIATE</option>
