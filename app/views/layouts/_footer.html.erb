@@ -11,20 +11,23 @@
     </div>
     <hr />
     <div class="footer-bottom">
-      <div class="footer-c"><%=link_to "Conditions générales", condition_general_path%> <%=link_to "Règles de communauté", root_path%> <%=link_to "Politique de confidentialité", confidentialite_path%> <%=link_to "Charte d'utilisation des cookies", root_path%>
-       <% unless current_cadre.nil? %>
-          <%=link_to "Contact Admin", show_message_admin_path(Admin.first.id)%>
-        <% end %>          
-       <%unless current_client.nil? %>
-          <%=link_to "Contact admin", show_message_client_admin_path(Admin.first.id)%>
-       <%end%>
-       </div>
+      <div class="footer-c"><%=link_to "Conditions générales", condition_general_path%>
+        <%=link_to "Règles de communauté", root_path%> <%=link_to "Politique de confidentialité", confidentialite_path%>
+        <%=link_to "Charte d'utilisation des cookies", root_path%>
+        <% unless current_cadre.nil? %>
+        <%=link_to "Contact Admin", show_message_admin_path(Admin.first.id)%>
+        <% end %>
+        <%unless current_client.nil? %>
+        <%=link_to "Contact admin", show_message_client_admin_path(Admin.first.id)%>
+        <%end%>
+      </div>
       <div class="copyright"></div>
       <div class="social">
         <a href="#" target="_blank" title="Linkedin"><img src="/image/icon-linkedin.jpg" alt="linkedin logo" /> </a>
         <a href="#" target="_blank" title="Instagram"><img src="/image/icon-instagram1.png" alt="instagram logo" /></a>
         <a href="#" target="_blank" title="Facebook"><img src="/image/icon-facebook.png" alt="facebook logo" /></a>
-        <a href="#" target="_blank" title="Trustfulio"><img src="/image/icon-trustfolio.png" alt="trustfolio logo" /></a>
+        <a href="#" target="_blank" title="Trustfulio"><img src="/image/icon-trustfolio.png"
+            alt="trustfolio logo" /></a>
       </div>
     </div>
   </div>
@@ -32,8 +35,8 @@
 <!-- call js  -->
 <script type="text/javascript" data-turbolinks-track="reload" src="/js/footer.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-  let year = new Date();
-  $('.copyright').text('© '+year.getUTCFullYear())
-})
+  $(document).ready(function () {
+    let year = new Date();
+    $('.copyright').text('© ' + year.getUTCFullYear())
+  })
 </script>
