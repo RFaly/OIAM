@@ -79,9 +79,58 @@ class AdminCandidatsController < ApplicationAdminController
   end
 
   def pending
+
+
+
   end
 
   def processed
+    #1. Inscription  
+    #Inscription terminée
+    @finishedSignUps = CadreInfo.where(is_recrute:nil)
+
+    # 2. Tests Potential
+    # Test potential (nom+prenom..), afficher le résultat du test, statut (admis ou refusé)
+    @cadreInfoPotentielNotEnds = CadreInfo.where.not(score_potential:nil)
+
+    # 4. Clique sur lien TP positif et planifie un entretien FIT  
+    # RDV entretiens FIT effectués et validés(entretiens effectués)
+    @cadreInfoFits = CadreInfo.joins(:agenda_admin).where.not(agenda_admins:{accepted:nil})
+
+    # 5. Passe Entretien FIT
+    # Entretien FIT traité (entretien fait et colpte rendu uploadé)
+    @cadreInfoEnterScoreFits = CadreInfo.where.not(compte_rendu:nil,avis:nil)
+
+    #8. Complète les informations du profil
+    #Profil complété
+    @cacadreInfoInCompleteInfoProfils = CadreInfo.where(is_recrute:true,empty:false)
+
+    # 12. Accepter/Refuser une promesse d’embauche
+    # Liste des candidats qui ont validé leur promesse d embauche
+    @cadreInfoNotPromiseToHires = Cadre.joins(:promise_to_hires).where.not(promise_to_hires:{repons_cadre:nil})
+
+    # 13. Valider sa période d’essai
+    # Liste des candidats dont la période d essai est validée
+
+    @cadreInfoValidateTimeTryings = []
+    PromiseToHire.all.each do |pTH|
+      if DateTime.strptime("#{pTH.time_trying}","%d/%m/%Y").past? && !pTH.client_time_trying.nil? && !pTH.cadre_time_trying.nil?
+        @cadreInfoValidateTimeTryings.push([pTH,pTH.cadre.id])
+      end
+    end
+    @cadreInfoValidateTimeTryings
+
+    # 14. Recevoir sa prime
+    # Liste des candidats qui ont reçu leur prime
+    @cadreInfoPrimNotReceiveds = []
+    pTHs = PromiseToHire.where(client_time_trying:true,cadre_time_trying:true,repons_client:true,repons_cadre:true,prime_received:true)
+    pTHs.each do |pTH|
+      if DateTime.strptime("#{pTH.time_trying}",'%d/%m/%Y').past?
+        @cadreInfoPrimNotReceiveds.push([pTH,pTH.cadre.id])
+      end
+    end
+    @cadreInfoPrimNotReceiveds
+
   end
 
   def messaging
