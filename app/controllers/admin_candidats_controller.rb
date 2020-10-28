@@ -59,7 +59,7 @@ class AdminCandidatsController < ApplicationAdminController
     # Liste des candidats qui sont arrivés au bout de leur période d'essai et qui n'ont pas encore été validés dans le système.
     @cadreInfoValidateTimeTryings = []
     PromiseToHire.all.each do |pTH|
-      if DateTime.strptime("#{pTH.time_trying}","%j/%m/%Y").past? && (pTH.client_time_trying.nil? || pTH.cadre_time_trying.nil?)
+      if DateTime.strptime("#{pTH.time_trying}","%d/%m/%Y").past? && (pTH.client_time_trying.nil? || pTH.cadre_time_trying.nil?)
         @cadreInfoValidateTimeTryings.push([pTH,pTH.cadre.id])
       end
     end
@@ -70,7 +70,7 @@ class AdminCandidatsController < ApplicationAdminController
     @cadreInfoPrimNotReceiveds = []
     pTHs = PromiseToHire.where(client_time_trying:true,cadre_time_trying:true,repons_client:true,repons_cadre:true,prime_received:false)
     pTHs.each do |pTH|
-      if DateTime.strptime("#{pTH.time_trying}",'%j/%m/%Y').past?
+      if DateTime.strptime("#{pTH.time_trying}",'%d/%m/%Y').past?
         @cadreInfoPrimNotReceiveds.push([pTH,pTH.cadre.id])
       end
     end
