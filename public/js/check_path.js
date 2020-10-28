@@ -1,4 +1,14 @@
 $(document).ready(function () {
+  //end check path menu recruteur
+  stopSpinner();
+
+  // check ipad pro 
+  if ($(window).height() > $(window).width()) {
+    $('.box').css('background-size', '170% 77%')
+    $('.box-1-logo').css('width', '65%')
+    $('.box-1-logo').css('margin', '33px auto 0 33px')
+  }
+
   // add space before option
   $('option').prepend('&#160; &#160;');
   $('option').append('&#160; &#160;');
@@ -70,8 +80,7 @@ $(document).ready(function () {
   if (window.location.href.indexOf('/messages') > -1) {
     $('.left-menu-r a[href="/recruteur/messages"]').addClass('color-this');
   }
-  //end check path menu recruteur
-  stopSpinner();
+
 });
 
 window.startSpinner = function () {
