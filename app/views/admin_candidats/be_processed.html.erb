@@ -1,12 +1,11 @@
 <link rel="stylesheet" href="/css/admin_prms.css" />
-<style media="screen">
-  .cp-box h1 {
-    font-size: 16px;
-    font-family: Raleway, sans-serif;
-    text-transform: uppercase;
-    text-align: center;
-    color: #d6b36a;
-  }
+<style>
+	.orange{
+		border: 3px solid orange;
+		width: 200px;
+		display: inline-block;
+		margin: 0 12px;
+	}	
 </style>
 
 <div class="client-column">
@@ -14,7 +13,189 @@
     <%= render partial: "admin_candidats/left_menu" %>
   </div>
 
-  <div class="cp-box">
-  	<h1>A traiter</h1>
-  </div>
+  	<div class="cp-box">
+  		<h1>A traiter</h1>
+
+	    <!-- <h2>Test potentiel non terminé (en cours d eroute),récupérer son nom et email)</h2> -->
+
+	    <% unless @cadreInfoPotentielNotEnds.empty? %>
+	    	<% @cadreInfoPotentielNotEnds.each do |cadreInfoPotentielNotEnd| %>
+	    		<div data-name=".INSCRIPTION" class="orange">
+					<!-- <img src='/image/profie.png'/> <br> -->
+				    <h2>INSCRIPTION</h2>
+				    <div>
+				    	<%= cadreInfoPotentielNotEnd.first_name %> <%= cadreInfoPotentielNotEnd.last_name %>
+				    </div>
+				    <div>
+				    	Date d'entrée: <%= cadreInfoPotentielNotEnd.created_at.strftime("%d/%m/%Y") %>
+				    </div>
+				    <div>
+				    	Date limite: ~
+				    </div>
+				    <div>
+				    	<a href="#">GERER</a>
+				    </div>
+				</div>
+	    	<% end %>
+	    <% end %>
+
+		<!-- <h2>RDV Entretiens FIT à valider(nom+prenom, date+horaire rdv)</h2> -->
+
+	    <% unless @cadreInfoFits.empty? %>
+	    	<% @cadreInfoFits.each do |cadreInfoFit| %>
+	    		<div data-name=".INSCRIPTION" class="orange">
+	    			<h2>INSCRIPTION</h2>
+	    			<div>
+		    			<%= cadreInfoFit.first_name %> <%= cadreInfoFit.last_name %>
+		    		</div>
+		    		<div>
+				    	Date d'entrée: <span data-times="<%= cadreInfoFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
+				    </div>
+				    <div>
+				    	Date limite: ~
+				    </div>
+				    <div>
+				    	<a href="#">GERER</a>
+				    </div>
+		    	</div>
+	    	<% end %>
+	    <% end %>
+
+		<!-- <h2>Entretiens FIT à effectuer(nom+prénom+date)</h2> -->
+
+	    <% unless @cadreInfoEnterScoreFits.empty? %>
+	    	<% @cadreInfoEnterScoreFits.each do |cadreInfoEnterScoreFit| %>
+	    		<div data-name=".INSCRIPTION" class="orange">
+	    			<h2>INSCRIPTION</h2>
+	    			<div>
+	    				<%= cadreInfoEnterScoreFit.first_name %> <%= cadreInfoEnterScoreFit.last_name %>
+	    			</div>
+	    			<div>
+	    				Date d'entrée: <span data-times="<%= cadreInfoEnterScoreFit.cadre.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
+	    			</div>
+					<div>
+				    	Date limite: ~
+				    </div>
+				    <div>
+				    	<a href="#">GERER</a>
+				    </div>
+		    	</div>
+	    	<% end %>
+	    <% end %>
+		
+		<!-- <h2>Profil non complété</h2> -->
+
+	    <% unless @cacadreInfoInCompleteInfoProfils.empty? %>
+	    	<% @cacadreInfoInCompleteInfoProfils.each do |cacadreInfoInCompleteInfoProfil| %>
+	    	<% cfo = cacadreInfoInCompleteInfoProfil %>
+	    		<div data-name=".ADMISSION" class="orange">
+	    			<h2>ADMISSION</h2>
+	    			<div>
+		    			<%= cfo.first_name %> <%= cfo.last_name %>
+	    			</div>
+	    			<div>
+	    				Date d'entrée: ~
+	    			</div>
+	    			<div>
+	    				Date limite: ~
+	    			</div>
+	    			<div>
+		    			<a href="#">GERER</a>
+	    			</div>
+		    	</div>
+	    	<% end %>
+	    <% end %>
+
+		<!-- <h2>Liste des candidats qui n'ont pas encore postulé à une offre ou qui ne sont pas dans un process de recrutement</h2> -->
+
+		<!-- <h2>Liste des candidats qui n'ont pas eu de retour du recruteur suit au rdv déjà passé.</h2> -->
+
+	    <!-- <h2>Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu</h2> -->
+
+	    <% unless @cadreInfoNotPromiseToHires.empty? %>
+	    	<% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
+	    		<% cINPT = cadreInfoNotPromiseToHire.cadre_info %>
+		    	<div data-name=".PROMESSE-D-EMBAUCHE" class="orange">
+	    			<h2>PROMESSE D'EMBAUCHE</h2>
+	    			<div>
+		    			<%= cINPT.first_name %> <%= cINPT.last_name %>
+	    			</div>
+	    			<div>
+	    				Date d'entrée: <%= cINPT.promise_not_reponded[1] %>
+	    			</div>
+	    			<div>
+	    				Date limite: <%= cINPT.promise_not_reponded[0] %>
+	    			</div>
+	    			<div>
+		    			<a href="#">GERER</a>
+	    			</div>
+		    	</div>
+	    	<% end %>
+	    <% end %>
+
+	    <!-- <h2>Liste des candidats qui sont arrivés au bout de leur période d'essai et qui n'ont pas encore été validés dans le système.</h2> -->
+
+	    <% unless @cadreInfoValidateTimeTryings.empty? %>
+	    	<% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
+	    		<% pThWa = cadreInfoValidateTimeTrying[0] %>
+		    	<div data-name=".PROMESSE-D-EMBAUCHE" class="orange">
+	    			<h2>PROMESSE D'EMBAUCHE</h2>
+	    			<div>
+		    			<%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
+	    			</div>
+	    			<div>
+	    				Date d'entrée: <%= pThWa.offre_job.date_poste %>
+	    			</div>
+	    			<div>
+	    				Date limite: <%= pThWa.time_trying %>
+	    			</div>
+	    			<div>
+		    			<a href="#">GERER</a>
+	    			</div>
+		    	</div>
+	    	<% end %>
+	    <% end %>
+
+	    <!-- <h2>Liste des candidats qui n'ont pas reçu leur prime</h2> -->
+
+	    <% unless @cadreInfoPrimNotReceiveds.empty? %>
+	    	<% @cadreInfoPrimNotReceiveds.each do |cadreInfoPrimNotReceived| %>
+	    		<% pThWa = cadreInfoPrimNotReceived[0] %>
+	    		<div data-name=".PRIME" class="orange">
+	    			<h2>PRIME</h2>
+	    			<div>
+		    			<%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
+	    			</div>
+	    			<div>
+	    				Date d'entrée: <%= pThWa.offre_job.date_poste %>
+	    			</div>
+	    			<div>
+	    				Date limite: <%= pThWa.time_trying %>
+	    			</div>
+	    			<div>
+		    			<a href="#">GERER</a>
+	    			</div>
+		    	</div>
+	    	<% end %>
+	    <% end %>
+
+  	</div>
 </div>
+
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
+<script type="text/javascript">
+  var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+  var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+  let $elementDate = $('.currentDatentretien');
+  $elementDate.each(function () {
+    let dateUTC = moment.utc($(this).data().times);
+    let dateGet = new Date(dateUTC.local());
+    let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+    let minute = dateGet.getMinutes()
+    if((minute+"").length == 1){
+      minute = "0"+minute
+    }
+    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ minute );
+  });
+</script>
