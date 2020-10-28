@@ -1,68 +1,12 @@
 <!-- appel css  -->
 <link rel="stylesheet" href="/css/burger_admin.css" />
-<style>
-
-  .cont-bag {
-    position: relative;
-  }
-
-  .not-bdg {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    background: #d6b36a;
-    color: #fff;
-    font-weight: 500;
-    font-family: Questrial, sans-serif;
-    font-size: 14px;
-    border: 1px solid #fff;
-     left: 125px;
-     bottom: 12px;
-     line-height: 2;
-     text-align: center;
-     justify-content: center;
-  }
-
-  .msg-bdg {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    background: #d6b36a;
-    font-size: 14px;
-    color: #fff;
-    font-weight: 500;
-    font-family: Questrial, sans-serif;
-    border: 1px solid #fff;
-    line-height: 2;
-    text-align: center;
-    justify-content: center;
-    left: -30px;
-    bottom: 42px;
-  }
-
-  .log-btn a {
-    background: #e3d7bf;
-    padding: 10px 30px;
-    border: 1px solid #e3d7bf;
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .log-btn a:hover {
-    background: #fff;
-    color: #e3d7bf;
-    border: 1px solid #e3d7bf;
-  }
-
-
-</style>
 <link rel="stylesheet" href="/css/navbar_admin.css" />
+<link rel="stylesheet" href="/admins/css/navbar_admin.css">
 <!-- body html  -->
   <nav class="navb">
     <div class="navbar-logo">
       <% if admin_signed_in? %>
-      <a href="<%=  candidats_be_processed_path %>">
+      <a href="<%=  dashbord_admin_path %>">
         <img src="/image/OIAM_DIAMOND.png" alt="logo" />
       </a>
       <% else %>
