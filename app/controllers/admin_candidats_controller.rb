@@ -8,22 +8,19 @@ class AdminCandidatsController < ApplicationAdminController
 
     # 2. Tests Potential
     # Test potentiel non terminé (en cours d eroute),récupérer son nom et email)
-    @cadreInfoPotentielNotEnds = allCadreInfos.where(is_recrute:nil,score_potential:nil)
+    @cadreInfoPotentielNotEnds = []
 
     # 3. Ouverture Mail2 Résultat
     # Candidats à relancer pour les ateliers coaching
     @cadreInfoRefuseds = allCadreInfos.where(is_recrute:false)
 
-
     # 4. Clique sur lien TP positif et planifie un entretien FIT
     # RDV Entretiens FIT à valider(nom+prenom, date+horaire rdv)
     @cadreInfoFits = allCadreInfos.joins(:agenda_admin).where(agenda_admins:{accepted:nil})
 
-
     # 5. Passe Entretien FIT
     # Entretiens FIT à effectuer(nom+prénom+date)
     @cadreInfoEnterScoreFits = allCadreInfos.where(is_recrute:nil).joins(:agenda_admin).where("agenda_admins.entretien_date < ?",DateTime.now.utc).where("agenda_admins.accepted=true")
-
 
 =begin
     6. Ouverture Mail3 Admission {}
@@ -33,7 +30,6 @@ class AdminCandidatsController < ApplicationAdminController
     # 8. Complète les informations du profil
     # Profil non complété
     @cacadreInfoInCompleteInfoProfils = allCadreInfos.where(is_recrute:true,empty:true)
-
 
     # 9. Cherche un offre d’emploi
     # Liste des candidats qui n'ont pas encore postulé à une offre ou qui ne sont pas dans un process de recrutement
@@ -63,7 +59,7 @@ class AdminCandidatsController < ApplicationAdminController
     # Liste des candidats qui sont arrivés au bout de leur période d'essai et qui n'ont pas encore été validés dans le système.
     @cadreInfoValidateTimeTryings = []
     PromiseToHire.all.each do |pTH|
-      if DateTime.strptime("#{pTH.time_trying}","%j/%m/%Y").past? && (pTH.client_time_trying.nil? || pTH.cadre_time_trying.nil?)
+      if DateTime.strptime("#{pTH.time_trying}","%d/%m/%Y").past? && (pTH.client_time_trying.nil? || pTH.cadre_time_trying.nil?)
         @cadreInfoValidateTimeTryings.push([pTH,pTH.cadre.id])
       end
     end
@@ -74,7 +70,7 @@ class AdminCandidatsController < ApplicationAdminController
     @cadreInfoPrimNotReceiveds = []
     pTHs = PromiseToHire.where(client_time_trying:true,cadre_time_trying:true,repons_client:true,repons_cadre:true,prime_received:false)
     pTHs.each do |pTH|
-      if DateTime.strptime("#{pTH.time_trying}",'%j/%m/%Y').past?
+      if DateTime.strptime("#{pTH.time_trying}",'%d/%m/%Y').past?
         @cadreInfoPrimNotReceiveds.push([pTH,pTH.cadre.id])
       end
     end
