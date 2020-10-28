@@ -11,7 +11,14 @@
     </div>
     <hr />
     <div class="footer-bottom">
-      <div class="footer-c"><%=link_to "Conditions générales", condition_general_path%> <%=link_to "Règles de communauté", root_path%> <%=link_to "Politique de confidentialité", confidentialite_path%> <%=link_to "Charte d'utilisation des cookies", root_path%></div>
+      <div class="footer-c"><%=link_to "Conditions générales", condition_general_path%> <%=link_to "Règles de communauté", root_path%> <%=link_to "Politique de confidentialité", confidentialite_path%> <%=link_to "Charte d'utilisation des cookies", root_path%>
+       <% unless current_cadre.nil? %>
+          <%=link_to "Contact Admin", show_message_admin_path(Admin.first.id)%>
+        <% end %>          
+       <%unless current_client.nil? %>
+          <%=link_to "Contact admin", show_message_client_admin_path(Admin.first.id)%>
+       <%end%>
+       </div>
       <div class="copyright"></div>
       <div class="social">
         <a href="#" target="_blank" title="Linkedin"><img src="/image/icon-linkedin.jpg" alt="linkedin logo" /> </a>

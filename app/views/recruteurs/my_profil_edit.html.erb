@@ -14,34 +14,47 @@
             <div class="cp-pprofil-box">
               <div class="cp-pprofil">
                 <% unless @client.image.nil? %>
-                <div class="c" id="addImage" style="background: url(<%= @client.image%>) center no-repeat; background-size: cover"></div>
+                <div class="c" id="addImage"
+                  style="background: url(<%= @client.image%>) center no-repeat; background-size: cover"></div>
                 <% else %>
-                <div class="c" id="addImage" style="background: url(/image/profie.png) center no-repeat; background-size: cover"></div>
+                <div class="c" id="addImage"
+                  style="background: url(/image/profie.png) center no-repeat; background-size: cover"></div>
                 <% end %>
               </div>
               <label>
                 Modifier l'image
-                <span style="display: none"> <%= f.file_field :image , class:'input_fied', accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %> </span>
+                <span style="display: none">
+                  <%= f.file_field :image , class:'input_fied', accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+                </span>
               </label>
             </div>
             <div class="cp-infos-r">
               <h5>MON PROFIL</h5>
               <p class="cpr-name">
-                <input type="text" autofocus="autofocus" class="cp-edit-form cp-full-name" required placeholder="Nom prénoms" value="<%= @client.last_name %> <%= @client.first_name %>  " id="cp-full-name" />
-                <%= f.hidden_field :first_name, autofocus: true, autocomplete: "first_name", required: true,id:"cp-first-name" %> <%= f.hidden_field :last_name, autofocus: true, autocomplete: "last_name", required: true,id:"cp-last-name" %>
+                <input type="text" autofocus="autofocus" class="cp-edit-form cp-full-name" required
+                  placeholder="Nom prénoms" value="<%= @client.last_name %> <%= @client.first_name %>  "
+                  id="cp-full-name" />
+                <%= f.hidden_field :first_name, autofocus: true, autocomplete: "first_name", required: true,id:"cp-first-name" %>
+                <%= f.hidden_field :last_name, autofocus: true, autocomplete: "last_name", required: true,id:"cp-last-name" %>
               </p>
 
-              <p class="cpr-name"><%= f.text_field :fonction, autofocus: true, class:"cp-edit-form", autocomplete: "fonction", required: true, placeholder: 'Fonction',id:"recruteur-fonction" %></p>
+              <p class="cpr-name">
+                <%= f.text_field :fonction, autofocus: true, class:"cp-edit-form", autocomplete: "fonction", required: true, placeholder: 'Fonction',id:"recruteur-fonction" %>
+              </p>
               <span class="input-error" id="recruteur-fonction-error"></span>
               <div class="cpr-r">
                 <img src="/image/mess.png" alt="logo mail" class="cp-icone" />
-                <p class="cpr-name"><%= f.email_field :mail, autofocus: true, class:"cp-edit-form", autocomplete: "mail", required: true, placeholder: 'Mail',id:"recruteur-mail" %></p>
+                <p class="cpr-name">
+                  <%= f.email_field :mail, autofocus: true, class:"cp-edit-form", autocomplete: "mail", required: true, placeholder: 'Mail',id:"recruteur-mail" %>
+                </p>
                 <span class="input-error" id="recruteur-mail-error"></span>
               </div>
 
               <div class="cpr-r">
                 <img src="/image/call.png" alt="logo mail" class="cp-icone" />
-                <p class="cpr-name"><%= f.text_field :telephone, autofocus: true, class:"cp-edit-form", autocomplete: "telephone", required: true, placeholder: 'Téléphone',id:"recruteur-phone" ,maxlength:"16"%></p>
+                <p class="cpr-name">
+                  <%= f.text_field :telephone, autofocus: true, class:"cp-edit-form", autocomplete: "telephone", required: true, placeholder: 'Téléphone',id:"recruteur-phone" ,maxlength:"16"%>
+                </p>
                 <span class="input-error" id="recruteur-phone-error"></span>
               </div>
             </div>
@@ -50,22 +63,29 @@
         <tr>
           <td>
             <div class="cp-entreprise-name">
-              <input type="text" autofocus="autofocus" name="entreprise_name" class="cp-edit-form" required placeholder="Entreprise" id="entreprise_name" value="<%= @entreprise.name %>" />
+              <input type="text" autofocus="autofocus" name="entreprise_name" class="cp-edit-form" required
+                placeholder="Entreprise" id="entreprise_name" value="<%= @entreprise.name %>" />
             </div>
             <div class="cp-flex cp-flex-t cp-entreprise-content">
               <div class="cpe-adress">
                 <h5 class="cp-icon-text"><img src="/image/map.png" alt="map icon" class="cp-icone" /> Adresse</h5>
 
-                <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="entreprise_adresse" type="text" name="entreprise_adresse" id="entreprise_adresse" value="<%= @entreprise.adresse %>" placeholder="Adresse" />
+                <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="entreprise_adresse"
+                  type="text" name="entreprise_adresse" id="entreprise_adresse" value="<%= @entreprise.adresse %>"
+                  placeholder="Adresse" />
               </div>
               <div class="cpe-postal">
                 <h5 class="cp-icon-text"><img src="/image/map.png" alt="map icon" class="cp-icone" /> Code postal</h5>
 
-                <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="postal_code" type="text" name="postal_code" id="postal_code" value="<%= @entreprise.postal_code %>" placeholder="Code Postal" />
+                <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="postal_code"
+                  type="text" name="postal_code" id="postal_code" value="<%= @entreprise.postal_code %>"
+                  placeholder="Code Postal" />
               </div>
               <div class="cpe-ville">
                 <h5 class="cp-icon-text"><img src="/image/city.png" alt="ville icon" class="cp-icone" /> Ville</h5>
-                <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="city" type="text" name="city" id="city" value="<%= @entreprise.city %>" placeholder="Ville" readonly style="opacity: 0.5" />
+                <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="city" type="text"
+                  name="city" id="city" value="<%= @entreprise.city %>" placeholder="Ville" readonly
+                  style="opacity: 0.5" />
               </div>
             </div>
           </td>
@@ -74,14 +94,19 @@
           <td class="cpe-si-td">
             <div class="cp-flex cp-flex-t cpe-si">
               <div class="cpe-siret">
-                <h5 class="cp-icon-text"><img src="/image/number.png" alt="numéro icon" class="cp-icone number" />Numéro de siret</h5>
+                <h5 class="cp-icon-text"><img src="/image/number.png" alt="numéro icon" class="cp-icone number" />Numéro
+                  de siret</h5>
 
-                <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="entreprise_siret" type="text" name="entreprise_siret" id="entreprise_siret" value="<%= @entreprise.siret %>" placeholder="Numéro de siret" />
+                <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="entreprise_siret"
+                  type="text" name="entreprise_siret" id="entreprise_siret" value="<%= @entreprise.siret %>"
+                  placeholder="Numéro de siret" />
               </div>
               <div class="cpe-site">
                 <h5 class="cp-icon-text"><img src="/image/web.png" alt="web icon" class="cp-icone" />Site</h5>
 
-                <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="entreprise_site" type="text" name="entreprise_site" id="entreprise_site" value="<%= @entreprise.site %>" placeholder="Site Internet" />
+                <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="entreprise_site"
+                  type="text" name="entreprise_site" id="entreprise_site" value="<%= @entreprise.site %>"
+                  placeholder="Site Internet" />
               </div>
             </div>
             <span class="input-error" id="entreprise-siret-error"></span>
@@ -91,19 +116,27 @@
           <td>
             <div class="codenaf-flex">
               <div class="cpe-naf">
-                <h5 class="cp-icon-text"><img src="/image/code.png" alt="code icon" class="cp-icone number" />Code NAF</h5>
+                <h5 class="cp-icon-text"><img src="/image/code.png" alt="code icon" class="cp-icone number" />Code NAF
+                </h5>
 
-                <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="code_naf" type="text" name="code_naf" id="code_naf" value="<%= @entreprise.code_naf %>" placeholder="Code NAF" />
+                <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="code_naf"
+                  type="text" name="code_naf" id="code_naf" value="<%= @entreprise.code_naf %>"
+                  placeholder="Code NAF" />
                 <span class="input-error" id="code-naf-error"></span>
                 <ul class="code-naf-list" id="code-naf-list"></ul>
               </div>
               <div class="cpe-description">
-                <h5 class="cp-icon-text"><img src="/image/description.png" alt="description icon" class="cp-icone number" />Description</h5>
-                <!-- <input autofocus="autofocus" class="cp-edit-form" required="required" autocomplete="entreprise_description" type="text" name="entreprise_description" id="entreprise_description" value="<%= @entreprise.description %>" placeholder="Code NAF" /> -->
+                <h5 class="cp-icon-text"><img src="/image/description.png" alt="description icon"
+                    class="cp-icone number" />Description</h5>
+                <input autofocus="autofocus" class="cp-edit-form" required="required"
+                  autocomplete="entreprise_description" type="text" name="entreprise_description"
+                  id="entreprise_description1" value="<%= @entreprise.description %>" placeholder="Code NAF" hidden />
 
-                <textarea class="cp-edit-form" required="required" autocomplete="entreprise_description" type="text" name="entreprise_description" id="entreprise_description" autofocus="autofocus" placeholder="Description de votre activité" readonly style="opacity: 0.5">
+                <div class="cp-edit-form" required="required" autocomplete="entreprise_description" type="text"
+                  name="entreprise_description" id="entreprise_description" autofocus="autofocus"
+                  placeholder="Description de votre activité" readonly style="opacity: 0.5">
                   <%= @entreprise.description %>
-                </textarea>
+                </div>
               </div>
             </div>
           </td>

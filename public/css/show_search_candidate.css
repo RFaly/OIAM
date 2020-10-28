@@ -8,7 +8,6 @@
   width: 100%;
   min-height: 80vh;
   padding-top: 15px;
-  border-left: 1px solid #d6b36a;
 }
 
 .box-inside {
@@ -319,7 +318,7 @@
 
 .ssc-box .ssc-planification .with-input .with-input-item:focus {
   outline: 1px solid white;
-  box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+  box-shadow: 1px 0px 3px 1px rgba(214, 214, 214, 0.3);
 }
 
 .ssc-box .ssc-planification .planQ-btn {
@@ -389,7 +388,14 @@
 
 @media screen and (min-width: 320px) {
   #ui-datepicker-div {
-    width: 80%;
+    width: 95%;
+    color: white;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #ui-datepicker-div {
+    width: 82%;
     color: white;
   }
 }

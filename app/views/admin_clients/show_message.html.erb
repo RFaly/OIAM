@@ -1,0 +1,269 @@
+<link rel="stylesheet" href="/admins/css/show_message.css" />
+<style media="screen">
+	.fcp-box {
+		width: 90%;
+		justify-content: center;
+		margin: 0 auto;
+		-webkit-box-shadow: 2px 2px 6px 0px rgba(50, 50, 50, 0.37);
+		-moz-box-shadow:    2px 2px 6px 0px rgba(50, 50, 50, 0.37);
+		box-shadow:         2px 2px 6px 0px rgba(50, 50, 50, 0.37);
+	}
+
+	.chat-info {
+		display: flex;
+		padding: 20px;
+		background: #d6b36a;
+		color: #fff;
+		/* border-top-left-radius: 10px;
+		border-top-right-radius: 10px; */
+		border: none;
+		position: relative;
+	}
+
+	.img img {
+		width: 75px;
+		height: 75px;
+		border: 2px solid #e3d7bf;
+		border-radius: 50%;
+		background-position: center;
+		background-image: cover;
+	}
+
+	.img {
+		padding-left: 20px;
+		padding-right: 20px;
+		position: relative;
+	}
+
+	.desc {
+		padding-left: 10px;
+	}
+
+	.name {
+		font-size: 32px;
+		font-weight: bold;
+		font-family: Questrial, sans-serif;
+	}
+
+	.online small {
+		font-size: 14px;
+		font-family: Questrial, sans-serif;
+	}
+
+	.chat-body {
+		overflow-y: scroll;
+		padding-top: 30px;
+		padding-left: 30px;
+		padding-right: 30px;
+		border-left: 2px solid #ccc;
+		border-right: 2px solid #ccc;
+		height: 450px;
+		padding-bottom: 20px;
+		margin-top: 20px;
+	}
+
+	.chat-body::-webkit-scrollbar {
+		width: 5px;
+	}
+
+	.chat-body::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.chat-body::-webkit-scrollbar-thumb {
+		background: #d6b36a;
+	}
+
+	.chat-body::-webkit-scrollbar-thumb:hover {
+		background: #d6b36a;
+	}
+
+	.hr-msg {
+		display: flex;
+		position: relative;
+		margin-top: 10px;
+	}
+
+	.hr-image img {
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		border: 2px solid #d6b36a;
+	}
+
+	.hr-image {
+		padding-right: 20px;
+	}
+
+	.hr-mg {
+		background: #f0f2f4;
+		text-align: left;
+		padding: 10px;
+		border-radius: 10px;
+		width: 50%;
+		margin-top: 10px;
+	}
+
+	.hr-mg p {
+		color: #000;
+		font-size: 14px;
+		font-family: Questrial, sans-serif;
+		width: 100%;
+		word-wrap: break-word;
+		text-align: justify;
+		margin: auto 0;
+	}
+
+	.m-msg {
+		float: right;
+		margin-top: 10px;
+		background: #d6b36a;
+		border-radius: 10px;
+		padding: 10px;
+		text-align: left;
+		width: 50%;
+	}
+
+	.m-msg p {
+		color: #fff;
+		font-size: 14px;
+		font-family: Questrial, sans-serif;
+		width: 100%;
+		word-wrap: break-word;
+		text-align: justify;
+	}
+
+	.sd {
+		display: flex;
+	}
+
+	.sd-input {
+		float: left;
+	}
+
+	.sd-btn {
+		float: right;
+	}
+
+	.sd-input input{
+		padding-left: 10px;
+		padding-right: 20px;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		outline: none;
+		border: 1px solid #d6b36a;
+	}
+
+	.sd textarea {
+		resize: none;
+	}
+
+	.ms-in {
+		width: 100%;
+		padding: 15px;
+		outline: none;
+		border: none;
+		border-top: 1px solid #d6b36a;
+		border-bottom: 1px solid #d6b36a;
+		border-left: 1px solid #d6b36a;
+		text-align: left;
+		word-wrap: break-word;
+		font-family: Questrial, sans-serif;
+		font-size: 14px;
+	}
+
+	.sd button {
+		background: #fff;
+		border: none;
+		outline: none;
+		padding: 10px;
+		border-right: 1px solid #d6b36a;
+		border-bottom: 1px solid #d6b36a;
+		border-top: 1px solid #d6b36a;
+	}
+
+	.dt {
+		float: right;
+		color: white;
+		font-size: 10px;
+		font-family: Questrial, sans-serif;
+	}
+
+	.clear {
+		clear: both;
+	}
+
+	.dot-online {
+		background: green;
+		width: 15px;
+		height: 15px;
+		border-radius: 100%;
+		border: 2px solid #fff;
+		position: absolute;
+		left: 70%;
+		top: 65%;
+	}
+
+
+</style>
+<!-- body html  -->
+<div class="client-column">
+	<div class="client-menu-left"><%= render "admin_clients/left_menu" %></div>
+	<div class="cp-box">
+		<div class="fcp-box">
+			<div class="chat-info">
+				<div class="img">
+					<img src="<%= @contact.client.image %>" alt="avatar">
+					<% if @contact.client.is_online? %>
+					<span class="dot-online"></span>
+					<% end %>
+				</div>
+				<div class="desc">
+					<h1 class="name"><%= @contact.client.first_name %> <%= @contact.client.last_name %></h1>
+					<p class="online">
+						<% if @contact.client.is_online? %>
+							<small>En ligne</small>
+						<% else %>
+	            <small>Connectée il y a <%= time_ago_in_words(@contact.client.online_time) %></small>
+	          <% end %>
+					</p>
+				</div>
+	</div>
+
+	<div class="chat-body">
+		<% @messages.each do |message| %>
+		<% unless message.is_admin %>
+		<div class="hr-msg">
+			<div class="hr-image">
+				<img src="<%= @contact.client.image %>" alt="avatar">
+			</div>
+			<div class="hr-mg">
+				<p><%= message.content %></p>
+			</div>
+		</div>
+		<% else %>
+		<div class="m-msg">
+			<p><%= message.content %></p>
+		</div>
+		<% end %>
+		<div class="clear"></div>
+		<% end %>
+	</div>
+
+	<%= form_tag(clients_post_message_path) do %>
+	<div class="sd">
+			<input type="hidden" name="id_contact" value="<%= @contact.id%>">
+			<input type="hidden" name="id_client" value="<%= @client.id %>">
+			<input placeholder="répondre..." class="ms-in" name="message_admin_client[content]" id="message_admin_client_content" autocomplete="off"></input>
+			<button type="submit">
+				<img src="/image/send.png" alt="send" class="ms-im"/>
+			</button>
+	</div>
+	<% end %>
+
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	$(".chat-body").animate({ scrollTop: 20000000 }, "slow");
+</script>

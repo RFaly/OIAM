@@ -8,7 +8,6 @@
   width: 100%;
   min-height: 80vh;
   padding-top: 15px;
-  border-left: 1px solid #d6b36a;
 }
 
 .box-inside {
@@ -99,12 +98,4 @@
 .message-box .message-contact-items .link.color {
   color: #d6b36a;
   font-weight: bold;
-}
-
-#chat-out {
-  position: fixed;
-  width: 400px;
-  bottom: 0;
-  right: 2px;
-  z-index: 200;
 }

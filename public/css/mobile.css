@@ -11,7 +11,7 @@
 
 #loading-indicator {
   position: fixed;
-  z-index: 200;
+  z-index: 900;
   top: 0px;
   left: 0px;
   right: 0;
@@ -36,11 +36,7 @@
 }
 
 .flash {
-  position: fixed;
   display: none;
-  z-index: 500;
-  top: 90px;
-  right: 50px;
   overflow: hidden;
   border-right: 7px solid rgba(141, 141, 141, 0.5);
   height: 60px;
@@ -101,11 +97,11 @@
   justify-content: center;
   background: linear-gradient(#ffffff, #f4e8ca);
   position: fixed;
-  z-index: 4;
-  top: 1.5vh;
-  left: 1.5vw;
-  width: 98%;
-  height: 98vh;
+  z-index: 202;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
 }
 
 .felicitation h1 {
@@ -159,6 +155,12 @@
 }
 
 @media screen and (min-width: 320px) {
+  .flash {
+    position: fixed;
+    z-index: 500;
+    top: 90px;
+    right: 10px;
+  }
   body {
     overflow-x: hidden;
   }
@@ -319,11 +321,28 @@
   .emmanuel-profil .emmanuel-box .about .content {
     padding: 10px;
   }
+  .left-menu-r {
+    z-index: 200;
+    padding: 10px;
+    background: white;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+  }
   .left-menu-r.open {
+    background: transparent;
+    top: 51px;
     width: 50px;
   }
-  .btn-menu-r {
+  .left-menu-r.open .btn-menu-r {
     right: 7px;
+  }
+  .btn-menu-r {
+    right: 20px;
+  }
+  .left-menu-content li {
+    margin: 40px 0;
   }
   .left-menu-photo.open {
     opacity: 0;
@@ -358,9 +377,8 @@
     text-align: -webkit-center;
     text-align: -moz-center;
     text-align: center;
-  }
-  .cp-table-box .cpe-naf {
     width: 100%;
+    margin-bottom: 15px;
   }
   .cp-edit-table-box .cp-edit-form {
     width: 100%;
@@ -388,16 +406,24 @@
     left: 35px;
   }
   .cp-edit-table-box .cpe-description,
+  .cp-edit-table-box .cpe-naf,
+  .cp-edit-table-box .cpe-adress,
+  .cp-edit-table-box .cpe-site {
+    margin: 10px 0;
+  }
+  .cp-edit-table-box .cpe-description,
   .cp-edit-table-box .cpe-naf {
     text-align: -webkit-center;
     text-align: -moz-center;
     text-align: center;
+    width: 100%;
   }
   .coj-box {
     flex-wrap: wrap;
   }
   .coj-box .cjo-content {
-    width: 50%;
+    margin-left: 5px;
+    width: 80%;
   }
   .create-offre-box {
     width: 90%;
@@ -540,6 +566,7 @@
   }
   .ssc-box .ssc-all-infos .ssc-infos {
     width: 280px;
+    margin: 0 auto;
   }
   .ssc-box .ssc-question {
     width: 100%;
@@ -555,8 +582,7 @@
     width: 85%;
   }
   .ssc-box .ssc-planification {
-    margin-left: -8px;
-    width: 90%;
+    width: 100%;
   }
   .fc-item-all .list-candidat {
     margin: 30px 0;
@@ -609,6 +635,15 @@
     width: 90%;
     padding: 10px;
   }
+  .rsc-box .rsc-body .rsc-date-past .rscdp-empty2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .ssc-planification1-rscdp-empty2 {
+    width: 100%;
+    margin-top: -90px;
+    margin-bottom: 90px;
+  }
   .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
     width: 95%;
     padding: 20px 5px;
@@ -659,6 +694,16 @@
   .rsc-box .ap-box {
     flex-wrap: wrap;
   }
+  .rsc-box .ssc-planification {
+    margin-top: -200px;
+    width: 100%;
+  }
+  .rsc-box .ssc-planification .date input {
+    top: -78px;
+    border-radius: 0;
+    font-size: 0.002px;
+    position: absolute;
+  }
   .rsc-body-promise .dscdpa-box {
     width: 80%;
     padding: 10px;
@@ -666,6 +711,13 @@
   .message-box .message-contact-items .link {
     width: 70%;
     margin: 10px 0;
+  }
+  #chat-out {
+    position: fixed;
+    width: 400px;
+    bottom: 0;
+    right: -9px;
+    z-index: 200;
   }
   .link a {
     padding: 12px 3px;
@@ -675,9 +727,34 @@
     justify-content: center;
     align-items: center;
   }
+  .promise .pc-head .pch-left {
+    width: 60%;
+    margin: 0 auto;
+  }
+  .promise .pc-head .pch-right {
+    margin: 0 auto;
+  }
+  .promise .pc-form label,
+  .promise .pc-form input,
+  .promise .pc-form .right {
+    margin: 0 auto;
+  }
+  .promise .pc-form label {
+    width: 42%;
+    margin-top: 5px;
+  }
+  .promise .p-sign .signature {
+    margin: 10px auto;
+  }
+  .promise .pc-sign-cadre .image {
+    margin: 0 auto;
+  }
 }
 
 @media screen and (min-width: 768px) {
+  .flash {
+    right: 50px;
+  }
   .pay-bill-box .pb-flex {
     flex-direction: row;
     justify-content: space-between;
@@ -779,10 +856,24 @@
   .emmanuel-profil .emmanuel-box .about .content {
     padding: 10px 25px;
   }
+  .cp-box {
+    border-left: 1px solid #d6b36a;
+  }
+  .left-menu-r {
+    position: relative;
+    width: 300px;
+    padding: 70px 0;
+    height: auto;
+  }
   .left-menu-r.open {
+    top: 0;
     width: 100px;
   }
+  .left-menu-content li {
+    margin: 42px 0;
+  }
   .btn-menu-r {
+    top: 0;
     right: 6px;
   }
   .left-menu-photo.open {
@@ -848,6 +939,15 @@
   }
   .cp-edit-table-box .cp-icon-text img {
     left: -5px;
+  }
+  .cp-edit-table-box .cpe-naf {
+    width: 35%;
+  }
+  .cp-edit-table-box .cpe-description {
+    width: 60%;
+  }
+  .coj-box {
+    justify-content: space-between;
   }
   .coj-box .cjo-content {
     width: 40%;
@@ -965,7 +1065,6 @@
   .ssc-box .ssc-planification {
     margin-left: 0;
     margin-right: auto;
-    width: 80%;
   }
   .rf-box .rf-items {
     margin-bottom: 65px;
@@ -1012,6 +1111,9 @@
     width: 70%;
     padding: 20px;
   }
+  .rsc-box .rsc-body .rsc-date-past .ssc-planification1-rscdp-empty2 {
+    width: 100%;
+  }
   .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
     width: 70%;
     padding: 20px 25px;
@@ -1025,6 +1127,10 @@
   }
   .rsc-box .rsc-body .validation-cadre-trying .vct-btn {
     width: 250px;
+  }
+  .rsc-box .rscdf-content .rscdf-item2 {
+    border-right: 2px solid white;
+    border-left: 2px solid white;
   }
   .rsc-box .rscdf-content .new-date {
     width: 450px;
@@ -1041,9 +1147,22 @@
   .rsc-box .rscdf-content .new-date .link2 a {
     padding: 10px 5px;
   }
+  .rsc-box .ssc-planification {
+    margin-left: 4px;
+    width: auto;
+  }
+  .rsc-box .ssc-planification .js-timeContainer {
+    width: 600px;
+  }
+  .rsc-box .ssc-planification .date input {
+    top: -3px;
+  }
   .message-box .message-contact-items .link {
     width: 80%;
     margin-left: 5px;
+  }
+  #chat-out {
+    right: 2px;
   }
   .link {
     margin: 0 auto;
@@ -1051,6 +1170,34 @@
   }
   .link a {
     padding: 12px 8px;
+  }
+  .promise .pc-head .pch-left {
+    width: 40%;
+    margin: 0;
+  }
+  .promise .pc-head .pch-right {
+    margin: 0;
+  }
+  .promise .pc-form label,
+  .promise .pc-form input,
+  .promise .pc-form .right {
+    margin: 0;
+  }
+  .promise .pc-form input {
+    margin: 10px 0;
+    margin-left: 10px;
+  }
+  .promise .pc-form label {
+    width: 40%;
+    margin-top: 5px;
+  }
+  .promise .p-sign .signature {
+    margin: 10px 0;
+    margin-left: 10px;
+  }
+  .promise .pc-sign-cadre .image {
+    margin: 10px 0;
+    margin-left: 10px;
   }
 }
 
@@ -1126,7 +1273,7 @@
   }
   .dropup-btn1:hover {
     background-color: rgba(255, 255, 255, 0.61);
-    box-shadow: 1px 1px 3px 1px rgba(218, 215, 211, 0.63);
+    box-shadow: 1px 0px 3px 1px rgba(214, 214, 214, 0.3);
     color: #e3d7bf;
   }
   .dropup-content1 {
@@ -1278,6 +1425,9 @@
   .left-menu-r.open {
     width: 120px;
   }
+  .left-menu-r.open .btn-menu-r {
+    right: 16px;
+  }
   .btn-menu-r {
     right: 15px;
   }
@@ -1331,6 +1481,9 @@
   }
   .cp-edit-table-box .cp-icon-text img {
     left: 1px;
+  }
+  .cp-edit-table-box .cpe-naf {
+    width: 208px;
   }
   .create-offre-box .detail-post-box .dp-input {
     width: 85%;
@@ -1433,6 +1586,7 @@
   }
   .ssc-box .ssc-all-infos .ssc-infos {
     width: 300px;
+    margin: 0;
   }
   .ssc-box .ssc-question {
     width: 60%;
@@ -1446,6 +1600,11 @@
   }
   .ssc-box .ssc-rest .ssc-oiam {
     width: 60%;
+  }
+  .ssc-box .ssc-planification {
+    margin-left: auto;
+    margin-right: 0;
+    width: 600px;
   }
   .fc-item-all .list-candidat .fci-infos {
     height: 92px;
@@ -1484,6 +1643,15 @@
     width: 60%;
     padding: 30px;
   }
+  .rsc-box .rsc-body .rsc-date-past .rscdp-empty2 {
+    width: 70%;
+    padding: 50px;
+  }
+  .rsc-box .rsc-body .rsc-date-past .ssc-planification1-rscdp-empty2 {
+    width: 600px;
+    margin-left: auto;
+    margin-bottom: 190px;
+  }
   .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
     width: 65%;
     padding: 20px 45px;
@@ -1521,6 +1689,20 @@
   }
   .rsc-box .rsc-body .validation-cadre-trying {
     width: 70%;
+  }
+  .rsc-box .ssc-planification {
+    margin: 0 auto;
+    margin-top: -190px;
+    margin-bottom: 250px;
+    width: 700px;
+  }
+  .rsc-box .ssc-planification .js-timeContainer {
+    width: 600px;
+    margin: 0 auto;
+  }
+  .rsc-box .ssc-planification .date input {
+    left: 7.1%;
+    top: -3px;
   }
   .rsc-body-promise .dscdpa-box {
     width: 60%;
@@ -1692,10 +1874,6 @@
   .ssc-box .ssc-rest .ssc-oiam {
     width: 68%;
   }
-  .ssc-box .ssc-planification {
-    margin-left: auto;
-    width: 60%;
-  }
   .fc-item-all .list-candidat {
     margin: 30px 50px;
   }
@@ -1737,6 +1915,9 @@
   }
   .rsc-box .rsc-body .validation-cadre-trying .vct-btn {
     width: 350px;
+  }
+  .rsc-box .ssc-planification1-rscdp-empty2 {
+    margin-right: auto;
   }
   .rsc-body-promise .dscdpa-box {
     width: 50%;

@@ -1,78 +1,83 @@
 <div class="rscdf-box">
-    <% show = true %>
-    <div class="rscdf-header">
-        Vous avez un entretien le <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
-    </div>
-    <div class="rscdf-content">
-        <div class="rscdf-item1">
-            <!-- candidat a accepter l'entretien -->
-            <% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
-                Le rendez-vous pour l'entretien avec <%= @cadre.cadre_info.last_name.capitalize %> <%= @cadre.cadre_info.first_name.capitalize %> a été validé.
-            <!-- candidat a accepter l'entretien sous condition -->
-            <% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
-                <% date = DateTime.parse(@agendas.alternative) %>
-                <div class="new-date">
-                  Le candidat a accepté la demande d'entretien à condition de changer la date  à <span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
-                  <div class="link">
-                    <% if date.future? %>
-                      <%= link_to "ACCEPTER SA PROPOSITION", update_entretien_client_path(repons: '1', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
-                    <% else %>
-                      La date que le candidat a proposée est passé.
-                    <% end %>
-                  </div>
-                  <div class="link ssc-btn ssc-pe" id="dateEntretien1">
-                    PROPOSER UNE NOUVELLE DATE
-                  </div>
-                  <div class="link2">
-                    <%= link_to "REFUSER SA PROPOSTION ET SA CANDIDATURE", update_entretien_client_path(repons: '0', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
-                  </div>
-                </div>
-            <!-- candidat a reffuser l'entretien -->
-            <% elsif @agendas.repons_cadre == false %>
-                <% show = false %>
-                <div class="refus">
-                    Le candidat a refusé l'entretien
-                    <% unless @agendas.alternative.nil? %>
-                    <div>
-                        motif: <%= @agendas.alternative %>
-                    </div>
-                    <% end %>
-                </div>
-
-            <% else %>
-            <div class="attent">
-                Demande d'entretien envoyée, en attente de réponse du candidat.
-            </div>
-            <% end %>
+  <% show = true %>
+  <div class="rscdf-header">
+    Vous avez un entretien le <span data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>"
+      class="currentDateEntretien"></span>
+  </div>
+  <div class="rscdf-content">
+    <div class="rscdf-item1">
+      <!-- candidat a accepter l'entretien -->
+      <% if @agendas.repons_client && @agendas.repons_cadre && @agendas.alternative.nil? %>
+      Le rendez-vous pour l'entretien avec <%= @cadre.cadre_info.last_name.capitalize %>
+      <%= @cadre.cadre_info.first_name.capitalize %> a été validé.
+      <!-- candidat a accepter l'entretien sous condition -->
+      <% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
+      <% date = DateTime.parse(@agendas.alternative) %>
+      <div class="new-date">
+        Le candidat a accepté la demande d'entretien à condition de changer la date à <span
+          data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>
+        <div class="link">
+          <% if date.future? %>
+          <%= link_to "ACCEPTER SA PROPOSITION", update_entretien_client_path(repons: '1', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
+          <% else %>
+          La date que le candidat a proposée est passé.
+          <% end %>
         </div>
-        
-        <% if show %> <!-- afficher ce petit compte à rebours mandona -->
-        <div id="futureTimeClock" class="rscdf-item2" data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>">
-            <h4>
-                Temps restant avant l'entretien
-            </h4>
-            <div class="date-items">
-                <div class="date">
-                    <span id="js-days"></span>
-                    <p>jours</p> 
-                </div>
-                <div class="date">
-                    <span id="js-hours"></span>
-                    <p>heures</p>
-                </div>
-                <div class="date">
-                    <span id="js-minutes"></span>
-                    <p>minutes</p>
-                </div>
-                <div class="date">
-                    <span id="js-seconds">0</span>
-                    <p>seconde</p>
-                </div>
-            </div>
+        <div class="link ssc-btn ssc-pe" id="dateEntretien1">
+          PROPOSER UNE NOUVELLE DATE
+        </div>
+        <div class="link2">
+          <%= link_to "REFUSER SA PROPOSTION ET SA CANDIDATURE", update_entretien_client_path(repons: '0', ac_id: @agendas.id, offre_id: @offre.id, cadre_id: @cadre.id), method: :post, remote: :true %>
+        </div>
+      </div>
+      <!-- candidat a reffuser l'entretien -->
+      <% elsif @agendas.repons_cadre == false %>
+      <% show = false %>
+      <div class="refus">
+        Le candidat a refusé l'entretien
+        <% unless @agendas.alternative.nil? %>
+        <div>
+          motif: <%= @agendas.alternative %>
         </div>
         <% end %>
+      </div>
+
+      <% else %>
+      <div class="attent">
+        Demande d'entretien envoyée, en attente de réponse du candidat.
+      </div>
+      <% end %>
     </div>
-    
+
+    <% if show %>
+    <!-- afficher ce petit compte à rebours mandona -->
+    <div id="futureTimeClock" class="rscdf-item2"
+      data-times="<%= @agendas.entretien_date.strftime("%Y-%m-%d %H:%M") %>">
+      <h4>
+        Temps restant avant l'entretien
+      </h4>
+      <div class="date-items">
+        <div class="date">
+          <span id="js-days"></span>
+          <p>jours</p>
+        </div>
+        <div class="date">
+          <span id="js-hours"></span>
+          <p>heures</p>
+        </div>
+        <div class="date">
+          <span id="js-minutes"></span>
+          <p>minutes</p>
+        </div>
+        <div class="date">
+          <span id="js-seconds">0</span>
+          <p>seconde</p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
 </div>
 
 <div class="ssc-planification1">
@@ -112,12 +117,12 @@
         <input type="hidden" name="offre_id" value="<%= @offre.id %>" />
         <input type="hidden" name="ac_id" value="<%= @agendas.id %>" />
         <input type="hidden" name="repons" value="2" />
-        
+
 
         <div class="planQ-btn">
           <%= submit_tag("VALIDER", id:"valid-submit", disabled:"disabled" )%>
         </div>
-        
+
       </div>
     </div>
     <% end %>

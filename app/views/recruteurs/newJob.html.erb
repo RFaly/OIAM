@@ -24,13 +24,13 @@
       <%= form_for @offre , url: createJob_path do |f| %>
       <div class="detail-post-box">
         <label>LOCALISATION</label>
-        <div class="dp-input hide-right"><%= f.select :country , options_for_select([["France", "France"]]),{}, class:'co-select', required:true, id:'paysInput', title:'Pays',autofocus:true%></div>
+        <div class="dp-input"><%= f.select :country , options_for_select([["France", "France"]]),{}, class:'co-select', required:true, id:'paysInput', title:'Pays',autofocus:true%></div>
         <span class="input-error country-error"></span>
 
-        <div class="dp-input hide-right"><%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région',autofocus:true %></div>
+        <div class="dp-input"><%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région',autofocus:true %></div>
         <span class="input-error region-error"></span>
 
-        <div class="dp-input hide-right"><%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autofocus:true %></div>
+        <div class="dp-input"><%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autofocus:true %></div>
         <span class="input-error departement-error"></span>
 
         <!-- -------------------------------------------------------------------- -->
@@ -74,7 +74,7 @@
         </div>
 
         <%= f.label :remuneration_anne, "RÉMUNÉRATION PROPOSÉE VARIABLE (K€ BRUTS ANNUELS)" %> <% i = 0 %> <%array = [] %> <%21.times do %> <% array << "#{i}" %> <%i += 5 %><% end %>
-        <div class="dp-input hide-right"><%= f.select :remuneration_anne, options_for_select(array),{}, class:'co-select', required:true, id:'remuneration-anne',autofocus:true %></div>
+        <div class="dp-input"><%= f.select :remuneration_anne, options_for_select(array),{}, class:'co-select', required:true, id:'remuneration-anne',autofocus:true %></div>
         <span class="input-error remuneration-anne-error"></span>
 
         <label class="dp-input dp-input-checkbox1">
@@ -84,7 +84,7 @@
         </label>
 
         <%= f.label :type_deplacement, "LE POSTE IMPLIQUE-T-IL DES DÉPLACEMENTS ?" %>
-        <div class="dp-input hide-right"><%= f.select :type_deplacement, options_for_select([["Pas de déplacements"," 0"],["Nationaux","1"],["Internationaux","2"],["Régionaux","3"]]), {}, required:true, class:'co-select',id:'type-deplacement',autofocus:true %></div>
+        <div class="dp-input"><%= f.select :type_deplacement, options_for_select([["Pas de déplacements"," 0"],["Nationaux","1"],["Internationaux","2"],["Régionaux","3"]]), {}, required:true, class:'co-select',id:'type-deplacement',autofocus:true %></div>
         <span class="input-error type-deplacement-error"></span>
 
         <%= f.label :type_deplacement, "DATE DE PRISE DE POSTE" %>
@@ -97,7 +97,7 @@
 
       <div class="context-offre-box">
         <%= f.label :question1, "QUELLE POURRAIT-ÊTRE LA RÉMUNÉRATION MAXIMALE POUR LE CANDIDAT IDÉAL ?", class:"ggag" %>
-        <div class="co-input hide-right">
+        <div class="co-input">
           <%= f.select :question1, options_for_select([["60k€ bruts annuels", "60"],["70k€ bruts annuels", "70"],["80k€ bruts annuels", "80"],["90k€ bruts annuels", "90"],["100k€ bruts annuels", "100"],["110k€ bruts annuels", "110"],["120k€ bruts annuels", "120"],["130k€ bruts annuels", "130"],["140k€ bruts annuels", "140"],["150k€ bruts annuels",
           "150"],["160k€ bruts annuels", "160"],["170k€ bruts annuels", "170"], ["180k€ bruts annuels", "180"],["190k€ bruts annuels", "190"],["200k€ bruts annuels", "200"],["210k€ bruts annuels", "210"],["220k€ bruts annuels", "220"],["230k€ bruts annuels", "230"],["240k€ bruts annuels", "240"],["250k€ bruts annuels", "250"],["260k€ bruts
           annuels", "260"],["270k€ bruts annuels", "270"],["280k€ bruts annuels", "280"],["290k€ bruts annuels", "290"],["300k€ bruts annuels", "300"],["310k€ bruts annuels", "310"],["320k€ bruts annuels", "320"],["330 k€ bruts annuels", "330"],["340k€ bruts annuels", "340"],["350k€ bruts annuels", "350"]]),{}, class:'co-select', id:'question1' ,
@@ -110,7 +110,7 @@
         <span class="input-error" id="question2-error"></span>
 
         <%= f.label :numberEntretien, "QUEL SERA VOTRE PROCESSUS DE RECRUTEMENT ?", class:"ggag" %>
-        <div class="co-input hide-right"><%= f.select :numberEntretien, options_for_select([[ "1 entretien RH","1"],[ "1 entretien RH + 1 entretien Manager","2"],[ "1 entretien RH + 2 entretiens Manager","3"]]),{}, class:'co-select', required:true,id:'question3',autofocus:true %></div>
+        <div class="co-input"><%= f.select :numberEntretien, options_for_select([[ "1 entretien RH","1"],[ "1 entretien RH + 1 entretien Manager","2"],[ "1 entretien RH + 2 entretiens Manager","3"]]),{}, class:'co-select', required:true,id:'question3',autofocus:true %></div>
         <span class="input-error" id="question3-error"></span>
 
         <label>POURRIEZ-VOUS SUPPORTER UN PRÉAVIS SUR CE POSTE ?</label>
@@ -126,7 +126,7 @@
         </div>
 
         <%= f.label :question5, "PRÉSENTER LE CONTEXTE D’OUVERTURE DE CE POSTE.", class:"ggag" %>
-        <div class="co-input hide-right"><%= f.select :question5, options_for_select([[ "Remplacement" ],[ "Départ à la retraite" ],[ "Création de poste" ],[ "Croissance de l'entreprise" ]]),{}, class:'co-select', required:true,id:'question5' ,autofocus:true %></div>
+        <div class="co-input"><%= f.select :question5, options_for_select([[ "Remplacement" ],[ "Départ à la retraite" ],[ "Création de poste" ],[ "Croissance de l'entreprise" ]]),{}, class:'co-select', required:true,id:'question5' ,autofocus:true %></div>
         <span class="input-error" id="question5-error"></span>
 
         <div class="co-input co-input-image">
@@ -204,6 +204,6 @@
     }
   });
 </script> -->
-<script data-turbolinks-track="reload" type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/jquery-ui.min.js"></script>
 <!-- date picker jquery  -->
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/event_input_offre_job.js"></script>
