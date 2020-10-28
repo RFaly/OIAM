@@ -1,19 +1,4 @@
 <link rel="stylesheet" type="text/css" href="/admins/css/message.css" />
-<style media="screen">
-.box-msg {
-  border: 1px solid #ccc;
-  -webkit-box-shadow: 2px 2px 6px 0px rgba(50, 50, 50, 0.37);
-  -moz-box-shadow:    2px 2px 6px 0px rgba(50, 50, 50, 0.37);
-  box-shadow:         2px 2px 6px 0px rgba(50, 50, 50, 0.37);
-  margin-top: 10px;
-}
-
-  .clr-bx {
-    webkit-box-shadow: 2px 2px 6px 0px rgba(214,179,106, 1);
-    -moz-box-shadow:    2px 2px 6px 0px rgba(214,179,106, 1);
-    box-shadow:         2px 2px 6px 0px rgba(214,179,106, 1);
-  }
-</style>
 <div class="all-content">
   <div class="left-content"><%= render partial: "admin_clients/left_menu" %></div>
   <div class="main">
@@ -35,7 +20,7 @@
         </div>
       <div class="message-content">
         <div class="recruteur-name">
-          Entreprise: <%= contact.client.first_name %> <%= contact.client.last_name %>
+          Entreprise : <%= contact.client.first_name %> <%= contact.client.last_name %>
         </div>
         <div class="message-body">
           <% unless nbr == 0 %>
