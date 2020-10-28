@@ -71,13 +71,13 @@
 	    				<%= cadreInfoEnterScoreFit.first_name %> <%= cadreInfoEnterScoreFit.last_name %>
 	    			</div>
 	    			<div>
-	    				Date d'entrée: <span data-times="<%= cadreInfoEnterScoreFit.cadre.cadre_info.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
+	    				Date d'entrée: <span data-times="<%= cadreInfoEnterScoreFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
 	    			</div>
 					<div>
 				    	Date limite: ~
 				    </div>
 				    <div>
-				    	<a href="#">GERER</a>
+				    	<a href="<%= post_avis_candidats_fit_path(cadreInfoEnterScoreFit.id) %>">GERER</a>
 				    </div>
 		    	</div>
 	    	<% end %>
@@ -100,7 +100,7 @@
 	    				Date limite: ~
 	    			</div>
 	    			<div>
-		    			<a href="#">GERER</a>
+		    			<a href="<%= cbp_profil_no_complete_path(cacadreInfoInCompleteInfoProfil.id) %>">GERER</a>
 	    			</div>
 		    	</div>
 	    	<% end %>

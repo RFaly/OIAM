@@ -100,16 +100,6 @@ class AdminCandidatsController < ApplicationAdminController
     @newMessage = MessageAdminCadre.new
   end
 
-  def be_processed_inscription
-    @cadre_info = CadreInfo.find_by_id(params[:id])
-  end
-
-  def be_processed_validate_entretien_fit
-    @cadre_info = CadreInfo.find_by_id(params[:id])
-  end
-
-
-
   def show_message
     @cadre = Cadre.find_by_id(params[:id])
     @contact = ContactAdminCadre.find_by(cadre: @cadre, admin:current_admin)

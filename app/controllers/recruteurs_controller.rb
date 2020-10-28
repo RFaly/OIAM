@@ -745,7 +745,7 @@ class RecruteursController < ApplicationController
 
 
   def messagerie_admin
-  	@admin = Admin.find_by_id(params[:id])
+  	@admin = Admin.first
     @contactClient = current_client.contact_admin_clients
     @contact = ContactAdminClient.where(client: current_client, admin:@admin)
     if @contact.count == 0
@@ -759,7 +759,7 @@ class RecruteursController < ApplicationController
   end
 
   def show_message_admin
-  	@admin = Admin.find_by_id(params[:id])
+  	@admin = Admin.first
 	@contact = ContactAdminClient.find_by(client:current_client, admin:@admin)
 	if @contact.nil?
 	    @contact = ContactAdminClient.create(client:current_client, admin:@admin)    
@@ -771,7 +771,7 @@ class RecruteursController < ApplicationController
   end
 
   def post_message_admin
-  	@admin = Admin.find_by_id(params[:id_admin])
+  	@admin = Admin.first
 	@contact = ContactAdminClient.find_by(id: params[:id_contact], admin: @admin, client: current_client)
 	@content = params[:message_admin_client][:content]
 	@newMessage = MessageAdminClient.new(content: @content, admin_see: false, contact_admin_client: @contact, is_admin: false)
