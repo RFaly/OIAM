@@ -87,7 +87,7 @@ class AdminCandidatsController < ApplicationAdminController
   def processed
     #1. Inscription  
     #Inscription terminée
-    @finishedSignUps = CadreInfo.where(is_recrute:nil)
+    @finishedSignUps = CadreInfo.where.not(is_recrute:nil)
 
     # 2. Tests Potential
     # Test potential (nom+prenom..), afficher le résultat du test, statut (admis ou refusé)
@@ -118,7 +118,6 @@ class AdminCandidatsController < ApplicationAdminController
         @cadreInfoValidateTimeTryings.push([pTH,pTH.cadre.id])
       end
     end
-    @cadreInfoValidateTimeTryings
 
     # 14. Recevoir sa prime
     # Liste des candidats qui ont reçu leur prime
@@ -129,7 +128,6 @@ class AdminCandidatsController < ApplicationAdminController
         @cadreInfoPrimNotReceiveds.push([pTH,pTH.cadre.id])
       end
     end
-    @cadreInfoPrimNotReceiveds
 
   end
 

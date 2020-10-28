@@ -15,5 +15,83 @@
 
   <div class="cp-box">
   	<h1>Traitées</h1>
+
+    <!-- #1. Inscription  
+    #Inscription terminée -->
+    <% unless @finishedSignUps.empty? %>
+      <% @finishedSignUps.each do |finishedSignUp| %>
+        <div class="row">
+          <div class="col-sm-3"><img src='/image/profie.png' width="60" /></div>
+          <div class="col-sm-6"><%= finishedSignUp.first_name %> <%= finishedSignUp.last_name %> a terminé l'inscription</div>
+          <div class="col-sm-3">
+            <a href="">VOIR LE CANDIDAT</a>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <!-- # 2. Tests Potential
+    # Test potential (nom+prenom..), afficher le résultat du test, statut (admis ou refusé) -->
+    <% unless @cadreInfoPotentielNotEnds.empty? %>
+      <% @cadreInfoPotentielNotEnds.each do |cadreInfoPotentielNotEnd| %>
+        <% cIPNE = cadreInfoPotentielNotEnd %>
+        <div class="row">
+          <div class="col-sm-3"><img src='/image/profie.png' width="60" /></div>
+          <div class="col-sm-6"><%= cIPNE.first_name %> <%= cIPNE.last_name %> a terminé le test potentiel</div>
+          <div class="col-sm-3">
+            <a href="">VOIR LE CANDIDAT</a>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <!-- # 4. Clique sur lien TP positif et planifie un entretien FIT  
+    # RDV entretiens FIT effectués et validés(entretiens effectués) -->
+    <% unless @cadreInfoFits.empty? %>
+      <% @cadreInfoFits.each do |cadreInfoFit| %>
+
+      <% end %>
+    <% end %>
+
+    <!-- # 5. Passe Entretien FIT
+    # Entretien FIT traité (entretien fait et colpte rendu uploadé) -->
+    <% unless @cadreInfoEnterScoreFits.empty? %>
+      <% @cadreInfoEnterScoreFits.each do |cadreInfoEnterScoreFit| %>
+
+      <% end %>
+    <% end %>
+
+    <!-- #8. Complète les informations du profil
+    #Profil complété -->
+    <% unless @cacadreInfoInCompleteInfoProfils.empty? %>
+      <% @cacadreInfoInCompleteInfoProfils.each do |cacadreInfoInCompleteInfoProfil| %>
+
+      <% end %>
+    <% end %>
+
+    <!-- # 12. Accepter/Refuser une promesse d’embauche
+    # Liste des candidats qui ont validé leur promesse d embauche -->
+    <% unless @cadreInfoNotPromiseToHires.empty? %>
+      <% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
+
+      <% end %>
+    <% end %>
+
+    <!-- # 13. Valider sa période d’essai
+    # Liste des candidats dont la période d essai est validée -->
+    <% unless @cadreInfoValidateTimeTryings.empty? %>
+      <% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
+
+      <% end %>
+    <% end %>
+
+    <!-- # 14. Recevoir sa prime
+    # Liste des candidats qui ont reçu leur prime -->
+    <% unless @cadreInfoPrimNotReceiveds.empty? %>
+      <% @cadreInfoPrimNotReceiveds.each do |cadreInfoPrimNotReceived| %>
+
+      <% end %>
+    <% end %>
+
   </div>
 </div>
