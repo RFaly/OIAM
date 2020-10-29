@@ -4,6 +4,10 @@
   font-size: 15px;
 }
 
+.navbar-controll{
+  position: relative;
+}
+
 .navbar-content .navbar-item {
   list-style: none;
   text-decoration: none;

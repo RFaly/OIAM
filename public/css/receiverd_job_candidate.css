@@ -5,7 +5,6 @@
 .client-column {
   display: flex;
   flex-wrap: nowrap;
-  padding: 20px 0;
 }
 
 .cp-box {
@@ -350,7 +349,7 @@ body {
   text-decoration: none;
 }
 
-.action {
+/* .action {
   margin-top: 70px;
   margin-bottom: 50px;
   float: right;
@@ -360,7 +359,7 @@ body {
   position: relative;
   float: right;
   top: 7px;
-}
+} */
 
 .post_info_content {
   padding: 10px;
@@ -564,12 +563,29 @@ body {
 }
 
 .action{
-  float: none;
+  display: flex;
+  grid-column-gap: 5%;
+  justify-content: center;
+  align-items: center;
 }
+
+/* .action{
+  float: none;
+} */
 
 .btn-accept{
     margin: 0 auto;
     margin-bottom: 15px;
+}
+
+.btn-alternative{
+  cursor: pointer;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+     -khtml-user-select: none;
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none;
 }
 
 .alternative{
@@ -597,14 +613,18 @@ body {
 }
 
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 600px) {
   .content {
     display: flex;
   }
 
-.btn-accept{
-  margin-right: 15px;
-}
+  .btn-accept{
+      margin: 0 auto;
+  }
+
+  .main{
+    min-height: 800px;
+  }
 
   .no-flex {
     clear: both;
@@ -625,19 +645,19 @@ body {
     width: 60%;
     padding-left: 40px;
   }
-  .action {
+  /* .action {
     position: relative;
     padding-right: 15px;
     width: auto;
     float: left;
     top: 50%;
     display: flex;
-  }
-  .action img {
+  } */
+  /* .action img {
     position: absolute;
     top: -70px;
     right: 0;
-  }
+  } */
   .logo {
     padding: 10px;
   }
@@ -651,15 +671,12 @@ body {
   .btn-recherche {
     margin-top: 20px;
   }
-  .btn-voir {
-    float: right;
-    cursor: pointer;
+
+
+  .left_link{
+    z-index: 99999999999;
   }
-  .main {
-    position: relative;
-    border-left: 1px solid #d6b36a;
-    padding-left: 15px;
-  }
+
 }
 
 @media only screen and (min-width: 1024px) {
@@ -679,5 +696,8 @@ body {
   .main {
     padding-right: 60px;
     width: 100%;
+    position: relative;
+    border-left: 1px solid #d6b36a;
+    padding-left: 15px;
   }
 }

@@ -1,0 +1,2 @@
+module BeProcessedsAdminCandidatesHelper
+end

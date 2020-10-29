@@ -223,7 +223,7 @@ body{
 		margin-bottom: 80px;
 	}
 
-@media only screen and (min-width: 900px){
+@media only screen and (min-width: 600px){
 	.content{
 		display: flex;
 	}
@@ -232,11 +232,6 @@ body{
 		display: flex;
 		flex-wrap: wrap;
 	}
-	.left_link{
-		margin-top: 20px;
-		padding-right: 2px;
-		border-right: 1px solid #D6B36A;
-	}
 
 	.offre-items{
 		width: 500px;
@@ -244,6 +239,7 @@ body{
 
 	.main{
 		width: 100%;
+		min-height: 600px;
 
 	}
 
@@ -271,5 +267,13 @@ body{
 		font-size: 20px;
 		margin-top: 50px;
 		margin-bottom: 100px;
+	}
+}
+
+@media only screen and (min-width: 1024px){
+	.left_link{
+		margin-top: 20px;
+		padding-right: 2px;
+		border-right: 1px solid #D6B36A;
 	}
 }
