@@ -26,7 +26,9 @@
           <div class="cjo-link-items">
             <div class="cjo-link"><%= link_to "VOIR L'OFFRE", showNewJob_path(offre.id)%></div>
             <div class="cjo-delete">
-              <a href=" <%=destroyJob_path(offre.id)%>" data-method="delete" data-remote="true" data-confirm="Êtes-vous sure de supprimer cette offre ??" class="delete delete-element-jobs" data-id="<%= offre.id %>" title="Supprimer"> <img src="/image/trash.png" alt="Delete" /></a>
+              <a href=" <%=destroyJob_path(offre.id)%>" data-method="delete" data-remote="true"
+                data-confirm="Êtes-vous sure de supprimer cette offre ??" class="delete delete-element-jobs"
+                data-id="<%= offre.id %>" title="Supprimer"> <img src="/image/trash.png" alt="Delete" /></a>
             </div>
           </div>
         </div>
