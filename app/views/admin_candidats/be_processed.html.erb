@@ -1,12 +1,5 @@
 <link rel="stylesheet" href="/css/admin_prms.css" />
-<style>
-	.orange{
-		border: 3px solid orange;
-		width: 200px;
-		display: inline-block;
-		margin: 0 12px;
-	}	
-</style>
+<link rel="stylesheet" href="/admins/css/atrt.css">
 
 <div class="client-column">
   <div class="client-menu-left">
@@ -14,26 +7,33 @@
   </div>
 
   	<div class="cp-box">
-  		<h1>A traiter</h1>
-
+  		<h1 class="title">A traiter</h1>
+      <div class="container">
+        <div class="row">
 	    <!-- <h2>Test potentiel non terminé (en cours d eroute),récupérer son nom et email)</h2> -->
 
 	    <% unless @cadreInfoPotentielNotEnds.empty? %>
 	    	<% @cadreInfoPotentielNotEnds.each do |cadreInfoPotentielNotEnd| %>
-	    		<div data-name=".INSCRIPTION" class="orange">
+	    		<div data-name=".INSCRIPTION" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
 					<!-- <img src='/image/profie.png'/> <br> -->
-				    <h2>INSCRIPTION</h2>
-				    <div>
+          <div class="atrt-ct-box">
+				    <h2 class="atrt-insc">INSCRIPTION</h2>
+				    <div class="atrt-name">
 				    	<%= cadreInfoPotentielNotEnd.first_name %> <%= cadreInfoPotentielNotEnd.last_name %>
 				    </div>
-				    <div>
-				    	Date d'entrée: <%= cadreInfoPotentielNotEnd.created_at.strftime("%d/%m/%Y") %>
+				    <div class="atrt-date">
+				    	Date d'entré<e:></e:>
+              <br>
+              <%= cadreInfoPotentielNotEnd.created_at.strftime("%d/%m/%Y") %>
 				    </div>
-				    <div>
-				    	Date limite: ~
+				    <div class="atrt-date">
+				    	Date limite:
+              <br>
+              ~
 				    </div>
-				    <div>
-				    	<a href="<%= cbp_inscription_path(cadreInfoPotentielNotEnd.id) %>">GERER</a>
+            </div>
+				    <div class="atrt-btn-gr">
+				    	<a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= cbp_inscription_path(cadreInfoPotentielNotEnd.id) %>">GERER</a>
 				    </div>
 				</div>
 	    	<% end %>
@@ -43,19 +43,25 @@
 
 	    <% unless @cadreInfoFits.empty? %>
 	    	<% @cadreInfoFits.each do |cadreInfoFit| %>
-	    		<div data-name=".INSCRIPTION" class="orange">
-	    			<h2>INSCRIPTION</h2>
-	    			<div>
+	    		<div data-name=".INSCRIPTION" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+            <div class="atrt-ct-box">
+	    			<h2  class="atrt-insc">INSCRIPTION</h2>
+	    			<div class="atrt-name">
 		    			<%= cadreInfoFit.first_name %> <%= cadreInfoFit.last_name %>
 		    		</div>
-		    		<div>
-				    	Date d'entrée: <span data-times="<%= cadreInfoFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
+		    		<div class="atrt-date">
+				    	Date d'entrée:
+              <br>
+              <span data-times="<%= cadreInfoFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
 				    </div>
-				    <div>
-				    	Date limite: ~
+				    <div class="atrt-date">
+				    	Date limite:
+              <br>
+              ~
 				    </div>
-				    <div>
-				    	<a href="<%= cbp_validate_entretien_fit_path(cadreInfoFit.id) %>">GERER</a>
+          </div>
+				    <div class="atrt-btn-gr">
+				    	<a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= cbp_validate_entretien_fit_path(cadreInfoFit.id) %>">GERER</a>
 				    </div>
 		    	</div>
 	    	<% end %>
@@ -65,42 +71,54 @@
 
 	    <% unless @cadreInfoEnterScoreFits.empty? %>
 	    	<% @cadreInfoEnterScoreFits.each do |cadreInfoEnterScoreFit| %>
-	    		<div data-name=".INSCRIPTION" class="orange">
-	    			<h2>INSCRIPTION</h2>
-	    			<div>
+	    		<div data-name=".INSCRIPTION" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+            <div class="atrt-ct-box">
+	    			<h2 class="atrt-insc">INSCRIPTION</h2>
+	    			<div class="atrt-name">
 	    				<%= cadreInfoEnterScoreFit.first_name %> <%= cadreInfoEnterScoreFit.last_name %>
 	    			</div>
-	    			<div>
-	    				Date d'entrée: <span data-times="<%= cadreInfoEnterScoreFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
+	    			<div class="atrt-date">
+	    				Date d'entrée:
+              <br>
+              <span data-times="<%= cadreInfoEnterScoreFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
 	    			</div>
-					<div>
-				    	Date limite: ~
+					<div class="atrt-date">
+				    	Date limite:
+              <br>
+              ~
 				    </div>
-				    <div>
-				    	<a href="<%= post_avis_candidats_fit_path(cadreInfoEnterScoreFit.id) %>">GERER</a>
+          </div>
+				    <div class="atrt-btn-gr">
+				    	<a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= post_avis_candidats_fit_path(cadreInfoEnterScoreFit.id) %>">GERER</a>
 				    </div>
 		    	</div>
 	    	<% end %>
 	    <% end %>
-		
+
 		<!-- <h2>Profil non complété</h2> -->
 
 	    <% unless @cacadreInfoInCompleteInfoProfils.empty? %>
 	    	<% @cacadreInfoInCompleteInfoProfils.each do |cacadreInfoInCompleteInfoProfil| %>
 	    	<% cfo = cacadreInfoInCompleteInfoProfil %>
-	    		<div data-name=".ADMISSION" class="orange">
-	    			<h2>ADMISSION</h2>
-	    			<div>
+	    		<div data-name=".ADMISSION" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+            <div class="atrt-ct-box">
+	    			<h2 class="atrt-insc">ADMISSION</h2>
+	    			<div class="atrt-name">
 		    			<%= cfo.first_name %> <%= cfo.last_name %>
 	    			</div>
-	    			<div>
-	    				Date d'entrée: ~
+	    			<div class="atrt-date">
+	    				Date d'entrée:
+              <br>
+              ~
 	    			</div>
-	    			<div>
-	    				Date limite: ~
+	    			<div class="atrt-date">
+	    				Date limite:
+              <br>
+              ~
 	    			</div>
-	    			<div>
-		    			<a href="<%= cbp_profil_no_complete_path(cacadreInfoInCompleteInfoProfil.id) %>">GERER</a>
+          </div>
+	    			<div class="atrt-btn-gr">
+		    			<a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= cbp_profil_no_complete_path(cacadreInfoInCompleteInfoProfil.id) %>">GERER</a>
 	    			</div>
 		    	</div>
 	    	<% end %>
@@ -115,19 +133,25 @@
 	    <% unless @cadreInfoNotPromiseToHires.empty? %>
 	    	<% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
 	    		<% cINPT = cadreInfoNotPromiseToHire.cadre_info %>
-		    	<div data-name=".PROMESSE-D-EMBAUCHE" class="orange">
-	    			<h2>PROMESSE D'EMBAUCHE</h2>
-	    			<div>
+		    	<div data-name=".PROMESSE-D-EMBAUCHE" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+            <div class="atrt-ct-box">
+	    			<h2 class="atrt-insc">PROMESSE D'EMBAUCHE</h2>
+	    			<div class="atrt-name">
 		    			<%= cINPT.first_name %> <%= cINPT.last_name %>
 	    			</div>
-	    			<div>
-	    				Date d'entrée: <%= cINPT.promise_not_reponded[1] %>
+	    			<div class="atrt-date">
+	    				Date d'entrée:
+              <br>
+              <%= cINPT.promise_not_reponded[1] %>
 	    			</div>
-	    			<div>
-	    				Date limite: <%= cINPT.promise_not_reponded[0] %>
+	    			<div class="atrt-date">
+	    				Date limite:
+              <br>
+              <%= cINPT.promise_not_reponded[0] %>
 	    			</div>
-	    			<div>
-		    			<a href="<%= cbp_promise_no_validate_path(cINPT.id) %>">GERER</a> 
+          </div>
+	    			<div class="atrt-btn-gr">
+		    			<a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= cbp_promise_no_validate_path(cINPT.id) %>">GERER</a>
 	    			</div>
 		    	</div>
 	    	<% end %>
@@ -138,19 +162,25 @@
 	    <% unless @cadreInfoValidateTimeTryings.empty? %>
 	    	<% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
 	    		<% pThWa = cadreInfoValidateTimeTrying[0] %>
-		    	<div data-name=".PROMESSE-D-EMBAUCHE" class="orange">
-	    			<h2>PROMESSE D'EMBAUCHE</h2>
-	    			<div>
+		    	<div data-name=".PROMESSE-D-EMBAUCHE" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+            <div class="atrt-ct-box">
+	    			<h2 class="atrt-insc">PROMESSE D'EMBAUCHE</h2>
+	    			<div class="atrt-name">
 		    			<%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
 	    			</div>
-	    			<div>
-	    				Date d'entrée: <%= pThWa.offre_job.date_poste %>
+	    			<div class="atrt-date">
+	    				Date d'entrée:
+              <br>
+              <%= pThWa.offre_job.date_poste %>
 	    			</div>
-	    			<div>
-	    				Date limite: <%= pThWa.time_trying %>
+	    			<div class="atrt-date">
+	    				Date limite:
+              <br>
+              <%= pThWa.time_trying %>
 	    			</div>
-	    			<div>
-		    			<a href="<%= cbp_promise_no_validate_path(pThWa.cadre.cadre_info.id) %>">GERER</a><!-- promise to hire -->
+          </div>
+	    			<div class="atrt-btn-gr">
+		    			<a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= cbp_promise_no_validate_path(pThWa.cadre.cadre_info.id) %>">GERER</a><!-- promise to hire -->
 	    			</div>
 		    	</div>
 	    	<% end %>
@@ -161,25 +191,32 @@
 	    <% unless @cadreInfoPrimNotReceiveds.empty? %>
 	    	<% @cadreInfoPrimNotReceiveds.each do |cadreInfoPrimNotReceived| %>
 	    		<% pThWa = cadreInfoPrimNotReceived[0] %>
-	    		<div data-name=".PRIME" class="orange">
-	    			<h2>PRIME</h2>
-	    			<div>
+	    		<div data-name=".PRIME" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+            <div class="atrt-ct-box">
+	    			<h2 class="atrt-insc">PRIME</h2>
+	    			<div class="atrt-name">
 		    			<%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
 	    			</div>
-	    			<div>
-	    				Date d'entrée: <%= pThWa.offre_job.date_poste %>
+	    			<div class="atrt-date">
+	    				Date d'entrée:
+              <br>
+              <%= pThWa.offre_job.date_poste %>
 	    			</div>
-	    			<div>
-	    				Date limite: <%= pThWa.time_trying %>
+	    			<div class="atrt-date">
+	    				Date limite:
+              <br>
+              <%= pThWa.time_trying %>
 	    			</div>
-	    			<div>
-		    			<a href="<%= cbp_prime_path(pThWa.id) %>">GERER</a>
+          </div>
+	    			<div class="atrt-btn-gr">
+		    			<a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= cbp_prime_path(pThWa.id) %>">GERER</a>
 	    			</div>
 		    	</div>
 	    	<% end %>
 	    <% end %>
-
   	</div>
+  </div>
+  </div>
 </div>
 
 
