@@ -85,7 +85,8 @@ class AdminCandidatsController < ApplicationAdminController
   end
 
   def processed
-    @processedHistories = ProcessedHistory.where(is_client:false)
+    @processedHistories = ProcessedHistory.where(is_client:false).order(created_at: :DESC)
+    #1 candidates_controller.rb
   end
 
   def messaging

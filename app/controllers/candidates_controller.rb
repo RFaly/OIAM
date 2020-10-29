@@ -370,7 +370,7 @@ class CandidatesController < ApplicationController
         ProcessedHistory.create(
           image: "/image/profie.png",
           message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé le test potentiel",
-          link: "/",
+          link: "<a href='#'>VOIR LE CANDIDAT</a>",
           is_client:false,
           genre: 1
         )
@@ -380,7 +380,7 @@ class CandidatesController < ApplicationController
         ProcessedHistory.create(
           image: "/image/profie.png",
           message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé l'inscription",
-          link: "/",
+          link: "<a href='#'>VOIR LE CANDIDAT</a>",
           is_client:false,
           genre: 1
         )
