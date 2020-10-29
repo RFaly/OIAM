@@ -80,15 +80,26 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
     end
     @cadre_infos.save
 
-    # unless @cadre_infos.nil?
-    #   ProcessedHistory.create(
-    #     image: "/image/profie.png",
-    #     message: "#{@cadre_infos.first_name} #{@cadre_infos.last_name} a terminé l'inscription",
-    #     link: "/",
-    #     is_client:false,
-    #     genre: 1
-    #   )
-    # end
+    unless @cadre_infos.nil?
+      ProcessedHistory.create(
+        image: "/image/profie.png",
+        message: "#{@cadre_infos.first_name} #{@cadre_infos.last_name} a terminé l'inscription",
+        link: "<a href='#{cbp_inscription_path(@cadre_infos.id)}'>VOIR</a>",
+        is_client:false,
+        genre: 1
+      )
+
+      ProcessedHistory.create(
+        image: "/image/profie.png",
+        message: "L'entretien fit avec #{@cadre_infos.first_name} #{@cadre_infos.last_name} est traité.",
+        link: "<a href='#{post_avis_candidats_fit_path(@cadre_infos.id)}'>VOIR</a>",
+        is_client:false,
+        genre: 1
+      )
+    end
+
+
+
 
     redirect_to post_avis_candidats_fit_path(@cadre_infos.id)
 
