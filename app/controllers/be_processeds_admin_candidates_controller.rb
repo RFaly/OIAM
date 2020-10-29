@@ -65,6 +65,6 @@ class BeProcessedsAdminCandidatesController < ApplicationController
   end
 
   def be_processed_prime
-    
+    @promise = PromiseToHire.find_by_id(params[:id])
   end
 end
