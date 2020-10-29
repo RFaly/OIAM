@@ -365,7 +365,26 @@ class CandidatesController < ApplicationController
       if params[:score].to_i >= CadreInfo.min_score
         is_recrute = nil
       end
-      @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score].to_i)
+      
+      if @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score].to_i)
+        ProcessedHistory.create(
+          image: "/image/profie.png",
+          message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé le test potentiel",
+          link: "/",
+          is_client:false,
+          genre: 1
+        )
+      end
+
+      unless @cadreInfo.nil?
+        ProcessedHistory.create(
+          image: "/image/profie.png",
+          message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé l'inscription",
+          link: "/",
+          is_client:false,
+          genre: 1
+        )
+      end
 
       #notifaka
 
@@ -374,7 +393,6 @@ class CandidatesController < ApplicationController
         message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name[0].upcase}. viens de finir le test potentiel.",
         link: "/",
         genre: 2)
-
 
       flash[:notice] = "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a été notifié par email du résultat du test !"
     end

@@ -16,129 +16,54 @@
   <div class="cp-box">
   	<h1>Traitées</h1>
 
-    <%= raw "<h1>Traitées</h1>" %>
+    <% @processedHistories.each do |processedHistorie| %>
+      <div class="row">
+        <div class="col-sm-2"><img src='<%= processedHistorie.image %>' width="60" /></div>
+        <div class="col-sm-6"><%= processedHistorie.message %></div>
+        <div class="col-sm-4">
+          <%= raw processedHistorie.link %>
+        </div>
+      </div>
+    <% end %>
 
     <!-- #1. Inscription  
-    #Inscription terminée -->
-    <% unless @finishedSignUps.empty? %>
-      <% @finishedSignUps.each do |finishedSignUp| %>
-        <div class="row">
-          <div class="col-sm-2"><img src='/image/profie.png' width="60" /></div>
-          <div class="col-sm-6"><%= finishedSignUp.first_name %> <%= finishedSignUp.last_name %> a terminé l'inscription</div>
-          <div class="col-sm-4">
-            <a href="">VOIR LE CANDIDAT</a>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+    #Inscription terminée 
+    Rakot belo a terminé l'inscription
 
-    <!-- # 2. Tests Potential
-    # Test potential (nom+prenom..), afficher le résultat du test, statut (admis ou refusé) -->
-    <% unless @cadreInfoPotentielNotEnds.empty? %>
-      <% @cadreInfoPotentielNotEnds.each do |cadreInfoPotentielNotEnd| %>
-        <% cIPNE = cadreInfoPotentielNotEnd %>
-        <div class="row">
-          <div class="col-sm-2"><img src='/image/profie.png' width="60" /></div>
-          <div class="col-sm-6"><%= cIPNE.first_name %> <%= cIPNE.last_name %> a terminé le test potentiel</div>
-          <div class="col-sm-4">
-            <a href="">VOIR LE CANDIDAT</a>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+    # 2. Tests Potential
+    # Test potential (nom+prenom..), afficher le résultat du test, statut (admis ou refusé) 
+    Rakot belo a terminé le test potentiel
 
-    <!-- # 4. Clique sur lien TP positif et planifie un entretien FIT  
-    # RDV entretiens FIT effectués et validés(entretiens effectués) -->
-    <% unless @cadreInfoFits.empty? %>
-      <% @cadreInfoFits.each do |cadreInfoFit| %>
-        <div class="row">
-          <div class="col-sm-2"><img src='/image/profie.png' width="60" /></div>
-          <div class="col-sm-6">L'entretien fit avec <%= cadreInfoFit.first_name %> <%= cadreInfoFit.last_name %> est validé.
-          </div>
-          <div class="col-sm-4">
-            <a href="">VOIR LE CANDIDAT</a>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+     # 4. Clique sur lien TP positif et planifie un entretien FIT  
+    # RDV entretiens FIT effectués et validés(entretiens effectués)
+    L'entretien fit avec Rakot belo est validé.
 
-    <!-- # 5. Passe Entretien FIT
-    # Entretien FIT traité (entretien fait et colpte rendu uploadé) -->
-    <% unless @cadreInfoEnterScoreFits.empty? %>
-      <% @cadreInfoEnterScoreFits.each do |cadreInfoEnterScoreFit| %>
-        <% cIESF = cadreInfoEnterScoreFit %>
-        <div class="row">
-          <div class="col-sm-2"><img src='/image/profie.png' width="60" /></div>
-          <div class="col-sm-6">L'entretien fit avec <%= cIESF.first_name %> <%= cIESF.last_name %> est traité.
-          </div>
-          <div class="col-sm-4">
-            <a href="">VOIR LE CANDIDAT</a>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
 
-    <!-- #8. Complète les informations du profil
-    #Profil complété -->
-    <% unless @cacadreInfoInCompleteInfoProfils.empty? %>
-      <% @cacadreInfoInCompleteInfoProfils.each do |cacadreInfoInCompleteInfoProfil| %>
-        <% cICIP = cacadreInfoInCompleteInfoProfil %>
-        <div class="row">
-          <div class="col-sm-2"><img src='<%= cICIP.image %>' width="60" /></div>
-          <div class="col-sm-6"><%= cICIP.first_name %> <%= cICIP.last_name %> a complété son profil.
-          </div>
-          <div class="col-sm-4">
-            <a href="">VOIR LE CANDIDAT</a>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+     # 5. Passe Entretien FIT
+    # Entretien FIT traité (entretien fait et colpte rendu uploadé)
+    L'entretien fit avec Rakot belo est traité.
 
-    <!-- # 12. Accepter/Refuser une promesse d’embauche
-    # Liste des candidats qui ont validé leur promesse d embauche -->
-    <% unless @cadreInfoNotPromiseToHires.empty? %>
-      <% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
-        <% pTh = cadreInfoNotPromiseToHire %>
-        <div class="row">
-          <div class="col-sm-2"><img src='<%= pTh.cadre.cadre_info.image %>' width="60" /></div>
-          <div class="col-sm-6"><%= pTh.cadre.cadre_info.first_name %> <%= pTh.cadre.cadre_info.last_name %> a validé sa promesse d'embauche.
-          </div>
-          <div class="col-sm-4">
-            <a href="#<%= pTh.id %>">VOIR LE PROMESSE D'EMBAUCHE</a>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
 
-    <!-- # 13. Valider sa période d’essai
-    # Liste des candidats dont la période d essai est validée -->
-    <% unless @cadreInfoValidateTimeTryings.empty? %>
-      <% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
-        <% pTh = cadreInfoValidateTimeTrying %>
-        <div class="row">
-          <div class="col-sm-2"><img src='<%= pTh[0].cadre.cadre_info.image %>' width="60" /></div>
-          <div class="col-sm-6">Période d'essai de <%= pTh[0].cadre.cadre_info.first_name %> <%= pTh[0].cadre.cadre_info.last_name %> validé.
-          </div>
-          <div class="col-sm-4">
-            <a href="#<%= pTh[1] %>">VOIR LE CANDIDAT</a>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+     #8. Complète les informations du profil
+    #Profil complété 
+    Rakot belo a complété son profil.
 
-    <% unless @cadreInfoPrimNotReceiveds.empty? %>
-      <% @cadreInfoPrimNotReceiveds.each do |cadreInfoPrimNotReceived| %>
-        <% pTh = cadreInfoPrimNotReceived %>
-        <div class="row">
-          <div class="col-sm-2"><img src='<%= pTh[0].cadre.cadre_info.image %>' width="60" /></div>
-          <div class="col-sm-6"><%= pTh[0].cadre.cadre_info.first_name %> <%= pTh[0].cadre.cadre_info.last_name %> a reçu son prime.
-          </div>
-          <div class="col-sm-4">
-            <a href="#<%= pTh[1] %>">VOIR LE CANDIDAT</a>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+
+     # 12. Accepter/Refuser une promesse d’embauche
+    # Liste des candidats qui ont validé leur promesse d embauche
+    Rakot belo a validé sa promesse d'embauche.
+
+
+     # 13. Valider sa période d’essai
+    # Liste des candidats dont la période d essai est validée
+    Période d'essai de Rakot belo validé.
+
+
+    # 14: Recevoir sa prime
+    # Liste des candidats qui n'ont pas reçu leur prime
+    Rakot belo a reçu son prime.
+
+    -->
 
   </div>
 </div>

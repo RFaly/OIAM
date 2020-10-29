@@ -2,7 +2,6 @@ class AdminCandidatsController < ApplicationAdminController
 	before_action :authenticate_admin!
 
   def be_processed
-
     allCadreInfos = CadreInfo.all
     # 1. Inscription {Inscription non terminée}
 
@@ -12,7 +11,7 @@ class AdminCandidatsController < ApplicationAdminController
 
     # 3. Ouverture Mail2 Résultat
     # Candidats à relancer pour les ateliers coaching
-    @cadreInfoRefuseds = allCadreInfos.where(is_recrute:false)
+    # @cadreInfoRefuseds = allCadreInfos.where(is_recrute:false)
 
     # 4. Clique sur lien TP positif et planifie un entretien FIT
     # RDV Entretiens FIT à valider(nom+prenom, date+horaire rdv)
@@ -23,8 +22,8 @@ class AdminCandidatsController < ApplicationAdminController
     @cadreInfoEnterScoreFits = allCadreInfos.where(is_recrute:nil).joins(:agenda_admin).where("agenda_admins.entretien_date < ?",DateTime.now.utc).where("agenda_admins.accepted=true")
 
 =begin
-    6. Ouverture Mail3 Admission {}
-    7. Clique sur lien Admission {}
+   6. Ouverture Mail3 Admission {}
+   7. Clique sur lien Admission {}
 =end
 
     # 8. Complète les informations du profil
@@ -33,12 +32,13 @@ class AdminCandidatsController < ApplicationAdminController
 
     # 9. Cherche un offre d’emploi
     # Liste des candidats qui n'ont pas encore postulé à une offre ou qui ne sont pas dans un process de recrutement
-    @cadreNotInOffreForCandidates = Cadre.all - Cadre.joins(:offre_for_candidates).distinct
+    # @cadreNotInOffreForCandidates = Cadre.all - Cadre.joins(:offre_for_candidates).distinct
 
     # 10. Postule à une offre d’emploi{}
 
     # 11. Accepter/Refuser une demande d’entretien
     # Liste des candidats qui n'ont pas eu de retour du recruteur suit au rdv déjà passé.
+=begin    
     @cadreInfoRecrutmentActs = []
     oFcs = OffreForCandidate.where(status:nil)
 
@@ -50,6 +50,7 @@ class AdminCandidatsController < ApplicationAdminController
       end
     end
     @cadreInfoRecrutmentActs.uniq!
+=end
 
     # 12. Accepter/Refuser une promesse d’embauche
     # Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu
@@ -59,9 +60,9 @@ class AdminCandidatsController < ApplicationAdminController
     # Liste des candidats qui sont arrivés au bout de leur période d'essai et qui n'ont pas encore été validés dans le système.
     @cadreInfoValidateTimeTryings = []
     PromiseToHire.all.each do |pTH|
-      if DateTime.strptime("#{pTH.time_trying}","%d/%m/%Y").past? && (pTH.client_time_trying.nil? || pTH.cadre_time_trying.nil?)
-        @cadreInfoValidateTimeTryings.push([pTH,pTH.cadre.id])
-      end
+     if DateTime.strptime("#{pTH.time_trying}","%d/%m/%Y").past? && (pTH.client_time_trying.nil? || pTH.cadre_time_trying.nil?)
+       @cadreInfoValidateTimeTryings.push([pTH,pTH.cadre.id])
+     end
     end
     @cadreInfoValidateTimeTryings.uniq!
 
@@ -70,12 +71,11 @@ class AdminCandidatsController < ApplicationAdminController
     @cadreInfoPrimNotReceiveds = []
     pTHs = PromiseToHire.where(client_time_trying:true,cadre_time_trying:true,repons_client:true,repons_cadre:true,prime_received:false)
     pTHs.each do |pTH|
-      if DateTime.strptime("#{pTH.time_trying}",'%d/%m/%Y').past?
-        @cadreInfoPrimNotReceiveds.push([pTH,pTH.cadre.id])
-      end
+     if DateTime.strptime("#{pTH.time_trying}",'%d/%m/%Y').past?
+       @cadreInfoPrimNotReceiveds.push([pTH,pTH.cadre.id])
+     end
     end
     @cadreInfoPrimNotReceiveds.uniq!
-
   end
 
   def pending
@@ -85,80 +85,7 @@ class AdminCandidatsController < ApplicationAdminController
   end
 
   def processed
-    # 1. Inscription  
-    # Inscription terminée
-    @finishedSignUps = CadreInfo.where.not(is_recrute:nil)
-    # ProcessedHistory.create(
-    #   image: "<img src='/image/profie.png' width='60' />",
-    #   message: "#{cadre_info.first_name} #{cadre_info.last_name} a terminé l'inscription",
-    #   link: "<a href=''>VOIR LE CANDIDAT</a>"
-    # )
-
-    # 2. Tests Potential
-    # Test potential (nom+prenom..), afficher le résultat du test, statut (admis ou refusé)
-    @cadreInfoPotentielNotEnds = CadreInfo.where.not(score_potential:nil)
-    # ProcessedHistory.create(
-    #   image: "<img src='/image/profie.png' width='60' />",
-    #   message: "#{cadre_info.first_name} #{cadre_info.last_name} a terminé le test potentiel",
-    #   link: "<a href=''>VOIR LE CANDIDAT</a>"
-    # )
-
-    # 4. Clique sur lien TP positif et planifie un entretien FIT  
-    # RDV entretiens FIT effectués et validés(entretiens effectués)
-    @cadreInfoFits = CadreInfo.joins(:agenda_admin).where.not(agenda_admins:{accepted:nil})
-    # ProcessedHistory.create(
-    #   image: "<img src='/image/profie.png' width='60' />",
-    #   message: "L'entretien fit avec #{cadre_info.first_name} #{cadre_info.last_name} est validé",
-    #   link: "<a href=''>VOIR LE CANDIDAT</a>"
-    # )
-
-rails g model ProcessedHistory image:text message:text link:string is_client:boolean confirm_token:string
-
-    # 5. Passe Entretien FIT
-    # Entretien FIT traité (entretien fait et colpte rendu uploadé)
-    @cadreInfoEnterScoreFits = CadreInfo.where.not(compte_rendu:nil,avis:nil)
-    # ProcessedHistory.create(
-    #   image: "<img src='/image/profie.png' width='60' />",
-    #   message: "L'entretien fit avec #{cadre_info.first_name} #{cadre_info.last_name} est traité.",
-    #   link: "<a href=''>VOIR LE CANDIDAT</a>"
-    # )
-
-    #8. Complète les informations du profil
-    #Profil complété
-    @cacadreInfoInCompleteInfoProfils = CadreInfo.where(is_recrute:true,empty:false)
-    # ProcessedHistory.create(
-    #   image: "<img src='<%= cadre_info.image %>' width='60' />",
-    #   message: "#{cadre_info.first_name} #{cadre_info.last_name} a complété son profil.",
-    #   link: "<a href=''>VOIR LE CANDIDAT</a>"
-    # )
-
-
-
-    # 12. Accepter/Refuser une promesse d’embauche
-    # Liste des candidats qui ont validé leur promesse d embauche
-    # @cadreInfoNotPromiseToHires = Cadre.joins(:promise_to_hires).where.not(promise_to_hires:{repons_cadre:nil})
-    @cadreInfoNotPromiseToHires = PromiseToHire.where.not(repons_cadre:nil)
-
-    # 13. Valider sa période d’essai
-    # Liste des candidats dont la période d essai est validée
-
-    @cadreInfoValidateTimeTryings = []
-    PromiseToHire.all.each do |pTH|
-      if DateTime.strptime("#{pTH.time_trying}","%d/%m/%Y").past? && !pTH.client_time_trying.nil? && !pTH.cadre_time_trying.nil?
-        @cadreInfoValidateTimeTryings.push([pTH,pTH.cadre.id])
-      end
-    end
-
-    # 14. Recevoir sa prime
-    # Liste des candidats qui ont reçu leur prime
-    @cadreInfoPrimNotReceiveds = []
-    pTHs = PromiseToHire.where(client_time_trying:true,cadre_time_trying:true,repons_client:true,repons_cadre:true,prime_received:true)
-    pTHs.each do |pTH|
-      if DateTime.strptime("#{pTH.time_trying}",'%d/%m/%Y').past?
-        @cadreInfoPrimNotReceiveds.push([pTH,pTH.cadre.id])
-      end
-    end
-
+    @processedHistories = ProcessedHistory.where(is_client:false)
   end
 
   def messaging
