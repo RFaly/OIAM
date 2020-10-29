@@ -232,6 +232,16 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin-candidats/traitées', to: 'admin_candidats#processed', as: 'candidats_processed'
   get 'secret-oiam-page/admin-candidats/messageries', to: 'admin_candidats#messaging', as: 'candidats_messaging'
 
+  # a traiter
+  get 'secret-oiam-page/admin-candidats/a-traiter/inscription/:id', to: 'be_processeds_admin_candidates#be_processed_inscription', as: 'cbp_inscription'
+  get 'secret-oiam-page/admin-candidats/a-traiter/entretin-fit/:id', to: 'be_processeds_admin_candidates#be_processed_validate_entretien_fit', as: 'cbp_validate_entretien_fit'
+  get 'secret-oiam-page/admin-candidats/a-traiter-entretien-fit/:id', to: 'be_processeds_admin_candidates#be_processed_efectue_entretien_fit', as: 'post_avis_candidats_fit'
+  get 'secret-oiam-page/admin-candidats/profil-non-complete/:id', to: 'be_processeds_admin_candidates#be_processed_profil_no_complete', as: 'cbp_profil_no_complete'
+  get 'secret-oiam-page/admin-candidats/promise-non-valide/:id', to: 'be_processeds_admin_candidates#be_processed_pomise_no_validate', as: 'cbp_promise_no_validate'
+  get 'secret-oiam-page/admin-candidats/prime/:id', to: 'be_processeds_admin_candidates#be_processed_prime', as: 'cbp_prime'
+  post 'secret-oiam-page/admin-candidats/entretien-fit', to: 'be_processeds_admin_candidates#bp_efectue_entretien_fit', as: 'bp_efectue_entretien_fit'
+
+
   #messagerie cadre
   get 'secret-oiam-page/admin-candidats/messageries/:id', to: 'admin_candidats#show_message', as: 'candidats_show_message'
   post 'secret-oiam-page/admin-candidats/send/messages', to: 'admin_candidats#post_message', as: 'candidats_post_message'

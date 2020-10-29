@@ -1,7 +1,7 @@
 class AdminCandidatsController < ApplicationAdminController
 	before_action :authenticate_admin!
 
-  def be_processed
+  def be_processed 
     allCadreInfos = CadreInfo.all
     # 1. Inscription {Inscription non terminée}
 
@@ -22,8 +22,8 @@ class AdminCandidatsController < ApplicationAdminController
     @cadreInfoEnterScoreFits = allCadreInfos.where(is_recrute:nil).joins(:agenda_admin).where("agenda_admins.entretien_date < ?",DateTime.now.utc).where("agenda_admins.accepted=true")
 
 =begin
-   6. Ouverture Mail3 Admission {}
-   7. Clique sur lien Admission {}
+    6. Ouverture Mail3 Admission {}
+    7. Clique sur lien Admission {}
 =end
 
     # 8. Complète les informations du profil
@@ -39,7 +39,7 @@ class AdminCandidatsController < ApplicationAdminController
     # 11. Accepter/Refuser une demande d’entretien
     # Liste des candidats qui n'ont pas eu de retour du recruteur suit au rdv déjà passé.
 =begin    
-    @cadreInfoRecrutmentActs = []
+     @cadreInfoRecrutmentActs = []
     oFcs = OffreForCandidate.where(status:nil)
 
     oFcs.each do |oFc|
@@ -60,20 +60,20 @@ class AdminCandidatsController < ApplicationAdminController
     # Liste des candidats qui sont arrivés au bout de leur période d'essai et qui n'ont pas encore été validés dans le système.
     @cadreInfoValidateTimeTryings = []
     PromiseToHire.all.each do |pTH|
-     if DateTime.strptime("#{pTH.time_trying}","%d/%m/%Y").past? && (pTH.client_time_trying.nil? || pTH.cadre_time_trying.nil?)
-       @cadreInfoValidateTimeTryings.push([pTH,pTH.cadre.id])
-     end
+      if DateTime.strptime("#{pTH.time_trying}","%d/%m/%Y").past? && (pTH.client_time_trying.nil? || pTH.cadre_time_trying.nil?)
+        @cadreInfoValidateTimeTryings.push([pTH,pTH.cadre.id])
+      end
     end
     @cadreInfoValidateTimeTryings.uniq!
 
     # 14: Recevoir sa prime
     # Liste des candidats qui n'ont pas reçu leur prime
     @cadreInfoPrimNotReceiveds = []
-    pTHs = PromiseToHire.where(client_time_trying:true,cadre_time_trying:true,repons_client:true,repons_cadre:true,prime_received:false)
+    pTHs = PromiseToHire.where(client_time_trying:true,cadre_time_trying:true,repons_cadre:true,prime_received:false)
     pTHs.each do |pTH|
-     if DateTime.strptime("#{pTH.time_trying}",'%d/%m/%Y').past?
-       @cadreInfoPrimNotReceiveds.push([pTH,pTH.cadre.id])
-     end
+      if DateTime.strptime("#{pTH.time_trying}",'%d/%m/%Y').past?
+        @cadreInfoPrimNotReceiveds.push([pTH,pTH.cadre.id])
+      end
     end
     @cadreInfoPrimNotReceiveds.uniq!
   end

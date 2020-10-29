@@ -742,7 +742,7 @@ class CandidatesController < ApplicationController
 
 
 def messagerie_admin
-  @admin = Admin.find_by_id(params[:id])
+  @admin = Admin.first
   @contactCadre = current_cadre.contact_admin_cadres
   @contact = ContactAdminCadre.where(cadre: current_cadre, admin:@admin)
   if @contact.count == 0
@@ -756,7 +756,7 @@ def messagerie_admin
 end
 
 def show_message_admin
-  @admin = Admin.find_by_id(params[:id])
+  @admin = Admin.first
   @contact = ContactAdminCadre.find_by(cadre:current_cadre, admin:@admin)
   if @contact.nil?
     @contact = ContactAdminCadre.create(cadre:current_cadre, admin:@admin)    
@@ -768,7 +768,7 @@ def show_message_admin
 end
 
 def post_message_admin
-  @admin = Admin.find_by_id(params[:id_admin])
+  @admin = Admin.first
   @contact = ContactAdminCadre.find_by(id: params[:id_contact], admin: @admin, cadre: current_cadre)
   @content = params[:message_admin_cadre][:content]
   @newMessage = MessageAdminCadre.new(content:@content, admin_see: false, contact_admin_cadre: @contact, is_admin: false)

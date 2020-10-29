@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="/css/admin_prms.css" />
+<style>
+	img {
+		width: 200px;
+		height: 200px;
+	}
+</style>
+<div class="client-column">
+  	<div class="client-menu-left">
+    	<%= render partial: "admin_candidats/left_menu" %>
+  	</div>
+  	<div class="cp-box">
+  		<div class="row">
+  			<div class="col-6 col-md-4"><img src='/image/profie.png'/></div>
+  			<div class="col-12 col-md-8">
+  				<p>Nom: <%= @cadre_info.last_name %></p>
+  				<p>Prenom: <%= @cadre_info.first_name %></p>
+  				<p>Adresse: <%= @cadre_info.adresse %></p>
+  				<p>Code postal: <%= @cadre_info.postal_code %></p>
+  				<p>Ville: <%= @cadre_info.city %></p>
+  				<p>Mail: <%= @cadre_info.mail %></p>
+  				<p>Telephone: <%= @cadre_info.telephone %></p>
+  			</div>
+		</div>
+		<div>Test potentiel non terminé (en cours de route)</div>
+  	</div>
+</div>
