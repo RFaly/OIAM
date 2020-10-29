@@ -1,0 +1,69 @@
+.row {
+  justify-content: center !important;
+  align-items: flex-start !important;
+  align-content: flex-start !important;
+  align-self: flex-start !important;
+}
+
+.atrt-box {
+  height: 300px;
+  margin-top: 40px;
+  max-width: 250px;
+}
+
+.atrt-ct-box {
+  border: 4px solid #d6b36a;
+  padding: 15px;
+  text-align: left;
+  justify-content: center;
+}
+
+.title {
+  text-align: center;
+  font-family: Questrial, sans-serif;
+  color: #d6b36a;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.atrt-btn-gr {
+  text-align: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.atrt-btn-gr a {
+  background: #fff;
+  color: #d6b36a;
+  font-size: 14px;
+  font-family: Raleway, sans-serif;
+  border: 2px solid #d6b36a;
+  text-transform: uppercase;
+  padding: 10px 80px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.atrt-btn-gr a:hover {
+  background: #d6b36a;
+  border: 1px solid #d6b36a;
+  color: #fff;
+}
+
+.atrt-insc {
+  font-size: 14px;
+  font-family: Questrial, sans-serif;
+  font-weight: bold;
+}
+
+.atrt-name {
+  font-size: 14px;
+  font-family: Questrial, sans-serif;
+}
+
+.atrt-date {
+  font-size: 14px;
+  font-family: Questrial, sans-serif;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}

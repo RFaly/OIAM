@@ -20,8 +20,14 @@
   				<p>Ville: <%= @cadre_info.city %></p>
   				<p>Mail: <%= @cadre_info.mail %></p>
   				<p>Telephone: <%= @cadre_info.telephone %></p>
+          <% unless @cadre_info.score_potential.nil? %>
+            <p>Score potentiel: <%= @cadre_info.score_potential %></p>
+          <% end %>
+          <% unless @cadre_info.score_fit.nil? %>
+            <p>Score potentiel: <%= @cadre_info.score_fit %></p>
+          <% end %>
   			</div>
 		</div>
-		<div>Test potentiel non terminé (en cours de route)</div>
+		<!-- <div>Test potentiel non terminé (en cours de route)</div> -->
   	</div>
 </div>

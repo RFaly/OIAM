@@ -277,7 +277,7 @@
     margin: 20px auto;
   }
   .travel-parcours {
-    width: 400px;
+    width: 345px;
   }
   .travel-parcours .line {
     width: 62px;
@@ -325,13 +325,14 @@
     z-index: 200;
     padding: 10px;
     background: white;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100vh;
     top: 0;
   }
   .left-menu-r.open {
     background: transparent;
+    position: absolute;
     top: 51px;
     width: 50px;
   }
@@ -615,6 +616,9 @@
   .rlc-box .rlc-items {
     margin-bottom: 50px;
   }
+  .rsc-box {
+    width: 80%;
+  }
   .rsc-box .rsc-header-travel .line {
     width: 69.1%;
   }
@@ -645,7 +649,6 @@
     margin-bottom: 90px;
   }
   .rsc-box .rsc-body .rsc-date-past .dscdp-validation {
-    width: 95%;
     padding: 20px 5px;
   }
   .rsc-box .rsc-body .rsc-date-past .dscdp-validation .dscdp-link-item {
@@ -661,7 +664,6 @@
     padding: 16px 40px;
   }
   .rsc-box .rsc-body .rsc-date-past .dscdpa-box {
-    width: 95%;
     padding: 20px 5px;
   }
   .rsc-box .rsc-body .rsc-date-past .dscdpa-box .dscdp-link-item {
@@ -703,6 +705,12 @@
     border-radius: 0;
     font-size: 0.002px;
     position: absolute;
+  }
+  .rsc-box .ssc-planification1 {
+    width: 100%;
+  }
+  .rsc-box .ssc-planification1 .date {
+    opacity: 0;
   }
   .rsc-body-promise .dscdpa-box {
     width: 80%;
@@ -748,6 +756,9 @@
   }
   .promise .pc-sign-cadre .image {
     margin: 0 auto;
+  }
+  .fc-box .co-any-job {
+    padding: 50px 10px;
   }
 }
 
@@ -866,6 +877,7 @@
     height: auto;
   }
   .left-menu-r.open {
+    position: relative;
     top: 0;
     width: 100px;
   }
@@ -945,6 +957,9 @@
   }
   .cp-edit-table-box .cpe-description {
     width: 60%;
+  }
+  .co-any-job {
+    width: 70%;
   }
   .coj-box {
     justify-content: space-between;
@@ -1087,6 +1102,9 @@
   .rlc-box .rlc-empty {
     width: 70%;
     margin-top: 70px;
+  }
+  .rsc-box {
+    width: 95%;
   }
   .rsc-box .ap-box {
     flex-wrap: nowrap;
@@ -1609,6 +1627,12 @@
     margin-right: 0;
     width: 600px;
   }
+  .fc-box .co-any-job {
+    padding: 50px 20px;
+  }
+  .co-any-job {
+    width: 50%;
+  }
   .fc-item-all .list-candidat .fci-infos {
     height: 92px;
   }
@@ -1706,6 +1730,10 @@
   .rsc-box .ssc-planification .date input {
     left: 7.1%;
     top: -3px;
+  }
+  .rsc-box .ssc-planification1 {
+    width: 600px;
+    margin: 0 auto;
   }
   .rsc-body-promise .dscdpa-box {
     width: 60%;
