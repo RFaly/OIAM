@@ -1,4 +1,4 @@
-class BeProcessedsAdminCandidatesController < ApplicationController
+class BeProcessedsAdminCandidatesController < ApplicationAdminController
 	def be_processed_inscription
     @cadre_info = CadreInfo.find_by_id(params[:id])
   end
@@ -67,4 +67,11 @@ class BeProcessedsAdminCandidatesController < ApplicationController
   def be_processed_prime
     @promise = PromiseToHire.find_by_id(params[:id])
   end
+
+  def show_promise
+    @promise = PromiseToHire.find_by_id(params[:id])
+    @job = @promise.offre_job
+    @cadre = @promise.cadre.cadre_info
+  end
+
 end

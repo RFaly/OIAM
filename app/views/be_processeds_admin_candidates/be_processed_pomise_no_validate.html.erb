@@ -5,7 +5,6 @@
   </div>
 
   <div class="cp-box">
-  	<h1>En attente</h1>
   <div class="main">
     <% if @cadre_info.status_state == "admis" %>
       <div class="block-left">
@@ -91,7 +90,26 @@
             </div>
             <div class="questionnaire">
               <h2 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h2>
-              <p><%= @cadre_info.question2 %></p>
+              <p>
+                <% unless @cadre_info.country.nil? %>
+                  Pays: <%= @cadre_info.country.name %> <br>
+                <% end %>
+
+                <% unless @cadre_info.region.nil? %>
+                  Région: <%= @cadre_info.region.name %> <br>
+                <% end %>
+
+                <% unless @cadre_info.ville.nil? %>
+                  Ville: <%= @cadre_info.ville.name %> <br>
+                <% end %>
+
+                <% if @cadre_info.deplacement %>
+                  Fréquence de déplacement: <%=  @cadre_info.frequency %>
+                <% else %>
+                  Pas de déplacement.
+                <% end %>
+              </p>
+        </div>
             </div>
             <div class="questionnaire">
               <h2 class="questionnaire-title">Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?</h2>
@@ -111,6 +129,6 @@
   </div>
 
 <!-- <h2>Liste des candidats qui sont arrivés au bout de leur période d'essai et qui n'ont pas encore été validés dans le système.</h2> -->
-    <h2>Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu</h2>
+    <!-- <h2>Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu</h2> -->
   </div>
 </div>

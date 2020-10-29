@@ -242,6 +242,10 @@ Rails.application.routes.draw do
   post 'secret-oiam-page/admin-candidats/entretien-fit', to: 'be_processeds_admin_candidates#bp_efectue_entretien_fit', as: 'bp_efectue_entretien_fit'
 
 
+
+  #voir promise
+  get 'secret-oiam-page/admin-candidats/promise-d-embauche/:id', to: 'be_processeds_admin_candidates#show_promise', as: 'cp_show_promise'
+
   #messagerie cadre
   get 'secret-oiam-page/admin-candidats/messageries/:id', to: 'admin_candidats#show_message', as: 'candidats_show_message'
   post 'secret-oiam-page/admin-candidats/send/messages', to: 'admin_candidats#post_message', as: 'candidats_post_message'
