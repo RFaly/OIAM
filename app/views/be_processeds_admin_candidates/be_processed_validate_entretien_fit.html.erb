@@ -10,42 +10,90 @@
     	<%= render partial: "admin_candidats/left_menu" %>
   	</div>
   	<div class="cp-box">
-  		<div class="row">
-  			<div class="col-6 col-md-4"><img src='/image/profie.png'/></div>
-  			<div class="col-12 col-md-8">
-  				<p>Nom: <%= @cadre_info.last_name %></p>
-  				<p>Prenom: <%= @cadre_info.first_name %></p>
-  				<p>Adresse: <%= @cadre_info.adresse %></p>
-  				<p>Code postal: <%= @cadre_info.postal_code %></p>
-  				<p>Ville: <%= @cadre_info.city %></p>
-  				<p>Mail: <%= @cadre_info.mail %></p>
-  				<p>Telephone: <%= @cadre_info.telephone %></p>
-          <p> Score Potential: <%= @cadre_info.score_potential %></p>
-  			</div>
-		</div>
-		<div>
-      Date d'entretien: <span data-times="<%= @cadre_info.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>  <button type="button" class="btn btn-primary">Accepter</button> 
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      Modifier
-    </button>
-  	</div>
-    <div class="collapse" id="collapseExample">
-      <div class="card card-body">
-          <form>
-            <label>Date</label>
-            <input type="date" name="date">
-            <label>Heure</label>
-            <input type="time" name="time">
-            <button type="button" class="btn btn-success">Valider</button>
-          </form>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <img src='/image/profie.png'/>
+          <p>Nom: <%= @cadre_info.last_name %> <br>
+          Prenom: <%= @cadre_info.first_name %> <br>
+          Adresse: <%= @cadre_info.adresse %> <br>
+          Code postal: <%= @cadre_info.postal_code %> <br>
+          Ville: <%= @cadre_info.city %> <br>
+          Mail: <%= @cadre_info.mail %> <br>
+          Telephone: <%= @cadre_info.telephone %> <br>
+          Score Potential: <%= @cadre_info.score_potential %></p>
+        </div>
+        <div class="col-sm-9">
+          
+          <h2>RDV Entretiens FIT à valider</h2>
+
+          Date d'entretien: <span data-times="<%= @cadre_info.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span><br>
+
+          <br>
+
+          <% if @cadre_info.agenda_admin.accepted.nil? %>
+
+            <div>
+              <div class="form-group">
+                <center>
+                  <%= form_tag url_for(validate_post_entretien_fit_path),method:'post', id:'send-me-accepted' do %>
+                    <input type="hidden" name="cadre_info_id" value="<%= @cadre_info.id %>">
+                    <input type="hidden" name="choice" value="accepted">
+                    <input type="submit" value="ACCEPTER" class="btn btn-primary" />
+                  <% end %>
+                </center>
+              </div>
+              <br>
+              <div>
+                <center>
+                  <span class="btn btn-primary" id="show-form-edit">MODIFIER</span>
+                </center>
+              </div>
+            </div>
+
+            <%= form_tag url_for(validate_post_entretien_fit_path),method:'post', id:'send-me-accepted' do %>
+              <input type="hidden" name="choice" value="refused">
+              <input type="hidden" name="cadre_info_id" value="<%= @cadre_info.id %>">
+              <div id="collapseExample-Edit" style="display: none;">
+                <div class="form">
+                  <label for="input-date">Date</label>
+                  <input class="form-control" type="date" id="input-date">
+                </div>
+
+                <div class="form">
+                  <label for="input-time">Heure</label>
+                  <input class="form-control" type="time" id="input-time">
+                </div>
+
+                <div class="form">
+                  <input type="hidden" name="date" id="name-date">
+                  <input type="hidden" name="time" id="name-time">
+                </div>
+
+                <div id="hiden-if-not-date" style="display: none;">
+                  Entretien fit : <span id="confirmed-date"></span>
+                  <br>
+                  <input type="submit" value="Valider" class="btn btn-primary" />
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            ENTRETIEN FIT VALIDÉ
+          <% end %>
+
+        </div>
+
       </div>
-    </div>
-    <h2>RDV Entretiens FIT à valider</h2> 
+
     </div>
 </div>
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
+
 <script type="text/javascript">
+
+$(".currentDatentretien").ready(function(){
+  
   var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
   var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
   let $elementDate = $('.currentDatentretien');
@@ -59,4 +107,52 @@
     }
     $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ minute );
   });
+
+
+
+  $("#show-form-edit").click(function(){
+    if ($("#collapseExample-Edit").is(":hidden")){
+      $("#collapseExample-Edit").show(500);
+    }else{
+      $("#collapseExample-Edit").hide(500);
+    }
+  })
+
+  let $input_date = $("#input-date")
+  let $input_time = $("#input-time")
+
+  $input_date.change(function(){
+    run_my_date($input_date,$input_time);
+  })
+
+  $input_time.change(function(){
+    run_my_date($input_date,$input_time);
+  })
+
+  function run_my_date($input_date,$input_time){
+     if ($input_date.val() != "" && $input_time.val() != "" ){
+      var my_date = new Date($input_date.val() + " "+$input_time.val())
+      
+      let my_dateString = day[my_date.getDay()] + ' ' + my_date.getDate() + ' ' + month[my_date.getMonth()] + ' ' + my_date.getFullYear();
+      let mn_minute = my_date.getMinutes()
+      if((mn_minute+"").length == 1){
+        mn_minute = "0"+mn_minute
+      }
+      $("#confirmed-date").html(my_dateString + ' à ' + my_date.getHours() + 'h:'+ mn_minute );
+      
+      let dateUtc = moment.utc(my_date)
+
+      $("#name-time").val(dateUtc.hours() + ':' + dateUtc.minutes());
+      $("#name-date").val(dateUtc.format('YYYY-MM-DD'));
+
+
+      $("#hiden-if-not-date").show();
+    }else{
+      $("#hiden-if-not-date").hide();
+    }
+  }
+});
+
+
+
 </script>
