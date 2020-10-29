@@ -6,11 +6,9 @@
     <hr />
     <div class="footer-bottom">
       <div class="footer-c">
-        <%=link_to "Conditions générales", root_path%> <%=link_to "Règles de communauté", root_path%> <%=link_to "Politique de confidentialité", root_path%> <%=link_to "Charte d'utilisation des cookies", root_path%>
+        <%=link_to "Conditions générales", condition_general_path%> <%=link_to "Règles de communauté", root_path%> <%=link_to "Politique de confidentialité", root_path%>
       </div>
-      <div class="copyright">
-        &copy; 2020
-      </div>
+      <div class="copyright"></div>
       <div class="social">
         <a href="#" target="_blank" title="Linkedin"><img src="/image/icon-linkedin.jpg" alt="linkedin logo" /> </a>
         <a href="#" target="_blank" title="Instagram"><img src="/image/icon-instagram1.png" alt="instagram logo" /></a>
@@ -20,3 +18,10 @@
     </div>
   </div>
 </div>
+<script type="text/javascript" data-turbolinks-track="reload" src="/js/footer.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    let year = new Date();
+    $('.copyright').text('© ' + year.getUTCFullYear())
+  })
+</script>
