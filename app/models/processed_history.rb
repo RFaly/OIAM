@@ -1,0 +1,2 @@
+class ProcessedHistory < ApplicationRecord
+end

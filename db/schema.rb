@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_064450) do
+ActiveRecord::Schema.define(version: 2020_10_28_185106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2020_10_19_064450) do
     t.datetime "updated_at", null: false
     t.boolean "accepted"
     t.boolean "notifed", default: false
+    t.boolean "confirmed"
     t.index ["admin_id"], name: "index_agenda_admins_on_admin_id"
     t.index ["cadre_info_id"], name: "index_agenda_admins_on_cadre_info_id"
   end
@@ -358,6 +359,18 @@ ActiveRecord::Schema.define(version: 2020_10_19_064450) do
     t.bigint "metier_id"
     t.index ["client_id"], name: "index_offre_jobs_on_client_id"
     t.index ["metier_id"], name: "index_offre_jobs_on_metier_id"
+  end
+
+  create_table "processed_histories", force: :cascade do |t|
+    t.text "image"
+    t.text "message"
+    t.string "link"
+    t.boolean "is_client"
+    t.boolean "is_see", default: false
+    t.integer "genre"
+    t.string "confirm_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "promise_to_hires", force: :cascade do |t|

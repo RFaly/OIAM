@@ -85,29 +85,59 @@ class AdminCandidatsController < ApplicationAdminController
   end
 
   def processed
-    #1. Inscription  
-    #Inscription terminée
+    # 1. Inscription  
+    # Inscription terminée
     @finishedSignUps = CadreInfo.where.not(is_recrute:nil)
+    # ProcessedHistory.create(
+    #   image: "<img src='/image/profie.png' width='60' />",
+    #   message: "#{cadre_info.first_name} #{cadre_info.last_name} a terminé l'inscription",
+    #   link: "<a href=''>VOIR LE CANDIDAT</a>"
+    # )
 
     # 2. Tests Potential
     # Test potential (nom+prenom..), afficher le résultat du test, statut (admis ou refusé)
     @cadreInfoPotentielNotEnds = CadreInfo.where.not(score_potential:nil)
+    # ProcessedHistory.create(
+    #   image: "<img src='/image/profie.png' width='60' />",
+    #   message: "#{cadre_info.first_name} #{cadre_info.last_name} a terminé le test potentiel",
+    #   link: "<a href=''>VOIR LE CANDIDAT</a>"
+    # )
 
     # 4. Clique sur lien TP positif et planifie un entretien FIT  
     # RDV entretiens FIT effectués et validés(entretiens effectués)
     @cadreInfoFits = CadreInfo.joins(:agenda_admin).where.not(agenda_admins:{accepted:nil})
+    # ProcessedHistory.create(
+    #   image: "<img src='/image/profie.png' width='60' />",
+    #   message: "L'entretien fit avec #{cadre_info.first_name} #{cadre_info.last_name} est validé",
+    #   link: "<a href=''>VOIR LE CANDIDAT</a>"
+    # )
+
+rails g model ProcessedHistory image:text message:text link:string is_client:boolean confirm_token:string
 
     # 5. Passe Entretien FIT
     # Entretien FIT traité (entretien fait et colpte rendu uploadé)
     @cadreInfoEnterScoreFits = CadreInfo.where.not(compte_rendu:nil,avis:nil)
+    # ProcessedHistory.create(
+    #   image: "<img src='/image/profie.png' width='60' />",
+    #   message: "L'entretien fit avec #{cadre_info.first_name} #{cadre_info.last_name} est traité.",
+    #   link: "<a href=''>VOIR LE CANDIDAT</a>"
+    # )
 
     #8. Complète les informations du profil
     #Profil complété
     @cacadreInfoInCompleteInfoProfils = CadreInfo.where(is_recrute:true,empty:false)
+    # ProcessedHistory.create(
+    #   image: "<img src='<%= cadre_info.image %>' width='60' />",
+    #   message: "#{cadre_info.first_name} #{cadre_info.last_name} a complété son profil.",
+    #   link: "<a href=''>VOIR LE CANDIDAT</a>"
+    # )
+
+
 
     # 12. Accepter/Refuser une promesse d’embauche
     # Liste des candidats qui ont validé leur promesse d embauche
-    @cadreInfoNotPromiseToHires = Cadre.joins(:promise_to_hires).where.not(promise_to_hires:{repons_cadre:nil})
+    # @cadreInfoNotPromiseToHires = Cadre.joins(:promise_to_hires).where.not(promise_to_hires:{repons_cadre:nil})
+    @cadreInfoNotPromiseToHires = PromiseToHire.where.not(repons_cadre:nil)
 
     # 13. Valider sa période d’essai
     # Liste des candidats dont la période d essai est validée
