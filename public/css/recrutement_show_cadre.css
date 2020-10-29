@@ -101,7 +101,6 @@
 }
 
 .rsc-box {
-  width: 95%;
   margin: 0 auto;
   font: 16px Questrial, sans-serif;
 }
@@ -975,7 +974,6 @@
   position: relative;
   margin-top: -270px;
   margin-bottom: 270px;
-  width: 60%;
   z-index: 200;
 }
 

@@ -141,6 +141,9 @@ html{
 		height: 80px;
 	}
 
+}
+
+@media only screen and (min-width: 1024px){
 	.left-link{
 		border-right: 1px solid #D6B36A;
 	}

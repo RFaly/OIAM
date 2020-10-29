@@ -341,7 +341,7 @@
   }
 
   .travel-parcours {
-    width: 400px;
+    width: 345px;
 
     .line {
       width: 62px;
@@ -413,13 +413,14 @@
     z-index: 200;
     padding: 10px;
     background: white;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100vh;
     top: 0;
 
     &.open {
       background: transparent;
+      position: absolute;
       top: 51px;
       width: 50px;
 
@@ -547,6 +548,7 @@
   }
 
   // mes offres d emploi :
+
   .coj-box {
     flex-wrap: wrap;
 
@@ -845,6 +847,8 @@
 
   // recrutement show cadre
   .rsc-box {
+    width: 80%;
+
     .rsc-header-travel {
       .line {
         width: 69.1%;
@@ -888,7 +892,7 @@
         }
 
         .dscdp-validation {
-          width: 95%;
+          // width: 95%;
           padding: 20px 5px;
 
           .dscdp-link-item {
@@ -909,7 +913,7 @@
         }
 
         .dscdpa-box {
-          width: 95%;
+          // width: 95%;
           padding: 20px 5px;
 
           .dscdp-link-item {
@@ -971,6 +975,14 @@
           font-size: 0.002px;
           position: absolute;
         }
+      }
+    }
+
+    .ssc-planification1 {
+      width: 100%;
+
+      .date {
+        opacity: 0;
       }
     }
   }
@@ -1056,6 +1068,16 @@
       }
     }
   }
+
+  // favority index 
+
+  .fc-box {
+    .co-any-job {
+      padding: 50px 10px;
+    }
+  }
+
+
 }
 
 @media screen and (min-width: 768px) {
@@ -1234,6 +1256,7 @@
     height: auto;
 
     &.open {
+      position: relative;
       top: 0;
       width: 100px;
     }
@@ -1355,6 +1378,10 @@
   }
 
   // mes offres d emploi :
+  .co-any-job {
+    width: 70%;
+  }
+
   .coj-box {
     justify-content: space-between;
 
@@ -1486,6 +1513,9 @@
     }
   }
 
+  // favorit cadre 
+
+
   // search cadre
   .select-cadre-box {
     .select-cadre-list {
@@ -1575,6 +1605,8 @@
 
   // recrutement show cadre
   .rsc-box {
+    width: 95%;
+
     .ap-box {
       flex-wrap: nowrap;
     }
@@ -2351,6 +2383,18 @@
     }
   }
 
+  // favority index 
+
+  .fc-box {
+    .co-any-job {
+      padding: 50px 20px;
+    }
+  }
+
+  .co-any-job {
+    width: 50%;
+  }
+
   // show candidat favorit
   .fc-item-all {
     .list-candidat {
@@ -2500,6 +2544,11 @@
           top: -3px;
         }
       }
+    }
+
+    .ssc-planification1 {
+      width: 600px;
+      margin: 0 auto;
     }
   }
 

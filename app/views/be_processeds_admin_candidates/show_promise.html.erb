@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="/css/admin_prms.css" />
+<div class="client-column">
+  <div class="client-menu-left">
+    <%= render partial: "admin_candidats/left_menu" %>
+  </div>
+
+  <div class="cp-box">
+    <div class="promise">
+      <h5 class="title">PROMESSE D'EMBAUCHE</h5>
+      <div class="promise-content">
+        <div class="all-in">
+          <div>
+            <div class="row">
+              <div class="col">
+                <img src="<%= @promise.offre_job.image %>"alt="photo profil candidats", width="150px", height="150px" >
+                <div><%= @job.intitule_pote.upcase %></div>
+                <div><%= @job.contrat_cdi ? "CONTRAT À DURÉE INDÉTERMINÉE" : "CONTRAT À DURÉE DÉTERMINÉE" %></div>
+              </div>
+              <div class="col">
+                <div>Nom : <%= @cadre.last_name %></div>
+                <div>Prénom : <%= @cadre.first_name %></div>
+                <div>Date de naissance : <%= @promise.birthday_cadre %></div>
+                <div>Lieu de naissance : <%= @promise.birthplace_cadre %></div>
+                <div>N° sécurité sociale : <%= @promise.ns_sociale_cadre %></div>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">Date de prise de poste</div>
+              <div class="col"><%= @promise.date_poste %></div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">Fin de période d'essai</div>
+              <div class="col"><%= @promise.time_trying %></div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="col">Rémunération fixe (k€ bruts annuels)</div>
+              <div class="col"><%= @job.remuneration %></div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">Rémunération fixe (€ bruts mensuels)</div>
+              <div class="col"><%= @promise.remuneration_fixe %></div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">Rémunération fixe date</div>
+              <div class="col"><%= @promise.remuneration_fixe_date %> mois</div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">Rémunération variable (k€ bruts annuels)</div>
+              <div class="col"><%= @promise.remuneration_var_info %></div>
+            </div>
+            <hr>
+            <div>
+              <div>Avantages ou autre précision sur la rémunération</div>
+              <div><%= @promise.remuneration_avantage %></div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">Date de validité</div>
+              <div class="col"><%= @promise.date_de_validite %></div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">Signature électronique entreprise</div>
+              <div class="col"><%= image_tag(@promise.signature_entreprise, width:'200px', height:'100px')%></div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">Signature électronique candidat</div>
+              <div class="col"><%= image_tag(@promise.signature_candidat, width:'200px', height:'100px')%></div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">CIN ou Passeport</div>
+              <div class="col"><a href="<%= @promise.cin_pass_port %>">Telecharger</a></div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">Attestation de sécurité sociale</div>
+              <div class="col"><a href="<%= @promise.security_certificate %>">Telecharger</a> </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">RIB</div>
+              <div class="col"><a href="<%= @promise.rib %>">Telecharger</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,13 +9,12 @@
     <div class="fc-box">
       <h3 class="title">MES CANDIDATS FAVORIS</h3>
       <% if @offres.empty? %>
-
       <div class="co-any-job">
         <p>Vous n'avez pas publié d'offre d'emploi pour le moment.</p>
         <%= link_to "PUBLIER UNE OFFRE", newJob_path %>
       </div>
-
-      <% else %> <% @offres.each do |offre| %>
+      <% else %>
+      <% @offres.each do |offre| %>
       <hr />
       <div class="fc-body">
         <h2><%= link_to show_favorite_cadres_path(offre.id) do%> <img src="/image/work.png"

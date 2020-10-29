@@ -1,6 +1,6 @@
 <!-- call css  -->
 <% content_for :head_style do %>
-  <link rel="stylesheet" href="/css/recrutement_follow.css" />
+<link rel="stylesheet" href="/css/recrutement_follow.css" />
 <% end %>
 <!-- body html  -->
 <div class="client-column">
@@ -18,7 +18,8 @@
         <% @offres.each do |offre| %>
         <hr />
         <div class="rf-items">
-          <h2 class="rf-items-title"><%= link_to recruitment_liste_cadre_path(offre.id) do%> <img src="/image/work.png" alt="icone work" /><%= offre.intitule_pote%><%end%></h2>
+          <h2 class="rf-items-title"><%= link_to recruitment_liste_cadre_path(offre.id) do%> <img src="/image/work.png"
+              alt="icone work" /><%= offre.intitule_pote%><%end%></h2>
           <i> <% offre.etapes %></i>
           <div class="rf-items-flex">
             <div class="timeline">

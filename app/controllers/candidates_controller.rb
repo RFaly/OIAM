@@ -95,7 +95,7 @@ class CandidatesController < ApplicationController
       ProcessedHistory.create(
         image: @cadre.image,
         message: "#{@cadre.first_name} #{@cadre.last_name} a complété son profil.",
-        link: "<a href='#'>VOIR LE CANDIDAT</a>",
+        link: "<a href='#{cbp_promise_no_validate_path(@cadre.id)}'>VOIR LE CANDIDAT</a>",
         is_client:false,
         genre: 1
       )
@@ -380,17 +380,17 @@ class CandidatesController < ApplicationController
         ProcessedHistory.create(
           image: "/image/profie.png",
           message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé le test potentiel",
-          link: "<a href='#'>VOIR LE CANDIDAT</a>",
+          link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR LE CANDIDAT</a>",
           is_client:false,
           genre: 1
         )
       end
 
-      unless @cadreInfo.nil?
+      unless @cadreInfo.is_recrute.nil?
         ProcessedHistory.create(
           image: "/image/profie.png",
           message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé l'inscription",
-          link: "<a href='#'>VOIR LE CANDIDAT</a>",
+          link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR LE CANDIDAT</a>",
           is_client:false,
           genre: 1
         )
@@ -644,9 +644,9 @@ class CandidatesController < ApplicationController
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. vient d'accepter votre proposition d'embauche !",link: "#{recruitment_show_cadre_path(oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
 
       ProcessedHistory.create(
-        image: current_cadre.image,
+        image: current_cadre.cadre_info.image,
         message: "#{first_name} #{last_name} a validé sa promesse d'embauche.",
-        link: "<a href='#'>VOIR LE PROMESSE</a>",
+        link: "<a href='#{cp_show_promise_path(@promise.id)}'>VOIR LE PROMESSE</a>",
         is_client:false,
         genre: 1
       )

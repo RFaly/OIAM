@@ -202,7 +202,7 @@ body{
 
 .hidden { display: none; }
 .readmore { margin: 0 5px;cursor: pointer; color: #000; text-decoration: none;cursor: default; pointer-events: none;text-decoration: none; col}
-  @media only screen and (min-width: 900px){
+  @media only screen and (min-width: 600px){
 
 
 .next-page{
@@ -269,9 +269,7 @@ body{
   }
 
   .main{
-    border-left: 1px solid #D6B36A;
-    padding-left: 15px;
-    margin-top: 12px;
+    margin-top: 50px;
   }
 
 .action img{
@@ -314,6 +312,7 @@ body{
     clear: both;
   }
 
+
   .logo{
     width: 25%;
   }
@@ -328,6 +327,8 @@ body{
   }
 
   .main{
+    border-left: 1px solid #D6B36A;
+    padding-left: 15px;
     margin-top: 14px;
     padding-right: 60px;
     width: 100%;

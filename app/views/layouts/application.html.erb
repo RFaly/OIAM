@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>One in a Million</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%= csrf_meta_tags %> <%= csp_meta_tag %>
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Qwigley&display=swap" rel="stylesheet" />
@@ -25,9 +25,7 @@
     <div class="navbar-controll bg-inside"><%= render "layouts/navbar" %></div>
     <% else %> <% unless @new_nav_bar.nil? %>
     <!-- ito ny navbar ny admin topoko -->
-    <%= render "layouts/navbar_admin" %>
-    <% end %>
-    <% end %>
+    <%= render "layouts/navbar_admin" %> <% end %> <% end %>
     <!-- ~~~~~~~~~~~~~~~~~~~ Alert devise ito ~~~~~~~~~~~~~~~~~~~ -->
     <div class="flash">
       <% if notice %>
@@ -53,7 +51,12 @@
     <%= yield %> <% if @header.nil? %>
     <div class="footer-controll"><%= render "layouts/footer" %></div>
     <% end %>
-
+    <script>
+      $(document).ready(function () {
+        //end check path menu recruteur
+        stopSpinner();
+      });
+    </script>
     <script type="text/javascript" data-turbolinks-track="reload" src="/js/check_path.js"></script>
   </body>
 </html>
