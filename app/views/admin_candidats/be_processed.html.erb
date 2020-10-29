@@ -127,7 +127,7 @@
 	    				Date limite: <%= cINPT.promise_not_reponded[0] %>
 	    			</div>
 	    			<div>
-		    			<a href="#">GERER</a>
+		    			<a href="<%= cbp_promise_no_validate_path(cINPT.id) %>">GERER</a> 
 	    			</div>
 		    	</div>
 	    	<% end %>
@@ -150,7 +150,7 @@
 	    				Date limite: <%= pThWa.time_trying %>
 	    			</div>
 	    			<div>
-		    			<a href="#">GERER</a>
+		    			<a href="<%= cbp_promise_no_validate_path(pThWa.cadre.cadre_info.id) %>">GERER</a><!-- promise to hire -->
 	    			</div>
 		    	</div>
 	    	<% end %>

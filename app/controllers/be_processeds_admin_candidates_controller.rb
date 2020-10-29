@@ -41,11 +41,30 @@ class BeProcessedsAdminCandidatesController < ApplicationController
       @cadre_infos.is_recrute = true
     end
     @cadre_infos.save
+
+    # unless @cadre_infos.nil?
+    #   ProcessedHistory.create(
+    #     image: "/image/profie.png",
+    #     message: "#{@cadre_infos.first_name} #{@cadre_infos.last_name} a terminé l'inscription",
+    #     link: "/",
+    #     is_client:false,
+    #     genre: 1
+    #   )
+    # end
+
     redirect_to post_avis_candidats_fit_path(@cadre_infos.id)
+
   end
 
   def be_processed_profil_no_complete
     @cadre_info = CadreInfo.find_by_id(params[:id])
   end
 
+  def be_processed_pomise_no_validate
+    @cadre_info = CadreInfo.find_by_id(params[:id])
+  end
+
+  def be_processed_prime
+    
+  end
 end

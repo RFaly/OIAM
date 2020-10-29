@@ -70,7 +70,7 @@ class AdminCandidatsController < ApplicationAdminController
     # 14: Recevoir sa prime
     # Liste des candidats qui n'ont pas reçu leur prime
     @cadreInfoPrimNotReceiveds = []
-    pTHs = PromiseToHire.where(client_time_trying:true,cadre_time_trying:true,repons_client:true,repons_cadre:true,prime_received:false)
+    pTHs = PromiseToHire.where(client_time_trying:true,cadre_time_trying:true,repons_cadre:true,prime_received:false)
     pTHs.each do |pTH|
       if DateTime.strptime("#{pTH.time_trying}",'%d/%m/%Y').past?
         @cadreInfoPrimNotReceiveds.push([pTH,pTH.cadre.id])
