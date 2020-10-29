@@ -28,6 +28,8 @@ class BeProcessedsAdminCandidatesController < ApplicationController
         return 0
       end
 
+      TestOiamMailer.test_fit_validate(@cadreInfo).deliver_now
+
       ProcessedHistory.create(
         image: "/image/profie.png",
         message: "L'entretien fit avec #{@cadreInfo.first_name} #{@cadreInfo.last_name} est validé.",

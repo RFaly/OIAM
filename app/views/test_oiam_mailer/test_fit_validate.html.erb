@@ -1,0 +1,28 @@
+<div id="para-hide">
+	<div id="potential-title-show">
+		<h1>Entretient fit validé</h1>
+
+		<h2>Bonjour <%= @cadre_info.first_name %> <%= @cadre_info.last_name %></h2>
+		Date d'entretien: <span data-times="<%= @cadre_info.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
+
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+$(".currentDatentretien").ready(function(){
+  var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+  var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+  let $elementDate = $('.currentDatentretien');
+  $elementDate.each(function () {
+    let dateUTC = moment.utc($(this).data().times);
+    let dateGet = new Date(dateUTC.local());
+    let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+    let minute = dateGet.getMinutes()
+    if((minute+"").length == 1){
+      minute = "0"+minute
+    }
+    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ minute );
+  });
+</script>
