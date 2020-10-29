@@ -19,5 +19,10 @@ class TestOiamMailer < ApplicationMailer
     @cadre_info = cadre_info
     mail(to: @cadre_info.mail, subject: 'Email de validation de compte visiteur') 
   end
+
+  def test_fit_validate(cadre_info)
+    @cadre_info = cadre_info
+    mail(to: @cadre_info.mail, subject: 'Entretient fit validé')
+  end
   #TestOiamMailer.test_fit_accepted.deliver_now
 end

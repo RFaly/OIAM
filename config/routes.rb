@@ -234,7 +234,12 @@ Rails.application.routes.draw do
 
   # a traiter
   get 'secret-oiam-page/admin-candidats/a-traiter/inscription/:id', to: 'be_processeds_admin_candidates#be_processed_inscription', as: 'cbp_inscription'
+  
+  # valider entretien fit
   get 'secret-oiam-page/admin-candidats/a-traiter/entretin-fit/:id', to: 'be_processeds_admin_candidates#be_processed_validate_entretien_fit', as: 'cbp_validate_entretien_fit'
+  post 'secret-oiam-page/admin-candidats/a-traiter/entretin-fit/valider', to: 'be_processeds_admin_candidates#validate_post_entretien_fit', as: 'validate_post_entretien_fit'
+
+
   get 'secret-oiam-page/admin-candidats/a-traiter-entretien-fit/:id', to: 'be_processeds_admin_candidates#be_processed_efectue_entretien_fit', as: 'post_avis_candidats_fit'
   get 'secret-oiam-page/admin-candidats/profil-non-complete/:id', to: 'be_processeds_admin_candidates#be_processed_profil_no_complete', as: 'cbp_profil_no_complete'
   get 'secret-oiam-page/admin-candidats/promise-non-valide/:id', to: 'be_processeds_admin_candidates#be_processed_pomise_no_validate', as: 'cbp_promise_no_validate'
