@@ -1,0 +1,57 @@
+.col-auto {
+  justify-content: center !important;
+  text-align: center !important;
+  align-content: center !important;
+}
+
+.col-auto a {
+  background: #d6b36a;
+  padding: 80px 60px;
+  border: 2px solid #d6b36a;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+}
+
+.col-auto a:hover {
+  background: #e3d7bf;
+  border: 2px solid #e3d7bf;
+}
+
+.col-auto h3 {
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-family: Questrial, sans-serif;
+  margin-top: 40px;
+}
+
+.hm {
+  margin-top: 20px;
+}
+
+.col-auto a i {
+  font-size: 70px;
+  color: #fff;
+  margin-top: 75px;
+  text-align: center;
+  justify-content: center;
+}
+
+.title h1 {
+  text-align: center;
+  font-size: 16px !important;
+  color: #d6b36a;
+  font-family: Questrial, sans-serif;
+  margin-top: 10px;
+}
+
+.col-auto {
+  padding-left: 20px;
+}
+
+.cnt {
+  padding-bottom: 50px;
+}

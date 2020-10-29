@@ -13,7 +13,7 @@
 			      <h4>Aucun contact d'un candidat</h4>
 			    </div>
     		<% else %>
-    			<% @contactCadre.each do |contact| %> 
+    			<% @contactCadre.each do |contact| %>
     				<a href="<%= show_message_admin_path(contact.admin.id) %>" class="btn-voir ">
     				<div class="message">
       					<div class="message-content">
@@ -29,7 +29,7 @@
 						          		<%= nbr %> <%= contact.message_admin_cadres.last.content %>
 						          	<%else%>
 						          		<%= contact.message_admin_cadres.last.content %>
-						         	<%end%> 
+						         	<%end%>
 					          <%end%>
 					        </div>
       					</div>

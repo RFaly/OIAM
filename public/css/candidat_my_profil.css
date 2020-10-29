@@ -88,6 +88,7 @@ body{
 	height: 100%;
 	max-width: 300px;
 	max-height: 300px;
+	object-fit: cover;
 }
 
 .user_name{
@@ -212,6 +213,10 @@ p span{
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		width: 50%;
+	}
+
+	.btn-valider{
 		width: 50%;
 	}
 

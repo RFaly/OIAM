@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="/admins/css/admin_home.css">
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
+<div class="container-fluid">
+  <div class="title">
+    <h1>MON TABLEAU DE BORD</h1>
+  </div>
+  <div class="cnt">
+      <div class="row justify-content-center hm">
+        <div class="col-auto col-auto-xs-12">
+          <a href="#">
+            <i class="fas fa-calendar-check"></i>
+          </a>
+          <h3>Agenda</h3>
+        </div>
+        <div class="col-auto col-auto-xs-12">
+          <a href="#">
+            <i class="fas fa-file-alt"></i>
+          </a>
+          <h3>Administration</h3>
+        </div>
+      </div>
+
+      <div class="row justify-content-center hm">
+        <div class="col-auto col-auto-xs-12">
+          <a href="<%= candidats_be_processed_path %>">
+            <i class="fas fa-user"></i>
+          </a>
+          <h3>Candidat</h3>
+        </div>
+        <div class="col-auto col-auto-xs-12">
+          <a href="<%= clients_be_processed_path %>">
+            <i class="fas fa-user-tie"></i>
+          </a>
+          <h3>Recruteur</h3>
+        </div>
+      </div>
+    </div>
+</div>

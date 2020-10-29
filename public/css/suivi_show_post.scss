@@ -1,113 +1,96 @@
 @import 'config';
 @import 'pagemenu';
 
-.rlc-box {
-  width: 95%;
+.adm-big-box {
+  width: 80%;
   margin: 0 auto;
+  height: 700px;
 
-  .rlc-empty {
-    text-align: -webkit-center;
-    text-align: -moz-center;
-    text-align: center;
-    padding: 30px 20px;
-    border: 2px solid $main_theme_color;
+  .admin-message-box {
+    position: relative;
+    height: 100%;
 
-    h5 {
-      font: $ffsentence;
-      margin-top: 20px;
-      margin-bottom: 30px;
-      font-size: 20px;
-    }
-
-    .show-pb2-btn {
-      a {
-        text-transform: uppercase;
-        text-decoration: none;
-        display: inline-block;
-        margin-bottom: 20px;
-        font: $ffbtn;
-        border-radius: 0;
-        padding: 10px 30px;
-        border: 2px solid $main_theme_color;
-        color: $main_theme_color;
-
-        &:hover,
-        &:active {
-          background: $main_theme_color;
-          color: white;
-        }
-      }
-    }
-  }
-
-  .rlc-content {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-
-    a {
-      text-decoration: none;
-    }
-
-    .rlc-items {
-      border: 2px solid $main_theme_color;
-      background: white;
-      text-align: -webkit-center;
-      text-align: -moz-center;
-      text-align: center;
-      width: 300px;
+    .name-box {
       padding: 10px;
-      color: black;
-      font: $ffsentence;
-      font-size: 14px;
+      display: flex;
+      align-items: center;
 
-      h5 {
-        font: $ffbtn;
-        margin: 10px 0;
-      }
-
-      img,
-      .c {
-        margin: 0 auto;
-        width: 200px;
-        height: 200px;
+      #image {
+        content: '';
         border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        margin: 5px;
+        margin-right: 20px;
       }
 
-      .refus {
-        img {
-          width: 35px;
-          height: 35px;
-        }
+      .name-connect {
+        font: $ffbtn;
+        color: white;
+        margin-left: 10%;
       }
 
-      .loading {
-        content: ' ';
-        width: 90%;
-        height: 10px;
-        margin: 31px auto;
+      background: $main_theme_color;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .chat-body {
+      padding: 10px;
+      height: 522px;
+      overflow-y: auto;
+      border: 1px solid $secondary_element_color;
+
+      .m-msg {
+        float: right;
+        color: white;
+        background: #d6b36a;
+        padding: 10px;
         border-radius: 10px;
-        background: -webkit-linear-gradient(90deg, $main_theme_color 4%, $secondary_element_color 3%);
-        background: -o-linear-gradient(90deg, $main_theme_color 4%, $secondary_element_color 3%);
-        background: -moz-linear-gradient(90deg, $main_theme_color 4%, $secondary_element_color 3%);
-        background: linear-gradient(90deg, $main_theme_color 4%, $secondary_element_color 3%);
+        margin: 5px 0;
+        box-shadow: $box-shadow;
+      }
 
-        .pre-load {
-          content: ' ';
-          height: 10px;
-          border-radius: 10px;
-          background: $main_theme_color;
+      .hr-msg {
+        background: #e3d7bf;
+        float: left;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 5px 0;
+        box-shadow: $box-shadow;
+      }
+
+      .clear {
+        clear: both;
+      }
+
+    }
+
+    .sd {
+      position: relative;
+
+      .ms-in {
+        border: transparent;
+        width: 100%;
+        height: 45px;
+        min-height: 45px;
+        padding: 10px;
+        outline: 1px solid $main_theme_color;
+
+        &:focus {
+          box-shadow: $box-shadow;
         }
       }
 
-      &:hover,
-      &:active {
-        background: rgba(255, 255, 255, 0.897);
-        box-shadow: 0.5px 0.5px 3px 0.5px $main_theme_color;
+      button {
+        background: transparent;
+        border: none;
+        outline: none;
 
-        h5 {
-          color: $main_theme_color;
-        }
+        top: 2px;
+        right: 2px;
+        position: absolute;
       }
     }
   }

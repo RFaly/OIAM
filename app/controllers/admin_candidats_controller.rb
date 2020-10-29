@@ -1,8 +1,7 @@
 class AdminCandidatsController < ApplicationAdminController
 	before_action :authenticate_admin!
 
-  def be_processed
-
+  def be_processed 
     allCadreInfos = CadreInfo.all
     # 1. Inscription {Inscription non terminée}
 
@@ -77,13 +76,17 @@ class AdminCandidatsController < ApplicationAdminController
       end
     end
     @cadreInfoPrimNotReceiveds.uniq!
-
   end
 
   def pending
+
+
+
   end
 
   def processed
+    @processedHistories = ProcessedHistory.where(is_client:false).order(created_at: :DESC)
+    #1 candidates_controller.rb
   end
 
   def messaging
