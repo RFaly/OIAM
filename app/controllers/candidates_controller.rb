@@ -89,7 +89,17 @@ class CandidatesController < ApplicationController
       @cadre.save
 
       @cadre.update(post_params)
+
       @cadre.update(empty:false)
+
+      ProcessedHistory.create(
+        image: @cadre.image,
+        message: "#{@cadre.first_name} #{@cadre.last_name} a complété son profil.",
+        link: "<a href='#'>VOIR LE CANDIDAT</a>",
+        is_client:false,
+        genre: 1
+      )
+
       redirect_to my_profil_path
     else
       flash[:alert] = "#{errorMessage}"
@@ -365,7 +375,26 @@ class CandidatesController < ApplicationController
       if params[:score].to_i >= CadreInfo.min_score
         is_recrute = nil
       end
-      @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score].to_i)
+      
+      if @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score].to_i)
+        ProcessedHistory.create(
+          image: "/image/profie.png",
+          message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé le test potentiel",
+          link: "<a href='#'>VOIR LE CANDIDAT</a>",
+          is_client:false,
+          genre: 1
+        )
+      end
+
+      unless @cadreInfo.nil?
+        ProcessedHistory.create(
+          image: "/image/profie.png",
+          message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé l'inscription",
+          link: "<a href='#'>VOIR LE CANDIDAT</a>",
+          is_client:false,
+          genre: 1
+        )
+      end
 
       #notifaka
 
@@ -374,7 +403,6 @@ class CandidatesController < ApplicationController
         message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name[0].upcase}. viens de finir le test potentiel.",
         link: "/",
         genre: 2)
-
 
       flash[:notice] = "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a été notifié par email du résultat du test !"
     end
@@ -614,6 +642,14 @@ class CandidatesController < ApplicationController
       last_name = current_cadre.cadre_info.last_name
       # notifaka eto
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. vient d'accepter votre proposition d'embauche !",link: "#{recruitment_show_cadre_path(oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
+
+      ProcessedHistory.create(
+        image: current_cadre.image,
+        message: "#{first_name} #{last_name} a validé sa promesse d'embauche.",
+        link: "<a href='#'>VOIR LE PROMESSE</a>",
+        is_client:false,
+        genre: 1
+      )
 
       oFc = @offreJob.is_in_this_job(current_cadre)
 

@@ -27,23 +27,28 @@
 <body>
   <%= render "layouts/navbar_admin" %>
 
-  <div class="flash">
     <% if notice %>
-    <div class="flash-notice">
-      <div class="icon">
-        <img src="/image/flash-valid.png" alt="Icone" />
+      <div class="flash">
+        <div class="flash-notice">
+          <div class="icon">
+            <img src="/image/flash-valid.png" alt="Icone" />
+          </div>
+          <div><%= notice %></div>
+        </div>
       </div>
-      <div><%= notice %></div>
-    </div>
-    <% end %> <% if alert %>
-    <div class="flash-alert">
-      <div class="icon">
-        <img src="/image/flash-unvalid.png" alt="Icone" />
-      </div>
-      <div><%= alert %></div>
-    </div>
     <% end %>
-  </div>
+
+    <% if alert %>
+      <div class="flash">
+        <div class="flash-alert">
+          <div class="icon">
+            <img src="/image/flash-unvalid.png" alt="Icone" />
+          </div>
+          <div><%= alert %></div>
+        </div>
+      </div>
+    <% end %>
+
   <div id="loading-indicator">
     <div id="spinner"></div>
   </div>
