@@ -176,7 +176,8 @@ p span{
 	}
 
 	.main{
-		margin-top: 20px;
+		position: relative;
+		margin-top: 45px;
 		display: flex;
 		grid-column-gap: 5%;
 		margin-bottom: 100px;

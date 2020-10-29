@@ -1,64 +1,36 @@
-<link rel="stylesheet" type="text/css" href="/css/main_test.css">
-<style>
-	.fcp-box {
-		width: 90%;
-		justify-content: center;
-		margin: 0 auto;
-	}
-		.hr-msg {
-		display: flex;
-		position: relative;
-	}
-		.hr-mg {
-		background: #d6b36a;
-		text-align: left;
-		padding: 20px;
-		border-radius: 10px;
-		width: 60%;
-	}
-
-		.m-msg {
-		margin-left: auto;
-		margin-top: 20px;
-		background: #e3d7bf;
-		width: 60%;
-		border-radius: 10px;
-		padding: 20px;
-		text-align: left;
-	}
-</style>
-
-<div class="all-content">
+<link rel="stylesheet" type="text/css" href="/css/show_message_admin_cadre.css">
+<div class="content">
 	<div class="left-link">
 		<%= render partial: "candidates/left_link_bar" %>
 	</div>
-  	<div class="cp-box">
-   		<div class="fcp-box">
-			<div class="chat-body">
+	<div class="main-content">
+		<div class="main-container">
+			<span hidden id="Profilher" data-image="<%= @img%>"></span>
+			<h2 class="sender-name"><%= @admin.first_name %> <%= @admin.last_name %> </h2>
+			<div class="boit-reception" id="js-add-new-message">
 				<% @messages.each do |message| %>
+				<div class="<% if message.is_admin %>her-message<% else %>my-message<% end %>" data-store-id="<%= message.id %>">
 					<% if message.is_admin %>
-						<div class="hr-msg">
-							<div class="hr-mg">
-								<p><%= message.content %></p>
-							</div>
-						</div>
-					<% else %>
-						<div class="m-msg">
-							<p><%= message.content %></p>
+						<div id="image" class="pdp-c" style="background: url(<% if @img %> <%=@img%><% else %> /image/profie.png <% end %>) center no-repeat; background-size: cover">
 						</div>
 					<% end %>
+					<%= message.content %>
+				</div>
+				<div class="clear"></div>
 				<% end %>
 			</div>
-			<%= form_tag(post_message_admin_path) do %>
-				<div class="sd">
-					<input type="hidden" name="id_contact" value="<%= @contact.id%>">
-					<input type="hidden" name="id_admin" value="<%= @admin.id %>">
-					<textarea placeholder="répondre..." class="ms-in" name="message_admin_cadre[content]" id="message_admin_cadre_content"></textarea>
-					<button type="submit">
-						<img src="/image/send.png" alt="send" class="ms-im"/>
-					</button>
-				</div>
+			<div class="form">
+				<%= form_tag(post_message_admin_path) do %>
+				<input type="hidden" name="id_contact" value="<%= @contact.id%>">
+				<input type="hidden" name="id_admin" value="<%= @admin.id %>">
+				<span class="form-group" id="textareas">
+					<input placeholder="Répondre..." class="ms-in form-control" name="message_admin_cadre[content]" id="message_admin_cadre_content" autocomplete="off"></input>
+				</span>
+				<span class="form-group">
+					<%= submit_tag("") %>
+				</span>
 			<% end %>
+			</div>
 		</div>
 	</div>
 </div>

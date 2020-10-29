@@ -4,6 +4,10 @@
   text-align: center;
   text-transform: uppercase;
   transition: all 500ms ease-in-out;
+  max-width: 350px;
+  position: absolute;
+  top: 70px;
+  left: 0;
 }
 
 .left-menu-r .left-menu-content {
@@ -12,10 +16,6 @@
 
 .left-menu-r .left-menu-content li {
   position: relative;
-}
-
-.pdp{
-  object-fit: cover;
 }
 
 .left-menu-r .left-menu-content li a {
@@ -87,6 +87,8 @@
 
 .left-menu-r.open {
   transition: all 500ms ease-in-out;
+  position: absolute;
+  top: 75px;
 }
 
 .left-menu-r .btn-menu-r {
@@ -145,4 +147,19 @@
   width: 125%;
   transition: all 500ms ease-in-out;
   transform: rotate(-45deg) translate(12px, -5px);
+}
+
+
+@media only screen and (min-width: 1024px){
+    .left-menu-r{
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+
+    .left-menu-r.open{
+      position: relative;
+      top: 0;
+      left: 0;
+    }
 }
