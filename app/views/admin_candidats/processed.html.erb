@@ -15,5 +15,55 @@
 
   <div class="cp-box">
   	<h1>Traitées</h1>
+
+    <% @processedHistories.each do |processedHistorie| %>
+      <div class="row">
+        <div class="col-sm-2"><img src='<%= processedHistorie.image %>' width="60" /></div>
+        <div class="col-sm-6"><%= processedHistorie.message %></div>
+        <div class="col-sm-4">
+          <%= raw processedHistorie.link %>
+        </div>
+      </div>
+    <% end %>
+
+    <!-- #1. Inscription
+    #Inscription terminée
+    Rakot belo a terminé l'inscription (fait)
+
+    # 2. Tests Potential
+    # Test potential (nom+prenom..), afficher le résultat du test, statut (admis ou refusé) 
+    Rakot belo a terminé le test potentiel (fait)
+
+    # 4. Clique sur lien TP positif et planifie un entretien FIT  
+    # RDV entretiens FIT effectués et validés(entretiens effectués)
+    L'entretien fit avec Rakot belo est validé.
+
+
+    # 5. Passe Entretien FIT
+    # Entretien FIT traité (entretien fait et colpte rendu uploadé)
+    L'entretien fit avec Rakot belo est traité.
+
+
+    #8. Complète les informations du profil
+    #Profil complété 
+    Rakot belo a complété son profil. (fait)
+
+
+    # 12. Accepter/Refuser une promesse d’embauche
+    # Liste des candidats qui ont validé leur promesse d embauche
+    Rakot belo a validé sa promesse d'embauche. (fait)
+
+
+    # 13. Valider sa période d’essai
+    # Liste des candidats dont la période d essai est validée
+    Période d'essai de Rakot belo validé.
+
+
+    # 14: Recevoir sa prime
+    # Liste des candidats qui n'ont pas reçu leur prime
+    Rakot belo a reçu son prime.
+
+    -->
+
   </div>
 </div>

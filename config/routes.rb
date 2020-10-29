@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'admin_administrations/home'
   #Notification cron job
   get '/727562792f67656dnotifed_cron_job732f322e372e302f', to: 'notifications#entretien_client_fit', as: 'notifed_entretien_client_fit'
   get '/6f6c696e696c6c6number_notice2f646570656e6465', to: 'notifications#number_notice', as: 'notifed_number_notice'
@@ -216,17 +217,30 @@ Rails.application.routes.draw do
     password: 'mot-de-passe', confirmation: 'verification', edit: 'editer'
   }
 
+  #home
+  get 'secret-oiam-page/tableau-de-bord', to: 'admin_administrations#home', as: 'dashbord_admin'
+
   #clients
   get 'secret-oiam-page/admin-clients/a-traiter', to: 'admin_clients#be_processed', as: 'clients_be_processed'
   get 'secret-oiam-page/admin-clients/en-attente', to: 'admin_clients#pending', as: 'clients_pending'
   get 'secret-oiam-page/admin-clients/traitées', to: 'admin_clients#processed', as: 'clients_processed'
   get 'secret-oiam-page/admin-clients/messageries', to: 'admin_clients#messaging', as: 'clients_messaging'
-  
+
   #cadre
   get 'secret-oiam-page/admin-candidats/a-traiter', to: 'admin_candidats#be_processed', as: 'candidats_be_processed'
   get 'secret-oiam-page/admin-candidats/en-attente', to: 'admin_candidats#pending', as: 'candidats_pending'
   get 'secret-oiam-page/admin-candidats/traitées', to: 'admin_candidats#processed', as: 'candidats_processed'
   get 'secret-oiam-page/admin-candidats/messageries', to: 'admin_candidats#messaging', as: 'candidats_messaging'
+
+  # a traiter
+  get 'secret-oiam-page/admin-candidats/a-traiter/inscription/:id', to: 'be_processeds_admin_candidates#be_processed_inscription', as: 'cbp_inscription'
+  get 'secret-oiam-page/admin-candidats/a-traiter/entretin-fit/:id', to: 'be_processeds_admin_candidates#be_processed_validate_entretien_fit', as: 'cbp_validate_entretien_fit'
+  get 'secret-oiam-page/admin-candidats/a-traiter-entretien-fit/:id', to: 'be_processeds_admin_candidates#be_processed_efectue_entretien_fit', as: 'post_avis_candidats_fit'
+  get 'secret-oiam-page/admin-candidats/profil-non-complete/:id', to: 'be_processeds_admin_candidates#be_processed_profil_no_complete', as: 'cbp_profil_no_complete'
+  get 'secret-oiam-page/admin-candidats/promise-non-valide/:id', to: 'be_processeds_admin_candidates#be_processed_pomise_no_validate', as: 'cbp_promise_no_validate'
+  get 'secret-oiam-page/admin-candidats/prime/:id', to: 'be_processeds_admin_candidates#be_processed_prime', as: 'cbp_prime'
+  post 'secret-oiam-page/admin-candidats/entretien-fit', to: 'be_processeds_admin_candidates#bp_efectue_entretien_fit', as: 'bp_efectue_entretien_fit'
+
 
   #messagerie cadre
   get 'secret-oiam-page/admin-candidats/messageries/:id', to: 'admin_candidats#show_message', as: 'candidats_show_message'

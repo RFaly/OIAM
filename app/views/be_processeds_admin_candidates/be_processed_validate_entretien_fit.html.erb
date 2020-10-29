@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="/css/admin_prms.css" />
+<style>
+	img {
+		width: 200px;
+		height: 200px;
+	}
+</style>
+<div class="client-column">
+  	<div class="client-menu-left">
+    	<%= render partial: "admin_candidats/left_menu" %>
+  	</div>
+  	<div class="cp-box">
+  		<div class="row">
+  			<div class="col-6 col-md-4"><img src='/image/profie.png'/></div>
+  			<div class="col-12 col-md-8">
+  				<p>Nom: <%= @cadre_info.last_name %></p>
+  				<p>Prenom: <%= @cadre_info.first_name %></p>
+  				<p>Adresse: <%= @cadre_info.adresse %></p>
+  				<p>Code postal: <%= @cadre_info.postal_code %></p>
+  				<p>Ville: <%= @cadre_info.city %></p>
+  				<p>Mail: <%= @cadre_info.mail %></p>
+  				<p>Telephone: <%= @cadre_info.telephone %></p>
+          <p> Score Potential: <%= @cadre_info.score_potential %></p>
+  			</div>
+		</div>
+		<div>
+      Date d'entretien: <span data-times="<%= @cadre_info.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>  <button type="button" class="btn btn-primary">Accepter</button> 
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Modifier
+    </button>
+  	</div>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+          <form>
+            <label>Date</label>
+            <input type="date" name="date">
+            <label>Heure</label>
+            <input type="time" name="time">
+            <button type="button" class="btn btn-success">Valider</button>
+          </form>
+      </div>
+    </div>
+    <h2>RDV Entretiens FIT à valider</h2> 
+    </div>
+</div>
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
+<script type="text/javascript">
+  var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+  var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+  let $elementDate = $('.currentDatentretien');
+  $elementDate.each(function () {
+    let dateUTC = moment.utc($(this).data().times);
+    let dateGet = new Date(dateUTC.local());
+    let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+    let minute = dateGet.getMinutes()
+    if((minute+"").length == 1){
+      minute = "0"+minute
+    }
+    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ minute );
+  });
+</script>

@@ -1,0 +1,198 @@
+<link rel="stylesheet" href="/css/admin_prms.css" />
+<style>
+  img {
+    width: 100px;
+    height: 100px;
+  }
+</style>
+<div class="client-column">
+  <div class="client-menu-left">
+    <%= render partial: "admin_candidats/left_menu" %>
+  </div>
+  <div class="cp-box">
+    <!-- TITLE -->
+    <div>
+      <div class="fcp-box">
+      <h3 class="title t1">ENTRETIEN FIT</h3>
+      <h3 class="title t2">Choisissez la suite a donner a ces candidats et rediger votre avis recruteur</h3>
+    </div>
+
+    <div class="cd-box">
+      <!-- IMAGE -->
+        <div class="all-inf">
+
+          <div class="cd-info">
+            <% unless @cadre_info.image.nil? %>
+                <%= image_tag(@cadre_info.image, alt: 'photo de profil')%>
+              <% else %>
+                <img src="/image/profie.png" alt="photo profil candidats">
+              <% end %>
+          </div>
+
+          <div class="cd-info-be">
+            <p class="name"><%= @cadre_info.first_name %> <%= @cadre_info.last_name %> </p>
+            <p class="score">Score OIAM : <span><%= @cadre_info.score_potential %></span></p>
+          </div>
+
+        </div>
+
+        <!-- BODY -->
+
+        <div class="cd-desc">
+
+          <div class="all-thing">
+              <% if @cadre_info.is_recrute.nil? %> <!-- if is_recrute nil -->
+              <% unless @cadre_info.agenda_admin.nil? %> <!-- if avec date -->
+                <% if @cadre_info.agenda_admin.entretien_date > DateTime.now.utc %>
+                <div class="entr-avc">
+                  <h3>Entretien fit avec ce cadre le <span data-times="<%= @cadre_info.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span></h3>
+                  <h4>Compte a rebours avant l'entretien fit</h4>
+                </div>
+                <div class="my-count">
+                    <p id="time-to-down" class="time-count"></p>
+                    <!-- <div class="date-list">
+                      <h3>jours</h3>
+                      <h3>heures</h3>
+                      <h3>minutes</h3>
+                      <h3>secondes</h3>
+                    </div> -->
+                </div>
+                <% else %>
+                <div class="info-cadd">
+                  <h3>Vous avez rencontré <%= @cadre_info.first_name %> <%= @cadre_info.last_name %> le <strong><%=  @cadre_info.agenda_admin.entretien_date.strftime("%d/%m/%Y à %Hh%M") %></strong>, comment s'est déroulé votre entretien ?</h3>
+                </div>
+                <div class="all-btn">
+                  <span id="accepted-js" class="mybtn btn-to-hidden-js">ACCEPTER SA CANDIDATURE</span>
+                  <span id="refused-js" class="mybtn btn-to-hidden-js">REFUSER SA CANDIDATURE</span>
+                </div>
+
+                <div id="show_if_accepted_js" style="display: none;">
+                <div>
+                  <%= form_for Cadre.new , url: bp_efectue_entretien_fit_path do |f| %>
+                        <input type="hidden" name="cadre_id" value="<%=@cadre_info.id%>" >
+                        <input type="hidden" name="is_recrute" value="1" id="accept-js-wa">
+                        <label for="avi_id_js" class="avis-desc">Avis de One in a million</label>
+                        <div class="textarea-avis">
+                          <textarea id="avi_id_js" required="required" rows="3" class="my-form-control" name="avis" placeholder="avis visible par le client ..."></textarea>
+                        </div>
+                        <div>
+                          <div class="score-label">
+                            <label>Score Fit</label>
+                          </div>
+                          <div class="score-radio row">
+                            <% 10.times do |i| %>
+                              <input type="radio" id="score-fit-<%=i%>" name="score_fit" value="<%=i+1%>"><label for="score-fit-<%=i%>"><%=i+1%></label>
+                            <% end %>
+                          </div>
+                          <div>
+                            <div class="cont-my-cv">
+                              <%= f.label :compte_rendu, "Importer le compte rendu", class:"my-cv-label"%>
+                              <%= f.file_field :compte_rendu, class:"form-control-file form-my-cv", accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cont-btn">
+                          <%= f.submit 'VALIDER', :class => 'apercu' %>
+                        </div>
+                  <% end %>
+                    <% end %> <!-- end date future -->
+                  <% else %> <!-- else avec date -->
+                    En attente de la proposition du date de l'entretien par le cadre.
+                  <% end %> <!-- end avec date -->
+                  <% else %> <!-- else is_recrute nil -->
+                    <div>
+                <% if @cadre_info.is_recrute == true %>
+                  <h2>TEST FIT REUSSI</h2>
+                  <div>
+                    <div class="test-oe">
+                      <span id="generate-js" class="btn-link">Générer un lien pour l'inscription</span>
+                    </div>
+                    <div class="link-show">
+                      <center id="show-link-js" style="display: none; color: #fff">
+                        Lien unique pour l'inscription du candidat: <br>
+                        <h4><%= new_cadre_registration_path(comfirm:@cadre_info.confirm_token) %></h4>
+                      </center>
+                    </div>
+                  </div>
+                <% else %>
+                  <h2>CANDIDATURE REFUSÉE</h2>
+                  <p>Ce candidat n'est pas reçu dans OIAM</p>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+          </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+<script type="text/javascript">
+/*----------------------------------------------*/
+  if (document.URL.indexOf('#') == -1) {
+    url = document.URL + '#';
+    location = '#';
+    location.reload(true);
+  }
+/*----------------------------------------------*/
+</script>
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
+
+<script type="text/javascript">
+  var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+  var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+  let $elementDate = $('.currentDateEntretien');
+
+  $elementDate.each(function () {
+    let dateUTC = moment.utc($(this).data().times);
+    let dateGet = new Date(dateUTC.local());
+    let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+
+    let heur = (""+dateGet.getHours()).length == 1 ? ("0"+dateGet.getHours()) : dateGet.getHours()
+    let min = (""+dateGet.getMinutes()).length == 1 ? ("0"+dateGet.getMinutes()) : dateGet.getMinutes()
+
+    $(this).html(dateString + ' à ' + heur + 'h'+min);
+  });
+
+  $("#accepted-js").click(function(){
+    console.log("khkshkhkjdhjkdhjkdhjkd");
+    $("#show_if_accepted_js").show(500);
+    $(".btn-to-hidden-js").hide(500);
+  });
+
+  $("#refused-js").click(function(){
+    console.log("khkshkhkjdhjkdhjkdhjkd");
+    $("#show_if_accepted_js").show(500);
+    $(".btn-to-hidden-js").hide(500);
+    $("#accept-js-wa").remove()
+  });
+
+  $("#generate-js").click(function(){
+    $("#show-link-js").show(300);
+  });
+
+/*********************************************/
+  let elementDate = $('.currentDateEntretien')[0];
+  let dateUTC = moment.utc($(elementDate).data().times);
+  let countDownDate = new Date(dateUTC.local()).getTime();
+  var nodeTime = document.getElementById("time-to-down")
+  var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    nodeTime.innerHTML = days + " : " + hours + " : "
+    + minutes + " : " + seconds;
+    if (distance < 0) {
+      clearInterval(x);
+      nodeTime.innerHTML = "EXPIRED";
+    }
+  }, 1000);
+/*********************************************/
+</script>

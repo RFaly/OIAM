@@ -63,331 +63,172 @@ body{
   line-height: 1.5;
 }
 
-#confirmed-profil{
-  display:none;
-}
 
 .content{
-  margin: auto;
-}
-
-.main{
-	margin: 30px;
-	margin-top: 12px;
-}
-
-
-  .btn-dispo{
-    padding-top: 15px;
-    font-size: 12px;
-    width: 330px;
-  }
-
-
-
-.pdp{
-  object-fit: cover;
-  display: block;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-}
-
-.user_name{
-  text-align: center;
-  text-transform: capitalize;
-  margin-bottom: 50px;
-  font-weight: 600;
-}
-
-.block-left p{
-  text-align: center;
-  line-height: 2;
-  margin-bottom: 20px;
+	margin: 15px;
 }
 
 .block-left{
-  margin-bottom: 30px;
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
 }
 
-.block-left span{
-  color: #D6B36A;
-  margin-left: 5px;
+.block-image{
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	object-fit: cover;
+}
+
+.pdp{
+	border: 1px solid #D6B36A;
+	width: 100%;
+	height: 100%;
+	max-width: 300px;
+	max-height: 300px;
+	object-fit: cover;
+}
+
+.user_name{
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 18px;
+	margin: 15px 20px;
+}
+
+p{
+	line-height: 50px;
+}
+
+p span{
+	color: #D6B36A;
 }
 
 .questionnaire-title{
-  font-size: 18px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  font-weight: bold;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 18px;
+	text-align: justify;
+	margin-bottom: 20px;
 }
 
-.questionnaire{
-  margin-bottom: 30px;
-  font-size: 16px;
-}
-
-.questionnaire p{
-  text-align: justify;
-  opacity: .7;
-}
-
-.btn-edit{
-  display: block;
-  margin: auto;
-  min-width: 220px;
-  height: 50px;
-  border: 1px solid #D6B36A;
-  padding: 13px;
-  font-size: 16px;
-  text-decoration: none;
-  color: #D6B36A;
-  margin-bottom: 30px;
-  cursor: pointer;
-}
-
-
-.btn-edit:hover{
-  text-decoration: none;
-  background: #D6B36A;
-  color: #ffffff;
+.questionnaire p {
+	line-height: 30px;
+	text-align: justify;
+	margin-bottom: 20px;
 }
 
 .block-button{
-  display: block;
-  margin: auto;
-  margin-top: auto;
-  margin-bottom: 0;
-  text-align: center;
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
 }
 
-  .btn-orange{
-    background: #D6B36A;
-    color: #fff;
-  }
-
-  .btn-orange:hover{
-    background: none;
-    color: #D6B36A;
-  }
-
-.btn-dispo{
-    padding-top: 15px;
-    font-size: 12px;
-    width: auto;
-    text-align: center;
-  }
-
-  .recrutement-content{
-  display: block;
-  margin: auto;
+.btn-edit{
+	display: block;
+	margin: 0 auto;
+	width: auto;
+	height: auto;
+	border: 1px solid #D6B36A;
+	padding: 15px;
+	margin-bottom: 15px;
+	color: #D6B36A;
+	font-size: 14px;
 }
 
-.recrutement{
-  display: block;
-  margin: auto;
-  border: 1px solid #D6B36A;
-  width: 450px;
-  height: 200px;
-  padding: 20px;
-  position: relative;
-
+.btn-edit:hover{
+	text-decoration: none;
+	background-color: #D6B36A;
+	color: #fff;
 }
 
-.recrutement h4{
-  margin-bottom: 30px;
-}
-
-.btn-recrutement{
-  margin-left: 38px;
-}
-
-.content{
+.validate-profil{
+	width: 100%;
 	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 15px;
 }
 
-@media only screen and (min-width: 800px){
-  .block-button{
-    text-align: center;
-  }
-
-  .btn-edit{
-    display: inline-block;
-		margin-left: 20px;
-  }
-
-  .btn-dispo{
-    padding-top: 15px;
-    font-size: 12px;
-    width: 330px;
-  }
-
+#js-show-in-validate-profil{
+	border: 1px solid #D6B36A;
+	padding: 20px;
+	width: 50%;
 }
 
-@media only screen and (min-width: 900px){
-
-
-
-
-  .main{
-    display: flex;
-		height: 1150px;
-  }
-
-  .left_link{
-  margin-top: 15px;
+.check{
+	margin: 50px;
 }
 
-  .block-left{
-    padding-right: 50px;
-		width: 60%;
-  }
-
-  .block-left p{
-    line-height: 40px;
-  }
-
-  .block-button{
-    align-items: flex-end;
-    width: 100%;
+@media only screen and (min-width: 600px){
+	.content{
 		display: flex;
-		flex-wrap: wrap;
-		flex-flow: unset;
-  }
+		grid-column-gap: 2%;
+	}
 
-  .block-left{
-    padding-left: 20px;
-  }
+	.block-right-content{
+		background-color: #f0f2f4;
+		padding: 15px;
+	}
 
-  .left_link{
-    margin-top: 20px;
-    border-right: 1px solid #D6B36A;
-  }
+	.main{
+		margin-top: 20px;
+		display: flex;
+		grid-column-gap: 5%;
+		margin-bottom: 100px;
+	}
 
-  .main{
-		margin-top: 28px;
-    margin-left: 0;
-  }
-
-
-  .btn-dispo{
-    padding-top: 15px;
-    font-size: 12px;
-    width: 330px;
-  }
-
-   .recrutement{{
-    position: relative;
-    left: 30%;
-  }
-
-}
-
-@media only screen and (min-width: 900px){
-  .btn-edit{
-    display: inline-block;
-		min-width: 250px;
-  }
-
-
-}
-
-
-@media only screen and (min-width: 1024px){
-  .content{
-    padding-right: 50px;
-  }
-
-  .btn-edit{
-    display: inline-block;
-		text-align: center;
-  }
-
-
-.recrutement-content{
-  display: block;
-  margin: auto;
-  padding-top: 50px;
-}
-
-.recrutement{
-  display: block;
-  margin: auto;
-  border: 1px solid #D6B36A;
-  width: 450px;
-  height: 200px;
-  padding: 20px;
-  position: relative;
-  left: 40%;
-}
-
-.recrutement h4{
-  margin-bottom: 30px;
-}
-
-.btn-recrutement{
-  margin-left: 38px;
-}
-
-	.block-image{
-		display: block;
-		margin: auto;
-		width: 250px;
-		height: 300px;
-		border: 1px solid #D6B36A;
-		margin-bottom: 20px;
+	.block-left{
+		width: 30%;
 	}
 
 	.block-right{
-		margin-bottom: 0;
+		width: 70%;
 	}
 
-  .offre-perso{
-    position: relative;
-    top: 50%;;
-  }
+	.block-button{
+		margin-top: 50px;
+	}
 
-
-
-.block-right{
-  position: relative;
-  height: 900px;
 }
 
-.block-right-content{
-  background: #f0f2f4;
-  padding: 20px;
-  height: auto;
-  margin-bottom: 100px;
-}
+@media only screen and (min-width: 1024px){
 
-  .block-button{
-    position: relative;
-    bottom:0;
-    height: 10%;
-  }
+	.left_link{
+		border-right: 1px solid #D6B36A;
+	}
 
-  .validate-profil{
-    display: block;
-    margin: auto;
-    padding-top: 100px;
-    padding-bottom: 100px;
-  }
+	.block-button{
+		display: flex;
+		justify-content: center;
+		grid-column-gap: 5%;
+		width: 90%;
+	}
 
-  #js-show-in-validate-profil{
-    border: 1px solid #D6B36A;
-    text-align: center;
-    width: 500px;
-    height: 400px;
-    padding: 50px;
-    transition: all 500ms ease-in-out;
-  }
+	.btn-modifier{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 50%;
+	}
 
-  #js-show-in-validate-profil h4{
-    margin-bottom: 30px;
-  }
+	.btn-valider{
+		width: 50%;
+	}
 
-  .check{
-    margin-bottom: 50px;
-  }
+	.offre-perso{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		width: 50%;
+	}
+
+	.btn-edit{
+		width: 100%;
+	}
 }

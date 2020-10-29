@@ -33,7 +33,7 @@
 				    	Date limite: ~
 				    </div>
 				    <div>
-				    	<a href="#">GERER</a>
+				    	<a href="<%= cbp_inscription_path(cadreInfoPotentielNotEnd.id) %>">GERER</a>
 				    </div>
 				</div>
 	    	<% end %>
@@ -55,7 +55,7 @@
 				    	Date limite: ~
 				    </div>
 				    <div>
-				    	<a href="#">GERER</a>
+				    	<a href="<%= cbp_validate_entretien_fit_path(cadreInfoFit.id) %>">GERER</a>
 				    </div>
 		    	</div>
 	    	<% end %>
@@ -71,13 +71,13 @@
 	    				<%= cadreInfoEnterScoreFit.first_name %> <%= cadreInfoEnterScoreFit.last_name %>
 	    			</div>
 	    			<div>
-	    				Date d'entrée: <span data-times="<%= cadreInfoEnterScoreFit.cadre.cadre_info.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
+	    				Date d'entrée: <span data-times="<%= cadreInfoEnterScoreFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
 	    			</div>
 					<div>
 				    	Date limite: ~
 				    </div>
 				    <div>
-				    	<a href="#">GERER</a>
+				    	<a href="<%= post_avis_candidats_fit_path(cadreInfoEnterScoreFit.id) %>">GERER</a>
 				    </div>
 		    	</div>
 	    	<% end %>
@@ -100,7 +100,7 @@
 	    				Date limite: ~
 	    			</div>
 	    			<div>
-		    			<a href="#">GERER</a>
+		    			<a href="<%= cbp_profil_no_complete_path(cacadreInfoInCompleteInfoProfil.id) %>">GERER</a>
 	    			</div>
 		    	</div>
 	    	<% end %>
@@ -127,7 +127,7 @@
 	    				Date limite: <%= cINPT.promise_not_reponded[0] %>
 	    			</div>
 	    			<div>
-		    			<a href="#">GERER</a>
+		    			<a href="<%= cbp_promise_no_validate_path(cINPT.id) %>">GERER</a> 
 	    			</div>
 		    	</div>
 	    	<% end %>
@@ -150,7 +150,7 @@
 	    				Date limite: <%= pThWa.time_trying %>
 	    			</div>
 	    			<div>
-		    			<a href="#">GERER</a>
+		    			<a href="<%= cbp_promise_no_validate_path(pThWa.cadre.cadre_info.id) %>">GERER</a><!-- promise to hire -->
 	    			</div>
 		    	</div>
 	    	<% end %>
@@ -173,7 +173,7 @@
 	    				Date limite: <%= pThWa.time_trying %>
 	    			</div>
 	    			<div>
-		    			<a href="#">GERER</a>
+		    			<a href="<%= cbp_prime_path(pThWa.id) %>">GERER</a>
 	    			</div>
 		    	</div>
 	    	<% end %>
