@@ -73,6 +73,11 @@ body{
 
 .all-content{
 	margin: 15px;
+	height: 800px;
+}
+
+.left-menu-r{
+	max-height: 500px;
 }
 
 .resultat p{
@@ -142,6 +147,8 @@ p span{
 	.imprimer{
 		margin-right: 10px;
 	}
+
+
 }
 
 @media only screen and (min-width: 900px){
