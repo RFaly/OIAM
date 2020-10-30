@@ -86,7 +86,7 @@
           <div class="block-right-content">
             <div class="questionnaire">
               <h2 class="questionnaire-title">Que faites-vous actuellement et que recherchez-vous comme type de poste ?</h2>
-              <p>Type de poste : <%= @cadre_info.metier.name %><br>Profession : <%= @cadre_info.job %></p>
+              <p>Type de poste : <% unless @cadre_info.metier.nil? %><%= @cadre_info.metier.name %><% end %><br>Profession : <%= @cadre_info.job %></p>
             </div>
             <div class="questionnaire">
               <h2 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h2>
@@ -104,13 +104,13 @@
                 <% end %>
 
                 <% if @cadre_info.deplacement %>
-                  Fréquence de déplacement: <%=  @cadre_info.frequency %>
+                  Fréquence de déplacement: <%= @cadre_info.frequency %>
                 <% else %>
                   Pas de déplacement.
                 <% end %>
               </p>
-        </div>
             </div>
+          </div>
             <div class="questionnaire">
               <h2 class="questionnaire-title">Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?</h2>
               <p><%= @cadre_info.question3 %></p>
