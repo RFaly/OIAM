@@ -447,7 +447,7 @@ class RecruteursController < ApplicationController
 
 	def recruitment_show_cadre
 		helpers.updateNotification(params[:secure])
-		
+
 		@oFc = OffreForCandidate.find_by_id(params[:oFc_id])
 		if @oFc.nil?
 			flash[:alert] = "Cette offre n'est plus disponible."
@@ -540,6 +540,7 @@ class RecruteursController < ApplicationController
 	end
 
 	def show_my_bills
+		helpers.updateNotification(params[:secure])
 		@facture = Facture.find_by_id(params[:id])
 		if @facture.nil?
 			flash[:alert] = "Cette page n'est plus disponible."
