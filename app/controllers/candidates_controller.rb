@@ -94,7 +94,8 @@ class CandidatesController < ApplicationController
 
       ProcessedHistory.create(
         image: @cadre.image,
-        message: "#{@cadre.first_name} #{@cadre.last_name} a complété son profil.",
+        # message: "#{@cadre.first_name} #{@cadre.last_name} a complété son profil.",
+        message: "ADMISSION",
         link: "<a href='#{cbp_promise_no_validate_path(@cadre.id)}'>VOIR LE CANDIDAT</a>",
         is_client:false,
         genre: 1
@@ -384,7 +385,8 @@ class CandidatesController < ApplicationController
       if @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score].to_i)
         ProcessedHistory.create(
           image: "/image/profie.png",
-          message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé le test potentiel",
+          # message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé le test potentiel",
+          message: "INSCRIPTION",
           link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR LE CANDIDAT</a>",
           is_client:false,
           genre: 1
@@ -394,7 +396,8 @@ class CandidatesController < ApplicationController
       unless @cadreInfo.is_recrute.nil?
         ProcessedHistory.create(
           image: "/image/profie.png",
-          message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé l'inscription",
+          # message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé l'inscription",
+          message: "INSCRIPTION",
           link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR LE CANDIDAT</a>",
           is_client:false,
           genre: 1
@@ -660,7 +663,8 @@ class CandidatesController < ApplicationController
 
       ProcessedHistory.create(
         image: current_cadre.cadre_info.image,
-        message: "#{first_name} #{last_name} a validé sa promesse d'embauche.",
+        # message: "#{first_name} #{last_name} a validé sa promesse d'embauche.",
+        message: "PROMESSE D'EMBAUCHE",
         link: "<a href='#{cp_show_promise_path(@promise.id)}'>VOIR LE PROMESSE</a>",
         is_client:false,
         genre: 1
@@ -701,7 +705,8 @@ class CandidatesController < ApplicationController
     unless @promise.cadre_time_trying==false && @promise.client_time_trying.nil?
       ProcessedHistory.create(
         image: current_cadre.cadre_info.image,
-        message: "Période d'essai de #{first_name} #{last_name} est validé.",
+        # message: "Période d'essai de #{first_name} #{last_name} est validé.",
+        message: "PROMESSE D'EMBAUCHE",
         link: "<a href='#{cbp_prime_path(@promise.id)}'>VOIR</a>",
         is_client:false,
         genre: 1
