@@ -115,6 +115,45 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
 
   def be_processed_prime
     @promise = PromiseToHire.find_by_id(params[:id])
+    @cadre_info = @promise.cadre.cadre_info
+  end
+
+  def post_be_processed_prime
+
+    errorMessage = ""
+    @promise = PromiseToHire.find_by_id(params[:promise_id])
+    @cadre_info = @promise.cadre.cadre_info
+
+    uploader = ImageUploader.new
+    is_error = true
+    begin
+      uploader.store!(params[:promise_to_hire][:ov_prime])
+    rescue StandardError => e
+      is_error = false
+      errorMessage += " [ #{e.message} ] "
+    end
+
+    if is_error
+      @promise.ov_prime = uploader.url
+      @promise.prime_received = true
+      @promise.save
+      ProcessedHistory.create(
+        image: @cadre_info.image,
+        message: "#{@cadre_info.first_name} #{@cadre_info.last_name} a reçu son prime.",
+        link: "<a href='#{cbp_prime_path(@promise.id)}'>VOIR</a>",
+        is_client:false,
+        genre: 1
+      )
+    end
+
+    unless errorMessage.empty?
+      flash[:alert] = errorMessage
+      redirect_to cbp_prime_path(@promise.id)
+    else
+      flash[:notice] = "Prime envoyer."
+      redirect_to cbp_prime_path(@promise.id)
+    end
+    
   end
 
   def show_promise

@@ -673,11 +673,10 @@ class CandidatesController < ApplicationController
     #notifaka
     Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a validé sa période d'essai.",link: "#{recruitment_show_cadre_path(oFc.id,notification:"validation")}",genre: 1,medel_id: current_cadre.id,view: false)
 
-
-    if @promise.cadre_time_trying == true && @promise.client_time_trying == true
+    unless @promise.cadre_time_trying==false && @promise.client_time_trying.nil?
       ProcessedHistory.create(
-        image: @cadre.image,
-        message: "Période d'essai de #{@cadre.first_name} #{@cadre.last_name} est validé.",
+        image: current_cadre.cadre_info.image,
+        message: "Période d'essai de #{first_name} #{last_name} est validé.",
         link: "<a href='#'>VOIR</a>",
         is_client:false,
         genre: 1

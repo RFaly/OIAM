@@ -36,6 +36,13 @@ class RecruteursController < ApplicationController
       if is_cv
         @client.image = uploader.url
     		@client.save
+    		ProcessedHistory.create(
+				  image: current_client.image,
+				  message: "#{current_client.first_name} #{current_client.last_name} a crée un compte pour l'entreprise #{@entreprise.name}.",
+				  link: "#",
+				  is_client:true,
+				  genre: 1
+				)
       end
     end
 
@@ -674,6 +681,15 @@ class RecruteursController < ApplicationController
 					Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} n'a pas validé votre période d'essai.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"prime")}",genre: 2,medel_id: @offreJob.id,view: false)
 				end
 			end
+			unless @promise.cadre_time_trying==false && @promise.client_time_trying.nil?
+	      ProcessedHistory.create(
+	        image: @cadre.cadre_info.image,
+	        message: "Période d'essai de #{@cadre.cadre_info.first_name} #{@cadre.cadre_info.last_name} est validé.",
+	        link: "<a href='#'>VOIR</a>",
+	        is_client:false,
+	        genre: 1
+	      )
+	    end
 		end
 
     redirect_to recruitment_show_cadre_path(oFc.id)
