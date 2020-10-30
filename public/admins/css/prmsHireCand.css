@@ -1,0 +1,151 @@
+* {
+  line-height: 2;
+}
+
+.my-row {
+  /* background: #f0f2f4; */
+}
+
+.block-left {
+  text-align: center;
+  justify-content: center;
+}
+
+.block-right {
+  border: 1px solid #f0f2f4;
+  background: #f0f2f4;
+  padding: 15px;
+}
+
+.block-image img {
+  border: 2px solid #d6b36a;
+}
+
+.questionnaire-title {
+  text-align: center;
+  color: #000;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Questrial, sans-serif;
+  padding: 5px;
+}
+
+.questionnaire p {
+  text-align: center;
+  font-size: 14px;
+  color: #000;
+  font-family: Questrial, sans-serif;
+}
+
+.user_name {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Questrial, sans-serif;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.info-cadd {
+  background: #d6b36a;
+  position: relative;
+}
+
+.block-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-secnd {
+}
+
+strong {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 10px;
+  font-family: Questrial, sans-serif;
+}
+
+.info-frst p {
+  font-family: Questrial, sans-serif;
+  color: #fff;
+}
+
+.info-secnd p {
+  font-family: Questrial, sans-serif;
+  color: #fff;
+}
+
+.info-secnd {
+  margin-top: 60px;
+}
+
+.separator {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+}
+
+.quest {
+  padding: 20px;
+}
+
+.dep {
+  justify-content: center;
+}
+
+.dep-border {
+  border-right: 2px solid #000;
+}
+
+.depll {
+  text-align: center;
+}
+
+.depl-ttl {
+  font-weight: bold;
+  font-family: Questrial, sans-serif;
+  font-size: 14px;
+}
+
+.depl-ct {
+  font-family: Questrial, sans-serif;
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 540px) {
+  .separator {
+    display: none;
+  }
+  .dep-border {
+    border-right: 0px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .separator {
+    display: none;
+  }
+  .dep-border {
+    border-right: 0px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .separator {
+    display: none;
+  }
+  .dep-border {
+    border-right: 0px;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .separator {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .separator {
+    display: none;
+  }
+}
