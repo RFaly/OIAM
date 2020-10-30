@@ -13,7 +13,7 @@
           <div class="pch-left">
             <div class="pchl-image">
               <% unless @job.image.nil? %>
-              <div class="c" style="background: url(<%= @job.image%>) center no-repeat; background-size: cover"></div>
+              <div class="c" style="background: url(<%= @job.image%>) center no-repeat; background-size: contain"></div>
               <% end %>
             </div>
             <div class="pchl-content">
@@ -156,10 +156,10 @@
           <div class="signature">
             <% unless @promise.signature_entreprise.nil? %>
             <div class="c" id="addImage"
-              style="background: url(<%= @promise.signature_entreprise%>) center no-repeat; background-size: cover">
+              style="background: url(<%= @promise.signature_entreprise%>) center no-repeat; background-size: contain">
             </div>
             <% else %>
-            <div class="c" id="addImage" style="background: url() center no-repeat; background-size: cover"></div>
+            <div class="c" id="addImage" style="background: url() center no-repeat; background-size: contain"></div>
             <% end %>
             <label>
               <span style="display: none"> <%= f.file_field :signature_entreprise , class:'input_fied', disabled:true %>
@@ -175,7 +175,8 @@
           <div class="image">
             <% unless @promise.signature_candidat.nil? %>
             <div class="c"
-              style="background: url(<%= @promise.signature_candidat%>) center no-repeat; background-size: cover"></div>
+              style="background: url(<%= @promise.signature_candidat%>) center no-repeat; background-size: contain">
+            </div>
             <% end %>
           </div>
         </div>

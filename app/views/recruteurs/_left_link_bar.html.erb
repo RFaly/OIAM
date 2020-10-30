@@ -12,7 +12,7 @@
   </div>
   <div class="left-menu-photo">
     <% unless current_client.image.nil? %>
-    <div class="c" style="background: url(<%= current_client.image%>) center no-repeat; background-size: cover"></div>
+    <div class="c" style="background: url(<%= current_client.image%>) center no-repeat; background-size: contain"></div>
     <% else %>
     <img src="/image/profie.png" alt="logo entreprise" />
     <% end %>
