@@ -67,6 +67,7 @@ html{
 .main{
 	margin: 15px;
 	font-size: 14px;
+	min-height: 800px;
 }
 
 .main-title{
@@ -92,9 +93,10 @@ html{
 }
 
 .pdp{
-	width: 100%;
-	height: 100%;
+	width: 60px;
+	height: 60px;
 	border-radius: 100%;
+	object-fit: cover;
 }
 
 .alert-info{
@@ -118,7 +120,7 @@ html{
 .connected{
 	position: absolute;
 	bottom: 10%;
-	right: 8%;
+	right: 25%;
 	width: 10px;
 	height: 10px;
 	border-radius: 10px;
@@ -151,7 +153,6 @@ html{
 
 .message-containera{
 	position: fixed;
-	bottom: 0;
 	right: 0;
 	padding: 15px;
 	width: 100%;
@@ -160,7 +161,7 @@ html{
 
 
 
-@media only screen and (min-width: 900px){
+@media only screen and (min-width: 600px){
 	.all-content{
 		display: flex;
 		grid-column-gap: 5%;
@@ -196,6 +197,11 @@ html{
 
 	.color{
 		color: #000;
+	}
+
+	.pdp{
+		width: 80px;
+		height: 80px;
 	}
 
 

@@ -15,5 +15,214 @@
 
   <div class="cp-box">
   	<h1>A traiter</h1>
+
+<!-- 
+# 1. Inscription/Complétion du profil/Création compte/{
+#   Compte non créée
+-->
+
+    <% unless @clients.empty? %>
+      <% @clients.each do |client| %>
+        <div data-name=".INSCRIPTION" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+          <div class="atrt-ct-box">
+            <h2 class="atrt-insc">INSCRIPTION</h2>
+            <div class="atrt-name">
+              <%= client.first_name %> <%= client.last_name %>
+            </div>
+            <div class="atrt-date">
+              Date d'entré<e:></e:><br>
+              <%= client.created_at.strftime("%d/%m/%Y") %>
+            </div>
+            <div class="atrt-date">
+              Date limite: <br> ~
+            </div>
+          </div>
+          <div class="atrt-btn-gr">
+            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="">GERER</a>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+<!-- 
+# 5. Recherche et sélectionne des candidats.
+# Recruteur qui a déjà publié une offre mais à la recherche de candidats.
+ -->
+
+    <% unless @offreJobs.empty? %>
+      <% @offreJobs.each do |offreJob| %>
+        <div data-name=".SELECTION_CANDIDATS" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+          <div class="atrt-ct-box">
+            <h2 class="atrt-insc">SELECTION CANDIDATS</h2>
+            <div class="atrt-name">
+              <%= offreJob.client.first_name %> <%= offreJob.client.last_name %>
+            </div>
+            <div class="atrt-date">
+              Date d'entré<e:></e:><br>
+              <%= offreJob.created_at.strftime("%d/%m/%Y") %>
+            </div>
+            <div class="atrt-date">
+              Date limite:<br><%= offreJob.limite_date %>
+            </div>
+          </div>
+          <div class="atrt-btn-gr">
+            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="">GERER</a>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+<!-- 
+# 6. Planifie un/des entretiens en fonction du process de recrutement
+#   Liste des recruteurs qui ont envoyé une planification d'entretien aux candidats
+ -->
+
+    <% unless @listAgendaClientsSends.empty? %>
+      <% @listAgendaClientsSends.each do |listAgendaClientsSend| %>
+        <!-- ([oFc,ac]) -->
+        <% oFc = listAgendaClientsSend[0] %>
+        <% ac = listAgendaClientsSend[1] %>
+
+        <div data-name=".PLANIFICATION_ENTRETIEN" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+          <div class="atrt-ct-box">
+            <h2 class="atrt-insc">PLANIFICATION ENTRETIEN</h2>
+            <div class="atrt-name">
+              <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
+            </div>
+            <div class="atrt-date">
+              Date d'entré<e:></e:><br>
+              <span data-times="<%= ac.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
+            </div>
+            <div class="atrt-date">
+              Date limite: <br> ~
+            </div>
+          </div>
+          <div class="atrt-btn-gr">
+            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="">GERER</a>
+          </div>
+        </div>
+
+      <% end %>
+    <% end %>
+
+<!--
+# 7. Effectue l’ entretien et donne son feedback 
+# (Etape suivante, accepter, refuser, en attente)
+# Liste des recruteurs en mode entretien (entrain de faire des entretiens)
+-->
+
+    <% unless @listAgendaClientsEntretiens.empty? %>
+      <% @listAgendaClientsEntretiens.each do |listAgendaClientsEntretien| %>
+    <!-- ([oFc,ac]) -->
+      <% oFc = listAgendaClientsEntretien[0] %>
+      <% ac = listAgendaClientsEntretien[1] %>
+
+        <div data-name=".FEEDBACK_ENTRETIEN" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+          <div class="atrt-ct-box">
+            <h2 class="atrt-insc">FEEDBACK ENTRETIEN</h2>
+            <div class="atrt-name">
+              <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
+            </div>
+            <div class="atrt-date">
+              Date d'entré<e:></e:><br>
+              <span data-times="<%= ac.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
+            </div>
+            <div class="atrt-date">
+              Date limite: <br> ~
+            </div>
+          </div>
+          <div class="atrt-btn-gr">
+            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="">GERER</a>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+<!-- 
+# 8. Remplir et envoyer une promesse d’embauche
+# Liste des recruteurs en mode remplissage de la promesse d'embauche
+ -->
+
+<% unless @completedPromiseToHires.empty? %>
+  <% @completedPromiseToHires.each do |completedPromiseToHire| %>
+  <!-- ([oFc,ac]) -->
+  <% oFc = completedPromiseToHire[0] %>
+  <% ac = completedPromiseToHire[1] %>
+
+    <div data-name=".PROMESSE_D_EMBAUCHE" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+      <div class="atrt-ct-box">
+        <h2 class="atrt-insc">PROMESSE D'EMBAUCHE</h2>
+        <div class="atrt-name">
+          <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
+        </div>
+        <div class="atrt-date">
+          Date d'entré<e:></e:><br><%= oFc.offre_job.created_at.strftime("%d/%m/%Y") %>
+        </div>
+        <div class="atrt-date">
+          Date limite: <br><%= oFc.offre_job.limite_date %>
+        </div>
+      </div>
+      <div class="atrt-btn-gr">
+        <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="">GERER</a>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- 
+  # 12. Rompre la période d’essai
+  # Liste des périodes d'essai à rompre -->
+
+<% unless @factures.empty? %>
+  <% @factures.each do |facture| %>
+
+    <% ptH = facture.promise_to_hire %>
+    <% offre_job = ptH.offre_job %>
+
+    <div data-name=".PERIODE_D_ESSAI_ROMPUE" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+      <div class="atrt-ct-box">
+        <h2 class="atrt-insc">PERIODE D'ESSAI ROMPUE</h2>
+        <div class="atrt-name">
+          <%= offre_job.client.first_name %> <%= offre_job.client.last_name %>
+        </div>
+        <div class="atrt-date">
+          Date d'entré<e:></e:><br><%= offre_job.date_poste %>
+        </div>
+        <div class="atrt-date">
+          Date limite: <br><%= ptH.rupture_time_trying %>
+        </div>
+      </div>
+      <div class="atrt-btn-gr">
+        <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="">GERER</a>
+      </div>
+    </div>
+
+  <% end %>
+<% end %>
+
+
+
   </div>
 </div>
+
+
+
+<script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
+<script type="text/javascript">
+  $(".currentDatentretien").ready(function(){
+    var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+    var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+    let $elementDate = $('.currentDatentretien');
+    $elementDate.each(function () {
+      let dateUTC = moment.utc($(this).data().times);
+      let dateGet = new Date(dateUTC.local());
+      let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+      // let minute = dateGet.getMinutes()
+      // if((minute+"").length == 1){
+      //   minute = "0"+minute
+      // }
+      $(this).html(dateString)
+      // $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ minute );
+    });
+  });
+</script>

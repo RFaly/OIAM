@@ -38,7 +38,8 @@ class AdminCandidatsController < ApplicationAdminController
 
     # 11. Accepter/Refuser une demande d’entretien
     # Liste des candidats qui n'ont pas eu de retour du recruteur suit au rdv déjà passé.
-=begin    
+
+=begin
      @cadreInfoRecrutmentActs = []
     oFcs = OffreForCandidate.where(status:nil)
 
@@ -81,12 +82,22 @@ class AdminCandidatsController < ApplicationAdminController
   def pending
 
 
+# 4. Clique sur lien TP positif et planifie un entretien FIT
+#   Mail 1 en attente du retour du candidat (entretiens validés avec date)
+
+# 6. Ouverture Mail3 Admission
+#   Mail 3 en attente du retour du candidat
+
+# 7. Clique sur lien Admission
+#   Mail 4 en attente de retour du candidat
+
+# 8. Complète les informations du profil
+#   Email de relance avec lien
 
   end
 
   def processed
     @processedHistories = ProcessedHistory.where(is_client:false).order(created_at: :DESC)
-    #1 candidates_controller.rb
   end
 
   def messaging

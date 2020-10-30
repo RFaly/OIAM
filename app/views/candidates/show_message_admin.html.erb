@@ -4,9 +4,10 @@
 		<%= render partial: "candidates/left_link_bar" %>
 	</div>
 	<div class="main-content">
+		<h1 class="main-title">CHAT</h1>
 		<div class="main-container">
 			<span hidden id="Profilher" data-image="<%= @img%>"></span>
-			<h2 class="sender-name"><%= @admin.first_name %> <%= @admin.last_name %> </h2>
+			<h2 class="sender-name">ADMINISTRATEUR</h2>
 			<div class="boit-reception" id="js-add-new-message">
 				<% @messages.each do |message| %>
 				<div class="<% if message.is_admin %>her-message<% else %>my-message<% end %>" data-store-id="<%= message.id %>">
@@ -20,7 +21,7 @@
 				<% end %>
 			</div>
 			<div class="form">
-				<%= form_tag(post_message_admin_path) do %>
+				<%= form_tag(post_message_admin_path, id:"form-promo-code",'data-path':getCadreLastMessage_path(client_id:@admin.id,contact_id:@contact.id), remote: true) do %>
 				<input type="hidden" name="id_contact" value="<%= @contact.id%>">
 				<input type="hidden" name="id_admin" value="<%= @admin.id %>">
 				<span class="form-group" id="textareas">
@@ -34,3 +35,18 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	if (document.URL.indexOf('#') == -1) {
+		// Set the URL to whatever it was plus "#".
+		url = document.URL + '#';
+		location = '#';
+		//Reload the page
+		location.reload(true);
+	  }
+	   //scroll bottom
+	var container = document.querySelector('#js-add-new-message');
+	container.scrollTop = container.scrollHeight;
+</script>
+
+<script type="text/javascript" src="/js/synchrone_message.js"></script>

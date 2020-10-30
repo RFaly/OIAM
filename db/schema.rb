@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_120716) do
+ActiveRecord::Schema.define(version: 2020_10_30_004859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -402,6 +402,7 @@ ActiveRecord::Schema.define(version: 2020_10_29_120716) do
     t.boolean "ask_salar", default: false
     t.string "confirm_token"
     t.string "rupture_time_trying"
+    t.string "ov_prime"
     t.index ["cadre_id"], name: "index_promise_to_hires_on_cadre_id"
     t.index ["offre_job_id"], name: "index_promise_to_hires_on_offre_job_id"
   end

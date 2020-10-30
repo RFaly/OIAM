@@ -1,0 +1,29 @@
+.box-rgt {
+  background: #f0f2f4;
+  text-align: center;
+  padding: 15px;
+}
+
+.box-rgt p {
+  font-size: 14px;
+  font-family: Questrial, sans-serif;
+}
+
+.box-lft {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  justify-content: center;
+  margin: auto;
+}
+
+.row {
+  -webkit-box-shadow: 1px 1px 4px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 1px 1px 4px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 1px 1px 4px 0px rgba(50, 50, 50, 0.75);
+}

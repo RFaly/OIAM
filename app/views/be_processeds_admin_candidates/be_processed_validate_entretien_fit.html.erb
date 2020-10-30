@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/css/admin_prms.css" />
+<link rel="stylesheet" href="/admins/css/atrt-fit-cand.css">
 <style>
 	img {
 		width: 200px;
@@ -10,90 +11,89 @@
     	<%= render partial: "admin_candidats/left_menu" %>
   	</div>
   	<div class="cp-box">
-
+			<div class="container">
       <div class="row">
-        <div class="col-sm-3">
-          <img src='/image/profie.png'/>
-          <p>Nom: <%= @cadre_info.last_name %> <br>
-          Prenom: <%= @cadre_info.first_name %> <br>
-          Adresse: <%= @cadre_info.adresse %> <br>
-          Code postal: <%= @cadre_info.postal_code %> <br>
-          Ville: <%= @cadre_info.city %> <br>
-          Mail: <%= @cadre_info.mail %> <br>
-          Telephone: <%= @cadre_info.telephone %> <br>
-          Score Potential: <%= @cadre_info.score_potential %></p>
+        <div class="fit-box-left col-lg-3 col-md-3 col-xs-12 col-sm-12">
+          	<img src='/image/profie.png'/>
+					<div class="fit-desc">
+          <p><strong>Nom : </strong><%= @cadre_info.last_name %></p>
+          <p><strong>Prenom : </strong><%= @cadre_info.first_name %></p>
+					<p><strong>Adresse : </strong><%= @cadre_info.adresse %></p>
+					<p><strong>Code postal : </strong><%= @cadre_info.postal_code %></p>
+					<p><strong>Ville : </strong><%= @cadre_info.city %> <br></p>
+					<p><strong>Mail : </strong><%= @cadre_info.mail %></p>
+					<p><strong>Telephone : </strong><%= @cadre_info.telephone %></p>
+					<p><strong>Score Potential : </strong><%= @cadre_info.score_potential %></p>
+					</div>
         </div>
-        <div class="col-sm-9">
-          
+
+        <div class="fit-box-right col-lg-9 col-md-9 col-xs-12 col-sm-12">
+					<div class="all-rgt">
           <h2>RDV Entretiens FIT à valider</h2>
-
+					<p class="date-conf">
           Date d'entretien: <span data-times="<%= @cadre_info.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span><br>
-
-          <br>
-
+					</p>
           <% if @cadre_info.agenda_admin.accepted.nil? %>
-
-            <div>
+            <div class="form-in-all">
               <div class="form-group">
-                <center>
                   <%= form_tag url_for(validate_post_entretien_fit_path),method:'post', id:'send-me-accepted' do %>
                     <input type="hidden" name="cadre_info_id" value="<%= @cadre_info.id %>">
                     <input type="hidden" name="choice" value="accepted">
-                    <input type="submit" value="ACCEPTER" class="btn btn-primary" />
+                    <input type="submit" value="ACCEPTER" class="ever acc-btn" />
                   <% end %>
-                </center>
               </div>
-              <br>
-              <div>
-                <center>
-                  <span class="btn btn-primary" id="show-form-edit">MODIFIER</span>
-                </center>
-              </div>
+                  <span class="ever mod-btn" id="show-form-edit">MODIFIER</span>
             </div>
+						</div>
+						<%= form_tag url_for(validate_post_entretien_fit_path),method:'post', id:'send-me-accepted' do %>
+							<input type="hidden" name="choice" value="refused">
+							<input type="hidden" name="cadre_info_id" value="<%= @cadre_info.id %>">
+							<div id="collapseExample-Edit" style="display: none;" class="in-date row">
 
-            <%= form_tag url_for(validate_post_entretien_fit_path),method:'post', id:'send-me-accepted' do %>
-              <input type="hidden" name="choice" value="refused">
-              <input type="hidden" name="cadre_info_id" value="<%= @cadre_info.id %>">
-              <div id="collapseExample-Edit" style="display: none;">
-                <div class="form">
-                  <label for="input-date">Date</label>
-                  <input class="form-control" type="date" id="input-date">
-                </div>
+								<div class="form-lft col-lg-6 col-md-6 col-xs-12">
+								<div class="form">
+									<label for="input-date">Date : </label>
+									<input class="form-control" type="date" id="input-date">
+								</div>
+								<div class="form">
+									<label for="input-time">Heure : </label>
+									<input class="form-control" type="time" id="input-time">
+								</div>
+								<div class="form">
+									<input type="hidden" name="date" id="name-date">
+									<input type="hidden" name="time" id="name-time">
+								</div>
+								</div>
 
-                <div class="form">
-                  <label for="input-time">Heure</label>
-                  <input class="form-control" type="time" id="input-time">
-                </div>
+								<div class="form-rgt col-lg-6 col-md-6 col-xs-12">
+								<div id="show-if-not-date">
+										<h4 class="prop-date">Proposer la date et l'heure de l'entretien fit</h4>
+								</div>
+								<div id="hiden-if-not-date" style="display: none;">
+									<h4 class="desc-fit-date">Entretien fit :
+										<br>
+										<br>
+										<span id="confirmed-date"></span>
+									</h4>
+									<input type="submit" value="Valider" class="val-btn" />
+								</div>
+								</div>
 
-                <div class="form">
-                  <input type="hidden" name="date" id="name-date">
-                  <input type="hidden" name="time" id="name-time">
-                </div>
-
-                <div id="hiden-if-not-date" style="display: none;">
-                  Entretien fit : <span id="confirmed-date"></span>
-                  <br>
-                  <input type="submit" value="Valider" class="btn btn-primary" />
-                </div>
-              </div>
-            <% end %>
-          <% else %>
-            ENTRETIEN FIT VALIDÉ
-          <% end %>
-
+							</div>
+						<% end %>
+					<% else %>
+						<h4 class="fit-cc">ENTRETIEN FIT VALIDÉ</h4>
+					<% end %>
+					</div>
+				</div>
         </div>
-
       </div>
-
-    </div>
+		</div>
 </div>
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
-
 <script type="text/javascript">
-
 $(".currentDatentretien").ready(function(){
-  
   var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
   var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
   let $elementDate = $('.currentDatentretien');
@@ -107,8 +107,6 @@ $(".currentDatentretien").ready(function(){
     }
     $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ minute );
   });
-
-
 
   $("#show-form-edit").click(function(){
     if ($("#collapseExample-Edit").is(":hidden")){
@@ -132,14 +130,14 @@ $(".currentDatentretien").ready(function(){
   function run_my_date($input_date,$input_time){
      if ($input_date.val() != "" && $input_time.val() != "" ){
       var my_date = new Date($input_date.val() + " "+$input_time.val())
-      
+
       let my_dateString = day[my_date.getDay()] + ' ' + my_date.getDate() + ' ' + month[my_date.getMonth()] + ' ' + my_date.getFullYear();
       let mn_minute = my_date.getMinutes()
       if((mn_minute+"").length == 1){
         mn_minute = "0"+mn_minute
       }
       $("#confirmed-date").html(my_dateString + ' à ' + my_date.getHours() + 'h:'+ mn_minute );
-      
+
       let dateUtc = moment.utc(my_date)
 
       $("#name-time").val(dateUtc.hours() + ':' + dateUtc.minutes());
@@ -150,9 +148,12 @@ $(".currentDatentretien").ready(function(){
     }else{
       $("#hiden-if-not-date").hide();
     }
+
+		if (($input_date.val() == "" && $input_time.val() == "") || ($input_date.val() != "" && $input_time.val() == "") ){
+		$("#show-if-not-date").show();
+		}else {
+		$("#show-if-not-date").hide();
+		}
   }
 });
-
-
-
 </script>

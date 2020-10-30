@@ -36,6 +36,13 @@ class RecruteursController < ApplicationController
       if is_cv
         @client.image = uploader.url
     		@client.save
+    		ProcessedHistory.create(
+				  image: current_client.image,
+				  message: "#{current_client.first_name} #{current_client.last_name} a crée un compte pour l'entreprise #{@entreprise.name}.",
+				  link: "#",
+				  is_client:true,
+				  genre: 1
+				)
       end
     end
 
@@ -50,7 +57,12 @@ class RecruteursController < ApplicationController
 
 #Mes offres d’emploi
 	def my_job_offers
-		@offres = current_client.offre_jobs.order("created_at DESC")
+		if current_client.offre_jobs.nil?
+			flash[:alert] = "Pas d'offre disponible."
+			redirect_back(fallback_location: root_path)
+		else
+			@offres = current_client.offre_jobs.order("created_at DESC")
+		end
 	end
 
 	def newJob
@@ -127,7 +139,7 @@ class RecruteursController < ApplicationController
 	
 	def showNewJob
 		@offre = OffreJob.find_by_id(params[:id])
-		if @offre.client != current_client
+		if @offre.client != current_client || @offre.nil?
 			flash[:alert] = "Cette offre n'est plus disponible."
 			redirect_back(fallback_location: root_path)
 		end
@@ -135,62 +147,78 @@ class RecruteursController < ApplicationController
 
 	def publish
 		@offre = OffreJob.find(params[:id])
-		@offre.update(is_publish:true)
-		if @offre.etapes == 0
-			@offre.next_stape
+		if @offre.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+		else
+			@offre.update(is_publish:true)
+			if @offre.etapes == 0
+				@offre.next_stape
+			end
 		end
 	end
 
 	def destroyJob
 		@offre = OffreJob.find(params[:id])
-		@offre.destroy
-		respond_to do |format|
-			format.html { redirect_to :my_job_offers }
-			format.js { }
+
+		if @offre.offre_for_candidates.count == 0
+			@offre.destroy
+			respond_to do |format|
+				format.html { redirect_to :my_job_offers }
+				format.js { }
+			end
+		else
+			flash[:alert] = "Vous ne pouvez plus supprimer cette offre car vous avez des candidates selectionnés."
+			redirect_to :my_job_offers
 		end
+
 	end
 
 	def our_selection
 		@offre = OffreJob.find_by_id(params[:id])
-		@cadre_infos = @offre.metier.cadre_infos.where(empty:false)
-
-    region = Region.find_by_name(@offre.region)
-    ville = region.villes.find_by_name(@offre.department)
-
-    minimum_salar = @offre.remuneration.to_i
-
-    @cadre_infos = @cadre_infos.where("question4 <= #{minimum_salar}")
-
-    @cadre_infos = @cadre_infos.where(mobilite: @offre.type_deplacement)
-
-    my_cadres = []
-
-    unless @cadre_infos.empty?
-    	@cadre_infos.each do |cadre_info|
-    		if cadre_info.region.name = "Toutes les régions"
-    			my_cadres.push(cadre_info)
-    		else
-    			if ville.name == "Tous les départements"
-						if cadre_info.region == region
-							my_cadres.push(cadre_info)
-						end
+		if @offre.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+		else
+			@cadre_infos = @offre.metier.cadre_infos.where(empty:false)
+	
+			region = Region.find_by_name(@offre.region)
+			ville = region.villes.find_by_name(@offre.department)
+		
+			minimum_salar = @offre.remuneration.to_i
+		
+			@cadre_infos = @cadre_infos.where("question4 <= #{minimum_salar}")
+		
+			@cadre_infos = @cadre_infos.where(mobilite: @offre.type_deplacement)
+		
+			my_cadres = []
+		
+			unless @cadre_infos.empty?
+				@cadre_infos.each do |cadre_info|
+					if cadre_info.region.name = "Toutes les régions"
+						my_cadres.push(cadre_info)
 					else
-						if cadre_info.region == region && cadre_info.ville == ville
-							my_cadres.push(cadre_info)
-						end
+						if ville.name == "Tous les départements"
+								if cadre_info.region == region
+									my_cadres.push(cadre_info)
+								end
+							else
+								if cadre_info.region == region && cadre_info.ville == ville
+									my_cadres.push(cadre_info)
+								end
+							end
 					end
-    		end
-    	end
-    end
-    @cadre_infos = my_cadres
-
+				end
+			end
+			@cadre_infos = my_cadres
+		end
 	end
 
 	def search_candidate
 		@offre = OffreJob.find_by_id(params[:id])
 		@topCinqs = @offre.my_top_five_candidates
 		@metiers = Metier.all
-    @regions = Region.all
+    	@regions = Region.all
 		#afficher tous les cadre dans la bdd
 		@cadres = Cadre.joins(:cadre_info).where("cadre_infos.empty = ?",false)
 	end
@@ -206,53 +234,57 @@ class RecruteursController < ApplicationController
     	@cadre_infos = @cadre_infos.where("question4 <= #{maximum_salar}")
 		end
 
-    unless params[:disponility].empty?
-    	@cadre_infos = @cadre_infos.where(disponibilite: params[:disponility])
-    end
-
-    unless params[:metier].empty?
-      metier = Metier.find_by_id(params[:metier])
-      unless metier.nil?
-      	@cadre_infos = @cadre_infos.where(metier:metier)
-      end
-    end
-
-    my_cadres = []
-
-		region = params[:region]
-   
-    unless region.empty? && @cadre_infos.empty?
-      region = Region.find_by_id(region)
-    	@cadre_infos.each do |cadre_info|
-    		if params[:region] == "all"
-    			my_cadres.push(cadre_info)
-    		else
-					if cadre_info.region.name == "Toutes les régions" || cadre_info.region == region
-						my_cadres.push(cadre_info)
-					end
-    		end
-    	end
-    	@cadre_infos = my_cadres
-    end
-		
-		if params[:remuneration].empty? && params[:disponility].empty? && params[:metier].empty? && params[:region].empty?
-			@cadre_infos = []
+		unless params[:disponility].empty?
+			@cadre_infos = @cadre_infos.where(disponibilite: params[:disponility])
 		end
 
-    respond_to do |format|
-      format.html do
-        redirect_to searchJob_path
-      end
-      format.js do
-      end
-    end
-		
+		unless params[:metier].empty?
+		metier = Metier.find_by_id(params[:metier])
+		unless metier.nil?
+			@cadre_infos = @cadre_infos.where(metier:metier)
+		end
+		end
+
+		my_cadres = []
+
+			region = params[:region]
+	
+		unless region.empty? && @cadre_infos.empty?
+		region = Region.find_by_id(region)
+			@cadre_infos.each do |cadre_info|
+				if params[:region] == "all"
+					my_cadres.push(cadre_info)
+				else
+						if cadre_info.region.name == "Toutes les régions" || cadre_info.region == region
+							my_cadres.push(cadre_info)
+						end
+				end
+			end
+			@cadre_infos = my_cadres
+		end
+			
+			if params[:remuneration].empty? && params[:disponility].empty? && params[:metier].empty? && params[:region].empty?
+				@cadre_infos = []
+			end
+
+		respond_to do |format|
+		format.html do
+			redirect_to searchJob_path
+		end
+		format.js do
+		end
+		end
 	end
 
 	def show_search_candidate
 		@offre = OffreJob.find_by_id(params[:offre_id])
-		@cadre = Cadre.find_by_id(params[:id]).cadre_info
-		helpers.updateNotification(params[:secure])
+		if @offre.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+		else
+			@cadre = Cadre.find_by_id(params[:id]).cadre_info
+			helpers.updateNotification(params[:secure])
+		end
 	end
 
 	def add_top_five_candidate
@@ -286,51 +318,55 @@ class RecruteursController < ApplicationController
 
 	def save_entretien_client
 		@offre = OffreJob.find_by_id(params[:offre_id].to_i)
-		@cadre = Cadre.find_by_id(params[:cadre_id].to_i)
-		@oFc = OffreForCandidate.find_by(offre_job_id: @offre.id, cadre_id: @cadre.id)
-		
-		name_entretien = params[:name] == "1" ? params[:client_name] : params[:name]
-		name_adresse = params[:adresse] == "on" ? params[:adresse_name] : params[:adresse]+", #{@offre.client.entreprise.city}"
-
-		if @oFc.nil?
-			@oFc = OffreForCandidate.create(offre_job: @offre, cadre: @cadre, accepted_postule:true)
+		if @offre.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
 		else
-			@oFc.update(accepted_postule:true)
-		end
-
-    date = params[:date].split("-")
-    time = params[:time].split(":")
-
-    year = date[0].to_i
-    month = date[1].to_i
-    day = date[2].to_i
-    hour = time[0].to_i
-    min = time[1].to_i
-
-    @agenda = AgendaClient.new(entretien_date:DateTime.new(year,month,day,hour,min).utc, adresse: name_adresse, recruteur: name_entretien, offre_for_candidate: @oFc)
-
-    unless @agenda.save
-    	flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
-    	redirect_to root_path
-		else
-			max_step = 0
-			@offre.my_top_five_candidates.each do |oFc|
-				numberOfc = oFc.agenda_clients.count
-				if max_step < numberOfc
-					max_step = numberOfc
-				end
+			@cadre = Cadre.find_by_id(params[:cadre_id].to_i)
+			@oFc = OffreForCandidate.find_by(offre_job_id: @offre.id, cadre_id: @cadre.id)
+			
+			name_entretien = params[:name] == "1" ? params[:client_name] : params[:name]
+			name_adresse = params[:adresse] == "on" ? params[:adresse_name] : params[:adresse]+", #{@offre.client.entreprise.city}"
+	
+			if @oFc.nil?
+				@oFc = OffreForCandidate.create(offre_job: @offre, cadre: @cadre, accepted_postule:true)
+			else
+				@oFc.update(accepted_postule:true)
 			end
-			@offre.update(etapes:2+max_step)
-			@oFc.update(etapes:@oFc.agenda_clients.count)
-			@oFc.update(status:nil)
-			name_entreprise = current_client.entreprise.name
-			#notifaka
-			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une demande d'entretien.",link: "#{received_job_path(notification:"entretien")}",genre: 1,medel_id: @offre.id,view: false)
-    end
-
-		respond_to do |format|
-			format.html { redirect_to show_search_candidate_path(@cadre.id) }
-			format.js { }
+	
+			date = params[:date].split("-")
+			time = params[:time].split(":")
+		
+			year = date[0].to_i
+			month = date[1].to_i
+			day = date[2].to_i
+			hour = time[0].to_i
+			min = time[1].to_i
+		
+			@agenda = AgendaClient.new(entretien_date:DateTime.new(year,month,day,hour,min).utc, adresse: name_adresse, recruteur: name_entretien, offre_for_candidate: @oFc)
+		
+			unless @agenda.save
+				flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
+				redirect_to root_path
+				else
+					max_step = 0
+					@offre.my_top_five_candidates.each do |oFc|
+						numberOfc = oFc.agenda_clients.count
+						if max_step < numberOfc
+							max_step = numberOfc
+						end
+					end
+					@offre.update(etapes:2+max_step)
+					@oFc.update(etapes:@oFc.agenda_clients.count)
+					@oFc.update(status:nil)
+					name_entreprise = current_client.entreprise.name
+					#notifaka
+					Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une demande d'entretien.",link: "#{received_job_path(notification:"entretien")}",genre: 1,medel_id: @offre.id,view: false)
+			end
+			respond_to do |format|
+				format.html { redirect_to show_search_candidate_path(@cadre.id) }
+				format.js { }
+			end
 		end
 
 	end
@@ -340,40 +376,45 @@ class RecruteursController < ApplicationController
 		# save_entretien_client
 		@cadre = Cadre.find_by_id(params[:cadre_id])
 		@offreJob = OffreJob.find_by_id(params[:offre_id])
-    @agendaClient = AgendaClient.find_by_id(params[:ac_id])
-    @oFc = @agendaClient.offre_for_candidate
-		name_entreprise = current_client.entreprise.name
-    case params[:repons]
-    when "0" #REFUSER
-      @agendaClient.update(repons_client: false,notifed:false)
-      @oFc.update(status:"refused")
-      #notifaka
-			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a refusé votre proposition pour la date de l'entretien.",link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offreJob.id,view: false)
-    when "1"	#ACCEPTER
-			date = DateTime.parse(@agendaClient.alternative)
-      @agendaClient.update(entretien_date:date.utc,alternative: nil, repons_cadre:true, is_update:true,repons_client: true,notifed:false)
-    	#notifaka
-			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a accepté votre proposition pour la date d'entretien.",link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offreJob.id,view: false)
-    when "2"
-      date = params[:date].split("-")
-      time = params[:time].split(":")
-      year = date[0].to_i
-      month = date[1].to_i
-      day = date[2].to_i
-      hour = time[0].to_i
-      min = time[1].to_i
-      date_time = DateTime.new(year,month,day,hour,min).utc
-      @agendaClient.update(entretien_date: date_time, alternative: nil, repons_cadre:nil, is_update:true, notifed:false)
-      #notifaka
-			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a proposé une autre date pour l'entretien.",link: "#{received_job_path(notification:"entretien")}",genre: 1,medel_id: @offreJob.id,view: false)
-    else
-      flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
-      redirect_to root_path
-    end
-    redirect_to recruitment_show_cadre_path(@oFc.id)
-		respond_to do |format|
-			format.html { redirect_back(fallback_location: root_path) }
-			format.js { }
+		if @offre.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+		else
+			@agendaClient = AgendaClient.find_by_id(params[:ac_id])
+			@oFc = @agendaClient.offre_for_candidate
+				name_entreprise = current_client.entreprise.name
+			case params[:repons]
+			when "0" #REFUSER
+				@agendaClient.update(repons_client: false,notifed:false)
+				@oFc.update(status:"refused")
+			#notifaka
+				Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a refusé votre proposition pour la date de l'entretien.",link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offreJob.id,view: false)
+			when "1"	#ACCEPTER
+					date = DateTime.parse(@agendaClient.alternative)
+				@agendaClient.update(entretien_date:date.utc,alternative: nil, repons_cadre:true, is_update:true,repons_client: true,notifed:false)
+			#notifaka
+				Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a accepté votre proposition pour la date d'entretien.",link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offreJob.id,view: false)
+			when "2"
+				date = params[:date].split("-")
+				time = params[:time].split(":")
+				year = date[0].to_i
+				month = date[1].to_i
+				day = date[2].to_i
+				hour = time[0].to_i
+				min = time[1].to_i
+				date_time = DateTime.new(year,month,day,hour,min).utc
+				@agendaClient.update(entretien_date: date_time, alternative: nil, repons_cadre:nil, is_update:true, notifed:false)
+			#notifaka
+				Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a proposé une autre date pour l'entretien.",link: "#{received_job_path(notification:"entretien")}",genre: 1,medel_id: @offreJob.id,view: false)
+			else
+				flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
+				redirect_to root_path
+			end
+			redirect_to recruitment_show_cadre_path(@oFc.id)
+			respond_to do |format|
+				format.html { redirect_back(fallback_location: root_path) }
+				format.js { }
+			end
 		end
 		
 	end
@@ -396,67 +437,98 @@ class RecruteursController < ApplicationController
 
 	def recruitment_liste_cadre
 		@offre = OffreJob.find_by_id(params[:offre_id])
-		@oFcs = @offre.offre_for_candidates.where(accepted_postule:true).order("created_at DESC")
+		if @offre.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+		else
+			@oFcs = @offre.offre_for_candidates.where(accepted_postule:true).order("created_at DESC")
+		end
 	end
 
 	def recruitment_show_cadre
 		helpers.updateNotification(params[:secure])
+
 		@oFc = OffreForCandidate.find_by_id(params[:oFc_id])
+		if @oFc.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
 		@offre = @oFc.offre_job
+		if @offre.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
 		@cadre = @oFc.cadre
 		@agendas = @oFc.agenda_clients.order('created_at DESC')[0]
 		@promise = @offre.promise_to_hires.find_by(cadre:@cadre)
+		if @promise.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
 	end
 
 	def notice_refused_post
 		respons = ["accepted","waiting","refused"]
 		@oFc = OffreForCandidate.find_by_id(params[:oFc_id])
-		@offre = OffreJob.find_by_id(params[:offre_id])
-		@cadre = Cadre.find_by_id(params[:cadre_id])
-		error = false
-		unless respons.include?(params[:repons])
-			error = true
-		end
-		if @oFc.nil? || @offre.nil? || @cadre.nil?
-			error = true
+		if @oFc.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
 		else
-			unless @oFc.offre_job == @offre && @oFc.cadre == @cadre
-				error = true
-			end
-		end
-		if error
-			flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
-			redirect_to root_path
-		else
-			name_entreprise = current_client.entreprise.name
-			etapes = ""
-			message = ""
-			case @oFc.etapes
-				when 1
-					etapes = "première"
-				when 2
-					etapes = "deuxième"
-				when 3
-					etapes = "troisième"
-			end
-			case params[:repons]
-			  when "accepted" #REFUSER
-			  	message = "#{name_entreprise} a validé votre candidature pour la #{etapes} étape."
-			  when "refused"	#ACCEPTER
-			  	if params[:notifier].nil?
-			  		message = "#{name_entreprise} a refusé votre candidature."
-			  	else
-						message = "#{name_entreprise} a envoyé la raison du refus de votre candidature."
+			@offre = OffreJob.find_by_id(params[:offre_id])
+			if @offre.nil?
+				flash[:alert] = "Cette offre n'est plus disponible."
+				redirect_back(fallback_location: root_path)
+			else
+				@cadre = Cadre.find_by_id(params[:cadre_id])
+				error = false
+				unless respons.include?(params[:repons])
+					error = true
+				end
+				if @oFc.nil? || @offre.nil? || @cadre.nil?
+					error = true
+				else
+					unless @oFc.offre_job == @offre && @oFc.cadre == @cadre
+						error = true
 					end
+				end
+				if error
+					flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
+					redirect_to root_path
+				else
+					name_entreprise = current_client.entreprise.name
+					etapes = ""
+					message = ""
+					case @oFc.etapes
+						when 1
+							etapes = "première"
+						when 2
+							etapes = "deuxième"
+						when 3
+							etapes = "troisième"
+					end
+					case params[:repons]
+					  when "accepted" #REFUSER
+						  message = "#{name_entreprise} a validé votre candidature pour la #{etapes} étape."
+					  when "refused"	#ACCEPTER
+						  if params[:notifier].nil?
+							  message = "#{name_entreprise} a refusé votre candidature."
+						  else
+								message = "#{name_entreprise} a envoyé la raison du refus de votre candidature."
+							end
+					end
+					Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: message,link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offre.id,view: false)
+					@oFc.update(status:params[:repons])
+					@oFc.update(refused_info:params[:notifier])
+					redirect_to recruitment_show_cadre_path(@oFc.id)
+				end
+				respond_to do |format|
+					format.html { redirect_to root_path }
+					format.js { }
+				end
 			end
-			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: message,link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offre.id,view: false)
-			@oFc.update(status:params[:repons])
-			@oFc.update(refused_info:params[:notifier])
-			redirect_to recruitment_show_cadre_path(@oFc.id)
-		end
-		respond_to do |format|
-			format.html { redirect_to root_path }
-			format.js { }
 		end
 	end
 
@@ -464,13 +536,28 @@ class RecruteursController < ApplicationController
 
 #Mes factures
 	def my_bills
-		@factures = Facture.all.order("created_at DESC")
+		@factures = current_client.factures.order("created_at DESC")
 	end
 
 	def show_my_bills
+		helpers.updateNotification(params[:secure])
 		@facture = Facture.find_by_id(params[:id])
-		@promise = @facture.promise_to_hire
-		@offre_job = @promise.offre_job
+		if @facture.nil?
+			flash[:alert] = "Cette page n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+		else
+			@promise = @facture.promise_to_hire
+			if @promise.nil?
+				flash[:alert] = "Cette page n'est plus disponible."
+				redirect_back(fallback_location: root_path)
+			else
+				@offre_job = @promise.offre_job
+				if @offre_job.nil?
+					flash[:alert] = "Cette offre n'est plus disponible."
+					redirect_back(fallback_location: root_path)
+				end
+			end
+		end
 	end
 
 	#eto
@@ -478,8 +565,23 @@ class RecruteursController < ApplicationController
 		# OffreJob.find_by_id(params[:offre_job_id])
 		helpers.updateNotification(params[:secure])
 		@facture = Facture.find_by_id(params[:facture_id])
+		if @facture.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
 		@promise = PromiseToHire.find_by_id(params[:promise_id])
+		if @promise.nil?
+			flash[:alert] = "Cette page n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
 		@offre_job = @facture.promise_to_hire.offre_job
+		if @offre_job.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
 		@promise.update(payed:true)
 		flash[:notice] = "J'atteste régler cette facture par virement dans les 15 jours."
 		redirect_to show_my_bills_path(@facture.id)
@@ -526,8 +628,23 @@ class RecruteursController < ApplicationController
 
 	def show_promise_to_hire
 		@promise = PromiseToHire.find_by_id(params[:id])
+		if @promise.nil?
+			flash[:alert] = "Cette page n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
 		@job = @promise.offre_job
+		if @job.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
 		@cadre = @promise.cadre.cadre_info
+		if @cadre.nil?
+			flash[:alert] = "Cette page n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
 	end
 
 #Promesse d'embauche
@@ -601,12 +718,32 @@ class RecruteursController < ApplicationController
 			return
 		end
 		@job = @promise.offre_job
+		if @job.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
 		@cadre = @promise.cadre.cadre_info
+		if @cadre.nil?
+			flash[:alert] = "Cette page n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
 	end
 
 	def update_promise_to_hire
 		@promise = PromiseToHire.find_by_id(params[:id])
+		if @promise.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
 		@job = @promise.offre_job
+		if @job.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
 		@cadre = @promise.cadre
 		if @promise.repons_cadre
 			flash[:alert] = "Vous ne pouvez plus modifier la promesse d'embauche."
@@ -656,9 +793,14 @@ class RecruteursController < ApplicationController
 
 	def validate_time_trying_client
 		@promise = PromiseToHire.find_by_confirm_token(params[:confirm_token])
-    @offreJob = @promise.offre_job
-    @cadre = @promise.cadre
-    oFc = @offreJob.is_in_this_job(@cadre)
+		@offreJob = @promise.offre_job
+		if @offreJob.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
+		@cadre = @promise.cadre
+		oFc = @offreJob.is_in_this_job(@cadre)
 		name_entreprise = current_client.entreprise.name
 
 		if @promise.client_time_trying.nil?
@@ -674,6 +816,15 @@ class RecruteursController < ApplicationController
 					Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} n'a pas validé votre période d'essai.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"prime")}",genre: 2,medel_id: @offreJob.id,view: false)
 				end
 			end
+			unless @promise.cadre_time_trying==false && @promise.client_time_trying.nil?
+	      ProcessedHistory.create(
+	        image: @cadre.cadre_info.image,
+	        message: "Période d'essai de #{@cadre.cadre_info.first_name} #{@cadre.cadre_info.last_name} est validé.",
+	        link: "<a href='#'>VOIR</a>",
+	        is_client:false,
+	        genre: 1
+	      )
+	    end
 		end
 
     redirect_to recruitment_show_cadre_path(oFc.id)
@@ -686,7 +837,12 @@ class RecruteursController < ApplicationController
   end
   
   def show_my_messages
-    @cadre = Cadre.find_by_id(params[:id])
+	@cadre = Cadre.find_by_id(params[:id])
+	if @candidat.nil?
+		flash[:alert] = "Ce candidat n'est plus disponible."
+		redirect_back(fallback_location: root_path)
+		return
+	end
     @contact = ContactClientCadre.where(cadre: @cadre, client:current_client)
     if @contact.count == 0
       @contact = ContactClientCadre.create(cadre: @cadre, client:current_client)

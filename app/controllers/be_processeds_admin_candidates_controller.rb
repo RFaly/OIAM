@@ -32,7 +32,8 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
 
       ProcessedHistory.create(
         image: "/image/profie.png",
-        message: "L'entretien fit avec #{@cadreInfo.first_name} #{@cadreInfo.last_name} est validé.",
+        # message: "L'entretien fit avec #{@cadreInfo.first_name} #{@cadreInfo.last_name} est validé.",
+        message: "ENTRETIEN FIT",
         link: "<a href='#{cbp_validate_entretien_fit_path(@cadreInfo.id)}'>VOIR</a>",
         is_client:false,
         genre: 1
@@ -80,15 +81,25 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
     end
     @cadre_infos.save
 
-    # unless @cadre_infos.nil?
-    #   ProcessedHistory.create(
-    #     image: "/image/profie.png",
-    #     message: "#{@cadre_infos.first_name} #{@cadre_infos.last_name} a terminé l'inscription",
-    #     link: "/",
-    #     is_client:false,
-    #     genre: 1
-    #   )
-    # end
+    unless @cadre_infos.nil?
+      ProcessedHistory.create(
+        image: "/image/profie.png",
+        # message: "#{@cadre_infos.first_name} #{@cadre_infos.last_name} a terminé l'inscription",
+        message: "INSCRIPTION",
+        link: "<a href='#{cbp_inscription_path(@cadre_infos.id)}'>VOIR</a>",
+        is_client:false,
+        genre: 1
+      )
+
+      ProcessedHistory.create(
+        image: "/image/profie.png",
+        # message: "L'entretien fit avec #{@cadre_infos.first_name} #{@cadre_infos.last_name} est traité.",
+        message: "ENTRETIEN FIT",
+        link: "<a href='#{post_avis_candidats_fit_path(@cadre_infos.id)}'>VOIR</a>",
+        is_client:false,
+        genre: 1
+      )
+    end
 
     redirect_to post_avis_candidats_fit_path(@cadre_infos.id)
 
@@ -104,6 +115,46 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
 
   def be_processed_prime
     @promise = PromiseToHire.find_by_id(params[:id])
+    @cadre_info = @promise.cadre.cadre_info
+  end
+
+  def post_be_processed_prime
+
+    errorMessage = ""
+    @promise = PromiseToHire.find_by_id(params[:promise_id])
+    @cadre_info = @promise.cadre.cadre_info
+
+    uploader = ImageUploader.new
+    is_error = true
+    begin
+      uploader.store!(params[:promise_to_hire][:ov_prime])
+    rescue StandardError => e
+      is_error = false
+      errorMessage += " [ #{e.message} ] "
+    end
+
+    if is_error
+      @promise.ov_prime = uploader.url
+      @promise.prime_received = true
+      @promise.save
+      ProcessedHistory.create(
+        image: @cadre_info.image,
+        # message: "#{@cadre_info.first_name} #{@cadre_info.last_name} a reçu son prime.",
+        message: "PRIME",
+        link: "<a href='#{cbp_prime_path(@promise.id)}'>VOIR</a>",
+        is_client:false,
+        genre: 1
+      )
+    end
+
+    unless errorMessage.empty?
+      flash[:alert] = errorMessage
+      redirect_to cbp_prime_path(@promise.id)
+    else
+      flash[:notice] = "Prime envoyer."
+      redirect_to cbp_prime_path(@promise.id)
+    end
+    
   end
 
   def show_promise

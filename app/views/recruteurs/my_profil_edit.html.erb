@@ -15,10 +15,10 @@
               <div class="cp-pprofil">
                 <% unless @client.image.nil? %>
                 <div class="c" id="addImage"
-                  style="background: url(<%= @client.image%>) center no-repeat; background-size: cover"></div>
+                  style="background: url(<%= @client.image%>) center no-repeat; background-size: contain"></div>
                 <% else %>
                 <div class="c" id="addImage"
-                  style="background: url(/image/profie.png) center no-repeat; background-size: cover"></div>
+                  style="background: url(/image/profie.png) center no-repeat; background-size: contain"></div>
                 <% end %>
               </div>
               <label>

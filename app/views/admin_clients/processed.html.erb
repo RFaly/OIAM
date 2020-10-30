@@ -15,5 +15,16 @@
 
   <div class="cp-box">
   	<h1>Traitées</h1>
+
+    <% @processedHistories.each do |processedHistorie| %>
+      <div class="row">
+        <div class="col-sm-2"><img src='<%= processedHistorie.image %>' width="60" /></div>
+        <div class="col-sm-6"><%= processedHistorie.message %></div>
+        <div class="col-sm-4">
+          <%= raw processedHistorie.link %>
+        </div>
+      </div>
+    <% end %>
+    
   </div>
 </div>
