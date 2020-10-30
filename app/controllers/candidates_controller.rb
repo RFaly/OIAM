@@ -723,12 +723,16 @@ def show_message_admin
   @admin = Admin.find_by_id(params[:id])
   @contact = ContactAdminCadre.find_by(cadre:current_cadre, admin:@admin)
   if @contact.nil?
-    @contact = ContactAdminCadre.create(cadre:current_cadre, admin:@admin)    
+    @contact = ContactAdminCadre.create(cadre:current_cadre, admin:@admin)
   else
     @contact.message_admin_cadres.where(cadre_see:false).update(cadre_see:true)
   end
     @messages = @contact.message_admin_cadres.order(created_at: :ASC)
     @newMessage = MessageAdminCadre.new
+    respond_to do |format|
+  		format.html { }
+  		format.js { }
+  	end
 end
 
 def post_message_admin
@@ -737,7 +741,7 @@ def post_message_admin
   @content = params[:message_admin_cadre][:content]
   @newMessage = MessageAdminCadre.new(content:@content, admin_see: false, contact_admin_cadre: @contact, is_admin: false)
   @contact.message_admin_cadres.where(cadre_see:false).update(cadre_see:true)
-  if @newMessage.save      
+  if @newMessage.save
       redirect_to show_message_admin_path(@admin)
   else
       flash[:alert] = @newMessage.errors.details
