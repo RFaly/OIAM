@@ -6,13 +6,14 @@
 <% end %>
 
 <!-- html body  -->
-<div class="left-menu-r" data-link="<%= notifed_number_notice_path %>" data-linksms="<%= notifed_number_message_path %>" id="getLinkNoticeJS" >
+<div class="left-menu-r" data-link="<%= notifed_number_notice_path %>" data-linksms="<%= notifed_number_message_path %>"
+  id="getLinkNoticeJS">
   <div class="btn-menu-r">
     <span class="btn-menu-burger open"> </span>
   </div>
   <div class="left-menu-photo">
     <% unless current_client.image.nil? %>
-    <div class="c" style="background: url(<%= current_client.image%>) center no-repeat; background-size: contain"></div>
+    <div class="c" style="background: url(<%= current_client.image%>) center no-repeat; background-size: cover"></div>
     <% else %>
     <img src="/image/profie.png" alt="logo entreprise" />
     <% end %>
@@ -24,10 +25,13 @@
     <li><%= link_to "MON SUIVI RECRUTEMENT", my_recruitment_follow_path %></li>
     <li><%= link_to "MES FACTURES", my_bills_path %></li>
     <li><%= link_to "MES NOTIFICATIONS", client_notifications_path %>
-      <div <%if (notice[:all] == 0) %>hidden<% end %> id="noticeNumberJS"><% if notice[:all] < 9 %><%= notice[:all] %><% else %>+9<% end %></div>
+      <div <%if (notice[:all] == 0) %>hidden<% end %> id="noticeNumberJS">
+        <% if notice[:all] < 9 %><%= notice[:all] %><% else %>+9<% end %></div>
     </li>
     <li><%= link_to "MA MESSAGERIE", my_messages_client_path %>
-      <div id="noticeSmsJS" class="last" <%if (current_client.number_message_not_see == 0) %>hidden<% end %>><% if current_client.number_message_not_see < 9 %><%= current_client.number_message_not_see %><% else %>+9<% end %></div>
+      <div id="noticeSmsJS" class="last" <%if (current_client.number_message_not_see == 0) %>hidden<% end %>>
+        <% if current_client.number_message_not_see < 9 %><%= current_client.number_message_not_see %><% else %>+9<% end %>
+      </div>
     </li>
   </ul>
 </div>
@@ -35,45 +39,43 @@
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/menu_recruteur.js"></script>
 
 <script>
+  /*-----------------------------number notice---------------------------------*/
+  window.setInterval(getNumberNotice, 3000, $("#getLinkNoticeJS").data().link, $("#noticeNumberJS"), $(
+    "#getLinkNoticeJS").data().linksms, $("#noticeSmsJS"));
 
-/*-----------------------------number notice---------------------------------*/
-window.setInterval(getNumberNotice, 3000, $("#getLinkNoticeJS").data().link,$("#noticeNumberJS"), $("#getLinkNoticeJS").data().linksms, $("#noticeSmsJS"));
-
-function getNumberNotice(pathClientUrl, divBe,pathSmsWa,divSmse){
-  $.getJSON(pathClientUrl, function (data) {
-    let number_notice_client = data.number_notice_client
-    if (number_notice_client > 9 ){
-      number_notice_client = "+9"
-    }
-    divBe.html(number_notice_client)
-    divBe.removeAttr("hidden")
-    if (data.number_notice_client == 0){
-      divBe.hide()
-    }else{
-      divBe.show()
-    }
-  });
-
-  countMessageNotifedClient(pathSmsWa,divSmse)
-}
-/*-----------------------------number sms---------------------------------*/
-function countMessageNotifedClient(pathSmsWa,divSmse){
-  $.getJSON(pathSmsWa, function (dataNSms) {
-    let number_message_client = dataNSms.number_message_client;
-    if (divSmse.html()!=number_message_client){
-      if ( number_message_client > 9 ){
-        number_message_client = "+9"
+  function getNumberNotice(pathClientUrl, divBe, pathSmsWa, divSmse) {
+    $.getJSON(pathClientUrl, function (data) {
+      let number_notice_client = data.number_notice_client
+      if (number_notice_client > 9) {
+        number_notice_client = "+9"
       }
-      divSmse.html(number_message_client)
-        if (number_message_client == 0){
+      divBe.html(number_notice_client)
+      divBe.removeAttr("hidden")
+      if (data.number_notice_client == 0) {
+        divBe.hide()
+      } else {
+        divBe.show()
+      }
+    });
+
+    countMessageNotifedClient(pathSmsWa, divSmse)
+  }
+  /*-----------------------------number sms---------------------------------*/
+  function countMessageNotifedClient(pathSmsWa, divSmse) {
+    $.getJSON(pathSmsWa, function (dataNSms) {
+      let number_message_client = dataNSms.number_message_client;
+      if (divSmse.html() != number_message_client) {
+        if (number_message_client > 9) {
+          number_message_client = "+9"
+        }
+        divSmse.html(number_message_client)
+        if (number_message_client == 0) {
           divSmse.hide()
-        }else{
-        divSmse.removeAttr("hidden")
+        } else {
+          divSmse.removeAttr("hidden")
           divSmse.show()
         }
-    }
-  });
-}
-
-
+      }
+    });
+  }
 </script>
