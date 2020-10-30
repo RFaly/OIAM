@@ -234,6 +234,11 @@ class CandidatesController < ApplicationController
 
   def post_repons_received_job
     @offreJob = OffreJob.find_by_id(params[:offre_id])
+    if @offreJob.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
     @agendaClient = AgendaClient.find_by_id(params[:agenda_id])
     @oFc = OffreForCandidate.find_by(offre_job: @offreJob, cadre: current_cadre)
 
@@ -579,6 +584,11 @@ class CandidatesController < ApplicationController
     @promise = PromiseToHire.find_by_id(params[:id])
     @cadre = current_cadre.cadre_info
     @job = @promise.offre_job
+    if @job.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
     @current_client = @job.client
   end
 
@@ -631,6 +641,11 @@ class CandidatesController < ApplicationController
     if errorMessage.empty?
       @promise.update(birthday_cadre: params[:promise_to_hire][:birthday_cadre], birthplace_cadre: params[:promise_to_hire][:birthplace_cadre], ns_sociale_cadre: params[:promise_to_hire][:ns_sociale_cadre], signature_candidat: file_sinc.url, cin_pass_port: file_cin.url, security_certificate: file_sc.url, rib: filerib.url, repons_cadre:true)
       @offreJob = @promise.offre_job
+      if @offteJob.nil?
+        flash[:alert] = "Cette page n'est plus disponible."
+        redirect_back(fallback_location: root_path)
+        return
+      end
       @offreJob.next_stape
 
       # calcul prix honoraire oiam
@@ -668,7 +683,17 @@ class CandidatesController < ApplicationController
   def validate_time_trying_cadre
     @promise = PromiseToHire.find_by_confirm_token(params[:confirm_token])
     @offreJob = @promise.offre_job
+    if @offreJob.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
     oFc = @offreJob.is_in_this_job(current_cadre)
+    if oFc.nil?
+			flash[:alert] = "Cette page n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
     @promise.update(cadre_time_trying:true)
 
     first_name = current_cadre.cadre_info.first_name
@@ -682,7 +707,7 @@ class CandidatesController < ApplicationController
         image: current_cadre.cadre_info.image,
         # message: "Période d'essai de #{first_name} #{last_name} est validé.",
         message: "PROMESSE D'EMBAUCHE",
-        link: "<a href='#'>VOIR</a>",
+        link: "<a href='#{cbp_prime_path(@promise.id)}'>VOIR</a>",
         is_client:false,
         genre: 1
       )
@@ -774,12 +799,16 @@ def show_message_admin
   @admin = Admin.first
   @contact = ContactAdminCadre.find_by(cadre:current_cadre, admin:@admin)
   if @contact.nil?
-    @contact = ContactAdminCadre.create(cadre:current_cadre, admin:@admin)    
+    @contact = ContactAdminCadre.create(cadre:current_cadre, admin:@admin)
   else
     @contact.message_admin_cadres.where(cadre_see:false).update(cadre_see:true)
   end
     @messages = @contact.message_admin_cadres.order(created_at: :ASC)
     @newMessage = MessageAdminCadre.new
+    respond_to do |format|
+  		format.html { }
+  		format.js { }
+  	end
 end
 
 def post_message_admin
@@ -788,7 +817,7 @@ def post_message_admin
   @content = params[:message_admin_cadre][:content]
   @newMessage = MessageAdminCadre.new(content:@content, admin_see: false, contact_admin_cadre: @contact, is_admin: false)
   @contact.message_admin_cadres.where(cadre_see:false).update(cadre_see:true)
-  if @newMessage.save      
+  if @newMessage.save
       redirect_to show_message_admin_path(@admin)
   else
       flash[:alert] = @newMessage.errors.details

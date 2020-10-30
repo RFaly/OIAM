@@ -1,21 +1,18 @@
 <link rel="stylesheet" href="/css/admin_prms.css" />
-<style>
-  img {
-    width: 100px;
-    height: 100px;
-  }
-</style>
+<link rel="stylesheet" href="/admins/css/atrtFitChoice.css">
 <div class="client-column">
   <div class="client-menu-left">
     <%= render partial: "admin_candidats/left_menu" %>
   </div>
   <div class="cp-box">
+  <div class="container">
 
-    <div class="row">
-      <div class="col-sm-3">
+
+    <div class="row pr-row">
+      <div class="fit-box-left col-lg-3 col-md-12 col-sm-12 col-xs-12">
         <div class="cd-info">
           <% unless @cadre_info.image.nil? %>
-              <%= image_tag(@cadre_info.image, alt: 'photo de profil')%>
+            <img src="<%= @cadre_info.image %>" alt="photo profil candidats">
           <% else %>
             <img src="/image/profie.png" alt="photo profil candidats">
           <% end %>
@@ -23,39 +20,39 @@
         <div class="cd-info-be">
           <p class="name"><%= @cadre_info.first_name %> <%= @cadre_info.last_name %> </p>
           <p class="score">Score OIAM : <span><%= @cadre_info.score_potential %></span></p>
-
           <% unless @cadre_info.score_fit.nil? %>
             <p class="score">Score FIT : <span><%= @cadre_info.score_fit %></span></p>
           <% end %>
-
         </div>
       </div>
-      <div class="col-sm-9">
+
+      <div class="fit-box-right col-lg-9 col-md-12 col-sm-12 col-xs-12">
           <% if @cadre_info.is_recrute.nil?%>
 
+            <div class="all-info-cadd">
             <div class="info-cadd">
               <h3>Vous avez rencontré <%= @cadre_info.first_name %> <%= @cadre_info.last_name %> le <strong data-times="<%= @cadre_info.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></strong>, comment s'est déroulé votre entretien ?</h3>
             </div>
 
-            <div class="all-btn">
-              <center>
-              <span id="accepted-js" class="btn btn-primary mybtn btn-to-hidden-js">ACCEPTER SA CANDIDATURE</span> <br> <br>
-              <span id="refused-js" class="btn btn-primary mybtn btn-to-hidden-js">REFUSER SA CANDIDATURE</span>
-              </center>
+            <div class="row all-btn">
+              <span id="accepted-js" class="mybtn btn-to-hidden-js">ACCEPTER SA CANDIDATURE</span> <br> <br>
+              <span id="refused-js" class="mybtn btn-to-hidden-js">REFUSER SA CANDIDATURE</span>
+            </div>
             </div>
 
           <% else %>
             <% if @cadre_info.is_recrute == true %>
-              <h2>TEST FIT REUSSI</h2>
-              <div>
+              <h2 class="succ-txt">TEST FIT REUSSI</h2>
+              <div class="gen-cont">
                 <div>
-                  <span id="generate-js" class="btn btn-primary">Générer un lien pour l'inscription</span>
+                  <span id="generate-js" class="gen-btn">Générer un lien pour l'inscription</span>
                 </div>
                 <div id="display_me_js" style="display: none;">
-                  <center>
-                    Lien unique pour l'inscription du candidat: <br>
-                    <h4><%= request.base_url %><%= new_cadre_registration_path(comfirm:@cadre_info.confirm_token) %></h4>
-                  </center>
+                  <div class="cont-link">
+                    <h4 class="link-txt">Lien unique pour l'inscription du candidat : </h4>
+                    <br>
+                    <h4 class="link-url"><%= request.base_url %><%= new_cadre_registration_path(comfirm:@cadre_info.confirm_token) %></h4>
+                  </div>
                 </div>
               </div>
             <% else %>
@@ -63,55 +60,47 @@
               <p>Ce candidat n'est pas reçu dans OIAM</p>
             <% end %>
           <% end %>
+
+
+          <% if @cadre_info.is_recrute.nil? %>
+            <div id="show_if_accepted_js" style="display: none;" class="row">
+
+              <div class="cont-lft col-lg-6 col-md-6">
+              <%= form_for Cadre.new , url: bp_efectue_entretien_fit_path do |f| %>
+                <input type="hidden" name="cadre_id" value="<%=@cadre_info.id%>" >
+                <input type="hidden" name="is_recrute" value="1" id="accept-js-wa">
+                <label for="avi_id_js" class="avis-desc">Avis de One in a million</label>
+                <div class="textarea-avis">
+                  <textarea id="avi_id_js" required="required" rows="3" class="form-control" name="avis" placeholder="avis visible par le client ..."></textarea>
+                </div>
+                <div class="score-label">Score Fit</div>
+                <div class="score-radio row">
+                  <% 10.times do |i| %>
+                    <input type="radio" id="score-fit-<%=i%>" name="score_fit" value="<%=i+1%>">
+                    <label for="score-fit-<%=i%>"><%=i+1%></label>
+                  <% end %>
+                </div>
+                </div>
+
+                <div class="cont-rgt col-lg-6 col-md-6">
+                  <div class="cv-frm">
+                  <div class="cont-my-cv">
+                  <%= f.label :compte_rendu, "Importer le compte rendu", class:"my-cv-label"%>
+                  <%= f.file_field :compte_rendu, class:"form-control-file form-my-cv", accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+                  </div>
+                <div class="cont-btn">
+                  <%= f.submit 'VALIDER', :class => 'apercu' %>
+                </div>
+                </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+
       </div>
     </div>
-
-    <% if @cadre_info.is_recrute.nil? %>
-
-      <div id="show_if_accepted_js" style="display: none;">
-
-        <%= form_for Cadre.new , url: bp_efectue_entretien_fit_path do |f| %>
-          
-          <input type="hidden" name="cadre_id" value="<%=@cadre_info.id%>" >
-
-          <input type="hidden" name="is_recrute" value="1" id="accept-js-wa">
-          
-          <label for="avi_id_js" class="avis-desc">Avis de One in a million</label>
-
-          <div class="textarea-avis">
-            <textarea id="avi_id_js" required="required" rows="3" class="form-control" name="avis" placeholder="avis visible par le client ..."></textarea>
-          </div>
-
-          <div class="score-label">
-            Score Fit
-          </div>
-          
-          <div class="score-radio row">
-            <% 10.times do |i| %>
-              <input type="radio" id="score-fit-<%=i%>" name="score_fit" value="<%=i+1%>">
-              <label for="score-fit-<%=i%>"><%=i+1%></label>
-            <% end %>
-          </div>
-
-          <div>
-            <div class="cont-my-cv">
-            <%= f.label :compte_rendu, "Importer le compte rendu", class:"my-cv-label"%>
-            <%= f.file_field :compte_rendu, class:"form-control-file form-my-cv", accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
-            </div>
-          </div>
-
-          <div class="cont-btn">
-            <%= f.submit 'VALIDER', :class => 'apercu' %>
-          </div>
-
-        <% end %>
-
-      </div>
-
-    <% end %>
-
+    </div>
   </div>
-
 </div>
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>

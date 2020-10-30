@@ -61,7 +61,3 @@ function getMyMessage() {
 }
 
 setInterval(getMyMessage, 1000);
-
-
-
-

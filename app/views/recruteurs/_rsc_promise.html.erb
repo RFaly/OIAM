@@ -3,8 +3,12 @@
   <div class="felicitation" id="modal-unique">
     <h1>FELICITATIONS !</h1>
     <p>Le cadre vient d'accepter votre proposition d'embauche !</p>
-    <p>Vous retrouverez la proposition signée dans votre profil. Nous sommes certains que votre collaboration sera couronnée de succès, mais dans tous les cas, une période de garantie de 12 semaines prend effet à compter de son démarrage. Vous pouvez désormais régler la prestation One in a Million et commencer un nouveau recrutement !</p>
-    <p class="felicitation-btn"><%= link_to "PROCÉDER AU RÈGLEMENT", show_my_bills_path(@promise.facture.id)%></p>
+    <p>Vous retrouverez la proposition signée dans votre profil. Nous sommes certains que votre collaboration sera
+      couronnée de succès, mais dans tous les cas, une période de garantie de 12 semaines prend effet à compter de son
+      démarrage. Vous pouvez désormais régler la prestation One in a Million et commencer un nouveau recrutement !</p>
+    <p class="felicitation-btn">
+      <%= link_to "PROCÉDER AU RÈGLEMENT", show_my_bills_path(@promise.facture.id)%>
+    </p>
   </div>
 </div>
 <% end %> <% if @promise.client_time_trying.nil? %>
@@ -13,19 +17,24 @@
   <% if DateTime.strptime("#{@promise.time_trying}", '%j/%m/%Y').future? %>
   <!-- si non fin periode d'essai -->
   <div>
-    <div class="vct-btn" onclick="alert('Validable à la fin de la période d\'essai (<%= @promise.time_trying %>).');">VALIDER LA PÉRIODE D'ESSAI</div>
-    <div class="vct-btn" onclick="alert('Validable à la fin de la période d\'essai (<%= @promise.time_trying %>).');">RUPTURE DE LA PÉRIODE D'ESSAI</div>
+    <div class="vct-btn" onclick="alert('Validable à la fin de la période d\'essai (<%= @promise.time_trying %>).');">
+      VALIDER LA PÉRIODE D'ESSAI</div>
+    <div class="vct-btn" onclick="alert('Validable à la fin de la période d\'essai (<%= @promise.time_trying %>).');">
+      RUPTURE DE LA PÉRIODE D'ESSAI</div>
   </div>
   <% else %>
   <!-- si fin periode d'essai -->
   <!-- actualise la page -->
   <div class="datte-past">
-    <div class="vct-btn"><%= link_to validate_time_trying_client_path(confirm_token:@promise.confirm_token), method: :post do %> VALIDER LA PÉRIODE D'ESSAI <% end %></div>
+    <div class="vct-btn">
+      <%= link_to validate_time_trying_client_path(confirm_token:@promise.confirm_token), method: :post do %> VALIDER LA
+      PÉRIODE D'ESSAI <% end %></div>
     <div>
       <div class="vct-btn" id="show-form-js">Rupture de la période d’essai</div>
     </div>
     <%= form_tag(validate_time_trying_client_path, id:'hide-form-js', style:'display:none;') do %>
-    <input type="hidden" name="confirm_token" value="<%= @promise.confirm_token %>" id="is_client_session" data-client="false" />
+    <input type="hidden" name="confirm_token" value="<%= @promise.confirm_token %>" id="is_client_session"
+      data-client="false" />
     <input type="date" name="date_rupture" class="input" required />
     <%= submit_tag("VALIDER") %> <% end %>
   </div>

@@ -6,23 +6,28 @@
   <div class="cp-box">
     <div class="bill-box">
       <h5 class="title">Factures</h5>
-      <% unless @factures.empty? %> <% @factures.each do |facture| %>
-      <hr />
-      <div class="bill-content">
-        <div class="bill-left <% unless facture.is_payed %> color <% end %>">
-          <% unless facture.is_payed %>
-          <img src="/image/document.png" alt="icone" />
-          <% else %>
-          <img src="/image/document1.png" alt="icone" />
-          <% end %> <%= facture.promise_to_hire.offre_job.intitule_pote.upcase %>
-        </div>
-        <div class="bill-right">
-          <%= link_to "VOIR LES DÉTAILS", show_my_bills_path(facture.id)%>
-        </div>
-      </div>
-      <hr />
-      <% end %> <% else %>
-      <div class="bill-empty">AUCUNE FACTURE</div>
+      <% unless @factures.empty? %> 
+        <% @factures.each do |facture| %>
+          <% unless facture.promise_to_hire.nil? || facture.promise_to_hire.offre_job.nil? %>
+            <hr />
+            <div class="bill-content">
+              <div class="bill-left <% unless facture.is_payed %> color <% end %>">
+                <% unless facture.is_payed %>
+                <img src="/image/document.png" alt="icone" />
+                <% else %>
+                  <img src="/image/document1.png" alt="icone" />
+                <% end %> 
+                <%= facture.promise_to_hire.offre_job.intitule_pote.upcase %>
+              </div>
+              <div class="bill-right">
+                <%= link_to "VOIR LES DÉTAILS", show_my_bills_path(facture.id)%>
+              </div>
+            </div>
+            <hr />
+          <%end%>
+        <% end %> 
+      <% else %>
+        <div class="bill-empty">AUCUNE FACTURE</div>
       <% end %>
     </div>
   </div>
