@@ -38,7 +38,8 @@ class AdminCandidatsController < ApplicationAdminController
 
     # 11. Accepter/Refuser une demande d’entretien
     # Liste des candidats qui n'ont pas eu de retour du recruteur suit au rdv déjà passé.
-=begin    
+
+=begin
      @cadreInfoRecrutmentActs = []
     oFcs = OffreForCandidate.where(status:nil)
 
@@ -92,12 +93,11 @@ class AdminCandidatsController < ApplicationAdminController
 
 # 8. Complète les informations du profil
 #   Email de relance avec lien
-  
+
   end
 
   def processed
     @processedHistories = ProcessedHistory.where(is_client:false).order(created_at: :DESC)
-    #1 candidates_controller.rb
   end
 
   def messaging

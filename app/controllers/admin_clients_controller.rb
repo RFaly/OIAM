@@ -23,12 +23,17 @@ class AdminClientsController < ApplicationAdminController
 # OffreForCandidate.joins(:agenda_clients)
 # .where("agenda_clients.entretien_date < ?",DateTime.now.utc).where("agenda_admins.accepted=true")
 
-# OffreForCandidate.all.each do |oFc|
-#   ac = oFc.agenda_clients.last
-#   unless ac.nil?
-    
-#   end
-# end
+OffreForCandidate.where.not(status:"refused").each do |oFc|
+  ac = oFc.agenda_clients.last
+  unless ac.nil?
+    if ac.alternative.nil? && ac.repons_client == true && ac.repons_cadre.nil?
+    # if ac.entretien_date > DateTime.now.utc
+
+    else
+
+    end
+  end
+end
 
 
 # 7. Effectue l’ entretien et donne son feedback 
