@@ -24,13 +24,19 @@
       <%= form_for @offre , url: createJob_path do |f| %>
       <div class="detail-post-box">
         <label>LOCALISATION</label>
-        <div class="dp-input"><%= f.select :country , options_for_select([["France", "France"]]),{}, class:'co-select', required:true, id:'paysInput', title:'Pays',autofocus:true%></div>
+        <div class="dp-input">
+          <%= f.select :country , options_for_select([["France", "France"]]),{}, class:'co-select', required:true, id:'paysInput', title:'Pays',autofocus:true%>
+        </div>
         <span class="input-error country-error"></span>
 
-        <div class="dp-input"><%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région',autofocus:true %></div>
+        <div class="dp-input">
+          <%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région',autofocus:true %>
+        </div>
         <span class="input-error region-error"></span>
 
-        <div class="dp-input"><%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autofocus:true %></div>
+        <div class="dp-input">
+          <%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autofocus:true %>
+        </div>
         <span class="input-error departement-error"></span>
 
         <!-- -------------------------------------------------------------------- -->
@@ -73,18 +79,26 @@
           </div>
         </div>
 
-        <%= f.label :remuneration_anne, "RÉMUNÉRATION PROPOSÉE VARIABLE (K€ BRUTS ANNUELS)" %> <% i = 0 %> <%array = [] %> <%21.times do %> <% array << "#{i}" %> <%i += 5 %><% end %>
-        <div class="dp-input"><%= f.select :remuneration_anne, options_for_select(array),{}, class:'co-select', required:true, id:'remuneration-anne',autofocus:true %></div>
+        <%= f.label :remuneration_anne, "RÉMUNÉRATION PROPOSÉE VARIABLE (K€ BRUTS ANNUELS)" %> <% i = 0 %>
+        <%array = [] %> <%21.times do %> <% array << "#{i}" %> <%i += 5 %><% end %>
+        <div class="dp-input">
+          <%= f.select :remuneration_anne, options_for_select(array),{}, class:'co-select', required:true, id:'remuneration-anne',autofocus:true %>
+        </div>
         <span class="input-error remuneration-anne-error"></span>
 
         <label class="dp-input dp-input-checkbox1">
+          <img src="/image/checked2.jpg" alt="checked"
+            style="width: 20px; height: 20px; margin-top: -5px;opacity: 0.8;">
           Contrat CDI
-          <input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi" autofocus="true" required checked readonly />
-          <span class="checkmark"></span>
+          <input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi" autofocus="true"
+            checked readonly />
+          <!-- <span class="checkmark"></span> -->
         </label>
 
         <%= f.label :type_deplacement, "LE POSTE IMPLIQUE-T-IL DES DÉPLACEMENTS ?" %>
-        <div class="dp-input"><%= f.select :type_deplacement, options_for_select([["Pas de déplacements"," 0"],["Nationaux","1"],["Internationaux","2"],["Régionaux","3"]]), {}, required:true, class:'co-select',id:'type-deplacement',autofocus:true %></div>
+        <div class="dp-input">
+          <%= f.select :type_deplacement, options_for_select([["Pas de déplacements"," 0"],["Nationaux","1"],["Internationaux","2"],["Régionaux","3"]]), {}, required:true, class:'co-select',id:'type-deplacement',autofocus:true %>
+        </div>
         <span class="input-error type-deplacement-error"></span>
 
         <%= f.label :type_deplacement, "DATE DE PRISE DE POSTE" %>
@@ -110,7 +124,9 @@
         <span class="input-error" id="question2-error"></span>
 
         <%= f.label :numberEntretien, "QUEL SERA VOTRE PROCESSUS DE RECRUTEMENT ?", class:"ggag" %>
-        <div class="co-input"><%= f.select :numberEntretien, options_for_select([[ "1 entretien RH","1"],[ "1 entretien RH + 1 entretien Manager","2"],[ "1 entretien RH + 2 entretiens Manager","3"]]),{}, class:'co-select', required:true,id:'question3',autofocus:true %></div>
+        <div class="co-input">
+          <%= f.select :numberEntretien, options_for_select([[ "1 entretien RH","1"],[ "1 entretien RH + 1 entretien Manager","2"],[ "1 entretien RH + 2 entretiens Manager","3"]]),{}, class:'co-select', required:true,id:'question3',autofocus:true %>
+        </div>
         <span class="input-error" id="question3-error"></span>
 
         <label>POURRIEZ-VOUS SUPPORTER UN PRÉAVIS SUR CE POSTE ?</label>
@@ -126,19 +142,25 @@
         </div>
 
         <%= f.label :question5, "PRÉSENTER LE CONTEXTE D’OUVERTURE DE CE POSTE.", class:"ggag" %>
-        <div class="co-input"><%= f.select :question5, options_for_select([[ "Remplacement" ],[ "Départ à la retraite" ],[ "Création de poste" ],[ "Croissance de l'entreprise" ]]),{}, class:'co-select', required:true,id:'question5' ,autofocus:true %></div>
+        <div class="co-input">
+          <%= f.select :question5, options_for_select([[ "Remplacement" ],[ "Départ à la retraite" ],[ "Création de poste" ],[ "Croissance de l'entreprise" ]]),{}, class:'co-select', required:true,id:'question5' ,autofocus:true %>
+        </div>
         <span class="input-error" id="question5-error"></span>
 
         <div class="co-input co-input-image">
-          <div class="c" id="addImage" style="background: url(/image/picture.png) center no-repeat; background-size: contain"></div>
+          <div class="c" id="addImage"
+            style="background: url(/image/picture.png) center no-repeat; background-size: contain"></div>
           <label>
             <p class="first-p">Logo entreprise</p>
             <p class="last-p">Télécharger une image</p>
-            <span style="display: none"> <%= f.file_field :image , class:'input_fied', accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document",required:true %> </span>
+            <span style="display: none">
+              <%= f.file_field :image , class:'input_fied', accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document",required:true %>
+            </span>
           </label>
         </div>
 
-        <div class="co-input co-input-submit co-input-submit1" id="co-input-submit"><%= f.submit("APERCU AVANT PUBLICATION") %></div>
+        <div class="co-input co-input-submit co-input-submit1" id="co-input-submit">
+          <%= f.submit("APERCU AVANT PUBLICATION") %></div>
 
         <div class="co-input co-input-submit co-input-submit1" id="co-input-submit-1"><%= f.submit("APERCU") %></div>
         <br />

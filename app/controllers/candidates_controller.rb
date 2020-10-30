@@ -233,6 +233,11 @@ class CandidatesController < ApplicationController
 
   def post_repons_received_job
     @offreJob = OffreJob.find_by_id(params[:offre_id])
+    if @offreJob.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
     @agendaClient = AgendaClient.find_by_id(params[:agenda_id])
     @oFc = OffreForCandidate.find_by(offre_job: @offreJob, cadre: current_cadre)
 
@@ -576,6 +581,11 @@ class CandidatesController < ApplicationController
     @promise = PromiseToHire.find_by_id(params[:id])
     @cadre = current_cadre.cadre_info
     @job = @promise.offre_job
+    if @job.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
     @current_client = @job.client
   end
 
@@ -628,6 +638,11 @@ class CandidatesController < ApplicationController
     if errorMessage.empty?
       @promise.update(birthday_cadre: params[:promise_to_hire][:birthday_cadre], birthplace_cadre: params[:promise_to_hire][:birthplace_cadre], ns_sociale_cadre: params[:promise_to_hire][:ns_sociale_cadre], signature_candidat: file_sinc.url, cin_pass_port: file_cin.url, security_certificate: file_sc.url, rib: filerib.url, repons_cadre:true)
       @offreJob = @promise.offre_job
+      if @offteJob.nil?
+        flash[:alert] = "Cette page n'est plus disponible."
+        redirect_back(fallback_location: root_path)
+        return
+      end
       @offreJob.next_stape
 
       # calcul prix honoraire oiam
@@ -664,7 +679,17 @@ class CandidatesController < ApplicationController
   def validate_time_trying_cadre
     @promise = PromiseToHire.find_by_confirm_token(params[:confirm_token])
     @offreJob = @promise.offre_job
+    if @offreJob.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
     oFc = @offreJob.is_in_this_job(current_cadre)
+    if oFc.nil?
+			flash[:alert] = "Cette page n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
     @promise.update(cadre_time_trying:true)
 
     first_name = current_cadre.cadre_info.first_name
