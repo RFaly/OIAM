@@ -677,7 +677,7 @@ class CandidatesController < ApplicationController
       ProcessedHistory.create(
         image: current_cadre.cadre_info.image,
         message: "Période d'essai de #{first_name} #{last_name} est validé.",
-        link: "<a href='#'>VOIR</a>",
+        link: "<a href='#{cbp_prime_path(@promise.id)}'>VOIR</a>",
         is_client:false,
         genre: 1
       )
