@@ -1,6 +1,6 @@
 <!-- call css  -->
 <% content_for :head_style do %>
-  <link rel="stylesheet" href="/css/suivi_show_post.css" />
+<link rel="stylesheet" href="/css/suivi_show_post.css" />
 <% end %>
 <!-- body html  -->
 <div class="client-column">
@@ -10,13 +10,15 @@
       <% if @oFcs.empty? %>
       <div class="rlc-empty">
         <h5>Aucun candidat selectionné</h5>
-        <div class="show-pb2-btn"><%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id) %> <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %></div>
+        <div class="show-pb2-btn"><%= link_to "VOIR NOTRE SÉlECTION", our_selection_path(@offre.id) %>
+          <%= link_to "RECHERCHE CANDIDATS", search_candidate_path(@offre.id) %></div>
       </div>
       <% else %>
       <div class="rlc-content">
         <% @oFcs.each do |oFc| %> <%= link_to recruitment_show_cadre_path(oFc.id) do %>
         <div class="rlc-items">
-          <div class="c" style="background: url(<%= oFc.cadre.cadre_info.image%>) center no-repeat; background-size: cover"></div>
+          <div class="c"
+            style="background: url(<%= oFc.cadre.cadre_info.image%>) center no-repeat; background-size: cover"></div>
 
           <h5><%= oFc.cadre.cadre_info.first_name %> <%= oFc.cadre.cadre_info.last_name %> </h5>
 
