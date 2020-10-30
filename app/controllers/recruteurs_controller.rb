@@ -150,11 +150,18 @@ class RecruteursController < ApplicationController
 
 	def destroyJob
 		@offre = OffreJob.find(params[:id])
-		@offre.destroy
-		respond_to do |format|
-			format.html { redirect_to :my_job_offers }
-			format.js { }
+
+		if @offre.offre_for_candidates.count == 0
+			@offre.destroy
+			respond_to do |format|
+				format.html { redirect_to :my_job_offers }
+				format.js { }
+			end
+		else
+			flash[:alert] = "Vous ne pouvez plus supprimer cette offre car vous avez des candidates selectionnés."
+			redirect_to :my_job_offers
 		end
+
 	end
 
 	def our_selection
@@ -471,7 +478,7 @@ class RecruteursController < ApplicationController
 
 #Mes factures
 	def my_bills
-		@factures = Facture.all.order("created_at DESC")
+		@factures = current_client.factures.order("created_at DESC")
 	end
 
 	def show_my_bills
