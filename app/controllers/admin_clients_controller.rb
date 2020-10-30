@@ -10,25 +10,25 @@ class AdminClientsController < ApplicationAdminController
 # }
 
 
-# 5. Recherche et sélectionne des candidats
-#   Recruteur qui a déjà publié une offre mais à la recherche de candidats
+# 5. Recherche et sélectionne des candidats.
+# Recruteur qui a déjà publié une offre mais à la recherche de candidats.
   @offreJobs = OffreJob.includes(:offre_for_candidates).where(offre_for_candidates: { id: nil })
 
 
 # 6. Planifie un/des entretiens en fonction du process de recrutement
 #   Liste des recruteurs qui ont envoyé une planification d'entretien aux candidats
 
-AgendaClient
 
-OffreForCandidate.joins(:agenda_clients)
-.where("agenda_clients.entretien_date < ?",DateTime.now.utc).where("agenda_admins.accepted=true")
 
-OffreForCandidate.all.each do |oFc|
-  ac = oFc.agenda_clients.last
-  unless ac.nil?
+# OffreForCandidate.joins(:agenda_clients)
+# .where("agenda_clients.entretien_date < ?",DateTime.now.utc).where("agenda_admins.accepted=true")
+
+# OffreForCandidate.all.each do |oFc|
+#   ac = oFc.agenda_clients.last
+#   unless ac.nil?
     
-  end
-end
+#   end
+# end
 
 
 # 7. Effectue l’ entretien et donne son feedback 
