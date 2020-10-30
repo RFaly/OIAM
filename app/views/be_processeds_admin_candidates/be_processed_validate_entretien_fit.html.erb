@@ -14,11 +14,7 @@
 			<div class="container">
       <div class="row">
         <div class="fit-box-left col-lg-3 col-md-3 col-xs-12 col-sm-12">
-					<% if @cadre_info.image.empty? %>
           	<img src='/image/profie.png'/>
-					<% else %>
-						<img src='<%= @cadre_info.image %>'/>
-					<% end %>
 					<div class="fit-desc">
           <p><strong>Nom : </strong><%= @cadre_info.last_name %></p>
           <p><strong>Prenom : </strong><%= @cadre_info.first_name %></p>
