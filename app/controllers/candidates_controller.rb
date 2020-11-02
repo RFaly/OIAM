@@ -250,13 +250,21 @@ class CandidatesController < ApplicationController
       @agendaClient.update(alternative:params[:alternative],repons_cadre: false,notifed:false)
       #notifaka
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a refusé votre demande d'entretien.",link: "#{recruitment_show_cadre_path(@oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
-
       flash[:notice] = "Votre réponse est envoyé avec succes."
       redirect_to show_recrutment_monitoring_path(@oFc.id)
     when "1"
       @agendaClient.update(repons_cadre:true,notifed:false)
       #notifaka
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a accepté votre demande d'entretien.",link: "#{recruitment_show_cadre_path(@oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
+
+      # 6. Planifie
+      ProcessedHistory.create(
+        image: "/image/profie.png",
+        message: "PLANIFICATION ENTRETIEN",
+        link: "#",
+        is_client:true,
+        genre: 1
+      )
 
       flash[:notice] = "Votre réponse est envoyé avec succes."
       redirect_to show_recrutment_monitoring_path(@oFc.id)
@@ -271,15 +279,15 @@ class CandidatesController < ApplicationController
       date_time = DateTime.new(year,month,day,hour,min).utc
       @agendaClient.update(alternative: date_time.to_s, repons_cadre:true,notifed:false)
       flash[:notice] = "Votre réponse est envoyé avec succes."
-
       #notifaka
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a proposé une autre date pour l'entretien.",link: "#{recruitment_show_cadre_path(@oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
-
       redirect_to show_recrutment_monitoring_path(@oFc.id)
     else
       flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
       redirect_to root_path
     end
+
+
   end
 
 	def recrutmentMonitoring

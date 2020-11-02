@@ -38,7 +38,7 @@ class RecruteursController < ApplicationController
     		@client.save
     		ProcessedHistory.create(
 				  image: current_client.image,
-				  message: "#{current_client.first_name} #{current_client.last_name} a crée un compte pour l'entreprise #{@entreprise.name}.",
+				  message: "INSCRIPTION",
 				  link: "#",
 				  is_client:true,
 				  genre: 1
@@ -522,6 +522,16 @@ class RecruteursController < ApplicationController
 					Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: message,link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offre.id,view: false)
 					@oFc.update(status:params[:repons])
 					@oFc.update(refused_info:params[:notifier])
+
+					# 7. FEEDBACK ENTRETIEN
+		      ProcessedHistory.create(
+		        image: "/image/profie.png",
+		        message: "FEEDBACK ENTRETIEN",
+		        link: "#",
+		        is_client:true,
+		        genre: 1
+		      )
+
 					redirect_to recruitment_show_cadre_path(@oFc.id)
 				end
 				respond_to do |format|
@@ -817,13 +827,28 @@ class RecruteursController < ApplicationController
 				end
 			end
 			unless @promise.cadre_time_trying==false && @promise.client_time_trying.nil?
+
+	      somaiso = "PERIODE D'ESSAI ROMPUE"
+	      
+	      if @promise.client_time_trying == true
+		      ProcessedHistory.create(
+		        image: @cadre.cadre_info.image,
+		        message: "VALIDATION PERIODE D'ESSAI",
+		        link: "<a href='#'>VOIR</a>",
+		        is_client:false,
+		        genre: 1
+		      )
+	      	somaiso = "VALIDATION PERIODE D'ESSAI"
+	      end
+
 	      ProcessedHistory.create(
 	        image: @cadre.cadre_info.image,
-	        message: "Période d'essai de #{@cadre.cadre_info.first_name} #{@cadre.cadre_info.last_name} est validé.",
+	        message: somaiso,
 	        link: "<a href='#'>VOIR</a>",
-	        is_client:false,
+	        is_client:true,
 	        genre: 1
 	      )
+
 	    end
 		end
 
@@ -837,25 +862,25 @@ class RecruteursController < ApplicationController
   end
   
   def show_my_messages
-	@cadre = Cadre.find_by_id(params[:id])
-	if @candidat.nil?
-		flash[:alert] = "Ce candidat n'est plus disponible."
-		redirect_back(fallback_location: root_path)
-		return
-	end
-    @contact = ContactClientCadre.where(cadre: @cadre, client:current_client)
-    if @contact.count == 0
-      @contact = ContactClientCadre.create(cadre: @cadre, client:current_client)
-    else
-      @contact = @contact.first
-    end
-		@contact.message_client_cadres.where(client_see:false).update(client_see:true)
-    @messages = @contact.message_client_cadres.order(created_at: :ASC)
-	@newMessage = MessageClientCadre.new
-	respond_to do |format|
-		format.html { }
-		format.js { }
-	end
+		@cadre = Cadre.find_by_id(params[:id])
+		if @candidat.nil?
+			flash[:alert] = "Ce candidat n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
+	    @contact = ContactClientCadre.where(cadre: @cadre, client:current_client)
+	    if @contact.count == 0
+	      @contact = ContactClientCadre.create(cadre: @cadre, client:current_client)
+	    else
+	      @contact = @contact.first
+	    end
+			@contact.message_client_cadres.where(client_see:false).update(client_see:true)
+	    @messages = @contact.message_client_cadres.order(created_at: :ASC)
+		@newMessage = MessageClientCadre.new
+		respond_to do |format|
+			format.html { }
+			format.js { }
+		end
   end
 
   def post_my_message
