@@ -5,7 +5,7 @@
   </div>
 
   <div class="cp-box">
-    <div class="client">
+  <div class="client">
       Recruteurs: 
       <div class="cp-pprofil">
         <% unless @client.image.nil? %>
@@ -51,7 +51,8 @@
     </div>
     
     <div class="entretien">
-      Date d'entretien : <span data-times="<%= @agenda_client.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
+      Date de début : <span data-times="<%= @promise.offre_job.date_poste.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span><br>
+      Date de fin : <span data-times="<%= @promise.rupture_time_trying.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
     </div>
   </div>
 </div>

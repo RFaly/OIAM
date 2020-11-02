@@ -14,4 +14,10 @@ class AdminClientsBeProcessedController < ApplicationAdminController
 		@offre_job  = @agenda_client.offre_for_candidate.offre_job
 		@client = @agenda_client.offre_for_candidate.offre_job.client
 	end
+
+	def periode_rompre
+		@promise = PromiseToHire.find_by_id(params[:id])
+		@client = @promise.offre_job.client
+		@cadre_info = @promise.cadre.cadre_info
+	end
 end
