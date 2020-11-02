@@ -2,18 +2,14 @@ class AdminClientsController < ApplicationAdminController
 	before_action :authenticate_admin!
 	
   def be_processed
-
-
   # 1. Inscription/Complétion du profil/Création compte/{
   #   Compte non créée
     @clients = Client.where(image:nil)
   # }
 
-
   # 5. Recherche et sélectionne des candidats.
   # Recruteur qui a déjà publié une offre mais à la recherche de candidats.
     @offreJobs = OffreJob.includes(:offre_for_candidates).where(offre_for_candidates: { id: nil })
-
 
   # 6. Planifie un/des entretiens en fonction du process de recrutement
   #   Liste des recruteurs qui ont envoyé une planification d'entretien aux candidats
@@ -27,7 +23,6 @@ class AdminClientsController < ApplicationAdminController
       end
     end
 
-
   # 7. Effectue l’ entretien et donne son feedback 
   # (Etape suivante, accepter, refuser, en attente)
   # Liste des recruteurs en mode entretien (entrain de faire des entretiens)
@@ -40,7 +35,6 @@ class AdminClientsController < ApplicationAdminController
         end
       end
     end
-
 
   # 8. Remplir et envoyer une promesse d’embauche
   # Liste des recruteurs en mode remplissage de la promesse d'embauche
@@ -114,7 +108,6 @@ class AdminClientsController < ApplicationAdminController
     @processedHistories = ProcessedHistory.where(is_client:true).order(created_at: :DESC)
 # 1. Inscription/Complétion du profil/Création compte/
 #   Compte créée (fait)
-
 
 # 5. Recherche et sélectionne des candidats
 # Recruteur qui a publié une offre et a séléctionné des candidats

@@ -38,7 +38,7 @@ class RecruteursController < ApplicationController
     		@client.save
     		ProcessedHistory.create(
 				  image: current_client.image,
-				  message: "#{current_client.first_name} #{current_client.last_name} a crée un compte pour l'entreprise #{@entreprise.name}.",
+				  message: "INSCRIPTION",
 				  link: "#",
 				  is_client:true,
 				  genre: 1
@@ -817,13 +817,28 @@ class RecruteursController < ApplicationController
 				end
 			end
 			unless @promise.cadre_time_trying==false && @promise.client_time_trying.nil?
+
 	      ProcessedHistory.create(
 	        image: @cadre.cadre_info.image,
-	        message: "Période d'essai de #{@cadre.cadre_info.first_name} #{@cadre.cadre_info.last_name} est validé.",
+	        message: "VALIDATION PERIODE D'ESSAI",
 	        link: "<a href='#'>VOIR</a>",
 	        is_client:false,
 	        genre: 1
 	      )
+
+	      somaiso = "PERIODE D'ESSAI ROMPUE"
+	      if @promise.client_time_trying == true
+	      	somaiso = "VALIDATION PERIODE D'ESSAI"
+	      end
+
+	      ProcessedHistory.create(
+	        image: @cadre.cadre_info.image,
+	        message: somaiso,
+	        link: "<a href='#'>VOIR</a>",
+	        is_client:true,
+	        genre: 1
+	      )
+
 	    end
 		end
 
