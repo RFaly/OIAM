@@ -18,10 +18,10 @@
           <% end %>
         </div>
         <div class="cd-info-be">
-          <p class="name"><%= @cadre_info.first_name %> <%= @cadre_info.last_name %> </p>
-          <p class="score">Score OIAM : <span><%= @cadre_info.score_potential %></span></p>
+          <p class="name"><strong><%= @cadre_info.first_name %> <%= @cadre_info.last_name %></strong></p>
+          <p class="score"><strong>Score OIAM : </strong><span><%= @cadre_info.score_potential %></span></p>
           <% unless @cadre_info.score_fit.nil? %>
-            <p class="score">Score FIT : <span><%= @cadre_info.score_fit %></span></p>
+            <p class="score"><strong>Score FIT : </strong><span><%= @cadre_info.score_fit %></span></p>
           <% end %>
         </div>
       </div>
