@@ -649,13 +649,7 @@ class CandidatesController < ApplicationController
     if errorMessage.empty?
       @promise.update(birthday_cadre: params[:promise_to_hire][:birthday_cadre], birthplace_cadre: params[:promise_to_hire][:birthplace_cadre], ns_sociale_cadre: params[:promise_to_hire][:ns_sociale_cadre], signature_candidat: file_sinc.url, cin_pass_port: file_cin.url, security_certificate: file_sc.url, rib: filerib.url, repons_cadre:true)
       @offreJob = @promise.offre_job
-      if @offteJob.nil?
-        flash[:alert] = "Cette page n'est plus disponible."
-        redirect_back(fallback_location: root_path)
-        return
-      end
       @offreJob.next_stape
-
       # calcul prix honoraire oiam
       prix = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2))) * 10 * 20
       pcalcul = (prix/1000).round(2)
@@ -679,7 +673,7 @@ class CandidatesController < ApplicationController
       )
 
       oFc = @offreJob.is_in_this_job(current_cadre)
-
+      flash[:notice] = "Promesse d'embauche validé."
       redirect_to show_recrutment_monitoring_path(oFc.id)
     else
       flash[:alert] = errorMessage
