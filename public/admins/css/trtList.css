@@ -1,0 +1,39 @@
+.row img {
+  width: 20px;
+  height: 20px;
+}
+
+.row {
+  padding: 15px;
+}
+
+.hist-msg {
+  font-size: 16px;
+  color: #d6b36a;
+  text-decoration: none;
+  font-family: Questrial, sans-serif;
+}
+
+.hist-link a {
+  background: #fff;
+  border: 2px solid #d6b36a;
+  text-transform: uppercase;
+  color: #d6b36a;
+  padding: 15px 60px;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.hist-link a:hover {
+  background: #d6b36a;
+  border: 2px solid #d6b36a;
+  color: #fff;
+  text-decoration: none;
+}
+
+.hist-link {
+  display: flex;
+  justify-content: flex-end;
+}

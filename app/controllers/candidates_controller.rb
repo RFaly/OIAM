@@ -250,13 +250,21 @@ class CandidatesController < ApplicationController
       @agendaClient.update(alternative:params[:alternative],repons_cadre: false,notifed:false)
       #notifaka
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a refusé votre demande d'entretien.",link: "#{recruitment_show_cadre_path(@oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
-
       flash[:notice] = "Votre réponse est envoyé avec succes."
       redirect_to show_recrutment_monitoring_path(@oFc.id)
     when "1"
       @agendaClient.update(repons_cadre:true,notifed:false)
       #notifaka
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a accepté votre demande d'entretien.",link: "#{recruitment_show_cadre_path(@oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
+
+      # 6. Planifie
+      ProcessedHistory.create(
+        image: "/image/profie.png",
+        message: "PLANIFICATION ENTRETIEN",
+        link: "VOIR",
+        is_client:true,
+        genre: 1
+      )
 
       flash[:notice] = "Votre réponse est envoyé avec succes."
       redirect_to show_recrutment_monitoring_path(@oFc.id)
@@ -271,15 +279,15 @@ class CandidatesController < ApplicationController
       date_time = DateTime.new(year,month,day,hour,min).utc
       @agendaClient.update(alternative: date_time.to_s, repons_cadre:true,notifed:false)
       flash[:notice] = "Votre réponse est envoyé avec succes."
-
       #notifaka
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a proposé une autre date pour l'entretien.",link: "#{recruitment_show_cadre_path(@oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
-
       redirect_to show_recrutment_monitoring_path(@oFc.id)
     else
       flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
       redirect_to root_path
     end
+
+
   end
 
 	def recrutmentMonitoring
@@ -381,7 +389,7 @@ class CandidatesController < ApplicationController
       if params[:score].to_i >= CadreInfo.min_score
         is_recrute = nil
       end
-      
+
       if @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score].to_i)
         ProcessedHistory.create(
           image: "/image/profie.png",
@@ -641,13 +649,7 @@ class CandidatesController < ApplicationController
     if errorMessage.empty?
       @promise.update(birthday_cadre: params[:promise_to_hire][:birthday_cadre], birthplace_cadre: params[:promise_to_hire][:birthplace_cadre], ns_sociale_cadre: params[:promise_to_hire][:ns_sociale_cadre], signature_candidat: file_sinc.url, cin_pass_port: file_cin.url, security_certificate: file_sc.url, rib: filerib.url, repons_cadre:true)
       @offreJob = @promise.offre_job
-      if @offteJob.nil?
-        flash[:alert] = "Cette page n'est plus disponible."
-        redirect_back(fallback_location: root_path)
-        return
-      end
       @offreJob.next_stape
-
       # calcul prix honoraire oiam
       prix = ((@promise.remuneration_fixe_date.to_i * @promise.remuneration_fixe.to_f.round(2))) * 10 * 20
       pcalcul = (prix/1000).round(2)
@@ -670,8 +672,17 @@ class CandidatesController < ApplicationController
         genre: 1
       )
 
-      oFc = @offreJob.is_in_this_job(current_cadre)
+      # 9. Valider l’embauche client
+      ProcessedHistory.create(
+        image: "/image/profie.png",
+        message: "PROMESSE D'EMBAUCHE",
+        link: "VOIR",
+        is_client:true,
+        genre: 1
+      )
 
+      oFc = @offreJob.is_in_this_job(current_cadre)
+      flash[:notice] = "Promesse d'embauche validé."
       redirect_to show_recrutment_monitoring_path(oFc.id)
     else
       flash[:alert] = errorMessage
@@ -703,15 +714,30 @@ class CandidatesController < ApplicationController
     Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a validé sa période d'essai.",link: "#{recruitment_show_cadre_path(oFc.id,notification:"validation")}",genre: 1,medel_id: current_cadre.id,view: false)
 
     unless @promise.cadre_time_trying==false && @promise.client_time_trying.nil?
+
+      somaiso = "PERIODE D'ESSAI ROMPUE"
+      
+      if @promise.client_time_trying == true
+        ProcessedHistory.create(
+          image: current_cadre.cadre_info.image,
+          message: "VALIDATION PERIODE D'ESSAI",
+          link: "<a href='#'>VOIR</a>",
+          is_client:false,
+          genre: 1
+        )
+        somaiso = "VALIDATION PERIODE D'ESSAI"
+      end
+
       ProcessedHistory.create(
         image: current_cadre.cadre_info.image,
-        # message: "Période d'essai de #{first_name} #{last_name} est validé.",
-        message: "PROMESSE D'EMBAUCHE",
-        link: "<a href='#{cbp_prime_path(@promise.id)}'>VOIR</a>",
-        is_client:false,
+        message: somaiso,
+        link: "<a href='#'>VOIR</a>",
+        is_client:true,
         genre: 1
       )
     end
+
+
 
     redirect_to show_recrutment_monitoring_path(oFc.id)
   end
@@ -806,9 +832,9 @@ def show_message_admin
     @messages = @contact.message_admin_cadres.order(created_at: :ASC)
     @newMessage = MessageAdminCadre.new
     respond_to do |format|
-  		format.html { }
-  		format.js { }
-  	end
+      format.html { }
+      format.js { }
+    end
 end
 
 def post_message_admin

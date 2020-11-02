@@ -1,4 +1,5 @@
 class OffreForCandidate < ApplicationRecord
+	after_create :notifed_admin_if_first_candidate
 	belongs_to :cadre
 	belongs_to :offre_job
 	has_many :agenda_clients
@@ -14,6 +15,18 @@ class OffreForCandidate < ApplicationRecord
 
 	def next_stape
 		self.update(etapes: self.etapes + 1)
+	end
+
+	def notifed_admin_if_first_candidate
+		if self.offre_job.offre_for_candidates.count == 1			
+			ProcessedHistory.create(
+        image: "/image/profie.png",
+        message: "SELECTION CANDIDATS",
+        link: "VOIR",
+        is_client:true,
+        genre: 1
+      )
+		end
 	end
 
 end

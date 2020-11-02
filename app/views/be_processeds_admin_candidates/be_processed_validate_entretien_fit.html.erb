@@ -16,8 +16,8 @@
         <div class="fit-box-left col-lg-3 col-md-3 col-xs-12 col-sm-12">
           	<img src='/image/profie.png'/>
 					<div class="fit-desc">
-          <p><strong>Nom : </strong><%= @cadre_info.last_name %></p>
-          <p><strong>Prenom : </strong><%= @cadre_info.first_name %></p>
+          <p><strong>Nom : </strong><%= @cadre_info.last_name.capitalize %></p>
+          <p><strong>Prenom : </strong><%= @cadre_info.first_name.capitalize %></p>
 					<p><strong>Adresse : </strong><%= @cadre_info.adresse %></p>
 					<p><strong>Code postal : </strong><%= @cadre_info.postal_code %></p>
 					<p><strong>Ville : </strong><%= @cadre_info.city %> <br></p>
@@ -105,7 +105,7 @@ $(".currentDatentretien").ready(function(){
     if((minute+"").length == 1){
       minute = "0"+minute
     }
-    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ minute );
+    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h'+ minute );
   });
 
   $("#show-form-edit").click(function(){
@@ -136,7 +136,7 @@ $(".currentDatentretien").ready(function(){
       if((mn_minute+"").length == 1){
         mn_minute = "0"+mn_minute
       }
-      $("#confirmed-date").html(my_dateString + ' à ' + my_date.getHours() + 'h:'+ mn_minute );
+      $("#confirmed-date").html(my_dateString + ' à ' + my_date.getHours() + 'h'+ mn_minute );
 
       let dateUtc = moment.utc(my_date)
 

@@ -7,13 +7,13 @@ class AgendaAdmin < ApplicationRecord
 
 	def notified_admin
 		cadre_info = self.cadre_info
-		NotificationAdmin.create(
-			object: "#{cadre_info.first_name} #{cadre_info.last_name}",
-			message: "#{cadre_info.first_name} #{cadre_info.last_name[0].upcase}. a proposé une date pour l'entretien.",
-			# link: "#{url_helpers.post_avis_candidats_fit_path(cadre_info.id,notification:"fit")}",
-			link:"/",
-			genre: 2
-		)
+		# NotificationAdmin.create(
+		# 	object: "#{cadre_info.first_name} #{cadre_info.last_name}",
+		# 	message: "#{cadre_info.first_name} #{cadre_info.last_name[0].upcase}. a proposé une date pour l'entretien.",
+		# 	# link: "#{url_helpers.post_avis_candidats_fit_path(cadre_info.id,notification:"fit")}",
+		# 	link:"/",
+		# 	genre: 2
+		# )
 	end
 
   def start_time

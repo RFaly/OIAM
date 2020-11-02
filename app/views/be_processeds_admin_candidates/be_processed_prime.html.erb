@@ -1,33 +1,41 @@
 <link rel="stylesheet" href="/css/admin_prms.css" />
-
+<link rel="stylesheet" href="/admins/css/virementOrder.css" />
 <div class="client-column">
   <div class="client-menu-left">
     <%= render partial: "admin_candidats/left_menu" %>
   </div>
 
   <div class="cp-box">
-    <h2>Payer le prime de <%= @cadre_info.first_name %> <%= @cadre_info.last_name %></h2>
-    <% if @promise.prime_received == false %>
-      <%= form_for PromiseToHire.new , url: post_be_processed_prime_path do |f| %>
-        <div class="cont-my-cv">
-          <input type="hidden" name="promise_id" value="<%= @promise.id %>">
-
-          <img id="addImage" src="" class="add-image" width="120" style="display: none;">
-
-          <%= f.label :ov_prime, "Importer l'Ordre de virement", class:"my-cv-label"%>
-          <br>
-          <%= f.file_field :ov_prime, class:"form-control-file form-my-cv", accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+    <div class="container">
+      <div class="row">
+        <div class="blc-lft col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <h2>Payer le prime de <%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %></h2>
         </div>
-        <br>
-        <div>
-          <%= f.submit 'Valider Payment', :class => 'apercu' %>
-        </div>
-      <% end %>
-    <% else %>
-      Prime payer: <br>
-      Ordre de virement <br>
-      <img src="<%= @promise.ov_prime %>" alt="ordre de virement" width= "200px">
-    <% end %>
+        <div class="blc-rgt col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <% if @promise.prime_received == false %>
+          <%= form_for PromiseToHire.new , url: post_be_processed_prime_path do |f| %>
+            <div class="cont-my-cv">
+              <input type="hidden" name="promise_id" value="<%= @promise.id %>">
+
+              <img id="addImage" src="" class="add-image" width="120" style="display: none;">
+
+              <%= f.label :ov_prime, "Importer l'Ordre de virement", class:"my-cv-label"%>
+              <br>
+              <%= f.file_field :ov_prime, class:"form-control-file form-my-cv", accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+            </div>
+            <br>
+            <div>
+              <%= f.submit 'Valider Payment', :class => 'apercu' %>
+            </div>
+          <% end %>
+        <% else %>
+          Prime payer: <br>
+          Ordre de virement <br>
+          <img src="<%= @promise.ov_prime %>" alt="ordre de virement" width= "200px">
+        <% end %>
+        </div>       
+      </div>
+    </div>
   </div>
 </div>
 

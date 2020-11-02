@@ -16,14 +16,26 @@
   <div class="cp-box">
   	<h1>A traiter</h1>
 
-<!-- 
+    <select name="filtre" id="filtre">
+      <option value=".TOUS" selected="selected">TOUS</option>
+      <option value=".INSCRIPTION">INSCRIPTION</option>
+      <option value=".SELECTION_CANDIDATS">SELECTION CANDIDATS</option>
+      <option value=".PLANIFICATION_ENTRETIEN">PLANIFICATION ENTRETIEN</option>
+      <option value=".FEEDBACK_ENTRETIEN">FEEDBACK ENTRETIEN</option>
+      <option value=".PROMESSE_D_EMBAUCHE">PROMESSE D'EMBAUCHE</option>
+      <option value=".PERIODE_D_ESSAI_ROMPUE">PERIODE D'ESSAI ROMPUE</option>
+    </select>
+
+    <p id="none-element" style="display: none;">Aucune tâche à traiter.</p>
+
+<!--
 # 1. Inscription/Complétion du profil/Création compte/{
 #   Compte non créée
 -->
 
     <% unless @clients.empty? %>
       <% @clients.each do |client| %>
-        <div data-name=".INSCRIPTION" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+        <div data-name=".INSCRIPTION" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
           <div class="atrt-ct-box">
             <h2 class="atrt-insc">INSCRIPTION</h2>
             <div class="atrt-name">
@@ -38,7 +50,7 @@
             </div>
           </div>
           <div class="atrt-btn-gr">
-            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="">GERER</a>
+            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= clients_bp_show_client_path(client.id) %>">GERER</a>
           </div>
         </div>
       <% end %>
@@ -51,7 +63,7 @@
 
     <% unless @offreJobs.empty? %>
       <% @offreJobs.each do |offreJob| %>
-        <div data-name=".SELECTION_CANDIDATS" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+        <div data-name=".SELECTION_CANDIDATS" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
           <div class="atrt-ct-box">
             <h2 class="atrt-insc">SELECTION CANDIDATS</h2>
             <div class="atrt-name">
@@ -66,7 +78,7 @@
             </div>
           </div>
           <div class="atrt-btn-gr">
-            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="">GERER</a>
+            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= clients_bp_offre_job_no_cadre_path(offreJob.id) %>">GERER</a>
           </div>
         </div>
       <% end %>
@@ -83,7 +95,7 @@
         <% oFc = listAgendaClientsSend[0] %>
         <% ac = listAgendaClientsSend[1] %>
 
-        <div data-name=".PLANIFICATION_ENTRETIEN" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+        <div data-name=".PLANIFICATION_ENTRETIEN" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
           <div class="atrt-ct-box">
             <h2 class="atrt-insc">PLANIFICATION ENTRETIEN</h2>
             <div class="atrt-name">
@@ -98,7 +110,7 @@
             </div>
           </div>
           <div class="atrt-btn-gr">
-            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="">GERER</a>
+            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= clients_bp_show_client_path(oFc.offre_job.client.id) %>">GERER</a>
           </div>
         </div>
 
@@ -117,7 +129,7 @@
       <% oFc = listAgendaClientsEntretien[0] %>
       <% ac = listAgendaClientsEntretien[1] %>
 
-        <div data-name=".FEEDBACK_ENTRETIEN" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+        <div data-name=".FEEDBACK_ENTRETIEN" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
           <div class="atrt-ct-box">
             <h2 class="atrt-insc">FEEDBACK ENTRETIEN</h2>
             <div class="atrt-name">
@@ -132,7 +144,7 @@
             </div>
           </div>
           <div class="atrt-btn-gr">
-            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="">GERER</a>
+            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= clients_bp_effectue_entretien_path(ac.id) %>">GERER</a>
           </div>
         </div>
       <% end %>
@@ -149,7 +161,7 @@
   <% oFc = completedPromiseToHire[0] %>
   <% ac = completedPromiseToHire[1] %>
 
-    <div data-name=".PROMESSE_D_EMBAUCHE" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+    <div data-name=".PROMESSE_D_EMBAUCHE" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
       <div class="atrt-ct-box">
         <h2 class="atrt-insc">PROMESSE D'EMBAUCHE</h2>
         <div class="atrt-name">
@@ -163,7 +175,7 @@
         </div>
       </div>
       <div class="atrt-btn-gr">
-        <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="">GERER</a>
+        <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= clients_bp_effectue_entretien_path(ac.id) %>">GERER</a>
       </div>
     </div>
   <% end %>
@@ -179,7 +191,7 @@
     <% ptH = facture.promise_to_hire %>
     <% offre_job = ptH.offre_job %>
 
-    <div data-name=".PERIODE_D_ESSAI_ROMPUE" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+    <div data-name=".PERIODE_D_ESSAI_ROMPUE" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
       <div class="atrt-ct-box">
         <h2 class="atrt-insc">PERIODE D'ESSAI ROMPUE</h2>
         <div class="atrt-name">
@@ -193,7 +205,7 @@
         </div>
       </div>
       <div class="atrt-btn-gr">
-        <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="">GERER</a>
+        <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= clients_bp_periode_rompre_path(ptH.id) %>">GERER</a>
       </div>
     </div>
 
@@ -224,5 +236,26 @@
       $(this).html(dateString)
       // $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ minute );
     });
+  });
+  if ($(".list-items-me").length == 0) {
+    $("#none-element").show(500);
+  }
+  $("#filtre").change(function(){
+    var search = $(this).val()
+    var emptyS = true
+    $(".list-items-me").each(function(){
+      let thisiko = $(this)
+      if ((search == thisiko.data().name) || (search == ".TOUS")){
+        thisiko.show(500);
+        emptyS = false
+      }else{
+        thisiko.hide(500);
+      }
+    });
+    if (emptyS) {
+      $("#none-element").show(500);
+    }else{
+      $("#none-element").hide(500);
+    }
   });
 </script>

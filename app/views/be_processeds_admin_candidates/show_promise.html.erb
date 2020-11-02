@@ -17,8 +17,8 @@
                 <div><%= @job.contrat_cdi ? "CONTRAT À DURÉE INDÉTERMINÉE" : "CONTRAT À DURÉE DÉTERMINÉE" %></div>
               </div>
               <div class="col">
-                <div>Nom : <%= @cadre.last_name %></div>
-                <div>Prénom : <%= @cadre.first_name %></div>
+                <div>Nom : <%= @cadre.last_name.capitalize %></div>
+                <div>Prénom : <%= @cadre.first_name.capitalize %></div>
                 <div>Date de naissance : <%= @promise.birthday_cadre %></div>
                 <div>Lieu de naissance : <%= @promise.birthplace_cadre %></div>
                 <div>N° sécurité sociale : <%= @promise.ns_sociale_cadre %></div>

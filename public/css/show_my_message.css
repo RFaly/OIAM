@@ -179,7 +179,7 @@ body {
   width: 100%;
   height: 300px;
   width: 100%;
-  overflow-y: scroll; 
+  overflow-y: scroll;
 }
 
 .my-message {
@@ -255,7 +255,7 @@ body {
   box-shadow: none;
 }
 
-input[type='submit'] {
+.send {
   position: absolute;
   top: 0;
   right: 0;

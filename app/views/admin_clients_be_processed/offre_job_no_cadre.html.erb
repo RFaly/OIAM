@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="/css/admin_prms.css" />
+<style media="screen">
+  .cp-box h1 {
+    font-size: 16px;
+    font-family: Raleway, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    color: #d6b36a;
+  }
+</style>
+<div class="client-column">
+  <div class="client-menu-left">
+    <%= render partial: "admin_clients/left_menu" %>
+  </div>
+
+  <div class="cp-box">
+  	    <div class="show-job-box">
+      <div class="show-publication" id="publish-ajax-hid">
+        <div class="sjb-content">
+          <div class="show-einfos">
+            <div class="logo">
+              <% unless @offre_job.image.nil? %>
+                <div class="c" style="background: url(<%= @offre_job.image%>) center no-repeat; background-size: cover"></div>
+               <% end %>
+            </div>
+            <div class="local">
+              <p>OFFRE D'EMPLOI DE <%= @offre_job.client.entreprise.name.upcase %></p>
+              <p><%= @offre_job.intitule_pote %></p>
+              <p>DEPARTEMENTS : <%= @offre_job.department %></p>
+              <p>PAYS : <%= @offre_job.country %></p>
+              <p>REGION : <%= @offre_job.region%></p>
+            </div>
+          </div>
+          <hr />
+          <div class="so-content">
+            <p>DESCRIPTIF DES MISSIONS</p>
+            <div class="description">
+              <%= @offre_job.descriptif_mission.gsub('[sp]', ' &#160; ').gsub('[nl]', ' <br />').html_safe %>
+            </div>
+          </div>
+          <hr>
+          <div class="so-content">
+            <p>Pourquoi travailler chez eux ? :</p>
+            <div class="first-content">
+              <%= @offre_job.question2 %>
+            </div>
+          </div>
+          <hr>
+          <div class="so-content">
+            <p>RATTACHEMENT HIÉRARCHIQUE</p>
+            <div><%= @offre_job.rattachement %></div>
+          </div>
+          <hr>
+          <div class="so-content">
+            <p>RÉMUNÉRATION (K€ BRUTS ANNUELS)</p>
+            <div>
+              Fixe : <%= @offre_job.remuneration.to_i %>k€ <br />
+              Variable : <%= @offre_job.remuneration_anne.to_i %>k€
+            </div>
+          </div>
+          <hr>
+          <div class="so-content">
+            <p>DÉPLACEMENTS</p>
+            <div>
+              <%= @offre_job.type_deplacement_name %>
+            </div>
+          </div>
+          <hr>
+          <div class="so-content">
+            <p>PROCESSUS RH</p>
+            <div>
+              <% case @offre_job.numberEntretien.to_i %>
+              <% when 1 %>
+                1 entretien RH
+              <% when 2 %>
+                1 entretien RH avec 1 entretien Manager
+              <% when 3 %>
+                1 entretien RH avec 2 entretiens Manager
+              <% end %>
+            </div>
+          </div>
+          <hr>
+          <div class="so-content">
+            <p>CONTEXTE D'OUVERTURE DE CE POSTE</p>
+            <div>
+              <%= @offre_job.question5 %>
+            </div>
+          </div>
+          <hr>
+          <div class="so-content">
+            <p>DATE DE PRISE DE POSTE</p>
+            <div>
+              <%= @offre_job.date_poste %>
+            </div>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -7,14 +7,29 @@
   </div>
 
   	<div class="cp-box">
-  		<h1 class="title">A traiter</h1>
       <div class="container">
+
+    <div class="filter-cont">
+      <select name="filtre" id="filtre">
+        <option value=".TOUS" selected="selected">TOUS</option>
+        <option value=".INSCRIPTION">INSCRIPTION</option>
+        <option value=".ADMISSION">ADMISSION</option>
+        <option value=".PROMESSE-D-EMBAUCHE">PROMESSE D'EMBAUCHE</option>
+        <option value=".PRIME">PRIME</option>
+      </select>
+    </div>
+    <div class="none-el">
+      <p id="none-element" style="display: none;">Aucune tâche à traiter.</p>
+    </div>
+
+
+
         <div class="row">
 	    <!-- <h2>Test potentiel non terminé (en cours d eroute),récupérer son nom et email)</h2> -->
 
 	    <% unless @cadreInfoPotentielNotEnds.empty? %>
 	    	<% @cadreInfoPotentielNotEnds.each do |cadreInfoPotentielNotEnd| %>
-	    		<div data-name=".INSCRIPTION" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+	    		<div data-name=".INSCRIPTION" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
 					<!-- <img src='/image/profie.png'/> <br> -->
           <div class="atrt-ct-box">
 				    <h2 class="atrt-insc">INSCRIPTION</h2>
@@ -43,7 +58,7 @@
 
 	    <% unless @cadreInfoFits.empty? %>
 	    	<% @cadreInfoFits.each do |cadreInfoFit| %>
-	    		<div data-name=".INSCRIPTION" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+	    		<div data-name=".INSCRIPTION" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
             <div class="atrt-ct-box">
 	    			<h2  class="atrt-insc">INSCRIPTION</h2>
 	    			<div class="atrt-name">
@@ -71,7 +86,7 @@
 
 	    <% unless @cadreInfoEnterScoreFits.empty? %>
 	    	<% @cadreInfoEnterScoreFits.each do |cadreInfoEnterScoreFit| %>
-	    		<div data-name=".INSCRIPTION" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+	    		<div data-name=".INSCRIPTION" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
             <div class="atrt-ct-box">
 	    			<h2 class="atrt-insc">INSCRIPTION</h2>
 	    			<div class="atrt-name">
@@ -100,7 +115,7 @@
 	    <% unless @cacadreInfoInCompleteInfoProfils.empty? %>
 	    	<% @cacadreInfoInCompleteInfoProfils.each do |cacadreInfoInCompleteInfoProfil| %>
 	    	<% cfo = cacadreInfoInCompleteInfoProfil %>
-	    		<div data-name=".ADMISSION" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+	    		<div data-name=".ADMISSION" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
             <div class="atrt-ct-box">
 	    			<h2 class="atrt-insc">ADMISSION</h2>
 	    			<div class="atrt-name">
@@ -133,7 +148,7 @@
 	    <% unless @cadreInfoNotPromiseToHires.empty? %>
 	    	<% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
 	    		<% cINPT = cadreInfoNotPromiseToHire.cadre_info %>
-		    	<div data-name=".PROMESSE-D-EMBAUCHE" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+		    	<div data-name=".PROMESSE-D-EMBAUCHE" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
             <div class="atrt-ct-box">
 	    			<h2 class="atrt-insc">PROMESSE D'EMBAUCHE</h2>
 	    			<div class="atrt-name">
@@ -162,7 +177,7 @@
 	    <% unless @cadreInfoValidateTimeTryings.empty? %>
 	    	<% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
 	    		<% pThWa = cadreInfoValidateTimeTrying[0] %>
-		    	<div data-name=".PROMESSE-D-EMBAUCHE" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+		    	<div data-name=".PROMESSE-D-EMBAUCHE" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
             <div class="atrt-ct-box">
 	    			<h2 class="atrt-insc">PROMESSE D'EMBAUCHE</h2>
 	    			<div class="atrt-name">
@@ -191,7 +206,7 @@
 	    <% unless @cadreInfoPrimNotReceiveds.empty? %>
 	    	<% @cadreInfoPrimNotReceiveds.each do |cadreInfoPrimNotReceived| %>
 	    		<% pThWa = cadreInfoPrimNotReceived[0] %>
-	    		<div data-name=".PRIME" class="atrt-box col-lg-3 col-xs-12 col-md-4 col-sm-12">
+	    		<div data-name=".PRIME" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
             <div class="atrt-ct-box">
 	    			<h2 class="atrt-insc">PRIME</h2>
 	    			<div class="atrt-name">
@@ -239,4 +254,28 @@
       // $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ minute );
     });
   });
+
+  if ($(".list-items-me").length == 0) {
+    $("#none-element").show(500);
+  }
+
+  $("#filtre").change(function(){
+    var search = $(this).val()
+    var emptyS = true
+    $(".list-items-me").each(function(){
+      let thisiko = $(this)
+      if ((search == thisiko.data().name) || (search == ".TOUS")){
+        thisiko.show(500);
+        emptyS = false
+      }else{
+        thisiko.hide(500);
+      }
+    });
+    if (emptyS) {
+      $("#none-element").show(500);
+    }else{
+      $("#none-element").hide(500);
+    }
+  });
+
 </script>
