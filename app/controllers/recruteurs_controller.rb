@@ -39,7 +39,7 @@ class RecruteursController < ApplicationController
     		ProcessedHistory.create(
 				  image: current_client.image,
 				  message: "INSCRIPTION",
-				  link: "#",
+				  link: "VOIR",
 				  is_client:true,
 				  genre: 1
 				)
@@ -527,7 +527,7 @@ class RecruteursController < ApplicationController
 		      ProcessedHistory.create(
 		        image: "/image/profie.png",
 		        message: "FEEDBACK ENTRETIEN",
-		        link: "#",
+		        link: "VOIR",
 		        is_client:true,
 		        genre: 1
 		      )

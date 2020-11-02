@@ -22,7 +22,7 @@ class OffreForCandidate < ApplicationRecord
 			ProcessedHistory.create(
         image: "/image/profie.png",
         message: "SELECTION CANDIDATS",
-        link: "#",
+        link: "VOIR",
         is_client:true,
         genre: 1
       )

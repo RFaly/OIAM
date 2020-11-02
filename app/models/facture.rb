@@ -10,13 +10,13 @@ class Facture < ApplicationRecord
 		offreJob = promise.offre_job
 		name_entreprise = offreJob.client.entreprise.name
 		
-		NotificationAdmin.create(
-			object: "#{name_entreprise}",
-			message: "#{name_entreprise} a embaucher un candidat, facture précalcul honoraires OIAM",
-			link: "/",
-			genre: 3,
-			medel_id: offreJob.id
-		)
+		# NotificationAdmin.create(
+		# 	object: "#{name_entreprise}",
+		# 	message: "#{name_entreprise} a embaucher un candidat, facture précalcul honoraires OIAM",
+		# 	link: "/",
+		# 	genre: 3,
+		# 	medel_id: offreJob.id
+		# )
 
 		Notification.create(
 	      client: self.client,

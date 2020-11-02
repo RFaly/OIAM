@@ -1,5 +1,5 @@
 class OffreJob < ApplicationRecord
-	after_create :notified_admin
+	# after_create :notified_admin
 	delegate :url_helpers, to: 'Rails.application.routes'
 
 	belongs_to :client
@@ -34,17 +34,17 @@ class OffreJob < ApplicationRecord
 		(self.created_at + 15.days).strftime("%d/%m/%Y")
 	end
 
-	def notified_admin
-		name_entreprise = self.client.entreprise.name
-		NotificationAdmin.create(
-			object: "#{name_entreprise}",
-			message: "#{name_entreprise} a publié une nouvelle offre d'emploi.",
-			# link: "#{url_helpers.admin_client_show_offer_path(self.id,notification:"offre")}",
-			link:"/",
-			genre: 1,
-			medel_id: self.id
-		)
-	end
+	# def notified_admin
+	# 	name_entreprise = self.client.entreprise.name
+	# 	NotificationAdmin.create(
+	# 		object: "#{name_entreprise}",
+	# 		message: "#{name_entreprise} a publié une nouvelle offre d'emploi.",
+	# 		# link: "#{url_helpers.admin_client_show_offer_path(self.id,notification:"offre")}",
+	# 		link:"/",
+	# 		genre: 1,
+	# 		medel_id: self.id
+	# 	)
+	# end
 
 	def type_deplacement_name
 		case self.type_deplacement
