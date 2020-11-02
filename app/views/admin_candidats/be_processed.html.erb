@@ -9,16 +9,20 @@
   	<div class="cp-box">
       <div class="container">
 
+    <div class="filter-cont">
+      <select name="filtre" id="filtre">
+        <option value=".TOUS" selected="selected">TOUS</option>
+        <option value=".INSCRIPTION">INSCRIPTION</option>
+        <option value=".ADMISSION">ADMISSION</option>
+        <option value=".PROMESSE-D-EMBAUCHE">PROMESSE D'EMBAUCHE</option>
+        <option value=".PRIME">PRIME</option>
+      </select>
+    </div>
+    <div class="none-el">
+      <p id="none-element" style="display: none;">Aucune tâche à traiter.</p>
+    </div>
 
-		<select name="filtre" id="filtre">
-			<option value=".TOUS" selected="selected">TOUS</option>
-			<option value=".INSCRIPTION">INSCRIPTION</option>
-			<option value=".ADMISSION">ADMISSION</option>
-			<option value=".PROMESSE-D-EMBAUCHE">PROMESSE D'EMBAUCHE</option>
-			<option value=".PRIME">PRIME</option>
-		</select>
 
-		<p id="none-element" style="display: none;">Aucune tâche à traiter.</p>
 
         <div class="row">
 	    <!-- <h2>Test potentiel non terminé (en cours d eroute),récupérer son nom et email)</h2> -->
