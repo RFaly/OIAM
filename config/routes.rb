@@ -258,9 +258,16 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin-candidats/messageries/:id', to: 'admin_candidats#show_message', as: 'candidats_show_message'
   post 'secret-oiam-page/admin-candidats/send/messages', to: 'admin_candidats#post_message', as: 'candidats_post_message'
 
-  #messagerie clients
+
+# a traiter clients
+  get 'secret-oiam-page/admin-clients/a-traiter/voir-client/:id', to: 'admin_clients_be_processed#show_client', as: 'clients_bp_show_client'
+  get 'secret-oiam-page/admin-clients/a-traiter/offre-recherche-candidats/:id', to: 'admin_clients_be_processed#offre_job_no_cadre', as: 'clients_bp_offre_job_no_cadre'
+  get 'secret-oiam-page/admin-clients/a-traiter/efectue-entretien/:id', to: 'admin_clients_be_processed#effectue_entretien', as: 'clients_bp_effectue_entretien'
+
+  #messagerie clientss
   get 'secret-oiam-page/admin-clients/messageries/:id', to: 'admin_clients#show_message', as: 'clients_show_message'
   post 'secret-oiam-page/admin-clients/send/messagers', to: 'admin_clients#post_message', as: 'clients_post_message'
+
 
 end
 
