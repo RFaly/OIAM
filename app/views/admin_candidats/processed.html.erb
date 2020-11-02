@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/css/admin_prms.css" />
+<link rel="stylesheet" href="/admins/css/trtList.css">
 <style media="screen">
   .cp-box h1 {
     font-size: 16px;
@@ -14,16 +15,22 @@
   </div>
 
   <div class="cp-box">
-  	<h1>Traitées</h1>
-
+    <div class="container-fluid">
     <% @processedHistories.each do |processedHistorie| %>
-      <div class="row">
-        <div class="col-sm-2"><img src='<%= processedHistorie.image %>' width="60" /></div>
-        <div class="col-sm-6"><%= processedHistorie.message %></div>
-        <div class="col-sm-4">
-          <%= raw processedHistorie.link %>
-        </div>
+      <div class="container">
+        <hr />
+          <div class="row align-items-center">
+            <div class="image col-lg-1 col-md-1 col-sm-12 col-xs-12 align-self-center">
+              <img src="/image/work.png" alt="icone work" />
+            </div>
+              <div class="hist-msg col-lg-4 col-md-4 col-sm-12 col-xs-12 align-self-center"><%= processedHistorie.message %></div>
+              <div class="hist-link col-lg-7 col-md-7  col-sm-12 col-xs-12 align-self-center">
+                <%= raw processedHistorie.link %>
+              </div>
+          </div>
+        <hr />
       </div>
+
     <% end %>
 
     <!-- #1. Inscription
@@ -31,10 +38,10 @@
     Rakot belo a terminé l'inscription (fait)
 
     # 2. Tests Potential
-    # Test potential (nom+prenom..), afficher le résultat du test, statut (admis ou refusé) 
+    # Test potential (nom+prenom..), afficher le résultat du test, statut (admis ou refusé)
     Rakot belo a terminé le test potentiel (fait)
 
-    # 4. Clique sur lien TP positif et planifie un entretien FIT  
+    # 4. Clique sur lien TP positif et planifie un entretien FIT
     # RDV entretiens FIT effectués et validés(entretiens effectués)
     L'entretien fit avec Rakot belo est validé. (fait)
 
@@ -45,7 +52,7 @@
 
 
     #8. Complète les informations du profil
-    #Profil complété 
+    #Profil complété
     Rakot belo a complété son profil. (fait)
 
 
@@ -64,6 +71,6 @@
     Rakot belo a reçu son prime. (fait)
 
     -->
-
+    </div>
   </div>
 </div>
