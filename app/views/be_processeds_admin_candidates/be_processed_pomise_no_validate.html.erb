@@ -18,7 +18,7 @@
         </div>
         <div class="info-cadd col-lg-8 col-md-8 row col-sm-12 col-xs-12">
           <div class="info-frst col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <p class="user_name"><%= @cadre_info.first_name %> <%= @cadre_info.last_name %> <br></p>
+            <p class="user_name"><%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %> <br></p>
             <p><strong>Adresse : </strong><%= @cadre_info.adresse %></p>
             <p><strong>Code postal : </strong><%= @cadre_info.postal_code %></p>
             <p><strong>Ville : </strong><%= @cadre_info.city %></p>
@@ -114,7 +114,7 @@
           </div>
           <div class="info-cadd col-lg-12 col-md-8 row col-sm-12 col-xs-12">
             <div class="info-frst col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <p class="user_name"><%= @cadre_info.first_name %> <%= @cadre_info.last_name %> <br></p>
+              <p class="user_name"><%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %> <br></p>
               <p><strong>Adresse : </strong><%= @cadre_info.adresse %></p>
               <p><strong>Code postal : </strong><%= @cadre_info.postal_code %></p>
               <p><strong>Ville : </strong><%= @cadre_info.city %></p>
