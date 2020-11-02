@@ -1,30 +1,30 @@
 <link rel="stylesheet" href="/css/admin_prms.css" />
-<style>
-	img {
-		width: 200px;
-		height: 200px;
-	}
-</style>
+<link rel="stylesheet" href="/admins/css/profile-no-complete.css">
 <div class="client-column">
   	<div class="client-menu-left">
     	<%= render partial: "admin_candidats/left_menu" %>
   	</div>
   	<div class="cp-box">
+			<div class="container">
   		<div class="row">
-  			<div class="col-6 col-md-4"><img src='/image/profie.png'/></div>
-  			<div class="col-12 col-md-8">
-  				<p>Nom: <%= @cadre_info.last_name.capitalize %></p>
-  				<p>Prenom: <%= @cadre_info.first_name.capitalize %></p>
-  				<p>Adresse: <%= @cadre_info.adresse %></p>
-  				<p>Code postal: <%= @cadre_info.postal_code %></p>
-  				<p>Ville: <%= @cadre_info.city %></p>
-  				<p>Mail: <%= @cadre_info.mail %></p>
-  				<p>Telephone: <%= @cadre_info.telephone %></p>
-          <p>Score Potentiel: <%= @cadre_info.score_potential %></p>
-          <p>Score Fit: <%= @cadre_info.score_fit %></p>
-          <p>Compatibilité: <%= @cadre_info.compatibilite %>%</p>
+  			<div class="box-lft col-lg-4 col-md-4 col-sm-12 col-xs-12">
+					<img src='/image/profie.png'/>
+				</div>
+  			<div class="box-rgt col-log-8 col-md-8 col-sm-12 col-xs-12">
+  				<p><strong>Nom : </strong><%= @cadre_info.last_name.capitalize %></p>
+  				<p><strong>Prenom : </strong><%= @cadre_info.first_name.capitalize %></p>
+  				<p><strong>Adresse : </strong><%= @cadre_info.adresse %></p>
+  				<p><strong>Code postal : </strong><%= @cadre_info.postal_code %></p>
+  				<p><strong>Ville : </strong><%= @cadre_info.city %></p>
+  				<p><strong>Mail : </strong><%= @cadre_info.mail %></p>
+  				<p><strong>Telephone : </strong><%= @cadre_info.telephone %></p>
+          <% unless @cadre_info.score_potential.nil? %>
+            <p><strong>Score potentiel : </strong><%= @cadre_info.score_potential %></p>
+          <% end %>
+          <% unless @cadre_info.score_fit.nil? %>
+            <p><strong>Score potentiel : </strong><%= @cadre_info.score_fit %></p>
+          <% end %>
   			</div>
 		</div>
-		<div>Profil non complété</div>
-  	</div>
-</div>
+	</div>
+  </div>
