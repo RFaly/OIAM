@@ -77,10 +77,12 @@
   padding: 2px;
   outline: none;
   border: none;
-  background: #f0f2f4;
   font-family: Questrial, sans-serif;
   font-size: 14px;
   text-align-last: center;
+  appearance: none;
+  background: #f0f2f4 url(/image/dropdown.png) no-repeat right 0.5rem
+    center/14px 14px;
 }
 
 .filter-cont select option {
