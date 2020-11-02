@@ -68,17 +68,45 @@ class AdminClientsController < ApplicationAdminController
   def pending
 
 # 6. Planifie un/des entretiens en fonction du process de recrutement
-#     Planification d'entretien en attente du retour du candidat
+# Planification d'entretien en attente du retour du candidat
+    @listAgendaClientsSends = []
+    OffreForCandidate.where(status:nil).each do |oFc|
+      ac = oFc.agenda_clients.last
+      unless ac.nil?
+        if ac.alternative.nil? && ac.repons_client == true && ac.repons_cadre.nil? && ac.entretien_date > DateTime.now.utc
+          @listAgendaClientsSends.push([oFc,ac])
+        end
+      end
+    end
 
 # 7. Effectue l’ entretien et donne son feedback
 # (Etape suivante, accepter, refuser, en attente)
 # Envoi du feedback en attente du retour du candidat
+    @listAgendaClientsEntretiens = []
+    OffreForCandidate.where(status:nil).each do |oFc|
+      ac = oFc.agenda_clients.last
+      unless ac.nil?
+        if ac.repons_client && ac.repons_cadre && ac.alternative.nil? && ac.entretien_date < DateTime.now.utc
+          @listAgendaClientsEntretiens.push([oFc,ac])
+        end
+      end
+    end
+
 
 # 9. Valider l’embauche
 # Promesse d'embauche en attente du retour du candidat
+    @cadreInfoNotPromiseToHires = Cadre.joins(:promise_to_hires).where(promise_to_hires:{repons_cadre:nil}).distinct
 
 # 12. Valider une période d’essai
 # En attente de la validation de la période d'essai
+    @cadreInfoValidateTimeTryings = []
+    PromiseToHire.all.each do |pTH|
+      if DateTime.strptime("#{pTH.time_trying}","%d/%m/%Y").past? && (pTH.client_time_trying.nil? || pTH.cadre_time_trying.nil?)
+        @cadreInfoValidateTimeTryings.push([pTH,pTH.cadre.id])
+      end
+    end
+    @cadreInfoValidateTimeTryings.uniq!
+
 
   end
 
