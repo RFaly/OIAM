@@ -449,25 +449,25 @@ class RecruteursController < ApplicationController
 		helpers.updateNotification(params[:secure])
 
 		@oFc = OffreForCandidate.find_by_id(params[:oFc_id])
-		if @oFc.nil?
-			flash[:alert] = "Cette offre n'est plus disponible."
-			redirect_back(fallback_location: root_path)
-			return
-		end
-		@offre = @oFc.offre_job
-		if @offre.nil?
-			flash[:alert] = "Cette offre n'est plus disponible."
-			redirect_back(fallback_location: root_path)
-			return
-		end
+		# if @oFc.nil?
+		# 	flash[:alert] = "Cette offre n'est plus disponible."
+		# 	redirect_back(fallback_location: root_path)
+		# 	return
+		# end
+		 @offre = @oFc.offre_job
+		# if @offre.nil?
+		# 	flash[:alert] = "Cette offre n'est plus disponible."
+		# 	redirect_back(fallback_location: root_path)
+		# 	return
+		# end
 		@cadre = @oFc.cadre
 		@agendas = @oFc.agenda_clients.order('created_at DESC')[0]
 		@promise = @offre.promise_to_hires.find_by(cadre:@cadre)
-		if @promise.nil?
-			flash[:alert] = "Cette offre n'est plus disponible."
-			redirect_back(fallback_location: root_path)
-			return
-		end
+		# if @promise.nil?
+		# 	flash[:alert] = "Cette offre n'est plus disponible."
+		# 	redirect_back(fallback_location: root_path)
+		# 	return
+		# end
 	end
 
 	def notice_refused_post

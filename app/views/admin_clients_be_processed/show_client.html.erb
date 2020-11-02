@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="/css/admin_prms.css" />
+<link rel="stylesheet" href="/css/client_profil.css" />
+  <div class="client-column">
+  <div class="client-menu-left">
+    <%= render partial: "admin_clients/left_menu" %>
+  </div>
+    <div class="cp-box">
+      <div class="cp-table-box">
+      <table>
+        <tr>
+          <td class="cp-flex table-td">
+            <div class="cp-pprofil">
+              <% unless @client.image.nil? %>
+                <div class="c" style="background: url(<%= @client.image%>) center no-repeat; background-size: cover"></div>
+              <% else %>
+              <img src="/image/profie.png" alt="logo entreprise" />
+              <%  end %>
+            </div>
+            <div class="cp-infos-r">
+              <p class="cpr-name"><strong><%= @client.first_name %> <%= @client.last_name %> </strong></p>
+
+              <p><%= @client.fonction %></p>
+              <div class="cpr-r">
+                <img src="/image/mess.png" alt="logo mail" class="cp-icone cpr-i-mail" />
+                <p><%= @client.mail %></p>
+              </div>
+              <div class="cpr-r">
+                <img src="/image/call.png" alt="logo mail" class="cp-icone" />
+                <p>+33 <%= @client.telephone %></p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cp-entreprise-name">
+              <h5><%= @client.entreprise.name %></h5>
+            </div>
+            <div class="cp-flex cp-flex-t cp-entreprise-content">
+              <div class="cpe-adress">
+                <h5 class="cp-icon-text"><img src="/image/map.png" alt="map icon" class="map cp-icone" /> Adresse</h5>
+                <p><%= @client.entreprise.adresse %></p>
+              </div>
+              <div class="cpe-ville">
+                <h5 class="cp-icon-text"><img src="/image/city.png" alt="ville icon" class="cp-icone" /> Ville</h5>
+                <p><%= @client.entreprise.city %></p>
+              </div>
+              <div class="cpe-postal">
+                <h5 class="cp-icon-text"><img src="/image/map.png" alt="map icon" class="map cp-icone" /> Code postal
+                </h5>
+                <p><%= @client.entreprise.postal_code %></p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="cpe-si-td">
+            <div class="cp-flex cp-flex-t cpe-si">
+              <div class="line-white"></div>
+              <div class="cpe-siret">
+                <h5 class="cp-icon-text"><img src="/image/number.png" alt="numéro icon" class="cp-icone number" />Numéro
+                  de siret</h5>
+                <p><%= @client.entreprise.siret %></p>
+              </div>
+              <div class="cpe-site">
+                <h5 class="cp-icon-text"><img src="/image/web.png" alt="web icon" class="cp-icone web site" />Site web
+                </h5>
+                <p><%= @client.entreprise.site %></p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="code-naf-flex">
+              <div class="cpe-description">
+                <h5 class="cp-icon-text"><img src="/image/description.png" alt="description icon"
+                    class="cp-icone number" />Description</h5>
+                <p><%= @client.entreprise.description %></p>
+              </div>
+              <div class="line-white2"></div>
+              <div class="cpe-naf">
+                <h5 class="cp-icon-text"><img src="/image/code.png" alt="code icon" class="cp-icone number map" />Code
+                  NAF<span style="opacity: 0">naf</span></h5>
+                <p><%= @client.entreprise.code_naf %></p>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+	</div>
+</div>
