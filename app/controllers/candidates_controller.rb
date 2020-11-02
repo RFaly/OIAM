@@ -261,7 +261,7 @@ class CandidatesController < ApplicationController
       ProcessedHistory.create(
         image: "/image/profie.png",
         message: "PLANIFICATION ENTRETIEN",
-        link: "#",
+        link: "VOIR",
         is_client:true,
         genre: 1
       )
@@ -672,6 +672,15 @@ class CandidatesController < ApplicationController
         genre: 1
       )
 
+      # 9. Valider l’embauche client
+      ProcessedHistory.create(
+        image: "/image/profie.png",
+        message: "PROMESSE D'EMBAUCHE",
+        link: "VOIR",
+        is_client:true,
+        genre: 1
+      )
+
       oFc = @offreJob.is_in_this_job(current_cadre)
       flash[:notice] = "Promesse d'embauche validé."
       redirect_to show_recrutment_monitoring_path(oFc.id)
@@ -705,15 +714,30 @@ class CandidatesController < ApplicationController
     Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a validé sa période d'essai.",link: "#{recruitment_show_cadre_path(oFc.id,notification:"validation")}",genre: 1,medel_id: current_cadre.id,view: false)
 
     unless @promise.cadre_time_trying==false && @promise.client_time_trying.nil?
+
+      somaiso = "PERIODE D'ESSAI ROMPUE"
+      
+      if @promise.client_time_trying == true
+        ProcessedHistory.create(
+          image: current_cadre.cadre_info.image,
+          message: "VALIDATION PERIODE D'ESSAI",
+          link: "<a href='#'>VOIR</a>",
+          is_client:false,
+          genre: 1
+        )
+        somaiso = "VALIDATION PERIODE D'ESSAI"
+      end
+
       ProcessedHistory.create(
         image: current_cadre.cadre_info.image,
-        # message: "Période d'essai de #{first_name} #{last_name} est validé.",
-        message: "PROMESSE D'EMBAUCHE",
-        link: "<a href='#{cbp_prime_path(@promise.id)}'>VOIR</a>",
-        is_client:false,
+        message: somaiso,
+        link: "<a href='#'>VOIR</a>",
+        is_client:true,
         genre: 1
       )
     end
+
+
 
     redirect_to show_recrutment_monitoring_path(oFc.id)
   end

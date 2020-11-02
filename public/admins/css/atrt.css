@@ -67,3 +67,32 @@
   padding-top: 15px;
   padding-bottom: 15px;
 }
+
+.filter-cont {
+  display: flex;
+  justify-content: center;
+}
+
+.filter-cont select {
+  padding: 2px;
+  outline: none;
+  border: none;
+  background: #f0f2f4;
+  font-family: Questrial, sans-serif;
+  font-size: 14px;
+  text-align-last: center;
+}
+
+.filter-cont select option {
+  border: none;
+  text-align-last: center;
+}
+
+.none-el {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  font-family: Questrial, sans-serif;
+  font-size: 14px;
+  color: #000;
+}
