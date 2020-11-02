@@ -111,24 +111,17 @@ class AdminClientsController < ApplicationAdminController
 # Feedback de l'entretien reçu et lu par le candidat  (fait)
 
 # 8. Remplir et envoyer une promesse d’embauche
-# Promesse d'embauche envoyée
+# Promesse d'embauche envoyée (fait)
 
 # 9. Valider l’embauche
 # Promesse d'embauche acceptée/refusée par le candidat
-
-
-# 10. Recevoir la facture du recrutement (mail + appli)
-# Liste des recruteurs qui ont téléchargé les factures
-
-
-# 11. Valider paiement en uploadant l’OV
-# Liste des recruteurs qui ont validé le paiement
+# (fait)
 
 # 12. Valider une période d’essai
-# Période d'essai validée
+# Période d'essai validée (fait)
 
 # 13. Rompre la période d’essai
-# Liste des périodes d'essai rompues
+# Liste des périodes d'essai rompues (fait)
 
   end
 
