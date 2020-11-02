@@ -3,7 +3,7 @@ class AdminClientsController < ApplicationAdminController
 	
   def be_processed
   # 1. Inscription/Complétion du profil/Création compte/{
-  #   Compte non créée
+  # Compte non créée
     @clients = Client.where(image:nil)
   # }
 
@@ -76,16 +76,6 @@ class AdminClientsController < ApplicationAdminController
 # 7. Effectue l’ entretien et donne son feedback
 # (Etape suivante, accepter, refuser, en attente)
 # Envoi du feedback en attente du retour du candidat
-    @listAgendaClientsEntretiens = []
-    OffreForCandidate.where(status:nil).each do |oFc|
-      ac = oFc.agenda_clients.last
-      unless ac.nil?
-        if ac.repons_client && ac.repons_cadre && ac.alternative.nil? && ac.entretien_date < DateTime.now.utc
-          @listAgendaClientsEntretiens.push([oFc,ac])
-        end
-      end
-    end
-
 
 # 9. Valider l’embauche
 # Promesse d'embauche en attente du retour du candidat
@@ -110,15 +100,15 @@ class AdminClientsController < ApplicationAdminController
 #   Compte créée (fait)
 
 # 5. Recherche et sélectionne des candidats
-# Recruteur qui a publié une offre et a séléctionné des candidats
+# Recruteur qui a publié une offre et a séléctionné des candidats (fait) ao @model oFc
 
 
 # 6. Planifie un/des entretiens en fonction du process de recrutement
-# Planification d'entretien acceptée par le candidat
+# Planification d'entretien acceptée par le candidat  (fait)
 
 # 7. Effectue l’ entretien et donne son feedback 
 # (Etape suivante, accepter, refuser, en attente)
-# Feedback de l'entretien reçu et lu par le candidat
+# Feedback de l'entretien reçu et lu par le candidat  (fait)
 
 # 8. Remplir et envoyer une promesse d’embauche
 # Promesse d'embauche envoyée
