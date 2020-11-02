@@ -375,7 +375,7 @@ class CandidatesController < ApplicationController
       if params[:score].to_i >= CadreInfo.min_score
         is_recrute = nil
       end
-      
+
       if @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score].to_i)
         ProcessedHistory.create(
           image: "/image/profie.png",
