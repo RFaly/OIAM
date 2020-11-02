@@ -263,7 +263,7 @@ body {
   box-shadow: none;
 }
 
-input[type='submit'] {
+.send {
   position: absolute;
   top: 0;
   right: 0;

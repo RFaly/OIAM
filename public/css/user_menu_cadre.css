@@ -65,6 +65,10 @@
   height: 110px;
 }
 
+.pdp{
+  object-fit: cover;
+}
+
 .left-menu-r .left-menu-photo img,
 .left-menu-r .left-menu-photo .c {
   border-radius: 50%;
@@ -148,7 +152,7 @@
   width: 125%;
   transition: all 500ms ease-in-out;
   transform: rotate(-45deg) translate(12px, -5px);
-}z
+}
 
 @media only screen and (min-width: 600px){
   .left-menu-r{

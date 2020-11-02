@@ -806,9 +806,9 @@ def show_message_admin
     @messages = @contact.message_admin_cadres.order(created_at: :ASC)
     @newMessage = MessageAdminCadre.new
     respond_to do |format|
-  		format.html { }
-  		format.js { }
-  	end
+      format.html { }
+      format.js { }
+    end
 end
 
 def post_message_admin
