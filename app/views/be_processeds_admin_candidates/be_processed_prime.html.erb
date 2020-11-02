@@ -6,7 +6,6 @@
   </div>
 
   <div class="cp-box">
-    <div class="container">
       <h2>Payer le prime de <%= @cadre_info.first_name %> <%= @cadre_info.last_name %></h2>
       <% if @promise.prime_received == false %>
         <%= form_for PromiseToHire.new , url: post_be_processed_prime_path do |f| %>
@@ -29,8 +28,7 @@
         Ordre de virement <br>
         <img src="<%= @promise.ov_prime %>" alt="ordre de virement" width= "200px">
       <% end %>
-    </div>
-  </div>
+      </div>
 </div>
 
 

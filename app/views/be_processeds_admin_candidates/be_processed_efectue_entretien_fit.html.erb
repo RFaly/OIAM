@@ -18,7 +18,7 @@
           <% end %>
         </div>
         <div class="cd-info-be">
-          <p class="name"><strong><%= @cadre_info.first_name %> <%= @cadre_info.last_name %></strong></p>
+          <p class="name"><strong><%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %></strong></p>
           <p class="score"><strong>Score OIAM : </strong><span><%= @cadre_info.score_potential %></span></p>
           <% unless @cadre_info.score_fit.nil? %>
             <p class="score"><strong>Score FIT : </strong><span><%= @cadre_info.score_fit %></span></p>
@@ -31,7 +31,7 @@
 
             <div class="all-info-cadd">
             <div class="info-cadd">
-              <h3>Vous avez rencontré <%= @cadre_info.first_name %> <%= @cadre_info.last_name %> le <strong data-times="<%= @cadre_info.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></strong>, comment s'est déroulé votre entretien ?</h3>
+              <h3>Vous avez rencontré <%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %> le <strong data-times="<%= @cadre_info.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></strong>, comment s'est déroulé votre entretien ?</h3>
             </div>
 
             <div class="row all-btn">
@@ -118,7 +118,7 @@
       if((minute+"").length == 1){
         minute = "0"+minute
       }
-      $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ minute );
+      $(this).html(dateString + ' à ' + dateGet.getHours() + 'h'+ minute );
     });
   });
 
