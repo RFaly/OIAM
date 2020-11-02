@@ -1,0 +1,217 @@
+* {
+  line-height: 0.7;
+}
+
+.pr-row {
+  justify-content: center !important;
+  max-width: 990px !important;
+}
+
+.fit-box-left {
+  box-sizing: border-box;
+}
+
+.fit-box-right {
+  background: #d6b36a;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  border: 2px solid #d6b36a;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.cd-info-be {
+  text-align: left;
+  font-family: Questrial, sans-serif;
+  margin-top: 15px;
+}
+
+.cd-info-be p {
+  font-size: 14px;
+}
+
+.all-btn {
+  margin: 0 auto;
+  justify-content: center;
+  text-align: center;
+}
+
+.mybtn {
+  background: #d6b36a;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 15px 60px;
+  margin: 3px;
+  cursor: pointer;
+  font-family: Raleway, sans-serif;
+  font-weight: bold;
+}
+
+.mybtn:hover {
+  background: #fff;
+  color: #d6b36a;
+  border: 1px solid #fff;
+}
+
+.info-cadd h3 {
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-family: Questrial, sans-serif;
+}
+
+.all-info-cadd {
+  margin-top: 50px;
+}
+
+.cont-rgt {
+  display: block;
+  border-left: 4px solid #fff;
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+}
+
+.cont-lft {
+  text-align: center;
+  justify-content: center;
+  display: block;
+  align-content: center;
+}
+
+.avis-desc {
+  text-transform: uppercase;
+  color: #fff;
+  font-family: Questrial, sans-serif;
+  font-size: 12px;
+  padding-bottom: 5px;
+}
+
+.textarea-avis textarea {
+  border: none;
+  padding: 10px;
+  border-radius: 0px;
+  outline: none;
+  font-family: Questrial, sans-serif;
+}
+
+.score-label {
+  text-transform: uppercase;
+  color: #fff;
+  font-family: Questrial, sans-serif;
+  font-size: 12px;
+  padding: 15px;
+}
+
+.score-radio {
+  margin: 0 auto;
+  text-align: center;
+  align-self: center;
+  justify-content: center;
+}
+
+.score-radio input {
+  margin: 5px;
+  cursor: pointer;
+}
+
+.score-radio label {
+  font-weight: bold;
+  font-family: Questrial, sans-serif;
+  margin-top: 15px;
+}
+
+.my-cv-label {
+  color: #fff;
+  text-align: center;
+  font-family: Questrial, sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.form-my-cv {
+  align-self: center;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 15px;
+  display: block;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: Raleway, sans-serif;
+  font-size: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #fff;
+  outline: none;
+}
+
+.apercu {
+  background: #d6b36a;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 15px 60px;
+}
+
+.apercu:hover {
+  background: #fff;
+  border: 1px solid #fff;
+  color: #d6b36a;
+}
+
+.cv-frm {
+  margin-top: 30px;
+}
+
+.succ-txt {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-family: Questrial, sans-serif;
+  color: #fff;
+  font-weight: bold;
+}
+
+.gen-btn {
+  background: #d6b36a;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 15px 60px;
+}
+
+.gen-cont {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  margin-top: 40px;
+  cursor: pointer;
+  font-family: Raleway, sans-serif;
+  text-transform: uppercase;
+}
+
+.link-txt {
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 12px;
+  font-family: Questrial, sans-serif;
+}
+
+.cont-link {
+  margin-top: 50px;
+}
+
+.link-url {
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-family: Questrial, sans-serif;
+  font-size: 14px;
+  text-transform: capitalize;
+}

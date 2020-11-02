@@ -32,7 +32,8 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
 
       ProcessedHistory.create(
         image: "/image/profie.png",
-        message: "L'entretien fit avec #{@cadreInfo.first_name} #{@cadreInfo.last_name} est validé.",
+        # message: "L'entretien fit avec #{@cadreInfo.first_name} #{@cadreInfo.last_name} est validé.",
+        message: "ENTRETIEN FIT",
         link: "<a href='#{cbp_validate_entretien_fit_path(@cadreInfo.id)}'>VOIR</a>",
         is_client:false,
         genre: 1
@@ -83,7 +84,8 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
     unless @cadre_infos.nil?
       ProcessedHistory.create(
         image: "/image/profie.png",
-        message: "#{@cadre_infos.first_name} #{@cadre_infos.last_name} a terminé l'inscription",
+        # message: "#{@cadre_infos.first_name} #{@cadre_infos.last_name} a terminé l'inscription",
+        message: "INSCRIPTION",
         link: "<a href='#{cbp_inscription_path(@cadre_infos.id)}'>VOIR</a>",
         is_client:false,
         genre: 1
@@ -91,15 +93,13 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
 
       ProcessedHistory.create(
         image: "/image/profie.png",
-        message: "L'entretien fit avec #{@cadre_infos.first_name} #{@cadre_infos.last_name} est traité.",
+        # message: "L'entretien fit avec #{@cadre_infos.first_name} #{@cadre_infos.last_name} est traité.",
+        message: "ENTRETIEN FIT",
         link: "<a href='#{post_avis_candidats_fit_path(@cadre_infos.id)}'>VOIR</a>",
         is_client:false,
         genre: 1
       )
     end
-
-
-
 
     redirect_to post_avis_candidats_fit_path(@cadre_infos.id)
 
@@ -139,7 +139,8 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
       @promise.save
       ProcessedHistory.create(
         image: @cadre_info.image,
-        message: "#{@cadre_info.first_name} #{@cadre_info.last_name} a reçu son prime.",
+        # message: "#{@cadre_info.first_name} #{@cadre_info.last_name} a reçu son prime.",
+        message: "PRIME",
         link: "<a href='#{cbp_prime_path(@promise.id)}'>VOIR</a>",
         is_client:false,
         genre: 1

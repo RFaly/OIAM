@@ -94,7 +94,8 @@ class CandidatesController < ApplicationController
 
       ProcessedHistory.create(
         image: @cadre.image,
-        message: "#{@cadre.first_name} #{@cadre.last_name} a complété son profil.",
+        # message: "#{@cadre.first_name} #{@cadre.last_name} a complété son profil.",
+        message: "ADMISSION",
         link: "<a href='#{cbp_promise_no_validate_path(@cadre.id)}'>VOIR LE CANDIDAT</a>",
         is_client:false,
         genre: 1
@@ -233,6 +234,11 @@ class CandidatesController < ApplicationController
 
   def post_repons_received_job
     @offreJob = OffreJob.find_by_id(params[:offre_id])
+    if @offreJob.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
     @agendaClient = AgendaClient.find_by_id(params[:agenda_id])
     @oFc = OffreForCandidate.find_by(offre_job: @offreJob, cadre: current_cadre)
 
@@ -379,7 +385,8 @@ class CandidatesController < ApplicationController
       if @cadreInfo.update(is_recrute:is_recrute,potential_test:true,score_potential:params[:score].to_i)
         ProcessedHistory.create(
           image: "/image/profie.png",
-          message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé le test potentiel",
+          # message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé le test potentiel",
+          message: "INSCRIPTION",
           link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR LE CANDIDAT</a>",
           is_client:false,
           genre: 1
@@ -389,7 +396,8 @@ class CandidatesController < ApplicationController
       unless @cadreInfo.is_recrute.nil?
         ProcessedHistory.create(
           image: "/image/profie.png",
-          message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé l'inscription",
+          # message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé l'inscription",
+          message: "INSCRIPTION",
           link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR LE CANDIDAT</a>",
           is_client:false,
           genre: 1
@@ -576,6 +584,11 @@ class CandidatesController < ApplicationController
     @promise = PromiseToHire.find_by_id(params[:id])
     @cadre = current_cadre.cadre_info
     @job = @promise.offre_job
+    if @job.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
     @current_client = @job.client
   end
 
@@ -628,6 +641,11 @@ class CandidatesController < ApplicationController
     if errorMessage.empty?
       @promise.update(birthday_cadre: params[:promise_to_hire][:birthday_cadre], birthplace_cadre: params[:promise_to_hire][:birthplace_cadre], ns_sociale_cadre: params[:promise_to_hire][:ns_sociale_cadre], signature_candidat: file_sinc.url, cin_pass_port: file_cin.url, security_certificate: file_sc.url, rib: filerib.url, repons_cadre:true)
       @offreJob = @promise.offre_job
+      if @offteJob.nil?
+        flash[:alert] = "Cette page n'est plus disponible."
+        redirect_back(fallback_location: root_path)
+        return
+      end
       @offreJob.next_stape
 
       # calcul prix honoraire oiam
@@ -645,7 +663,8 @@ class CandidatesController < ApplicationController
 
       ProcessedHistory.create(
         image: current_cadre.cadre_info.image,
-        message: "#{first_name} #{last_name} a validé sa promesse d'embauche.",
+        # message: "#{first_name} #{last_name} a validé sa promesse d'embauche.",
+        message: "PROMESSE D'EMBAUCHE",
         link: "<a href='#{cp_show_promise_path(@promise.id)}'>VOIR LE PROMESSE</a>",
         is_client:false,
         genre: 1
@@ -664,7 +683,17 @@ class CandidatesController < ApplicationController
   def validate_time_trying_cadre
     @promise = PromiseToHire.find_by_confirm_token(params[:confirm_token])
     @offreJob = @promise.offre_job
+    if @offreJob.nil?
+			flash[:alert] = "Cette offre n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
     oFc = @offreJob.is_in_this_job(current_cadre)
+    if oFc.nil?
+			flash[:alert] = "Cette page n'est plus disponible."
+			redirect_back(fallback_location: root_path)
+			return
+		end
     @promise.update(cadre_time_trying:true)
 
     first_name = current_cadre.cadre_info.first_name
@@ -676,7 +705,8 @@ class CandidatesController < ApplicationController
     unless @promise.cadre_time_trying==false && @promise.client_time_trying.nil?
       ProcessedHistory.create(
         image: current_cadre.cadre_info.image,
-        message: "Période d'essai de #{first_name} #{last_name} est validé.",
+        # message: "Période d'essai de #{first_name} #{last_name} est validé.",
+        message: "PROMESSE D'EMBAUCHE",
         link: "<a href='#{cbp_prime_path(@promise.id)}'>VOIR</a>",
         is_client:false,
         genre: 1

@@ -32,10 +32,14 @@
         </div>
         <span class="input-error country-error"></span>
 
-        <div class="dp-input"><%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région',autocomplete: "region" %></div>
+        <div class="dp-input">
+          <%= f.select :region, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'regionInput', title:'Région',autocomplete: "region" %>
+        </div>
         <span class="input-error region-error"></span>
 
-        <div class="dp-input"><%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autocomplete: "departement" %></div>
+        <div class="dp-input">
+          <%= f.select :department, options_for_select([]),{}, class:'co-select', disabled:false, required:true, id:'departmentInput', title:'Département',autocomplete: "departement" %>
+        </div>
         <span class="input-error departement-error"></span>
 
         <label for="metier-input">Fonction</label>
@@ -57,8 +61,7 @@
         <div class="dp-input">
           <textarea id="descriptif-mission">
 <%= @offre.descriptif_mission.gsub('[sp]', ' &#160; ').gsub('[nl]', '
-            ').html_safe%> </textarea
-          >
+            ').html_safe%> </textarea>
           <%= f.text_area :descriptif_mission, required:true,id:'descriptif-mission2', style:'display: none' %>
         </div>
         <span class="input-error descriptif-mission-error"></span>
@@ -84,7 +87,8 @@
 
         <div class="dp-input">
           <select id="remuneration-anne" name="offre_job[remuneration_anne]" class="co-select">
-            <option value="<%= @offre.remuneration_anne.to_i %>" selected hidden><%= @offre.remuneration_anne.to_i %></option>
+            <option value="<%= @offre.remuneration_anne.to_i %>" selected hidden><%= @offre.remuneration_anne.to_i %>
+            </option>
             <% i = 0 %> <%21.times do %>
             <option value="<%= i %>"><%= i %></option>
             <%i += 5 %><% end %>
@@ -93,12 +97,15 @@
         <span class="input-error remuneration-anne-error"></span>
 
         <label class="dp-input dp-input-checkbox1">
-          Contrat CDI <% if @offre.contrat_cdi %>
+          <img src="/image/checked2.jpg" alt="checked"
+            style="width: 20px; height: 20px; margin-top: -5px;opacity: 0.8;">
+          Contrat CDI
+          <!-- <% if @offre.contrat_cdi %> -->
           <input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi" checked="checked" />
-          <% else %>
+          <!-- <% else %>
           <input type="checkbox" value="1" name="offre_job[contrat_cdi]" id="offre_job_contrat_cdi" />
           <% end %>
-          <span class="checkmark"></span>
+          <span class="checkmark"></span> -->
         </label>
 
         <%= f.label :type_deplacement, "LE POSTE IMPLIQUE-T-IL DES DÉPLACEMENTS ?" %>
@@ -169,7 +176,9 @@
         <%= f.label :numberEntretien, "QUEL SERA VOTRE PROCESSUS DE RECRUTEMENT ?", class:"ggag" %>
         <div class="co-input">
           <select id="question3" name="offre_job[numberEntretien]" class="co-select">
-            <option value="<%= @offre.numberEntretien %>" selected hidden><% case @offre.numberEntretien.to_i %><% when 1 %>1 entretien RH<% when 2 %>1 entretien RH + 1 entretien Manager<% when 3 %>1 entretien RH + 2 entretiens Manager<% end %></option>
+            <option value="<%= @offre.numberEntretien %>" selected hidden>
+              <% case @offre.numberEntretien.to_i %><% when 1 %>1 entretien RH<% when 2 %>1 entretien RH + 1 entretien
+              Manager<% when 3 %>1 entretien RH + 2 entretiens Manager<% end %></option>
             <option value="1">1 entretien RH</option>
             <option value="2">1 entretien RH + 1 entretien manager</option>
             <option value="3">1 entretien RH + 2 entretiens manager</option>
@@ -202,11 +211,14 @@
         <span class="input-error" id="question5-error"></span>
 
         <div class="co-input co-input-image">
-          <div class="c" id="addImage" style="background: url(<%= @offre.image%>) center no-repeat; background-size: contain"></div>
+          <div class="c" id="addImage"
+            style="background: url(<%= @offre.image%>) center no-repeat; background-size: contain"></div>
           <label>
             <p class="first-p">Logo entreprise</p>
             <p class="last-p">Télécharger une image</p>
-            <span style="display: none"> <%= f.file_field :image , class:'input_fied', accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %> </span>
+            <span style="display: none">
+              <%= f.file_field :image , class:'input_fied', accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+            </span>
           </label>
         </div>
 

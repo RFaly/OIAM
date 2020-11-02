@@ -30,6 +30,10 @@ class OffreJob < ApplicationRecord
 	validates :question4, presence: true
 	validates :question5, presence: true
 
+	def limite_date
+		(self.created_at + 15.days).strftime("%d/%m/%Y")
+	end
+
 	def notified_admin
 		name_entreprise = self.client.entreprise.name
 		NotificationAdmin.create(
