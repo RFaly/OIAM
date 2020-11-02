@@ -614,6 +614,10 @@ body {
     display: flex;
   }
 
+  .post-info{
+    width: 100%;
+  }
+
   .btn-accept{
       margin: 0 auto;
   }
@@ -678,7 +682,7 @@ body {
     width: 100%;
     height: 200px;
     top: 15px;
-    object-fit: cover;
+    object-fit: contain;
   }
   .btn-recherche {
     margin-top: 20px;

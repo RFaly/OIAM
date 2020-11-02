@@ -2,7 +2,6 @@
 <div class="all-content">
   <div class="left-content"><%= render partial: "admin_candidats/left_menu" %></div>
   <div class="main">
-    <h2 class="main-title">MESSAGERIE</h2>
     <% unless @contactCadre.empty? %>
     <% @contactCadre.each do |contact| %> <% nbr = contact.mp_admin_not_see %>
     <div class="<% if nbr == 0 %>box-msg<% else %>clr-bx<% end %>">
