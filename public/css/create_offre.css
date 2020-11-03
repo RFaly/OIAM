@@ -226,6 +226,7 @@
 .create-offre-box .detail-post-box .dp-input textarea:focus {
   border-radius: none;
   outline: 1px solid #d6b36a;
+  outline-offset: 1px;
   box-shadow: 1px 1px 5px 1px #d6b36a;
 }
 
@@ -434,6 +435,7 @@
 .create-offre-box .context-offre-box .co-input textarea:focus {
   border-radius: none;
   outline: 1px solid #d6b36a;
+  outline-offset: -1px;
   box-shadow: 1px 1px 5px 1px #d6b36a;
 }
 

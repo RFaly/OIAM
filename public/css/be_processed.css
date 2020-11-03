@@ -1,0 +1,126 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+}
+
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.admin-bp-box {
+  font: 16px Questrial, sans-serif;
+}
+
+.admin-bp-box .title {
+  text-align: -webkit-center;
+  text-align: -moz-center;
+  text-align: center;
+  font: 500 18px Raleway, sans-serif;
+  color: #d6b36a;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+.admin-bp-box .dp-input {
+  margin: 6px auto 30px auto;
+  text-align: center;
+}
+
+.admin-bp-box .dp-input select {
+  text-align: -webkit-center;
+  text-align: -moz-center;
+  text-align: center;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 0;
+}
+
+.admin-bp-box .dp-input select:focus {
+  border-radius: none;
+  outline: 1px solid #d6b36a;
+  box-shadow: 1px 1px 5px 1px #d6b36a;
+}
+
+.admin-bp-box .co-select {
+  appearance: none;
+  background: #f0f2f4 url("/image/dropdown.png") no-repeat right 1rem center/21px 18px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
+  text-align: center;
+  -webkit-text-align-last: center;
+  -moz-text-align-last: center;
+  -ms-text-align-last: center;
+  text-align: -webkit-center;
+  text-align-last: center;
+}
+
+.admin-bp-box .co-select option {
+  font: 16px Questrial, sans-serif;
+  text-align: -webkit-center;
+  font-size: 15px;
+  text-align: -webkit-center;
+  text-align: -moz-center;
+  text-align: center;
+  -webkit-text-align-last: center;
+  -ms-text-align-last: center;
+  text-align-last: center;
+}
+
+.admin-bp-box .flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.admin-bp-box .flex #none-element {
+  text-align: center;
+}
+
+.admin-bp-box .flex .bp-box {
+  width: 220px;
+  margin: 20px;
+}
+
+.admin-bp-box .flex .bp-box .bp-inside-box {
+  border: 4px solid #d6b36a;
+  padding: 20px 15px;
+  padding-bottom: 0;
+}
+
+.admin-bp-box .flex .bp-box .bp-inside-box .bp-name,
+.admin-bp-box .flex .bp-box .bp-inside-box .bp-date {
+  margin-bottom: 30px;
+}
+
+.admin-bp-box .flex .bp-box .bp-btn {
+  text-align: center;
+  outline: 2px solid #d6b36a;
+  outline-offset: -1px;
+  margin-top: 20px;
+  padding: 10px 0;
+}
+
+.admin-bp-box .flex .bp-box .bp-btn a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font: 500 18px Raleway, sans-serif;
+  padding: 10px 77px;
+  color: #d6b36a;
+}
+
+.admin-bp-box .flex .bp-box .bp-btn:hover, .admin-bp-box .flex .bp-box .bp-btn:active {
+  background: #d6b36a;
+}
+
+.admin-bp-box .flex .bp-box .bp-btn:hover a, .admin-bp-box .flex .bp-box .bp-btn:active a {
+  color: white;
+}

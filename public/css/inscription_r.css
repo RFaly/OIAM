@@ -27,6 +27,7 @@
   border-radius: none;
   outline: none;
   outline: 2px solid #d6b36a;
+  outline-offset: -2px;
   box-shadow: 1px 1px 5px 1px #d6b36a;
 }
 

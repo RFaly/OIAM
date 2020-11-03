@@ -181,9 +181,11 @@ function check_name(test, value) {
     value.show();
 
     test.css('outline', '.2px solid red');
+    test.css('outline-offset', '-0.2px');
   } else {
     test.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
     test.css('outline', '2px solid #e3d7bf ');
+    test.css('outline-offset', '-2px');
     value.hide();
   }
 }
@@ -192,11 +194,13 @@ function check_pass(test, value) {
   var name = test.val().length;
   if (name < 6 || name > 100) {
     test.css('outline', '.2px solid red');
+    test.css('outline-offset', '-0.2px');
     value.html('(Champ obligatoire)');
     value.show();
   } else {
     test.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
     test.css('outline', '2px solid #e3d7bf ');
+    test.css('outline-offset', '-2px');
     value.hide();
   }
 }
@@ -206,11 +210,13 @@ function check_cpass(test, value) {
   var name2 = $('#password-r').val();
   if (name1 != name2) {
     test.css('outline', '.2px solid red');
+    test.css('outline-offset', '-0.2px');
     value.html('(Password confirmation ne concorde pas avec Password)');
     value.show();
   } else {
     test.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
     test.css('outline', '2px solid #e3d7bf ');
+    test.css('outline-offset', '-2px');
     value.hide();
   }
 }
@@ -219,11 +225,13 @@ function check_nil(test, value) {
   var name = test.val().length;
   if (name < 1) {
     test.css('outline', '.2px solid red');
+    test.css('outline-offset', '-0.2px');
     value.html('(Champ obligatoire)');
     value.show();
   } else {
     test.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
     test.css('outline', '2px solid #e3d7bf ');
+    test.css('outline-offset', '-2px');
     value.hide();
   }
 }
@@ -233,9 +241,11 @@ function check_mail(testee, value) {
   if (pattern.test(testee.val())) {
     testee.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
     testee.css('outline', '2px solid #e3d7bf ');
+    testee.css('outline-offset', '-2px');
     value.hide();
   } else {
     testee.css('outline', '.2px solid red');
+    testee.css('outline-offset', '-0.2px');
     value.html('(Adresse email invalide)');
     value.show();
   }
@@ -246,13 +256,16 @@ function check_siret(testee, value) {
   if (siret == 14) {
     testee.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
     testee.css('outline', '2px solid #e3d7bf ');
+    testee.css('outline-offset', '-2px');
     value.hide();
   } else if (siret < 14) {
     testee.css('outline', '.2px solid red');
+    testee.css('outline-offset', '-0.2px');
     value.html('(Le numero de SIRET doit avoir au moins 14 caractères.)');
     value.show();
   } else {
     testee.css('outline', '.2px solid red');
+    testee.css('outline-offset', '-0.2px');
     value.html('(Le numero de SIRET ne doit pas dépasser 14 caractères.)');
     value.show();
   }
@@ -263,9 +276,11 @@ function check_phone(testee, value) {
   if (checkspace.length == 9) {
     testee.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
     testee.css('outline', '2px solid #e3d7bf ');
+    testee.css('outline-offset', '-2px');
     value.hide();
   } else {
     testee.css('outline', '.2px solid red');
+    testee.css('outline-offset', '-0.2px');
     value.html('(Numero téléphone invalide)');
     value.show();
   }
@@ -288,20 +303,25 @@ function check_none(test, value, check) {
   var name = test.val().length;
   if (name < 3) {
     test.css('outline', '.2px solid red');
+    test.css('outline-offset', '-0.2px');
     check.css('outline', '.2px solid red');
+    check.css('outline-offset', '-0.2px');
     check.css('box-shadow', '0px 1px 2px 1px red');
     value.html('(Code invalide)');
     value.show();
   } else {
     if (check.val() == description || check.val() == nameCity) {
       test.css('outline', '.2px solid red');
+      test.css('outline-offset', '-0.2px');
       check.css('outline', '.2px solid red');
+      check.css('outline-offset', '-0.2px');
       check.css('box-shadow', '0px 1px 2px 1px red');
       value.html('(Code invalide)');
       value.show();
     } else {
       test.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
       test.css('outline', '2px solid #e3d7bf ');
+      test.css('outline-offset', '-2px');
       check.css('outline', 'none');
       check.css('box-shadow', 'none');
       value.hide();

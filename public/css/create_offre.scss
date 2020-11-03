@@ -129,6 +129,7 @@
         &:focus {
           border-radius: none;
           outline: 1px solid $main_theme_color;
+          outline-offset: 1px;
           box-shadow: 1px 1px 5px 1px $main_theme_color;
         }
       }
@@ -344,6 +345,7 @@
         &:focus {
           border-radius: none;
           outline: 1px solid $main_theme_color;
+          outline-offset: -1px;
           box-shadow: 1px 1px 5px 1px $main_theme_color;
         }
       }
