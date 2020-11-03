@@ -47,7 +47,9 @@ class CadreInfo < ApplicationRecord
 	end
 
 	def compatibilite
-		self.score_fit * 10
+		unless self.score_fit.nil?
+			self.score_fit * 10
+		end
 	end
 
 	def promise_not_reponded
