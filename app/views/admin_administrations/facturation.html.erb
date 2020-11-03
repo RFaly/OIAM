@@ -20,7 +20,7 @@
 				<p>
 					Facture n°: <%= factureNotConfirmedPayed[:facture].numero_facture %><br>
 					<%= factureNotConfirmedPayed[:promise_to_hire].offre_job.intitule_pote.upcase %><br>
-					<a href="#">VOIR</a>
+					<a href="<%= dashbord_admin_show_facture_path(factureNotConfirmedPayed[:facture].id) %>">VOIR</a>
 				</p>
 			<% end %>
 		<% end %>
@@ -41,7 +41,7 @@
 				<p>
 					Facture n°: <%= factureConfirmedPayed[:facture].numero_facture %><br>
 					<%= factureConfirmedPayed[:promise_to_hire].offre_job.intitule_pote.upcase %><br>
-					<a href="#">VOIR</a>
+					<a href="<%= dashbord_admin_show_facture_path(factureConfirmedPayed[:facture].id) %>">VOIR</a>
 				</p>
 			<% end %>
 		<% end %>
