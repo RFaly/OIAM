@@ -2,24 +2,43 @@ class AdminAdministrationsController < ApplicationAdminController
   def home
   end
 
-  def be_processed
+  def facturation
+
 # 10. Recevoir la facture du recrutement (mail + appli)
 # Liste des recruteurs à envoyer des factures
-		@factureNotPayeds = []
+
+		@factureNotConfirmedPayeds = []
 		Facture.where(ov:nil).each do |facture|
 			if facture.promise_to_hire.payed == false
-				@factureNotPayeds.push([facture])
+				@factureNotConfirmedPayeds.push([facture])
 			end
 		end
 
-# 11. Valider paiement en uploadant l’OV
-# Liste des recruteurs en mode paiement
-		@facturePayeds = Facture.where.not(ov:nil)
+# Liste des recruteurs qui ont téléchargé les factures
+		@factureConfirmedPayeds = []
+		Facture.where(ov:nil).each do |facture|
+			if facture.promise_to_hire.payed == true
+				@factureConfirmedPayeds.push([facture])
+			end
+		end
+
   end
 
-  def pending
+	def paiement
+  	# 11. Valider paiement en uploadant l’OV
+
+		# Liste des recruteurs en mode paiement 
+
+
+  	# Liste des recruteurs qui ont validé le paiement
+  	@facturePayeds = Facture.where.not(ov:nil)
+
+  end
+
+  def statistique
 		# Statistiques générales de tous les tests effectués
-		    cadreInfos = CadreInfo.all
+		
+		cadreInfos = CadreInfo.all
     @clientsNbr = Client.count
 
     @cadresNbr = Cadre.count
@@ -31,7 +50,7 @@ class AdminAdministrationsController < ApplicationAdminController
     unless @cadresNbr == 0
     	@recrutePercent = (@recruteNbr*100)/@cadresNbr
     end
-    
+
     @annoncesNbr = OffreJob.count
 
 # REPONS_CADRE
@@ -80,15 +99,4 @@ class AdminAdministrationsController < ApplicationAdminController
 
   end
 
-  def processed
-  	
-		# 10. Recevoir la facture du recrutement (mail + appli)
-		# Liste des recruteurs qui ont téléchargé les factures
-
-
-  	# 11. Valider paiement en uploadant l’OV
-  	# Liste des recruteurs qui ont validé le paiement
-
-
-  end
 end

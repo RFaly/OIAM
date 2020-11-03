@@ -221,10 +221,13 @@ Rails.application.routes.draw do
   #home
   get 'secret-oiam-page/tableau-de-bord', to: 'admin_administrations#home', as: 'dashbord_admin'
   # administrateur.
-  get 'secret-oiam-page/tableau-de-bord/a-traiter', to: 'admin_administrations#be_processed', as: 'dashbord_admin_be_processed'
-  get 'secret-oiam-page/tableau-de-bord/en-attente', to: 'admin_administrations#pending', as: 'dashbord_admin_pending'
-  get 'secret-oiam-page/tableau-de-bord/traitées', to: 'admin_administrations#processed', as: 'dashbord_admin_processed'
+  get 'secret-oiam-page/tableau-de-bord/facturation', to: 'admin_administrations#facturation', as: 'dashbord_admin_facturation'
+  get 'secret-oiam-page/tableau-de-bord/statistique', to: 'admin_administrations#statistique', as: 'dashbord_admin_statistique'
+  get 'secret-oiam-page/tableau-de-bord/paiement', to: 'admin_administrations#paiement', as: 'dashbord_admin_paiement'
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 
   #clients
   get 'secret-oiam-page/admin-clients/a-traiter', to: 'admin_clients#be_processed', as: 'clients_be_processed'
