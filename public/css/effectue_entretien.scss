@@ -1,0 +1,73 @@
+@import 'config';
+@import 'pagemenu';
+
+.ef-box {
+    padding: 20px;
+
+    .title {
+        text-align: center;
+        text-transform: uppercase;
+        color: $main_theme_color;
+    }
+
+    text-align: center;
+
+    .ef-image {
+        &.img-offre {
+            img {
+                width: 190px;
+                height: 190px;
+                object-fit: contain;
+            }
+        }
+
+        &.img-user {
+            img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin: 10px 0;
+            }
+        }
+    }
+
+    .client {
+        background: $main_theme_color;
+    }
+
+    .cadre {
+        background: $secondary_text_color_button;
+    }
+
+    .client,
+    .cadre {
+        margin: 30px;
+        color: white;
+        margin-top: 50px;
+        width: 270px;
+        padding: 10px;
+
+        .title {
+            color: white;
+        }
+    }
+
+    span {
+        color: $main_theme_color;
+    }
+
+    .offre {
+        padding: 10px;
+        width: 270px;
+        margin: 0 auto;
+        outline: 2px solid $main_theme_color;
+        outline-offset: -2px;
+    }
+
+    .flex-box {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+}

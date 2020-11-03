@@ -1,4 +1,6 @@
 class AdminAdministrationsController < ApplicationAdminController
+  before_action :authenticate_admin!
+
   def home
   end
 
@@ -21,6 +23,14 @@ class AdminAdministrationsController < ApplicationAdminController
 			end
 		end
 
+  end
+
+
+  def show_facture
+    @facture = Facture.find_by_id(params[:id])
+    @pTh = @facture.promise_to_hire
+    @cadreInfo = @pTh.cadre.cadre_info
+    @client = @facture.client
   end
 
 	def paiement

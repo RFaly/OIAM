@@ -109,6 +109,7 @@
 .select-cadre-box .select-cadre-list .flex-candidates .js-candidates-list img {
   width: 82px;
   height: 110px;
+  object-fit: cover;
 }
 
 .select-cadre-box .select-cadre-list .flex-candidates .validation {
@@ -137,12 +138,10 @@
 .select-cadre-box .select-cadre-list .select-cadre-list-items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box {
-  margin: 30px 0;
-  height: 460px;
+  margin: 30px 10px;
   position: relative;
   overflow: hidden;
 }
