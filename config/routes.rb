@@ -217,8 +217,14 @@ Rails.application.routes.draw do
     password: 'mot-de-passe', confirmation: 'verification', edit: 'editer'
   }
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   #home
   get 'secret-oiam-page/tableau-de-bord', to: 'admin_administrations#home', as: 'dashbord_admin'
+  # administrateur.
+  get 'secret-oiam-page/tableau-de-bord/a-traiter', to: 'admin_administrations#be_processed', as: 'dashbord_admin_be_processed'
+  get 'secret-oiam-page/tableau-de-bord/en-attente', to: 'admin_administrations#pending', as: 'dashbord_admin_pending'
+  get 'secret-oiam-page/tableau-de-bord/traitées', to: 'admin_administrations#processed', as: 'dashbord_admin_processed'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   #clients
   get 'secret-oiam-page/admin-clients/a-traiter', to: 'admin_clients#be_processed', as: 'clients_be_processed'
