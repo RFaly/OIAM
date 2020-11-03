@@ -19,9 +19,11 @@
               <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
                 <div><strong>Nom : </strong><%= @cadre.last_name.capitalize %></div>
                 <div><strong>Prénom : </strong><%= @cadre.first_name.capitalize %></div>
-                <div><strong>Date de naissance : </strong><%= @promise.birthday_cadre %></div>
-                <div><strong>Lieu de naissance : </strong><%= @promise.birthplace_cadre %></div>
-                <div><strong>N° sécurité sociale : </strong><%= @promise.ns_sociale_cadre %></div>
+                <% unless @promise.birthday_cadre.nil? || @promise.birthplace_cadre.nil?  ||  @promise.ns_sociale_cadre.nil? %>
+                  <div><strong>Date de naissance : </strong><%= @promise.birthday_cadre %></div>
+                  <div><strong>Lieu de naissance : </strong><%= @promise.birthplace_cadre %></div>
+                  <div><strong>N° sécurité sociale : </strong><%= @promise.ns_sociale_cadre %></div>
+                 <% end %>
               </div>
             </div>
             <hr>
@@ -72,23 +74,31 @@
             </div>
             <hr>
             <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex  justify-content-md-start justify-content-lg-start justify-content-sm-center">Signature électronique candidat</div>
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex flex-row-reverse justify-content-center"><%= image_tag(@promise.signature_candidat, width:'200px', height:'100px')%></div>
+               <% unless @promise.signature_candidat.nil? %>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex  justify-content-md-start justify-content-lg-start justify-content-sm-center">Signature électronique candidat</div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex flex-row-reverse justify-content-center"><%= image_tag(@promise.signature_candidat, width:'200px', height:'100px')%></div>
+              <% end %>  
             </div>
             <hr>
             <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex  justify-content-md-start justify-content-lg-start justify-content-sm-center">CIN ou Passeport</div>
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex flex-row-reverse justify-content-center""><a class="down-btn" href="<%= @promise.cin_pass_port %>">Telecharger</a></div>
+               <% unless @promise.cin_pass_port.nil? %>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex  justify-content-md-start justify-content-lg-start justify-content-sm-center">CIN ou Passeport</div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex flex-row-reverse justify-content-center""><a class="down-btn" href="<%= @promise.cin_pass_port %>">Telecharger</a></div>
+            <% end %>  
             </div>
             <hr>
             <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex  justify-content-md-start justify-content-lg-start justify-content-sm-center">Attestation de sécurité sociale</div>
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex flex-row-reverse justify-content-center"><a class="down-btn" href="<%= @promise.security_certificate %>">Telecharger</a> </div>
+              <% unless @promise.security_certificate.nil? %>              
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex  justify-content-md-start justify-content-lg-start justify-content-sm-center">Attestation de sécurité sociale</div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex flex-row-reverse justify-content-center"><a class="down-btn" href="<%= @promise.security_certificate %>">Telecharger</a> </div>
+            <% end %>
             </div>
             <hr>
             <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex  justify-content-md-start justify-content-lg-start justify-content-sm-center">RIB</div>
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex flex-row-reverse justify-content-center"><a class="down-btn" href="<%= @promise.rib %>">Telecharger</a></div>
+               <% unless @promise.rib.nil? %>             
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex  justify-content-md-start justify-content-lg-start justify-content-sm-center">RIB</div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex flex-row-reverse justify-content-center"><a class="down-btn" href="<%= @promise.rib %>">Telecharger</a></div>
+            <% end %>
             </div>
           </div>
         </div>
