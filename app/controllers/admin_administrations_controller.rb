@@ -6,11 +6,10 @@ class AdminAdministrationsController < ApplicationAdminController
 
 # 10. Recevoir la facture du recrutement (mail + appli)
 # Liste des recruteurs à envoyer des factures
-
 		@factureNotConfirmedPayeds = []
 		Facture.where(ov:nil).each do |facture|
 			if facture.promise_to_hire.payed == false
-				@factureNotConfirmedPayeds.push([facture])
+				@factureNotConfirmedPayeds.push({facture:facture,client:facture.client,promise_to_hire:facture.promise_to_hire})
 			end
 		end
 
@@ -18,7 +17,7 @@ class AdminAdministrationsController < ApplicationAdminController
 		@factureConfirmedPayeds = []
 		Facture.where(ov:nil).each do |facture|
 			if facture.promise_to_hire.payed == true
-				@factureConfirmedPayeds.push([facture])
+				@factureConfirmedPayeds.push({facture:facture,client:facture.client,promise_to_hire:facture.promise_to_hire})
 			end
 		end
 
@@ -26,9 +25,16 @@ class AdminAdministrationsController < ApplicationAdminController
 
 	def paiement
   	# 11. Valider paiement en uploadant l’OV
+		# Liste des recruteurs en mode paiement
 
-		# Liste des recruteurs en mode paiement 
+    # J'atteste régler cette facture par virement dans les 15 jours.
 
+    @factureConfirmedPayeds = []
+    Facture.where(ov:nil).each do |facture|
+      if facture.promise_to_hire.payed == true && facture.created_at.next_day(15).past?
+        @factureConfirmedPayeds.push({facture:facture,client:facture.client,promise_to_hire:facture.promise_to_hire})
+      end
+    end
 
   	# Liste des recruteurs qui ont validé le paiement
   	@facturePayeds = Facture.where.not(ov:nil)
