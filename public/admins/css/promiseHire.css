@@ -1,0 +1,32 @@
+.all-in {
+  border: 1px solid #ccc;
+  padding: 30px;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.renum {
+  word-wrap: break-word;
+}
+
+.down-btn {
+  background: #d6b36a;
+  padding: 10px 30px;
+  color: #fff;
+  border: 2px solid #d6b36a;
+  font-size: 14px;
+  font-family: Raleway, sans-serif;
+  text-decoration: none;
+  outline: none;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+}
+
+.down-btn:hover {
+  background: #fff;
+  border: 2px solid #d6b36a;
+  color: #d6b36a;
+  text-decoration: none;
+}

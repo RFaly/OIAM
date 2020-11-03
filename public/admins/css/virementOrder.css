@@ -1,8 +1,149 @@
-.row {
-	background: #d6b36a;
-	padding: 40px;
+.my-row {
+  background: #d6b36a;
+  padding: 40px;
+  display: flex;
 }
 
 .blc-rgt {
-	border-left: 4px solid #fff;
+  border-left: 4px solid #fff;
+}
+
+.blc-lft h2 {
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-family: Questrial, sans-serif;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  margin-top: 30%;
+}
+
+.import-left {
+  border-right: 4px solid #fff;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.import-rgt {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-family: Questrial, sans-serif;
+  text-transform: uppercase;
+  margin: auto 0;
+}
+
+.import-rgt label {
+  padding: 15px;
+}
+
+.import-file {
+  display: flex;
+  justify-content: center;
+}
+
+.import-file input {
+  border: 1px solid #fff;
+  padding: 15px;
+  color: #fff;
+  font-weight: bold;
+  font-family: Questrial, sans-serif;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+
+.apercu {
+  background: #d6b36a;
+  border: none;
+  border: 2px solid #fff;
+  padding: 15px 30px;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+}
+
+.apercu:hover {
+  background: #fff;
+  border: 2px solid #fff;
+  color: #d6b36a;
+}
+
+.btn-row {
+  display: flex;
+  justify-content: center;
+}
+
+.mport-left img {
+  text-align: center;
+}
+
+.ct-img img {
+  width: 200px;
+}
+
+.ct-text {
+  text-align: center;
+}
+
+.ct-txt strong {
+  text-align: center;
+}
+
+.ct-text strong {
+  color: #fff;
+  text-transform: uppercase;
+  font-family: Questrial, sans-serif;
+  padding: 5px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 540px) {
+  .blc-rgt {
+    border-left: 0px solid #fff;
+  }
+
+  .import-left {
+    border-right: 0px solid #fff;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .blc-rgt {
+    border-left: 0px solid #fff;
+  }
+
+  .import-left {
+    border-right: 0px solid #fff;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .blc-rgt {
+    border-left: 0px solid #fff;
+  }
+
+  .import-left {
+    border-right: 0px solid #fff;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .blc-rgt {
+    border-left: 0px solid #fff;
+  }
+
+  .import-left {
+    border-right: 0px solid #fff;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .blc-rgt {
+    border-left: 0px solid #fff;
+  }
+
+  .import-left {
+    border-right: 0px solid #fff;
+  }
 }
