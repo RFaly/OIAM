@@ -109,6 +109,7 @@
 .select-cadre-box .select-cadre-list .flex-candidates .js-candidates-list img {
   width: 82px;
   height: 110px;
+  object-fit: cover;
 }
 
 .select-cadre-box .select-cadre-list .flex-candidates .validation {
