@@ -19,9 +19,11 @@
               <div class="col">
                 <div>Nom : <%= @cadre.last_name.capitalize %></div>
                 <div>Prénom : <%= @cadre.first_name.capitalize %></div>
-                <div>Date de naissance : <%= @promise.birthday_cadre %></div>
-                <div>Lieu de naissance : <%= @promise.birthplace_cadre %></div>
-                <div>N° sécurité sociale : <%= @promise.ns_sociale_cadre %></div>
+                <% unless @promise.birthday_cadre.nil? && @promise.birthplace_cadre.nil?  &&  @promise.ns_sociale_cadre.nil? %>
+                  <div>Date de naissance : <%= @promise.birthday_cadre %></div>
+                  <div>Lieu de naissance : <%= @promise.birthplace_cadre %></div>
+                  <div>N° sécurité sociale : <%= @promise.ns_sociale_cadre %></div>
+                <% end %>
               </div>
             </div>
             <hr>
@@ -71,25 +73,33 @@
               <div class="col"><%= image_tag(@promise.signature_entreprise, width:'200px', height:'100px')%></div>
             </div>
             <hr>
-            <div class="row">
-              <div class="col">Signature électronique candidat</div>
-              <div class="col"><%= image_tag(@promise.signature_candidat, width:'200px', height:'100px')%></div>
-            </div>
+            <% unless @promise.signature_candidat.nil? %>
+              <div class="row">
+                <div class="col">Signature électronique candidat</div>
+                <div class="col"><%= image_tag(@promise.signature_candidat, width:'200px', height:'100px')%></div>
+              </div>
+            <% end %>
             <hr>
-            <div class="row">
-              <div class="col">CIN ou Passeport</div>
-              <div class="col"><a href="<%= @promise.cin_pass_port %>">Telecharger</a></div>
-            </div>
+            <% unless @promise.cin_pass_port.nil? %>
+              <div class="row">
+                <div class="col">CIN ou Passeport</div>
+                <div class="col"><a href="<%= @promise.cin_pass_port %>">Telecharger</a></div>
+              </div>
+            <% end %>
             <hr>
-            <div class="row">
-              <div class="col">Attestation de sécurité sociale</div>
-              <div class="col"><a href="<%= @promise.security_certificate %>">Telecharger</a> </div>
-            </div>
+            <% unless @promise.security_certificate.nil? %>
+              <div class="row">
+                <div class="col">Attestation de sécurité sociale</div>
+                <div class="col"><a href="<%= @promise.security_certificate %>">Telecharger</a> </div>
+              </div>
+            <% end %>
             <hr>
-            <div class="row">
-              <div class="col">RIB</div>
-              <div class="col"><a href="<%= @promise.rib %>">Telecharger</a></div>
-            </div>
+            <% unless @promise.rib.nil? %>
+              <div class="row">
+                <div class="col">RIB</div>
+                <div class="col"><a href="<%= @promise.rib %>">Telecharger</a></div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
