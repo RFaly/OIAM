@@ -1,0 +1,94 @@
+<link rel="stylesheet" href="/css/admin_prms.css" />
+<div class="client-column">
+  <div class="client-menu-left">
+    <%= render partial: "admin_administrations/left_menu" %>
+  </div>
+
+  <div class="cp-box">
+  	    <div class="show-job-box">
+      <div class="show-publication" id="publish-ajax-hid">
+        <div class="fact-all">
+          <h2>Facture n° <%= @facture.numero_facture %></h2>
+          <table class="table">
+            <tr>
+              <td>
+                Entreprise
+              </td>
+              <td class="txt-fl">
+                <a href="<%= clients_bp_show_client_path(@client.id) %>">
+                  <%= @facture.client.entreprise.name.capitalize %>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Intitulé du poste
+              </td>
+              <td class="txt-fl">
+                <a href="<%= clients_bp_offre_job_no_cadre_path(@pTh.offre_job.id) %>"><%= @pTh.offre_job.intitule_pote %></a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Cadre embauché
+              </td>
+              <td class="txt-fl">
+                <a href="<%= cbp_promise_no_validate_path(@cadreInfo.id) %>">
+                  <%= @cadreInfo.first_name.upcase %> <%= @cadreInfo.last_name.capitalize %>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Précalcul honoraires OIAM
+              </td>
+              <td class="txt-fl">
+                <%= @facture.prix %>€
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Status
+              </td>
+              <td class="txt-fl">
+                <% if @facture.is_payed == true %>
+                  Payer
+                <% else %>
+                  Non Payer
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Facture (pdf)
+              </td>
+              <td class="down-fl">
+                <a href="<%= facturation_pdf_to_pdf_path(@facture.id) %>">TÉLÉCHARGER <i class="fas fa-file-download"></i></a>
+              </td>
+            </tr>
+            <% if @facture.is_payed == true %>
+              <tr>
+                <td>
+                  Ordre de virement
+                </td>
+                <td class="down-fl">
+                  <a href="<%= @facture.ov %>">TÉLÉCHARGER</a>
+                </td>
+              </tr>
+            <% else %>
+              <tr>
+                <td rowspan="2">
+                  <% if @pTh.payed %>
+                    <p><%= @client.entreprise.name.capitalize %> a confirmé de régler la facture par virement dans les 15 jours.</p>
+                  <% else %>
+                    <p><%= @client.entreprise.name.capitalize %> n'a pas confirmé de régler la facture par virement dans les 15 jours.</p>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

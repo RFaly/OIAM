@@ -23,6 +23,14 @@ class AdminAdministrationsController < ApplicationAdminController
 
   end
 
+
+  def show_facture
+    @facture = Facture.find_by_id(params[:id])
+    @pTh = @facture.promise_to_hire
+    @cadreInfo = @pTh.cadre.cadre_info
+    @client = @facture.client
+  end
+
 	def paiement
   	# 11. Valider paiement en uploadant l’OV
 		# Liste des recruteurs en mode paiement
