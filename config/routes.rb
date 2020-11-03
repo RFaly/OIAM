@@ -217,8 +217,17 @@ Rails.application.routes.draw do
     password: 'mot-de-passe', confirmation: 'verification', edit: 'editer'
   }
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   #home
   get 'secret-oiam-page/tableau-de-bord', to: 'admin_administrations#home', as: 'dashbord_admin'
+  # administrateur.
+  get 'secret-oiam-page/tableau-de-bord/facturation', to: 'admin_administrations#facturation', as: 'dashbord_admin_facturation'
+  get 'secret-oiam-page/tableau-de-bord/statistique', to: 'admin_administrations#statistique', as: 'dashbord_admin_statistique'
+  get 'secret-oiam-page/tableau-de-bord/paiement', to: 'admin_administrations#paiement', as: 'dashbord_admin_paiement'
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 
   #clients
   get 'secret-oiam-page/admin-clients/a-traiter', to: 'admin_clients#be_processed', as: 'clients_be_processed'
@@ -263,7 +272,7 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin-clients/a-traiter/voir-client/:id', to: 'admin_clients_be_processed#show_client', as: 'clients_bp_show_client'
   get 'secret-oiam-page/admin-clients/a-traiter/offre-recherche-candidats/:id', to: 'admin_clients_be_processed#offre_job_no_cadre', as: 'clients_bp_offre_job_no_cadre'
   get 'secret-oiam-page/admin-clients/a-traiter/efectue-entretien/:id', to: 'admin_clients_be_processed#effectue_entretien', as: 'clients_bp_effectue_entretien'
-  get 'secret-oiam-page/admin-clients/a-traiter/periode-essai-rompre/:id', to: 'admin_clients_be_processed#periode_rompre', as: 'clients_bp_periode_rompre'
+  get 'secret-oiam-page/admin/periode-essai/:id', to: 'admin_clients_be_processed#periode_rompre', as: 'clients_bp_periode_rompre'
 
   #messagerie clientss
   get 'secret-oiam-page/admin-clients/messageries/:id', to: 'admin_clients#show_message', as: 'clients_show_message'

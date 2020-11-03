@@ -14,21 +14,62 @@ $('#descriptif-mission').on('input', function () {
   $('#descriptif-mission2').val(text);
 });
 /* INITIALISER LES VALEURS */
-var franceData = [
-  { region: 'Auvergne-Rhône-Alpes', departement: ['Tous les départements', 'Ain', 'Allier', 'Ardèche ', 'Cantal', 'Drôme', 'Isère', 'Loire ', 'Haute-Loire ', 'Puy-de-Dôme', ' Rhône + Métropole de Lyon', 'Savoie', 'Haute-Savoie'] },
-  { region: 'Bourgogne-Franche-Comté', departement: ['Tous les départements', "Côte-d'Or", 'Doubs', 'Jura', 'Nièvre', 'Haute-Saône', 'Saône-et-Loire', 'Yonne', 'Territoire de Belfort'] },
-  { region: 'Bretagne', departement: ['Tous les départements', "Côtes-d'Armor", 'Finistère', 'Ille-et-Vilaine', 'Morbihan'] },
-  { region: 'Centre-Val de Loire', departement: ['Tous les départements', 'Cher', 'Eure-et-Loir', 'Indre', 'Indre-et-Loire', 'Loir-et-Cher', 'Loiret'] },
-  { region: 'Corse', departement: ['Tous les départements', 'Corse-du-Sud', 'Haute-Corse'] },
-  { region: 'Grand Est', departement: ['Tous les départements', 'Ardennes', 'Aube', 'Marne', 'Haute-Marne', 'Meurthe-et-Moselle', 'Meuse', 'Moselle', 'Bas-Rhin', 'Haut-Rhin', 'Vosges'] },
-  { region: 'Hauts-de-France', departement: ['Tous les départements', 'Aisne', 'Nord', 'Oise', 'Pas-de-Calais', 'Somme'] },
-  { region: 'Île-de-France', departement: ['Tous les départements', 'Paris', 'Seine-et-Marne', 'Yvelines', 'Essonne', 'Hauts-de-Seine', 'Seine-Saint-Denis', 'Val-de-Marne', "Val-d'Oise"] },
-  { region: 'Normandie', departement: ['Tous les départements', 'Calvados', 'Eure', 'Manche', 'Orne', 'Seine-Maritime'] },
-  { region: 'Nouvelle-Aquitaine', departement: ['Tous les départements', 'Charente', 'Charente-Maritime', 'Corrèze', 'Creuse', 'Dordogne', 'Gironde', 'Landes', 'Lot-et-Garonne', 'Pyrénées-Atlantiques', 'Deux-Sèvres', 'Vienne', 'Haute-Vienne'] },
-  { region: 'Occitanie', departement: ['Tous les départements', 'Ariège', 'Aude', 'Aveyron', 'Gard', 'Haute-Garonne', 'Gers', 'Hérault', 'Lot', 'Lozère', 'Hautes-Pyrénées', 'Pyrénées-Orientales', 'Tarn', 'Tarn-et-Garonne'] },
-  { region: 'Pays de la Loire', departement: ['Tous les départements', 'Loire-Atlantique', 'Maine-et-Loire', 'Mayenne', 'Sarthe', 'Vendée'] },
-  { region: "Provence-Alpes-Côte d'Azur", departement: ['Tous les départements', 'Alpes-de-Haute-Provence', 'Hautes-Alpes', 'Alpes-Maritimes', 'Bouches-du-Rhône', 'Var', 'Vaucluse'] },
-  { region: 'Toutes les régions', departement: ['Tous les départements'] },
+var franceData = [{
+    region: 'Auvergne-Rhône-Alpes',
+    departement: ['Tous les départements', 'Ain', 'Allier', 'Ardèche ', 'Cantal', 'Drôme', 'Isère', 'Loire ', 'Haute-Loire ', 'Puy-de-Dôme', ' Rhône + Métropole de Lyon', 'Savoie', 'Haute-Savoie']
+  },
+  {
+    region: 'Bourgogne-Franche-Comté',
+    departement: ['Tous les départements', "Côte-d'Or", 'Doubs', 'Jura', 'Nièvre', 'Haute-Saône', 'Saône-et-Loire', 'Yonne', 'Territoire de Belfort']
+  },
+  {
+    region: 'Bretagne',
+    departement: ['Tous les départements', "Côtes-d'Armor", 'Finistère', 'Ille-et-Vilaine', 'Morbihan']
+  },
+  {
+    region: 'Centre-Val de Loire',
+    departement: ['Tous les départements', 'Cher', 'Eure-et-Loir', 'Indre', 'Indre-et-Loire', 'Loir-et-Cher', 'Loiret']
+  },
+  {
+    region: 'Corse',
+    departement: ['Tous les départements', 'Corse-du-Sud', 'Haute-Corse']
+  },
+  {
+    region: 'Grand Est',
+    departement: ['Tous les départements', 'Ardennes', 'Aube', 'Marne', 'Haute-Marne', 'Meurthe-et-Moselle', 'Meuse', 'Moselle', 'Bas-Rhin', 'Haut-Rhin', 'Vosges']
+  },
+  {
+    region: 'Hauts-de-France',
+    departement: ['Tous les départements', 'Aisne', 'Nord', 'Oise', 'Pas-de-Calais', 'Somme']
+  },
+  {
+    region: 'Île-de-France',
+    departement: ['Tous les départements', 'Paris', 'Seine-et-Marne', 'Yvelines', 'Essonne', 'Hauts-de-Seine', 'Seine-Saint-Denis', 'Val-de-Marne', "Val-d'Oise"]
+  },
+  {
+    region: 'Normandie',
+    departement: ['Tous les départements', 'Calvados', 'Eure', 'Manche', 'Orne', 'Seine-Maritime']
+  },
+  {
+    region: 'Nouvelle-Aquitaine',
+    departement: ['Tous les départements', 'Charente', 'Charente-Maritime', 'Corrèze', 'Creuse', 'Dordogne', 'Gironde', 'Landes', 'Lot-et-Garonne', 'Pyrénées-Atlantiques', 'Deux-Sèvres', 'Vienne', 'Haute-Vienne']
+  },
+  {
+    region: 'Occitanie',
+    departement: ['Tous les départements', 'Ariège', 'Aude', 'Aveyron', 'Gard', 'Haute-Garonne', 'Gers', 'Hérault', 'Lot', 'Lozère', 'Hautes-Pyrénées', 'Pyrénées-Orientales', 'Tarn', 'Tarn-et-Garonne']
+  },
+  {
+    region: 'Pays de la Loire',
+    departement: ['Tous les départements', 'Loire-Atlantique', 'Maine-et-Loire', 'Mayenne', 'Sarthe', 'Vendée']
+  },
+  {
+    region: "Provence-Alpes-Côte d'Azur",
+    departement: ['Tous les départements', 'Alpes-de-Haute-Provence', 'Hautes-Alpes', 'Alpes-Maritimes', 'Bouches-du-Rhône', 'Var', 'Vaucluse']
+  },
+  {
+    region: 'Toutes les régions',
+    departement: ['Tous les départements']
+  },
 ];
 var listOptionRegion = '';
 var listOptionDepartment = '';
@@ -103,6 +144,7 @@ $('#datepicker').datepicker({
   onSelect: function (date) {
     $('#datepicker').css('box-shadow', '0px 1px 5px 1px #e3d7bf');
     $('#datepicker').css('outline', '2px solid #e3d7bf ');
+    $('#datepicker').css('outline-offset', '-2px');
     $('.dp-date-error').hide();
   },
 });
@@ -222,6 +264,7 @@ $('#co-dp-btn').click(function () {
     $('.detail-post-box').hide();
     $('.context-offre-box').fadeIn(800);
     var html = '';
+
     function round(x) {
       return Math.ceil(x / 5) * 5;
     }
@@ -231,8 +274,7 @@ $('#co-dp-btn').click(function () {
     }
     $('#remuneration-max').html(html);
 
-    $('html, body').animate(
-      {
+    $('html, body').animate({
         scrollTop: $('#elementtoScrollToID').offset().top,
       },
       500
@@ -272,11 +314,13 @@ function check_nil(test, value) {
   var name = test.val().length;
   if (name < 1) {
     test.css('outline', '.2px solid red');
+    test.css('outline-offset', '-0.2px');
     value.html('(Champ obligatoire)');
     value.show();
   } else {
     test.css('box-shadow', '0px 1px 5px 1px #e3d7bf');
     test.css('outline', '2px solid #e3d7bf ');
+    test.css('outline-offset', '-2px');
     value.hide();
   }
 }

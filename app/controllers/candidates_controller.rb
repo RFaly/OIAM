@@ -261,7 +261,7 @@ class CandidatesController < ApplicationController
       ProcessedHistory.create(
         image: "/image/profie.png",
         message: "PLANIFICATION ENTRETIEN",
-        link: "VOIR",
+        link: "<a href='#{clients_bp_show_client_path(@oFc.offre_job.client.id)}'>VOIR",
         is_client:true,
         genre: 1
       )
@@ -721,7 +721,7 @@ class CandidatesController < ApplicationController
         ProcessedHistory.create(
           image: current_cadre.cadre_info.image,
           message: "VALIDATION PERIODE D'ESSAI",
-          link: "<a href='#'>VOIR</a>",
+          link: "<a href='#{clients_bp_periode_rompre_path(@promise.id)}'>VOIR</a>",
           is_client:false,
           genre: 1
         )
@@ -731,7 +731,7 @@ class CandidatesController < ApplicationController
       ProcessedHistory.create(
         image: current_cadre.cadre_info.image,
         message: somaiso,
-        link: "<a href='#'>VOIR</a>",
+        link: "<a href='#{clients_bp_periode_rompre_path(@promise.id)}'>VOIR</a>",
         is_client:true,
         genre: 1
       )

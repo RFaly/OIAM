@@ -11,7 +11,7 @@
   width: 100%;
   min-height: 80vh;
   padding-top: 15px;
-  border-left: 1px solid #d6b36a;
+  /* border-left: 1px solid #d6b36a; */
 }
 
 .box-inside {
@@ -63,7 +63,8 @@
   position: absolute;
 }
 
-.ui-datepicker .ui-datepicker-prev:hover, .ui-datepicker .ui-datepicker-prev:active {
+.ui-datepicker .ui-datepicker-prev:hover,
+.ui-datepicker .ui-datepicker-prev:active {
   box-shadow: 1px 1px 5px 1px #f0f2f4;
 }
 
@@ -79,7 +80,8 @@
   background: url(/image/right.png) no-repeat center/15px 20px;
 }
 
-.ui-datepicker .ui-datepicker-next:hover, .ui-datepicker .ui-datepicker-next:active {
+.ui-datepicker .ui-datepicker-next:hover,
+.ui-datepicker .ui-datepicker-next:active {
   box-shadow: 1px 1px 5px 1px #f0f2f4;
 }
 
@@ -90,7 +92,7 @@
   color: white;
 }
 
-.btn-success{
+.btn-success {
   position: absolute;
   top: 55%;
   left: 35%;
@@ -102,7 +104,7 @@
   cursor: pointer;
 }
 
-.btn-success:hover{
+.btn-success:hover {
   background: #d6b36a;
 }
 
@@ -399,10 +401,11 @@ body {
 
 
 
-.alternatives::after{
+.alternatives::after {
   content: "";
   position: absolute;
-  top: -10px;;
+  top: -10px;
+  ;
   right: 15px;
   display: block;
   width: 0;
@@ -502,7 +505,8 @@ body {
   cursor: pointer;
 }
 
-.date-picker-f .js-timeContainer .fselect .js-hoursTime:hover, .date-picker-f .js-timeContainer .fselect .js-hoursTime:active {
+.date-picker-f .js-timeContainer .fselect .js-hoursTime:hover,
+.date-picker-f .js-timeContainer .fselect .js-hoursTime:active {
   background: white;
   color: #e3d7bf;
 }
@@ -525,7 +529,8 @@ body {
   padding: 10px 30px;
 }
 
-.date-picker-f .planQ-btn input:hover, .date-picker-f .planQ-btn input:active {
+.date-picker-f .planQ-btn input:hover,
+.date-picker-f .planQ-btn input:active {
   background: white;
   color: #e3d7bf;
 }
@@ -569,22 +574,22 @@ body {
   float: none;
 } */
 
-.btn-accept{
-    margin: 0 auto;
-    margin-bottom: 15px;
+.btn-accept {
+  margin: 0 auto;
+  margin-bottom: 15px;
 }
 
-.btn-alternative{
+.btn-alternative {
   cursor: pointer;
   -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.alternative{
+.alternative {
   position: relative;
 }
 
@@ -604,7 +609,7 @@ body {
   background-color: #f0f2f4;
 }
 
-.all-content{
+.all-content {
   margin-bottom: 150px;
 }
 
@@ -614,39 +619,43 @@ body {
     display: flex;
   }
 
-  .post-info{
+  .post-info {
     width: 100%;
   }
 
-  .btn-accept{
-      margin: 0 auto;
+  .btn-accept {
+    margin: 0 auto;
   }
 
-  .main{
+  .main {
     min-height: 800px;
   }
 
   .no-flex {
     clear: both;
   }
+
   .seacrh-drop {
     display: inline;
     width: 180px;
   }
+
   .post_info_content {
     display: flex;
     height: auto;
   }
+
   .logo {
     width: 20%;
     height: auto;
   }
+
   .job_info {
     width: 60%;
     padding-left: 40px;
   }
 
-  .action{
+  .action {
     display: flex;
     grid-column-gap: 5%;
     justify-content: center;
@@ -654,13 +663,14 @@ body {
     width: 35%;
   }
 
-  .accepter{
+  .accepter {
     width: 50%;
   }
 
-  .alternative{
+  .alternative {
     width: 50%;
   }
+
   /* .action {
     position: relative;
     padding-right: 15px;
@@ -677,6 +687,7 @@ body {
   .logo {
     padding: 10px;
   }
+
   .logo img {
     position: relative;
     width: 100%;
@@ -684,12 +695,13 @@ body {
     top: 15px;
     object-fit: contain;
   }
+
   .btn-recherche {
     margin-top: 20px;
   }
 
 
-  .left_link{
+  .left_link {
     z-index: 99999999999;
   }
 
@@ -699,16 +711,20 @@ body {
   .post_info {
     clear: both;
   }
+
   .btn-recherche {
     margin-top: 2px;
     float: right;
   }
+
   .logo {
     width: 25%;
   }
+
   .job_info {
     width: 40%;
   }
+
   .main {
     padding-right: 60px;
     width: 100%;

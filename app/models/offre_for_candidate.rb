@@ -16,7 +16,7 @@ class OffreForCandidate < ApplicationRecord
 	def next_stape
 		self.update(etapes: self.etapes + 1)
 	end
-
+# mila amboarina fa tsy mety
 	def notifed_admin_if_first_candidate
 		if self.offre_job.offre_for_candidates.count == 1			
 			ProcessedHistory.create(

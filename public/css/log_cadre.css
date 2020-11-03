@@ -7,12 +7,15 @@
   padding: 8% 0 0;
   margin: auto;
 }
+
 .log-input::placeholder {
   text-align: center;
 }
+
 .log-input::placeholder {
   text-align: center;
 }
+
 .form-log {
   position: relative;
   z-index: 1;
@@ -23,6 +26,7 @@
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
+
 .form-log .log-input {
   font-family: Questrial, sans-serif;
   outline: 0;
@@ -35,6 +39,7 @@
   font-size: 14px;
   text-align: center;
 }
+
 .form-log .log-button {
   font-family: Raleway, sans-serif;
   text-transform: uppercase;
@@ -49,22 +54,26 @@
   transition: all 0.3 ease;
   cursor: pointer;
 }
+
 .form-log .log-button:hover,
 .form-log .log-button:active,
 .form-log .log-button:focus {
   background: #ffffff;
   color: #d6b36a;
-  border: 1px solid #d6b36a;
+  outline: 1px solid #d6b36a;
 }
+
 .form-log .log-message {
   margin: 15px 0 0;
   color: #b3b3b3;
   font-size: 14px;
 }
+
 .form-log .log-message a {
   color: #d6b36a;
   text-decoration: none;
 }
+
 .log-rem {
   font-family: Questrial, sans-serif;
   text-align: center;
@@ -80,7 +89,8 @@
   transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
   transition-delay: 0s, 0s, 0s;
 }
-.custom-control-input:checked ~ .custom-control-label::before {
+
+.custom-control-input:checked~.custom-control-label::before {
   color: #fff;
   border-color: var(--main-bg-color) !important;
   background-color: var(--main-bg-color) !important;
