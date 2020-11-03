@@ -263,7 +263,7 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin-clients/a-traiter/voir-client/:id', to: 'admin_clients_be_processed#show_client', as: 'clients_bp_show_client'
   get 'secret-oiam-page/admin-clients/a-traiter/offre-recherche-candidats/:id', to: 'admin_clients_be_processed#offre_job_no_cadre', as: 'clients_bp_offre_job_no_cadre'
   get 'secret-oiam-page/admin-clients/a-traiter/efectue-entretien/:id', to: 'admin_clients_be_processed#effectue_entretien', as: 'clients_bp_effectue_entretien'
-  get 'secret-oiam-page/admin-clients/a-traiter/periode-essai-rompre/:id', to: 'admin_clients_be_processed#periode_rompre', as: 'clients_bp_periode_rompre'
+  get 'secret-oiam-page/admin/periode-essai/:id', to: 'admin_clients_be_processed#periode_rompre', as: 'clients_bp_periode_rompre'
 
   #messagerie clientss
   get 'secret-oiam-page/admin-clients/messageries/:id', to: 'admin_clients#show_message', as: 'clients_show_message'
