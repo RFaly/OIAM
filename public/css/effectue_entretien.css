@@ -1,0 +1,82 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+}
+
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.ef-box {
+  padding: 20px;
+  text-align: center;
+}
+
+.ef-box .title {
+  text-align: center;
+  text-transform: uppercase;
+  color: #d6b36a;
+}
+
+.ef-box .ef-image.img-offre img {
+  width: 190px;
+  height: 190px;
+  object-fit: contain;
+}
+
+.ef-box .ef-image.img-user img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px 0;
+}
+
+.ef-box .client {
+  background: #d6b36a;
+}
+
+.ef-box .cadre {
+  background: #e3d7bf;
+}
+
+.ef-box .client,
+.ef-box .cadre {
+  margin: 30px;
+  color: white;
+  margin-top: 50px;
+  width: 270px;
+  padding: 10px;
+}
+
+.ef-box .client .title,
+.ef-box .cadre .title {
+  color: white;
+}
+
+.ef-box span {
+  color: #d6b36a;
+}
+
+.ef-box .offre {
+  padding: 10px;
+  width: 250px;
+  margin: 0 auto;
+  outline: 2px solid #d6b36a;
+  outline-offset: -2px;
+}
+
+.ef-box .flex-box {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
