@@ -51,11 +51,7 @@
                 Status
               </td>
               <td class="txt-fl">
-                <% if @facture.is_payed == true %>
-                  Payer
-                <% else %>
-                  Non Payer
-                <% end %>
+              	<%= @facture.status.capitalize %>
               </td>
             </tr>
             <tr>
