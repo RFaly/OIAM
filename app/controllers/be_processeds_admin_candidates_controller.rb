@@ -1,4 +1,6 @@
 class BeProcessedsAdminCandidatesController < ApplicationAdminController
+  before_action :authenticate_admin!
+  
 	def be_processed_inscription
     @cadre_info = CadreInfo.find_by_id(params[:id])
   end

@@ -1,4 +1,5 @@
 class AdminClientsBeProcessedController < ApplicationAdminController
+	before_action :authenticate_admin!
 
 	def show_client
 		@client = Client.find_by_id(params[:id])
