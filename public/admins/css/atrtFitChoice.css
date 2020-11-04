@@ -213,5 +213,5 @@ img {
   font-weight: bold;
   font-family: Questrial, sans-serif;
   font-size: 14px;
-  text-transform: lowercase;
+  text-transform: none;
 }
