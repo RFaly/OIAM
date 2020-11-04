@@ -9,10 +9,10 @@ class OffreJob < ApplicationRecord
   has_many :cadres, through: :promise_to_hires
 
   has_many :offre_for_candidates
-  has_many :cadres, through: :offre_for_candidates
+  has_many :cadres, through: :offre_for_candidates, dependent: :destroy
 
   has_many :favorite_jobs
-  has_many :cadres, through: :favorite_jobs
+  has_many :cadres, through: :favorite_jobs, dependent: :destroy
 
 	validates :country, presence: true
 	validates :region, presence: true

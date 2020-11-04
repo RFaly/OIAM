@@ -1,5 +1,11 @@
+<!-- reload_page -->
+<script type="text/javascript">
+if (document.URL.indexOf('#') == -1){url = document.URL + '#';location = '#';location.reload(true);}
+</script>
+
 <link rel="stylesheet" href="/css/admin_prms.css" />
 <link rel="stylesheet" href="/admins/css/atrtFitChoice.css">
+
 <div class="client-column">
   <div class="client-menu-left">
     <%= render partial: "admin_candidats/left_menu" %>
@@ -30,14 +36,14 @@
           <% if @cadre_info.is_recrute.nil?%>
 
             <div class="all-info-cadd">
-            <div class="info-cadd">
-              <h3>Vous avez rencontré <%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %> le <strong data-times="<%= @cadre_info.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></strong>, comment s'est déroulé votre entretien ?</h3>
-            </div>
+              <div class="info-cadd">
+                <h3>Vous avez rencontré <%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %> le <strong data-times="<%= @cadre_info.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></strong>, comment s'est déroulé votre entretien ?</h3>
+              </div>
 
-            <div class="row all-btn">
-              <span id="accepted-js" class="mybtn btn-to-hidden-js">ACCEPTER SA CANDIDATURE</span> <br> <br>
-              <span id="refused-js" class="mybtn btn-to-hidden-js">REFUSER SA CANDIDATURE</span>
-            </div>
+              <div class="row all-btn">
+                <span id="accepted-js" class="mybtn btn-to-hidden-js">ACCEPTER SA CANDIDATURE</span> <br> <br>
+                <span id="refused-js" class="mybtn btn-to-hidden-js">REFUSER SA CANDIDATURE</span>
+              </div>
             </div>
 
           <% else %>
@@ -66,7 +72,7 @@
             <div id="show_if_accepted_js" style="display: none;" class="row">
 
               <div class="cont-lft col-lg-6 col-md-6">
-              <%= form_for Cadre.new , url: bp_efectue_entretien_fit_path do |f| %>
+              <%= form_for CadreInfo.new , url: bp_efectue_entretien_fit_path do |f| %>
                 <input type="hidden" name="cadre_id" value="<%=@cadre_info.id%>" >
                 <input type="hidden" name="is_recrute" value="1" id="accept-js-wa">
                 <label for="avi_id_js" class="avis-desc">Avis de One in a million</label>
@@ -84,14 +90,14 @@
 
                 <div class="cont-rgt col-lg-6 col-md-6">
                   <div class="cv-frm">
-                  <div class="cont-my-cv">
-                  <%= f.label :compte_rendu, "Importer le compte rendu", class:"my-cv-label"%>
-                  <%= f.file_field :compte_rendu, class:"form-control-file form-my-cv", accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+                    <div class="cont-my-cv">
+                      <%= f.label :compte_rendu, "Importer le compte rendu", class:"my-cv-label"%>
+                      <%= f.file_field :compte_rendu, class:"form-control-file form-my-cv", accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+                    </div>
+                    <div class="cont-btn">
+                      <%= f.submit 'VALIDER', :class => 'apercu' %>
+                    </div>
                   </div>
-                <div class="cont-btn">
-                  <%= f.submit 'VALIDER', :class => 'apercu' %>
-                </div>
-                </div>
                 </div>
               <% end %>
             </div>
@@ -108,7 +114,9 @@
 <script type="text/javascript">
   $(".currentDatentretien").ready(function(){
     var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+
     var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+
     let $elementDate = $('.currentDatentretien');
     $elementDate.each(function () {
       let dateUTC = moment.utc($(this).data().times);
