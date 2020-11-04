@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/css/admin_prms.css" />
+<link rel="stylesheet" href="/admins/css/show_facture.css">
 <div class="client-column">
   <div class="client-menu-left">
     <%= render partial: "admin_administrations/left_menu" %>
@@ -8,14 +9,14 @@
   	    <div class="show-job-box">
       <div class="show-publication" id="publish-ajax-hid">
         <div class="fact-all">
-          <h2>Facture n° <%= @facture.numero_facture %></h2>
+          <h2 class="fact text-lg-center text-md-center p-2">Facture n° <%= @facture.numero_facture %></h2>
           <table class="table">
             <tr>
               <td>
                 Entreprise
               </td>
               <td class="txt-fl">
-                <a href="<%= clients_bp_show_client_path(@client.id) %>">
+                <a class="link-cust" href="<%= clients_bp_show_client_path(@client.id) %>">
                   <%= @facture.client.entreprise.name.capitalize %>
                 </a>
               </td>
@@ -25,7 +26,7 @@
                 Intitulé du poste
               </td>
               <td class="txt-fl">
-                <a href="<%= clients_bp_offre_job_no_cadre_path(@pTh.offre_job.id) %>"><%= @pTh.offre_job.intitule_pote %></a>
+                <a class="link-cust" href="<%= clients_bp_offre_job_no_cadre_path(@pTh.offre_job.id) %>"><%= @pTh.offre_job.intitule_pote %></a>
               </td>
             </tr>
             <tr>
@@ -33,8 +34,8 @@
                 Cadre embauché
               </td>
               <td class="txt-fl">
-                <a href="<%= cbp_promise_no_validate_path(@cadreInfo.id) %>">
-                  <%= @cadreInfo.first_name.upcase %> <%= @cadreInfo.last_name.capitalize %>
+                <a class="link-cust" href="<%= cbp_promise_no_validate_path(@cadreInfo.id) %>">
+                  <%= @cadreInfo.first_name.capitalize %> <%= @cadreInfo.last_name.upcase %>
                 </a>
               </td>
             </tr>
@@ -59,7 +60,7 @@
                 Facture (pdf)
               </td>
               <td class="down-fl">
-                <a href="<%= facturation_pdf_to_pdf_path(@facture.id) %>">TÉLÉCHARGER <i class="fas fa-file-download"></i></a>
+                <a class="btn-cust" href="<%= facturation_pdf_to_pdf_path(@facture.id) %>">TÉLÉCHARGER <i class="fas fa-file-download"></i></a>
               </td>
             </tr>
             <% if @facture.is_payed == true %>
@@ -68,7 +69,7 @@
                   Ordre de virement
                 </td>
                 <td class="down-fl">
-                  <a href="<%= @facture.ov %>">TÉLÉCHARGER</a>
+                  <a class="btn-cust" href="<%= @facture.ov %>">TÉLÉCHARGER</a>
                 </td>
               </tr>
             <% else %>

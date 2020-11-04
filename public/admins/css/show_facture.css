@@ -1,0 +1,35 @@
+.fact-all {
+  border: 1px solid #d6b36a;
+  padding: 30px;
+}
+
+.link-cust {
+  color: #d6b36a;
+  cursor: pointer;
+}
+
+.link-cust:hover {
+  color: #e3d7bf;
+  text-decoration: none;
+}
+
+.btn-cust {
+  color: #fff;
+  background: #d6b36a;
+  padding: 10px;
+  border: 1px solid #d6b36a;
+  font-size: 12px;
+  font-family: Raleway, sans-serif;
+  cursor: pointer;
+}
+
+.btn-cust:hover {
+  color: #d6b36a;
+  text-decoration: none;
+  border: 1px solid #d6b36a;
+  background: #fff;
+}
+
+.fact {
+  color: #d6b36a;
+}
