@@ -8,7 +8,7 @@
   </div>
   <div class="cp-box">
     <div class="admin-bp-box ">
-      <h5 class="title">A traiter</h5>
+      <!-- <h5 class="title">A traiter</h5> -->
       <div class="dp-input">
 
         <select name="filtre" id="filtre" class="co-select">
@@ -48,7 +48,7 @@
               <%= client.created_at.strftime("%d/%m/%Y") %>
             </div>
             <div class="bp-date">
-              Date limite: <br> ~
+              Date limite : <br> ~
             </div>
           </div>
           <div class="bp-btn">
@@ -72,11 +72,11 @@
               <%= offreJob.client.first_name %> <%= offreJob.client.last_name %>
             </div>
             <div class="bp-date">
-              Date d'entré<e:></e:><br>
+              Date d'entré :<br>
               <%= offreJob.created_at.strftime("%d/%m/%Y") %>
             </div>
             <div class="bp-date">
-              Date limite:<br><%= offreJob.limite_date %>
+              Date limite :<br><%= offreJob.limite_date %>
             </div>
           </div>
           <div class="bp-btn">
@@ -104,11 +104,11 @@
               <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
             </div>
             <div class="bp-date">
-              Date d'entré<e:></e:><br>
+              Date d'entré :<br>
               <span data-times="<%= ac.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
             </div>
             <div class="bp-date">
-              Date limite: <br> ~
+              Date limite : <br> ~
             </div>
           </div>
           <div class="bp-btn">
@@ -138,11 +138,11 @@
               <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
             </div>
             <div class="bp-date">
-              Date d'entré<e:></e:><br>
+              Date d'entré :<br>
               <span data-times="<%= ac.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
             </div>
             <div class="bp-date">
-              Date limite: <br> ~
+              Date limite : <br> ~
             </div>
           </div>
           <div class="bp-btn">
@@ -170,10 +170,10 @@
               <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
             </div>
             <div class="bp-date">
-              Date d'entré<e:></e:><br><%= oFc.offre_job.created_at.strftime("%d/%m/%Y") %>
+              Date d'entré :<br><%= oFc.offre_job.created_at.strftime("%d/%m/%Y") %>
             </div>
             <div class="bp-date">
-              Date limite: <br><%= oFc.offre_job.limite_date %>
+              Date limite : <br><%= oFc.offre_job.limite_date %>
             </div>
           </div>
           <div class="bp-btn">
@@ -200,10 +200,10 @@
               <%= offre_job.client.first_name %> <%= offre_job.client.last_name %>
             </div>
             <div class="bp-date">
-              Date d'entré<e:></e:><br><%= offre_job.date_poste %>
+              Date d'entré :<br><%= offre_job.date_poste %>
             </div>
             <div class="bp-date">
-              Date limite: <br><%= ptH.rupture_time_trying %>
+              Date limite : <br><%= ptH.rupture_time_trying %>
             </div>
           </div>
           <div class="bp-btn">

@@ -1,152 +1,147 @@
-<link rel="stylesheet" href="/css/admin_prms.css" />
-<style media="screen">
-  .cp-box h1 {
-    font-size: 16px;
-    font-family: Raleway, sans-serif;
-    text-transform: uppercase;
-    text-align: center;
-    color: #d6b36a;
-  }
-</style>
+<!-- call css  -->
+<link rel="stylesheet" href="/css/be_processed.css" />
+<!-- call css  -->
+<!-- html body  -->
 <div class="client-column">
   <div class="client-menu-left">
     <%= render partial: "admin_clients/left_menu" %>
   </div>
-
   <div class="cp-box">
-  	<h1>En attente</h1>
+    <div class="admin-bp-box ">
+      <!-- <h5 class="title">En attente</h5> -->
+      <div class="dp-input">
 
-
-    <select name="filtre" id="filtre">
-      <option value=".TOUS" selected="selected">TOUS</option>
-      <option value=".PLANIFICATION_ENTRETIEN">PLANIFICATION ENTRETIEN</option>
-      <option value=".FEEDBACK_ENTRETIEN">FEEDBACK ENTRETIEN</option>
-      <option value=".PROMESSE-D-EMBAUCHE">PROMESSE D'EMBAUCHE</option>
-      <option value=".VALIDATION_PERIODE_D_ESSAI">VALIDATION PERIODE D'ESSAI</option>
-    </select>
-
-    <p id="none-element" style="display: none;">Aucune tâche en attente.</p>
-
-<!-- 
+        <select name="filtre" id="filtre" class="co-select">
+          <option value=".TOUS" selected="selected">TOUS</option>
+          <option value=".PLANIFICATION_ENTRETIEN">PLANIFICATION ENTRETIEN</option>
+          <option value=".FEEDBACK_ENTRETIEN">FEEDBACK ENTRETIEN</option>
+          <option value=".PROMESSE-D-EMBAUCHE">PROMESSE D'EMBAUCHE</option>
+          <option value=".VALIDATION_PERIODE_D_ESSAI">VALIDATION PERIODE D'ESSAI</option>
+        </select>
+      </div>
+      <div class="flex">
+        <p id="none-element" style="display: none;">Aucune tâche en attente.</p>
+        <!-- 
 # 6. Planifie un/des entretiens en fonction du process de recrutement
 # Planification d'entretien en attente du retour du candidat
  -->
 
-    <% unless @listAgendaClientsSends.empty? %>
-      <% @listAgendaClientsSends.each do |listAgendaClientsSend| %>
+        <% unless @listAgendaClientsSends.empty? %>
+        <% @listAgendaClientsSends.each do |listAgendaClientsSend| %>
         <!-- ([oFc,ac]) -->
         <% oFc = listAgendaClientsSend[0] %>
         <% ac = listAgendaClientsSend[1] %>
 
-        <div data-name=".PLANIFICATION_ENTRETIEN" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
-          <div class="atrt-ct-box">
-            <h2 class="atrt-insc">PLANIFICATION ENTRETIEN</h2>
-            <div class="atrt-name">
+        <div data-name=".PLANIFICATION_ENTRETIEN" class="bp-box list-items-me">
+          <div class="bp-inside-box">
+            <div class="bp-inscr">PLANIFICATION ENTRETIEN</div>
+            <div class="bp-name">
               <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
             </div>
-            <div class="atrt-date">
-              Date d'entré<e:></e:><br>
+            <div class="bp-date">
+              Date d'entré :<br>
               <span data-times="<%= ac.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
             </div>
-            <div class="atrt-date">
-              Date limite: <br> ~
+            <div class="bp-date">
+              Date limite : <br> ~
             </div>
           </div>
-          <div class="atrt-btn-gr">
-            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="">GERER</a>
+          <div class="bp-btn">
+            <a href="">GERER</a>
           </div>
         </div>
 
-      <% end %>
-    <% end %>
+        <% end %>
+        <% end %>
 
 
-<!-- # 7. Effectue l’ entretien et donne son feedback
+        <!-- # 7. Effectue l’ entretien et donne son feedback
 # (Etape suivante, accepter, refuser, en attente)
 # Envoi du feedback en attente du retour du candidat
  -->
 
 
-<!-- 
+        <!-- 
 # 9. Valider l’embauche
 # Promesse d'embauche en attente du retour du candidat 
 -->
 
-  <% unless @cadreInfoNotPromiseToHires.empty? %>
-    <% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
-      <% cINPT = cadreInfoNotPromiseToHire.cadre_info %>
-      <div data-name=".PROMESSE-D-EMBAUCHE" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
-        <div class="atrt-ct-box">
-        <h2 class="atrt-insc">PROMESSE D'EMBAUCHE</h2>
-        <div class="atrt-name">
-          <%= cINPT.first_name %> <%= cINPT.last_name %>
+        <% unless @cadreInfoNotPromiseToHires.empty? %>
+        <% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
+        <% cINPT = cadreInfoNotPromiseToHire.cadre_info %>
+        <div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me">
+          <div class="bp-inside-box">
+            <div class="bp-inscr">PROMESSE D'EMBAUCHE</div>
+            <div class="bp-name">
+              <%= cINPT.first_name %> <%= cINPT.last_name %>
+            </div>
+            <div class="bp-date">
+              Date d'entrée :
+              <br>
+              <%= cINPT.promise_not_reponded[1] %>
+            </div>
+            <div class="bp-date">
+              Date limite :
+              <br>
+              <%= cINPT.promise_not_reponded[0] %>
+            </div>
+          </div>
+          <div class="bp-btn">
+            <a href="<%= cbp_promise_no_validate_path(cINPT.id) %>">GERER</a>
+          </div>
         </div>
-        <div class="atrt-date">
-          Date d'entrée:
-          <br>
-          <%= cINPT.promise_not_reponded[1] %>
-        </div>
-        <div class="atrt-date">
-          Date limite:
-          <br>
-          <%= cINPT.promise_not_reponded[0] %>
-        </div>
-      </div>
-        <div class="atrt-btn-gr">
-          <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= cbp_promise_no_validate_path(cINPT.id) %>">GERER</a>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+        <% end %>
+        <% end %>
 
-<!--
+        <!--
 # 12. Valider une période d’essai
 # En attente de la validation de la période d'essai
  -->
 
-      <% unless @cadreInfoValidateTimeTryings.empty? %>
+        <% unless @cadreInfoValidateTimeTryings.empty? %>
         <% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
-          <% pThWa = cadreInfoValidateTimeTrying[0] %>
-          <div data-name=".VALIDATION_PERIODE_D_ESSAI" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
-            <div class="atrt-ct-box">
-              <h2 class="atrt-insc">VALIDATION PERIODE D'ESSAI</h2>
-              <div class="atrt-name">
-                <%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
-              </div>
-              <div class="atrt-date">
-                Date d'entrée:
-                <br>
-                <%= pThWa.offre_job.date_poste %>
-              </div>
-              <div class="atrt-date">
-                Date limite:
-                <br>
-                <%= pThWa.time_trying %>
-              </div>
+        <% pThWa = cadreInfoValidateTimeTrying[0] %>
+        <div data-name=".VALIDATION_PERIODE_D_ESSAI" class="bp-box list-items-me">
+          <div class="bp-inside-box">
+            <div class="bp-inscr">VALIDATION PERIODE D'ESSAI</div>
+            <div class="bp-name">
+              <%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
             </div>
-            <div class="atrt-btn-gr">
-              <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= cbp_promise_no_validate_path(pThWa.cadre.cadre_info.id) %>">GERER</a><!-- promise to hire -->
+            <div class="bp-date">
+              Date d'entrée :
+              <br>
+              <%= pThWa.offre_job.date_poste %>
+            </div>
+            <div class="bp-date">
+              Date limite :
+              <br>
+              <%= pThWa.time_trying %>
             </div>
           </div>
+          <div class="bp-btn">
+            <a href="<%= cbp_promise_no_validate_path(pThWa.cadre.cadre_info.id) %>">GERER</a><!-- promise to hire -->
+          </div>
+        </div>
         <% end %>
-      <% end %>
+        <% end %>
 
-
+      </div>
+    </div>
   </div>
 </div>
-
-
-
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 <script type="text/javascript">
-  $(".currentDatentretien").ready(function(){
-    var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+  $(".currentDatentretien").ready(function () {
+    var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre',
+      'Novembre', 'Décembre'
+    ];
     var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
     let $elementDate = $('.currentDatentretien');
     $elementDate.each(function () {
       let dateUTC = moment.utc($(this).data().times);
       let dateGet = new Date(dateUTC.local());
-      let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+      let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' +
+        dateGet.getFullYear();
       // let minute = dateGet.getMinutes()
       // if((minute+"").length == 1){
       //   minute = "0"+minute
@@ -159,21 +154,21 @@
   if ($(".list-items-me").length == 0) {
     $("#none-element").show(500);
   }
-  $("#filtre").change(function(){
+  $("#filtre").change(function () {
     var search = $(this).val()
     var emptyS = true
-    $(".list-items-me").each(function(){
+    $(".list-items-me").each(function () {
       let thisiko = $(this)
-      if ((search == thisiko.data().name) || (search == ".TOUS")){
+      if ((search == thisiko.data().name) || (search == ".TOUS")) {
         thisiko.show(500);
         emptyS = false
-      }else{
+      } else {
         thisiko.hide(500);
       }
     });
     if (emptyS) {
       $("#none-element").show(500);
-    }else{
+    } else {
       $("#none-element").hide(500);
     }
   });
