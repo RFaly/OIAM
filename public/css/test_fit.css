@@ -22,6 +22,7 @@ body{
 .potential-title{
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	text-align: center;
 }
 
@@ -60,6 +61,7 @@ body{
 	margin: 0 auto;
 	width: 100%;
 	justify-content: center;
+	align-items: center;
 	margin-bottom: 100px;
 }
 
@@ -168,7 +170,7 @@ h2{
 .pass-test{
 	display: block;
   margin: auto;
-  width: 350px;
+  max-width: 350px;
   text-align: center;
   margin-top: 82px;
   margin-bottom: 100px;
@@ -208,6 +210,8 @@ h2{
 .main-container{
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
+	align-items: center;
 	width: 100%;
 }
 h2{
@@ -224,7 +228,7 @@ h2{
 	border: 1px solid #fff;
 	background-color: #e3d7bf;
 	text-align: center;
-	width: 578px;
+	max-width: 578px;
 	margin-bottom: 50px;
 	margin-top: 130px;
 }
@@ -268,11 +272,10 @@ h2{
 }
 
 .skype-time{
-	position: relative;
-	left: 180px;
 	color: white;
-	width: 200px;
+	width: 100%;
 	text-transform: capitalize;
+	text-align: center;
 }
 
 .past-test-menu{
@@ -304,6 +307,13 @@ h2{
 		position: relative;
 		left: 30px;
 	}
+
+.date-container{
+	display: block;
+	margin: 0 auto;
+	width: 100%
+}
+
 }
 
 @media only screen and (min-width: 1024px){
