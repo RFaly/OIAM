@@ -3,19 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>TEST FIT REFUSÉ</title>
-		<style>
+		<!-- <style type="text/css">
 
 			body{
 				font-family: 'Questrial', sans-serif;
 			}
 
 			#para-hide{
-				display: block;
-				margin: 0 auto;
-				width: 100%;
-				max-width: 500px;
-				font-size: 16px;
-				text-align: justify;
+				display: block;margin: 0 auto;width: 100%;max-width: 500px;font-size: 16px;text-align: justify;
 			}
 
 			.title{
@@ -27,8 +22,7 @@
 			}
 
 			.cadre-nom{
-				font-size: 16px;
-				font-weight: bold;
+				font-size: 16px;font-weight: bold;
 			}
 
 			.bouton{
@@ -50,12 +44,12 @@
 
 
 
-		</style>
+		</style> -->
 
   </head>
   <body>
-		<div id="para-hide">
-			<h2 class="cadre-nom">Chère <%= @cadre_info.first_name %>,</h2>
+		<div id="para-hide" style="display: block;margin: 0 auto;width: 100%;max-width: 500px;font-size: 16px;text-align: justify;">
+			<h2 class="cadre-nom" style="font-size: 16px;font-weight: bold;">Chère <%= @cadre_info.first_name %>,</h2>
 			<p>Merci d’avoir passé notre test !</p>
 			<p>Malheureusement, votre score est insuffisant pour vous permettre d’intégrer One in a Million.</p>
 			<p>Nous savons que ces résultats peuvent être frustrants, aussi vous avez la possibilité de passer le test une seconde fois au cours de votre vie, dans un délai minimum de 6 mois.</p>
