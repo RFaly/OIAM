@@ -1,5 +1,9 @@
 <link rel="stylesheet" href="/admins/css/show_message.css" />
 <link rel="stylesheet" href="/admins/css/cand_client_show_msg.css">
+<link rel="stylesheet" href="/admins/css/add_emoji.css">
+<script src="https://kit.fontawesome.com/d06d35ede2.js" crossorigin="anonymous"></script>
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+ <!-- <script src="https://cdn.tiny.cloud/1/6kxgkaq2gcghjn83jgpg8ybq0xm563v2ysq8koshjae7pifk/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
 <!-- body html  -->
 <div class="client-column">
 	<div class="client-menu-left"><%= render "admin_candidats/left_menu" %></div>
@@ -13,7 +17,7 @@
 					<% end %>
 				</div>
 				<div class="desc">
-					<h1 class="name"><%= @contact.cadre.cadre_info.first_name %> <%= @contact.cadre.cadre_info.last_name %></h1>
+					<h1 class="name"><%= @contact.cadre.cadre_info.first_name.capitalize %> <%= @contact.cadre.cadre_info.last_name.capitalize %></h1>
 					<p class="online">
 						<% if @contact.cadre.is_online? %>
 							<small>En ligne</small>
@@ -48,16 +52,86 @@
 	<div class="sd">
 			<input type="hidden" name="id_contact" value="<%= @contact.id%>">
 			<input type="hidden" name="id_cadre" value="<%= @cadre.id %>">
+			<!-- <div id="emojie">
+				<i class="far fa-smile"></i>
+			</div> -->
 			<input placeholder="répondre..." class="ms-in" name="message_admin_cadre[content]" id="message_admin_cadre_content" autocomplete="off"></input>
 			<button type="submit">
 				<img src="/image/send.png" alt="send" class="ms-im"/>
 			</button>
 	</div>
+
+	<div class="emoji-dashboard" style="display: none;">
+				<ul class="emojis">
+					<li class="emoji" data-clipboard-text="--1"><i class="em em---1"></i></li>
+					<li class="emoji" data-clipboard-text="-1"><i class="em em--1"></i></li>
+					<li class="emoji" data-clipboard-text="100"><i class="em em-100"></i></li>
+					<li class="emoji" data-clipboard-text="anguished"><i class="em em-anguished" aria-role="presentation" aria-label="ANGUISHED FACE"></i></li>
+					<li class="emoji" data-clipboard-text="angry"><i class="em em-angry" aria-role="presentation" aria-label="ANGRY FACE"></i></li>
+					<li class="emoji" data-clipboard-text="astonished"><i class="em em-astonished" aria-role="presentation" aria-label="ASTONISHED FACE"></i></li>
+					<li class="emoji" data-clipboard-text="black_heart"><i class="em em-black_heart" aria-role="presentation" aria-label="BLACK HEART"></i></li>
+					<li class="emoji" data-clipboard-text="blush"><i class="em em-blush" aria-role="presentation" aria-label="SMILING FACE WITH SMILING EYES"></i></li>
+					<li class="emoji" data-clipboard-text="clock"><i class="em em-clock1" aria-role="presentation" aria-label="CLOCK FACE ONE OCLOCK"></i></li>
+					<li class="emoji" data-clipboard-text="accept"><i class="em em-accept"></i></li>
+					<li class="emoji" data-clipboard-text="cold_sweat"><i class="em em-cold_sweat" aria-role="presentation" aria-label="FACE WITH OPEN MOUTH AND COLD SWEAT"></i></li>
+					<li class="emoji" data-clipboard-text="airplane"><i class="em em-airplane"></i></li>
+					<li class="emoji" data-clipboard-text="alarm_clock"><i class="em em-alarm_clock"></i></li>
+					<li class="emoji" data-clipboard-text="expressionless"><i class="em em-expressionless" aria-role="presentation" aria-label="EXPRESSIONLESS FACE"></i></li>
+					<li class="emoji" data-clipboard-text="anchor"><i class="em em-anchor"></i></li>
+					<li class="emoji" data-clipboard-text="angel"><i class="em em-angel"></i></li>
+					<li class="emoji" data-clipboard-text="anger"><i class="em em-anger"></i></li>
+					<li class="emoji" data-clipboard-text="angry"><i class="em em-angry"></i></li>
+					<li class="emoji" data-clipboard-text="anguished"><i class="em em-anguished"></i></li>
+					<li class="emoji" data-clipboard-text="heart"><i class="em em-heart" aria-role="presentation" aria-label="HEAVY BLACK HEART"></i></li>
+					<li class="emoji" data-clipboard-text="apple"><i class="em em-apple"></i></li>
+					<li class="emoji" data-clipboard-text="aquarius"><i class="em em-aquarius"></i></li>
+					<li class="emoji" data-clipboard-text="aries"><i class="em em-aries"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_backward"><i class="em em-arrow_backward"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_double_down"><i class="em em-arrow_double_down"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_double_up"><i class="em em-arrow_double_up"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_down"><i class="em em-arrow_down"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_down_small"><i class="em em-arrow_down_small"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_forward"><i class="em em-arrow_forward"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_heading_down"><i class="em em-arrow_heading_down"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_heading_up"><i class="em em-arrow_heading_up"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_left"><i class="em em-arrow_left"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_lower_left"><i class="em em-arrow_lower_left"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_lower_right"><i class="em em-arrow_lower_right"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_right"><i class="em em-arrow_right"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_right_hook"><i class="em em-arrow_right_hook"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_up"><i class="em em-arrow_up"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_up_down"><i class="em em-arrow_up_down"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_up_small"><i class="em em-arrow_up_small"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_upper_left"><i class="em em-arrow_upper_left"></i></li>
+					<li class="emoji" data-clipboard-text="arrow_upper_right"><i class="em em-arrow_upper_right"></i></li>
+					<li class="emoji" data-clipboard-text="arrows_clockwise"><i class="em em-arrows_clockwise"></i></li>
+					<li class="emoji" data-clipboard-text="arrows_counterclockwise"><i class="em em-arrows_counterclockwise"></i></li>
+					<li class="emoji" data-clipboard-text="art"><i class="em em-art"></i></li>
+					<li class="emoji" data-clipboard-text="articulated_lorry"><i class="em em-articulated_lorry"></i></li>
+					<li class="emoji" data-clipboard-text="astonished"><i class="em em-astonished"></i></li>
+					<li class="emoji" data-clipboard-text="atm"><i class="em em-atm"></i></li>
+					<li class="emoji" data-clipboard-text="b"><i class="em em-b"></i></li>
+				</ul>
+			</div>
+
 	<% end %>
 
 	</div>
 </div>
 </div>
+<!-- <script>
+  tinymce.init({
+    selector: ".ms-in",
+    plugins: "emoticons autoresize",
+    toolbar: "emoticons",
+    toolbar_location: "bottom",
+		toolbar_mode: 'floating',
+    menubar: false,
+		statusbar: false
+  });
+</script> -->
+<script src="/admins/js/add_emoji.js"></script>
 <script type="text/javascript">
 	$(".chat-body").animate({ scrollTop: 20000000 }, "slow");
+	$("body").animate({ scrollTop: 20000000 }, "fast");
 </script>
