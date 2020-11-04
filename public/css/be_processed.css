@@ -52,7 +52,7 @@
 
 .admin-bp-box .co-select {
   appearance: none;
-  background: #f0f2f4 url("/image/dropdown.png") no-repeat right 1rem center/21px 18px;
+  background: #f0f2f4 url("/image/dropdown.png") no-repeat right 0.6rem center/21px 18px;
   text-align: -webkit-center;
   text-align: -moz-center;
   text-align: center;
