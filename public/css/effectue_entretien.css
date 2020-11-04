@@ -65,6 +65,7 @@
 
 .ef-box span {
   color: #d6b36a;
+  word-break: break-word;
 }
 
 .ef-box .offre {

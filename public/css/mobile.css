@@ -923,6 +923,9 @@
   .cp-table-box .cp-icon-text img {
     left: -30px;
   }
+  .cp-table-box .cpe-adress {
+    width: auto;
+  }
   .cp-table-box .cpe-description,
   .cp-table-box .cpe-naf {
     text-align: left;
