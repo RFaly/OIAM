@@ -12,11 +12,15 @@ body{
 }
 
 
+.main{
+	margin: 15px;
+}
+
 .mains{
 	display: block;
 	margin: auto;
 	text-align: center;
-	width: 500px;
+	max-width: 500px;
 	margin-top: 145px;
 }
 
