@@ -14,7 +14,7 @@
 .fit-box-right {
   background: #d6b36a;
   box-sizing: border-box;
-  padding: 15px;
+  padding: 27px;
 }
 
 img {
@@ -182,7 +182,7 @@ img {
   background: #d6b36a;
   border: 1px solid #fff;
   color: #fff;
-  padding: 15px 60px;
+  padding: 15px;
 }
 
 .gen-cont {
@@ -213,5 +213,37 @@ img {
   font-weight: bold;
   font-family: Questrial, sans-serif;
   font-size: 14px;
-  text-transform: lowercase;
+  text-transform: none;
+}
+
+@media only screen and (max-width: 540px) {
+  .cd-info {
+    text-align: center;
+  }
+  .cd-info-be p {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .cd-info {
+    text-align: center;
+  }
+  .cd-info-be p {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .cd-info {
+    text-align: center;
+  }
+  .cd-info-be p {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 992px) {
+}
+@media only screen and (max-width: 1200px) {
 }

@@ -6,156 +6,164 @@
   </div>
 
   <div class="cp-box">
-    <div class="container">
+    <<<<<<< HEAD <div class="container">
       <% if @cadre_info.status_state == "admis" %>
-      <div class="row">
-        <div class="block-image col-lg-4 col-md-4 col-sm-12 col-sx-12">
-          <% unless @cadre_info.image.nil? %>
-          <img src="<%= @cadre_info.image %>" alt="photo profil candidats" , width="300px" , height="300px" ,
-            class="pdp" />
-          <% else %>
-          <img src="/image/profie.png" alt="photo profil candidats" , width="300px" , height="300px" , class="pdp" />
-          <% end %>
-        </div>
-        <div class="info-cadd col-lg-8 col-md-8 row col-sm-12 col-xs-12">
-          <div class="info-frst col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <p class="user_name"><%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %> <br>
-            </p>
-            <p><strong>Adresse : </strong><%= @cadre_info.adresse %></p>
-            <p><strong>Code postal : </strong><%= @cadre_info.postal_code %></p>
-            <p><strong>Ville : </strong><%= @cadre_info.city %></p>
-            <p><strong>Téléphone : </strong><%= @cadre_info.telephone %></p>
-            <p><strong>Score du test : </strong><%= @cadre_info.score_potential %></p>
-            <p><strong>Type de poste : </strong><%= @cadre_info.metier.name %></p>
-          </div>
-          <span class="separator">
-            <svg height="210" width="500">
-              <line x1="200" y1="0" x2="200" y2="200" style="stroke:rgb(255,255,255);stroke-width:2" />
-            </svg>
-          </span>
-          <div class="info-secnd col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <p><strong>Profession : </strong><%= @cadre_info.job %></p>
-            <p><strong>Statut : </strong><%= @cadre_info.status.capitalize %></p>
-            <p><strong>Disponibilité : </strong><%= @cadre_info.disponibilite %></p>
-            <p><strong>Mobilité : </strong>
-              <span>
-                <% case @cadre_info.mobilite.to_i %>
-                <% when 1 %>
-                NATIONALE
-                <% when 2 %>
-                INTERNATIONALE
-                <% when 3 %>
-                LOCALE
-                <% when 0 %>
-                PAS DE DÉPLACEMENT
-                <% end %>
-              </span>
-            </p>
-            <p><strong>Salaire (Brut annuel) : </strong><%= @cadre_info.question4.to_i %> k€</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="quest col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="questionnaire">
-            <h2 class="questionnaire-title">Que faites-vous actuellement et que recherchez-vous comme type de poste ?
-            </h2>
-            <p>Type de poste : <%= @cadre_info.metier.name %><br>Profession : <%= @cadre_info.job %></p>
-          </div>
-          <div class="questionnaire">
-            <h2 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h2>
-            <p>
-              <div class="row dep">
-                <div class="depll col-lg-3 col-md-3 dep-border">
-                  <% unless @cadre_info.country.nil? %>
-                  <div class="depl-ttl">Pays</div>
-                  <div class="depl-ct"><%= @cadre_info.country.name %></div>
-                  <% end %>
-                </div>
-                <div class="depll col-lg-3 col-md-3 dep-border">
-                  <% unless @cadre_info.region.nil? %>
-                  <div class="depl-ttl">Region</div>
-                  <div class="depl-ct"><%= @cadre_info.region.name %> </div>
-                  <% end %>
-                </div>
-                <div class="depll col-lg-3 col-md-3 dep-border">
-                  <% unless @cadre_info.ville.nil? %>
-                  <div class="depl-ttl">Ville</div>
-                  <div class="depl-ct"><%= @cadre_info.ville.name %></div>
-                  <% end %>
-                </div>
-                <div class="depll col-lg-3 col-md-3">
-                  <% if @cadre_info.deplacement %>
-                  <div class="depl-ttl">Fréquence de déplacement </div>
-                  <div class="depl-ct"><%= @cadre_info.frequency %></div>
-                  <% else %>
-                  <div class="depl-ct">Pas de déplacement.</div>
-                  <% end %>
-                </div>
-              </div>
-            </p>
-          </div>
-          <div class="questionnaire">
-            <h2 class="questionnaire-title">Quels sont les trois critères les plus importants pour vous dans le choix de
-              votre prochain poste ?</h2>
-            <p><%= @cadre_info.question3 %></p>
-          </div>
-          <div class="questionnaire">
-            <h2 class="questionnaire-title">Quel est le minimum salarial FIXE en dessous duquel il n’est pas nécessaire
-              de vous contacter ?</h2>
-            <p><%= @cadre_info.question4.to_i %> k€</p>
-          </div>
-          <div class="questionnaire">
-            <h2 class="questionnaire-title">Parlez-nous de vous</h2>
-            <p><%= @cadre_info.question5 %></p>
-          </div>
-        </div>
-      </div>
-      <% else %>
-      <div class="row">
-        <div class="block-image col-lg-4 col-md-4 col-sm-12 col-sx-12">
-          <img src="/image/profie.png" alt="photo profil candidats" , width="300px" , height="300px" , class="pdp" />
-        </div>
-        <div class="info-cadd col-lg-12 col-md-8 row col-sm-12 col-xs-12">
-          <div class="info-frst col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <p class="user_name"><%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %> <br>
-            </p>
-            <p><strong>Adresse : </strong><%= @cadre_info.adresse %></p>
-            <p><strong>Code postal : </strong><%= @cadre_info.postal_code %></p>
-            <p><strong>Ville : </strong><%= @cadre_info.city %></p>
-            <p><strong>Téléphone : </strong><%= @cadre_info.telephone %></p>
-            <% if @cadre_info.status == "non admis" %>
-            <p><strong>Statut :</strong><%= @cadre_info.status_state %></p>
+      =======
+      <div>
+        <% if @cadre_info.status_state == "admis" %>
+        >>>>>>> ecad860e15d366496041c428ba20a541f828c977
+        <div class="row">
+          <div class="block-image col-lg-4 col-md-4 col-sm-12 col-sx-12">
+            <% unless @cadre_info.image.nil? %>
+            <img src="<%= @cadre_info.image %>" alt="photo profil candidats" , width="300px" , height="300px" ,
+              class="pdp" />
             <% else %>
-            <p><strong>Statut :</strong><%= @cadre_info.status_state %></p>
+            <img src="/image/profie.png" alt="photo profil candidats" , width="300px" , height="300px" , class="pdp" />
             <% end %>
           </div>
+          <div class="info-cadd col-lg-8 col-md-8 row col-sm-12 col-xs-12">
+            <div class="info-frst col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <h4 class="user_name"><%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %>
+                <br></h4>
+              <p><strong>Adresse : </strong><%= @cadre_info.adresse %></p>
+              <p><strong>Code postal : </strong><%= @cadre_info.postal_code %></p>
+              <p><strong>Ville : </strong><%= @cadre_info.city %></p>
+              <p><strong>Téléphone : </strong><%= @cadre_info.telephone %></p>
+              <p><strong>Score du test : </strong><%= @cadre_info.score_potential %></p>
+              <p><strong>Type de poste : </strong><%= @cadre_info.metier.name %></p>
+            </div>
+            <span class="separator">
+              <svg height="210" width="500">
+                <line x1="200" y1="0" x2="200" y2="200" style="stroke:rgb(255,255,255);stroke-width:2" />
+              </svg>
+            </span>
+            <div class="info-secnd col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <p><strong>Profession : </strong><%= @cadre_info.job %></p>
+              <p><strong>Statut : </strong><%= @cadre_info.status.capitalize %></p>
+              <p><strong>Disponibilité : </strong><%= @cadre_info.disponibilite %></p>
+              <p><strong>Mobilité : </strong>
+                <span>
+                  <% case @cadre_info.mobilite.to_i %>
+                  <% when 1 %>
+                  NATIONALE
+                  <% when 2 %>
+                  INTERNATIONALE
+                  <% when 3 %>
+                  LOCALE
+                  <% when 0 %>
+                  PAS DE DÉPLACEMENT
+                  <% end %>
+                </span>
+              </p>
+              <p><strong>Salaire (Brut annuel) : </strong><%= @cadre_info.question4.to_i %> k€</p>
+            </div>
+          </div>
         </div>
+
+        <div class="row">
+          <div class="quest col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="questionnaire">
+              <h2 class="questionnaire-title">Que faites-vous actuellement et que recherchez-vous comme type de poste ?
+              </h2>
+              <p>Type de poste : <%= @cadre_info.metier.name %><br>Profession : <%= @cadre_info.job %></p>
+            </div>
+            <div class="questionnaire">
+              <h2 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h2>
+              <p>
+                <div class="row dep">
+                  <div class="depll col-lg-3 col-md-3 dep-border">
+                    <% unless @cadre_info.country.nil? %>
+                    <div class="depl-ttl">Pays</div>
+                    <div class="depl-ct"><%= @cadre_info.country.name %></div>
+                    <% end %>
+                  </div>
+                  <div class="depll col-lg-3 col-md-3 dep-border">
+                    <% unless @cadre_info.region.nil? %>
+                    <div class="depl-ttl">Region</div>
+                    <div class="depl-ct"><%= @cadre_info.region.name %> </div>
+                    <% end %>
+                  </div>
+                  <div class="depll col-lg-3 col-md-3 dep-border">
+                    <% unless @cadre_info.ville.nil? %>
+                    <div class="depl-ttl">Ville</div>
+                    <div class="depl-ct"><%= @cadre_info.ville.name %></div>
+                    <% end %>
+                  </div>
+                  <div class="depll col-lg-3 col-md-3">
+                    <% if @cadre_info.deplacement %>
+                    <div class="depl-ttl">Fréquence de déplacement </div>
+                    <div class="depl-ct"><%= @cadre_info.frequency %></div>
+                    <% else %>
+                    <div class="depl-ct">Pas de déplacement.</div>
+                    <% end %>
+                  </div>
+                </div>
+              </p>
+            </div>
+            <div class="questionnaire">
+              <h2 class="questionnaire-title">Quels sont les trois critères les plus importants pour vous dans le choix
+                de
+                votre prochain poste ?</h2>
+              <p><%= @cadre_info.question3 %></p>
+            </div>
+            <div class="questionnaire">
+              <h2 class="questionnaire-title">Quel est le minimum salarial FIXE en dessous duquel il n’est pas
+                nécessaire
+                de vous contacter ?</h2>
+              <p><%= @cadre_info.question4.to_i %> k€</p>
+            </div>
+            <div class="questionnaire">
+              <h2 class="questionnaire-title">Parlez-nous de vous</h2>
+              <p><%= @cadre_info.question5 %></p>
+            </div>
+          </div>
+        </div>
+        <% else %>
+        <div class="row">
+          <div class="block-image col-lg-4 col-md-4 col-sm-12 col-sx-12">
+            <img src="/image/profie.png" alt="photo profil candidats" , width="300px" , height="300px" , class="pdp" />
+          </div>
+          <div class="info-cadd col-lg-12 col-md-8 row col-sm-12 col-xs-12">
+            <div class="info-frst col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <p class="user_name"><%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %> <br>
+              </p>
+              <p><strong>Adresse : </strong><%= @cadre_info.adresse %></p>
+              <p><strong>Code postal : </strong><%= @cadre_info.postal_code %></p>
+              <p><strong>Ville : </strong><%= @cadre_info.city %></p>
+              <p><strong>Téléphone : </strong><%= @cadre_info.telephone %></p>
+              <% if @cadre_info.status == "non admis" %>
+              <p><strong>Statut :</strong><%= @cadre_info.status_state %></p>
+              <% else %>
+              <p><strong>Statut :</strong><%= @cadre_info.status_state %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="quest col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="questionnaire">
+              <h2 class="questionnaire-title">Quels sont les trois critères les plus importants pour vous dans le choix
+                de
+                votre prochain poste ?</h2>
+              <p><%= @cadre_info.question3 %></p>
+            </div>
+            <div class="questionnaire">
+              <h2 class="questionnaire-title">Quel est le minimum salarial FIXE en dessous duquel il n’est pas
+                nécessaire
+                de vous contacter ?</h2>
+              <p><%= @cadre_info.question4.to_i %> k€</p>
+            </div>
+            <div class="questionnaire">
+              <h2 class="questionnaire-title">Parlez-nous de vous</h2>
+              <p><%= @cadre_info.question5 %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
       </div>
 
-      <div class="row">
-        <div class="quest col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="questionnaire">
-            <h2 class="questionnaire-title">Quels sont les trois critères les plus importants pour vous dans le choix de
-              votre prochain poste ?</h2>
-            <p><%= @cadre_info.question3 %></p>
-          </div>
-          <div class="questionnaire">
-            <h2 class="questionnaire-title">Quel est le minimum salarial FIXE en dessous duquel il n’est pas nécessaire
-              de vous contacter ?</h2>
-            <p><%= @cadre_info.question4.to_i %> k€</p>
-          </div>
-          <div class="questionnaire">
-            <h2 class="questionnaire-title">Parlez-nous de vous</h2>
-            <p><%= @cadre_info.question5 %></p>
-          </div>
-        </div>
-      </div>
-      <% end %>
-    </div>
-
-    <!-- <h2>Liste des candidats qui sont arrivés au bout de leur période d'essai et qui n'ont pas encore été validés dans le système.</h2> -->
-    <!-- <h2>Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu</h2> -->
+      <!-- <h2>Liste des candidats qui sont arrivés au bout de leur période d'essai et qui n'ont pas encore été validés dans le système.</h2> -->
+      <!-- <h2>Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu</h2> -->
   </div>
 </div>

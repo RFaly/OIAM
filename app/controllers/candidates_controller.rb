@@ -259,7 +259,7 @@ class CandidatesController < ApplicationController
 
       # 6. Planifie
       ProcessedHistory.create(
-        image: "/image/profie.png",
+        image: "/image/work.png",
         message: "PLANIFICATION ENTRETIEN",
         link: "<a href='#{clients_bp_show_client_path(@oFc.offre_job.client.id)}'>VOIR",
         is_client:true,
@@ -674,7 +674,7 @@ class CandidatesController < ApplicationController
 
       # 9. Valider l’embauche client
       ProcessedHistory.create(
-        image: "/image/profie.png",
+        image: "/image/work.png",
         message: "PROMESSE D'EMBAUCHE",
         link: "<a href='#{cp_show_promise_path(@promise.id)}'>VOIR</a>",#VOIR LE PROMESSE
         is_client:true,
