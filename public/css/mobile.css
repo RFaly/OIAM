@@ -1386,12 +1386,12 @@
   .accueilg-content1 .ac-item2 {
     margin: 110px 0;
   }
-  .footer-bottom {
+  .footer-oiam .footer-bottom {
     flex-wrap: wrap;
     justify-content: space-between;
     flex-direction: row;
   }
-  .footer-bottom .footer-c {
+  .footer-oiam .footer-bottom .footer-c {
     width: 65%;
   }
   .social a {

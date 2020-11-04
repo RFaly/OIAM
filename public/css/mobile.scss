@@ -2015,13 +2015,15 @@
   }
 
   // footer
-  .footer-bottom {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: row;
+  .footer-oiam {
+    .footer-bottom {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      flex-direction: row;
 
-    .footer-c {
-      width: 65%;
+      .footer-c {
+        width: 65%;
+      }
     }
   }
 
