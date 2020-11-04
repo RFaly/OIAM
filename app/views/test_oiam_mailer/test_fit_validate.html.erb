@@ -1,11 +1,13 @@
 <div id="para-hide">
 	<div id="potential-title-show">
 
-		<h1>Entretient fit validé</h1>
+	<h1>Entretient fit validé</h1>
 
     <h2>Bonjour <%= @cadre_info.first_name %> <%= @cadre_info.last_name %></h2>
 
-    <p>Votre date d'entretien du <%= l @cadre_info.agenda_admin.entretien_date, :format => :long %>" UTC a été validé. Veuillez cliquer sur ce lien pour continuer.</p>
+    <p>Votre date d'entretien du <strong><%= l @cadre_info.agenda_admin.entretien_date, :format => :long %> UTC</strong> a été validé.</p>
+
+    <!-- Veuillez cliquer sur ce lien pour continuer. -->
 
 	</div>
 </div>

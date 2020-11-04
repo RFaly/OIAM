@@ -56,12 +56,12 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
     errorMessage = ""
     fileCv = FileUploader.new
     @cadre_infos = CadreInfo.find_by_id(params[:cadre_id])
-    if params[:cadre][:compte_rendu].nil?
+    if params[:cadre_info][:compte_rendu].nil?
       errorMessage += " [ Importer le compte rendu ] "
     else
       is_cv = true
       begin
-        fileCv.store!(params[:cadre][:compte_rendu])
+        fileCv.store!(params[:cadre_info][:compte_rendu])
       rescue StandardError => e
         is_cv = false
         errorMessage += " [ Compte rendu : #{e.message} ] "

@@ -10,6 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap" rel="stylesheet" />
   <%= stylesheet_link_tag 'application', media: 'all','data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag'application', 'data-turbolinks-track': 'reload' %>
+  <!-- call icon top -->
+  <link rel="icon" type="image/png" href="/image/OIAM_DIAMOND.png" />
+  <!-- call icon end  -->
   <link rel="stylesheet" href="/css/mobile.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -21,27 +24,27 @@
 <body>
   <%= render "layouts/navbar_admin" %>
 
-    <% if notice %>
-      <div class="flash">
-        <div class="flash-notice">
-          <div class="icon">
-            <img src="/image/flash-valid.png" alt="Icone" />
-          </div>
-          <div><%= notice %></div>
-        </div>
+  <% if notice %>
+  <div class="flash">
+    <div class="flash-notice">
+      <div class="icon">
+        <img src="/image/flash-valid.png" alt="Icone" />
       </div>
-    <% end %>
+      <div><%= notice %></div>
+    </div>
+  </div>
+  <% end %>
 
-    <% if alert %>
-      <div class="flash">
-        <div class="flash-alert">
-          <div class="icon">
-            <img src="/image/flash-unvalid.png" alt="Icone" />
-          </div>
-          <div><%= alert %></div>
-        </div>
+  <% if alert %>
+  <div class="flash">
+    <div class="flash-alert">
+      <div class="icon">
+        <img src="/image/flash-unvalid.png" alt="Icone" />
       </div>
-    <% end %>
+      <div><%= alert %></div>
+    </div>
+  </div>
+  <% end %>
 
   <div id="loading-indicator">
     <div id="spinner"></div>
@@ -54,7 +57,6 @@
       stopSpinner();
     })
   </script>
-  <script type="text/javascript" data-turbolinks-track="reload" src="/js/check_path.js"></script>
 </body>
 
 </html>

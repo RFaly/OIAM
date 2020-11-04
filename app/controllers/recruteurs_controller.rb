@@ -310,7 +310,20 @@ class RecruteursController < ApplicationController
 
 		if @offre.etapes == 1
 			@offre.next_stape
+
+			# 5. Recherche et sélectionne des candidats
+			if @offre.offre_for_candidates.where(accepted_postule:true).count == 1
+				ProcessedHistory.create(
+					image: "/image/profie.png",
+					message: "SELECTION CANDIDATS",
+					link: "VOIR",
+					is_client:true,
+					genre: 1
+				)
+			end
+			
 		end
+
 
 		redirect_to show_favorite_cadres_path(@offre.id)
 

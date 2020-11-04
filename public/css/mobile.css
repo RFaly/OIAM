@@ -3,6 +3,8 @@
   margin: 0;
   padding: 0;
   line-height: 1.5;
+  word-break: break-word;
+  word-wrap: break-word;
 }
 
 .option-center {
@@ -767,6 +769,15 @@
   .fc-box .co-any-job {
     padding: 50px 10px;
   }
+  .admincp-box {
+    padding: 20px;
+  }
+  .admincp-box .acp-flex {
+    margin: 15px 0;
+  }
+  .admincp-box .acp-flex .acp-link a {
+    padding: 10px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -922,6 +933,9 @@
   }
   .cp-table-box .cp-icon-text img {
     left: -30px;
+  }
+  .cp-table-box .cpe-adress {
+    width: auto;
   }
   .cp-table-box .cpe-description,
   .cp-table-box .cpe-naf {
@@ -1233,6 +1247,15 @@
   .promise .pc-sign-cadre .image {
     margin: 10px 0;
     margin-left: 10px;
+  }
+  .admincp-box {
+    padding: 50px;
+  }
+  .admincp-box .acp-flex {
+    margin: 30px 0;
+  }
+  .admincp-box .acp-flex .acp-link a {
+    padding: 10px 30px;
   }
 }
 
@@ -1977,6 +2000,9 @@
   .message-box .message-contact-items .link {
     width: 85%;
   }
+  .admincp-box {
+    padding: 20px 150px;
+  }
 }
 
 @media screen and (min-width: 1500px) {
@@ -2055,6 +2081,9 @@
   }
   .message-box .message-contact-items .link {
     width: 90%;
+  }
+  .admincp-box {
+    padding: 20px 250px;
   }
 }
 
