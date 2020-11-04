@@ -5,7 +5,7 @@
 		<% if @cadreInfo.score_potential.nil? %>
 			<div class="row">
 				<div class="col-sm-3">
-					<div class="loader" id="form-js-code" data-path="<%= getScoresPotential_path(@cadreInfo.confirm_token) %>"></div>
+					<div class="loader lds-facebook" id="form-js-code" data-path="<%= getScoresPotential_path(@cadreInfo.confirm_token) %>"><div></div><div></div><div></div></div>
 				</div>
 				<div class="col-sm-9">
 					<h2>Chère <%= @cadreInfo.first_name %></h2>
@@ -36,7 +36,7 @@
 				<p>Afin de maximiser vos chances, nous vous proposons des ateliers de coaching.</p>
 				<!-- formation_all_path(comfirm:@cadreInfo.confirm_token) -->
 				<%= link_to "AMÉLIORER MES RESULTATS","#", class:'pass-test', id:'link-to-resultats' %>
-				
+
 			<% else %>
 				<% if @cadreInfo.score_fit.nil? %>
 					<div class="content">
@@ -67,29 +67,46 @@
 </div>
 
 <style>
-	.loader {
-	  border: 16px solid #d6b36a;
-	  border-radius: 50%;
-	  border-top: 16px solid white;
-	  border-bottom: 16px solid white;
+	.lds-facebook {
+	  display: inline-block;
+	  position: relative;
 	  width: 120px;
 	  height: 120px;
-	  -webkit-animation: spin 2s linear infinite;
-	  animation: spin 2s linear infinite;
+	}
+	.lds-facebook div {
+	  display: inline-block;
+	  position: absolute;
+	  left: 8px;
+	  width: 16px;
+	  background: #fff;
+	  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+	}
+	.lds-facebook div:nth-child(1) {
+	  left: 8px;
+	  animation-delay: -0.24s;
+	}
+	.lds-facebook div:nth-child(2) {
+	  left: 32px;
+	  animation-delay: -0.12s;
+	}
+	.lds-facebook div:nth-child(3) {
+	  left: 56px;
+	  animation-delay: 0;
+	}
+	@keyframes lds-facebook {
+	  0% {
+	    top: 8px;
+	    height: 64px;
+	  }
+	  50%, 100% {
+	    top: 24px;
+	    height: 32px;
+	  }
 	}
 
-	@-webkit-keyframes spin {
-	  0% { -webkit-transform: rotate(0deg); }
-	  100% { -webkit-transform: rotate(360deg); }
-	}
-
-	@keyframes spin {
-	  0% { transform: rotate(0deg); }
-	  100% { transform: rotate(360deg); }
-	}
 </style>
 
-<!-- 
+<!--
 [
   {
     "Prenom": "MARIE",
