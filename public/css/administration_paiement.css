@@ -1,0 +1,84 @@
+.client-column {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+}
+
+.cp-box {
+  width: 100%;
+  min-height: 80vh;
+  padding-top: 15px;
+}
+
+.box-inside {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.admp-box {
+  font: 16px Questrial, sans-serif;
+  padding: 0 20px;
+}
+
+.admp-box .title {
+  text-align: -webkit-center;
+  text-align: -moz-center;
+  text-align: center;
+  font: 500 18px Raleway, sans-serif;
+  color: #d6b36a;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+.admp-box .subtitle {
+  text-align: center;
+}
+
+.admp-box .admp-flex {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.admp-box .admp-flex .admp-f-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 280px;
+  padding: 50px 0;
+  margin: 20px 0;
+  text-align: center;
+  outline: 2px solid #d6b36a;
+  outline-offset: -1px;
+}
+
+.admp-box .admp-flex .admp-f-box .fact {
+  margin-bottom: 30px;
+}
+
+.admp-box .admp-flex .admp-f-box .link {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.admp-box .admp-flex .admp-f-box .link a {
+  outline: 2px solid #d6b36a;
+  outline-offset: -1px;
+  margin-top: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font: 500 18px Raleway, sans-serif;
+  padding: 10px 77px;
+  color: #d6b36a;
+}
+
+.admp-box .admp-flex .admp-f-box .link a:hover, .admp-box .admp-flex .admp-f-box .link a:active {
+  background: #d6b36a;
+  color: white;
+}
+
+.admp-box .admp-flex .admp-f-box span {
+  color: #d6b36a;
+}

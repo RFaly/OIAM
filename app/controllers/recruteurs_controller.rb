@@ -314,9 +314,9 @@ class RecruteursController < ApplicationController
 			# 5. Recherche et sélectionne des candidats
 			if @offre.offre_for_candidates.where(accepted_postule:true).count == 1
 				ProcessedHistory.create(
-					image: "/image/profie.png",
+					image: "/image/work.png",
 					message: "SELECTION CANDIDATS",
-					link: "VOIR",
+					link: "<a href='#{clients_bp_offre_job_no_cadre_path(@offre.id)}'>VOIR</a>",
 					is_client:true,
 					genre: 1
 				)
@@ -852,7 +852,7 @@ class RecruteursController < ApplicationController
 	      ProcessedHistory.create(
 	        image: @cadre.cadre_info.image,
 	        message: somaiso,
-	        link: "<<a href='#{clients_bp_periode_rompre_path(@promise.id)}'>VOIR</a>",
+	        link: "<a href='#{clients_bp_periode_rompre_path(@promise.id)}'>VOIR</a>",
 	        is_client:true,
 	        genre: 1
 	      )

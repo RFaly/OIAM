@@ -7,9 +7,9 @@ class AgendaClient < ApplicationRecord
 	def notifed_admin_if_first_candidate
 		if self.offre_for_candidate.offre_job.offre_for_candidates.where(accepted_postule:true).count == 1
 			ProcessedHistory.create(
-        image: "/image/profie.png",
+        image: "/image/work.png",
         message: "SELECTION CANDIDATS",
-        link: "VOIR",
+        link: "<a href='#{clients_bp_offre_job_no_cadre_path(self.offre_for_candidate.offre_job.id)}'>VOIR</a>",
         is_client:true,
         genre: 1
       )

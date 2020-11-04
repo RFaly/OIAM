@@ -95,9 +95,13 @@
   background: #f0f2f4;
   text-align: left;
   padding: 5px 20px;
-  border-radius: 50px;
-  width: 50%;
+  width: auto;
   margin-top: 10px;
+  max-width: 50%;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 .hr-mg p {
@@ -109,16 +113,21 @@
   text-align: justify;
   margin: auto 0;
   padding: 10px;
+  text-align: left;
 }
 
 .m-msg {
   float: right;
   margin-top: 10px;
   background: #d6b36a;
-  border-radius: 50px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   padding: 5px 20px;
   text-align: left;
-  width: 50%;
+  width: auto;
+  max-width: 50%;
 }
 
 .m-msg p {
@@ -130,6 +139,7 @@
   text-align: justify;
   margin: auto 0;
   padding: 10px;
+  text-align: right;
 }
 
 .sd {

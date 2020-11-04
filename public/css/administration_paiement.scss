@@ -1,0 +1,71 @@
+@import 'config';
+@import 'pagemenu';
+
+.admp-box {
+    font: $ffsentence;
+    padding: 0 20px;
+
+    .title {
+        text-align: -webkit-center;
+        text-align: -moz-center;
+        text-align: center;
+        font: $ffbtn;
+        color: $main_theme_color;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+    }
+
+    .subtitle {
+        text-align: center;
+    }
+
+    .admp-flex {
+        margin-bottom: 50px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+        .admp-f-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 280px;
+            padding: 50px 0;
+            margin: 20px 0;
+            text-align: center;
+            outline: 2px solid $main_theme_color;
+            outline-offset: -1px;
+
+            .fact {
+                margin-bottom: 30px;
+            }
+
+            .link {
+                width: 100%;
+                margin-top: 50px;
+
+                a {
+                    outline: 2px solid $main_theme_color;
+                    outline-offset: -1px;
+                    margin-top: 20px;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font: $ffbtn;
+                    padding: 10px 77px;
+                    color: $main_theme_color;
+
+                    &:hover,
+                    &:active {
+                        background: $main_theme_color;
+                        color: white;
+
+                    }
+                }
+            }
+
+            span {
+                color: $main_theme_color;
+            }
+        }
+    }
+}

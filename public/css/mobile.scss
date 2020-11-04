@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   line-height: 1.5;
-  word-break: break-word;
+  //word-break: break-word;
   word-wrap: break-word;
   // z-index: 1;
 }
@@ -177,10 +177,6 @@
     overflow-x: hidden;
   }
 
-  // footer mail
-  #input-mail {
-    flex-direction: column;
-  }
 
   // bg unique
   .bg-uniq {
@@ -298,14 +294,29 @@
 
   // footer
   ////////////////////////////////////////
-  .footer-bottom {
-    justify-content: center;
-    flex-direction: column;
-    align-content: space-between;
 
-    div {
-      margin-bottom: 10px;
+
+  // footer mail
+  .footer-oiam {
+    .footer-btn {
+      span {
+        padding: 15px 20px;
+      }
     }
+
+    .footer-bottom {
+      justify-content: center;
+      flex-direction: column;
+      align-content: space-between;
+
+      div {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  #input-mail {
+    flex-direction: column;
   }
 
   // contact
@@ -1195,6 +1206,14 @@
   }
 
   // footer
+  // footer mail
+  .footer-oiam {
+    .footer-btn {
+      span {
+        padding: 15px 60px;
+      }
+    }
+  }
 
   // inscription recruteur
   .details-r {
@@ -1603,6 +1622,7 @@
       margin-right: auto;
       // width: 80%;
     }
+
   }
 
   // suivi de recrutement index
@@ -1995,13 +2015,15 @@
   }
 
   // footer
-  .footer-bottom {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: row;
+  .footer-oiam {
+    .footer-bottom {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      flex-direction: row;
 
-    .footer-c {
-      width: 65%;
+      .footer-c {
+        width: 65%;
+      }
     }
   }
 

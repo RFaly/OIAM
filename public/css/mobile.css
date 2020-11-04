@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   line-height: 1.5;
-  word-break: break-word;
   word-wrap: break-word;
 }
 
@@ -166,9 +165,6 @@
   body {
     overflow-x: hidden;
   }
-  #input-mail {
-    flex-direction: column;
-  }
   .bg-uniq {
     margin-top: -450px;
     padding-top: 492px;
@@ -251,13 +247,19 @@
   .accueilg-content1 .ac-item2 {
     margin: 60px 0;
   }
-  .footer-bottom {
+  .footer-oiam .footer-btn span {
+    padding: 15px 20px;
+  }
+  .footer-oiam .footer-bottom {
     justify-content: center;
     flex-direction: column;
     align-content: space-between;
   }
-  .footer-bottom div {
+  .footer-oiam .footer-bottom div {
     margin-bottom: 10px;
+  }
+  #input-mail {
+    flex-direction: column;
   }
   .accueil-recruteur {
     width: 90%;
@@ -841,6 +843,9 @@
   .accueilg-content1 .ac-item21 {
     flex-direction: row-reverse;
   }
+  .footer-oiam .footer-btn span {
+    padding: 15px 60px;
+  }
   .details-r {
     width: 50%;
   }
@@ -1381,12 +1386,12 @@
   .accueilg-content1 .ac-item2 {
     margin: 110px 0;
   }
-  .footer-bottom {
+  .footer-oiam .footer-bottom {
     flex-wrap: wrap;
     justify-content: space-between;
     flex-direction: row;
   }
-  .footer-bottom .footer-c {
+  .footer-oiam .footer-bottom .footer-c {
     width: 65%;
   }
   .social a {
