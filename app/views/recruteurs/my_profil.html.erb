@@ -12,7 +12,7 @@
           <td class="cp-flex table-td">
             <div class="cp-pprofil">
               <% unless @client.image.nil? %>
-              <div class="c" style="background: url(<%= @client.image%>) center no-repeat; background-size: cover">
+              <div class="c" style="background: url(<%= @client.image%>) center no-repeat; background-size: contain">
               </div>
               <% else %>
               <img src="/image/profie.png" alt="logo entreprise" />

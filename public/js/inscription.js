@@ -146,17 +146,17 @@ $(document).ready(function () {
 });
 /////////////////////////////////////////////////
 // submit 4 validation
-// $('#cpe-submit').hover(function () {
-//   if ($('#entreprise_description').html() != "Aucune description d'entreprise correspondante!!" && $('#city').val() != 'Aucune ville correspondante!!' && $('#recruteur-phone').val().split(' ').join('').length == 9) {
-//     $('#submit-error4').hide();
+$('#cpe-submit').hover(function () {
+  if ($('#entreprise_description').html() != "Aucune description d'entreprise correspondante!!" && $('#city').val() != 'Aucune ville correspondante!!' && $('#recruteur-phone').val().split(' ').join('').length == 9) {
+    $('#submit-error4').hide();
 
-//     $(this).prop('disabled', false);
-//   } else {
-//     $('#submit-error4').html('(Veuillez corriger les erreurs dans le remplissage des champs.)');
-//     $('#submit-error4').show();
-//     $(this).prop('disabled', true);
-//   }
-// });
+    $(this).prop('disabled', false);
+  } else {
+    $('#submit-error4').html('(Veuillez corriger les erreurs dans le remplissage des champs.)');
+    $('#submit-error4').show();
+    $(this).prop('disabled', true);
+  }
+});
 /////////////////////////////////////////////////
 // submit cadre validation
 var pattern = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
