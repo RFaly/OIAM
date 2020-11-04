@@ -13,9 +13,10 @@
 
 .atrt-ct-box {
   border: 4px solid #d6b36a;
-  padding: 15px;
+  padding: 20px;
   text-align: left;
   justify-content: center;
+  height: 280px;
 }
 
 .title {
@@ -64,7 +65,7 @@
 .atrt-date {
   font-size: 14px;
   font-family: Questrial, sans-serif;
-  padding-top: 15px;
+  padding-top: 30px;
   padding-bottom: 15px;
 }
 
