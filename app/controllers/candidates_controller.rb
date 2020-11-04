@@ -96,7 +96,7 @@ class CandidatesController < ApplicationController
         image: @cadre.image,
         # message: "#{@cadre.first_name} #{@cadre.last_name} a complété son profil.",
         message: "ADMISSION",
-        link: "<a href='#{cbp_promise_no_validate_path(@cadre.id)}'>VOIR LE CANDIDAT</a>",
+        link: "<a href='#{cbp_promise_no_validate_path(@cadre.id)}'>VOIR</a>",#VOIR LE CANDIDAT
         is_client:false,
         genre: 1
       )
@@ -395,7 +395,7 @@ class CandidatesController < ApplicationController
           image: "/image/profie.png",
           # message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé le test potentiel",
           message: "INSCRIPTION",
-          link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR LE CANDIDAT</a>",
+          link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR</a>",#VOIR LE CANDIDAT
           is_client:false,
           genre: 1
         )
@@ -406,7 +406,7 @@ class CandidatesController < ApplicationController
           image: "/image/profie.png",
           # message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé l'inscription",
           message: "INSCRIPTION",
-          link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR LE CANDIDAT</a>",
+          link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR</a>",#VOIR LE CANDIDAT
           is_client:false,
           genre: 1
         )
@@ -667,7 +667,7 @@ class CandidatesController < ApplicationController
         image: current_cadre.cadre_info.image,
         # message: "#{first_name} #{last_name} a validé sa promesse d'embauche.",
         message: "PROMESSE D'EMBAUCHE",
-        link: "<a href='#{cp_show_promise_path(@promise.id)}'>VOIR LE PROMESSE</a>",
+        link: "<a href='#{cp_show_promise_path(@promise.id)}'>VOIR</a>",#VOIR LE PROMESSE
         is_client:false,
         genre: 1
       )
@@ -676,7 +676,7 @@ class CandidatesController < ApplicationController
       ProcessedHistory.create(
         image: "/image/profie.png",
         message: "PROMESSE D'EMBAUCHE",
-        link: "VOIR",
+        link: "<a href='#{cp_show_promise_path(@promise.id)}'>VOIR</a>",#VOIR LE PROMESSE
         is_client:true,
         genre: 1
       )
