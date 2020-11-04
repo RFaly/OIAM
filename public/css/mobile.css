@@ -1541,6 +1541,7 @@
     flex-direction: row;
     flex-wrap: no-wrap;
     justify-content: space-between;
+    align-items: center;
   }
   .cp-edit-table-box .cp-icon-text img {
     left: 1px;
