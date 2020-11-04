@@ -54,7 +54,7 @@
 
 			</div>
 			<%= f.label :question3, "Quels sont les trois critères les plus importants pour vous dans le choix de votre prochain poste ?", class:"label-content" %>
-			<%= f.text_area :question3, required:true, rows:3, class:"champs" %>
+			<%= f.text_area :question3, required:true, rows:3, class:"champs", maxLength: "500" %>
 
 			<%= f.label :question4, "Quel est le minimum salarial FIXE en dessous duquel il n’est pas nécessaire de vous contacter ?", class:"label-content" %>
 			<div class="slide">
@@ -62,7 +62,7 @@
 			</div>
 
 			<%= f.label :question5, "Parlez-nous de vous", class:"label-content" %>
-			<%= f.text_area :question5, required:true, rows:3, class:"champs" %>
+			<%= f.text_area :question5, required:true, rows:3, class:"champs", maxLength: "500" %>
 
 			<select class="btn-recherche" required="required" name="cadre_info[status]" id="cadre_info_status">
 				<option value="" disabled selected>STATUT</option>
