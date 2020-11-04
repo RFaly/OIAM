@@ -1,0 +1,117 @@
+@import 'config';
+@import 'pagemenu';
+
+.admin-bp-box {
+    font: $ffsentence;
+
+    .title {
+        text-align: -webkit-center;
+        text-align: -moz-center;
+        text-align: center;
+        font: $ffbtn;
+        color: $main_theme_color;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+    }
+
+    // custom select 
+    .dp-input {
+        margin: 6px auto 30px auto;
+        text-align: center;
+
+        select {
+            text-align: -webkit-center;
+            text-align: -moz-center;
+            text-align: center;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 0;
+
+            &:focus {
+                border-radius: none;
+                outline: 1px solid $main_theme_color;
+                box-shadow: 1px 1px 5px 1px $main_theme_color;
+            }
+        }
+    }
+
+    .co-select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: $secondary_element_color url('/image/dropdown.png') no-repeat right 1rem center/21px 18px;
+        text-align: -webkit-center;
+        text-align: -moz-center;
+        text-align: center;
+        -webkit-text-align-last: center;
+        -moz-text-align-last: center;
+        -ms-text-align-last: center;
+        text-align: -webkit-center;
+        text-align-last: center;
+
+        option {
+            font: $ffsentence;
+            text-align: -webkit-center;
+            font-size: 15px;
+            text-align: -webkit-center;
+            text-align: -moz-center;
+            text-align: center;
+            -webkit-text-align-last: center;
+            -moz-text-align-last: center;
+            -ms-text-align-last: center;
+            text-align-last: center;
+        }
+    }
+
+    // custom select  end
+    .flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        #none-element {
+            text-align: center;
+        }
+
+        .bp-box {
+            width: 230px;
+            margin: 20px;
+
+            .bp-inside-box {
+                border: 4px solid $main_theme_color;
+                padding: 20px 15px;
+                padding-bottom: 0;
+
+                .bp-name,
+                .bp-date {
+                    margin-bottom: 30px;
+                }
+            }
+
+            .bp-btn {
+                text-align: center;
+                outline: 2px solid $main_theme_color;
+                outline-offset: -1px;
+                margin-top: 20px;
+                padding: 10px 0;
+
+                a {
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font: $ffbtn;
+                    padding: 10px 77px;
+                    color: $main_theme_color;
+                }
+
+                &:hover,
+                &:active {
+                    background: $main_theme_color;
+
+                    a {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}

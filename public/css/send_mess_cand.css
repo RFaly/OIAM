@@ -8,7 +8,7 @@
   width: 100%;
   min-height: 80vh;
   padding-top: 15px;
-  border-left: 1px solid #d6b36a;
+  /* border-left: 1px solid #d6b36a; */
 }
 
 .box-inside {
@@ -59,11 +59,13 @@
   font: 550 18px Raleway, sans-serif;
 }
 
-.fcp-box .fc-item-empty .fc-item-btn:hover, .fcp-box .fc-item-empty .fc-item-btn:active {
+.fcp-box .fc-item-empty .fc-item-btn:hover,
+.fcp-box .fc-item-empty .fc-item-btn:active {
   background: #d6b36a;
 }
 
-.fcp-box .fc-item-empty .fc-item-btn:hover a, .fcp-box .fc-item-empty .fc-item-btn:active a {
+.fcp-box .fc-item-empty .fc-item-btn:hover a,
+.fcp-box .fc-item-empty .fc-item-btn:active a {
   color: white;
 }
 
@@ -92,8 +94,7 @@
   height: 450px;
 }
 
-.fcp-box .fc-item-all .mess_candidat {
-}
+.fcp-box .fc-item-all .mess_candidat {}
 
 .mess_candidat .env-btn {
   background: #d6b36a;
@@ -110,7 +111,7 @@
   border: 1px solid #d6b36a;
   color: #d6b36a;
 }
-  
+
 .mess_candidat .mess_input {
   width: 700px;
   height: 350px;
@@ -157,7 +158,8 @@
   color: #d6b36a;
 }
 
-.fcp-box .fc-item-all .list-candidat:hover .fci-infos, .fcp-box .fc-item-all .list-candidat:active .fci-infos {
+.fcp-box .fc-item-all .list-candidat:hover .fci-infos,
+.fcp-box .fc-item-all .list-candidat:active .fci-infos {
   height: 170px;
   transition: all 500ms ease-in-out;
 }
@@ -177,7 +179,8 @@
   color: #d6b36a;
 }
 
-.fcp-box .fc-item-btn2 a span:hover, .fcp-box .fc-item-btn2 a span:active {
+.fcp-box .fc-item-btn2 a span:hover,
+.fcp-box .fc-item-btn2 a span:active {
   opacity: 0.7;
   text-decoration: underline;
 }
@@ -202,7 +205,7 @@
   padding-left: 10px !important;
 }
 
-@media only screen and (max-width: 1200px){
+@media only screen and (max-width: 1200px) {
   .mess_candidat {
     display: inline-block;
     transform: translate(-50%, 90%);

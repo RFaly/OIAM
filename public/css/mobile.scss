@@ -726,8 +726,15 @@
     }
 
     .select-cadre-list-items {
+      justify-content: center;
+
       .cadre-box {
-        width: 200px;
+        width: 280px;
+        height: 500px;
+
+        p {
+          margin-bottom: 5px;
+        }
 
         .cadre-box-image {
           position: relative;
@@ -737,7 +744,7 @@
 
             img,
             .c {
-              height: 280px;
+              height: 300px;
             }
           }
         }
@@ -1528,6 +1535,19 @@
           .validation-bt {
             display: block;
           }
+        }
+      }
+    }
+
+    .select-cadre-list-items {
+      justify-content: space-between;
+
+      .cadre-box {
+        width: 240px;
+        height: 460px;
+
+        p {
+          margin-bottom: 10px;
         }
       }
     }

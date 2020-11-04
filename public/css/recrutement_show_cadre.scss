@@ -688,6 +688,10 @@
         }
       }
 
+      .unclicked {
+        cursor: not-allowed;
+      }
+
       .datte-past {
         input {
           margin-top: 30px;

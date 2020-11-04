@@ -1,261 +1,226 @@
-<link rel="stylesheet" href="/css/admin_prms.css" />
-<style media="screen">
-  .cp-box h1 {
-    font-size: 16px;
-    font-family: Raleway, sans-serif;
-    text-transform: uppercase;
-    text-align: center;
-    color: #d6b36a;
-  }
-</style>
+<!-- call css  -->
+<link rel="stylesheet" href="/css/be_processed.css" />
+<!-- call css  -->
+<!-- html body  -->
 <div class="client-column">
   <div class="client-menu-left">
     <%= render partial: "admin_clients/left_menu" %>
   </div>
-
   <div class="cp-box">
-  	<h1>A traiter</h1>
+    <div class="admin-bp-box ">
+      <h5 class="title">A traiter</h5>
+      <div class="dp-input">
 
-    <select name="filtre" id="filtre">
-      <option value=".TOUS" selected="selected">TOUS</option>
-      <option value=".INSCRIPTION">INSCRIPTION</option>
-      <option value=".SELECTION_CANDIDATS">SELECTION CANDIDATS</option>
-      <option value=".PLANIFICATION_ENTRETIEN">PLANIFICATION ENTRETIEN</option>
-      <option value=".FEEDBACK_ENTRETIEN">FEEDBACK ENTRETIEN</option>
-      <option value=".PROMESSE_D_EMBAUCHE">PROMESSE D'EMBAUCHE</option>
-      <option value=".PERIODE_D_ESSAI_ROMPUE">PERIODE D'ESSAI ROMPUE</option>
-    </select>
+        <select name="filtre" id="filtre" class="co-select">
+          <option value=".TOUS" selected="selected">TOUS</option>
+          <option value=".INSCRIPTION">INSCRIPTION</option>
+          <option value=".SELECTION_CANDIDATS">SELECTION CANDIDATS</option>
+          <option value=".PLANIFICATION_ENTRETIEN">PLANIFICATION ENTRETIEN</option>
+          <option value=".FEEDBACK_ENTRETIEN">FEEDBACK ENTRETIEN</option>
+          <option value=".PROMESSE_D_EMBAUCHE">PROMESSE D'EMBAUCHE</option>
+          <option value=".PERIODE_D_ESSAI_ROMPUE">PERIODE D'ESSAI ROMPUE</option>
+        </select>
+      </div>
 
-    <p id="none-element" style="display: none;">Aucune tâche à traiter.</p>
+      <!-- <p id="none-element" style="display: none;">Aucune tâche à traiter.</p> -->
+      <!-- # 1. Inscription/Complétion du profil/Création compte/{
+      # Compte non créée
+      -->
+      <div class="flex">
 
-<!--
-# 1. Inscription/Complétion du profil/Création compte/{
-#   Compte non créée
--->
+        <p id="none-element" style="display: none;">Aucune tâche à traiter.</p>
 
-    <% unless @clients.empty? %>
-      <% @clients.each do |client| %>
-        <div data-name=".INSCRIPTION" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
-          <div class="atrt-ct-box">
-            <h2 class="atrt-insc">INSCRIPTION</h2>
-            <div class="atrt-name">
+        <!--
+    # 1. Inscription/Complétion du profil/Création compte/{
+    #   Compte non créée
+    -->
+
+        <% unless @clients.empty? %>
+        <% @clients.each do |client| %>
+        <div data-name=".INSCRIPTION" class="bp-box list-items-me">
+          <div class="bp-inside-box">
+            <div class="bp-inscr">INSCRIPTION</div>
+            <div class="bp-name">
               <%= client.first_name %> <%= client.last_name %>
             </div>
-            <div class="atrt-date">
-              Date d'entré<e:></e:><br>
+            <div class="bp-date">
+              Date d'entré: <br>
               <%= client.created_at.strftime("%d/%m/%Y") %>
             </div>
-            <div class="atrt-date">
+            <div class="bp-date">
               Date limite: <br> ~
             </div>
           </div>
-          <div class="atrt-btn-gr">
-            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= clients_bp_show_client_path(client.id) %>">GERER</a>
+          <div class="bp-btn">
+            <a href="<%= clients_bp_show_client_path(client.id) %>">GERER</a>
           </div>
         </div>
-      <% end %>
-    <% end %>
+        <% end %>
+        <% end %>
 
-<!-- 
-# 5. Recherche et sélectionne des candidats.
-# Recruteur qui a déjà publié une offre mais à la recherche de candidats.
- -->
+        <!-- 
+    # 5. Recherche et sélectionne des candidats.
+    # Recruteur qui a déjà publié une offre mais à la recherche de candidats.
+     -->
 
-    <% unless @offreJobs.empty? %>
-      <% @offreJobs.each do |offreJob| %>
-        <div data-name=".SELECTION_CANDIDATS" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
-          <div class="atrt-ct-box">
-            <h2 class="atrt-insc">SELECTION CANDIDATS</h2>
-            <div class="atrt-name">
+        <% unless @offreJobs.empty? %>
+        <% @offreJobs.each do |offreJob| %>
+        <div data-name=".SELECTION_CANDIDATS" class="bp-box list-items-me">
+          <div class="bp-inside-box">
+            <div class="bp-inscr">SELECTION CANDIDATS</div>
+            <div class="bp-name">
               <%= offreJob.client.first_name %> <%= offreJob.client.last_name %>
             </div>
-            <div class="atrt-date">
+            <div class="bp-date">
               Date d'entré<e:></e:><br>
               <%= offreJob.created_at.strftime("%d/%m/%Y") %>
             </div>
-            <div class="atrt-date">
+            <div class="bp-date">
               Date limite:<br><%= offreJob.limite_date %>
             </div>
           </div>
-          <div class="atrt-btn-gr">
-            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= clients_bp_offre_job_no_cadre_path(offreJob.id) %>">GERER</a>
+          <div class="bp-btn">
+            <a href="<%= clients_bp_offre_job_no_cadre_path(offreJob.id) %>">GERER</a>
           </div>
         </div>
-      <% end %>
-    <% end %>
+        <% end %>
+        <% end %>
 
-<!-- 
-# 6. Planifie un/des entretiens en fonction du process de recrutement
-#   Liste des recruteurs qui ont envoyé une planification d'entretien aux candidats
- -->
+        <!-- 
+    # 6. Planifie un/des entretiens en fonction du process de recrutement
+    #   Liste des recruteurs qui ont envoyé une planification d'entretien aux candidats
+     -->
 
-    <% unless @listAgendaClientsSends.empty? %>
-      <% @listAgendaClientsSends.each do |listAgendaClientsSend| %>
+        <% unless @listAgendaClientsSends.empty? %>
+        <% @listAgendaClientsSends.each do |listAgendaClientsSend| %>
         <!-- ([oFc,ac]) -->
         <% oFc = listAgendaClientsSend[0] %>
         <% ac = listAgendaClientsSend[1] %>
 
-        <div data-name=".PLANIFICATION_ENTRETIEN" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
-          <div class="atrt-ct-box">
-            <h2 class="atrt-insc">PLANIFICATION ENTRETIEN</h2>
-            <div class="atrt-name">
+        <div data-name=".PLANIFICATION_ENTRETIEN" class="bp-box list-items-me">
+          <div class="bp-inside-box">
+            <div class="bp-inscr">PLANIFICATION ENTRETIEN</div>
+            <div class="bp-name">
               <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
             </div>
-            <div class="atrt-date">
+            <div class="bp-date">
               Date d'entré<e:></e:><br>
               <span data-times="<%= ac.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
             </div>
-            <div class="atrt-date">
+            <div class="bp-date">
               Date limite: <br> ~
             </div>
           </div>
-          <div class="atrt-btn-gr">
-            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= clients_bp_show_client_path(oFc.offre_job.client.id) %>">GERER</a>
+          <div class="bp-btn">
+            <a href="<%= clients_bp_show_client_path(oFc.offre_job.client.id) %>">GERER</a>
           </div>
         </div>
 
-      <% end %>
-    <% end %>
+        <% end %>
+        <% end %>
 
-<!--
-# 7. Effectue l’ entretien et donne son feedback 
-# (Etape suivante, accepter, refuser, en attente)
-# Liste des recruteurs en mode entretien (entrain de faire des entretiens)
--->
+        <!--
+    # 7. Effectue l’ entretien et donne son feedback 
+    # (Etape suivante, accepter, refuser, en attente)
+    # Liste des recruteurs en mode entretien (entrain de faire des entretiens)
+    -->
 
-    <% unless @listAgendaClientsEntretiens.empty? %>
-      <% @listAgendaClientsEntretiens.each do |listAgendaClientsEntretien| %>
-    <!-- ([oFc,ac]) -->
-      <% oFc = listAgendaClientsEntretien[0] %>
-      <% ac = listAgendaClientsEntretien[1] %>
+        <% unless @listAgendaClientsEntretiens.empty? %>
+        <% @listAgendaClientsEntretiens.each do |listAgendaClientsEntretien| %>
+        <!-- ([oFc,ac]) -->
+        <% oFc = listAgendaClientsEntretien[0] %>
+        <% ac = listAgendaClientsEntretien[1] %>
 
-        <div data-name=".FEEDBACK_ENTRETIEN" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
-          <div class="atrt-ct-box">
-            <h2 class="atrt-insc">FEEDBACK ENTRETIEN</h2>
-            <div class="atrt-name">
+        <div data-name=".FEEDBACK_ENTRETIEN" class="bp-box list-items-me">
+          <div class="bp-inside-box">
+            <div class="bp-inscr">FEEDBACK ENTRETIEN</div>
+            <div class="bp-name">
               <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
             </div>
-            <div class="atrt-date">
+            <div class="bp-date">
               Date d'entré<e:></e:><br>
               <span data-times="<%= ac.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
             </div>
-            <div class="atrt-date">
+            <div class="bp-date">
               Date limite: <br> ~
             </div>
           </div>
-          <div class="atrt-btn-gr">
-            <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= clients_bp_effectue_entretien_path(ac.id) %>">GERER</a>
+          <div class="bp-btn">
+            <a href="<%= clients_bp_effectue_entretien_path(ac.id) %>">GERER</a>
           </div>
         </div>
-      <% end %>
-    <% end %>
+        <% end %>
+        <% end %>
 
-<!-- 
-# 8. Remplir et envoyer une promesse d’embauche
-# Liste des recruteurs en mode remplissage de la promesse d'embauche
- -->
+        <!-- 
+    # 8. Remplir et envoyer une promesse d’embauche
+    # Liste des recruteurs en mode remplissage de la promesse d'embauche
+     -->
 
-<% unless @completedPromiseToHires.empty? %>
-  <% @completedPromiseToHires.each do |completedPromiseToHire| %>
-  <!-- ([oFc,ac]) -->
-  <% oFc = completedPromiseToHire[0] %>
-  <% ac = completedPromiseToHire[1] %>
+        <% unless @completedPromiseToHires.empty? %>
+        <% @completedPromiseToHires.each do |completedPromiseToHire| %>
+        <!-- ([oFc,ac]) -->
+        <% oFc = completedPromiseToHire[0] %>
+        <% ac = completedPromiseToHire[1] %>
 
-    <div data-name=".PROMESSE_D_EMBAUCHE" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
-      <div class="atrt-ct-box">
-        <h2 class="atrt-insc">PROMESSE D'EMBAUCHE</h2>
-        <div class="atrt-name">
-          <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
+        <div data-name=".PROMESSE_D_EMBAUCHE" class="bp-box list-items-me">
+          <div class="bp-inside-box">
+            <div class="bp-inscr">PROMESSE D'EMBAUCHE</div>
+            <div class="bp-name">
+              <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
+            </div>
+            <div class="bp-date">
+              Date d'entré<e:></e:><br><%= oFc.offre_job.created_at.strftime("%d/%m/%Y") %>
+            </div>
+            <div class="bp-date">
+              Date limite: <br><%= oFc.offre_job.limite_date %>
+            </div>
+          </div>
+          <div class="bp-btn">
+            <a href="<%= clients_bp_effectue_entretien_path(ac.id) %>">GERER</a>
+          </div>
         </div>
-        <div class="atrt-date">
-          Date d'entré<e:></e:><br><%= oFc.offre_job.created_at.strftime("%d/%m/%Y") %>
+        <% end %>
+        <% end %>
+
+        <!-- 
+      # 12. Rompre la période d’essai
+      # Liste des périodes d'essai à rompre -->
+
+        <% unless @factures.empty? %>
+        <% @factures.each do |facture| %>
+
+        <% ptH = facture.promise_to_hire %>
+        <% offre_job = ptH.offre_job %>
+
+        <div data-name=".PERIODE_D_ESSAI_ROMPUE" class="bp-box list-items-me">
+          <div class="bp-inside-box">
+            <div class="bp-inscr">PERIODE D'ESSAI ROMPUE</div>
+            <div class="bp-name">
+              <%= offre_job.client.first_name %> <%= offre_job.client.last_name %>
+            </div>
+            <div class="bp-date">
+              Date d'entré<e:></e:><br><%= offre_job.date_poste %>
+            </div>
+            <div class="bp-date">
+              Date limite: <br><%= ptH.rupture_time_trying %>
+            </div>
+          </div>
+          <div class="bp-btn">
+            <a href="<%= clients_bp_periode_rompre_path(ptH.id) %>">GERER</a>
+          </div>
         </div>
-        <div class="atrt-date">
-          Date limite: <br><%= oFc.offre_job.limite_date %>
-        </div>
-      </div>
-      <div class="atrt-btn-gr">
-        <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= clients_bp_effectue_entretien_path(ac.id) %>">GERER</a>
+
+        <% end %>
+        <% end %>
       </div>
     </div>
-  <% end %>
-<% end %>
-
-<!-- 
-  # 12. Rompre la période d’essai
-  # Liste des périodes d'essai à rompre -->
-
-<% unless @factures.empty? %>
-  <% @factures.each do |facture| %>
-
-    <% ptH = facture.promise_to_hire %>
-    <% offre_job = ptH.offre_job %>
-
-    <div data-name=".PERIODE_D_ESSAI_ROMPUE" class="atrt-box list-items-me col-lg-3 col-xs-12 col-md-4 col-sm-12">
-      <div class="atrt-ct-box">
-        <h2 class="atrt-insc">PERIODE D'ESSAI ROMPUE</h2>
-        <div class="atrt-name">
-          <%= offre_job.client.first_name %> <%= offre_job.client.last_name %>
-        </div>
-        <div class="atrt-date">
-          Date d'entré<e:></e:><br><%= offre_job.date_poste %>
-        </div>
-        <div class="atrt-date">
-          Date limite: <br><%= ptH.rupture_time_trying %>
-        </div>
-      </div>
-      <div class="atrt-btn-gr">
-        <a class="col-lg-3 col-xs-12 col-md-4 col-sm-12" href="<%= clients_bp_periode_rompre_path(ptH.id) %>">GERER</a>
-      </div>
-    </div>
-
-  <% end %>
-<% end %>
-
-
-
   </div>
 </div>
 
 
 
+
+
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
-<script type="text/javascript">
-  $(".currentDatentretien").ready(function(){
-    var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
-    var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
-    let $elementDate = $('.currentDatentretien');
-    $elementDate.each(function () {
-      let dateUTC = moment.utc($(this).data().times);
-      let dateGet = new Date(dateUTC.local());
-      let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
-      // let minute = dateGet.getMinutes()
-      // if((minute+"").length == 1){
-      //   minute = "0"+minute
-      // }
-      $(this).html(dateString)
-      // $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ minute );
-    });
-  });
-  if ($(".list-items-me").length == 0) {
-    $("#none-element").show(500);
-  }
-  $("#filtre").change(function(){
-    var search = $(this).val()
-    var emptyS = true
-    $(".list-items-me").each(function(){
-      let thisiko = $(this)
-      if ((search == thisiko.data().name) || (search == ".TOUS")){
-        thisiko.show(500);
-        emptyS = false
-      }else{
-        thisiko.hide(500);
-      }
-    });
-    if (emptyS) {
-      $("#none-element").show(500);
-    }else{
-      $("#none-element").hide(500);
-    }
-  });
-</script>
+<script type="text/javascript" src="/js/be_processed.js"></script>

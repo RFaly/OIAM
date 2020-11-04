@@ -7,6 +7,9 @@ class PromiseToHire < ApplicationRecord
 
 	has_one :facture
 
+	delegate :url_helpers, to: 'Rails.application.routes'
+
+
 	validates :date_poste, presence: true
 	validates :remuneration_fixe, presence: true
 	validates :remuneration_fixe_date, presence: true
@@ -19,7 +22,7 @@ class PromiseToHire < ApplicationRecord
 			ProcessedHistory.create(
         image: "/image/profie.png",
         message: "PROMESSE D'EMBAUCHE",
-        link: "VOIR",
+        link: "<a href='#{url_helpers.cp_show_promise_path(self.id)}'>VOIR</a>",
         is_client:true,
         genre: 1
       )
@@ -34,3 +37,6 @@ class PromiseToHire < ApplicationRecord
     end
   end
 end
+
+
+
