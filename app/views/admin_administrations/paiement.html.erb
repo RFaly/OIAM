@@ -1,52 +1,65 @@
-<link rel="stylesheet" href="/css/admin_prms.css" />
+<!-- call css  -->
+<link rel="stylesheet" href="/css/administration_paiement.css" />
+<!-- html body  -->
+
 <div class="client-column">
-  <div class="client-menu-left">
-    <%= render partial: "admin_administrations/left_menu" %>
-  </div>
-
-  <div class="cp-box">
-    <h1>PAIEMENT</h1>
-
-	<div>
-		<h2>Liste des recruteurs en mode paiement</h2>
-<!--
+	<div class="client-menu-left">
+		<%= render partial: "admin_administrations/left_menu" %>
+	</div>
+	<div class="cp-box">
+		<div class="admp-box">
+			<h5 class="title">PAIEMENT</h5>
+			<h4 class="subtitle">Liste des recruteurs en mode paiement</h4>
+			<div class="admp-flex">
+				<!--
 	Le recruteur a validé
 	J'atteste régler cette facture par virement dans les 15 jours.
 	15j son passé et il n'a pas encore payer la facture.
 -->
-		<% if @factureConfirmedPayeds.empty?  %>
-			<p>aucune facture</p>
-		<% else %>
-			<% @factureConfirmedPayeds.each do |factureConfirmedPayed| %>
+				<% if @factureConfirmedPayeds.empty?  %>
+				<div class="empty">aucune facture</div>
+				<% else %>
+				<% @factureConfirmedPayeds.each do |factureConfirmedPayed| %>
 				<!-- <%= factureConfirmedPayed[:client] %> -->
-				<p>
-					Facture n°: <%= factureConfirmedPayed[:facture].numero_facture %><br>
+				<div class="admp-f-box">
+					<div class="fact">
+						Facture n° : <span><%= factureConfirmedPayed[:facture].numero_facture %></span>
+					</div>
 
-					<%= factureConfirmedPayed[:promise_to_hire].offre_job.intitule_pote.upcase %><br>
+					<span>
+						<%= factureConfirmedPayed[:promise_to_hire].offre_job.intitule_pote.upcase %>
+					</span>
+					<div class="link">
+						<a href="<%= dashbord_admin_show_facture_path(factureConfirmedPayed[:facture].id) %>">VOIR</a>
+					</div>
+				</div>
+				<% end %>
+				<% end %>
+			</div>
+			<h4 class="subtitle">Liste des recruteurs qui ont validé le paiement</h4>
+			<div class="admp-flex">
+				<!--
+		le recruteur a uploader l'ov
+	-->
+				<% if @facturePayeds.empty?  %>
+				<div class="empty">aucune facture</div>
+				<% else %>
+				<% @facturePayeds.each do |facture| %>
+				<div class="admp-f-box">
+					<div class="fact">
+						Facture n° : <span><%= facture.numero_facture %></span>
+					</div>
 
-					<a href="<%= dashbord_admin_show_facture_path(factureConfirmedPayed[:facture].id) %>">VOIR</a>
-				</p>
-			<% end %>
-		<% end %>
+					<span>
+						<%= facture.promise_to_hire.offre_job.intitule_pote.upcase %>
+					</span>
+					<div class="link">
+						<a href="<%= dashbord_admin_show_facture_path(facture.id) %>">VOIR</a>
+					</div>
+				</div>
+				<% end %>
+				<% end %>
+			</div>
+		</div>
 	</div>
-
-	<div>
-		<h2>Liste des recruteurs qui ont validé le paiement</h2>
-<!--
-	le recruteur a uploader l'ov
--->
-		<% if @facturePayeds.empty?  %>
-			<p>aucune facture</p>
-		<% else %>
-			<% @facturePayeds.each do |facture| %>
-				<p>
-					Facture n°: <%= facture.numero_facture %><br>
-					<%= facture.promise_to_hire.offre_job.intitule_pote.upcase %><br>
-					<a href="<%= dashbord_admin_show_facture_path(facture.id) %>">VOIR</a>
-				</p>
-			<% end %>
-		<% end %>
-	</div>
-
-  </div>
 </div>

@@ -1,21 +1,26 @@
 @import 'config';
+
 .footer-oiam {
   width: 85%;
 
   z-index: -1;
   margin: 30px auto;
+
   a {
     text-decoration: none;
+
     &:hover {
       text-decoration: none;
     }
   }
+
   hr {
     background: black;
     height: 2px;
     opacity: 0.8;
     margin: 15px 0;
   }
+
   .footer-btn {
     display: flex;
     justify-content: flex-end;
@@ -23,35 +28,42 @@
     font-size: 14px;
     text-transform: uppercase;
     margin-bottom: 5px;
+
     span {
       cursor: pointer;
       background: white;
       //   width: 350px;
-      padding: 15px 60px;
+      // padding: 15px 60px;
       border: 2px solid black;
       color: black;
+
       &:hover,
       &:active {
         opacity: 0.8;
       }
     }
   }
+
   .footer-bottom {
     display: flex;
     align-items: center;
+
     .footer-c,
     .copyright {
       font: $ffbtn;
       font-size: 12px;
+
       a {
         margin-right: 10px;
         color: black;
       }
     }
+
     .social {
       text-align: -webkit-center;
       text-align: -moz-center;
       text-align: center;
+
       img {
         width: 20px;
       }
@@ -66,11 +78,13 @@
   display: none;
   justify-content: center;
   align-items: center;
+
   input {
     border-radius: 0;
 
     padding: 10px;
   }
+
   input[type='text'] {
     margin: 10px;
     width: 90%;
@@ -78,11 +92,13 @@
     margin-right: 20px;
     background: $secondary_element_color;
     color: #333333;
+
     &:focus {
       border: 1px solid $secondary_text_color_button;
       outline: none;
     }
   }
+
   input[type='submit'] {
     margin: 10px;
     text-decoration: none;
@@ -91,6 +107,7 @@
     color: $main_theme_color;
     font: $ffbtn;
     padding: 10px 20px;
+
     &:hover,
     &:active {
       background: $main_theme_color;

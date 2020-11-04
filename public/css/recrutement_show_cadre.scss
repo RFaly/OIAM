@@ -42,6 +42,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        word-wrap: normal;
 
         .cl {
           width: 100%;
@@ -86,6 +87,7 @@
           width: 27px;
           margin-left: -26px;
           align-self: flex-end;
+          word-wrap: normal;
         }
       }
     }
