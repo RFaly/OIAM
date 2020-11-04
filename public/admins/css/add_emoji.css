@@ -1,0 +1,34 @@
+#emojie {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  text-align: center;
+  padding: 15px;
+  line-height: 30px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.fa-smile {
+  color: #a0a0a0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.fa-smile:hover {
+  color: #d6b36a;
+}
+
+.emoji {
+  text-decoration: none;
+  list-style-type: none;
+  display: inline-block;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.emoji-dashboard {
+  background: #f3f7fb;
+  padding: 15px;
+}

@@ -44,6 +44,9 @@
   font-family: Questrial, sans-serif;
   text-transform: capitalize;
   color: #fff;
+  padding-top: 20px;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
 
 .info-cadd {
@@ -71,11 +74,15 @@ strong {
 .info-frst p {
   font-family: Questrial, sans-serif;
   color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .info-secnd p {
   font-family: Questrial, sans-serif;
   color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .info-secnd {
@@ -84,7 +91,7 @@ strong {
 
 .separator {
   position: absolute;
-  top: 20%;
+  top: 18%;
   left: 15%;
   padding-left: 15px;
   padding-right: 15px;
