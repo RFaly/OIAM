@@ -33,11 +33,8 @@
 # # end
 
 
-if Rails.env.production?
-   WickedPdf.config = {
-     :exe_path => "#{ENV['GEM_HOME']}/gems/wkhtmltopdf-binary-#{Gem.loaded_specs['wkhtmltopdf-binary'].version}/bin/wkhtmltopdf"
-   }
- 
+if Rails.env.staging? || Rails.env.production?
+     exe_path = Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s
 else
    WickedPdf.config = {
       :exe_path => "#{ENV['GEM_HOME']}/gems/wkhtmltopdf-binary-#{Gem.loaded_specs['wkhtmltopdf-binary'].version}/bin/wkhtmltopdf"
