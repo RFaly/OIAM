@@ -1,65 +1,54 @@
-<link rel="stylesheet" href="/css/admin_prms.css" />
-<style media="screen">
-  .cp-box h1 {
-    font-size: 16px;
-    font-family: Raleway, sans-serif;
-    text-transform: uppercase;
-    text-align: center;
-    color: #d6b36a;
-  }
-</style>
+<link rel="stylesheet" href="/css/be_processed.css" />
 <div class="client-column">
-  <div class="client-menu-left">
-    <%= render partial: "admin_candidats/left_menu" %>
-  </div>
+    <div class="client-menu-left">
+        <%= render partial: "admin_candidats/left_menu" %>
+    </div>
 
-  <div class="cp-box">
-
-    <% unless @entretien_fit_a_venirs.empty? %>
-      <% @entretien_fit_a_venirs.each do |entretien_fit_a_venir| %>
-        <div data-name=".INSCRIPTION" class="bp-box list-items-me">
-          <div class="bp-inside-box">
-            <div class="bp-inscr">INSCRIPTION <br>
-              Etat: RDV Fit validée
+    <div class="cp-box">
+        <div class="flex">
+            <% unless @entretien_fit_a_venirs.empty? %>
+            <% @entretien_fit_a_venirs.each do |entretien_fit_a_venir| %>
+            <div data-name=".INSCRIPTION" class="bp-box list-items-me">
+                <div class="bp-inside-box">
+                    <div class="bp-inscr">INSCRIPTION <br>
+                        Etat: RDV Fit validée
+                    </div>
+                    <div class="bp-name">
+                        <%= entretien_fit_a_venir.first_name %> <%= entretien_fit_a_venir.last_name %>
+                    </div>
+                    <div class="bp-date">
+                        Date d'entrée :
+                        <br>
+                        <span data-times="<%= entretien_fit_a_venir.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
+                    </div>
+                    <div class="bp-date">
+                        Date limite :
+                        <br>
+                        ~
+                    </div>
+                </div>
+                <div class="bp-btn">
+                    <a href="<%= cbp_validate_entretien_fit_path(entretien_fit_a_venir.id) %>">GERER</a>
+                </div>
             </div>
-            <div class="bp-name">
-              <%= entretien_fit_a_venir.first_name %> <%= entretien_fit_a_venir.last_name %>
-            </div>
-            <div class="bp-date">
-              Date d'entrée :
-              <br>
-              <span
-                data-times="<%= entretien_fit_a_venir.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>"
-                class="currentDatentretien"></span>
-            </div>
-            <div class="bp-date">
-              Date limite :
-              <br>
-              ~
-            </div>
-          </div>
-          <div class="bp-btn">
-            <a href="<%= cbp_validate_entretien_fit_path(entretien_fit_a_venir.id) %>">GERER</a>
-          </div>
+            <% end %>
+            <% else %>
+            <p>Aucune tâche en attente.</p>
+            <% end %>
         </div>
-      <% end %>
-    <% else %>
-      <p>Aucune tâche en attente.</p>
-    <% end %>
-
-  </div>
+    </div>
 </div>
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 
 <script type="text/javascript">
-  $(".currentDatentretien").ready(function () {
-    let $elementDate = $('.currentDatentretien');
-    $elementDate.each(function () {
-      let dateUTC = moment.utc($(this).data().times);
-      let dateGet = new Date(dateUTC.local());
-      let dateString = dateGet.getDate()+"/"+dateGet.getMonth()+"/"+dateGet.getFullYear();
-      $(this).html(dateString);
+    $(".currentDatentretien").ready(function() {
+        let $elementDate = $('.currentDatentretien');
+        $elementDate.each(function() {
+            let dateUTC = moment.utc($(this).data().times);
+            let dateGet = new Date(dateUTC.local());
+            let dateString = dateGet.getDate() + "/" + dateGet.getMonth() + "/" + dateGet.getFullYear();
+            $(this).html(dateString);
+        });
     });
-  });
 </script>
