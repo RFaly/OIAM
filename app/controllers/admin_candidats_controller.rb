@@ -81,6 +81,8 @@ class AdminCandidatsController < ApplicationAdminController
 
   def pending
 
+    # Entretiens FIT à effectuer(nom+prénom+date)
+    @entretien_fit_a_venirs = CadreInfo.where(is_recrute:nil).joins(:agenda_admin).where("agenda_admins.entretien_date > ?",DateTime.now.utc).where("agenda_admins.accepted=true")
 
 # 4. Clique sur lien TP positif et planifie un entretien FIT
 #   Mail 1 en attente du retour du candidat (entretiens validés avec date)
