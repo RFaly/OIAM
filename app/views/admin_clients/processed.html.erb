@@ -10,13 +10,16 @@
     <div class="admincp-box">
       <!-- <h5 class="title">Traitées</h5> -->
       <% @processedHistories.each do |processedHistorie| %>
+      <hr>
       <div class="acp-flex">
-        <div class="acp-image"><img src='<%= processedHistorie.image %>' /></div>
+        <div class="acp-image"><%if processedHistorie.message == "INSCRIPTION" %><img
+            src='<%= processedHistorie.image %>' /> <%else%><img src='/image/work.png' /><%end%></div>
         <div class="acp-content"><%= processedHistorie.message %></div>
         <div class="acp-link">
           <%= raw processedHistorie.link %>
         </div>
       </div>
+      <hr>
       <% end %>
     </div>
   </div>
