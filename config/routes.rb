@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'admin_agendas/agenda'
   get 'admin_administrations/home'
   #Notification cron job
   get '/727562792f67656dnotifed_cron_job732f322e372e302f', to: 'notifications#entretien_client_fit', as: 'notifed_entretien_client_fit'
@@ -226,7 +227,8 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/tableau-de-bord/paiement', to: 'admin_administrations#paiement', as: 'dashbord_admin_paiement'
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+  #agenda
+  get 'secret-oiam-page/tableau-de-bord/agenda', to: 'admin_agendas#agenda', as: 'dashbord_admin_agenda' 
 
 
   #clients
