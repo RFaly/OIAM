@@ -533,7 +533,7 @@ class RecruteursController < ApplicationController
 
 					# 7. FEEDBACK ENTRETIEN
 		      ProcessedHistory.create(
-		        image: "/image/profie.png",
+		        image: "/image/work.png",
 		        message: "FEEDBACK ENTRETIEN",
 		        link: "<a href= '#{clients_bp_effectue_entretien_path(@oFc.agenda_clients.id)}'>VOIR</a>",
 		        is_client:true,
@@ -871,11 +871,11 @@ class RecruteursController < ApplicationController
   
   def show_my_messages
 		@cadre = Cadre.find_by_id(params[:id])
-		if @candidat.nil?
-			flash[:alert] = "Ce candidat n'est plus disponible."
-			redirect_back(fallback_location: root_path)
-			return
-		end
+		# if @candidat.nil?
+		# 	flash[:alert] = "Ce candidat n'est plus disponible."
+		# 	redirect_back(fallback_location: root_path)
+		# 	return
+		# end
 	    @contact = ContactClientCadre.where(cadre: @cadre, client:current_client)
 	    if @contact.count == 0
 	      @contact = ContactClientCadre.create(cadre: @cadre, client:current_client)

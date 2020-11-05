@@ -270,6 +270,9 @@
   .accueil-recruteur .ar-item p {
     text-align: justify;
   }
+  .accueil-recruteur .accueil-r-btn a {
+    padding: 12px 18px;
+  }
   .details-r {
     width: 90%;
   }
@@ -328,6 +331,7 @@
   .left-menu-r {
     z-index: 200;
     padding: 10px;
+    padding-bottom: 30px;
     background: white;
     position: fixed;
     width: 100%;
@@ -780,9 +784,18 @@
   .admincp-box .acp-flex .acp-link a {
     padding: 10px;
   }
+  .notification-box .notification-content .nc-item {
+    width: 70%;
+  }
+  .notification-box .notification-content .c {
+    margin-right: 20px;
+  }
 }
 
 @media screen and (min-width: 768px) {
+  .accueil-recruteur .accueil-r-btn a {
+    padding: 12px 35px;
+  }
   .flash {
     right: 50px;
   }
@@ -1261,6 +1274,12 @@
   }
   .admincp-box .acp-flex .acp-link a {
     padding: 10px 30px;
+  }
+  .notification-box .notification-content .nc-item {
+    width: 80%;
+  }
+  .notification-box .notification-content .c {
+    margin-right: 10px;
   }
 }
 

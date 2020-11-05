@@ -102,6 +102,7 @@
   input[type='submit'] {
     margin: 10px;
     text-decoration: none;
+    background: transparent;
     border: 2px solid $main_theme_color;
     text-transform: uppercase;
     color: $main_theme_color;

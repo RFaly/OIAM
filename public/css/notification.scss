@@ -4,6 +4,7 @@
 .notification-box {
   width: 90%;
   margin: 0 auto;
+
   .title {
     text-align: -webkit-center;
     text-align: -moz-center;
@@ -13,32 +14,41 @@
     text-transform: uppercase;
     margin-bottom: 50px;
   }
+
   .notif-link {
     color: black;
+
     &.seen {
       color: $main_theme_color;
     }
+
     &:hover,
     &:active {
       text-decoration: none;
+
       .notif {
         text-decoration: underline;
       }
     }
   }
+
   .notification-content {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
     .nc-item {
-      width: 80%;
+      // width: 80%;
       font: $ffsentence;
+
       .name {
         font: $ffbtn;
       }
+
       p {
         margin-bottom: 6px;
       }
+
       .currentDateEntretien {
         opacity: 0.5;
         color: black;
@@ -47,11 +57,12 @@
         text-align: right;
       }
     }
+
     .c {
-      margin-right: 5px;
+      // margin-right: 5px;
       border-radius: 50%;
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
     }
   }
 }

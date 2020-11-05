@@ -261,7 +261,7 @@ class CandidatesController < ApplicationController
       ProcessedHistory.create(
         image: "/image/work.png",
         message: "PLANIFICATION ENTRETIEN",
-        link: "<a href='#{clients_bp_show_client_path(@oFc.offre_job.client.id)}'>VOIR",
+        link: "<a href='#{clients_bp_show_client_path(@oFc.offre_job.client.id)}'>VOIR</a>",
         is_client:true,
         genre: 1
       )

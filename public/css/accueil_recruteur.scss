@@ -4,32 +4,38 @@
   height: auto;
   margin: 50px auto;
   margin-bottom: 30px;
+
   .title-ar {
     margin-bottom: 15px;
+
     span {
       font: 80px Qwigley, sans-serif;
       color: $main_theme_color;
       margin-right: 10px;
     }
   }
+
   p {
     font: $ffsentence;
     margin: 2px 0;
     line-height: 1.5;
   }
+
   .accueil-r-btn {
     width: 40%;
     margin: 70px auto;
     text-align: -webkit-center;
     text-align: -moz-center;
     text-align: center;
+
     a {
       background-color: $secondary_text_color_button;
-      padding: 12px 35px;
+      // padding: 12px 35px;
       font: $ffbtn;
       text-transform: uppercase;
       text-decoration: none;
       color: white;
+
       &:hover,
       &:active {
         text-decoration: none;
@@ -39,6 +45,7 @@
       }
     }
   }
+
   .ar-item {
     margin-bottom: 60px;
   }

@@ -11,7 +11,7 @@
         <div class="title">Offre</div>
         <div class="ef-image img-offre">
           <% unless @offre_job.image.nil? %>
-          <img src="<%= @offre_job.image %>" alt="logo entreprise" width="300 px" />
+          <img src="<%= @offre_job.image %>" alt="logo entreprise" width="300px" />
           <% else %>
           <img src="/image/profie.png" alt="logo entreprise" />
           <%  end %>
@@ -25,7 +25,7 @@
             class="currentDatentretien"></span>
         </div>
         <div class="adresse">
-          Adresse : <br><span><%= @agenda_client.adresse %></span>  
+          Adresse : <br><span><%= @agenda_client.adresse %></span>
         </div>
       </div>
       <div class="flex-box">

@@ -1,3 +1,14 @@
+$(document).on('page:fetch', function () {
+  startSpinner();
+});
+window.startSpinner = function () {
+  return $('#loading-indicator').fadeIn();
+};
+
+window.stopSpinner = function () {
+  return $('#loading-indicator').fadeOut(1500);
+};
+
 $(document).ready(function () {
   //end check path menu recruteur
   stopSpinner();
@@ -13,7 +24,8 @@ $(document).ready(function () {
   $('option').prepend('&#160; &#160;');
   $('option').append('&#160; &#160;');
   // flash animation
-  if ($('.flash').html().length == 6) {
+  console.log($('.flash').html().length)
+  if ($('.flash').html().length < 10) {
     $('.flash').hide();
   } else {
     $('.flash').fadeIn(300);
@@ -81,16 +93,4 @@ $(document).ready(function () {
     $('.left-menu-r a[href="/recruteur/messages"]').addClass('color-this');
   }
 
-});
-
-window.startSpinner = function () {
-  return $('#loading-indicator').fadeIn();
-};
-
-window.stopSpinner = function () {
-  return $('#loading-indicator').fadeOut(1500);
-};
-
-$(document).on('page:fetch', function () {
-  startSpinner();
 });
