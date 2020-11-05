@@ -39,7 +39,7 @@ class RecruteursController < ApplicationController
     		ProcessedHistory.create(
 				  image: current_client.image,
 				  message: "INSCRIPTION",
-				  link: "<a href= '#{clients_bp_show_client_path(@client.id)}'>VOIR</a>",
+				  link: "#{clients_bp_show_client_path(@client.id)}",
 				  is_client:true,
 				  genre: 1
 				)
@@ -316,7 +316,7 @@ class RecruteursController < ApplicationController
 				ProcessedHistory.create(
 					image: "/image/work.png",
 					message: "SELECTION CANDIDATS",
-					link: "<a href='#{clients_bp_offre_job_no_cadre_path(@offre.id)}'>VOIR</a>",
+					link: "#{clients_bp_offre_job_no_cadre_path(@offre.id)}",
 					is_client:true,
 					genre: 1
 				)
@@ -533,9 +533,9 @@ class RecruteursController < ApplicationController
 
 					# 7. FEEDBACK ENTRETIEN
 		      ProcessedHistory.create(
-		        image: "/image/profie.png",
+		        image: "/image/work.png",
 		        message: "FEEDBACK ENTRETIEN",
-		        link: "<a href= '#{clients_bp_effectue_entretien_path(@oFc.agenda_clients.id)}'>VOIR</a>",
+		        link: "#{clients_bp_effectue_entretien_path(@oFc.agenda_clients.id)}",
 		        is_client:true,
 		        genre: 1
 		      )
@@ -842,7 +842,7 @@ class RecruteursController < ApplicationController
 		      ProcessedHistory.create(
 		        image: @cadre.cadre_info.image,
 		        message: "VALIDATION PERIODE D'ESSAI",
-		        link: "<a href='#{clients_bp_periode_rompre_path(@promise.id)}'>VOIR</a>",
+		        link: "#{clients_bp_periode_rompre_path(@promise.id)}",
 		        is_client:false,
 		        genre: 1
 		      )
@@ -852,7 +852,7 @@ class RecruteursController < ApplicationController
 	      ProcessedHistory.create(
 	        image: @cadre.cadre_info.image,
 	        message: somaiso,
-	        link: "<a href='#{clients_bp_periode_rompre_path(@promise.id)}'>VOIR</a>",
+	        link: "#{clients_bp_periode_rompre_path(@promise.id)}",
 	        is_client:true,
 	        genre: 1
 	      )

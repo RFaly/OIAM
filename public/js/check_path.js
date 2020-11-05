@@ -1,3 +1,14 @@
+$(document).on('page:fetch', function () {
+  startSpinner();
+});
+window.startSpinner = function () {
+  return $('#loading-indicator').fadeIn();
+};
+
+window.stopSpinner = function () {
+  return $('#loading-indicator').fadeOut(1500);
+};
+
 $(document).ready(function () {
   //end check path menu recruteur
   stopSpinner();
@@ -81,16 +92,4 @@ $(document).ready(function () {
     $('.left-menu-r a[href="/recruteur/messages"]').addClass('color-this');
   }
 
-});
-
-window.startSpinner = function () {
-  return $('#loading-indicator').fadeIn();
-};
-
-window.stopSpinner = function () {
-  return $('#loading-indicator').fadeOut(1500);
-};
-
-$(document).on('page:fetch', function () {
-  startSpinner();
 });
