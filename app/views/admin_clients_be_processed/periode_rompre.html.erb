@@ -51,9 +51,8 @@
     </div>
     
     <div class="entretien">
-      Date de début : <span data-times="<%= @promise.offre_job.date_poste.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span><br>
-      Date de fin : <span data-times="<%= @promise.rupture_time_trying.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
-    </div>
+      Date de début : <%= @promise.offre_job.date_poste %><br>
+      Date de fin : <%= @promise.rupture_time_trying %>
   </div>
 </div>
 
