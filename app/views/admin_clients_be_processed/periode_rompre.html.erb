@@ -1,77 +1,96 @@
-<link rel="stylesheet" href="/css/admin_prms.css" />
+<!-- call css -->
+<link rel="stylesheet" href="/css/effectue_entretien.css" />
+<!-- call css  -->
+
 <div class="client-column">
   <div class="client-menu-left">
     <%= render partial: "admin_clients/left_menu" %>
   </div>
-
   <div class="cp-box">
-  <div class="client">
-      Recruteurs: 
-      <div class="cp-pprofil">
-        <% unless @client.image.nil? %>
-          <img src="<%= @client.image %>" alt="logo entreprise" width= "100 px"/>
-        <% else %>
-        <img src="/image/profie.png" alt="logo entreprise" />
-        <%  end %>
+    <div class="ef-box">
+      <div class="offre">
+        <div class="title">Offre</div>
+        <div class="ef-image img-offre">
+          <% unless @offre_job.image.nil? %>
+          <img src="<%= @offre_job.image %>" alt="logo entreprise" width="300px" />
+          <% else %>
+          <img src="/image/profie.png" alt="logo entreprise" />
+          <%  end %>
+        </div>
+        <div>
+          Intitulé du poste : <br>
+          <span><%= @offre_job.intitule_pote %></span>
+        </div>
       </div>
-      <p>
-        Entreprise : <%= @client.entreprise.name %><br>
-        Nom : <%= @client.first_name.capitalize %><br>
-        Prénom : <%= @client.last_name.capitalize %>
-      </p>
-    </div>
-  
-    <div class="offre">
-      Offre :
-      <div class="cp-pprofil">
-        <% unless @offre_job.image.nil? %>
-          <img src="<%= @offre_job.image %>" alt="logo entreprise" width= "300 px"/>
-        <% else %>
-        <img src="/image/profie.png" alt="logo entreprise" />
-        <%  end %>
+      <div class="flex-box">
+        <div class="client">
+          <div class="title">Recruteurs</div>
+          <div class="ef-image img-user">
+            <% unless @client.image.nil? %>
+            <img src="<%= @client.image %>" alt="logo entreprise" width="100 px" />
+            <% else %>
+            <img src="/image/profie.png" alt="logo entreprise" />
+            <%  end %>
+          </div>
+          <div class="name"> <%= @client.first_name.capitalize %> <%= @client.last_name.capitalize %></div>
+          <div>
+            <!-- Entreprise :  -->
+            <%= @client.entreprise.name %><br>
+          </div>
+        </div>
+        <div class="cadre">
+          <div class="title">Candidats</div>
+          <div class="ef-image img-user">
+            <% unless @cadre_info.image.nil? %>
+            <img src="<%= @cadre_info.image %>" alt="logo entreprise" width="300 px" />
+            <% else %>
+            <img src="/image/profie.png" alt="logo entreprise" />
+            <%  end %>
+          </div>
+          <div class="name">
+            <%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %>
+          </div>
+          <div class="entretien">
+            <div>
+              Date de début :
+              <b><%= @promise.offre_job.date_poste %></b>
+            </div>
+            <div>
+              <% @time_try = @promise.rupture_time_trying%>
+              <%if @time_try.include?('-') %>
+              <% @time = @time_try.split('-')%>
+              <% @pbt = "#{@time[2]}/#{@time[1]}/#{@time[0]}"%>
+              <%else %>
+              <%@pbt =  @time_try%>
+              <%end %>
+              Date de fin :
+              <b><%= @pbt %></b>
+            </div>
+          </div>
+        </div>
       </div>
-      <p>
-        Intitulé du poste : <%= @offre_job.intitule_pote %>
-      </p>
     </div>
-
-    <div class="cadre">
-      Candidats :
-      <div class="cp-pprofil">
-        <% unless @cadre_info.image.nil? %>
-          <img src="<%= @cadre_info.image %>" alt="logo entreprise" width= "300 px"/>
-        <% else %>
-        <img src="/image/profie.png" alt="logo entreprise" />
-        <%  end %>
-      </div>
-      <p>
-        Nom : <%= @cadre_info.first_name.capitalize %><br>
-        Prénom : <%= @cadre_info.last_name.capitalize %>
-      </p>
-    </div>
-    
-    <div class="entretien">
-      Date de début : <%= @promise.offre_job.date_poste %><br>
-      Date de fin : <%= @promise.rupture_time_trying %>
   </div>
 </div>
-
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 <script type="text/javascript">
-  $(".currentDatentretien").ready(function(){
-    var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+  $(".currentDatentretien").ready(function () {
+    var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre',
+      'Novembre', 'Décembre'
+    ];
     var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
     let $elementDate = $('.currentDatentretien');
     $elementDate.each(function () {
       let dateUTC = moment.utc($(this).data().times);
       let dateGet = new Date(dateUTC.local());
-      let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
+      let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] +
+        ' ' + dateGet.getFullYear();
       let minute = dateGet.getMinutes()
-      if((minute+"").length == 1){
-     minute = "0"+minute
-     }
+      if ((minute + "").length == 1) {
+        minute = "0" + minute
+      }
       $(this).html(dateString)
-        $(this).html(dateString + ' à ' + dateGet.getHours() + 'h'+ minute );
+      $(this).html(dateString + ' à ' + dateGet.getHours() + 'h' + minute);
     });
   });
 </script>
