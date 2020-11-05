@@ -247,17 +247,9 @@ body {
   margin-top: 15px;
 }
 
-.left_link{
-  border-right: 1px solid #d6b36a;
-}
 
-.main {
-  margin-top: 16px;
-  width: 100%;
-  margin-left: -3px;
-  padding-left: 50px;
-  padding-right: 50px;
-}
+
+
 
 .main-title {
   text-align: center;
@@ -266,11 +258,8 @@ body {
 }
 
 .job-info {
-  display: flex;
   width: 100%;
-  grid-column-gap: 35%;
   text-align: center;
-  justify-content: center;
   padding-bottom: 30px;
   border-bottom: 2px solid #f0f2f4;
   margin-bottom: 20px;
@@ -282,7 +271,7 @@ body {
 }
 
 .job-info-content {
-  width: 300px;
+  width: 100%;
 }
 
 .down {
@@ -305,7 +294,15 @@ body {
   outline: 1px solid #d6b36a;
 }
 
+.job-info-content{
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
 .disable {
+  display: block;
+  margin: 0 auto;
   width: 225px;
   height: 35px;
   border-radius: 0;
@@ -330,7 +327,7 @@ body {
 }
 
 .date-prise {
-  width: 225px;
+  width: 100%;
   height: 35px;
   border-radius: 0;
   border: none;
@@ -342,14 +339,12 @@ body {
 }
 
 .promese-info {
-  display: flex;
   width: 100%;
-  justify-content: center;
-  grid-column-gap: 35%;
   margin-bottom: 20px;
   padding-bottom: 30px;
   border-bottom: 2px solid #f0f2f4;
   margin-bottom: 20px;
+  padding: 15px;
 }
 
 
@@ -361,19 +356,21 @@ body {
 }
 
 .date-prise-label {
-  position: relative;
-  top: 15px;
+  display: block;
   font-size: 16px;
   text-align: center;
-  width: 300px;
+  width: 100%;
   height: 100%;
+  margin-bottom: 10px;
+}
+
+.date-valid0{
+  text-align: center;
+  width: 100%;
 }
 
 .promese-info-check {
-  display: flex;
   width: 100%;
-  justify-content: center;
-  grid-column-gap: 35%;
   margin-top: 20px;
 }
 
@@ -385,13 +382,18 @@ body {
 
 .mounth {
   font-size: 16px;
-  width: 225px;
+  width: 100%;
   cursor: pointer;
 }
 
+.fichier{
+
+}
+
 .renum {
+  display: block;
   font-size: 16px;
-  width: 300px;
+  width: 100%;
   text-align: center;
   margin-top: 20px;
 }
@@ -406,7 +408,7 @@ body {
   margin: 0 auto;
   text-align: center;
   width: 100%;
-  margin-bottom: 50px;
+  padding: 15px;
 }
 
 .avantage-input {
@@ -414,7 +416,7 @@ body {
   margin: 0 auto;
   margin-top: 15px;
   background-color: #f0f2f4;
-  width: 80%;
+  width: 100%;
   height: auto;
   padding: 20px;
   text-align: left;
@@ -426,7 +428,7 @@ body {
 }
 
 .date-valid {
-  width: 225px;
+  width: 100%;
   height: 35px;
   border-radius: 0;
   border: none;
@@ -438,7 +440,6 @@ body {
 
 .import {
   color: transparent;
-  width: 225px;
   height: 76px;
   cursor: pointer;
 }
@@ -467,7 +468,7 @@ body {
 
 .file {
   background-color: #fff;
-  width: 225px;
+  width: 100%;
   height: 50px;
   color: #d6b36a;
   text-align: center;
@@ -523,7 +524,9 @@ input[type='radio']:checked {
 }
 
 .number-only {
-  appearance: textfield;
+  -webkit-appearance: textfield;
+  -moz-appearance:    textfield;
+  appearance:textfield
 }
 
 #btn-valid-error {
@@ -562,7 +565,7 @@ input[type='radio']:checked {
 }
 
 .renum-var {
-  width: 225px;
+  width: 100%;
   height: 35px;
   border-radius: 0;
   border: none;
@@ -570,6 +573,12 @@ input[type='radio']:checked {
   background-color: #f0f2f4;
   text-align: center;
   margin-top: 15px;
+}
+
+.avantage-label{
+  display: block;
+  width: 100%;
+  text-align;
 }
 
 .telecharger:hover {
@@ -608,9 +617,92 @@ input[type='radio']:checked {
   top: -15px;
 }
 
-#ui-datepicker-div {
-  width: 300px;
-  color: white;
+@media only screen and (min-width: 600px){
+  .main{
+    display: block;
+    margin: 0 auto;
+    padding: 15px;
+  }
+  .job-info{
+    display: flex;
+    justify-content: space-between;
+    grid-column-gap: 2%;
+  }
+
+  .import{
+    width: 225px;
+    height: 120px;
+  }
+
+  .file{
+    width: 225px;
+  }
+
+
+  .cadre-info{
+    width: 50%;
+  }
+
+  .renum{
+    width: 50%;
+  }
+
+  .date-valid0{
+    width: auto;
+  }
+
+  .date-valida{
+    width: 100%;
+  }
+
+  .date-valid{
+    width: 225px;
+  }
+
+  .job-info-content{
+    width: 50%;
+  }
+
+  .promese-info{
+    display: flex;
+    justify-content: space-between;
+  }
+  .date-prise-label{
+    width: 50%;
+  }
+
+  .date-prise{
+    max-width: 225px;
+  }
+
+  .promese-info-check{
+    display: flex;
+    justify-content: end;
+  }
+
+  .transparent{
+    width: 50%;
+  }
+
+  .mounth{
+    max-width: 225px;
+  }
+
+  .cadre-info-content{
+    float: right;
+  }
+
+}
+
+@media only screen and (min-width: 1024px){
+  .main{
+    width: 60%;
+  }
+
+  .left_link{
+    border-right: 1px solid #d6b36a;
+  }
+
 }
 
 .ui-datepicker-calendar {
