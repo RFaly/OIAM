@@ -39,7 +39,9 @@
         <% @clients.each do |client| %>
         <div data-name=".INSCRIPTION" class="bp-box list-items-me">
           <div class="bp-inside-box">
-            <div class="bp-inscr">INSCRIPTION</div>
+            <div class="bp-inscr">INSCRIPTION<br>
+              Etat: Compte non créé
+            </div>
             <div class="bp-name">
               <%= client.first_name %> <%= client.last_name %>
             </div>
@@ -67,7 +69,9 @@
         <% @offreJobs.each do |offreJob| %>
         <div data-name=".SELECTION_CANDIDATS" class="bp-box list-items-me">
           <div class="bp-inside-box">
-            <div class="bp-inscr">SELECTION CANDIDATS</div>
+            <div class="bp-inscr">SELECTION CANDIDATS<br>
+              Etat: Offre publiée/Candidat non sélectionné
+            </div>
             <div class="bp-name">
               <%= offreJob.client.first_name %> <%= offreJob.client.last_name %>
             </div>
@@ -99,7 +103,9 @@
 
         <div data-name=".PLANIFICATION_ENTRETIEN" class="bp-box list-items-me">
           <div class="bp-inside-box">
-            <div class="bp-inscr">PLANIFICATION ENTRETIEN</div>
+            <div class="bp-inscr">PLANIFICATION ENTRETIEN<br>
+              Etat: Planification envoyée
+            </div>
             <div class="bp-name">
               <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
             </div>
@@ -133,7 +139,9 @@
 
         <div data-name=".FEEDBACK_ENTRETIEN" class="bp-box list-items-me">
           <div class="bp-inside-box">
-            <div class="bp-inscr">FEEDBACK ENTRETIEN</div>
+            <div class="bp-inscr">FEEDBACK ENTRETIEN<br>
+              Etat: En mode entretien
+            </div>
             <div class="bp-name">
               <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
             </div>
@@ -165,7 +173,9 @@
 
         <div data-name=".PROMESSE_D_EMBAUCHE" class="bp-box list-items-me">
           <div class="bp-inside-box">
-            <div class="bp-inscr">PROMESSE D'EMBAUCHE</div>
+            <div class="bp-inscr">PROMESSE D'EMBAUCHE<br>
+              Etat: En mode remplissage
+            </div>
             <div class="bp-name">
               <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
             </div>
@@ -195,7 +205,9 @@
 
         <div data-name=".PERIODE_D_ESSAI_ROMPUE" class="bp-box list-items-me">
           <div class="bp-inside-box">
-            <div class="bp-inscr">PERIODE D'ESSAI ROMPUE</div>
+            <div class="bp-inscr">PERIODE D'ESSAI ROMPUE<br>
+              Etat: A rompre
+            </div>
             <div class="bp-name">
               <%= offre_job.client.first_name %> <%= offre_job.client.last_name %>
             </div>
