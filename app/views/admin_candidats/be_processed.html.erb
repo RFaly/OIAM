@@ -243,7 +243,6 @@
 				<% end %>
 				<% end %>
 			</div>
-
 		</div>
 	</div>
 </div>
@@ -257,22 +256,12 @@
 
 <script type="text/javascript">
 	$(".currentDatentretien").ready(function () {
-		var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre',
-			'Octobre', 'Novembre', 'Décembre'
-		];
-		var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
 		let $elementDate = $('.currentDatentretien');
 		$elementDate.each(function () {
 			let dateUTC = moment.utc($(this).data().times);
 			let dateGet = new Date(dateUTC.local());
-			let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet
-				.getMonth()] + ' ' + dateGet.getFullYear();
-			// let minute = dateGet.getMinutes()
-			// if((minute+"").length == 1){
-			//   minute = "0"+minute
-			// }
-			$(this).html(dateString)
-			// $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ minute );
+			let dateString = dateGet.getDate()+"/"+dateGet.getMonth()+"/"+dateGet.getFullYear();
+			$(this).html(dateString);
 		});
 	});
 
