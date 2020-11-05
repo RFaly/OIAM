@@ -15,7 +15,7 @@
         <div class="acp-image"><img src='<%= processedHistorie.image %>' /></div>
         <div class="acp-content"><%= processedHistorie.message %></div>
         <div class="acp-link">
-          <a href="<%= processedHistorie.link %>">Voir</a>
+          <%= raw processedHistorie.link %>
         </div>
       </div>
       <hr>
