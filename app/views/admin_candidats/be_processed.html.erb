@@ -3,248 +3,244 @@
 <!-- call css  -->
 <!-- html body  -->
 <div class="client-column">
-	<div class="client-menu-left">
-		<%= render partial: "admin_candidats/left_menu" %>
-	</div>
-	<div class="cp-box">
-		<div class="admin-bp-box ">
-			<div class="dp-input">
-				<select name="filtre" id="filtre" class="co-select">
-					<option value=".TOUS" selected="selected">TOUS</option>
-					<option value=".INSCRIPTION">INSCRIPTION</option>
-					<option value=".ADMISSION">ADMISSION</option>
-					<option value=".PROMESSE-D-EMBAUCHE">PROMESSE D'EMBAUCHE</option>
-					<option value=".PRIME">PRIME</option>
-				</select>
-			</div>
-			<div class="flex">
-				<p id="none-element" style="display: none;">Aucune tâche à traiter.</p>
-				<!-- <div>Test potentiel non terminé (en cours d eroute),récupérer son nom et email)</div> -->
+    <div class="client-menu-left">
+        <%= render partial: "admin_candidats/left_menu" %>
+    </div>
+    <div class="cp-box">
+        <div class="admin-bp-box ">
+            <div class="dp-input">
+                <select name="filtre" id="filtre" class="co-select">
+                    <option value=".TOUS" selected="selected">TOUS</option>
+                    <option value=".INSCRIPTION">INSCRIPTION</option>
+                    <option value=".ADMISSION">ADMISSION</option>
+                    <option value=".PROMESSE-D-EMBAUCHE">PROMESSE D'EMBAUCHE</option>
+                    <option value=".PRIME">PRIME</option>
+                </select>
+            </div>
+            <div class="flex">
+                <p id="none-element" style="display: none;">Aucune tâche à traiter.</p>
+                <!-- <div>Test potentiel non terminé (en cours d eroute),récupérer son nom et email)</div> -->
 
-				<% unless @cadreInfoPotentielNotEnds.empty? %>
-				<% @cadreInfoPotentielNotEnds.each do |cadreInfoPotentielNotEnd| %>
-				<div data-name=".INSCRIPTION" class="bp-box list-items-me">
-					<!-- <img src='/image/profie.png'/> <br> -->
-					<div class="bp-inside-box">
-						<div class="bp-inscr">INSCRIPTION<br>
-							Etat: Inscription non terminée
-						</div>
-						<div class="bp-name">
-							<%= cadreInfoPotentielNotEnd.first_name %> <%= cadreInfoPotentielNotEnd.last_name %>
-						</div>
-						<div class="bp-date">
-							Date d'entrée :
-							<br>
-							<%= cadreInfoPotentielNotEnd.created_at.strftime("%d/%m/%Y") %>
-						</div>
-						<div class="bp-date">
-							Date limite :
-							<br>
-							~
-						</div>
-					</div>
-					<div class="bp-btn">
-						<a href="<%= cbp_inscription_path(cadreInfoPotentielNotEnd.id) %>">GERER</a>
-					</div>
-				</div>
-				<% end %>
-				<% end %>
+                <% unless @cadreInfoPotentielNotEnds.empty? %>
+                <% @cadreInfoPotentielNotEnds.each do |cadreInfoPotentielNotEnd| %>
+                <div data-name=".INSCRIPTION" class="bp-box list-items-me">
+                    <!-- <img src='/image/profie.png'/> <br> -->
+                    <div class="bp-inside-box">
+                        <div class="bp-inscr">INSCRIPTION<br>
+                            Etat: Inscription non terminée
+                        </div>
+                        <div class="bp-name">
+                            <%= cadreInfoPotentielNotEnd.first_name %> <%= cadreInfoPotentielNotEnd.last_name %>
+                        </div>
+                        <div class="bp-date">
+                            Date d'entrée :
+                            <br>
+                            <%= cadreInfoPotentielNotEnd.created_at.strftime("%d/%m/%Y") %>
+                        </div>
+                        <div class="bp-date">
+                            Date limite :
+                            <br>
+                            ~
+                        </div>
+                    </div>
+                    <div class="bp-btn">
+                        <a href="<%= cbp_inscription_path(cadreInfoPotentielNotEnd.id) %>">GERER</a>
+                    </div>
+                </div>
+                <% end %>
+                <% end %>
 
-				<!-- <div>RDV Entretiens FIT à valider(nom+prenom, date+horaire rdv)</div> -->
+                <!-- <div>RDV Entretiens FIT à valider(nom+prenom, date+horaire rdv)</div> -->
 
-				<% unless @cadreInfoFits.empty? %>
-				<% @cadreInfoFits.each do |cadreInfoFit| %>
-				<div data-name=".INSCRIPTION" class="bp-box list-items-me">
-					<div class="bp-inside-box">
-						<div class="bp-inscr">INSCRIPTION<br>
-							Etat: RDV FIT à valider
-						</div>
-						<div class="bp-name pt-4">
-							<%= cadreInfoFit.first_name %> <%= cadreInfoFit.last_name %>
-						</div>
-						<div class="bp-date">
-							Date d'entrée :
-							<br>
-							<span
-								data-times="<%= cadreInfoFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>"
-								class="currentDatentretien"></span>
-						</div>
-						<div class="bp-date">
-							Date limite :
-							<br>
-							~
-						</div>
-					</div>
-					<div class="bp-btn">
-						<a href="<%= cbp_validate_entretien_fit_path(cadreInfoFit.id) %>">GERER</a>
-					</div>
-				</div>
-				<% end %>
-				<% end %>
+                <% unless @cadreInfoFits.empty? %>
+                <% @cadreInfoFits.each do |cadreInfoFit| %>
+                <div data-name=".INSCRIPTION" class="bp-box list-items-me">
+                    <div class="bp-inside-box">
+                        <div class="bp-inscr">INSCRIPTION<br>
+                            Etat: RDV FIT à valider
+                        </div>
+                        <div class="bp-name pt-4">
+                            <%= cadreInfoFit.first_name %> <%= cadreInfoFit.last_name %>
+                        </div>
+                        <div class="bp-date">
+                            Date d'entrée :
+                            <br>
+                            <span data-times="<%= cadreInfoFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
+                        </div>
+                        <div class="bp-date">
+                            Date limite :
+                            <br>
+                            ~
+                        </div>
+                    </div>
+                    <div class="bp-btn">
+                        <a href="<%= cbp_validate_entretien_fit_path(cadreInfoFit.id) %>">GERER</a>
+                    </div>
+                </div>
+                <% end %>
+                <% end %>
 
-				<!-- <div>Entretiens FIT à effectuer(nom+prénom+date)</div> -->
+                <!-- <div>Entretiens FIT à effectuer(nom+prénom+date)</div> -->
 
-				<% unless @cadreInfoEnterScoreFits.empty? %>
-				<% @cadreInfoEnterScoreFits.each do |cadreInfoEnterScoreFit| %>
-				<div data-name=".INSCRIPTION" class="bp-box list-items-me">
-					<div class="bp-inside-box">
-						<div class="bp-inscr">INSCRIPTION<br>
-							Etat: Entretiens FIT à effectuer
-						</div>
-						<div class="bp-name pt-4">
-							<%= cadreInfoEnterScoreFit.first_name %> <%= cadreInfoEnterScoreFit.last_name %>
-						</div>
-						<div class="bp-date">
-							Date d'entrée :
-							<br>
-							<span
-								data-times="<%= cadreInfoEnterScoreFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>"
-								class="currentDatentretien"></span>
-						</div>
-						<div class="bp-date">
-							Date limite :
-							<br>
-							~
-						</div>
-					</div>
-					<div class="bp-btn">
-						<a href="<%= post_avis_candidats_fit_path(cadreInfoEnterScoreFit.id) %>">GERER</a>
-					</div>
-				</div>
-				<% end %>
-				<% end %>
+                <% unless @cadreInfoEnterScoreFits.empty? %>
+                <% @cadreInfoEnterScoreFits.each do |cadreInfoEnterScoreFit| %>
+                <div data-name=".INSCRIPTION" class="bp-box list-items-me">
+                    <div class="bp-inside-box">
+                        <div class="bp-inscr">INSCRIPTION<br>
+                            Etat: Entretiens FIT à effectuer
+                        </div>
+                        <div class="bp-name pt-4">
+                            <%= cadreInfoEnterScoreFit.first_name %> <%= cadreInfoEnterScoreFit.last_name %>
+                        </div>
+                        <div class="bp-date">
+                            Date d'entrée :
+                            <br>
+                            <span data-times="<%= cadreInfoEnterScoreFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
+                        </div>
+                        <div class="bp-date">
+                            Date limite :
+                            <br>
+                            ~
+                        </div>
+                    </div>
+                    <div class="bp-btn">
+                        <a href="<%= post_avis_candidats_fit_path(cadreInfoEnterScoreFit.id) %>">GERER</a>
+                    </div>
+                </div>
+                <% end %>
+                <% end %>
 
-				<!-- <div>Profil non complété</div> -->
+                <!-- <div>Profil non complété</div> -->
 
-				<% unless @cacadreInfoInCompleteInfoProfils.empty? %>
-				<% @cacadreInfoInCompleteInfoProfils.each do |cacadreInfoInCompleteInfoProfil| %>
-				<% cfo = cacadreInfoInCompleteInfoProfil %>
-				<div data-name=".ADMISSION" class="bp-box list-items-me">
-					<div class="bp-inside-box">
-						<div class="bp-inscr">ADMISSION<br>
-							Etat: Profil non complété
-						</div>
-						<div class="bp-name pt-4">
-							<%= cfo.first_name %> <%= cfo.last_name %>
-						</div>
-						<div class="bp-date">
-							Date d'entrée :
-							<br>
-							~
-						</div>
-						<div class="bp-date">
-							Date limite :
-							<br>
-							~
-						</div>
-					</div>
-					<div class="bp-btn">
-						<a href="<%= cbp_profil_no_complete_path(cacadreInfoInCompleteInfoProfil.id) %>">GERER</a>
-					</div>
-				</div>
-				<% end %>
-				<% end %>
+                <% unless @cacadreInfoInCompleteInfoProfils.empty? %>
+                <% @cacadreInfoInCompleteInfoProfils.each do |cacadreInfoInCompleteInfoProfil| %>
+                <% cfo = cacadreInfoInCompleteInfoProfil %>
+                <div data-name=".ADMISSION" class="bp-box list-items-me">
+                    <div class="bp-inside-box">
+                        <div class="bp-inscr">ADMISSION<br>
+                            Etat: Profil non complété
+                        </div>
+                        <div class="bp-name pt-4">
+                            <%= cfo.first_name %> <%= cfo.last_name %>
+                        </div>
+                        <div class="bp-date">
+                            Date d'entrée :
+                            <br>
+                            ~
+                        </div>
+                        <div class="bp-date">
+                            Date limite :
+                            <br>
+                            ~
+                        </div>
+                    </div>
+                    <div class="bp-btn">
+                        <a href="<%= cbp_profil_no_complete_path(cacadreInfoInCompleteInfoProfil.id) %>">GERER</a>
+                    </div>
+                </div>
+                <% end %>
+                <% end %>
 
-				<!-- <div>Liste des candidats qui n'ont pas encore postulé à une offre ou qui ne sont pas dans un process de recrutement</div> -->
+                <!-- <div>Liste des candidats qui n'ont pas encore postulé à une offre ou qui ne sont pas dans un process de recrutement</div> -->
 
-				<!-- <div>Liste des candidats qui n'ont pas eu de retour du recruteur suit au rdv déjà passé.</div> -->
+                <!-- <div>Liste des candidats qui n'ont pas eu de retour du recruteur suit au rdv déjà passé.</div> -->
 
-				<!-- <div>Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu</div> -->
+                <!-- <div>Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu</div> -->
 
-				<% unless @cadreInfoNotPromiseToHires.empty? %>
-				<% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
-				<% cINPT = cadreInfoNotPromiseToHire.cadre_info %>
-				<div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me">
-					<div class="bp-inside-box">
-						<div class="bp-inscr">PROMESSE D'EMBAUCHE<br>
-							Etat: Promesse d'embauche non validée
-						</div>
-						<div class="bp-name pt-4">
-							<%= cINPT.first_name %> <%= cINPT.last_name %>
-						</div>
-						<div class="bp-date">
-							Date d'entrée :
-							<br>
-							<%= cINPT.promise_not_reponded[1] %>
-						</div>
-						<div class="bp-date">
-							Date limite :
-							<br>
-							<%= cINPT.promise_not_reponded[0] %>
-						</div>
-					</div>
-					<div class="bp-btn">
-						<a href="<%= cbp_promise_no_validate_path(cINPT.id) %>">GERER</a>
-					</div>
-				</div>
-				<% end %>
-				<% end %>
+                <% unless @cadreInfoNotPromiseToHires.empty? %>
+                <% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
+                <% cINPT = cadreInfoNotPromiseToHire.cadre_info %>
+                <div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me">
+                    <div class="bp-inside-box">
+                        <div class="bp-inscr">PROMESSE D'EMBAUCHE<br>
+                            Etat: Promesse d'embauche non validée
+                        </div>
+                        <div class="bp-name pt-4">
+                            <%= cINPT.first_name %> <%= cINPT.last_name %>
+                        </div>
+                        <div class="bp-date">
+                            Date d'entrée :
+                            <br>
+                            <%= cINPT.promise_not_reponded[1] %>
+                        </div>
+                        <div class="bp-date">
+                            Date limite :
+                            <br>
+                            <%= cINPT.promise_not_reponded[0] %>
+                        </div>
+                    </div>
+                    <div class="bp-btn">
+                        <a href="<%= cbp_promise_no_validate_path(cINPT.id) %>">GERER</a>
+                    </div>
+                </div>
+                <% end %>
+                <% end %>
 
-				<!-- <div>Liste des candidats qui sont arrivés au bout de leur période d'essai et qui n'ont pas encore été validés dans le système.</div> -->
+                <!-- <div>Liste des candidats qui sont arrivés au bout de leur période d'essai et qui n'ont pas encore été validés dans le système.</div> -->
 
-				<% unless @cadreInfoValidateTimeTryings.empty? %>
-				<% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
-				<% pThWa = cadreInfoValidateTimeTrying[0] %>
-				<div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me">
-					<div class="bp-inside-box">
-						<div class="bp-inscr">PERIODE D'ESSAI<br>
-							Etat: Période d'essai non validée
-						</div>
-						<div class="bp-name pt-4">
-							<%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
-						</div>
-						<div class="bp-date">
-							Date d'entrée :
-							<br>
-							<%= pThWa.offre_job.date_poste %>
-						</div>
-						<div class="bp-date">
-							Date limite :
-							<br>
-							<%= pThWa.time_trying %>
-						</div>
-					</div>
-					<div class="bp-btn">
-						<a href="<%= cbp_promise_no_validate_path(pThWa.cadre.cadre_info.id) %>">GERER</a>
-						<!-- promise to hire -->
-					</div>
-				</div>
-				<% end %>
-				<% end %>
+                <% unless @cadreInfoValidateTimeTryings.empty? %>
+                <% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
+                <% pThWa = cadreInfoValidateTimeTrying[0] %>
+                <div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me">
+                    <div class="bp-inside-box">
+                        <div class="bp-inscr">PERIODE D'ESSAI<br>
+                            Etat: Période d'essai non validée
+                        </div>
+                        <div class="bp-name pt-4">
+                            <%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
+                        </div>
+                        <div class="bp-date">
+                            Date d'entrée :
+                            <br>
+                            <%= pThWa.offre_job.date_poste %>
+                        </div>
+                        <div class="bp-date">
+                            Date limite :
+                            <br>
+                            <%= pThWa.time_trying %>
+                        </div>
+                    </div>
+                    <div class="bp-btn">
+                        <a href="<%= cbp_promise_no_validate_path(pThWa.cadre.cadre_info.id) %>">GERER</a>
+                        <!-- promise to hire -->
+                    </div>
+                </div>
+                <% end %>
+                <% end %>
 
-				<!-- <div>Liste des candidats qui n'ont pas reçu leur prime</div> -->
+                <!-- <div>Liste des candidats qui n'ont pas reçu leur prime</div> -->
 
-				<% unless @cadreInfoPrimNotReceiveds.empty? %>
-				<% @cadreInfoPrimNotReceiveds.each do |cadreInfoPrimNotReceived| %>
-				<% pThWa = cadreInfoPrimNotReceived[0] %>
-				<div data-name=".PRIME" class="bp-box list-items-me">
-					<div class="bp-inside-box">
-						<div class="bp-inscr">PRIME<br>
-							Etat: Prime non reçue
-						</div>
-						<div class="bp-name pt-4">
-							<%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
-						</div>
-						<div class="bp-date">
-							Date d'entrée :
-							<br>
-							<%= pThWa.offre_job.date_poste %>
-						</div>
-						<div class="bp-date">
-							Date limite :
-							<br>
-							<%= pThWa.time_trying %>
-						</div>
-					</div>
-					<div class="bp-btn">
-						<a href="<%= cbp_prime_path(pThWa.id) %>">GERER</a>
-					</div>
-				</div>
-				<% end %>
-				<% end %>
-			</div>
-		</div>
-	</div>
+                <% unless @cadreInfoPrimNotReceiveds.empty? %>
+                <% @cadreInfoPrimNotReceiveds.each do |cadreInfoPrimNotReceived| %>
+                <% pThWa = cadreInfoPrimNotReceived[0] %>
+                <div data-name=".PRIME" class="bp-box list-items-me">
+                    <div class="bp-inside-box">
+                        <div class="bp-inscr">PRIME<br>
+                            Etat: Prime non reçue
+                        </div>
+                        <div class="bp-name pt-4">
+                            <%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
+                        </div>
+                        <div class="bp-date">
+                            Date d'entrée :
+                            <br>
+                            <%= pThWa.offre_job.date_poste %>
+                        </div>
+                        <div class="bp-date">
+                            Date limite :
+                            <br>
+                            <%= pThWa.time_trying %>
+                        </div>
+                    </div>
+                    <div class="bp-btn">
+                        <a href="<%= cbp_prime_path(pThWa.id) %>">GERER</a>
+                    </div>
+                </div>
+                <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -255,36 +251,36 @@
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 
 <script type="text/javascript">
-	$(".currentDatentretien").ready(function () {
-		let $elementDate = $('.currentDatentretien');
-		$elementDate.each(function () {
-			let dateUTC = moment.utc($(this).data().times);
-			let dateGet = new Date(dateUTC.local());
-			let dateString = dateGet.getDate()+"/"+dateGet.getMonth()+"/"+dateGet.getFullYear();
-			$(this).html(dateString);
-		});
-	});
+    $(".currentDatentretien").ready(function() {
+        let $elementDate = $('.currentDatentretien');
+        $elementDate.each(function() {
+            let dateUTC = moment.utc($(this).data().times);
+            let dateGet = new Date(dateUTC.local());
+            let dateString = dateGet.getDate() + "/" + dateGet.getMonth() + "/" + dateGet.getFullYear();
+            $(this).html(dateString);
+        });
+    });
 
-	if ($(".list-items-me").length == 0) {
-		$("#none-element").fadeIn(500);
-	}
+    if ($(".list-items-me").length == 0) {
+        $("#none-element").fadeIn(500);
+    }
 
-	$("#filtre").change(function () {
-		var search = $(this).val()
-		var emptyS = true
-		$(".list-items-me").each(function () {
-			let thisiko = $(this)
-			if ((search == thisiko.data().name) || (search == ".TOUS")) {
-				thisiko.fadeIn(500);
-				emptyS = false
-			} else {
-				thisiko.fadeOut(200);
-			}
-		});
-		if (emptyS) {
-			$("#none-element").fadeIn(500);
-		} else {
-			$("#none-element").fadeOut(200);
-		}
-	});
+    $("#filtre").change(function() {
+        var search = $(this).val()
+        var emptyS = true
+        $(".list-items-me").each(function() {
+            let thisiko = $(this)
+            if ((search == thisiko.data().name) || (search == ".TOUS")) {
+                thisiko.fadeIn(500);
+                emptyS = false
+            } else {
+                thisiko.fadeOut(200);
+            }
+        });
+        if (emptyS) {
+            $("#none-element").fadeIn(500);
+        } else {
+            $("#none-element").fadeOut(200);
+        }
+    });
 </script>
