@@ -871,11 +871,11 @@ class RecruteursController < ApplicationController
   
   def show_my_messages
 		@cadre = Cadre.find_by_id(params[:id])
-		if @candidat.nil?
-			flash[:alert] = "Ce candidat n'est plus disponible."
-			redirect_back(fallback_location: root_path)
-			return
-		end
+		# if @candidat.nil?
+		# 	flash[:alert] = "Ce candidat n'est plus disponible."
+		# 	redirect_back(fallback_location: root_path)
+		# 	return
+		# end
 	    @contact = ContactClientCadre.where(cadre: @cadre, client:current_client)
 	    if @contact.count == 0
 	      @contact = ContactClientCadre.create(cadre: @cadre, client:current_client)

@@ -24,7 +24,8 @@ $(document).ready(function () {
   $('option').prepend('&#160; &#160;');
   $('option').append('&#160; &#160;');
   // flash animation
-  if ($('.flash').html().length == 6) {
+  console.log($('.flash').html().length)
+  if ($('.flash').html().length < 10) {
     $('.flash').hide();
   } else {
     $('.flash').fadeIn(300);

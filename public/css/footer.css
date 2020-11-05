@@ -97,6 +97,7 @@
 #input-mail input[type='submit'] {
   margin: 10px;
   text-decoration: none;
+  background: transparent;
   border: 2px solid #d6b36a;
   text-transform: uppercase;
   color: #d6b36a;
