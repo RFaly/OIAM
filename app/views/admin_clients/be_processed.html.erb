@@ -42,7 +42,7 @@
             <div class="bp-inscr">INSCRIPTION<br>
               Etat: Compte non créé
             </div>
-            <div class="bp-name">
+            <div class="bp-name pt-4">
               <%= client.first_name %> <%= client.last_name %>
             </div>
             <div class="bp-date">
@@ -72,10 +72,10 @@
             <div class="bp-inscr">SELECTION CANDIDATS<br>
               Etat: Offre publiée/Candidat non sélectionné
             </div>
-            <div class="bp-name">
+            <div class="bp-name pt-4">
               <%= offreJob.client.first_name %> <%= offreJob.client.last_name %>
             </div>
-            <div class="bp-date">
+            <div class="bp-datept-4">
               Date d'entrée :<br>
               <%= offreJob.created_at.strftime("%d/%m/%Y") %>
             </div>
@@ -106,7 +106,7 @@
             <div class="bp-inscr">PLANIFICATION ENTRETIEN<br>
               Etat: Planification envoyée
             </div>
-            <div class="bp-name">
+            <div class="bp-name pt-4">
               <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
             </div>
             <div class="bp-date">
@@ -142,7 +142,7 @@
             <div class="bp-inscr">FEEDBACK ENTRETIEN<br>
               Etat: En mode entretien
             </div>
-            <div class="bp-name">
+            <div class="bp-name pt-4">
               <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
             </div>
             <div class="bp-date">
@@ -176,7 +176,7 @@
             <div class="bp-inscr">PROMESSE D'EMBAUCHE<br>
               Etat: En mode remplissage
             </div>
-            <div class="bp-name">
+            <div class="bp-name pt-4">
               <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
             </div>
             <div class="bp-date">
@@ -208,7 +208,7 @@
             <div class="bp-inscr">PERIODE D'ESSAI ROMPUE<br>
               Etat: A rompre
             </div>
-            <div class="bp-name">
+            <div class="bp-name pt-4">
               <%= offre_job.client.first_name %> <%= offre_job.client.last_name %>
             </div>
             <div class="bp-date">
