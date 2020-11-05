@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/css/admin_prms.css" />
+<link rel="stylesheet" href="/admins/css/job_offre.css">
 <style media="screen">
   .cp-box h1 {
     font-size: 16px;
@@ -18,56 +19,56 @@
       <div class="show-publication" id="publish-ajax-hid">
         <div class="sjb-content">
           <div class="show-einfos">
-            <div class="logo">
-              <% unless @offre_job.image.nil? %>
-                <div class="c" style="background: url(<%= @offre_job.image%>) center no-repeat; background-size: cover"></div>
-               <% end %>
+            <div class="row">
+              <div class="logo col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">
+                <img src="<%= @offre_job.image %>" class="offre-img">
+              </div>
+              <div class="local col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <p ><strong class="entre-name">OFFRE D'EMPLOI DE <%= @offre_job.client.entreprise.name.upcase %></strong></p>
+                <p><strong><%= @offre_job.intitule_pote %></strong></p>
+                <p><strong>DEPARTEMENTS : </strong><%= @offre_job.department %></p>
+                <p><strong>PAYS : </strong><%= @offre_job.country %></p>
+                <p><strong>REGION : </strong><%= @offre_job.region%></p>
+              </div>
             </div>
-            <div class="local">
-              <p>OFFRE D'EMPLOI DE <%= @offre_job.client.entreprise.name.upcase %></p>
-              <p><%= @offre_job.intitule_pote %></p>
-              <p>DEPARTEMENTS : <%= @offre_job.department %></p>
-              <p>PAYS : <%= @offre_job.country %></p>
-              <p>REGION : <%= @offre_job.region%></p>
             </div>
-          </div>
           <hr />
-          <div class="so-content">
-            <p>DESCRIPTIF DES MISSIONS</p>
+          <div class="so-content text-lg-center text-md-center text-sm-center">
+            <p><strong>DESCRIPTIF DES MISSIONS</strong></p>
             <div class="description">
               <%= @offre_job.descriptif_mission.gsub('[sp]', ' &#160; ').gsub('[nl]', ' <br />').html_safe %>
             </div>
           </div>
           <hr>
-          <div class="so-content">
-            <p>Pourquoi travailler chez eux ? :</p>
+          <div class="so-content text-lg-center text-md-center text-sm-center">
+            <p><strong>Pourquoi travailler chez eux ? : </strong></p>
             <div class="first-content">
               <%= @offre_job.question2 %>
             </div>
           </div>
           <hr>
-          <div class="so-content">
-            <p>RATTACHEMENT HIÉRARCHIQUE</p>
+          <div class="so-content text-lg-center text-md-center text-sm-center">
+            <p><strong>RATTACHEMENT HIÉRARCHIQUE</strong></p>
             <div><%= @offre_job.rattachement %></div>
           </div>
           <hr>
-          <div class="so-content">
-            <p>RÉMUNÉRATION (K€ BRUTS ANNUELS)</p>
+          <div class="so-content text-lg-center text-md-center text-sm-center">
+            <p><strong>RÉMUNÉRATION (K€ BRUTS ANNUELS)</strong></p>
             <div>
               Fixe : <%= @offre_job.remuneration.to_i %>k€ <br />
               Variable : <%= @offre_job.remuneration_anne.to_i %>k€
             </div>
           </div>
           <hr>
-          <div class="so-content">
-            <p>DÉPLACEMENTS</p>
+          <div class="so-content text-lg-center text-md-center text-sm-center">
+            <p><strong>DÉPLACEMENTS</strong></p>
             <div>
               <%= @offre_job.type_deplacement_name %>
             </div>
           </div>
           <hr>
-          <div class="so-content">
-            <p>PROCESSUS RH</p>
+          <div class="so-content text-lg-center text-md-center text-sm-center">
+            <p><strong>PROCESSUS RH</strong></p>
             <div>
               <% case @offre_job.numberEntretien.to_i %>
               <% when 1 %>
@@ -80,15 +81,15 @@
             </div>
           </div>
           <hr>
-          <div class="so-content">
-            <p>CONTEXTE D'OUVERTURE DE CE POSTE</p>
+          <div class="so-content text-lg-center text-md-center text-sm-center">
+            <p><strong>CONTEXTE D'OUVERTURE DE CE POSTE</strong></p>
             <div>
               <%= @offre_job.question5 %>
             </div>
           </div>
           <hr>
-          <div class="so-content">
-            <p>DATE DE PRISE DE POSTE</p>
+          <div class="so-content text-lg-center text-md-center text-sm-center">
+            <p><strong>DATE DE PRISE DE POSTE</strong></p>
             <div>
               <%= @offre_job.date_poste %>
             </div>

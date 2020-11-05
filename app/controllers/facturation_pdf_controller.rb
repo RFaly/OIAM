@@ -38,8 +38,8 @@ class FacturationPdfController < ApplicationController
                     footer: {
                       html: { template: 'facturation_pdf/footer' },
                       spacing: -15
-                    },
-                    :save_to_file => Rails.root.join('public/facture', "Facture#{@facture.numero_facture}.pdf")
+                    }
+                    # :save_to_file => Rails.root.join('public/facture', "Facture#{@facture.numero_facture}.pdf")
                     # :save_only    => true
                   }
     end

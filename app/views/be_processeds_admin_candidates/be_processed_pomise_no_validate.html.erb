@@ -6,12 +6,10 @@
   </div>
 
   <div class="cp-box">
-    <<<<<<< HEAD <div class="container">
+   <div class="container">
       <% if @cadre_info.status_state == "admis" %>
-      =======
       <div>
         <% if @cadre_info.status_state == "admis" %>
-        >>>>>>> ecad860e15d366496041c428ba20a541f828c977
         <div class="row">
           <div class="block-image col-lg-4 col-md-4 col-sm-12 col-sx-12">
             <% unless @cadre_info.image.nil? %>
@@ -161,6 +159,7 @@
           </div>
         </div>
         <% end %>
+      <% end %>
       </div>
 
       <!-- <h2>Liste des candidats qui sont arrivés au bout de leur période d'essai et qui n'ont pas encore été validés dans le système.</h2> -->
