@@ -124,11 +124,7 @@ html{
 	color: #000;
 }
 
-@media only screen and (min-width: 600px) {
-	.all-content{
-		display: flex;
-	}
-
+@media only screen and (min-width: 600px)
 	.right-link{
 		display: block;
 		margin: 0 auto;
