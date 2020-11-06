@@ -6,24 +6,29 @@
   </div>
 
   <div class="cp-box">
-    <%  unless @processedHistories.nil? %>
+    <%  unless @processedHistories.empty? %>
       <div class="container-fluid">
-      <% @processedHistories.each do |processedHistorie| %>
-        <div class="container">
-          <hr />
-            <div class="row align-items-center">
-              <div class="image col-lg-1 col-md-1 col-sm-12 col-xs-12 align-self-center">
-                <img src="<%= processedHistorie.image %>" alt="icone work" />
-              </div>
-                <div class="hist-msg col-lg-4 col-md-4 col-sm-12 col-xs-12 align-self-center"><%= processedHistorie.message %></div>
-                <div class="hist-link col-lg-7 col-md-7  col-sm-12 col-xs-12 align-self-center">
-                  <%= raw processedHistorie.link %>
+        <% @processedHistories.each do |processedHistorie| %>
+          <div class="container">
+            <hr />
+              <div class="row align-items-center">
+                <div class="image col-lg-1 col-md-1 col-sm-12 col-xs-12 align-self-center">
+                  <img src="<%= processedHistorie.image %>" alt="icone work" />
                 </div>
-            </div>
-          <hr />
-        </div>
-
-      <% end %>
+                  <div class="hist-msg col-lg-4 col-md-4 col-sm-12 col-xs-12 align-self-center"><%= processedHistorie.message %></div>
+                  <div class="hist-link col-lg-7 col-md-7  col-sm-12 col-xs-12 align-self-center">
+                    <%= raw processedHistorie.link %>
+                  </div>
+              </div>
+            <hr />
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      Aucune tâche traiter
+    <% end %>
+  </div>
+</div>
 
     <!-- #1. Inscription
     #Inscription terminée
@@ -63,9 +68,4 @@
     Rakot belo a reçu son prime. (fait)
 
     -->
-      </div>
-    <% else %>
-      Aucune tâche traiter
-    <% else %>
-  </div>
-</div>
+
