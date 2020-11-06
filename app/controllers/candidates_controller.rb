@@ -677,7 +677,7 @@ class CandidatesController < ApplicationController
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. vient d'accepter votre proposition d'embauche !",link: "#{recruitment_show_cadre_path(oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
 
       ProcessedHistory.create(
-        image: current_cadre.cadre_info.image,
+        image: "/image/work.png",
         # message: "#{first_name} #{last_name} a validé sa promesse d'embauche.",
         message: "PROMESSE D'EMBAUCHE",
         link: "<a href='#{cp_show_promise_path(@promise.id)}'>VOIR</a>",#VOIR LE PROMESSE
