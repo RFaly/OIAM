@@ -7,19 +7,23 @@
     <%= render partial: "admin_clients/left_menu" %>
   </div>
   <div class="cp-box">
-    <div class="admincp-box">
-      <!-- <h5 class="title">Traitées</h5> -->
-      <% @processedHistories.each do |processedHistorie| %>
-      <hr>
-      <div class="acp-flex">
-        <div class="acp-image"><img src='<%= processedHistorie.image %>' /></div>
-        <div class="acp-content"><%= processedHistorie.message %></div>
-        <div class="acp-link">
-          <%= raw processedHistorie.link %>
+    <%  unless @processedHistories.empty? %>
+      <div class="admincp-box">
+        <!-- <h5 class="title">Traitées</h5> -->
+        <% @processedHistories.each do |processedHistorie| %>
+        <hr>
+        <div class="acp-flex">
+          <div class="acp-image"><img src='<%= processedHistorie.image %>' /></div>
+          <div class="acp-content"><%= processedHistorie.message %></div>
+          <div class="acp-link">
+            <%= raw processedHistorie.link %>
+          </div>
         </div>
+        <hr>
+        <% end %>
       </div>
-      <hr>
-      <% end %>
-    </div>
+    <% else %>
+      Aucune tâche traiter 
+    <% end %>
   </div>
 </div>

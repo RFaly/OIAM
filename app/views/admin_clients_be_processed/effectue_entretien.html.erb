@@ -8,54 +8,60 @@
   <div class="cp-box">
     <div class="ef-box">
       <div class="offre">
-        <div class="title">Offre</div>
-        <div class="ef-image img-offre">
-          <% unless @offre_job.image.nil? %>
-          <img src="<%= @offre_job.image %>" alt="logo entreprise" width="300px" />
-          <% else %>
-          <img src="/image/profie.png" alt="logo entreprise" />
-          <%  end %>
-        </div>
-        <div>
-          Intitulé du poste : <br>
-          <span><%= @offre_job.intitule_pote %></span>
-        </div>
-        <div class="entretien">
-          Date d'entretien : <br><span data-times="<%= @agenda_client.entretien_date.strftime("%Y-%m-%d %H:%M") %>"
-            class="currentDatentretien"></span>
-        </div>
-        <div class="adresse">
-          Adresse : <br><span><%= @agenda_client.adresse %></span>
-        </div>
+        <a href="<%= clients_bp_offre_job_no_cadre_path(@offre_job.id) %>">
+          <div class="title">Offre</div>
+          <div class="ef-image img-offre">
+            <% unless @offre_job.image.nil? %>
+            <img src="<%= @offre_job.image %>" alt="logo entreprise" width="300px" />
+            <% else %>
+            <img src="/image/profie.png" alt="logo entreprise" />
+            <%  end %>
+          </div>
+          <div>
+            Intitulé du poste : <br>
+            <span><%= @offre_job.intitule_pote %></span>
+          </div>
+          <div class="entretien">
+            Date d'entretien : <br><span data-times="<%= @agenda_client.entretien_date.strftime("%Y-%m-%d %H:%M") %>"
+              class="currentDatentretien"></span>
+          </div>
+          <div class="adresse">
+            Adresse : <br><span><%= @agenda_client.adresse %></span>
+          </div>
+        </a>
       </div>
       <div class="flex-box">
         <div class="client">
-          <div class="title">Recruteurs</div>
-          <div class="ef-image img-user">
-            <% unless @client.image.nil? %>
-            <img src="<%= @client.image %>" alt="logo entreprise" width="100 px" />
-            <% else %>
-            <img src="/image/profie.png" alt="logo entreprise" />
-            <%  end %>
+          <a href="<%= clients_bp_show_client_path(@client.id) %>">
+            <div class="title">Recruteurs</div>
+            <div class="ef-image img-user">
+              <% unless @client.image.nil? %>
+              <img src="<%= @client.image %>" alt="logo entreprise" width="100 px" />
+              <% else %>
+              <img src="/image/profie.png" alt="logo entreprise" />
+              <%  end %>
+            </div>
+            <div class="name"> <%= @client.first_name.capitalize %> <%= @client.last_name.capitalize %></div>
+            <div>
+              <!-- Entreprise :  -->
+              <%= @client.entreprise.name %><br>
           </div>
-          <div class="name"> <%= @client.first_name.capitalize %> <%= @client.last_name.capitalize %></div>
-          <div>
-            <!-- Entreprise :  -->
-            <%= @client.entreprise.name %><br>
-          </div>
+          </a>
         </div>
         <div class="cadre">
-          <div class="title">Candidats</div>
-          <div class="ef-image img-user">
-            <% unless @cadre_info.image.nil? %>
-            <img src="<%= @cadre_info.image %>" alt="logo entreprise" width="300 px" />
-            <% else %>
-            <img src="/image/profie.png" alt="logo entreprise" />
-            <%  end %>
-          </div>
-          <div class="name">
-            <%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %>
-          </div>
+          <a href="<%= cbp_promise_no_validate_path(@cadre_info.id) %>">
+            <div class="title">Candidats</div>
+            <div class="ef-image img-user">
+              <% unless @cadre_info.image.nil? %>
+              <img src="<%= @cadre_info.image %>" alt="logo entreprise" width="300 px" />
+              <% else %>
+              <img src="/image/profie.png" alt="logo entreprise" />
+              <%  end %>
+            </div>
+            <div class="name">
+              <%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %>
+            </div>
+          </a>
         </div>
       </div>
     </div>

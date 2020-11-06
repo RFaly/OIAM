@@ -1,5 +1,22 @@
 <link rel="stylesheet" href="/css/admin_prms.css" />
 <link rel="stylesheet" href="/admins/css/prmsHireCand.css">
+<style>
+  .cl-cont-btn a {
+    background: #fff;
+    border: 1px solid #d6b36a;
+    color: #d6b36a;
+    padding: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    font: 14px Raleway, sans-serif;
+  }
+
+  .cl-cont-btn a:hover {
+    background: #d6b36a;
+    border: 1px solid #d6b36a;
+    color: #fff
+  }
+</style>
 <div class="client-column">
   <div class="client-menu-left">
     <%= render partial: "admin_candidats/left_menu" %>
@@ -164,5 +181,9 @@
 
       <!-- <h2>Liste des candidats qui sont arrivés au bout de leur période d'essai et qui n'ont pas encore été validés dans le système.</h2> -->
       <!-- <h2>Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu</h2> -->
+      <p class="cl-cont-btn d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">
+        <a href="<%= candidats_show_message_path(@cadre_info.cadre.id) %>">Contacter</a>
+      </p>
+
   </div>
 </div>
