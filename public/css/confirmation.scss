@@ -18,6 +18,7 @@
 
     .confirmation-box {
         background: $secondary_element_color;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
         box-shadow: $box-shadow;
         width: 300px;
         margin: 0 auto;
@@ -38,10 +39,10 @@
                 background: white;
                 outline: none;
                 border: none;
+                outline: 1px solid $main_theme_color;
+                outline-offset: -1px;
 
                 &:focus {
-                    outline: 1px solid $main_theme_color;
-                    outline-offset: -1px;
                     box-shadow: $box-shadow;
                 }
             }
@@ -52,18 +53,16 @@
                 width: 100%;
                 border-radius: 0;
                 border: none;
-                outline: 1px solid $main_theme_color;
-                color: $main_theme_color;
                 font: $ffbtn;
                 text-transform: uppercase;
                 font-size: 15px;
-                background: transparent;
                 padding: 10px;
+                background: $main_theme_color;
+                color: white;
 
                 &:hover,
                 &:active {
-                    background: $main_theme_color;
-                    color: white;
+                    box-shadow: 0px 0px 2px 1px $main_theme_color;
                 }
             }
         }
