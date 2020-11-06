@@ -1,34 +1,40 @@
-<link rel="stylesheet" href="/css/admin_prms.css" />
 <link rel="stylesheet" href="/css/client_profil.css" />
 <style>
-  .cl-cont-btn a {
-    background: #fff;
-    border: 1px solid #d6b36a;
-    color: #d6b36a;
-    padding: 15px;
-    cursor: pointer;
-    text-decoration: none;
-    font: 14px Raleway, sans-serif;
+  .link-adm {
+    text-align: center;
+    padding: 30px;
   }
 
-  .cl-cont-btn a:hover {
+  .link-adm a {
+    background: transparent;
+    border: 2px solid #d6b36a;
+    text-transform: uppercase;
+    font: 500 16px Raleway, sans-serif;
+    color: #d6b36a;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .link-adm a:hover {
     background: #d6b36a;
     border: 1px solid #d6b36a;
     color: #fff
   }
 </style>
-  <div class="client-column">
+<div class="client-column">
   <div class="client-menu-left">
     <%= render partial: "admin_clients/left_menu" %>
   </div>
-    <div class="cp-box">
-      <div class="cp-table-box">
+  <div class="cp-box">
+    <div class="cp-table-box">
       <table>
         <tr>
           <td class="cp-flex table-td">
             <div class="cp-pprofil">
               <% unless @client.image.nil? %>
-                <div class="c" style="background: url(<%= @client.image%>) center no-repeat; background-size: cover"></div>
+              <div class="c" style="background: url(<%= @client.image%>) center no-repeat; background-size: cover">
+              </div>
               <% else %>
               <img src="/image/profie.png" alt="logo entreprise" />
               <%  end %>
@@ -105,9 +111,9 @@
           </td>
         </tr>
       </table>
-    </div>
-      <p class="cl-cont-btn d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">
+      <div class="link-adm">
         <a href="<%= clients_show_message_path(@client.id) %>">Contacter</a>
-      </p>
-	</div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,16 +1,22 @@
-<h2>Resend confirmation instructions</h2>
-
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+<!-- call css  -->
+<link rel="stylesheet" href="/css/confirmation.css">
+<!-- html body  -->
+<div class="confirmation">
+  <h5 class="title">Renvoyer la demande de confirmation</h5>
   <%= render "clients/shared/error_messages", resource: resource %>
+  <div class="confirmation-box">
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+    <div id="mail-mail-error" style="display: none;"></div>
+    <div class="field">
+      <!-- <%= f.label :email %><br /> -->
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),placeholder: "Entrer votre email",id:'mail-mail',required:'true' %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Demander la confirmation" %>
+    </div>
+    <% end %>
+    <%= render "clients/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "clients/shared/links" %>
+</div>
+<script src="/js/check_mail.js"></script>

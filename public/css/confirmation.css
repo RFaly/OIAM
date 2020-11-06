@@ -1,0 +1,72 @@
+.confirmation {
+  margin: 50px 0;
+  margin-bottom: 150px;
+  text-align: center;
+}
+
+.confirmation .title {
+  text-align: -webkit-center;
+  text-align: -moz-center;
+  text-align: center;
+  font: 500 18px Raleway, sans-serif;
+  color: #d6b36a;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+.confirmation .confirmation-box {
+  background: #f0f2f4;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 1px 0px 3px 1px rgba(214, 214, 214, 0.3);
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.confirmation .confirmation-box #mail-mail-error {
+  color: red;
+  font-size: 14px;
+  margin-top: 15px;
+  margin-bottom: -15px;
+}
+
+.confirmation .confirmation-box .field input {
+  padding: 10px;
+  width: 100%;
+  margin: 20px 0;
+  background: white;
+  outline: none;
+  border: none;
+  outline: 1px solid #d6b36a;
+  outline-offset: -1px;
+}
+
+.confirmation .confirmation-box .field input:focus {
+  box-shadow: 1px 0px 3px 1px rgba(214, 214, 214, 0.3);
+}
+
+.confirmation .confirmation-box .actions input {
+  width: 100%;
+  border-radius: 0;
+  border: none;
+  font: 500 18px Raleway, sans-serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  padding: 10px;
+  background: #d6b36a;
+  color: white;
+}
+
+.confirmation .confirmation-box .actions input:hover, .confirmation .confirmation-box .actions input:active {
+  box-shadow: 0px 0px 2px 1px #d6b36a;
+}
+
+.link-box-log .link {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.link-box-log a {
+  color: #d6b36a;
+  text-decoration: none;
+}

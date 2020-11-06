@@ -1,25 +1,32 @@
-<h2>Change your password</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+<!-- call css  -->
+<link rel="stylesheet" href="/css/confirmation.css">
+<!-- html body  -->
+<div class="confirmation">
+  <h5 class="title">Changer votre mot de passe</h5>
   <%= render "clients/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+  <div class="confirmation-box">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
+    <div class="field">
+      <!-- <%= f.label :password, "New password" %><br /> -->
+      <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+      <% end %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password",placeholder:'Nouveau mot de passe',required:'true' %>
+    </div>
+    <div id="mail-mail-error"></div>
+    <div class="field">
+      <!-- <%= f.label :password_confirmation, "Confirm new password" %><br /> -->
+      <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder:'Confirmé le mot de passe',id:'cpass-r',required:'true' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "modifier" %>
+    </div>
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= render "clients/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "clients/shared/links" %>
+</div>
+<script src="/js/check_mail.js"></script>
