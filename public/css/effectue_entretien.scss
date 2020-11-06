@@ -3,6 +3,20 @@
 
 .ef-box {
     padding: 20px;
+    text-align: center;
+
+    * {
+        &:hover {
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+
+    a {
+        color: #333333;
+    }
 
     .title {
         text-align: center;
@@ -10,7 +24,6 @@
         color: $main_theme_color;
     }
 
-    text-align: center;
 
     .ef-image {
         &.img-offre {
@@ -51,6 +64,10 @@
         .title {
             color: white;
         }
+
+        &:hover {
+            box-shadow: 0px 0px 3px 1px $main_theme_color;
+        }
     }
 
     span {
@@ -64,6 +81,10 @@
         margin: 0 auto;
         outline: 2px solid $main_theme_color;
         outline-offset: -2px;
+
+        &:hover {
+            box-shadow: 0px 0px 3px 1px $main_theme_color;
+        }
     }
 
     .flex-box {
