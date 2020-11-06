@@ -351,6 +351,7 @@
   padding-left: 30px;
   cursor: pointer;
   user-select: none;
+  word-break: normal;
   word-wrap: normal;
 }
 

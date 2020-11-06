@@ -43,6 +43,7 @@
         flex-wrap: wrap;
         align-items: center;
         word-wrap: normal;
+        word-break: normal;
 
         .cl {
           width: 100%;
@@ -88,6 +89,7 @@
           margin-left: -26px;
           align-self: flex-end;
           word-wrap: normal;
+          word-break: normal;
         }
       }
     }
