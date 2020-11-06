@@ -1,4 +1,4 @@
-<h2>Bonjour <%= @resource.first_name %> <%= @resource.last_name %></h2>
+<h2>Bonjour <%= @resource.cadre_info.first_name %> <%= @resource.cadre_info.last_name %></h2>
 <p>Votre compte a été verrouillé en raison d'un nombre excessif de tentatives de connexion infructueuses.</p>
 <p>Cliquez sur le lien ci-dessous pour déverrouiller votre compte:</p>
 <p><%= link_to 'Déverrouiller mon compte', unlock_url(@resource, unlock_token: @token) %></p>

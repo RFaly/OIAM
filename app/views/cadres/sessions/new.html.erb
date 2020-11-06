@@ -13,7 +13,11 @@
         <%= f.check_box :remember_me, class:'custom-control-input', id:'switch1' %> <%= f.label :remember_me, 'Se souvenir de moi', class:'custom-control-label', for:'switch1' %>
       </div>
       <% end %>
-      <p class="log-message">Pas encore de compte? <%= link_to "S'inscrire", tmp_sign_up_path %></p>
+      <p class="log-message">Pas encore de compte? <%= link_to "S'inscrire", tmp_sign_up_path %>
+        <br>
+        <a href="<%= new_cadre_password_path %>">Mot de passe oublier?</a>
+      </p>
+
     </form>
     <% end %>
   </div>
