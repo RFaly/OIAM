@@ -171,10 +171,11 @@ body {
 }
 
 .pdp {
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
   border: 2px solid #d6b36a;
+  object-fit: cover;
 }
 
 .alert-info {
@@ -199,7 +200,7 @@ body {
   border: 2px solid #fff;
   position: absolute;
   bottom: 10%;
-  right: 2%;
+  left: 95%;
   width: 15px;
   height: 15px;
   border-radius: 10px;

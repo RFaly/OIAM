@@ -3,8 +3,12 @@
   <div class="left-content"><%= render partial: "admin_candidats/left_menu" %></div>
   <div class="main">
     <% unless @contactCadre.empty? %>
-    <% @contactCadre.each do |contact| %> <% nbr = contact.mp_admin_not_see %>
-    <div class="<% if nbr == 0 %>box-msg<% else %>clr-bx<% end %>">
+    <% @contactCadre.each do |contact| %> 
+    <span style="display: none;" id="tsisy">Vous n'avez aucun message pour le moment</span>
+    <%  next if contact.message_admin_cadres.empty? %>
+
+    <% nbr = contact.mp_admin_not_see %>
+    <div class="js-isa <% if nbr == 0 %>box-msg<% else %>clr-bx<% end %>">
     <a href="<%= candidats_show_message_path(contact.cadre.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>">
     <div class="message">
       <div class="block-image">
@@ -40,3 +44,8 @@
     <% end %>
   </div>
 </div>
+<script type="text/javascript">
+  if ($(".js-isa").length == 0){
+    $("#tsisy").show(500);
+  }
+</script>
