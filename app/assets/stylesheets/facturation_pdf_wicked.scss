@@ -9,9 +9,11 @@ $secondary_text_color_button: #e3d7bf;
 
 $select_color: #f3f7fb;
 
-$ffsentence: 16px Questrial, sans-serif;
+$ffsentence: 16px Questrial,
+sans-serif;
 
-$ffbtn: 500 18px Raleway, sans-serif;
+$ffbtn: 500 18px Raleway,
+sans-serif;
 
 $box-shadow: 1px 1px 3px 1px rgba(#dad7d3, 0.63);
 
@@ -20,10 +22,12 @@ p {
 }
 
 .flex {
-  display: -webkit-box; /* wkhtmltopdf uses this one */
+  display: -webkit-box;
+  /* wkhtmltopdf uses this one */
   display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: space-between; /* wkhtmltopdf uses this one */
+  -webkit-box-pack: space-between;
+  /* wkhtmltopdf uses this one */
   -webkit-justify-content: space-between;
   justify-content: space-between;
 }
@@ -33,15 +37,18 @@ p {
   // top: -55px;
   // left: 0;
   width: 100%;
+
   // padding-bottom: 20px;
   // padding-top: 40px;
   p {
     margin-bottom: 5px;
   }
+
   hr {
     margin-top: 0;
   }
 }
+
 .facture-content {
   * {
     line-height: 1.5;
@@ -54,37 +61,48 @@ p {
     font-weight: bold;
     color: #000;
   }
+
   .bolder {
-    font-weight: bold;
+    font-weight: 650;
+    font-size: 14px;
     color: #000;
   }
+
   hr {
     background: #000;
   }
+
   padding-top: 5px;
+
   .infos-box {
     .infos {
       float: left;
       margin-right: 160px;
+
       img {
         width: 200px;
       }
+
       .contact {
         font: $ffbtn;
         font-weight: bold;
       }
     }
+
     .facture2 {
       background: transparent;
       flex-direction: column;
       padding-bottom: 60px;
+
       .facture-info {
         margin-top: 20px;
         margin-bottom: 150px;
       }
+
       .loc {
         margin-bottom: 20px;
       }
+
       .numero,
       .stat {
         font-weight: bold;
@@ -93,33 +111,41 @@ p {
     }
   }
 }
+
 .objet {
   margin: 10px 0;
   margin-bottom: 30px;
 }
+
 .table1 {
   border-collapse: collapse;
   margin-bottom: 10px;
+
   td {
     border: 1px solid black;
     padding: 10px 7px;
+
     &:nth-child(1) {
       border-left: none;
       width: 120px;
     }
+
     &:last-child {
       width: 100px;
       border-right: none;
     }
   }
+
   .span {
     width: 90px;
     text-align: right;
+
     span {
       display: block;
     }
   }
 }
+
 .note-box {
   .note {
     float: left;
@@ -127,29 +153,35 @@ p {
     width: 47%;
     border: 1px solid #000;
     padding: 5px;
+
     ul {
       padding-left: 50px;
       text-align: justify;
     }
   }
+
   table {
     width: 40%;
     border-collapse: collapse;
     margin-bottom: 180px;
+
     td {
       padding: 5px 20px;
       background: #fff;
       text-align: right;
+
       span {
         font-style: italic;
         color: rgba(0, 0, 0, 0.774);
         font-size: 13px;
       }
     }
+
     .spec {
       td {
         padding: 10px 20px;
       }
+
       .bor {
         border-top: 1px solid #000;
         border-bottom: 1px solid #000;
@@ -157,14 +189,17 @@ p {
     }
   }
 }
+
 .cool {
   content: '';
   width: 5px;
   height: 120px;
 }
+
 .befor-last {
   margin: 20px 0;
   margin-top: 50px;
+
   table {
     border-collapse: collapse;
   }
@@ -175,6 +210,7 @@ p {
     padding: 5px;
     text-align: right;
     padding-left: 20px;
+
     &:first-child {
       padding-left: 5px;
       padding-right: 20px;
@@ -182,6 +218,7 @@ p {
     }
   }
 }
+
 .facture-footer {
   // margin-top: 250px;
   text-align: -webkit-center;
@@ -192,9 +229,11 @@ p {
   left: 0;
   // bottom: 100px;
 }
+
 .last-table {
   // background: #000;
   width: 80%;
+
   td {
     padding: 10px;
   }
