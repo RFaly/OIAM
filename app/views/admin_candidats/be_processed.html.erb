@@ -26,7 +26,9 @@
 				<div data-name=".INSCRIPTION" class="bp-box list-items-me">
 					<!-- <img src='/image/profie.png'/> <br> -->
 					<div class="bp-inside-box">
-						<div class="bp-inscr">INSCRIPTION</div>
+						<div class="bp-inscr">INSCRIPTION<br>
+							Etat: Inscription non terminée
+						</div>
 						<div class="bp-name">
 							<%= cadreInfoPotentielNotEnd.first_name %> <%= cadreInfoPotentielNotEnd.last_name %>
 						</div>
@@ -54,8 +56,10 @@
 				<% @cadreInfoFits.each do |cadreInfoFit| %>
 				<div data-name=".INSCRIPTION" class="bp-box list-items-me">
 					<div class="bp-inside-box">
-						<div class="bp-inscr">INSCRIPTION</div>
-						<div class="bp-name">
+						<div class="bp-inscr">INSCRIPTION<br>
+							Etat: RDV FIT à valider
+						</div>
+						<div class="bp-name pt-4">
 							<%= cadreInfoFit.first_name %> <%= cadreInfoFit.last_name %>
 						</div>
 						<div class="bp-date">
@@ -84,8 +88,10 @@
 				<% @cadreInfoEnterScoreFits.each do |cadreInfoEnterScoreFit| %>
 				<div data-name=".INSCRIPTION" class="bp-box list-items-me">
 					<div class="bp-inside-box">
-						<div class="bp-inscr">INSCRIPTION</div>
-						<div class="bp-name">
+						<div class="bp-inscr">INSCRIPTION<br>
+							Etat: Entretiens FIT à effectuer
+						</div>
+						<div class="bp-name pt-4">
 							<%= cadreInfoEnterScoreFit.first_name %> <%= cadreInfoEnterScoreFit.last_name %>
 						</div>
 						<div class="bp-date">
@@ -115,8 +121,10 @@
 				<% cfo = cacadreInfoInCompleteInfoProfil %>
 				<div data-name=".ADMISSION" class="bp-box list-items-me">
 					<div class="bp-inside-box">
-						<div class="bp-inscr">ADMISSION</div>
-						<div class="bp-name">
+						<div class="bp-inscr">ADMISSION<br>
+							Etat: Profil non complété
+						</div>
+						<div class="bp-name pt-4">
 							<%= cfo.first_name %> <%= cfo.last_name %>
 						</div>
 						<div class="bp-date">
@@ -148,8 +156,10 @@
 				<% cINPT = cadreInfoNotPromiseToHire.cadre_info %>
 				<div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me">
 					<div class="bp-inside-box">
-						<div class="bp-inscr">PROMESSE D'EMBAUCHE</div>
-						<div class="bp-name">
+						<div class="bp-inscr">PROMESSE D'EMBAUCHE<br>
+							Etat: Promesse d'embauche non validée
+						</div>
+						<div class="bp-name pt-4">
 							<%= cINPT.first_name %> <%= cINPT.last_name %>
 						</div>
 						<div class="bp-date">
@@ -177,8 +187,10 @@
 				<% pThWa = cadreInfoValidateTimeTrying[0] %>
 				<div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me">
 					<div class="bp-inside-box">
-						<div class="bp-inscr">PROMESSE D'EMBAUCHE</div>
-						<div class="bp-name">
+						<div class="bp-inscr">PERIODE D'ESSAI<br>
+							Etat: Période d'essai non validée
+						</div>
+						<div class="bp-name pt-4">
 							<%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
 						</div>
 						<div class="bp-date">
@@ -250,22 +262,12 @@
 
 <script type="text/javascript">
 	$(".currentDatentretien").ready(function () {
-		var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre',
-			'Octobre', 'Novembre', 'Décembre'
-		];
-		var day = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
 		let $elementDate = $('.currentDatentretien');
 		$elementDate.each(function () {
 			let dateUTC = moment.utc($(this).data().times);
 			let dateGet = new Date(dateUTC.local());
-			let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet
-				.getMonth()] + ' ' + dateGet.getFullYear();
-			// let minute = dateGet.getMinutes()
-			// if((minute+"").length == 1){
-			//   minute = "0"+minute
-			// }
-			$(this).html(dateString)
-			// $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:'+ minute );
+			let dateString = dateGet.getDate() + "/" + dateGet.getMonth() + "/" + dateGet.getFullYear();
+			$(this).html(dateString);
 		});
 	});
 
