@@ -19,12 +19,12 @@
                         </div>
                         <div class="bp-date">
                             Date d'entrée :
-                            <br>
-                            <span data-times="<%= entretien_fit_a_venir.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
+                            <span
+                                data-times="<%= entretien_fit_a_venir.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>"
+                                class="currentDatentretien"></span>
                         </div>
                         <div class="bp-date">
                             Date limite :
-                            <br>
                             ~
                         </div>
                     </div>
@@ -44,9 +44,9 @@
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 
 <script type="text/javascript">
-    $(".currentDatentretien").ready(function() {
+    $(".currentDatentretien").ready(function () {
         let $elementDate = $('.currentDatentretien');
-        $elementDate.each(function() {
+        $elementDate.each(function () {
             let dateUTC = moment.utc($(this).data().times);
             let dateGet = new Date(dateUTC.local());
             let dateString = dateGet.getDate() + "/" + dateGet.getMonth() + "/" + dateGet.getFullYear();

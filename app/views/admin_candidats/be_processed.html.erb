@@ -34,12 +34,10 @@
 						</div>
 						<div class="bp-date">
 							Date d'entrée :
-							<br>
 							<%= cadreInfoPotentielNotEnd.created_at.strftime("%d/%m/%Y") %>
 						</div>
 						<div class="bp-date">
 							Date limite :
-							<br>
 							~
 						</div>
 					</div>
@@ -64,14 +62,12 @@
 						</div>
 						<div class="bp-date">
 							Date d'entrée :
-							<br>
 							<span
 								data-times="<%= cadreInfoFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>"
 								class="currentDatentretien"></span>
 						</div>
 						<div class="bp-date">
 							Date limite :
-							<br>
 							~
 						</div>
 					</div>
@@ -96,14 +92,12 @@
 						</div>
 						<div class="bp-date">
 							Date d'entrée :
-							<br>
 							<span
 								data-times="<%= cadreInfoEnterScoreFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>"
 								class="currentDatentretien"></span>
 						</div>
 						<div class="bp-date">
 							Date limite :
-							<br>
 							~
 						</div>
 					</div>
@@ -129,12 +123,10 @@
 						</div>
 						<div class="bp-date">
 							Date d'entrée :
-							<br>
 							~
 						</div>
 						<div class="bp-date">
 							Date limite :
-							<br>
 							~
 						</div>
 					</div>
@@ -164,12 +156,10 @@
 						</div>
 						<div class="bp-date">
 							Date d'entrée :
-							<br>
 							<%= cINPT.promise_not_reponded[1] %>
 						</div>
 						<div class="bp-date">
 							Date limite :
-							<br>
 							<%= cINPT.promise_not_reponded[0] %>
 						</div>
 					</div>
@@ -195,13 +185,18 @@
 						</div>
 						<div class="bp-date">
 							Date d'entrée :
-							<br>
 							<%= pThWa.offre_job.date_poste %>
 						</div>
 						<div class="bp-date">
+							<% pThWa = pThWa.time_trying%>
+							<%if pThWa.include?('-') %>
+							<% ptime = pThWa.split('-')%>
+							<% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
+							<%else %>
+							<%@pThWa1 =  pThWa%>
+							<%end %>
 							Date limite :
-							<br>
-							<%= pThWa.time_trying %>
+							<%= @pThWa1 %>
 						</div>
 					</div>
 					<div class="bp-btn">
@@ -225,7 +220,6 @@
 						</div>
 						<div class="bp-date">
 							Date d'entrée :
-							<br>
 							<%= pThWa.offre_job.date_poste %>
 						</div>
 						<div class="bp-date">
@@ -237,7 +231,6 @@
 							<%@pThWa1 =  pThWa%>
 							<%end %>
 							Date limite :
-							<br>
 							<%= @pThWa1 %>
 						</div>
 					</div>
