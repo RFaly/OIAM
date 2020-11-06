@@ -375,15 +375,18 @@ class CandidatesController < ApplicationController
   def save_repons_test_potential #call in api
 
 
-    @cadreInfo = CadreInfo.find_by(mail:params[:custom_fields][3]["value"])
-   
+    @cadreInfo = CadreInfo.find_by_mail(params[:custom_fields][3]["value"])
+
+    unless @cadreInfo.nil?
+      @cadreInfo.update(potential_test:true)
+    end
+
     # @cadreInfo.update(score_potential:1005,potential_test:true)
 
-    @cadreInfo.update(potential_test:true)
 
-
-
-
+    puts "@"*12
+    puts params.inspect
+    puts "@"*12
 
 
 
