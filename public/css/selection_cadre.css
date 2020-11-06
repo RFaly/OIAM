@@ -59,6 +59,7 @@
 .selection-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo img,
 .selection-box .select-cadre-list-items .cadre-box .cadre-box-image .cbi-photo .c {
   width: 100%;
+  background-repeat: no-repeat;
 }
 
 .selection-box .select-cadre-list-items .cadre-box .cadre-box-image .icone {

@@ -95,6 +95,7 @@
 
 .co-with-job .coj-box .cjo-image img {
   width: 100%;
+  background-repeat: no-repeat;
 }
 
 .co-with-job .coj-box .cjo-content {
@@ -143,4 +144,5 @@
 
 .co-with-job .cjo-link-items .cjo-delete img {
   width: 100%;
+  background-repeat: no-repeat;
 }

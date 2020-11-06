@@ -79,6 +79,7 @@
 .show-job-box .show-publication .sjb-content .show-einfos .logo .c {
   height: 150px;
   width: 100%;
+  background-repeat: no-repeat;
 }
 
 .show-job-box .show-publication .sjb-content .show-einfos .local {
