@@ -18,7 +18,7 @@
 						<% if @contact.client.is_online? %>
 							<small>En ligne</small>
 						<% else %>
-	            <small>Connectée il y a <%= time_ago_in_words(@contact.client.online_time) %></small>
+	            <small>Connecté(e) il y a <%= time_ago_in_words(@contact.client.online_time) %></small>
 	          <% end %>
 					</p>
 				</div>
