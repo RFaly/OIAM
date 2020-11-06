@@ -106,6 +106,8 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_options = {from: 'test.oiam.reply@gmail.com'}
 
+  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~ my config
+  config.action_mailer.default_url_options = { host: 'c8b0600.online-server.cloud' }
 
   # config.action_mailer.default_options = {from: 'emmanuelle@88-recrutement.com'}
   #config.action_mailer.delivery_method = :sendmail
