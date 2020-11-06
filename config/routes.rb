@@ -276,7 +276,7 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/admin-clients/a-traiter/efectue-entretien/:id', to: 'admin_clients_be_processed#effectue_entretien', as: 'clients_bp_effectue_entretien'
   get 'secret-oiam-page/admin/periode-essai/:id', to: 'admin_clients_be_processed#periode_rompre', as: 'clients_bp_periode_rompre'
 
-  #messagerie clientss
+  #messagerie clients
   get 'secret-oiam-page/admin-clients/messageries/:id', to: 'admin_clients#show_message', as: 'clients_show_message'
   post 'secret-oiam-page/admin-clients/send/messagers', to: 'admin_clients#post_message', as: 'clients_post_message'
 
