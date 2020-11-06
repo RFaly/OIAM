@@ -44,7 +44,9 @@ class Clients::RegistrationsController < Devise::RegistrationsController
     end
     if errorsList.empty?
       super
-      Entreprise.create(code_naf: params[:code_naf], name: params[:entreprise_name], adresse: params[:entreprise_adresse], siret: params[:entreprise_siret], site: params[:entreprise_site], description: params[:entreprise_description], postal_code: params[:postal_code], city: params[:city], client: current_client)
+      client_email = Client.find_by_email(params[:client][:email])
+      Entreprise.create(code_naf: params[:code_naf], name: params[:entreprise_name], adresse: params[:entreprise_adresse], siret: params[:entreprise_siret], site: params[:entreprise_site], description: params[:entreprise_description], postal_code: params[:postal_code], city: params[:city], client: client_email)
+      flash[:notice] = "Vous allez recevoir un mail de confirmation de création de compte dans quelques minutes par email."
     else
       redirect_to new_client_registration_path, alert: errorsList
     end
