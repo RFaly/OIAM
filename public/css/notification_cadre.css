@@ -124,12 +124,16 @@ html{
 	color: #000;
 }
 
-@media only screen and (min-width: 600px)
+@media only screen and (min-width: 600px){
 	.right-link{
 		display: block;
 		margin: 0 auto;
 		width: 100%;
 		margin: 20px;
+	}
+
+	.all-content{
+		display: flex;
 	}
 
 	.pdp{
