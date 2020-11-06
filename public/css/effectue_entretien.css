@@ -73,7 +73,7 @@
 
 .ef-box .client:hover,
 .ef-box .cadre:hover {
-  box-shadow: 0px 0px 3px 1px #d6b36a;
+  box-shadow: 0px 0px 2px 1px #d6b36a;
 }
 
 .ef-box span {
@@ -90,7 +90,7 @@
 }
 
 .ef-box .offre:hover {
-  box-shadow: 0px 0px 3px 1px #d6b36a;
+  box-shadow: 0px 0px 2px 1px #d6b36a;
 }
 
 .ef-box .flex-box {
