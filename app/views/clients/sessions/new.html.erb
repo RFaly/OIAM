@@ -1,6 +1,6 @@
 <!-- appel log-recru.css  -->
 <% content_for :head_style do %>
-  <link rel="stylesheet" href="/css/log_recru.css" />
+<link rel="stylesheet" href="/css/log_recru.css" />
 <% end %>
 
 <!-- body html login  -->
@@ -8,25 +8,23 @@
   <div class="form-log">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <form class="log-form">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'IDENTIFIANT', class:'log-input' %> <%= f.password_field :password, autocomplete: "current-password", placeholder:'MOT DE PASSE', class:'log-input' %> <%= f.submit "SE CONNECTER", class:'log-button' %> <% if
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'IDENTIFIANT', class:'log-input' %>
+      <%= f.password_field :password, autocomplete: "current-password", placeholder:'MOT DE PASSE', class:'log-input' %>
+      <%= f.submit "SE CONNECTER", class:'log-button' %> <% if
       devise_mapping.rememberable? %>
       <div class="log-rem custom-control custom-switch">
-        <%= f.check_box :remember_me, class:'custom-control-input', id:'switch1' %> <%= f.label :remember_me, 'Se souvenir de moi', class:'custom-control-label', for:'switch1' %>
+        <%= f.check_box :remember_me, class:'custom-control-input', id:'switch1' %>
+        <%= f.label :remember_me, 'Se souvenir de moi', class:'custom-control-label', for:'switch1' %>
       </div>
       <% end %>
       <p class="log-message">Pas encore de compte? <%= link_to "S'inscrire", new_client_registration_path %>
-        
-        <br>
-
-        <a href="<%= new_client_confirmation_path %>">Vous n'avez pas reçu d'instructions de confirmation?</a>
 
         <br>
-
+        <br>
+        <a href="<%= new_client_confirmation_path %>">Confirmer votre compte</a>
+        <br>
+        <br>
         <a href="<%= new_client_password_path %>">Mot de passe oublier?</a>
-
-        
-
-
       </p>
     </form>
     <% end %>

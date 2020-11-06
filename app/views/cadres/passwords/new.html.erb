@@ -1,16 +1,22 @@
-<h2>Forgot your password?</h2>
+<link rel="stylesheet" href="/css/confirmation.css">
+<!-- html body  -->
+<div class="confirmation">
+  <h5 class="title">Mot de passe oublier</h5>
+  <%= render "clients/shared/error_messages", resource: resource %>
+  <div class="confirmation-box">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "cadres/shared/error_messages", resource: resource %>
+    <div id="mail-mail-error" style="display: none;"></div>
+    <div class="field">
+      <!-- <%= f.label :email %><br /> -->
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "Entrer votre email",id:'mail-mail',required:'true' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="actions">
+      <%= f.submit "Réinitialisation du mot" %>
+    </div>
+    <% end %>
+    <%= render "cadres/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "cadres/shared/links" %>
+</div>
+<script src="/js/check_mail.js"></script>

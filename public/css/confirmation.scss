@@ -1,0 +1,84 @@
+@import 'config';
+
+
+.confirmation {
+    margin: 50px 0;
+    margin-bottom: 150px;
+    text-align: center;
+
+    .title {
+        text-align: -webkit-center;
+        text-align: -moz-center;
+        text-align: center;
+        font: 500 18px Raleway, sans-serif;
+        color: #d6b36a;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+    }
+
+    .confirmation-box {
+        background: $secondary_element_color;
+        box-shadow: $box-shadow;
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+
+        #mail-mail-error {
+            color: red;
+            font-size: 14px;
+            margin-top: 15px;
+            margin-bottom: -15px;
+        }
+
+        .field {
+            input {
+                padding: 10px;
+                width: 100%;
+                margin: 20px 0;
+                background: white;
+                outline: none;
+                border: none;
+
+                &:focus {
+                    outline: 1px solid $main_theme_color;
+                    outline-offset: -1px;
+                    box-shadow: $box-shadow;
+                }
+            }
+        }
+
+        .actions {
+            input {
+                width: 100%;
+                border-radius: 0;
+                border: none;
+                outline: 1px solid $main_theme_color;
+                color: $main_theme_color;
+                font: $ffbtn;
+                text-transform: uppercase;
+                font-size: 15px;
+                background: transparent;
+                padding: 10px;
+
+                &:hover,
+                &:active {
+                    background: $main_theme_color;
+                    color: white;
+                }
+            }
+        }
+    }
+
+}
+
+.link-box-log {
+    .link {
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    a {
+        color: $main_theme_color;
+        text-decoration: none;
+    }
+}
