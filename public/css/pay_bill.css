@@ -106,6 +106,7 @@
 
 .pay-bill-box .button-2 .c {
   display: none;
+  background-repeat: no-repeat;
 }
 
 .pay-bill-box .button-2 .import-button {

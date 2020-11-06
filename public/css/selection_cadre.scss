@@ -5,6 +5,7 @@
   width: 90%;
   margin: 0 auto;
   font: $ffsentence;
+
   .title {
     font: $ffbtn;
     text-align: -webkit-center;
@@ -13,27 +14,35 @@
     text-transform: uppercase;
     color: $main_theme_color;
   }
+
   .empty {
     margin: 30px;
   }
+
   .select-cadre-list-items {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
     .cadre-box {
       margin: 30px 0;
       height: 430px;
       position: relative;
       overflow: hidden;
+
       .cadre-box-image {
         position: relative;
+
         .cbi-photo {
           width: 100%;
+
           img,
           .c {
             width: 100%;
+            background-repeat: no-repeat;
           }
         }
+
         .icone {
           position: absolute;
           cursor: pointer;
@@ -44,6 +53,7 @@
           height: 0;
           border-top: 67px solid $main_theme_color;
           border-left: 70px solid transparent;
+
           img {
             position: absolute;
             top: -58px;
@@ -52,6 +62,7 @@
           }
         }
       }
+
       .cadre-box-info {
         width: 100%;
         background: white;
@@ -60,11 +71,13 @@
         text-align: center;
         padding: 5px 0;
         font: $ffsentence;
+
         p {
           span {
             color: $main_theme_color;
           }
         }
+
         .name {
           text-transform: uppercase;
           font: $ffbtn;

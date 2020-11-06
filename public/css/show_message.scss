@@ -67,6 +67,7 @@
       border-radius: 50%;
       width: 70px;
       height: 70px;
+      background-repeat: no-repeat;
     }
 
     .connected {
@@ -128,6 +129,7 @@
         left: -35px;
         bottom: -40px;
         content: '';
+        background-repeat: no-repeat;
         margin-right: 5px;
         border-radius: 50%;
         width: 54px;

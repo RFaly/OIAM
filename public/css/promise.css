@@ -293,6 +293,7 @@
   content: ' ';
   width: 212px;
   height: 150px;
+  background-repeat: no-repeat;
 }
 
 .promise .promise-content .p-sign .signature label {
@@ -321,6 +322,7 @@
   content: ' ';
   width: 212px;
   height: 150px;
+  background-repeat: no-repeat;
 }
 
 .promise .promise-content .pc-submit input {
