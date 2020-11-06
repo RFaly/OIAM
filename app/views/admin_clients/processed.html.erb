@@ -7,7 +7,7 @@
     <%= render partial: "admin_clients/left_menu" %>
   </div>
   <div class="cp-box">
-    <%  unless @processedHistories.nil? %>
+    <%  unless @processedHistories.empty? %>
       <div class="admincp-box">
         <!-- <h5 class="title">Traitées</h5> -->
         <% @processedHistories.each do |processedHistorie| %>
