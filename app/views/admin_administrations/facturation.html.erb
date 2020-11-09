@@ -16,7 +16,7 @@
 	J'atteste régler cette facture par virement dans les 15 jours. 
 -->
 				<% if @factureNotConfirmedPayeds.empty?  %>
-				<div class="empty">aucune facture</div>
+				<div class="empty">Aucune facture</div>
 				<% else %>
 				<% @factureNotConfirmedPayeds.each do |factureNotConfirmedPayed| %>
 				<div class="admp-f-box">
@@ -42,7 +42,7 @@
 	J'atteste régler cette facture par virement dans les 15 jours. 
 -->
 				<% if @factureConfirmedPayeds.empty? %>
-				<div class="empty">aucune facture</div>
+				<div class="empty">Aucune facture</div>
 				<% else %>
 				<% @factureConfirmedPayeds.each do |factureConfirmedPayed| %>
 				<div class="admp-f-box">
