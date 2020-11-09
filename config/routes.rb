@@ -225,6 +225,7 @@ Rails.application.routes.draw do
   get 'secret-oiam-page/tableau-de-bord/facturation', to: 'admin_administrations#facturation', as: 'dashbord_admin_facturation'
   get 'secret-oiam-page/tableau-de-bord/statistique', to: 'admin_administrations#statistique', as: 'dashbord_admin_statistique'
   get 'secret-oiam-page/tableau-de-bord/paiement', to: 'admin_administrations#paiement', as: 'dashbord_admin_paiement'
+  get 'secret-oiam-page/tableau-de-bord/messageries', to: 'admin_administrations#messaging', as: 'dashbord_admin_messaging'
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   #agenda
