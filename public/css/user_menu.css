@@ -50,14 +50,6 @@
   border-radius: 50%;
 }
 
-.left-menu-r .left-menu-content li div.first {
-  right: 62px;
-}
-
-.left-menu-r .left-menu-content li div.last {
-  right: 54px;
-}
-
 .left-menu-r .left-menu-content .color-this {
   color: #d6b36a;
 }
