@@ -34,7 +34,7 @@
               <span class="content"> <%= contact.message_client_cadres.last.content.truncate(110) %> </span>
             </div>
             <% unless contact.cadre.is_online? %>
-            <div class="not-connected">connectée il y a <%= time_ago_in_words(contact.cadre.online_time) %></div>
+            <div class="not-connected">Connecté(e) il y a <%= time_ago_in_words(contact.cadre.online_time) %></div>
             <% end %>
           </a>
         </div>

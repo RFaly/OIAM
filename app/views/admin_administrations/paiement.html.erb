@@ -17,7 +17,7 @@
 	15j son passé et il n'a pas encore payer la facture.
 -->
 				<% if @factureConfirmedPayeds.empty?  %>
-				<div class="empty">Aucune facture</div>
+				<div class="empty">Aucune paiement</div>
 				<% else %>
 				<% @factureConfirmedPayeds.each do |factureConfirmedPayed| %>
 				<!-- <%= factureConfirmedPayed[:client] %> -->
@@ -42,7 +42,7 @@
 		le recruteur a uploader l'ov
 	-->
 				<% if @facturePayeds.empty?  %>
-				<div class="empty">Aucune facture</div>
+				<div class="empty">Aucune paiment</div>
 				<% else %>
 				<% @facturePayeds.each do |facture| %>
 				<div class="admp-f-box">

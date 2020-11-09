@@ -7,7 +7,7 @@
     <% @contactCadre.each do |contact| %> 
     <%  next if contact.message_admin_cadres.empty? %>
     <% nbr = contact.mp_admin_not_see %>
-      <div class="js-isa<% if nbr == 0 %>box-msg<% else %>clr-bx<% end %>">
+      <div class="js-isa <% if nbr == 0 %>box-msg<% else %>clr-bx<% end %>">
         <a href="<%= candidats_show_message_path(contact.cadre.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>">
         <div class="message">
           <div class="block-image">
@@ -31,7 +31,7 @@
           </div>
           <div class="connected-times">
               <% unless contact.cadre.is_online? %>
-                <span class="not-connected">Connectée il y a <%= time_ago_in_words(contact.cadre.online_time) %></span>
+                <span class="not-connected">Connecté(e) il y a <%= time_ago_in_words(contact.cadre.online_time) %></span>
               <% end %>
             </div>
         </div>
@@ -71,7 +71,7 @@
         </div>
         <div class="connected-times">
             <% unless contact.client.is_online? %>
-              <span class="not-connected">Connectée il y a <%= time_ago_in_words(contact.client.online_time) %></span>
+              <span class="not-connected">Connecté(e) il y a <%= time_ago_in_words(contact.client.online_time) %></span>
             <% end %>
           </div>
       </div>
@@ -84,5 +84,8 @@
 <script type="text/javascript">
   if ($(".js-isa").length == 0){
     $("#tsisy").show(500);
+  }else{
+    $("#tsisy").hide();
   }
+
 </script>
