@@ -1,4 +1,4 @@
-function addDiamond(){
+function addDiamond() {
 	var modal = document.getElementById("modal-unique")
 	var nb = Math.random() * 40;
 	const diamond = document.createElement('div');
@@ -6,14 +6,15 @@ function addDiamond(){
 
 
 	image.src = '/image/Vector-24.png';
-	diamond.style.left = Math.random() * 100 +"vw";
+	diamond.style.left = Math.random() * 100 + "vw";
 	diamond.style.animationDuration = Math.random() * 2 + 3 + "s";
 	diamond.classList.add("diamond");
 	diamond.style.width = Math.random(5) * nb + "px";
 	diamond.style.height = Math.random(5) * nb + "px";
-
-	modal.appendChild(diamond);
-	diamond.appendChild(image);
+	if (modal != null) {
+		modal.appendChild(diamond);
+		diamond.appendChild(image);
+	}
 
 	setTimeout(() => {
 		diamond.remove();
@@ -23,7 +24,3 @@ function addDiamond(){
 var interval = Math.random() * 900;
 
 setInterval(addDiamond, interval);
-
-
-
-
