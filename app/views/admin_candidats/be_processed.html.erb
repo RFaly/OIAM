@@ -9,7 +9,7 @@
 	<div class="cp-box">
 		<div class="admin-bp-box ">
 			<div class="dp-input">
-				<select name="filtre" id="filtre" class="co-select">
+				<select name="filtre" id="filtre" class="co-select input-date-js">
 					<option value=".TOUS" selected="selected">TOUS</option>
 					<option value=".INSCRIPTION">INSCRIPTION</option>
 					<option value=".COMPLETION_PROFIL">COMPLETION PROFIL</option>
@@ -21,17 +21,18 @@
 					<table>
 						<tr>
 							<td>Date d'entrée : &nbsp;&nbsp;&nbsp;</td>
-							<td><input type="date" name="enter_date_min" id="enter_date_min"></td>
+							<td><input type="date" name="enter_date_min" class="input-date-js" id="enter_date_min"></td>
 							<td>&nbsp;&nbsp;&nbsp;à&nbsp;&nbsp;&nbsp;</td>
-							<td><input type="date" name="enter_date_max" id="enter_date_max"></td>
+							<td><input type="date" name="enter_date_max" class="input-date-js" id="enter_date_max"></td>
 						</tr>
 						<tr>
 							<td>Date limite : &nbsp;&nbsp;&nbsp;</td>
-							<td><input type="date" name="lim_date_min" id="lim_date_min"></td>
+							<td><input type="date" name="lim_date_min" class="input-date-js" id="lim_date_min"></td>
 							<td>&nbsp;&nbsp;&nbsp;à&nbsp;&nbsp;&nbsp;</td>
-							<td><input type="date" name="lim_date_max" id="lim_date_max"></td>
+							<td><input type="date" name="lim_date_max" class="input-date-js" id="lim_date_max"></td>
 						</tr>
 					</table>
+					<span class="btn btn-primary" id="return">Supprimer filtre</span>
 				</center>
 
 			</div>
@@ -294,26 +295,112 @@
 		});
 	});
 
-	if ($(".list-items-me").length == 0) {
-		$("#none-element").fadeIn(500);
+	$(".input-date-js").change(function(){
+		function run_filter()
+	});
+
+	function run_filter(){
+		enter_date_min = $("#enter_date_min").val()
+		enter_date_max = $("#enter_date_max").val()
+		lim_date_min = $("#lim_date_min").val()
+		lim_date_max = $("#lim_date_max").val()
+		if(enter_date_min != ""){
+			enter_date_min = new Date(enter_date_min)
+		}
+		if(enter_date_max != ""){
+			enter_date_max = new Date(enter_date_max)
+		}
+		if(lim_date_min != ""){
+			lim_date_min = new Date(lim_date_min)
+		}
+		if(lim_date_max != ""){
+			lim_date_max = new Date(lim_date_max)
+		}
+		filter_select = $("#filtre").val()
+
+		filterItems(enter_date_min,enter_date_max,lim_date_min,lim_date_max,filter_select)
 	}
 
-	$("#filtre").change(function () {
-		var search = $(this).val()
-		var emptyS = true
-		$(".list-items-me").each(function () {
+	function filterItems(enter_date_min="",enter_date_max="",lim_date_min="",lim_date_max="",filter_select=".TOUS"){
+
+		$(".list-items-me").each(function(){
 			let thisiko = $(this)
-			if ((search == thisiko.data().name) || (search == ".TOUS")) {
+
+			let min = thisiko.data().min
+			let max = thisiko.data().max
+
+			if (min.length > 3) {
+				tmp_min = min.split("/")
+				min = new Date(tmp_min[2], tmp_min[1], tmp_min[0]) 
+			}
+
+			if (max.length > 3) {
+				tmp_max = max.split("/")
+				max = new Date(tmp_max[2], tmp_max[1], tmp_max[0]) 
+			}
+
+			if(enter_date_min == ""){
+
+			}else{
+				if (min < enter_date_min){
+					thisiko.fadeOut(200);
+					return;
+				}else{
+					thisiko.fadeIn(500);
+				}
+			}
+
+			if(enter_date_max == ""){
+
+			}else{
+				if (min > enter_date_max){
+					thisiko.fadeOut(200);
+					return;
+				}else{
+					thisiko.fadeIn(500);
+				}
+			}
+
+			if(lim_date_min == ""){
+
+			}else{
+				if (max < lim_date_min){
+					thisiko.fadeOut(200);
+					return;
+				}else{
+					thisiko.fadeIn(500);
+				}
+			}
+
+			if(lim_date_max == ""){
+
+			}else{
+				if (max > lim_date_max){
+					thisiko.fadeOut(200);
+					return;
+				}else{
+					thisiko.fadeIn(500);
+				}
+			}
+
+			if(filter_select == ".TOUS"){
 				thisiko.fadeIn(500);
-				emptyS = false
-			} else {
-				thisiko.fadeOut(200);
+			}else{
+				if (filter_select == thisiko.data().name) {
+					thisiko.fadeIn(500);
+				} else {
+					thisiko.fadeOut(200);
+					return;
+				}
 			}
 		});
-		if (emptyS) {
+
+		if ($('.list-items-me :visible').length == 0){
 			$("#none-element").fadeIn(500);
-		} else {
-			$("#none-element").fadeOut(200);
+		}else{
+			$("#none-element").fadeOut(500);
 		}
-	});
+	}
+
+
 </script>
