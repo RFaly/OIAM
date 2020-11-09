@@ -24,7 +24,8 @@
     text-align: center;
     font: $ffsentence;
 
-    &:focus {
+    &:focus,
+    &:active {
       border-radius: none;
       outline: none;
       outline: 2px solid $main_theme_color;
