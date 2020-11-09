@@ -405,7 +405,6 @@ body {
   content: "";
   position: absolute;
   top: -10px;
-  ;
   right: 15px;
   display: block;
   width: 0;
@@ -462,8 +461,8 @@ body {
 }
 
 .date-picker-f .date input {
-  top: -4px;
-  left: 0;
+  top: 0;
+  right: 55%;
   border-radius: 0;
   font-size: 0.002px;
   position: absolute;
@@ -536,7 +535,8 @@ body {
 }
 
 #ui-datepicker-div {
-  width: 600px;
+  width: 100%;
+  max-width: 350px;
   color: white;
 }
 
