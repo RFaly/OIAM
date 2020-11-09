@@ -32,7 +32,7 @@
       </div>
       <div class="connected-times">
           <% unless contact.cadre.is_online? %>
-            <span class="not-connected">Connectée il y a <%= time_ago_in_words(contact.cadre.online_time) %></span>
+            <span class="not-connected">Connecté(e) il y a <%= time_ago_in_words(contact.cadre.online_time) %></span>
           <% end %>
         </div>
     </div>
