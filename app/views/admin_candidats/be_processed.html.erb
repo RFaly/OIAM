@@ -9,13 +9,32 @@
 	<div class="cp-box">
 		<div class="admin-bp-box ">
 			<div class="dp-input">
-				<select name="filtre" id="filtre" class="co-select">
+				<select name="filtre" id="filtre" class="co-select input-date-js">
 					<option value=".TOUS" selected="selected">TOUS</option>
 					<option value=".INSCRIPTION">INSCRIPTION</option>
-					<option value=".ADMISSION">ADMISSION</option>
+					<option value=".COMPLETION_PROFIL">COMPLETION PROFIL</option>
 					<option value=".PROMESSE-D-EMBAUCHE">PROMESSE D'EMBAUCHE</option>
 					<option value=".PRIME">PRIME</option>
 				</select>
+				<br>
+				<center style="display: none;">
+					<table>
+						<tr>
+							<td>Date d'entrée : &nbsp;&nbsp;&nbsp;</td>
+							<td><input type="date" name="enter_date_min" class="input-date-js" id="enter_date_min"></td>
+							<td>&nbsp;&nbsp;&nbsp;à&nbsp;&nbsp;&nbsp;</td>
+							<td><input type="date" name="enter_date_max" class="input-date-js" id="enter_date_max"></td>
+						</tr>
+						<tr>
+							<td>Date limite : &nbsp;&nbsp;&nbsp;</td>
+							<td><input type="date" name="lim_date_min" class="input-date-js" id="lim_date_min"></td>
+							<td>&nbsp;&nbsp;&nbsp;à&nbsp;&nbsp;&nbsp;</td>
+							<td><input type="date" name="lim_date_max" class="input-date-js" id="lim_date_max"></td>
+						</tr>
+					</table>
+					<span class="btn btn-primary" id="return">Supprimer filtre</span>
+				</center>
+
 			</div>
 			<div class="flex">
 				<p id="none-element" style="display: none;" class="d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">Aucune tâche à traiter.</p>
@@ -23,7 +42,10 @@
 
 				<% unless @cadreInfoPotentielNotEnds.empty? %>
 				<% @cadreInfoPotentielNotEnds.each do |cadreInfoPotentielNotEnd| %>
-				<div data-name=".INSCRIPTION" class="bp-box list-items-me">
+				
+				<% minDate = cadreInfoPotentielNotEnd.created_at.strftime("%d/%m/%Y") %>
+
+				<div data-name=".INSCRIPTION" class="bp-box list-items-me" data-min="<%= minDate %>" data-max="~">
 					<!-- <img src='/image/profie.png'/> <br> -->
 					<div class="bp-inside-box">
 						<div class="bp-inscr">INSCRIPTION<br>
@@ -33,8 +55,8 @@
 							<%= cadreInfoPotentielNotEnd.first_name %> <%= cadreInfoPotentielNotEnd.last_name %>
 						</div>
 						<div class="bp-date">
-							Date d'entrée :
-							<%= cadreInfoPotentielNotEnd.created_at.strftime("%d/%m/%Y") %>
+							Date d'entrée : <%= minDate %>
+							
 						</div>
 						<div class="bp-date">
 							Date limite :
@@ -52,7 +74,11 @@
 
 				<% unless @cadreInfoFits.empty? %>
 				<% @cadreInfoFits.each do |cadreInfoFit| %>
-				<div data-name=".INSCRIPTION" class="bp-box list-items-me">
+
+
+				<% minDate = cadreInfoFit.agenda_admin.entretien_date.strftime("%d/%m/%Y") %>
+
+				<div data-name=".INSCRIPTION" class="bp-box list-items-me" data-min="<%= minDate %>" data-max="~">
 					<div class="bp-inside-box">
 						<div class="bp-inscr">INSCRIPTION<br>
 							Etat: RDV FIT à valider
@@ -82,29 +108,30 @@
 
 				<% unless @cadreInfoEnterScoreFits.empty? %>
 				<% @cadreInfoEnterScoreFits.each do |cadreInfoEnterScoreFit| %>
-				<div data-name=".INSCRIPTION" class="bp-box list-items-me">
-					<div class="bp-inside-box">
-						<div class="bp-inscr">INSCRIPTION<br>
-							Etat: Entretiens FIT à effectuer
+					<% minDate = cadreInfoEnterScoreFit.agenda_admin.entretien_date.strftime("%d/%m/%Y") %>
+					<div data-name=".INSCRIPTION" class="bp-box list-items-me" data-min="<%= minDate %>" data-max="~">
+						<div class="bp-inside-box">
+							<div class="bp-inscr">INSCRIPTION<br>
+								Etat: Entretiens FIT à effectuer
+							</div>
+							<div class="bp-name pt-4">
+								<%= cadreInfoEnterScoreFit.first_name %> <%= cadreInfoEnterScoreFit.last_name %>
+							</div>
+							<div class="bp-date">
+								Date d'entrée :
+								<span
+									data-times="<%= cadreInfoEnterScoreFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>"
+									class="currentDatentretien"></span>
+							</div>
+							<div class="bp-date">
+								Date limite :
+								~
+							</div>
 						</div>
-						<div class="bp-name pt-4">
-							<%= cadreInfoEnterScoreFit.first_name %> <%= cadreInfoEnterScoreFit.last_name %>
-						</div>
-						<div class="bp-date">
-							Date d'entrée :
-							<span
-								data-times="<%= cadreInfoEnterScoreFit.agenda_admin.entretien_date.strftime("%Y-%m-%d %H:%M") %>"
-								class="currentDatentretien"></span>
-						</div>
-						<div class="bp-date">
-							Date limite :
-							~
+						<div class="bp-btn">
+							<a href="<%= post_avis_candidats_fit_path(cadreInfoEnterScoreFit.id) %>">GERER</a>
 						</div>
 					</div>
-					<div class="bp-btn">
-						<a href="<%= post_avis_candidats_fit_path(cadreInfoEnterScoreFit.id) %>">GERER</a>
-					</div>
-				</div>
 				<% end %>
 				<% end %>
 
@@ -113,21 +140,23 @@
 				<% unless @cacadreInfoInCompleteInfoProfils.empty? %>
 				<% @cacadreInfoInCompleteInfoProfils.each do |cacadreInfoInCompleteInfoProfil| %>
 				<% cfo = cacadreInfoInCompleteInfoProfil %>
-				<div data-name=".ADMISSION" class="bp-box list-items-me">
+
+				<% minDate = cfo.agenda_admin.created_at.strftime("%d/%m/%Y") %>
+				<% maxDate = cfo.agenda_admin.created_at.next_day(7).strftime("%d/%m/%Y") %>
+
+				<div data-name=".COMPLETION_PROFIL" class="bp-box list-items-me" data-min="<%= minDate %>" data-max="<%= maxDate %>">
 					<div class="bp-inside-box">
-						<div class="bp-inscr">ADMISSION<br>
+						<div class="bp-inscr">COMPLETION PROFIL<br>
 							Etat: Profil non complété
 						</div>
 						<div class="bp-name pt-4">
 							<%= cfo.first_name %> <%= cfo.last_name %>
 						</div>
 						<div class="bp-date">
-							Date d'entrée :
-							~
+							Date d'entrée : <%= minDate %>
 						</div>
 						<div class="bp-date">
-							Date limite :
-							~
+							Date limite : <%= maxDate %>
 						</div>
 					</div>
 					<div class="bp-btn">
@@ -146,27 +175,25 @@
 				<% unless @cadreInfoNotPromiseToHires.empty? %>
 				<% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
 				<% cINPT = cadreInfoNotPromiseToHire.cadre_info %>
-				<div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me">
-					<div class="bp-inside-box">
-						<div class="bp-inscr">PROMESSE D'EMBAUCHE<br>
-							Etat: Promesse d'embauche non validée
+					<div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me" data-min="<%= cINPT.promise_not_reponded[1] %>" data-max="<%= cINPT.promise_not_reponded[0] %>">
+						<div class="bp-inside-box">
+							<div class="bp-inscr">PROMESSE D'EMBAUCHE<br>
+								Etat: Promesse d'embauche non validée
+							</div>
+							<div class="bp-name pt-4">
+								<%= cINPT.first_name %> <%= cINPT.last_name %>
+							</div>
+							<div class="bp-date">
+								Date d'entrée : <%= cINPT.promise_not_reponded[1] %>
+							</div>
+							<div class="bp-date">
+								Date limite : <%= cINPT.promise_not_reponded[0] %>
+							</div>
 						</div>
-						<div class="bp-name pt-4">
-							<%= cINPT.first_name %> <%= cINPT.last_name %>
-						</div>
-						<div class="bp-date">
-							Date d'entrée :
-							<%= cINPT.promise_not_reponded[1] %>
-						</div>
-						<div class="bp-date">
-							Date limite :
-							<%= cINPT.promise_not_reponded[0] %>
+						<div class="bp-btn">
+							<a href="<%= cbp_promise_no_validate_path(cINPT.id) %>">GERER</a>
 						</div>
 					</div>
-					<div class="bp-btn">
-						<a href="<%= cbp_promise_no_validate_path(cINPT.id) %>">GERER</a>
-					</div>
-				</div>
 				<% end %>
 				<% end %>
 
@@ -174,36 +201,38 @@
 
 				<% unless @cadreInfoValidateTimeTryings.empty? %>
 				<% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
-				<% pThWa = cadreInfoValidateTimeTrying[0] %>
-				<div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me">
-					<div class="bp-inside-box">
-						<div class="bp-inscr">PERIODE D'ESSAI<br>
-							Etat: Période d'essai non validée
+
+					<% pThWa = cadreInfoValidateTimeTrying[0] %>
+					<% pThWa = pThWa.time_trying %>
+					<%if pThWa.include?('-') %>
+						<% ptime = pThWa.split('-')%>
+						<% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
+					<%else %>
+						<% @pThWa1 =  pThWa %>
+					<%end %>
+
+					<div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me" data-min="<%= pThWa.offre_job.date_poste %>" data-max="<%= @pThWa1 %>">
+						<div class="bp-inside-box">
+							<div class="bp-inscr">PERIODE D'ESSAI<br>
+								Etat: Période d'essai non validée
+							</div>
+							<div class="bp-name pt-4">
+								<%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
+							</div>
+							<div class="bp-date">
+								Date d'entrée :
+								<%= pThWa.offre_job.date_poste %>
+							</div>
+							<div class="bp-date">
+								Date limite : <%= @pThWa1 %>
+							</div>
 						</div>
-						<div class="bp-name pt-4">
-							<%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
-						</div>
-						<div class="bp-date">
-							Date d'entrée :
-							<%= pThWa.offre_job.date_poste %>
-						</div>
-						<div class="bp-date">
-							<% pThWa = pThWa.time_trying%>
-							<%if pThWa.include?('-') %>
-							<% ptime = pThWa.split('-')%>
-							<% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
-							<%else %>
-							<%@pThWa1 =  pThWa%>
-							<%end %>
-							Date limite :
-							<%= @pThWa1 %>
+						<div class="bp-btn">
+							<a href="<%= cbp_promise_no_validate_path(pThWa.cadre.cadre_info.id) %>">GERER</a>
+							<!-- promise to hire -->
 						</div>
 					</div>
-					<div class="bp-btn">
-						<a href="<%= cbp_promise_no_validate_path(pThWa.cadre.cadre_info.id) %>">GERER</a>
-						<!-- promise to hire -->
-					</div>
-				</div>
+
 				<% end %>
 				<% end %>
 
@@ -211,35 +240,35 @@
 
 				<% unless @cadreInfoPrimNotReceiveds.empty? %>
 				<% @cadreInfoPrimNotReceiveds.each do |cadreInfoPrimNotReceived| %>
-				<% pThWa = cadreInfoPrimNotReceived[0] %>
-				<div data-name=".PRIME" class="bp-box list-items-me">
-					<div class="bp-inside-box">
-						<div class="bp-inscr">PRIME<br>
-							Etat : Prime non reçue
+					<% pThWa = cadreInfoPrimNotReceived[0] %>
+					<% pThWa = pThWa.time_trying%>
+					<%if pThWa.include?('-') %>
+						<% ptime = pThWa.split('-')%>
+						<% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
+					<%else %>
+						<% @pThWa1 =  pThWa%>
+					<%end %>
+
+					<div data-name=".PRIME" class="bp-box list-items-me" data-min="<%= pThWa.offre_job.date_poste %>" data-max="<%= @pThWa1 %>">
+						<div class="bp-inside-box">
+							<div class="bp-inscr">PRIME<br>
+								Etat : Prime non reçue
+							</div>
+							<div class="bp-name pt-4">
+								<%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
+							</div>
+							<div class="bp-date">
+								Date d'entrée : <%= pThWa.offre_job.date_poste %>
+							</div>
+							<div class="bp-date">
+								Date limite : <%= @pThWa1 %>
+							</div>
 						</div>
-						<div class="bp-name pt-4">
-							<%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
-						</div>
-						<div class="bp-date">
-							Date d'entrée :
-							<%= pThWa.offre_job.date_poste %>
-						</div>
-						<div class="bp-date">
-							<% pThWa = pThWa.time_trying%>
-							<%if pThWa.include?('-') %>
-							<% ptime = pThWa.split('-')%>
-							<% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
-							<%else %>
-							<%@pThWa1 =  pThWa%>
-							<%end %>
-							Date limite :
-							<%= @pThWa1 %>
+						<div class="bp-btn">
+							<a href="<%= cbp_prime_path(pThWa.id) %>">GERER</a>
 						</div>
 					</div>
-					<div class="bp-btn">
-						<a href="<%= cbp_prime_path(pThWa.id) %>">GERER</a>
-					</div>
-				</div>
+
 				<% end %>
 				<% end %>
 			</div>
@@ -247,10 +276,6 @@
 		</div>
 	</div>
 </div>
-
-
-
-
 
 
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
@@ -261,31 +286,120 @@
 		$elementDate.each(function () {
 			let dateUTC = moment.utc($(this).data().times);
 			let dateGet = new Date(dateUTC.local());
-			let dateString = dateGet.getDate() + "/" + dateGet.getMonth() + "/" + dateGet.getFullYear();
+			let dateString = dateGet.getDate() + "/" + (dateGet.getMonth()+1) + "/" + dateGet.getFullYear();
 			$(this).html(dateString);
 		});
 	});
 
-	if ($(".list-items-me").length == 0) {
-		$("#none-element").fadeIn(500);
+	$(".input-date-js").change(function(){
+		run_filter();
+	});
+
+	function run_filter(){
+		enter_date_min = $("#enter_date_min").val()
+		enter_date_max = $("#enter_date_max").val()
+
+		lim_date_min = $("#lim_date_min").val()
+		lim_date_max = $("#lim_date_max").val()
+
+		if(enter_date_min != ""){
+			enter_date_min = new Date(enter_date_min)
+		}
+		if(enter_date_max != ""){
+			enter_date_max = new Date(enter_date_max)
+		}
+		if(lim_date_min != ""){
+			lim_date_min = new Date(lim_date_min)
+		}
+		if(lim_date_max != ""){
+			lim_date_max = new Date(lim_date_max)
+		}
+		filter_select = $("#filtre").val()
+
+		filterItems(enter_date_min,enter_date_max,lim_date_min,lim_date_max,filter_select);
 	}
 
-	$("#filtre").change(function () {
-		var search = $(this).val()
-		var emptyS = true
-		$(".list-items-me").each(function () {
+	function filterItems(enter_date_min="",enter_date_max="",lim_date_min="",lim_date_max="",filter_select=".TOUS"){
+
+		$(".list-items-me").each(function(){
+
 			let thisiko = $(this)
-			if ((search == thisiko.data().name) || (search == ".TOUS")) {
-				thisiko.fadeIn(500);
-				emptyS = false
-			} else {
-				thisiko.fadeOut(200);
+
+			let min = thisiko.data().min
+			let max = thisiko.data().max
+
+			if (min.length > 3) {
+				tmp_min = min.split("/")
+				min = new Date(tmp_min[2], tmp_min[1], tmp_min[0]) 
+			}
+
+			if (max.length > 3) {
+				tmp_max = max.split("/")
+				max = new Date(tmp_max[2], tmp_max[1], tmp_max[0]) 
+			}
+
+			if(enter_date_min == ""){
+
+			}else{
+				if (min < enter_date_min){
+					thisiko.hide();
+					return;
+				}else{
+					thisiko.show(500);
+				}
+			}
+
+			if(enter_date_max == ""){
+
+			}else{
+				if (min > enter_date_max){
+					thisiko.hide();
+					return;
+				}else{
+					thisiko.show(500);
+				}
+			}
+
+			if(lim_date_min == ""){
+
+			}else{
+				if (max < lim_date_min){
+					thisiko.hide();
+					return;
+				}else{
+					thisiko.show(500);
+				}
+			}
+
+			if(lim_date_max == ""){
+
+			}else{
+				if (max > lim_date_max){
+					thisiko.hide();
+					return;
+				}else{
+					thisiko.show(500);
+				}
+			}
+
+			if(filter_select == ".TOUS"){
+				thisiko.show(500);
+			}else{
+				if (filter_select == thisiko.data().name) {
+					thisiko.show(500);
+				} else {
+					thisiko.hide();
+					return;
+				}
 			}
 		});
-		if (emptyS) {
-			$("#none-element").fadeIn(500);
-		} else {
-			$("#none-element").fadeOut(200);
+
+		if ($('.list-items-me :visible').length == 0){
+			$("#none-element").show(500);
+		}else{
+			$("#none-element").hide(500);
 		}
-	});
+	}
+
+
 </script>

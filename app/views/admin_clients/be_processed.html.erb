@@ -50,7 +50,7 @@
               <%= client.created_at.strftime("%d/%m/%Y") %>
             </div>
             <div class="bp-date">
-              Date limite : ~
+              Date limite : <%= client.created_at.next_day(7).strftime("%d/%m/%Y") %>
             </div>
           </div>
           <div class="bp-btn">
@@ -200,8 +200,15 @@
         <% unless @factures.empty? %>
         <% @factures.each do |facture| %>
 
-        <% ptH = facture.promise_to_hire %>
-        <% offre_job = ptH.offre_job %>
+          <% ptH = facture.promise_to_hire %>
+          <% offre_job = ptH.offre_job %>
+          <% pThWa = ptH.rupture_time_trying%>
+          <%if pThWa.include?('-') %>
+            <% ptime = pThWa.split('-')%>
+            <% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
+          <%else %>
+            <%@pThWa1 =  pThWa%>
+          <%end %>
 
         <div data-name=".PERIODE_D_ESSAI_ROMPUE" class="bp-box list-items-me">
           <div class="bp-inside-box">
@@ -215,13 +222,6 @@
               Date d'entrée : <%= offre_job.date_poste %>
             </div>
             <div class="bp-date">
-              <% pThWa = ptH.rupture_time_trying%>
-              <%if pThWa.include?('-') %>
-              <% ptime = pThWa.split('-')%>
-              <% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
-              <%else %>
-              <%@pThWa1 =  pThWa%>
-              <%end %>
               Date limite : <%= @pThWa1 %>
             </div>
           </div>

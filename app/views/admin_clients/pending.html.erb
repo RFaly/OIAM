@@ -143,7 +143,7 @@
     $elementDate.each(function () {
       let dateUTC = moment.utc($(this).data().times);
       let dateGet = new Date(dateUTC.local());
-      let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' +
+      let dateString = day[dateGet.getDay()] + ' ' + (dateGet.getMonth()+1) + ' ' + month[dateGet.getMonth()] + ' ' +
         dateGet.getFullYear();
       // let minute = dateGet.getMinutes()
       // if((minute+"").length == 1){

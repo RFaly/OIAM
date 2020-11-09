@@ -3,7 +3,7 @@ $(".currentDatentretien").ready(function () {
     $elementDate.each(function () {
         let dateUTC = moment.utc($(this).data().times);
         let dateGet = new Date(dateUTC.local());
-        let dateString = dateGet.getDate()+"/"+dateGet.getMonth()+"/"+dateGet.getFullYear();
+        let dateString = dateGet.getDate()+"/"+(dateGet.getMonth()+1)+"/"+dateGet.getFullYear();
         $(this).html(dateString);
     });
 });
