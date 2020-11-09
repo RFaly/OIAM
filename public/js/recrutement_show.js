@@ -59,7 +59,7 @@ $(document).ready(function () {
     let dateUTC = moment.utc($(this).data().times);
     let dateGet = new Date(dateUTC.local());
     let dateString = day[dateGet.getDay()] + ' ' + dateGet.getDate() + ' ' + month[dateGet.getMonth()] + ' ' + dateGet.getFullYear();
-    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h:00');
+    $(this).html(dateString + ' à ' + dateGet.getHours() + 'h00');
   });
 });
 
