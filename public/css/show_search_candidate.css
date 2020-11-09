@@ -302,6 +302,7 @@
 .ssc-box .ssc-planification .with-input {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .ssc-box .ssc-planification .with-input .with-input-item {
@@ -309,8 +310,7 @@
   outline: none;
   box-shadow: none;
   padding: 2px;
-  margin-left: 10px;
-  margin-top: -9px;
+  margin: 10px;
   padding-left: 5px;
   border: none;
   background: #f0f2f4;
@@ -437,6 +437,7 @@
   display: block;
   position: relative;
   padding-left: 30px;
+  word-break: normal;
   cursor: pointer;
   user-select: none;
 }
