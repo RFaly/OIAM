@@ -12,7 +12,7 @@
 				<select name="filtre" id="filtre" class="co-select">
 					<option value=".TOUS" selected="selected">TOUS</option>
 					<option value=".INSCRIPTION">INSCRIPTION</option>
-					<option value=".ADMISSION">ADMISSION</option>
+					<option value=".COMPLETION_PROFIL">COMPLETION PROFIL</option>
 					<option value=".PROMESSE-D-EMBAUCHE">PROMESSE D'EMBAUCHE</option>
 					<option value=".PRIME">PRIME</option>
 				</select>
@@ -113,21 +113,19 @@
 				<% unless @cacadreInfoInCompleteInfoProfils.empty? %>
 				<% @cacadreInfoInCompleteInfoProfils.each do |cacadreInfoInCompleteInfoProfil| %>
 				<% cfo = cacadreInfoInCompleteInfoProfil %>
-				<div data-name=".ADMISSION" class="bp-box list-items-me">
+				<div data-name=".COMPLETION_PROFIL" class="bp-box list-items-me">
 					<div class="bp-inside-box">
-						<div class="bp-inscr">ADMISSION<br>
+						<div class="bp-inscr">COMPLETION PROFIL<br>
 							Etat: Profil non complété
 						</div>
 						<div class="bp-name pt-4">
 							<%= cfo.first_name %> <%= cfo.last_name %>
 						</div>
 						<div class="bp-date">
-							Date d'entrée :
-							~
+							Date d'entrée : <%= cfo.agenda_admin.created_at.strftime("%d/%m/%Y") %>
 						</div>
 						<div class="bp-date">
-							Date limite :
-							~
+							Date limite : <%= cfo.agenda_admin.created_at.next_day(7).strftime("%d/%m/%Y") %>
 						</div>
 					</div>
 					<div class="bp-btn">
@@ -146,7 +144,7 @@
 				<% unless @cadreInfoNotPromiseToHires.empty? %>
 				<% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
 				<% cINPT = cadreInfoNotPromiseToHire.cadre_info %>
-				<div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me">
+				<div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me" data-min="<%= cINPT.promise_not_reponded[1] %>" data-max="<%= cINPT.promise_not_reponded[0] %>">
 					<div class="bp-inside-box">
 						<div class="bp-inscr">PROMESSE D'EMBAUCHE<br>
 							Etat: Promesse d'embauche non validée
@@ -188,15 +186,14 @@
 							<%= pThWa.offre_job.date_poste %>
 						</div>
 						<div class="bp-date">
-							<% pThWa = pThWa.time_trying%>
+							<% pThWa = pThWa.time_trying %>
 							<%if pThWa.include?('-') %>
-							<% ptime = pThWa.split('-')%>
-							<% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
+								<% ptime = pThWa.split('-')%>
+								<% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
 							<%else %>
-							<%@pThWa1 =  pThWa%>
+								<%@pThWa1 =  pThWa%>
 							<%end %>
-							Date limite :
-							<%= @pThWa1 %>
+							Date limite : <%= @pThWa1 %>
 						</div>
 					</div>
 					<div class="bp-btn">
