@@ -115,4 +115,31 @@ class AdminAdministrationsController < ApplicationAdminController
 
   end
 
+  def messaging
+    @cadre = Cadre.find_by_id(params[:id])
+    @contactCadre = current_admin.contact_admin_cadres
+    @contact = ContactAdminCadre.where(cadre: @cadre, admin:current_admin)
+    if @contact.count == 0
+      @contact = ContactAdminCadre.create(cadre: @cadre, admin:current_admin)
+    else
+      @contact = @contact.first
+    end
+    @contact.message_admin_cadres.where(admin_see:false).update(admin_see:true)
+    @messages = @contact.message_admin_cadres.order(created_at: :ASC)
+    @newMessage = MessageAdminCadre.new
+
+    #client
+    @client = Client.find_by_id(params[:id])
+    @contactClient = current_admin.contact_admin_clients
+    @contact = ContactAdminClient.where(client: @client, admin:current_admin)
+    if @contact.count == 0
+      @contact = ContactAdminClient.create(client: @client, admin:current_admin)
+    else
+      @contact = @contact.first
+    end
+    @contact.message_admin_clients.where(admin_see:false).update(admin_see:true)
+    @messages = @contact.message_admin_clients.order(created_at: :ASC)
+    @newMessage = MessageAdminClient.new
+  end
+
 end
