@@ -8,23 +8,24 @@
     <div class="notification-box">
       <h5 class="title">NOTIFICATIONS</h5>
       <% unless @notifications.empty?%>
-        <% @notifications.each do |noficication| %>
-        <hr>
-        <a href="<%= noficication.link %>" class="notif-link <% unless noficication.view %>seen<% end %>">
-          <div class="notification-content">
-            <% link = noficication.genre == 2 ? "/image/document1.png" : "#{noficication.cadre_info.image}" %>
-            <div class="c" style="background: url(<%= link %>) center no-repeat; background-size: cover"></div>
+      <% @notifications.each do |noficication| %>
+      <hr>
+      <a href="<%= noficication.link %>" class="notif-link <% unless noficication.view %>seen<% end %>">
+        <div class="notification-content">
+          <% link = noficication.genre == 2 ? "/image/document1.png" : "#{noficication.cadre_info.image}" %>
+          <div class="c" style="background: url(<%= link %>) center no-repeat; background-size: cover"></div>
 
-            <div class="nc-item">
-              <p class="name"><%= noficication.object %></p>
-              <p class="notif"><%= noficication.message %></p>
-              <div data-times="<%= noficication.created_at.strftime("%Y-%m-%d %H:%M") %>" class=" currentDateEntretien"></div>
-            </div> 
+          <div class="nc-item">
+            <p class="name"><%= noficication.object %></p>
+            <p class="notif"><%= noficication.message %></p>
+            <div data-times="<%= noficication.created_at.strftime("%Y-%m-%d %H:%M") %>" class=" currentDateEntretien">
+            </div>
           </div>
-        </a>
-      	<% end %>
+        </div>
+      </a>
+      <% end %>
       <% else %>
-      	Aucune notification ...
+      <center>Aucune notification</center>
       <% end %>
     </div>
   </div>

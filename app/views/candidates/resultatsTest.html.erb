@@ -3,63 +3,74 @@
 <div class="bg-uniq">
 	<div class="cadre">
 		<% if @cadreInfo.score_potential.nil? %>
-			<div class="row">
-				<div class="col-sm-3">
-					<div class="loader lds-facebook" id="form-js-code" data-path="<%= getScoresPotential_path(@cadreInfo.confirm_token) %>"><div></div><div></div><div></div></div>
-				</div>
-				<div class="col-sm-9">
-					<h2>Chère <%= @cadreInfo.first_name %></h2>
-					<p>Traitement des réponses en cours ...
-						<br><center>ceci peut prendre quelques minutes</center>
-					</p>
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="loader lds-facebook" id="form-js-code"
+					data-path="<%= getScoresPotential_path(@cadreInfo.confirm_token) %>">
+					<div></div>
+					<div></div>
+					<div></div>
 				</div>
 			</div>
-			<script type="text/javascript">
-				window.path_url = $("#form-js-code").data().path
-				function getMyMessage(){
-					$.getJSON(path_url,function(data) {
-						var my_data = data
-						if (my_data.score_potential != null){
-							location.reload(true);
-						}
-					});
-				}
-				setInterval(getMyMessage,1000);
-			</script>
+			<div class="col-sm-9">
+				<h2>Cher(e) <%= @cadreInfo.first_name %></h2>
+				<p>Traitement des réponses en cours ...
+					<br>
+					<center>ceci peut prendre quelques minutes</center>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript">
+			window.path_url = $("#form-js-code").data().path
+
+			function getMyMessage() {
+				$.getJSON(path_url, function (data) {
+					var my_data = data
+					if (my_data.score_potential != null) {
+						location.reload(true);
+					}
+				});
+			}
+			setInterval(getMyMessage, 1000);
+		</script>
 		<% else %>
-			<% if @cadreInfo.is_recrute == false %>
-				<h2 class="cadre-nom">Chère <%= @cadreInfo.first_name %>,</h2>
-				<p>Merci d’avoir passé notre test !</p>
-				<p>Votre score est de  <span><%= @cadreInfo.score_potential %></span>.</p>
-				<p>Malheureusement, ce score est insuffisant pour vous permettre d’intégrer One in a Million.</p>
-				<p>Nous savons que ces résultats peuvent être frustrants, aussi vous avez la possibilité de passer le test une seconde fois au cours de votre vie, dans un délai minimum de 6 mois.</p>
-				<p>Afin de maximiser vos chances, nous vous proposons des ateliers de coaching.</p>
-				<!-- formation_all_path(comfirm:@cadreInfo.confirm_token) -->
-				<%= link_to "AMÉLIORER MES RESULTATS","#", class:'pass-test', id:'link-to-resultats' %>
+		<% if @cadreInfo.is_recrute == false %>
+		<h2 class="cadre-nom">Cher(e) <%= @cadreInfo.first_name %>,</h2>
+		<p>Merci d’avoir passé notre test !</p>
+		<p>Votre score est de <span><%= @cadreInfo.score_potential %></span>.</p>
+		<p>Malheureusement, ce score est insuffisant pour vous permettre d’intégrer One in a Million.</p>
+		<p>Nous savons que ces résultats peuvent être frustrants, aussi vous avez la possibilité de passer le test une
+			seconde fois au cours de votre vie, dans un délai minimum de 6 mois.</p>
+		<p>Afin de maximiser vos chances, nous vous proposons des ateliers de coaching.</p>
+		<!-- formation_all_path(comfirm:@cadreInfo.confirm_token) -->
+		<%= link_to "AMÉLIORER MES RESULTATS","#", class:'pass-test', id:'link-to-resultats' %>
 
-			<% else %>
-				<% if @cadreInfo.score_fit.nil? %>
-					<div class="content">
-						<div class="numero un">1<span class="potential">Potential</span></div>
-						<div class="numero trois">2<span class="fit">Fit</span></div>
-					</div>
-					<h2 class="cadre-nom">Chère <%= @cadreInfo.first_name %>,</h2>
-					<p>Félicitations ! Vous avez obtenu un score de <span><%= @cadreInfo.score_potential %></span> et êtes donc sélectionné(e) pour l’étape suivante.</p>
-					<p>Vous avez désormais 24 heures pour passer la 2ème partie du test :</p>
-					<h1>FIT</h1>
-					<%= link_to "ACCÉDER AU TEST", testfit_path, class:'pass-test', id:'link-to-next' %>
-				<% else %>
-					<div id="para-hide">
-						<div id="potential-title-show">
-							<h1>Félicitations et Bienvenue !</h1>
-						</div>
-						<p>Vous avez désormais terminé le test d’entrée One in a Million et nous avons le plaisir de vous annoncer que vous faites partie du top 10 des cadres du marché.</p>
-						<p>Remplissez dès maintenant votre profil et rejoignez notre communauté ! Découvrez des offres d’emploi sélectionnées spécialement pour vous, ainsi que nos événements dédiés aux cadres d’élite.</p>
-						<%= link_to "COMPLÉTER MON PROFIL", new_cadre_registration_path(comfirm:@cadreInfo.confirm_token),class:'pass-test'%>
-					</div>
-				<% end %>
+		<% else %>
+		<% if @cadreInfo.score_fit.nil? %>
+		<div class="content">
+			<div class="numero un">1<span class="potential">Potential</span></div>
+			<div class="numero trois">2<span class="fit">Fit</span></div>
+		</div>
+		<h2 class="cadre-nom">Cher(e) <%= @cadreInfo.first_name %>,</h2>
+		<p>Félicitations ! Vous avez obtenu un score de <span><%= @cadreInfo.score_potential %></span> et êtes donc
+			sélectionné(e) pour l’étape suivante.</p>
+		<p>Vous avez désormais 24 heures pour passer la 2ème partie du test :</p>
+		<h1>FIT</h1>
+		<%= link_to "ACCÉDER AU TEST", testfit_path, class:'pass-test', id:'link-to-next' %>
+		<% else %>
+		<div id="para-hide">
+			<div id="potential-title-show">
+				<h1>Félicitations et Bienvenue !</h1>
+			</div>
+			<p>Vous avez désormais terminé le test d’entrée One in a Million et nous avons le plaisir de vous annoncer
+				que vous faites partie du top 10 des cadres du marché.</p>
+			<p>Remplissez dès maintenant votre profil et rejoignez notre communauté ! Découvrez des offres d’emploi
+				sélectionnées spécialement pour vous, ainsi que nos événements dédiés aux cadres d’élite.</p>
+			<%= link_to "COMPLÉTER MON PROFIL", new_cadre_registration_path(comfirm:@cadreInfo.confirm_token),class:'pass-test'%>
+		</div>
+		<% end %>
 
-			<% end %>
+		<% end %>
 
 		<% end %>
 
@@ -68,42 +79,48 @@
 
 <style>
 	.lds-facebook {
-	  display: inline-block;
-	  position: relative;
-	  width: 120px;
-	  height: 120px;
-	}
-	.lds-facebook div {
-	  display: inline-block;
-	  position: absolute;
-	  left: 8px;
-	  width: 16px;
-	  background: #fff;
-	  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
-	}
-	.lds-facebook div:nth-child(1) {
-	  left: 8px;
-	  animation-delay: -0.24s;
-	}
-	.lds-facebook div:nth-child(2) {
-	  left: 32px;
-	  animation-delay: -0.12s;
-	}
-	.lds-facebook div:nth-child(3) {
-	  left: 56px;
-	  animation-delay: 0;
-	}
-	@keyframes lds-facebook {
-	  0% {
-	    top: 8px;
-	    height: 64px;
-	  }
-	  50%, 100% {
-	    top: 24px;
-	    height: 32px;
-	  }
+		display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 120px;
 	}
 
+	.lds-facebook div {
+		display: inline-block;
+		position: absolute;
+		left: 8px;
+		width: 16px;
+		background: #fff;
+		animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+	}
+
+	.lds-facebook div:nth-child(1) {
+		left: 8px;
+		animation-delay: -0.24s;
+	}
+
+	.lds-facebook div:nth-child(2) {
+		left: 32px;
+		animation-delay: -0.12s;
+	}
+
+	.lds-facebook div:nth-child(3) {
+		left: 56px;
+		animation-delay: 0;
+	}
+
+	@keyframes lds-facebook {
+		0% {
+			top: 8px;
+			height: 64px;
+		}
+
+		50%,
+		100% {
+			top: 24px;
+			height: 32px;
+		}
+	}
 </style>
 
 <!--

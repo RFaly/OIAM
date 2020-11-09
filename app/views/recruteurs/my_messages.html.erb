@@ -13,12 +13,14 @@
         <% unless @contactListes.empty? %> <% @contactListes.each do |contact| %> <% nbr = contact.mp_client_not_see %>
         <hr />
         <div class="message-contact-items">
-          <div id="image" style="background: url(<%= contact.cadre.cadre_info.image%>) center no-repeat; background-size: cover">
+          <div id="image"
+            style="background: url(<%= contact.cadre.cadre_info.image%>) center no-repeat; background-size: cover">
             <% if contact.cadre.is_online? %>
             <span class="connected"></span>
             <% end %>
           </div>
-          <a href="<%= show_my_messages_client_path(contact.cadre.id) %>" class="link <% unless nbr == 0 %>color<% end %>" data-remote="true">
+          <a href="<%= show_my_messages_client_path(contact.cadre.id) %>"
+            class="link <% unless nbr == 0 %>color<% end %>" data-remote="true">
             <div class="name">
               <%= contact.cadre.cadre_info.first_name %> <%= contact.cadre.cadre_info.last_name %><% unless nbr == 0 %>
               <span id="number-unsee">(<%= nbr %>)</span>
@@ -37,7 +39,7 @@
           </a>
         </div>
         <% end %> <% else %>
-        <p>Aucun nouveau message</p>
+        <center>Aucun nouveau message</center>
         <% end %>
       </div>
     </div>
