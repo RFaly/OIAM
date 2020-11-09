@@ -290,20 +290,22 @@
 		$elementDate.each(function () {
 			let dateUTC = moment.utc($(this).data().times);
 			let dateGet = new Date(dateUTC.local());
-			let dateString = dateGet.getDate() + "/" + dateGet.getMonth() + "/" + dateGet.getFullYear();
+			let dateString = dateGet.getDate() + "/" + (dateGet.getMonth()+1) + "/" + dateGet.getFullYear();
 			$(this).html(dateString);
 		});
 	});
 
 	$(".input-date-js").change(function(){
-		function run_filter()
+		run_filter();
 	});
 
 	function run_filter(){
 		enter_date_min = $("#enter_date_min").val()
 		enter_date_max = $("#enter_date_max").val()
+
 		lim_date_min = $("#lim_date_min").val()
 		lim_date_max = $("#lim_date_max").val()
+
 		if(enter_date_min != ""){
 			enter_date_min = new Date(enter_date_min)
 		}
@@ -318,12 +320,13 @@
 		}
 		filter_select = $("#filtre").val()
 
-		filterItems(enter_date_min,enter_date_max,lim_date_min,lim_date_max,filter_select)
+		filterItems(enter_date_min,enter_date_max,lim_date_min,lim_date_max,filter_select);
 	}
 
 	function filterItems(enter_date_min="",enter_date_max="",lim_date_min="",lim_date_max="",filter_select=".TOUS"){
 
 		$(".list-items-me").each(function(){
+
 			let thisiko = $(this)
 
 			let min = thisiko.data().min
@@ -343,10 +346,10 @@
 
 			}else{
 				if (min < enter_date_min){
-					thisiko.fadeOut(200);
+					thisiko.hide();
 					return;
 				}else{
-					thisiko.fadeIn(500);
+					thisiko.show(500);
 				}
 			}
 
@@ -354,10 +357,10 @@
 
 			}else{
 				if (min > enter_date_max){
-					thisiko.fadeOut(200);
+					thisiko.hide();
 					return;
 				}else{
-					thisiko.fadeIn(500);
+					thisiko.show(500);
 				}
 			}
 
@@ -365,10 +368,10 @@
 
 			}else{
 				if (max < lim_date_min){
-					thisiko.fadeOut(200);
+					thisiko.hide();
 					return;
 				}else{
-					thisiko.fadeIn(500);
+					thisiko.show(500);
 				}
 			}
 
@@ -376,29 +379,29 @@
 
 			}else{
 				if (max > lim_date_max){
-					thisiko.fadeOut(200);
+					thisiko.hide();
 					return;
 				}else{
-					thisiko.fadeIn(500);
+					thisiko.show(500);
 				}
 			}
 
 			if(filter_select == ".TOUS"){
-				thisiko.fadeIn(500);
+				thisiko.show(500);
 			}else{
 				if (filter_select == thisiko.data().name) {
-					thisiko.fadeIn(500);
+					thisiko.show(500);
 				} else {
-					thisiko.fadeOut(200);
+					thisiko.hide();
 					return;
 				}
 			}
 		});
 
 		if ($('.list-items-me :visible').length == 0){
-			$("#none-element").fadeIn(500);
+			$("#none-element").show(500);
 		}else{
-			$("#none-element").fadeOut(500);
+			$("#none-element").hide(500);
 		}
 	}
 
