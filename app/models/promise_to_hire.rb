@@ -20,7 +20,7 @@ class PromiseToHire < ApplicationRecord
 	def notifed_admin_if_first_candidate
 		if self.offre_job.offre_for_candidates.count == 1			
 			ProcessedHistory.create(
-        image: "/image/profie.png",
+        image: "/image/work.png",
         message: "PROMESSE D'EMBAUCHE",
         link: "<a href='#{url_helpers.cp_show_promise_path(self.id)}'>VOIR</a>",
         is_client:true,
