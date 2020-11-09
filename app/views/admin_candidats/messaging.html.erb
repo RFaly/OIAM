@@ -27,7 +27,7 @@
           <% unless nbr == 0 %>
             <span class="alert-info"><%= nbr %></span>
           <% end %>
-          <% unless contact.message_admin_cadres.last.is_admin %>Vous : <%end%> <%= contact.message_admin_cadres.last.content %>
+          <% if contact.message_admin_cadres.last.is_admin %>Vous : <%end%> <%= contact.message_admin_cadres.last.content %>
         </div>
       </div>
       <div class="connected-times">
