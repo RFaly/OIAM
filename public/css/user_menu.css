@@ -8,6 +8,14 @@
 
 .left-menu-r .left-menu-content {
   list-style: none;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: space-around;
+  height: 80%;
+  justify-content: space-evenly;
 }
 
 .left-menu-r .left-menu-content li {
@@ -33,21 +41,13 @@
   font-size: 14px;
   font-weight: bolder;
   top: -20px;
-  right: 40px;
+  right: -35px;
   background: #d6b36a;
   color: white;
   padding: 1px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-}
-
-.left-menu-r .left-menu-content li div.first {
-  right: 62px;
-}
-
-.left-menu-r .left-menu-content li div.last {
-  right: 54px;
 }
 
 .left-menu-r .left-menu-content .color-this {

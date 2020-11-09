@@ -20,7 +20,7 @@
               <%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %>
             </div>
             <% unless @cadre.is_online? %>
-            <div class="notconnected">(connectée il y a <%= time_ago_in_words(@cadre.online_time) %>)</div>
+            <div class="notconnected">(Connecté(e) il y a <%= time_ago_in_words(@cadre.online_time) %>)</div>
             <% end %>
           </div>
         </div>

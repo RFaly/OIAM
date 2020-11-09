@@ -56,6 +56,10 @@ body {
   margin: 100px 0 58px 0;
 }
 
+.content{
+  margin: 15px;
+}
+
 .champs {
   position: relative;
   display: block;
@@ -63,7 +67,8 @@ body {
   padding: 8px;
   margin: auto;
   margin-bottom: 60px;
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
   height: 40px;
   background: #f0f2f4;
   border: 1px solid #f0f2f4;
@@ -122,17 +127,20 @@ body {
 .ville-adresse {
   display: flex;
   margin: auto;
-  width: 440px;
+  width: 100%;
+  max-width: 440px;
   height: 57px;
   margin-bottom: 50px;
 }
 
 .code_postal{
-  width: 170px;
+  width: 50%;
+  max-width: 170px;
 }
 
 .city{
-  width: 230px;
+  width: 50%;
+  max-width: 230px;
 }
 
 
