@@ -24,6 +24,8 @@
 .ui-datepicker {
   font: 500 18px Raleway, sans-serif;
   background-color: #e3d7bf;
+  color: #fff;
+  width: 228px;
 }
 
 .ui-datepicker thead {
