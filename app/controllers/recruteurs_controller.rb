@@ -389,7 +389,7 @@ class RecruteursController < ApplicationController
 		# save_entretien_client
 		@cadre = Cadre.find_by_id(params[:cadre_id])
 		@offreJob = OffreJob.find_by_id(params[:offre_id])
-		if @offre.nil?
+		if @offreJob.nil?
 			flash[:alert] = "Cette offre n'est plus disponible."
 			redirect_back(fallback_location: root_path)
 		else
@@ -471,71 +471,66 @@ class RecruteursController < ApplicationController
 	def notice_refused_post
 		respons = ["accepted","waiting","refused"]
 		@oFc = OffreForCandidate.find_by_id(params[:oFc_id])
-		if @oFc.nil?
+		@offre = OffreJob.find_by_id(params[:offre_id])
+		if @offre.nil?
 			flash[:alert] = "Cette offre n'est plus disponible."
 			redirect_back(fallback_location: root_path)
 		else
-			@offre = OffreJob.find_by_id(params[:offre_id])
-			if @offre.nil?
-				flash[:alert] = "Cette offre n'est plus disponible."
-				redirect_back(fallback_location: root_path)
+			@cadre = Cadre.find_by_id(params[:cadre_id])
+			error = false
+			unless respons.include?(params[:repons])
+				error = true
+			end
+			if @oFc.nil? || @offre.nil? || @cadre.nil?
+				error = true
 			else
-				@cadre = Cadre.find_by_id(params[:cadre_id])
-				error = false
-				unless respons.include?(params[:repons])
+				unless @oFc.offre_job == @offre && @oFc.cadre == @cadre
 					error = true
 				end
-				if @oFc.nil? || @offre.nil? || @cadre.nil?
-					error = true
-				else
-					unless @oFc.offre_job == @offre && @oFc.cadre == @cadre
-						error = true
-					end
+			end
+			if error
+				flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
+				redirect_to root_path
+			else
+				name_entreprise = current_client.entreprise.name
+				etapes = ""
+				message = ""
+				case @oFc.etapes
+					when 1
+						etapes = "première"
+					when 2
+						etapes = "deuxième"
+					when 3
+						etapes = "troisième"
 				end
-				if error
-					flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
-					redirect_to root_path
-				else
-					name_entreprise = current_client.entreprise.name
-					etapes = ""
-					message = ""
-					case @oFc.etapes
-						when 1
-							etapes = "première"
-						when 2
-							etapes = "deuxième"
-						when 3
-							etapes = "troisième"
-					end
-					case params[:repons]
-					  when "accepted" #REFUSER
-						  message = "#{name_entreprise} a validé votre candidature pour la #{etapes} étape."
-					  when "refused"	#ACCEPTER
-						  if params[:notifier].nil?
-							  message = "#{name_entreprise} a refusé votre candidature."
-						  else
-								message = "#{name_entreprise} a envoyé la raison du refus de votre candidature."
-							end
-					end
-					Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: message,link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offre.id,view: false)
-					@oFc.update(status:params[:repons])
-					@oFc.update(refused_info:params[:notifier])
+				case params[:repons]
+					when "accepted" #REFUSER
+						message = "#{name_entreprise} a validé votre candidature pour la #{etapes} étape."
+					when "refused"	#ACCEPTER
+						if params[:notifier].nil?
+							message = "#{name_entreprise} a refusé votre candidature."
+						else
+							message = "#{name_entreprise} a envoyé la raison du refus de votre candidature."
+						end
+				end
+				Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: message,link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offre.id,view: false)
+				@oFc.update(status:params[:repons])
+				@oFc.update(refused_info:params[:notifier])
 
-					# 7. FEEDBACK ENTRETIEN
-		      ProcessedHistory.create(
-		        image: "/image/work.png",
-		        message: "FEEDBACK ENTRETIEN",
-		        link: "<a href= '#{clients_bp_effectue_entretien_path(@oFc.agenda_clients.id)}'>VOIR</a>",
-		        is_client:true,
-		        genre: 1
-		      )
+				# 7. FEEDBACK ENTRETIEN
+			ProcessedHistory.create(
+			image: "/image/work.png",
+			message: "FEEDBACK ENTRETIEN",
+			link: "<a href= '#{clients_bp_effectue_entretien_path(@oFc.agenda_clients.id)}'>VOIR</a>",
+			is_client:true,
+			genre: 1
+			)
 
-					redirect_to recruitment_show_cadre_path(@oFc.id)
-				end
-				respond_to do |format|
-					format.html { redirect_to root_path }
-					format.js { }
-				end
+				redirect_to recruitment_show_cadre_path(@oFc.id)
+			end
+			respond_to do |format|
+				format.html { redirect_to root_path }
+				format.js { }
 			end
 		end
 	end
@@ -551,17 +546,17 @@ class RecruteursController < ApplicationController
 		helpers.updateNotification(params[:secure])
 		@facture = Facture.find_by_id(params[:id])
 		if @facture.nil?
-			flash[:alert] = "Cette page n'est plus disponible."
+			flash[:alert] = "Cette page n'est pas disponible."
 			redirect_back(fallback_location: root_path)
 		else
 			@promise = @facture.promise_to_hire
 			if @promise.nil?
-				flash[:alert] = "Cette page n'est plus disponible."
+				flash[:alert] = "Cette page n'est pas disponible."
 				redirect_back(fallback_location: root_path)
 			else
 				@offre_job = @promise.offre_job
 				if @offre_job.nil?
-					flash[:alert] = "Cette offre n'est plus disponible."
+					flash[:alert] = "Cette offre n'est pas disponible."
 					redirect_back(fallback_location: root_path)
 				end
 			end
