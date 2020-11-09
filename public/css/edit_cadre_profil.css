@@ -260,6 +260,7 @@ html{
     border: 1px solid #D6B36A;
     max-width: 230px;
 		max-height: 250px;
+    object-fit: cover;
   }
 
   .add-image img{
@@ -309,7 +310,7 @@ html{
       border: 1px solid #F0F2F4;
       background: none;
       color: #000;
-      padding-left: 30px;
+      padding-left: 10px;
       text-transform: uppercase;
       background: no-repeat right 10px center url(/image/dropdown.png);
       background-size: 25px;
@@ -320,6 +321,7 @@ html{
       -webkit-appearance: none;
       appearance:none;
       outline: none;
+      padding-right: 45px;
   }
 
   .typ-post{
