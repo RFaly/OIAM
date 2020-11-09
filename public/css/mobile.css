@@ -696,6 +696,7 @@
   }
   .rsc-box .rscdf-content .new-date {
     width: 90%;
+    margin: 0 auto;
   }
   .rsc-box .rscdf-content .new-date .link {
     width: 80%;

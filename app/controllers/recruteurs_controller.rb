@@ -462,12 +462,7 @@ class RecruteursController < ApplicationController
 		helpers.updateNotification(params[:secure])
 
 		@oFc = OffreForCandidate.find_by_id(params[:oFc_id])
-		if @oFc.nil?
-			flash[:alert] = "Cette offre n'est plus disponible."
-			redirect_back(fallback_location: root_path)
-			return
-		end
-		 @offre = @oFc.offre_job
+		@offre = @oFc.offre_job
 		if @offre.nil?
 			flash[:alert] = "Cette offre n'est plus disponible."
 			redirect_back(fallback_location: root_path)
