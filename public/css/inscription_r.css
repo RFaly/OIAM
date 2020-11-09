@@ -23,7 +23,7 @@
   font: 16px Questrial, sans-serif;
 }
 
-.details-r .dr-item:focus {
+.details-r .dr-item:focus, .details-r .dr-item:active {
   border-radius: none;
   outline: none;
   outline: 2px solid #d6b36a;

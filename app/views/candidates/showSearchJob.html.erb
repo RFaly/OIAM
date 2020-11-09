@@ -89,7 +89,10 @@
 
 <script type="text/javascript">
   $('#send-candidature').bind('ajax:beforeSend', function () {
-    $('#modal-ajax-bull').show();
+    $('#modal-ajax-bull').show(500);
+    setTimeout(function(){
+          $('#modal-ajax-bull').hide(300);
+    }, 5000);
   });
 
   $('#send-candidature').bind('ajax:complete', function () {

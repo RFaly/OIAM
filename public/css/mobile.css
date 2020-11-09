@@ -633,7 +633,7 @@
     margin-bottom: 50px;
   }
   .rsc-box {
-    width: 80%;
+    width: 90%;
   }
   .rsc-box .rsc-header-travel .line {
     width: 69.1%;
@@ -696,6 +696,7 @@
   }
   .rsc-box .rscdf-content .new-date {
     width: 90%;
+    margin: 0 auto;
   }
   .rsc-box .rscdf-content .new-date .link {
     width: 80%;

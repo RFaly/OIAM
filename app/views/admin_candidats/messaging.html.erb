@@ -4,7 +4,7 @@
   <div class="main">
     <% unless @contactCadre.empty? %>
     <% @contactCadre.each do |contact| %> 
-    <span style="display: none;" id="tsisy">Vous n'avez aucun message pour le moment</span>
+    <span style="display: none;" id="tsisy" class="d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">Vous n'avez aucun message pour le moment</span>
     <%  next if contact.message_admin_cadres.empty? %>
 
     <% nbr = contact.mp_admin_not_see %>
@@ -27,7 +27,7 @@
           <% unless nbr == 0 %>
             <span class="alert-info"><%= nbr %></span>
           <% end %>
-          <% unless contact.message_admin_cadres.last.is_admin %>Vous : <%end%> <%= contact.message_admin_cadres.last.content %>
+          <% if contact.message_admin_cadres.last.is_admin %>Vous : <%end%> <%= contact.message_admin_cadres.last.content %>
         </div>
       </div>
       <div class="connected-times">
@@ -40,7 +40,7 @@
     </div>
     <% end %>
     <% else %>
-      Vous n'avez aucun message pour le moment
+      <p class="d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">Vous n'avez aucun message pour le moment</p>
     <% end %>
   </div>
 </div>
