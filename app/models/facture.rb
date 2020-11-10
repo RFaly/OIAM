@@ -32,7 +32,7 @@ class Facture < ApplicationRecord
 		if self.ov.nil?
 			"non payé"
 		else
-			"payer"
+			"payé"
 		end
 	end
 
