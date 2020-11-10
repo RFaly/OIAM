@@ -97,16 +97,16 @@
 .admin-bp-box .dp-input #search #delete_filter {
   cursor: pointer;
   font: 500 18px Raleway, sans-serif;
-  color: #d6b36a;
   padding: 12px 35px;
-  outline: 2px solid #d6b36a;
-  outline-offset: -2px;
   text-transform: uppercase;
+  background: #d6b36a;
+  color: white;
 }
 
 .admin-bp-box .dp-input #search #delete_filter:hover, .admin-bp-box .dp-input #search #delete_filter:active {
-  background: #d6b36a;
-  color: white;
+  color: #d6b36a;
+  outline: 2px solid #d6b36a;
+  outline-offset: -2px;
 }
 
 .admin-bp-box .co-select {

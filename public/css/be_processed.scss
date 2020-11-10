@@ -80,16 +80,16 @@
             #delete_filter {
                 cursor: pointer;
                 font: $ffbtn;
-                color: $main_theme_color;
                 padding: 12px 35px;
-                outline: 2px solid $main_theme_color;
-                outline-offset: -2px;
                 text-transform: uppercase;
+                background: $main_theme_color;
+                color: white;
 
                 &:hover,
                 &:active {
-                    background: $main_theme_color;
-                    color: white;
+                    color: $main_theme_color;
+                    outline: 2px solid $main_theme_color;
+                    outline-offset: -2px;
                 }
             }
         }
