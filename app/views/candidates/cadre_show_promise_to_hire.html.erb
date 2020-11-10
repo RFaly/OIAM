@@ -161,7 +161,7 @@
 					</div>
 					<div class="fichier">
 						<% if @promise.rib.nil? %>
-							<label class="file" placeholder="Importer CIN" for="promise_to_hire_rib">IMPORTER</label>
+							<label class="file" placeholder="Importer CNI" for="promise_to_hire_rib">IMPORTER</label>
 							<%= f.file_field :rib, required:true, class:"input-import rib", accept:".jpg,.jpeg,.gif,.png,.doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %><br>
 							<span class="rib-err error"></span>
 						<% else %>
