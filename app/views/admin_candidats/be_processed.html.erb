@@ -9,6 +9,7 @@
 	<div class="cp-box">
 		<div class="admin-bp-box ">
 			<div class="dp-input">
+
 				<select name="filtre" id="filtre" class="co-select input-date-js">
 					<option value=".TOUS" selected="selected">TOUS</option>
 					<option value=".INSCRIPTION">INSCRIPTION</option>
@@ -16,7 +17,7 @@
 					<option value=".PROMESSE-D-EMBAUCHE">PROMESSE D'EMBAUCHE</option>
 					<option value=".PRIME">PRIME</option>
 				</select>
-				<br>
+				
 				<center style="display: none;">
 					<table>
 						<tr>
@@ -35,9 +36,11 @@
 					<span class="btn btn-primary" id="return">Supprimer filtre</span>
 				</center>
 
+				<p id="none-element" style="display:none;">Aucune tâche à traiter.</p>
+
 			</div>
 			<div class="flex">
-				<p id="none-element" style="display: none;" class="d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">Aucune tâche à traiter.</p>
+
 				<!-- <div>Test potentiel non terminé (en cours d eroute),récupérer son nom et email)</div> -->
 
 				<% unless @cadreInfoPotentielNotEnds.empty? %>
@@ -204,12 +207,12 @@
 
 					<% pThWa = cadreInfoValidateTimeTrying[0] %>
 					<% time_trying = pThWa.time_trying %>
-					<%if time_trying.include?('-') %>
+					<% if time_trying.include?('-') %>
 						<% ptime = time_trying.split('-')%>
 						<% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
-					<%else %>
+					<% else %>
 						<% @pThWa1 =  time_trying %>
-					<%end %>
+					<% end %>
 
 					<div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me" data-min="<%= pThWa.offre_job.date_poste %>" data-max="<%= @pThWa1 %>">
 						<div class="bp-inside-box">
@@ -281,6 +284,13 @@
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
 
 <script type="text/javascript">
+
+
+	if ($('.list-items-me').length == 0){
+		$("#none-element").show();
+	}
+
+
 	$(".currentDatentretien").ready(function () {
 		let $elementDate = $('.currentDatentretien');
 		$elementDate.each(function () {
@@ -400,6 +410,4 @@
 			$("#none-element").hide(500);
 		}
 	}
-
-
 </script>
