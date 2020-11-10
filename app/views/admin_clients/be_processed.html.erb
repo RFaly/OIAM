@@ -9,15 +9,20 @@
     <div class="admin-bp-box ">
       <!-- <h5 class="title">A traiter</h5> -->
       <div class="dp-input">
-        <select name="filtre" id="filtre" class="co-select input-date-js">
-          <option value=".TOUS" selected="selected">TOUS</option>
-          <option value=".INSCRIPTION">INSCRIPTION</option>
-          <option value=".SELECTION_CANDIDATS">SELECTION CANDIDATS</option>
-          <option value=".PLANIFICATION_ENTRETIEN">PLANIFICATION ENTRETIEN</option>
-          <option value=".FEEDBACK_ENTRETIEN">FEEDBACK ENTRETIEN</option>
-          <option value=".PROMESSE_D_EMBAUCHE">PROMESSE D'EMBAUCHE</option>
-          <option value=".PERIODE_D_ESSAI_ROMPUE">PERIODE D'ESSAI ROMPUE</option>
-        </select>
+        <div class="flex" id="select-calendat">
+          <select name="filtre" id="filtre" class="co-select input-date-js">
+            <option value=".TOUS" selected="selected">TOUS</option>
+            <option value=".INSCRIPTION">INSCRIPTION</option>
+            <option value=".SELECTION_CANDIDATS">SELECTION CANDIDATS</option>
+            <option value=".PLANIFICATION_ENTRETIEN">PLANIFICATION ENTRETIEN</option>
+            <option value=".FEEDBACK_ENTRETIEN">FEEDBACK ENTRETIEN</option>
+            <option value=".PROMESSE_D_EMBAUCHE">PROMESSE D'EMBAUCHE</option>
+            <option value=".PERIODE_D_ESSAI_ROMPUE">PERIODE D'ESSAI ROMPUE</option>
+          </select>
+          <div class="calendar flex">
+            <img src="/image/calendar.png" alt="">
+          </div>
+        </div>
 
         <div id="search" class="flex">
           <div class="flex date-flex">
@@ -95,8 +100,8 @@
         <% unless @offreJobs.empty? %>
         <% @offreJobs.each do |offreJob| %>
 
-        <%= enter_date = offreJob.created_at.strftime("%d/%m/%Y") %>
-        <%= date_lim = offreJob.limite_date %>
+        <% enter_date = offreJob.created_at.strftime("%d/%m/%Y") %>
+        <% date_lim = offreJob.limite_date %>
 
         <div data-name=".SELECTION_CANDIDATS" data-min="<%= enter_date %>" data-max="<%= date_lim %>"
           class="bp-box list-items-me">

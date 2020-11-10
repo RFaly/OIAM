@@ -51,9 +51,32 @@
   box-shadow: 1px 1px 5px 1px #d6b36a;
 }
 
+.admin-bp-box .dp-input .calendar {
+  width: 50px;
+  height: 50px;
+  background: #f0f2f4;
+  margin-left: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.admin-bp-box .dp-input .calendar:hover, .admin-bp-box .dp-input .calendar:active {
+  box-shadow: 0px 0px 3px 1px #d6b36a;
+}
+
+.admin-bp-box .dp-input .calendar img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+}
+
 .admin-bp-box .dp-input #none-element {
   margin-top: 20px;
   text-align: center;
+}
+
+.admin-bp-box .dp-input #select-calendat {
+  margin-left: 60px;
 }
 
 .admin-bp-box .dp-input #search {
@@ -107,6 +130,7 @@
   color: #d6b36a;
   outline: 2px solid #d6b36a;
   outline-offset: -2px;
+  background: transparent;
 }
 
 .admin-bp-box .co-select {

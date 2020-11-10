@@ -1,4 +1,15 @@
 $(document).ready(function () {
+  $('#search').hide()
+  let test_it = true;
+  $(".calendar").click(function () {
+    if (test_it) {
+      $('#search').fadeIn(800)
+      test_it = false
+    } else {
+      $('#search').fadeOut(200)
+      test_it = true
+    }
+  })
   $("#delete_filter").click(function () {
     $("#filtre").val(".TOUS")
     $("#enter_date_min").val("")

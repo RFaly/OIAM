@@ -10,37 +10,44 @@
     <div class="admin-bp-box ">
       <!-- <h5 class="title">En attente</h5> -->
       <div class="dp-input">
-
-        <select name="filtre" id="filtre" class="co-select input-date-js">
-          <option value=".TOUS" selected="selected">TOUS</option>
-          <option value=".PLANIFICATION_ENTRETIEN">PLANIFICATION ENTRETIEN</option>
-          <option value=".FEEDBACK_ENTRETIEN">FEEDBACK ENTRETIEN</option>
-          <option value=".PROMESSE-D-EMBAUCHE">PROMESSE D'EMBAUCHE</option>
-          <option value=".VALIDATION_PERIODE_D_ESSAI">VALIDATION PERIODE D'ESSAI</option>
-        </select>
-
-        <center>
-          <table>
-            <tr>
-              <td>Date d'entrée : &nbsp;&nbsp;&nbsp;</td>
-              <td><input type="date" name="enter_date_min" class="input-date-js" id="enter_date_min"></td>
-              <td>&nbsp;&nbsp;&nbsp;à&nbsp;&nbsp;&nbsp;</td>
-              <td><input type="date" name="enter_date_max" class="input-date-js" id="enter_date_max"></td>
-            </tr>
-            <tr>
-              <td>Date limite : &nbsp;&nbsp;&nbsp;</td>
-              <td><input type="date" name="lim_date_min" class="input-date-js" id="lim_date_min"></td>
-              <td>&nbsp;&nbsp;&nbsp;à&nbsp;&nbsp;&nbsp;</td>
-              <td><input type="date" name="lim_date_max" class="input-date-js" id="lim_date_max"></td>
-            </tr>
-          </table>
-          <span class="btn btn-primary" id="delete_filter">Supprimer filtre</span>
-        </center>
-
-        <p id="none-element" style="display:none;">
-          <br>
-        Aucune tâche à traiter.</p>
-
+        <div class="flex" id="select-calendat">
+          <select name="filtre" id="filtre" class="co-select input-date-js">
+            <option value=".TOUS" selected="selected">TOUS</option>
+            <option value=".PLANIFICATION_ENTRETIEN">PLANIFICATION ENTRETIEN</option>
+            <option value=".FEEDBACK_ENTRETIEN">FEEDBACK ENTRETIEN</option>
+            <option value=".PROMESSE-D-EMBAUCHE">PROMESSE D'EMBAUCHE</option>
+            <option value=".VALIDATION_PERIODE_D_ESSAI">VALIDATION PERIODE D'ESSAI</option>
+          </select>
+          <div class="calendar flex">
+            <img src="/image/calendar.png" alt="">
+          </div>
+        </div>
+        <div id="search" class="flex">
+          <div class="flex date-flex">
+            <div class="flex date-flex-item">
+              <div class="inside-div">
+                Date d'entrée : &nbsp;&nbsp;&nbsp;
+                <input type="date" name="enter_date_min" class="input-date-js" id="enter_date_min">
+              </div>
+              <div class="inside-div">
+                &nbsp;&nbsp;&nbsp;à&nbsp;&nbsp;&nbsp;
+                <input type="date" name="enter_date_max" class="input-date-js" id="enter_date_max">
+              </div>
+            </div>
+            <div class="flex date-flex-item">
+              <div class="inside-div">
+                Date limite : &nbsp;&nbsp;&nbsp;
+                <input type="date" name="lim_date_min" class="input-date-js" id="lim_date_min">
+              </div>
+              <div class="inside-div">
+                &nbsp;&nbsp;&nbsp;à&nbsp;&nbsp;&nbsp;
+                <input type="date" name="lim_date_max" class="input-date-js" id="lim_date_max">
+              </div>
+            </div>
+          </div>
+          <span id="delete_filter">Supprimer filtre</span>
+        </div>
+        <div id="none-element" style="display:none;">Aucune tâche à traiter.</div>
       </div>
       <div class="flex">
 
@@ -56,8 +63,9 @@
         <% ac = listAgendaClientsSend[1] %>
 
         <% enter_date = ac.entretien_date.strftime("%d/%m/%Y") %>
-        
-        <div data-name=".PLANIFICATION_ENTRETIEN" class="bp-box list-items-me" data-min="<%= enter_date %>" data-max="~">
+
+        <div data-name=".PLANIFICATION_ENTRETIEN" class="bp-box list-items-me" data-min="<%= enter_date %>"
+          data-max="~">
           <div class="bp-inside-box">
             <div class="bp-inscr">PLANIFICATION ENTRETIEN</div>
             <div class="bp-name">
@@ -94,11 +102,12 @@
         <% unless @cadreInfoNotPromiseToHires.empty? %>
         <% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
         <% cINPT = cadreInfoNotPromiseToHire.cadre_info %>
-        
+
         <% enter_date = cINPT.promise_not_reponded[1] %>
         <% lim_date = cINPT.promise_not_reponded[0] %>
 
-        <div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me" data-min="<%= enter_date %>" data-max="<%= lim_date %>">
+        <div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me" data-min="<%= enter_date %>"
+          data-max="<%= lim_date %>">
           <div class="bp-inside-box">
             <div class="bp-inscr">PROMESSE D'EMBAUCHE</div>
             <div class="bp-name">
@@ -126,18 +135,19 @@
         <% unless @cadreInfoValidateTimeTryings.empty? %>
         <% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
 
-          <% pThWa = cadreInfoValidateTimeTrying[0] %>
-          <% time_trying = pThWa.time_trying%>
-          <%if time_trying.include?('-') %>
-            <% ptime = time_trying.split('-')%>
-            <% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
-          <%else %>
-            <% @pThWa1 =  time_trying %>
-          <%end %>
+        <% pThWa = cadreInfoValidateTimeTrying[0] %>
+        <% time_trying = pThWa.time_trying%>
+        <%if time_trying.include?('-') %>
+        <% ptime = time_trying.split('-')%>
+        <% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
+        <%else %>
+        <% @pThWa1 =  time_trying %>
+        <%end %>
 
-          <% enter_date = pThWa.offre_job.date_poste %>
+        <% enter_date = pThWa.offre_job.date_poste %>
 
-        <div data-name=".VALIDATION_PERIODE_D_ESSAI" data-min="<%= enter_date %>" data-max="<%= @pThWa1 %>" class="bp-box list-items-me">
+        <div data-name=".VALIDATION_PERIODE_D_ESSAI" data-min="<%= enter_date %>" data-max="<%= @pThWa1 %>"
+          class="bp-box list-items-me">
           <div class="bp-inside-box">
             <div class="bp-inscr">VALIDATION PERIODE D'ESSAI</div>
             <div class="bp-name">
