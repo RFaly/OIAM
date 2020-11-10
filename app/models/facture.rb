@@ -30,7 +30,7 @@ class Facture < ApplicationRecord
 
 	def status
 		if self.ov.nil?
-			"non payer"
+			"non payé"
 		else
 			"payer"
 		end
