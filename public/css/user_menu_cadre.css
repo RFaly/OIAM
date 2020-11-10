@@ -11,6 +11,11 @@
   background-color: #fff;
 }
 
+.left-menu-content li{
+  margin: 35px; 
+}
+
+
 .left-menu-r .left-menu-content {
   list-style: none;
 }
@@ -38,7 +43,7 @@
   font-size: 14px;
   font-weight: bolder;
   top: -20px;
-  right: 40px;
+  right: 8px;
   background: #d6b36a;
   color: white;
   padding: 1px;

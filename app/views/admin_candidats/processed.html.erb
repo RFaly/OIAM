@@ -12,10 +12,10 @@
           <div class="container">
             <hr />
               <div class="row align-items-center">
-                <div class="image col-lg-1 col-md-1 col-sm-12 col-xs-12 align-self-center">
+                <div class="image col-lg-2 col-md-2 col-sm-12 col-xs-12 align-self-center">
                   <img src="<%= processedHistorie.image %>" alt="icone work" />
                 </div>
-                  <div class="hist-msg col-lg-4 col-md-4 col-sm-12 col-xs-12 align-self-center"><%= processedHistorie.message %></div>
+                  <div class="hist-msg col-lg-3 col-md-3 col-sm-12 col-xs-12 align-self-center"><%= processedHistorie.message %></div>
                   <div class="hist-link col-lg-7 col-md-7  col-sm-12 col-xs-12 align-self-center">
                     <%= raw processedHistorie.link %>
                   </div>
@@ -25,7 +25,7 @@
         <% end %>
       </div>
     <% else %>
-      <p class="d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">Aucune tâche traiter</p>     
+      <p style="font-family: Questrial, sans-serif;" class="d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">Aucune tâche traitee</p>     
     <% end %>
   </div>
 </div>

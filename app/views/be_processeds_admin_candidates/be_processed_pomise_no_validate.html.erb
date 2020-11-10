@@ -29,7 +29,7 @@
       <% if @cadre_info.status_state == "admis" %>
       <div>
         <% if @cadre_info.status_state == "admis" %>
-        <div class="row">
+        <div class="row resp-row">
           <div class="block-image col-lg-4 col-md-4 col-sm-12 col-sx-12">
             <% unless @cadre_info.image.nil? %>
             <img src="<%= @cadre_info.image %>" alt="photo profil candidats" , width="300px" , height="300px" ,
@@ -39,7 +39,7 @@
             <% end %>
           </div>
           <div class="info-cadd col-lg-8 col-md-8 row col-sm-12 col-xs-12">
-            <div class="info-frst col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="info-frst col-lg-6 col-md-12 col-sm-12 col-xs-12">
               <h4 class="user_name"><%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %>
                 <br></h4>
               <p><strong>Adresse : </strong><%= @cadre_info.adresse %></p>
@@ -54,7 +54,7 @@
                 <line x1="200" y1="0" x2="200" y2="200" style="stroke:rgb(255,255,255);stroke-width:2" />
               </svg>
             </div>
-            <div class="info-secnd col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="info-secnd col-lg-6 col-md-12 col-sm-12 col-xs-12">
               <p><strong>Profession : </strong><%= @cadre_info.job %></p>
               <p><strong>Statut : </strong><%= @cadre_info.status.capitalize %></p>
               <p><strong>Disponibilité : </strong><%= @cadre_info.disponibilite %></p>
@@ -88,25 +88,25 @@
               <h2 class="questionnaire-title">Où souhaitez-vous travailler et acceptez-vous les déplacements ?</h2>
               <p>
                 <div class="row dep">
-                  <div class="depll col-lg-3 col-md-3 dep-border">
+                  <div class="depll col-lg-3 col-md-3 col-sm-12 col-xs-12 dep-border">
                     <% unless @cadre_info.country.nil? %>
                     <div class="depl-ttl">Pays</div>
                     <div class="depl-ct"><%= @cadre_info.country.name %></div>
                     <% end %>
                   </div>
-                  <div class="depll col-lg-3 col-md-3 dep-border">
+                  <div class="depll col-lg-3 col-md-3 col-sm-12 col-xs-12 dep-border">
                     <% unless @cadre_info.region.nil? %>
                     <div class="depl-ttl">Region</div>
                     <div class="depl-ct"><%= @cadre_info.region.name %> </div>
                     <% end %>
                   </div>
-                  <div class="depll col-lg-3 col-md-3 dep-border">
+                  <div class="depll col-lg-3 col-md-3 col-sm-12 col-xs-12 dep-border">
                     <% unless @cadre_info.ville.nil? %>
                     <div class="depl-ttl">Ville</div>
                     <div class="depl-ct"><%= @cadre_info.ville.name %></div>
                     <% end %>
                   </div>
-                  <div class="depll col-lg-3 col-md-3">
+                  <div class="depll col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <% if @cadre_info.deplacement %>
                     <div class="depl-ttl">Fréquence de déplacement </div>
                     <div class="depl-ct"><%= @cadre_info.frequency %></div>
