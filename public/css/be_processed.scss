@@ -24,6 +24,7 @@
             text-align: -moz-center;
             text-align: center;
             border: none;
+            outline: none;
             padding: 10px 35px;
             border-radius: 0;
 
@@ -31,6 +32,63 @@
                 border-radius: none;
                 outline: 1px solid $main_theme_color;
                 box-shadow: 1px 1px 5px 1px $main_theme_color;
+            }
+        }
+
+        #none-element {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #search {
+            margin: 20px 0;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+
+            .date-flex {
+                flex-direction: column;
+
+                .date-flex-item {
+                    margin: 10px;
+                    justify-content: flex-end;
+                    padding-right: 50px;
+
+                    input {
+                        text-align: center;
+                        border: none;
+                        outline: none;
+                        padding: 8px 15px;
+                        border-radius: 0;
+                        background: $secondary_element_color;
+
+                        &:focus {
+                            border-radius: none;
+                            outline: 1px solid $main_theme_color;
+                            box-shadow: 1px 1px 5px 1px $main_theme_color;
+                        }
+                    }
+
+                    .inside-div {
+                        margin: 10px 0;
+                    }
+                }
+            }
+
+            #delete_filter {
+                cursor: pointer;
+                font: $ffbtn;
+                color: $main_theme_color;
+                padding: 12px 35px;
+                outline: 2px solid $main_theme_color;
+                outline-offset: -2px;
+                text-transform: uppercase;
+
+                &:hover,
+                &:active {
+                    background: $main_theme_color;
+                    color: white;
+                }
             }
         }
     }
@@ -63,15 +121,14 @@
         }
     }
 
+
+
     // custom select  end
     .flex {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
 
-        #none-element {
-            text-align: center;
-        }
 
         .bp-box {
             width: 230px;

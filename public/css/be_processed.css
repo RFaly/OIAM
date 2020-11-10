@@ -40,6 +40,7 @@
   text-align: -moz-center;
   text-align: center;
   border: none;
+  outline: none;
   padding: 10px 35px;
   border-radius: 0;
 }
@@ -48,6 +49,62 @@
   border-radius: none;
   outline: 1px solid #d6b36a;
   box-shadow: 1px 1px 5px 1px #d6b36a;
+}
+
+.admin-bp-box .dp-input #none-element {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.admin-bp-box .dp-input #search {
+  margin: 20px 0;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.admin-bp-box .dp-input #search .date-flex {
+  flex-direction: column;
+}
+
+.admin-bp-box .dp-input #search .date-flex .date-flex-item {
+  margin: 10px;
+  justify-content: flex-end;
+  padding-right: 50px;
+}
+
+.admin-bp-box .dp-input #search .date-flex .date-flex-item input {
+  text-align: center;
+  border: none;
+  outline: none;
+  padding: 8px 15px;
+  border-radius: 0;
+  background: #f0f2f4;
+}
+
+.admin-bp-box .dp-input #search .date-flex .date-flex-item input:focus {
+  border-radius: none;
+  outline: 1px solid #d6b36a;
+  box-shadow: 1px 1px 5px 1px #d6b36a;
+}
+
+.admin-bp-box .dp-input #search .date-flex .date-flex-item .inside-div {
+  margin: 10px 0;
+}
+
+.admin-bp-box .dp-input #search #delete_filter {
+  cursor: pointer;
+  font: 500 18px Raleway, sans-serif;
+  color: #d6b36a;
+  padding: 12px 35px;
+  outline: 2px solid #d6b36a;
+  outline-offset: -2px;
+  text-transform: uppercase;
+}
+
+.admin-bp-box .dp-input #search #delete_filter:hover, .admin-bp-box .dp-input #search #delete_filter:active {
+  background: #d6b36a;
+  color: white;
 }
 
 .admin-bp-box .co-select {
@@ -79,10 +136,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-.admin-bp-box .flex #none-element {
-  text-align: center;
 }
 
 .admin-bp-box .flex .bp-box {
