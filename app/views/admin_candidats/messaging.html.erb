@@ -7,12 +7,13 @@
 
   <div class="main">
     
-    <span style="display: none;" id="tsisy" class="d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">Vous n'avez aucun message pour le moment</span>
+    <span style="display: none;" id="tsisy">Vous n'avez aucun message pour le moment</span>
 
     <% unless @contactCadre.empty? %>
     <% @contactCadre.each do |contact| %> 
       <%  next if contact.message_admin_cadres.empty? %>
       <% nbr = contact.mp_admin_not_see %>
+
       <div class="js-isa <% if nbr == 0 %>box-msg<% else %>clr-bx<% end %>">
         <a href="<%= candidats_show_message_path(contact.cadre.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>">
         <div class="message">
