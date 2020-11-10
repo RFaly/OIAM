@@ -14,13 +14,12 @@
 .fit-box-right {
   background: #d6b36a;
   box-sizing: border-box;
-  padding: 27px;
+  padding: 30px;
 }
 
 img {
   width: 200px;
   height: 200px;
-  border: 2px solid #d6b36a;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -238,6 +237,14 @@ img {
     font-size: 14px;
     text-align: center;
   }
+  .gen-btn {
+    padding: 15px;
+    font-size: 12px;
+  }
+
+  .fit-box-right {
+    height: auto;
+  }
 }
 @media only screen and (max-width: 576px) {
   .cd-info {
@@ -256,8 +263,31 @@ img {
     font-size: 14px;
     text-align: center;
   }
+  .cd-info {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .cd-info-be p {
+    text-align: center;
+  }
 }
 @media only screen and (max-width: 992px) {
+  .cd-info {
+    text-align: center;
+  }
+  .cd-info-be p {
+    font-size: 14px;
+    text-align: center;
+  }
+  .cd-info {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .cd-info-be p {
+    text-align: center;
+  }
 }
 @media only screen and (max-width: 1200px) {
 }
