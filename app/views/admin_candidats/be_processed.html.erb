@@ -17,8 +17,10 @@
 					<option value=".PROMESSE-D-EMBAUCHE">PROMESSE D'EMBAUCHE</option>
 					<option value=".PRIME">PRIME</option>
 				</select>
-				
-				<center style="display: none;">
+
+				<br>
+
+				<center>
 					<table>
 						<tr>
 							<td>Date d'entrée : &nbsp;&nbsp;&nbsp;</td>
@@ -315,15 +317,19 @@
 		if(enter_date_min != ""){
 			enter_date_min = new Date(enter_date_min)
 		}
+
 		if(enter_date_max != ""){
 			enter_date_max = new Date(enter_date_max)
 		}
+
 		if(lim_date_min != ""){
 			lim_date_min = new Date(lim_date_min)
 		}
+
 		if(lim_date_max != ""){
 			lim_date_max = new Date(lim_date_max)
 		}
+
 		filter_select = $("#filtre").val()
 
 		filterItems(enter_date_min,enter_date_max,lim_date_min,lim_date_max,filter_select);
@@ -335,23 +341,23 @@
 
 			let thisiko = $(this)
 
-			let min = thisiko.data().min
-			let max = thisiko.data().max
+			let date_enter = thisiko.data().min
+			let date_lim = thisiko.data().max
 
-			if (min.length > 3) {
-				tmp_min = min.split("/")
-				min = new Date(tmp_min[2], tmp_min[1], tmp_min[0]) 
+			if (date_enter.length > 3) {
+				tmp_min = date_enter.split("/")
+				date_enter = new Date(tmp_min[2], (tmp_min[1]-1), tmp_min[0]) 
 			}
 
-			if (max.length > 3) {
-				tmp_max = max.split("/")
-				max = new Date(tmp_max[2], tmp_max[1], tmp_max[0]) 
+			if (date_lim.length > 3) {
+				tmp_max = date_lim.split("/")
+				date_lim = new Date(tmp_max[2], (tmp_max[1]-1), tmp_max[0]) 
 			}
 
 			if(enter_date_min == ""){
 
 			}else{
-				if (min < enter_date_min){
+				if (date_enter < enter_date_min){
 					thisiko.hide();
 					return;
 				}else{
@@ -362,7 +368,7 @@
 			if(enter_date_max == ""){
 
 			}else{
-				if (min > enter_date_max){
+				if (date_enter > enter_date_max){
 					thisiko.hide();
 					return;
 				}else{
@@ -373,7 +379,7 @@
 			if(lim_date_min == ""){
 
 			}else{
-				if (max < lim_date_min){
+				if (date_lim < lim_date_min){
 					thisiko.hide();
 					return;
 				}else{
@@ -384,7 +390,7 @@
 			if(lim_date_max == ""){
 
 			}else{
-				if (max > lim_date_max){
+				if (date_lim > lim_date_max){
 					thisiko.hide();
 					return;
 				}else{
