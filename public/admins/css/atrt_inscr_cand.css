@@ -30,3 +30,30 @@ img {
   -moz-box-shadow: 1px 1px 4px 0px rgba(50, 50, 50, 0.75);
   box-shadow: 1px 1px 4px 0px rgba(50, 50, 50, 0.75);
 }
+
+@media only screen and (max-width: 540px) {
+  .box-rgt p {
+    text-align: center;
+    margin-left: 0px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .box-rgt p {
+    text-align: center;
+    margin-left: 0px;
+  }
+
+}
+@media only screen and (max-width: 768px) {
+  .box-rgt p {
+    text-align: center;
+    margin-left: 0px;
+  }
+
+}
+@media only screen and (max-width: 992px) {
+
+}
+@media only screen and (max-width: 1200px) {
+
+}
