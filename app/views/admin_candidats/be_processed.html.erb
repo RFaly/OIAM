@@ -203,12 +203,12 @@
 				<% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
 
 					<% pThWa = cadreInfoValidateTimeTrying[0] %>
-					<% pThWa = pThWa.time_trying %>
-					<%if pThWa.include?('-') %>
-						<% ptime = pThWa.split('-')%>
+					<% time_trying = pThWa.time_trying %>
+					<%if time_trying.include?('-') %>
+						<% ptime = time_trying.split('-')%>
 						<% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
 					<%else %>
-						<% @pThWa1 =  pThWa %>
+						<% @pThWa1 =  time_trying %>
 					<%end %>
 
 					<div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me" data-min="<%= pThWa.offre_job.date_poste %>" data-max="<%= @pThWa1 %>">
