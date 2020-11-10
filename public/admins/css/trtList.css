@@ -37,3 +37,61 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.image img {
+  width: 75px;
+  height: 75px;
+  background-position: center;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 540px) {
+  .image {
+    text-align: center;
+  }
+  .hist-msg {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+  }
+  .hist-link {
+    display: flex;
+    justify-content: center;
+  }
+
+}
+@media only screen and (max-width: 576px) {
+  .image {
+    text-align: center;
+  }
+  .hist-msg {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+  }
+  .hist-link {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .image {
+    text-align: center;
+  }
+  .hist-msg {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+  }
+  .hist-link {
+    display: flex;
+    justify-content: center;
+  }
+
+}
+@media only screen and (max-width: 992px) {
+
+}
+@media only screen and (max-width: 1200px) {
+
+}
