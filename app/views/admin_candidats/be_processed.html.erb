@@ -245,13 +245,14 @@
 
 				<% unless @cadreInfoPrimNotReceiveds.empty? %>
 				<% @cadreInfoPrimNotReceiveds.each do |cadreInfoPrimNotReceived| %>
+					
 					<% pThWa = cadreInfoPrimNotReceived[0] %>
-					<% pThWa = pThWa.time_trying%>
-					<%if pThWa.include?('-') %>
-						<% ptime = pThWa.split('-')%>
+					<% time_trying = pThWa.time_trying%>
+					<%if time_trying.include?('-') %>
+						<% ptime = time_trying.split('-')%>
 						<% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
 					<%else %>
-						<% @pThWa1 =  pThWa%>
+						<% @pThWa1 =  time_trying %>
 					<%end %>
 
 					<div data-name=".PRIME" class="bp-box list-items-me" data-min="<%= pThWa.offre_job.date_poste %>" data-max="<%= @pThWa1 %>">
@@ -291,7 +292,6 @@
 	if ($('.list-items-me').length == 0){
 		$("#none-element").show();
 	}
-
 
 	$(".currentDatentretien").ready(function () {
 		let $elementDate = $('.currentDatentretien');
@@ -337,7 +337,10 @@
 
 	function filterItems(enter_date_min="",enter_date_max="",lim_date_min="",lim_date_max="",filter_select=".TOUS"){
 
-		$(".list-items-me").each(function(){
+		let numberHide = 0
+		let $listElement = $(".list-items-me")
+
+		$listElement.each(function(){
 
 			let thisiko = $(this)
 
@@ -358,7 +361,8 @@
 
 			}else{
 				if (date_enter < enter_date_min){
-					thisiko.hide();
+					thisiko.hide(500);
+					numberHide++;
 					return;
 				}else{
 					thisiko.show(500);
@@ -369,7 +373,8 @@
 
 			}else{
 				if (date_enter > enter_date_max){
-					thisiko.hide();
+					thisiko.hide(500);
+					numberHide++;
 					return;
 				}else{
 					thisiko.show(500);
@@ -380,7 +385,8 @@
 
 			}else{
 				if (date_lim < lim_date_min){
-					thisiko.hide();
+					thisiko.hide(500);
+					numberHide++;
 					return;
 				}else{
 					thisiko.show(500);
@@ -391,7 +397,8 @@
 
 			}else{
 				if (date_lim > lim_date_max){
-					thisiko.hide();
+					thisiko.hide(500);
+					numberHide++;
 					return;
 				}else{
 					thisiko.show(500);
@@ -404,16 +411,22 @@
 				if (filter_select == thisiko.data().name) {
 					thisiko.show(500);
 				} else {
-					thisiko.hide();
+					thisiko.hide(500);
+					numberHide++;
 					return;
 				}
 			}
 		});
 
-		if ($('.list-items-me :visible').length == 0){
+		if ($('.list-items-me').length == numberHide){
 			$("#none-element").show(500);
 		}else{
 			$("#none-element").hide(500);
 		}
+
 	}
 </script>
+
+<!-- 
+show()
+hide() -->
