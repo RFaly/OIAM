@@ -32,7 +32,9 @@
         <% oFc = listAgendaClientsSend[0] %>
         <% ac = listAgendaClientsSend[1] %>
 
-        <div data-name=".PLANIFICATION_ENTRETIEN" class="bp-box list-items-me">
+        <% enter_date = ac.entretien_date.strftime("%d/%m/%Y") %>
+        
+        <div data-name=".PLANIFICATION_ENTRETIEN" class="bp-box list-items-me" data-min="<%= enter_date %>" data-max="~">
           <div class="bp-inside-box">
             <div class="bp-inscr">PLANIFICATION ENTRETIEN</div>
             <div class="bp-name">
@@ -69,19 +71,21 @@
         <% unless @cadreInfoNotPromiseToHires.empty? %>
         <% @cadreInfoNotPromiseToHires.each do |cadreInfoNotPromiseToHire| %>
         <% cINPT = cadreInfoNotPromiseToHire.cadre_info %>
-        <div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me">
+        
+        <% enter_date = cINPT.promise_not_reponded[1] %>
+        <% lim_date = cINPT.promise_not_reponded[0] %>
+
+        <div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me" data-min="<%= enter_date %>" data-max="<%= lim_date %>">
           <div class="bp-inside-box">
             <div class="bp-inscr">PROMESSE D'EMBAUCHE</div>
             <div class="bp-name">
               <%= cINPT.first_name %> <%= cINPT.last_name %>
             </div>
             <div class="bp-date">
-              Date d'entrée :
-              <%= cINPT.promise_not_reponded[1] %>
+              Date d'entrée : <%= enter_date %>
             </div>
             <div class="bp-date">
-              Date limite :
-              <%= cINPT.promise_not_reponded[0] %>
+              Date limite : <%= lim_date %>
             </div>
           </div>
           <div class="bp-btn">
@@ -98,8 +102,19 @@
 
         <% unless @cadreInfoValidateTimeTryings.empty? %>
         <% @cadreInfoValidateTimeTryings.each do |cadreInfoValidateTimeTrying| %>
-        <% pThWa = cadreInfoValidateTimeTrying[0] %>
-        <div data-name=".VALIDATION_PERIODE_D_ESSAI" class="bp-box list-items-me">
+        
+          <% pThWa = cadreInfoValidateTimeTrying[0] %>
+          <% time_trying = pThWa.time_trying%>
+          <%if time_trying.include?('-') %>
+            <% ptime = time_trying.split('-')%>
+            <% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
+          <%else %>
+            <% @pThWa1 =  time_trying %>
+          <%end %>
+
+          <% enter_date = pThWa.offre_job.date_poste %>
+
+        <div data-name=".VALIDATION_PERIODE_D_ESSAI" data-min="<%= enter_date %>" data-max="<%= @pThWa1 %>" class="bp-box list-items-me">
           <div class="bp-inside-box">
             <div class="bp-inscr">VALIDATION PERIODE D'ESSAI</div>
             <div class="bp-name">
@@ -107,22 +122,11 @@
             </div>
             <div class="bp-date">
               Date d'entrée :
-              <%= pThWa.offre_job.date_poste %>
+              <%= enter_date %>
             </div>
             <div class="bp-date">
-
-              <% time_trying = pThWa.time_trying%>
-              
-              <%if time_trying.include?('-') %>
-                <% ptime = time_trying.split('-')%>
-                <% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
-              <%else %>
-                <% @pThWa1 =  time_trying%>
-              <%end %>
-
               Date limite :
               <%= @pThWa1 %>
-
             </div>
           </div>
           <div class="bp-btn">
