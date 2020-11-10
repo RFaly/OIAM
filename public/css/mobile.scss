@@ -449,24 +449,27 @@
         right: 7px;
       }
     }
-  }
 
-  .btn-menu-r {
-    right: 20px;
-  }
+    .btn-menu-r {
+      right: 20px;
+    }
 
-  .left-menu-content {
-    margin-top: 10px;
-    padding: 50px 10px;
+    .left-menu-content {
+      padding: 25px 10px;
+      height: 90%;
+      margin-top: 0;
 
-    li {
-      margin: 10px;
+      li {
+        margin: 0 10px;
+      }
+    }
+
+    .left-menu-photo.open {
+      opacity: 0;
     }
   }
 
-  .left-menu-photo.open {
-    opacity: 0;
-  }
+
 
   // client profil
   .cp-table-box {
@@ -1138,6 +1141,21 @@
   }
 }
 
+@media screen and (min-width: 480px) {
+  .left-menu-r {
+
+    .left-menu-content {
+      height: 48%;
+      margin-top: 35px;
+      padding: 21px 10px;
+
+      li {
+        margin: 0;
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 768px) {
 
   // accueil recruteur
@@ -1337,25 +1355,27 @@
       top: 0;
       width: 100px;
     }
-  }
 
-  .left-menu-content {
-    margin-top: 0;
-    padding: 25px 10px;
+    .left-menu-content {
+      padding: 25px 10px;
+      margin-top: 0;
 
-    li {
-      margin: 20px 0;
+      li {
+        margin: 20px 0;
+      }
+    }
+
+    .btn-menu-r {
+      top: 0;
+      right: 6px;
+    }
+
+    .left-menu-photo.open {
+      opacity: 1;
     }
   }
 
-  .btn-menu-r {
-    top: 0;
-    right: 6px;
-  }
 
-  .left-menu-photo.open {
-    opacity: 1;
-  }
 
   // client profil
   // client profil
