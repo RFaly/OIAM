@@ -644,7 +644,7 @@ class CandidatesController < ApplicationController
     begin
       file_cin.store!(cin)
     rescue StandardError => e
-      errorMessage += " [ CIN ou Passeport: #{e.message} ] "
+      errorMessage += " [ CNI ou Passeport: #{e.message} ] "
     end
     file_sc = AllUploader.new
     begin
