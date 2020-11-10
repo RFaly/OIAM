@@ -6,7 +6,7 @@ $(document).ready(function () {
       $('#search').fadeIn(800)
       test_it = false
     } else {
-      $('#search').fadeOut(200)
+      $('#search').fadeOut(500)
       test_it = true
     }
   })
@@ -16,7 +16,8 @@ $(document).ready(function () {
     $("#enter_date_max").val("")
     $("#lim_date_min").val("")
     $("#lim_date_max").val("")
-
+    $('#search').fadeOut(500)
+    test_it = true
     if ($('.list-items-me').length == 0) {
       $("#none-element").fadeIn(800);
     } else {
