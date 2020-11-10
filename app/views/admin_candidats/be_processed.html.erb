@@ -35,7 +35,7 @@
 							<td><input type="date" name="lim_date_max" class="input-date-js" id="lim_date_max"></td>
 						</tr>
 					</table>
-					<span class="btn btn-primary" id="return">Supprimer filtre</span>
+					<span class="btn btn-primary" id="delete_filter">Supprimer filtre</span>
 				</center>
 
 				<p id="none-element" style="display:none;">Aucune tâche à traiter.</p>
@@ -288,6 +288,14 @@
 
 <script type="text/javascript">
 
+	$("#delete_filter").click(function(){
+		if ($('.list-items-me').length == 0){
+			$("#none-element").show(500);
+		}else{
+			$('.list-items-me').show(500);
+			$("#none-element").hide(500);
+		}
+	});
 
 	if ($('.list-items-me').length == 0){
 		$("#none-element").show();
@@ -341,22 +349,17 @@
 		let $listElement = $(".list-items-me")
 
 		$listElement.each(function(){
-
 			let thisiko = $(this)
-
 			let date_enter = thisiko.data().min
 			let date_lim = thisiko.data().max
-
 			if (date_enter.length > 3) {
 				tmp_min = date_enter.split("/")
 				date_enter = new Date(tmp_min[2], (tmp_min[1]-1), tmp_min[0]) 
 			}
-
 			if (date_lim.length > 3) {
 				tmp_max = date_lim.split("/")
 				date_lim = new Date(tmp_max[2], (tmp_max[1]-1), tmp_max[0]) 
 			}
-
 			if(enter_date_min == ""){
 
 			}else{
@@ -417,13 +420,11 @@
 				}
 			}
 		});
-
-		if ($('.list-items-me').length == numberHide){
+		if ($listElement.length == numberHide){
 			$("#none-element").show(500);
 		}else{
 			$("#none-element").hide(500);
 		}
-
 	}
 </script>
 
