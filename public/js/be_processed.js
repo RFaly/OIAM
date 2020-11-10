@@ -83,11 +83,11 @@ function filterItems(enter_date_min = "", enter_date_max = "", lim_date_min = ""
     let date_lim = thisiko.data().max
     if (date_enter.length > 3) {
       tmp_min = date_enter.split("/")
-      date_enter = new Date(tmp_min[2], (tmp_min[1] - 1), tmp_min[0])
+      date_enter = new Date(tmp_min[2], (tmp_min[1] - 1), parseInt(tmp_min[0]) + 1)
     }
     if (date_lim.length > 3) {
       tmp_max = date_lim.split("/")
-      date_lim = new Date(tmp_max[2], (tmp_max[1] - 1), tmp_max[0])
+      date_lim = new Date(tmp_max[2], (tmp_max[1] - 1), parseInt(tmp_max[0]) + 1)
     }
     if (enter_date_min == "") {
 
