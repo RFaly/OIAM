@@ -19,29 +19,32 @@
           <option value=".PERIODE_D_ESSAI_ROMPUE">PERIODE D'ESSAI ROMPUE</option>
         </select>
 
-        <br>
-
-        <center>
-          <table>
-            <tr>
-              <td>Date d'entrée : &nbsp;&nbsp;&nbsp;</td>
-              <td><input type="date" name="enter_date_min" class="input-date-js" id="enter_date_min"></td>
-              <td>&nbsp;&nbsp;&nbsp;à&nbsp;&nbsp;&nbsp;</td>
-              <td><input type="date" name="enter_date_max" class="input-date-js" id="enter_date_max"></td>
-            </tr>
-            <tr>
-              <td>Date limite : &nbsp;&nbsp;&nbsp;</td>
-              <td><input type="date" name="lim_date_min" class="input-date-js" id="lim_date_min"></td>
-              <td>&nbsp;&nbsp;&nbsp;à&nbsp;&nbsp;&nbsp;</td>
-              <td><input type="date" name="lim_date_max" class="input-date-js" id="lim_date_max"></td>
-            </tr>
-          </table>
-          <span class="btn btn-primary" id="delete_filter">Supprimer filtre</span>
-        </center>
-
-        <p id="none-element" style="display:none;">
-          <br>
-        Aucune tâche à traiter.</p>
+        <div id="search" class="flex">
+          <div class="flex date-flex">
+            <div class="flex date-flex-item">
+              <div class="inside-div">
+                Date d'entrée : &nbsp;&nbsp;&nbsp;
+                <input type="date" name="enter_date_min" class="input-date-js" id="enter_date_min">
+              </div>
+              <div class="inside-div">
+                &nbsp;&nbsp;&nbsp;à&nbsp;&nbsp;&nbsp;
+                <input type="date" name="enter_date_max" class="input-date-js" id="enter_date_max">
+              </div>
+            </div>
+            <div class="flex date-flex-item">
+              <div class="inside-div">
+                Date limite : &nbsp;&nbsp;&nbsp;
+                <input type="date" name="lim_date_min" class="input-date-js" id="lim_date_min">
+              </div>
+              <div class="inside-div">
+                &nbsp;&nbsp;&nbsp;à&nbsp;&nbsp;&nbsp;
+                <input type="date" name="lim_date_max" class="input-date-js" id="lim_date_max">
+              </div>
+            </div>
+          </div>
+          <span id="delete_filter">Supprimer filtre</span>
+        </div>
+        <div id="none-element" style="display:none;">Aucune tâche à traiter.</div>
 
       </div>
 
@@ -58,28 +61,29 @@
 
         <% unless @clients.empty? %>
         <% @clients.each do |client| %>
-          <% enter_date = client.created_at.strftime("%d/%m/%Y") %>
-          <% date_lim =  client.created_at.next_day(7).strftime("%d/%m/%Y") %>
-          <div data-name=".INSCRIPTION" data-min="<%= enter_date %>" data-max="<%= date_lim %>" class="bp-box list-items-me">
-            <div class="bp-inside-box">
-              <div class="bp-inscr">INSCRIPTION<br>
-                Etat: Compte non créé
-              </div>
-              <div class="bp-name pt-4">
-                <%= client.first_name %> <%= client.last_name %>
-              </div>
-              <div class="bp-date">
-                Date d'entrée :
-                <%= enter_date %>
-              </div>
-              <div class="bp-date">
-                Date limite : <%= date_lim %>
-              </div>
+        <% enter_date = client.created_at.strftime("%d/%m/%Y") %>
+        <% date_lim =  client.created_at.next_day(7).strftime("%d/%m/%Y") %>
+        <div data-name=".INSCRIPTION" data-min="<%= enter_date %>" data-max="<%= date_lim %>"
+          class="bp-box list-items-me">
+          <div class="bp-inside-box">
+            <div class="bp-inscr">INSCRIPTION<br>
+              Etat: Compte non créé
             </div>
-            <div class="bp-btn">
-              <a href="<%= clients_bp_show_client_path(client.id) %>">GERER</a>
+            <div class="bp-name pt-4">
+              <%= client.first_name %> <%= client.last_name %>
+            </div>
+            <div class="bp-date">
+              Date d'entrée :
+              <%= enter_date %>
+            </div>
+            <div class="bp-date">
+              Date limite : <%= date_lim %>
             </div>
           </div>
+          <div class="bp-btn">
+            <a href="<%= clients_bp_show_client_path(client.id) %>">GERER</a>
+          </div>
+        </div>
         <% end %>
         <% end %>
 
@@ -91,29 +95,30 @@
         <% unless @offreJobs.empty? %>
         <% @offreJobs.each do |offreJob| %>
 
-          <%= enter_date = offreJob.created_at.strftime("%d/%m/%Y") %>
-          <%= date_lim = offreJob.limite_date %>
+        <%= enter_date = offreJob.created_at.strftime("%d/%m/%Y") %>
+        <%= date_lim = offreJob.limite_date %>
 
-          <div data-name=".SELECTION_CANDIDATS" data-min="<%= enter_date %>" data-max="<%= date_lim %>" class="bp-box list-items-me">
-            <div class="bp-inside-box">
-              <div class="bp-inscr">SELECTION CANDIDATS<br>
-                Etat: Offre publiée/Candidat non sélectionné
-              </div>
-              <div class="bp-name pt-4">
-                <%= offreJob.client.first_name %> <%= offreJob.client.last_name %>
-              </div>
-              <div class="bp-datept-4">
-                Date d'entrée :
-                <%= enter_date %>
-              </div>
-              <div class="bp-date">
-                Date limite : <%= date_lim %>
-              </div>
+        <div data-name=".SELECTION_CANDIDATS" data-min="<%= enter_date %>" data-max="<%= date_lim %>"
+          class="bp-box list-items-me">
+          <div class="bp-inside-box">
+            <div class="bp-inscr">SELECTION CANDIDATS<br>
+              Etat: Offre publiée/Candidat non sélectionné
             </div>
-            <div class="bp-btn">
-              <a href="<%= clients_bp_offre_job_no_cadre_path(offreJob.id) %>">GERER</a>
+            <div class="bp-name pt-4">
+              <%= offreJob.client.first_name %> <%= offreJob.client.last_name %>
+            </div>
+            <div class="bp-datept-4">
+              Date d'entrée :
+              <%= enter_date %>
+            </div>
+            <div class="bp-date">
+              Date limite : <%= date_lim %>
             </div>
           </div>
+          <div class="bp-btn">
+            <a href="<%= clients_bp_offre_job_no_cadre_path(offreJob.id) %>">GERER</a>
+          </div>
+        </div>
 
         <% end %>
         <% end %>
@@ -131,7 +136,8 @@
 
         <% enter_date = ac.entretien_date.strftime("%d/%m/%Y") %>
 
-        <div data-name=".PLANIFICATION_ENTRETIEN" data-min="<%= enter_date %>" data-max="~" class="bp-box list-items-me">
+        <div data-name=".PLANIFICATION_ENTRETIEN" data-min="<%= enter_date %>" data-max="~"
+          class="bp-box list-items-me">
           <div class="bp-inside-box">
             <div class="bp-inscr">PLANIFICATION ENTRETIEN<br>
               Etat: Planification envoyée
@@ -192,7 +198,7 @@
         <% end %>
         <% end %>
 
-<!-- 
+        <!-- 
     # 8. Remplir et envoyer une promesse d’embauche
     # Liste des recruteurs en mode remplissage de la promesse d'embauche
 -->
@@ -206,7 +212,8 @@
         <% enter_date = oFc.offre_job.created_at.strftime("%d/%m/%Y") %>
         <% date_lim = oFc.offre_job.limite_date %>
 
-        <div data-name=".PROMESSE_D_EMBAUCHE" data-min="<%= enter_date %>" data-max="<%= date_lim %>" class="bp-box list-items-me">
+        <div data-name=".PROMESSE_D_EMBAUCHE" data-min="<%= enter_date %>" data-max="<%= date_lim %>"
+          class="bp-box list-items-me">
           <div class="bp-inside-box">
             <div class="bp-inscr">PROMESSE D'EMBAUCHE<br>
               Etat: En mode remplissage
@@ -235,19 +242,20 @@
         <% unless @factures.empty? %>
         <% @factures.each do |facture| %>
 
-          <% ptH = facture.promise_to_hire %>
-          <% offre_job = ptH.offre_job %>
-          <% pThWa = ptH.rupture_time_trying%>
-          <%if pThWa.include?('-') %>
-            <% ptime = pThWa.split('-')%>
-            <% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
-          <%else %>
-            <% @pThWa1 =  pThWa%>
-          <%end %>
+        <% ptH = facture.promise_to_hire %>
+        <% offre_job = ptH.offre_job %>
+        <% pThWa = ptH.rupture_time_trying%>
+        <%if pThWa.include?('-') %>
+        <% ptime = pThWa.split('-')%>
+        <% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
+        <%else %>
+        <% @pThWa1 =  pThWa%>
+        <%end %>
 
-          <% enter_date = offre_job.date_poste %>
+        <% enter_date = offre_job.date_poste %>
 
-        <div data-name=".PERIODE_D_ESSAI_ROMPUE" data-min="<%= enter_date %>" data-max="<%= @pThWa1 %>" class="bp-box list-items-me">
+        <div data-name=".PERIODE_D_ESSAI_ROMPUE" data-min="<%= enter_date %>" data-max="<%= @pThWa1 %>"
+          class="bp-box list-items-me">
           <div class="bp-inside-box">
             <div class="bp-inscr">PERIODE D'ESSAI ROMPUE<br>
               Etat: A rompre

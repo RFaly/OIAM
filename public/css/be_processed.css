@@ -77,7 +77,9 @@
   text-align: center;
   border: none;
   outline: none;
-  padding: 8px 15px;
+  padding: 5px 15px;
+  font: 500 18px Raleway, sans-serif;
+  font-size: 15px;
   border-radius: 0;
   background: #f0f2f4;
 }
