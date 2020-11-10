@@ -18,9 +18,9 @@
 					<option value=".PRIME">PRIME</option>
 				</select>
 
-				<br>
+				<!-- <br> -->
 
-				<center>
+				<center style="display: none;">
 					<table>
 						<tr>
 							<td>Date d'entrée : &nbsp;&nbsp;&nbsp;</td>
@@ -38,7 +38,9 @@
 					<span class="btn btn-primary" id="delete_filter">Supprimer filtre</span>
 				</center>
 
-				<p id="none-element" style="display:none;">Aucune tâche à traiter.</p>
+				<p id="none-element" style="display:none;">
+					<br>
+				Aucune tâche à traiter.</p>
 
 			</div>
 			<div class="flex">
@@ -289,16 +291,21 @@
 <script type="text/javascript">
 
 	$("#delete_filter").click(function(){
+		$("#filtre").val(".TOUS")
+		$("#enter_date_min").val("")
+		$("#enter_date_max").val("")
+		$("#lim_date_min").val("")
+		$("#lim_date_max").val("")
 		if ($('.list-items-me').length == 0){
-			$("#none-element").show(500);
+			$("#none-element").fadeIn(500);
 		}else{
-			$('.list-items-me').show(500);
-			$("#none-element").hide(500);
+			$('.list-items-me').fadeIn(500);
+			$("#none-element").fadeOut(500);
 		}
 	});
 
 	if ($('.list-items-me').length == 0){
-		$("#none-element").show();
+		$("#none-element").fadeIn();
 	}
 
 	$(".currentDatentretien").ready(function () {
@@ -345,7 +352,7 @@
 
 	function filterItems(enter_date_min="",enter_date_max="",lim_date_min="",lim_date_max="",filter_select=".TOUS"){
 
-		let numberHide = 0
+		let numberfadeOut = 0
 		let $listElement = $(".list-items-me")
 
 		$listElement.each(function(){
@@ -364,11 +371,11 @@
 
 			}else{
 				if (date_enter < enter_date_min){
-					thisiko.hide(500);
-					numberHide++;
+					thisiko.fadeOut(500);
+					numberfadeOut++;
 					return;
 				}else{
-					thisiko.show(500);
+					thisiko.fadeIn(500);
 				}
 			}
 
@@ -376,11 +383,11 @@
 
 			}else{
 				if (date_enter > enter_date_max){
-					thisiko.hide(500);
-					numberHide++;
+					thisiko.fadeOut(500);
+					numberfadeOut++;
 					return;
 				}else{
-					thisiko.show(500);
+					thisiko.fadeIn(500);
 				}
 			}
 
@@ -388,11 +395,11 @@
 
 			}else{
 				if (date_lim < lim_date_min){
-					thisiko.hide(500);
-					numberHide++;
+					thisiko.fadeOut(500);
+					numberfadeOut++;
 					return;
 				}else{
-					thisiko.show(500);
+					thisiko.fadeIn(500);
 				}
 			}
 
@@ -400,34 +407,34 @@
 
 			}else{
 				if (date_lim > lim_date_max){
-					thisiko.hide(500);
-					numberHide++;
+					thisiko.fadeOut(500);
+					numberfadeOut++;
 					return;
 				}else{
-					thisiko.show(500);
+					thisiko.fadeIn(500);
 				}
 			}
 
 			if(filter_select == ".TOUS"){
-				thisiko.show(500);
+				thisiko.fadeIn(500);
 			}else{
 				if (filter_select == thisiko.data().name) {
-					thisiko.show(500);
+					thisiko.fadeIn(500);
 				} else {
-					thisiko.hide(500);
-					numberHide++;
+					thisiko.fadeOut(500);
+					numberfadeOut++;
 					return;
 				}
 			}
 		});
-		if ($listElement.length == numberHide){
-			$("#none-element").show(500);
+		if ($listElement.length == numberfadeOut){
+			$("#none-element").fadeIn(500);
 		}else{
-			$("#none-element").hide(500);
+			$("#none-element").fadeOut(500);
 		}
 	}
 </script>
 
 <!-- 
-show()
-hide() -->
+fadeIn()
+fadeOut() -->
