@@ -1,54 +1,59 @@
 <link rel="stylesheet" type="text/css" href="/admins/css/message.css" />
 <div class="all-content">
-  <div class="left-content"><%= render partial: "admin_clients/left_menu" %></div>
-  <div class="main">
-    <h2 class="main-title">MESSAGERIE</h2>
-    <% unless @contactClient.empty? %>
-    <% @contactClient.each do |contact| %>
-    <span style="display: none;" id="tsisy">Vous n'avez aucun message pour le moment</span>
-    <%  next if contact.message_admin_clients.empty? %>
 
-    <% nbr = contact.mp_admin_not_see %>
-    <div class="js-isa <% if nbr == 0 %>box-msg<% else %>clr-bx<% end %>">
-    <a href="<%= clients_show_message_path(contact.client.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>">
-    <div class="message">
-      <div class="block-image">
-        <% if contact.client.image.nil? %>
-          <img src="/image/profie.png" class="pdp" alt='photo de profil'>
-        <% else %>
-          <%= image_tag(contact.client.image, alt: 'photo de profil', class:"pdp" )%>
-        <% end %>
-        <% if contact.client.is_online? %>
-          <span class="connected"></span>
-        <% end %>
-        </div>
-      <div class="message-content">
-        <div class="recruteur-name">
-          Entreprise : <%= contact.client.first_name %> <%= contact.client.last_name %>
-        </div>
-        <div class="message-body">
-          <% unless nbr == 0 %>
-            <span class="alert-info"><%= nbr %></span>
+  <div class="left-content">
+    <%= render partial: "admin_clients/left_menu" %>
+  </div>
+
+  <div class="main">
+
+    <h2 class="main-title">MESSAGERIE</h2>
+    
+    <span style="display: none;" id="tsisy">Vous n'avez aucun message pour le moment</span>
+
+    <% unless @contactClient.empty? %>
+      <% @contactClient.each do |contact| %>
+      <%  next if contact.message_admin_clients.empty? %>
+      <% nbr = contact.mp_admin_not_see %>
+      <div class="js-isa <% if nbr == 0 %>box-msg<% else %>clr-bx<% end %>">
+      <a href="<%= clients_show_message_path(contact.client.id) %>" class="btn-voir <% if nbr == 0 %>color<% end %>">
+      <div class="message">
+        <div class="block-image">
+          <% if contact.client.image.nil? %>
+            <img src="/image/profie.png" class="pdp" alt='photo de profil'>
+          <% else %>
+            <%= image_tag(contact.client.image, alt: 'photo de profil', class:"pdp" )%>
           <% end %>
-          <% if contact.message_admin_clients.last.is_admin %>vous : <%end%> <%= contact.message_admin_clients.last.content %>
+          <% if contact.client.is_online? %>
+            <span class="connected"></span>
+          <% end %>
+          </div>
+        <div class="message-content">
+          <div class="recruteur-name">
+            Entreprise : <%= contact.client.first_name %> <%= contact.client.last_name %>
+          </div>
+          <div class="message-body">
+            <% unless nbr == 0 %>
+              <span class="alert-info"><%= nbr %></span>
+            <% end %>
+            <% if contact.message_admin_clients.last.is_admin %>vous : <%end%> <%= contact.message_admin_clients.last.content %>
+          </div>
         </div>
+        <div class="connected-times">
+            <% unless contact.client.is_online? %>
+              <span class="not-connected">Connecté(e) il y a <%= time_ago_in_words(contact.client.online_time) %></span>
+            <% end %>
+          </div>
       </div>
-      <div class="connected-times">
-          <% unless contact.client.is_online? %>
-            <span class="not-connected">Connecté(e) il y a <%= time_ago_in_words(contact.client.online_time) %></span>
-          <% end %>
-        </div>
-    </div>
-    </a>
-    </div>
-    <% end %>
-    <% else %>
-      <p class="d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">Vous n'avez aucun message pour le moment</p>
+      </a>
+      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
+
 <script type="text/javascript">
   if ($(".js-isa").length == 0){
-    $("#tsisy").show(500);
+    $("#tsisy").show();
   }
 </script>
