@@ -110,15 +110,19 @@
               <%= pThWa.offre_job.date_poste %>
             </div>
             <div class="bp-date">
-              <% pThWa = pThWa.time_trying%>
-              <%if pThWa.include?('-') %>
-              <% ptime = pThWa.split('-')%>
-              <% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
+
+              <% time_trying = pThWa.time_trying%>
+              
+              <%if time_trying.include?('-') %>
+                <% ptime = time_trying.split('-')%>
+                <% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
               <%else %>
-              <%@pThWa1 =  pThWa%>
+                <% @pThWa1 =  time_trying%>
               <%end %>
+
               Date limite :
               <%= @pThWa1 %>
+
             </div>
           </div>
           <div class="bp-btn">

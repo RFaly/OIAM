@@ -17,7 +17,9 @@
 					<option value=".PROMESSE-D-EMBAUCHE">PROMESSE D'EMBAUCHE</option>
 					<option value=".PRIME">PRIME</option>
 				</select>
-				
+
+				<!-- <br> -->
+
 				<center style="display: none;">
 					<table>
 						<tr>
@@ -33,10 +35,12 @@
 							<td><input type="date" name="lim_date_max" class="input-date-js" id="lim_date_max"></td>
 						</tr>
 					</table>
-					<span class="btn btn-primary" id="return">Supprimer filtre</span>
+					<span class="btn btn-primary" id="delete_filter">Supprimer filtre</span>
 				</center>
 
-				<p id="none-element" style="display:none;">Aucune tâche à traiter.</p>
+				<p id="none-element" style="display:none;">
+					<br>
+				Aucune tâche à traiter.</p>
 
 			</div>
 			<div class="flex">
@@ -243,13 +247,14 @@
 
 				<% unless @cadreInfoPrimNotReceiveds.empty? %>
 				<% @cadreInfoPrimNotReceiveds.each do |cadreInfoPrimNotReceived| %>
+					
 					<% pThWa = cadreInfoPrimNotReceived[0] %>
-					<% pThWa = pThWa.time_trying%>
-					<%if pThWa.include?('-') %>
-						<% ptime = pThWa.split('-')%>
+					<% time_trying = pThWa.time_trying%>
+					<%if time_trying.include?('-') %>
+						<% ptime = time_trying.split('-')%>
 						<% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
 					<%else %>
-						<% @pThWa1 =  pThWa%>
+						<% @pThWa1 =  time_trying %>
 					<%end %>
 
 					<div data-name=".PRIME" class="bp-box list-items-me" data-min="<%= pThWa.offre_job.date_poste %>" data-max="<%= @pThWa1 %>">
@@ -285,11 +290,23 @@
 
 <script type="text/javascript">
 
+	$("#delete_filter").click(function(){
+		$("#filtre").val(".TOUS")
+		$("#enter_date_min").val("")
+		$("#enter_date_max").val("")
+		$("#lim_date_min").val("")
+		$("#lim_date_max").val("")
+		if ($('.list-items-me').length == 0){
+			$("#none-element").fadeIn(500);
+		}else{
+			$('.list-items-me').fadeIn(500);
+			$("#none-element").fadeOut(500);
+		}
+	});
 
 	if ($('.list-items-me').length == 0){
-		$("#none-element").show();
+		$("#none-element").fadeIn();
 	}
-
 
 	$(".currentDatentretien").ready(function () {
 		let $elementDate = $('.currentDatentretien');
@@ -315,15 +332,19 @@
 		if(enter_date_min != ""){
 			enter_date_min = new Date(enter_date_min)
 		}
+
 		if(enter_date_max != ""){
 			enter_date_max = new Date(enter_date_max)
 		}
+
 		if(lim_date_min != ""){
 			lim_date_min = new Date(lim_date_min)
 		}
+
 		if(lim_date_max != ""){
 			lim_date_max = new Date(lim_date_max)
 		}
+
 		filter_select = $("#filtre").val()
 
 		filterItems(enter_date_min,enter_date_max,lim_date_min,lim_date_max,filter_select);
@@ -331,83 +352,89 @@
 
 	function filterItems(enter_date_min="",enter_date_max="",lim_date_min="",lim_date_max="",filter_select=".TOUS"){
 
-		$(".list-items-me").each(function(){
+		let numberfadeOut = 0
+		let $listElement = $(".list-items-me")
 
+		$listElement.each(function(){
 			let thisiko = $(this)
-
-			let min = thisiko.data().min
-			let max = thisiko.data().max
-
-			if (min.length > 3) {
-				tmp_min = min.split("/")
-				min = new Date(tmp_min[2], tmp_min[1], tmp_min[0]) 
+			let date_enter = thisiko.data().min
+			let date_lim = thisiko.data().max
+			if (date_enter.length > 3) {
+				tmp_min = date_enter.split("/")
+				date_enter = new Date(tmp_min[2], (tmp_min[1]-1), tmp_min[0]) 
 			}
-
-			if (max.length > 3) {
-				tmp_max = max.split("/")
-				max = new Date(tmp_max[2], tmp_max[1], tmp_max[0]) 
+			if (date_lim.length > 3) {
+				tmp_max = date_lim.split("/")
+				date_lim = new Date(tmp_max[2], (tmp_max[1]-1), tmp_max[0]) 
 			}
-
 			if(enter_date_min == ""){
 
 			}else{
-				if (min < enter_date_min){
-					thisiko.hide();
+				if (date_enter < enter_date_min){
+					thisiko.fadeOut(500);
+					numberfadeOut++;
 					return;
 				}else{
-					thisiko.show(500);
+					thisiko.fadeIn(500);
 				}
 			}
 
 			if(enter_date_max == ""){
 
 			}else{
-				if (min > enter_date_max){
-					thisiko.hide();
+				if (date_enter > enter_date_max){
+					thisiko.fadeOut(500);
+					numberfadeOut++;
 					return;
 				}else{
-					thisiko.show(500);
+					thisiko.fadeIn(500);
 				}
 			}
 
 			if(lim_date_min == ""){
 
 			}else{
-				if (max < lim_date_min){
-					thisiko.hide();
+				if (date_lim < lim_date_min){
+					thisiko.fadeOut(500);
+					numberfadeOut++;
 					return;
 				}else{
-					thisiko.show(500);
+					thisiko.fadeIn(500);
 				}
 			}
 
 			if(lim_date_max == ""){
 
 			}else{
-				if (max > lim_date_max){
-					thisiko.hide();
+				if (date_lim > lim_date_max){
+					thisiko.fadeOut(500);
+					numberfadeOut++;
 					return;
 				}else{
-					thisiko.show(500);
+					thisiko.fadeIn(500);
 				}
 			}
 
 			if(filter_select == ".TOUS"){
-				thisiko.show(500);
+				thisiko.fadeIn(500);
 			}else{
 				if (filter_select == thisiko.data().name) {
-					thisiko.show(500);
+					thisiko.fadeIn(500);
 				} else {
-					thisiko.hide();
+					thisiko.fadeOut(500);
+					numberfadeOut++;
 					return;
 				}
 			}
 		});
-
-		if ($('.list-items-me :visible').length == 0){
-			$("#none-element").show(500);
+		if ($listElement.length == numberfadeOut){
+			$("#none-element").fadeIn(500);
 		}else{
-			$("#none-element").hide(500);
+			$("#none-element").fadeOut(500);
 		}
 	}
 </script>
+
+<!-- 
+fadeIn()
+fadeOut() -->
