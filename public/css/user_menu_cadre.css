@@ -11,6 +11,10 @@
   background-color: #fff;
 }
 
+.left-menu-content li{
+  margin: 30px 0;
+}
+
 .left-menu-r .left-menu-content {
   list-style: none;
 }

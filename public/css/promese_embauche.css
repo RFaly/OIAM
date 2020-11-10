@@ -15,6 +15,13 @@
   /* border-left: 1px solid #d6b36a; */
 }
 
+#ui-datepicker-div{
+  background-color: #e3d7bf;
+  width: 100%;
+  max-width: 225px;
+  color: white;
+}
+
 .box-inside {
   width: 95%;
   margin: 0 auto;
@@ -442,7 +449,9 @@ body {
 
 .import {
   color: transparent;
-  height: 76px;
+  width: 100%;
+  max-width:225px;
+  height: 120px;
   cursor: pointer;
 }
 
