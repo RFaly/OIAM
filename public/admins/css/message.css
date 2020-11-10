@@ -175,7 +175,6 @@ body {
   height: 110px;
   border-radius: 50%;
   background-position: center;
-  object-fit: cover;
 }
 
 .alert-info {
