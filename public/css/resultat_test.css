@@ -87,6 +87,7 @@ body{
 	position: absolute;
 	top: 42px;
 	left: -20px;
+	word-break: keep-all;
 }
 
 

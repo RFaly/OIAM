@@ -157,7 +157,8 @@ p span{
 #js-show-in-validate-profil{
 	border: 1px solid #D6B36A;
 	padding: 20px;
-	width: 50%;
+	width: 100%;
+	max-width: 500px;
 }
 
 .check{
@@ -231,5 +232,6 @@ p span{
 
 	.btn-edit{
 		width: 100%;
+		max-width: 250px;
 	}
 }
