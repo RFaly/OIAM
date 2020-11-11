@@ -261,7 +261,7 @@ body{
 		display: flex;
 		flex-wrap: wrap;
 		grid-column-gap: 3%;
-		width: 100%;
+		width: 95%;
 	}
 
 	.main-title{
