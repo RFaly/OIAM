@@ -98,7 +98,7 @@ class CandidatesController < ApplicationController
         message: "ADMISSION",
         link: "<a href='#{cbp_promise_no_validate_path(@cadre.id)}'>VOIR</a>",#VOIR LE CANDIDAT
         is_client:false,
-        cadre_info: @cadre.cadre_info,
+        cadre_info: @cadre,
         genre: 1
       )
 

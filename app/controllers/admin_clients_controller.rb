@@ -95,7 +95,8 @@ class AdminClientsController < ApplicationAdminController
   end
 
   def processed
-    @processedHistories = ProcessedHistory.where(is_client:true).order(created_at: :DESC)
+    @clients = Client.order(first_name: :asc, last_name: :asc).joins(:processed_histories).uniq
+
 # 1. Inscription/Complétion du profil/Création compte/
 #   Compte créée (fait)
 
