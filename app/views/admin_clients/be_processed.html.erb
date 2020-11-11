@@ -1,4 +1,3 @@
-<!-- call css  -->
 <link rel="stylesheet" href="/css/be_processed.css" />
 <!-- call css  -->
 <!-- html body  -->
@@ -10,15 +9,48 @@
     <div class="admin-bp-box ">
       <!-- <h5 class="title">A traiter</h5> -->
       <div class="dp-input">
-        <select name="filtre" id="filtre" class="co-select">
-          <option value=".TOUS" selected="selected">TOUS</option>
-          <option value=".INSCRIPTION">INSCRIPTION</option>
-          <option value=".SELECTION_CANDIDATS">SELECTION CANDIDATS</option>
-          <option value=".PLANIFICATION_ENTRETIEN">PLANIFICATION ENTRETIEN</option>
-          <option value=".FEEDBACK_ENTRETIEN">FEEDBACK ENTRETIEN</option>
-          <option value=".PROMESSE_D_EMBAUCHE">PROMESSE D'EMBAUCHE</option>
-          <option value=".PERIODE_D_ESSAI_ROMPUE">PERIODE D'ESSAI ROMPUE</option>
-        </select>
+        <div class="flex" id="select-calendat">
+          <select name="filtre" id="filtre" class="co-select input-date-js">
+            <option value=".TOUS" selected="selected">TOUS</option>
+            <option value=".INSCRIPTION">INSCRIPTION</option>
+            <option value=".SELECTION_CANDIDATS">SELECTION CANDIDATS</option>
+            <option value=".PLANIFICATION_ENTRETIEN">PLANIFICATION ENTRETIEN</option>
+            <option value=".FEEDBACK_ENTRETIEN">FEEDBACK ENTRETIEN</option>
+            <option value=".PROMESSE_D_EMBAUCHE">PROMESSE D'EMBAUCHE</option>
+            <option value=".PERIODE_D_ESSAI_ROMPUE">PERIODE D'ESSAI ROMPUE</option>
+          </select>
+          <div class="calendar flex">
+            <img src="/image/calendar.png" alt="">
+          </div>
+        </div>
+
+        <div id="search" class="flex">
+          <div class="flex date-flex">
+            <div class="flex date-flex-item">
+              <div class="inside-div">
+                Date d'entrée : &nbsp;&nbsp;&nbsp;
+                <input type="date" name="enter_date_min" class="input-date-js" id="enter_date_min">
+              </div>
+              <div class="inside-div">
+                &nbsp;&nbsp;&nbsp;à&nbsp;&nbsp;&nbsp;
+                <input type="date" name="enter_date_max" class="input-date-js" id="enter_date_max">
+              </div>
+            </div>
+            <div class="flex date-flex-item">
+              <div class="inside-div">
+                Date limite : &nbsp;&nbsp;&nbsp;
+                <input type="date" name="lim_date_min" class="input-date-js" id="lim_date_min">
+              </div>
+              <div class="inside-div">
+                &nbsp;&nbsp;&nbsp;à&nbsp;&nbsp;&nbsp;
+                <input type="date" name="lim_date_max" class="input-date-js" id="lim_date_max">
+              </div>
+            </div>
+          </div>
+          <span id="delete_filter">Supprimer filtre</span>
+        </div>
+        <div id="none-element" style="display:none;">Aucune tâche à traiter.</div>
+
       </div>
 
       <!-- <p id="none-element" style="display: none;">Aucune tâche à traiter.</p> -->
@@ -27,8 +59,6 @@
       -->
       <div class="flex">
 
-        <p id="none-element" style="display: none;">Aucune tâche à traiter.</p>
-
         <!--
     # 1. Inscription/Complétion du profil/Création compte/{
     #   Compte non créée
@@ -36,7 +66,10 @@
 
         <% unless @clients.empty? %>
         <% @clients.each do |client| %>
-        <div data-name=".INSCRIPTION" class="bp-box list-items-me">
+        <% enter_date = client.created_at.strftime("%d/%m/%Y") %>
+        <% date_lim =  client.created_at.next_day(7).strftime("%d/%m/%Y") %>
+        <div data-name=".INSCRIPTION" data-min="<%= enter_date %>" data-max="<%= date_lim %>"
+          class="bp-box list-items-me">
           <div class="bp-inside-box">
             <div class="bp-inscr">INSCRIPTION<br>
               Etat: Compte non créé
@@ -46,10 +79,10 @@
             </div>
             <div class="bp-date">
               Date d'entrée :
-              <%= client.created_at.strftime("%d/%m/%Y") %>
+              <%= enter_date %>
             </div>
             <div class="bp-date">
-              Date limite : <%= client.created_at.next_day(7).strftime("%d/%m/%Y") %>
+              Date limite : <%= date_lim %>
             </div>
           </div>
           <div class="bp-btn">
@@ -66,7 +99,12 @@
 
         <% unless @offreJobs.empty? %>
         <% @offreJobs.each do |offreJob| %>
-        <div data-name=".SELECTION_CANDIDATS" class="bp-box list-items-me">
+
+        <% enter_date = offreJob.created_at.strftime("%d/%m/%Y") %>
+        <% date_lim = offreJob.limite_date %>
+
+        <div data-name=".SELECTION_CANDIDATS" data-min="<%= enter_date %>" data-max="<%= date_lim %>"
+          class="bp-box list-items-me">
           <div class="bp-inside-box">
             <div class="bp-inscr">SELECTION CANDIDATS<br>
               Etat: Offre publiée/Candidat non sélectionné
@@ -76,16 +114,17 @@
             </div>
             <div class="bp-datept-4">
               Date d'entrée :
-              <%= offreJob.created_at.strftime("%d/%m/%Y") %>
+              <%= enter_date %>
             </div>
             <div class="bp-date">
-              Date limite : <%= offreJob.limite_date %>
+              Date limite : <%= date_lim %>
             </div>
           </div>
           <div class="bp-btn">
             <a href="<%= clients_bp_offre_job_no_cadre_path(offreJob.id) %>">GERER</a>
           </div>
         </div>
+
         <% end %>
         <% end %>
 
@@ -100,7 +139,10 @@
         <% oFc = listAgendaClientsSend[0] %>
         <% ac = listAgendaClientsSend[1] %>
 
-        <div data-name=".PLANIFICATION_ENTRETIEN" class="bp-box list-items-me">
+        <% enter_date = ac.entretien_date.strftime("%d/%m/%Y") %>
+
+        <div data-name=".PLANIFICATION_ENTRETIEN" data-min="<%= enter_date %>" data-max="~"
+          class="bp-box list-items-me">
           <div class="bp-inside-box">
             <div class="bp-inscr">PLANIFICATION ENTRETIEN<br>
               Etat: Planification envoyée
@@ -136,7 +178,9 @@
         <% oFc = listAgendaClientsEntretien[0] %>
         <% ac = listAgendaClientsEntretien[1] %>
 
-        <div data-name=".FEEDBACK_ENTRETIEN" class="bp-box list-items-me">
+        <% enter_date = ac.entretien_date.strftime("%d/%m/%Y") %>
+
+        <div data-name=".FEEDBACK_ENTRETIEN" data-min="<%= enter_date %>" data-max="~" class="bp-box list-items-me">
           <div class="bp-inside-box">
             <div class="bp-inscr">FEEDBACK ENTRETIEN<br>
               Etat: En mode entretien
@@ -162,7 +206,7 @@
         <!-- 
     # 8. Remplir et envoyer une promesse d’embauche
     # Liste des recruteurs en mode remplissage de la promesse d'embauche
-     -->
+-->
 
         <% unless @completedPromiseToHires.empty? %>
         <% @completedPromiseToHires.each do |completedPromiseToHire| %>
@@ -170,7 +214,11 @@
         <% oFc = completedPromiseToHire[0] %>
         <% ac = completedPromiseToHire[1] %>
 
-        <div data-name=".PROMESSE_D_EMBAUCHE" class="bp-box list-items-me">
+        <% enter_date = oFc.offre_job.created_at.strftime("%d/%m/%Y") %>
+        <% date_lim = oFc.offre_job.limite_date %>
+
+        <div data-name=".PROMESSE_D_EMBAUCHE" data-min="<%= enter_date %>" data-max="<%= date_lim %>"
+          class="bp-box list-items-me">
           <div class="bp-inside-box">
             <div class="bp-inscr">PROMESSE D'EMBAUCHE<br>
               Etat: En mode remplissage
@@ -179,10 +227,10 @@
               <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
             </div>
             <div class="bp-date">
-              Date d'entrée : <%= oFc.offre_job.created_at.strftime("%d/%m/%Y") %>
+              Date d'entrée : <%= enter_date %>
             </div>
             <div class="bp-date">
-              Date limite : <%= oFc.offre_job.limite_date %>
+              Date limite : <%= date_lim %>
             </div>
           </div>
           <div class="bp-btn">
@@ -199,17 +247,20 @@
         <% unless @factures.empty? %>
         <% @factures.each do |facture| %>
 
-          <% ptH = facture.promise_to_hire %>
-          <% offre_job = ptH.offre_job %>
-          <% pThWa = ptH.rupture_time_trying%>
-          <%if pThWa.include?('-') %>
-            <% ptime = pThWa.split('-')%>
-            <% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
-          <%else %>
-            <%@pThWa1 =  pThWa%>
-          <%end %>
+        <% ptH = facture.promise_to_hire %>
+        <% offre_job = ptH.offre_job %>
+        <% pThWa = ptH.rupture_time_trying%>
+        <%if pThWa.include?('-') %>
+        <% ptime = pThWa.split('-')%>
+        <% @pThWa1 = "#{ptime[2]}/#{ptime[1]}/#{ptime[0]}"%>
+        <%else %>
+        <% @pThWa1 =  pThWa%>
+        <%end %>
 
-        <div data-name=".PERIODE_D_ESSAI_ROMPUE" class="bp-box list-items-me">
+        <% enter_date = offre_job.date_poste %>
+
+        <div data-name=".PERIODE_D_ESSAI_ROMPUE" data-min="<%= enter_date %>" data-max="<%= @pThWa1 %>"
+          class="bp-box list-items-me">
           <div class="bp-inside-box">
             <div class="bp-inscr">PERIODE D'ESSAI ROMPUE<br>
               Etat: A rompre
@@ -218,7 +269,7 @@
               <%= offre_job.client.first_name %> <%= offre_job.client.last_name %>
             </div>
             <div class="bp-date">
-              Date d'entrée : <%= offre_job.date_poste %>
+              Date d'entrée : <%= enter_date %>
             </div>
             <div class="bp-date">
               Date limite : <%= @pThWa1 %>
@@ -236,9 +287,6 @@
   </div>
 </div>
 
-
-
-
-
 <script data-turbolinks-track="reload" type="text/javascript" src="/js/moment-js.js"></script>
-<script type="text/javascript" src="/js/be_processed.js"></script>
+
+<script type="text/javascript" src="/js/be_processed.js">
