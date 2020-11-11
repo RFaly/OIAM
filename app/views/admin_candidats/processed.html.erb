@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="/css/admin_prms.css" />
-<link rel="stylesheet" href="/admins/css/trtList.css">
+<link rel="stylesheet" href="/css/admin-client_processed.css" />
+
 <div class="client-column">
   <div class="client-menu-left">
     <%= render partial: "admin_candidats/left_menu" %>
@@ -7,37 +7,44 @@
 
   <div class="cp-box">
     <%  unless @cadre_infos.empty? %>
-      <div class="container-fluid">
-        <% @cadre_infos.each do |cadre_info| %>
-          <% processedHistories = cadre_info.processed_histories.order(created_at: :DESC) %>
-          
-          <h2><%= cadre_info.first_name %> <%= cadre_info.last_name %></h2>
-
-          <% processedHistories.each do |processedHistorie| %>
-            <div class="container">
-              <hr />
-                <div class="row align-items-center">
-                  <div class="image col-lg-2 col-md-2 col-sm-12 col-xs-12 align-self-center">
-                    <img src="<%= processedHistorie.image %>" alt="icone work" />
-                  </div>
-                    <div class="hist-msg col-lg-3 col-md-3 col-sm-12 col-xs-12 align-self-center"><%= processedHistorie.message %></div>
-                    <div class="hist-link col-lg-7 col-md-7  col-sm-12 col-xs-12 align-self-center">
-                      <%= raw processedHistorie.link %>
-                    </div>
-                </div>
-              <hr />
-            </div>
-          <% end %>
-        <% end %>
+    <div class="admincp-box">
+      <% @cadre_infos.each do |cadre_info| %>
+      <% processedHistories = cadre_info.processed_histories.order(created_at: :DESC) %>
+      <div class="acp-name" data-items="<%= cadre_info.id%>">
+        <%= cadre_info.first_name %> <%= cadre_info.last_name %>
+        <img src="<%= cadre_info.image %>" alt="pdp">
       </div>
+      <div class="hide-box" id="<%= cadre_info.id%>">
+        <div id="<%= cadre_info.id%>i">
+          <% processedHistories.each do |processedHistorie| %>
+          <hr />
+          <div class="acp-flex">
+            <div class="acp-image">
+              <img src="<%= processedHistorie.image %>" alt="icone work" />
+            </div>
+            <div class="acp-content"><%= processedHistorie.message %>
+            </div>
+            <div class="acp-link">
+              <%= raw processedHistorie.link %>
+            </div>
+          </div>
+          <% end %>
+          <hr />
+        </div>
+      </div>
+      <% end %>
+    </div>
     <% else %>
-      <p style="font-family: Questrial, sans-serif;" class="d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">Aucune tâche traitee</p>
+    <p style="font-family: Questrial, sans-serif;"
+      class="d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">Aucune tâche traitee
+    </p>
     <% end %>
 
   </div>
 </div>
 
-    <!-- #1. Inscription
+<script src="/js/processed.js"></script>
+<!-- #1. Inscription
     #Inscription terminée
     Rakot belo a terminé l'inscription (fait)
 
@@ -75,4 +82,3 @@
     Rakot belo a reçu son prime. (fait)
 
     -->
-

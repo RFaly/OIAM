@@ -1,12 +1,14 @@
-*, *::before, *::after{
+*,
+*::before,
+*::after {
 	box-sizing: border-box;
 }
 
-html{
+html {
 	font-size: 18px;
 }
 
-body{
+body {
 	font-family: 'Questrial', sans-serif;
 	line-height: 28px;
 	margin: 0;
@@ -14,14 +16,14 @@ body{
 }
 
 
-.cadre{
+.cadre {
 	padding: 20px;
 	text-align: justify;
 	background-color: #E3D7BF;
 }
 
 
-.cadre-nom{
+.cadre-nom {
 	text-align: center;
 	font-style: normal;
 	font-weight: normal;
@@ -32,7 +34,7 @@ body{
 }
 
 
-.content{
+.content {
 	position: relative;
 	display: flex;
 	margin: 0 auto;
@@ -41,7 +43,7 @@ body{
 	margin-bottom: 100px;
 }
 
-.content::after{
+.content::after {
 	content: "";
 	position: absolute;
 	top: 15px;
@@ -53,69 +55,71 @@ body{
 	z-index: 1;
 }
 
-.numero{
+.numero {
 	display: inline-block;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  background-color: #f0f2f4;
-  color: #fff;
-  border-radius: 30px;
-  padding: 5px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+	text-align: center;
+	width: 36px;
+	height: 36px;
+	background-color: #f0f2f4;
+	color: #fff;
+	border-radius: 30px;
+	padding: 5px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
 	font-style: normal;
 	font-weight: bold;
 	z-index: 2;
 }
 
-.un{
+.un {
 	position: absolute;
 	top: 0;
 	left: 0;
 	background-color: #D6B36A;
 }
 
-.trois{
+.trois {
 	position: absolute;
 	top: 0;
 	right: 0;
 }
 
 
-.potential{
+.potential {
 	position: absolute;
 	top: 42px;
 	left: -20px;
+	word-break: keep-all;
 }
 
 
-.skills{
+.skills {
 	position: absolute;
 	top: 42px;
 	left: 160px;
 }
 
-.fit{
+.fit {
 	position: absolute;
 	top: 42px;
-	right:10px;
+	right: 10px;
 }
 
 
-.numero span{
-	font-family: 'Raleway',sans-serif;
+.numero span {
+	font-family: 'Raleway', sans-serif;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 18px;
 	color: #000;
+	word-break: normal;
 }
 
-p{
+p {
 	text-align: center;
 }
 
-span{
+span {
 	font-family: 'Roboto', sans-serif;
 	color: #D6B36A;
 	font-style: normal;
@@ -123,7 +127,7 @@ span{
 	font-size: 16px;
 }
 
-h1{
+h1 {
 	font-family: 'Roboto', sans-serif;
 	color: #D6B36A;
 	margin-top: 35px;
@@ -133,28 +137,28 @@ h1{
 	text-align: center;
 }
 
-.pass-test{
+.pass-test {
 	display: block;
-  margin: auto;
-  width: 200px;
-  text-align: center;
-  margin-top: 120px;
-  margin-bottom: 100px;
-  border: 1px solid #fff;
-  padding: 15px;
-  font-size: 16px;
-  color: #fff;
+	margin: auto;
+	width: 200px;
+	text-align: center;
+	margin-top: 120px;
+	margin-bottom: 100px;
+	border: 1px solid #fff;
+	padding: 15px;
+	font-size: 16px;
+	color: #fff;
 }
 
 
-.pass-test:hover{
+.pass-test:hover {
 	background: #fff;
 	text-decoration: none;
 	color: #e3d7bf;
 }
 
-@media only screen and (min-width: 900px){
-	.cadre{
+@media only screen and (min-width: 900px) {
+	.cadre {
 		display: block;
 		margin: auto;
 		width: 870px;
@@ -162,8 +166,8 @@ h1{
 	}
 }
 
-@media only screen and (min-width: 1024px){
-	.cadre{
+@media only screen and (min-width: 1024px) {
+	.cadre {
 		margin-top: -70px;
 		padding-top: 50px;
 		padding-left: 60px;

@@ -30,6 +30,40 @@
   margin-bottom: 50px;
 }
 
+.admincp-box .acp-name {
+  cursor: pointer;
+  color: #d6b36a;
+  font: 500 18px Raleway, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+  padding: 5px 20px;
+  outline: 2px solid #f0f2f4;
+  outline-style: -2px;
+  position: relative;
+  z-index: 500;
+}
+
+.admincp-box .acp-name:hover {
+  outline: 1.5px solid #d6b36a;
+  outline-style: -1.5px;
+  box-shadow: 0px 0px 3px 1px #d6b36a;
+}
+
+.admincp-box .acp-name img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 500ms e;
+}
+
+.admincp-box .hide-box {
+  height: 0;
+  overflow: hidden;
+}
+
 .admincp-box .acp-flex {
   display: flex;
   align-items: center;

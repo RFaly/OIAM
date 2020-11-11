@@ -589,6 +589,7 @@ body {
 .btn-valid {
   background-color: #d6b36a;
   width: auto;
+  max-width: 350px;
   height: auto;
   color: #fff;
   padding: 20px;
@@ -619,7 +620,8 @@ body {
     display: block;
     margin: 0 auto;
     background-color: #d6b36a;
-    width: auto;
+    width: 100%;
+    max-width: 350px;
     height: auto;
     color: #fff;
     padding: 20px;
@@ -778,7 +780,7 @@ body {
   .prom-hire {
     display: flex;
     justify-content: center;
-    grid-column-gap: 23%;
+    grid-column-gap: 20%;
     margin-top: 80px;
     margin-bottom: 100px;
   }
