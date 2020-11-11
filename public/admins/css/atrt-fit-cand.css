@@ -212,11 +212,41 @@
   .fit-cc {
     margin-top: 0px;
   }
+  .val-btn {
+    font-size: 16px;
+  }
+
 }
 @media only screen and (max-width: 576px) {
+  .form-in-all {
+    display: block;
+    text-align: center;
+  }
+  .form-in-all {
+    height: 200px;
+  }
+  .ever {
+    margin: 40px;
+  }
+  .form-rgt {
+    border-left: 0px;
+  }
 
 }
 @media only screen and (max-width: 768px) {
+  .form-in-all {
+    display: block;
+    text-align: center;
+  }
+  .form-in-all {
+    height: 200px;
+  }
+  .ever {
+    margin: 40px;
+  }
+  .form-rgt {
+    border-left: 0px;
+  }
 
 }
 @media only screen and (max-width: 992px) {
@@ -246,7 +276,34 @@
     text-align: center;
     justify-content: center;
   }
+  .mod-btn {
+    width: 75px;
+    font-size: 14px;
+    padding: 15px 90px;
+  }
+  .acc-btn {
+    padding: 20px 85px;
+  }
+
 }
 @media only screen and (max-width: 1200px) {
-
+  .mod-btn {
+    width: 75px;
+    font-size: 14px;
+    padding: 15px 90px;
+  }
+  .acc-btn {
+    padding: 20px 85px;
+  }
+  .form-rgt {
+    border-left: 0px;
+  }
+  .form-in-all {
+    display: block;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  .ever {
+    margin: 40px;
+  }
 }
