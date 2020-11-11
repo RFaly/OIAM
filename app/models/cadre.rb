@@ -1,6 +1,6 @@
 class Cadre < ApplicationRecord
   after_create :edit_online_time
-
+    
 	has_one :cadre_info
 
   has_many :facture_formations

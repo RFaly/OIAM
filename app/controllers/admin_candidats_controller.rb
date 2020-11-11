@@ -99,7 +99,7 @@ class AdminCandidatsController < ApplicationAdminController
   end
 
   def processed
-    @processedHistories = ProcessedHistory.where(is_client:false).order(created_at: :DESC)
+    @cadre_infos = CadreInfo.order(first_name: :asc, last_name: :asc).joins(:processed_histories).uniq
   end
 
   def messaging

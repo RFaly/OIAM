@@ -1,6 +1,8 @@
 class CadreInfo < ApplicationRecord
 	before_create :confirmation_token
 	has_one :agenda_admin
+	
+	has_many :processed_histories
 
 	belongs_to :cadre, optional: true
 	belongs_to :admin, optional: true

@@ -7,19 +7,23 @@
     <%= render partial: "admin_clients/left_menu" %>
   </div>
   <div class="cp-box">
-    <%  unless @processedHistories.empty? %>
+    <%  unless @clients.empty? %>
       <div class="admincp-box">
-        <!-- <h5 class="title">Traitées</h5> -->
-        <% @processedHistories.each do |processedHistorie| %>
-        <hr>
-        <div class="acp-flex">
-          <div class="acp-image"><img src='<%= processedHistorie.image %>' /></div>
-          <div class="acp-content"><%= processedHistorie.message %></div>
-          <div class="acp-link">
-            <%= raw processedHistorie.link %>
-          </div>
-        </div>
-        <hr>
+        <% @clients.each do |client| %>
+          <% processedHistories = client.processed_histories.order(created_at: :DESC) %>
+          <h2><%= client.first_name %> <%= client.last_name %></h2>
+
+          <% processedHistories.each do |processedHistorie| %>
+            <hr>
+            <div class="acp-flex">
+              <div class="acp-image"><img src='<%= processedHistorie.image %>' /></div>
+              <div class="acp-content"><%= processedHistorie.message %></div>
+              <div class="acp-link">
+                <%= raw processedHistorie.link %>
+              </div>
+            </div>
+            <hr>
+          <% end %>
         <% end %>
       </div>
     <% else %>
