@@ -24,6 +24,7 @@ class PromiseToHire < ApplicationRecord
         message: "PROMESSE D'EMBAUCHE",
         link: "<a href='#{url_helpers.cp_show_promise_path(self.id)}'>VOIR</a>",
         is_client:true,
+        client:self.offre_job.client,
         genre: 1
       )
 		end

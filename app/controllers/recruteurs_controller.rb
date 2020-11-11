@@ -41,6 +41,7 @@ class RecruteursController < ApplicationController
 				  message: "INSCRIPTION",
 				  link: "<a href= '#{clients_bp_show_client_path(@client.id)}'>VOIR</a>",
 				  is_client:true,
+				  client:@client,
 				  genre: 1
 				)
       end
@@ -318,6 +319,7 @@ class RecruteursController < ApplicationController
 					message: "SELECTION CANDIDATS",
 					link: "<a href='#{clients_bp_offre_job_no_cadre_path(@offre.id)}'>VOIR</a>",
 					is_client:true,
+					client: current_client,
 					genre: 1
 				)
 			end
@@ -518,13 +520,14 @@ class RecruteursController < ApplicationController
 				@oFc.update(refused_info:params[:notifier])
 
 				# 7. FEEDBACK ENTRETIEN
-			ProcessedHistory.create(
-			image: "/image/work.png",
-			message: "FEEDBACK ENTRETIEN",
-			link: "<a href= '#{clients_bp_effectue_entretien_path(@oFc.agenda_clients.id)}'>VOIR</a>",
-			is_client:true,
-			genre: 1
-			)
+				ProcessedHistory.create(
+					image: "/image/work.png",
+					message: "FEEDBACK ENTRETIEN",
+					link: "<a href= '#{clients_bp_effectue_entretien_path(@oFc.agenda_clients.id)}'>VOIR</a>",
+					is_client:true,
+					client:current_client,
+					genre: 1
+				)
 
 				redirect_to recruitment_show_cadre_path(@oFc.id)
 			end
@@ -829,6 +832,7 @@ class RecruteursController < ApplicationController
 		        message: "VALIDATION PERIODE D'ESSAI",
 		        link: "<a href='#{clients_bp_periode_rompre_path(@promise.id)}'>VOIR</a>",
 		        is_client:false,
+		        cadre_info:@promise.cadre.cadre_info,
 		        genre: 1
 		      )
 	      	somaiso = "VALIDATION PERIODE D'ESSAI"
@@ -839,6 +843,7 @@ class RecruteursController < ApplicationController
 	        message: somaiso,
 	        link: "<a href='#{clients_bp_periode_rompre_path(@promise.id)}'>VOIR</a>",
 	        is_client:true,
+	        client:current_client,
 	        genre: 1
 	      )
 
