@@ -1,6 +1,8 @@
 class Client < ApplicationRecord
   after_create :edit_online_time
 
+  has_many :processed_histories
+
 	has_one :entreprise
 	has_many :offre_jobs
 
