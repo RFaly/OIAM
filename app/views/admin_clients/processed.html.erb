@@ -1,33 +1,51 @@
-<link rel="stylesheet" href="/css/admin_prms.css" />
 <link rel="stylesheet" href="/css/admin-client_processed.css" />
 
-
 <div class="client-column">
-  <div class="client-menu-left">
-    <%= render partial: "admin_clients/left_menu" %>
-  </div>
+  <div class="client-menu-left"><%= render partial: "admin_clients/left_menu" %></div>
   <div class="cp-box">
-    <%  unless @clients.empty? %>
-      <div class="admincp-box">
-        <% @clients.each do |client| %>
-          <% processedHistories = client.processed_histories.order(created_at: :DESC) %>
-          <h2><%= client.first_name %> <%= client.last_name %></h2>
+    <% unless @clients.empty? %>
+    <div class="admincp-box">
+      <% @clients.each do |client| %> <% processedHistories = client.processed_histories.order(created_at: :DESC) %>
 
-          <% processedHistories.each do |processedHistorie| %>
-            <hr>
-            <div class="acp-flex">
-              <div class="acp-image"><img src='<%= processedHistorie.image %>' /></div>
-              <div class="acp-content"><%= processedHistorie.message %></div>
-              <div class="acp-link">
-                <%= raw processedHistorie.link %>
-              </div>
-            </div>
-            <hr>
-          <% end %>
-        <% end %>
+      <div class="acp-name" data-items="<%= client.id%>">
+        <%= client.first_name %> <%= client.last_name %>
+
+        <img src="<%= client.image %>" alt="pdp">
       </div>
-    <% else %>
-    <p style="font-family: Questrial, sans-serif;" class="d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">Aucune tâche traitee </p>
-    <% end %>
+      <div class="hide-box" id="<%= client.id%>">
+        <div id="<%= client.id%>i">
+          <% processedHistories.each do |processedHistorie| %>
+          <hr />
+          <div class="acp-flex">
+            <div class="acp-image"><img src="<%= processedHistorie.image %>" /></div>
+            <div class="acp-content"><%= processedHistorie.message %></div>
+            <div class="acp-link"><%= raw processedHistorie.link %></div>
+          </div>
+          <% end %>
+          <hr />
+        </div>
+      </div>
+      <% end %>
+      <% else %>
+      <p style="font-family: Questrial, sans-serif"
+        class="d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">Aucune tâche
+        traitee</p>
+      <% end %>
+    </div>
   </div>
+</div>
+<script>
+  $('.admincp-box').on('click', $('.acp-nam'), function (e) {
+    $height = $('#' + $(e.target).data().items).height()
+    $heighti = $('#' + $(e.target).data().items + 'i').height() + 20
+    if ($height != 0) {
+      $('.hide-box').height(0);
+    } else {
+      $('.hide-box').height(0);
+      $('#' + $(e.target).data().items)
+        .height(`${$heighti}`)
+        .delay(1000).css('transition', 'all 500ms ease');
+    }
+  });
+</script>
 </div>

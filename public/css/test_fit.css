@@ -145,6 +145,7 @@ h2 {
 	position: absolute;
 	top: 42px;
 	left: -20px;
+	word-break: keep-all;
 }
 
 
@@ -207,7 +208,7 @@ h2 {
 	padding-top: 15px;
 	width: 138px;
 	height: 55px;
-	margin-left: 38px;
+
 	margin-bottom: 50px;
 	cursor: pointer;
 }
@@ -218,6 +219,7 @@ h2 {
 	flex-wrap: wrap;
 	align-items: center;
 	width: 100%;
+	grid-column-gap: 2%;
 }
 
 h2 {
@@ -310,7 +312,7 @@ h2 {
 		margin-right: 0;
 	}
 }
-}
+
 
 
 @media only screen and (min-width: 900px) {
