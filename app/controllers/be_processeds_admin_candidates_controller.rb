@@ -38,6 +38,7 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
         message: "ENTRETIEN FIT",
         link: "<a href='#{cbp_validate_entretien_fit_path(@cadreInfo.id)}'>VOIR</a>",
         is_client:false,
+        cadre_info:@cadreInfo,
         genre: 1
       )
 
@@ -90,6 +91,7 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
         message: "INSCRIPTION",
         link: "<a href='#{cbp_inscription_path(@cadre_infos.id)}'>VOIR</a>",
         is_client:false,
+        cadre_info:@cadre_infos,
         genre: 1
       )
 
@@ -98,6 +100,7 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
         # message: "L'entretien fit avec #{@cadre_infos.first_name} #{@cadre_infos.last_name} est traité.",
         message: "ENTRETIEN FIT",
         link: "<a href='#{post_avis_candidats_fit_path(@cadre_infos.id)}'>VOIR</a>",
+        cadre_info:@cadre_infos,
         is_client:false,
         genre: 1
       )
@@ -144,6 +147,7 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
         # message: "#{@cadre_info.first_name} #{@cadre_info.last_name} a reçu son prime.",
         message: "PRIME",
         link: "<a href='#{cbp_prime_path(@promise.id)}'>VOIR</a>",
+        cadre_info: @cadre_info,
         is_client:false,
         genre: 1
       )

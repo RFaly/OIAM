@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_06_051658) do
+ActiveRecord::Schema.define(version: 2020_11_10_164346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -375,6 +375,11 @@ ActiveRecord::Schema.define(version: 2020_11_06_051658) do
     t.string "confirm_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "client_id"
+    t.bigint "cadre_info_id"
+    t.boolean "see", default: false
+    t.index ["cadre_info_id"], name: "index_processed_histories_on_cadre_info_id"
+    t.index ["client_id"], name: "index_processed_histories_on_client_id"
   end
 
   create_table "promise_to_hires", force: :cascade do |t|
