@@ -50,3 +50,25 @@
   color: #e3d7bf;
   border: 1px solid #e3d7bf;
 }
+
+@media only screen and (max-width: 540px) {
+  .navb {
+    padding: 15px 50px;
+  }
+  .log-btn a {
+    background: #fff;
+    color: #d6b36a;
+  }
+}
+@media only screen and (max-width: 576px) {
+
+}
+@media only screen and (max-width: 768px) {
+
+}
+@media only screen and (max-width: 992px) {
+
+}
+@media only screen and (max-width: 1200px) {
+
+}
