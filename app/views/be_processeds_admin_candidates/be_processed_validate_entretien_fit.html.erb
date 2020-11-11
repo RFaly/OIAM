@@ -13,7 +13,7 @@
   <div class="cp-box">
     <div class="container">
       <div class="row">
-        <div class="fit-box-left col-lg-3 col-md-3 col-xs-12 col-sm-12">
+        <div class="fit-box-left col-lg-3 col-md-12 col-xs-12 col-sm-12">
           <img src='/image/profie.png' />
           <div class="fit-desc">
             <p><strong>Nom : </strong><%= @cadre_info.last_name.capitalize %></p>
@@ -27,7 +27,7 @@
           </div>
         </div>
 
-        <div class="fit-box-right col-lg-9 col-md-9 col-xs-12 col-sm-12">
+        <div class="fit-box-right col-lg-9 col-md-12 col-xs-12 col-sm-12">
           <div class="all-rgt">
             <h2>RDV Entretien FIT à valider</h2>
             <p class="date-conf">
@@ -36,23 +36,25 @@
                 class="currentDatentretien"></span><br>
             </p>
             <% if @cadre_info.agenda_admin.accepted.nil? %>
-            <div class="form-in-all">
-              <div class="form-group">
-                <%= form_tag url_for(validate_post_entretien_fit_path),method:'post', id:'send-me-accepted' do %>
-                <input type="hidden" name="cadre_info_id" value="<%= @cadre_info.id %>">
-                <input type="hidden" name="choice" value="accepted">
-                <input type="submit" value="ACCEPTER" class="ever acc-btn" />
-                <% end %>
+            <div class="row">
+              <div class="form-in-all">
+                <div class="form-group">
+                  <%= form_tag url_for(validate_post_entretien_fit_path),method:'post', id:'send-me-accepted' do %>
+                  <input type="hidden" name="cadre_info_id" value="<%= @cadre_info.id %>">
+                  <input type="hidden" name="choice" value="accepted">
+                  <input type="submit" value="ACCEPTER" class="ever acc-btn" />
+                  <% end %>
+                </div>
+                <span class="ever mod-btn" id="show-form-edit">MODIFIER</span>
+                </div>
               </div>
-              <span class="ever mod-btn" id="show-form-edit">MODIFIER</span>
             </div>
-          </div>
           <%= form_tag url_for(validate_post_entretien_fit_path),method:'post', id:'send-me-accepted' do %>
           <input type="hidden" name="choice" value="refused">
           <input type="hidden" name="cadre_info_id" value="<%= @cadre_info.id %>">
           <div id="collapseExample-Edit" style="display: none;" class="in-date row">
 
-            <div class="form-lft col-lg-6 col-md-6 col-xs-12">
+            <div class="form-lft col-lg-6 col-md-12 col-sm-12 col-xs-12">
               <div class="form">
                 <label for="input-date">Date : </label>
                 <input class="form-control" type="date" id="input-date">
@@ -67,7 +69,7 @@
               </div>
             </div>
 
-            <div class="form-rgt col-lg-6 col-md-6 col-xs-12">
+            <div class="form-rgt col-lg-6 col-md-12 col-sm-12 col-xs-12">
               <div id="show-if-not-date">
                 <h4 class="prop-date">Proposer la date et l'heure de l'entretien fit</h4>
               </div>

@@ -122,3 +122,20 @@
 .left-menu-content a.active {
   color: #d6b36a !important;
 }
+
+@media only screen and (max-width: 540px) {
+  .left-menu-r .btn-menu-r {
+    top: 35px;
+  }
+}
+@media only screen and (max-width: 576px) {
+
+}
+@media only screen and (max-width: 768px) {
+
+}
+@media only screen and (max-width: 992px) {
+
+}
+@media only screen and (max-width: 1200px) {
+

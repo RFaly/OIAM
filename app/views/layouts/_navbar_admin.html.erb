@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="/css/navbar_admin.css" />
 <link rel="stylesheet" href="/admins/css/navbar_admin.css">
 <!-- body html  -->
+<div>
   <nav class="navb">
     <div class="navbar-logo">
       <% if admin_signed_in? %>
@@ -35,8 +36,9 @@
           <a href="<%= new_admin_session_path %>">Se connecter</a>
         <% end %>
       </div>
-  </div>
-</nav>
+    </div>
+  </nav>
+</div>
 <!-- //*********************************// -->
 <!-- javascript navbar  -->
 <script>
