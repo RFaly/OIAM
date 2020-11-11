@@ -1,5 +1,3 @@
-<%# <link rel="stylesheet" href="/css/admin_prms.css" />
-<link rel="stylesheet" href="/admins/css/trtList.css"> %>
 <link rel="stylesheet" href="/css/admin-client_processed.css" />
 
 <div class="client-column">
@@ -12,22 +10,28 @@
     <div class="admincp-box">
       <% @cadre_infos.each do |cadre_info| %>
       <% processedHistories = cadre_info.processed_histories.order(created_at: :DESC) %>
-      <h2><%= cadre_info.first_name %> <%= cadre_info.last_name %></h2>
-
-      <% processedHistories.each do |processedHistorie| %>
-      <hr />
-      <div class="acp-flex">
-        <div class="acp-image">
-          <img src="<%= processedHistorie.image %>" alt="icone work" />
-        </div>
-        <div class="acp-content"><%= processedHistorie.message %>
-        </div>
-        <div class="acp-link">
-          <%= raw processedHistorie.link %>
+      <div class="acp-name" data-items="<%= cadre_info.id%>">
+        <%= cadre_info.first_name %> <%= cadre_info.last_name %>
+        <img src="<%= cadre_info.image %>" alt="pdp">
+      </div>
+      <div class="hide-box" id="<%= cadre_info.id%>">
+        <div id="<%= cadre_info.id%>i">
+          <% processedHistories.each do |processedHistorie| %>
+          <hr />
+          <div class="acp-flex">
+            <div class="acp-image">
+              <img src="<%= processedHistorie.image %>" alt="icone work" />
+            </div>
+            <div class="acp-content"><%= processedHistorie.message %>
+            </div>
+            <div class="acp-link">
+              <%= raw processedHistorie.link %>
+            </div>
+          </div>
+          <% end %>
+          <hr />
         </div>
       </div>
-      <hr />
-      <% end %>
       <% end %>
     </div>
     <% else %>
@@ -39,6 +43,7 @@
   </div>
 </div>
 
+<script src="/js/processed.js"></script>
 <!-- #1. Inscription
     #Inscription terminée
     Rakot belo a terminé l'inscription (fait)
