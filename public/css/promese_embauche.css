@@ -266,6 +266,10 @@ body {
   margin-bottom: 50px;
 }
 
+.photo_ako{
+  object-fit: cover;
+}
+
 .job-info {
   width: 100%;
   text-align: center;
