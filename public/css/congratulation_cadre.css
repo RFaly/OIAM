@@ -63,7 +63,7 @@ html{
   }
 
 .all-content{
-	margin-top: 20px;	
+	margin-top: 20px;
 }
 
 
@@ -82,7 +82,7 @@ html{
 	.btn-recevoir:hover{
 		border: none;
 		background-color: #d6b36a;
-		color: #fff;	
+		color: #fff;
 		border: none;
 	}
 
@@ -90,8 +90,6 @@ html{
 		position: fixed;
 		top: 5px;
 		bottom: 5px;
-		right: 10px;
-		left: 10px;
 		background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 48.44%), linear-gradient(180deg, #F4E8CA 99.99%, #D8BD86 100%);
 		display: block;
 		margin: 0 auto;
@@ -111,7 +109,7 @@ html{
 	.felicitation-content{
 		display: block;
 		margin: 0 auto;
-		width: 64%;
+		width: 100%;
 		margin-bottom: 100px;
 		line-height: 20px;
 	}
@@ -120,7 +118,7 @@ html{
 		font-weight: bold;
 	}
 
-	
+
 	.diamond{
 		position: fixed;
 		top: -1vh;
