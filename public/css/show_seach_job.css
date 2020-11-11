@@ -67,6 +67,11 @@ html{
     margin: 15px;
   }
 
+	.intitule_poste{
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+
   .post-info p{
     text-align: center;
     font-size: 18px;
@@ -76,6 +81,8 @@ html{
   .map{
     margin-right: 10px;
     height: 20px;
+		position: relative;
+		top: 5px;
   }
 
   .post-title{
