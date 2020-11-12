@@ -29,6 +29,10 @@
   font-size: 16px;
 }
 
+.pdp{
+  object-fit: cover;
+}
+
 .left-menu-r .left-menu-content li a:hover, .left-menu-r .left-menu-content li a:active {
   color: #d6b36a;
 }
