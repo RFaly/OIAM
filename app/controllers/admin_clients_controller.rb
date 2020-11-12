@@ -95,7 +95,10 @@ class AdminClientsController < ApplicationAdminController
   end
 
   def processed
-    @clients = Client.order(first_name: :asc, last_name: :asc).joins(:processed_histories).uniq
+		@offre_par_page = 20
+		@nombre_pages = ((Client.all.joins(:processed_histories).distinct.count)/@offre_par_page).floor
+		@page = params.fetch(:page, 0).to_i
+    @clients = Client.order(first_name: :asc, last_name: :asc).joins(:processed_histories).distinct.offset(@page * @offre_par_page).limit(@offre_par_page)
 
 # 1. Inscription/Complétion du profil/Création compte/
 #   Compte créée (fait)
