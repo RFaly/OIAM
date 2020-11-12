@@ -27,7 +27,6 @@
         outline: 2px solid $secondary_element_color;
         outline-style: -2px;
         position: relative;
-        z-index: 500;
 
         &:hover {
             outline: 1.5px solid $main_theme_color;

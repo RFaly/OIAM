@@ -36,20 +36,27 @@ img {
     text-align: center;
     margin-left: 0px;
   }
+  .row {
+    box-shadow: none;
+  }
 }
 @media only screen and (max-width: 576px) {
   .box-rgt p {
     text-align: center;
     margin-left: 0px;
   }
-
+  .row {
+    box-shadow: none;
+  }
 }
 @media only screen and (max-width: 768px) {
   .box-rgt p {
     text-align: center;
     margin-left: 0px;
   }
-
+  .row {
+    box-shadow: none;
+  }
 }
 @media only screen and (max-width: 992px) {
 
