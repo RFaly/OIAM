@@ -196,4 +196,32 @@
 .select-cadre-box .select-cadre-list .select-cadre-list-items .cadre-box .cadre-box-info .name {
   text-transform: uppercase;
   font: 500 18px Raleway, sans-serif;
+  font-size: 16px;
+}
+
+.select-cadre-box .select-cadre-list .link-pagination {
+  width: 90%;
+  margin: 20px auto;
+  text-align: right;
+  font: 500 18px Raleway, sans-serif;
+  font-size: 16px;
+  color: #d6b36a;
+  text-transform: uppercase;
+}
+
+.select-cadre-box .select-cadre-list .link-pagination a {
+  color: #d6b36a;
+}
+
+.select-cadre-box .select-cadre-list .link-pagination a:hover, .select-cadre-box .select-cadre-list .link-pagination a:active {
+  color: rgba(214, 179, 106, 0.6);
+  text-decoration: none;
+}
+
+.select-cadre-box .select-cadre-list .link-pagination a b {
+  text-decoration: underline;
+}
+
+.select-cadre-box .select-cadre-list .link-pagination a span {
+  font-size: 24px;
 }

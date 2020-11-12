@@ -12,15 +12,20 @@
       <div class="select-cadre-list" id>
         <div class="flex-candidates">
           <% 5.times do |i| %> <% if @topCinqs[i].nil? %>
-          <div class="js-candidates-list" data-element="" data-info="true" style="background: center no-repeat; background-size: cover"></div>
+          <div class="js-candidates-list" data-element="" data-info="true"
+            style="background: center no-repeat; background-size: cover"></div>
           <% else %>
-          <div class="js-candidates-list" data-element="" data-info="false" style="background: url(<%= @topCinqs[i].cadre.cadre_info.image %>) center no-repeat; background-size: cover"></div>
+          <div class="js-candidates-list" data-element="" data-info="false"
+            style="background: url(<%= @topCinqs[i].cadre.cadre_info.image %>) center no-repeat; background-size: cover">
+          </div>
 
           <% end %> <% end %> <% if @topCinqs.count < 5 %>
           <div class="validation">
             <%= form_tag(add_top_five_candidate_path(@offre.id)) do %>
             <input type="hidden" name="cadre_ids" value="[]" id="input_cadre_ids" />
-            <div class="submit-validation"><%= submit_tag("VALIDER MA SELECTION", id:'boutton-bottom',class:'validation-bt') %> <%= submit_tag("VALIDER ", id:'boutton-bottom',class:'validation-bt1') %></div>
+            <div class="submit-validation">
+              <%= submit_tag("VALIDER MA SELECTION", id:'boutton-bottom',class:'validation-bt') %>
+              <%= submit_tag("VALIDER ", id:'boutton-bottom',class:'validation-bt1') %></div>
             <% end %>
           </div>
           <% end %>
@@ -32,28 +37,63 @@
             <div class="cadre-box-image">
               <div class="cbi-photo">
                 <%= link_to show_search_candidate_path(cadre.id, offre_id: @offre.id), method: :get do %>
-                <div class="c" style="background: url(<%= cadre.cadre_info.image%>) center no-repeat; background-size: cover"></div>
-                <% end %> <%= image_tag(cadre.cadre_info.image, alt: 'photo profil cadre', class:"js-image-#{cadre.id} " ,style:'display:none')%>
+                <div class="c"
+                  style="background: url(<%= cadre.cadre_info.image%>) center no-repeat; background-size: cover"></div>
+                <% end %>
+                <%= image_tag(cadre.cadre_info.image, alt: 'photo profil cadre', class:"js-image-#{cadre.id} " ,style:'display:none')%>
               </div>
               <div class="icone">
-                <% oFc = @offre.is_in_this_job(cadre) %> <% if oFc.nil? || oFc.accepted_postule.nil? || oFc.accepted_postule == false %> <% if @topCinqs.count < 5 %>
-                <img class="add-js-toFavorite" data-info="<%= cadre.id %>" src="/image/Vector-22.png" alt="logo oiam non favorie" />
-                <% end %> <% else %>
+                <% oFc = @offre.is_in_this_job(cadre) %>
+                <% if oFc.nil? || oFc.accepted_postule.nil? || oFc.accepted_postule == false %>
+                <% if @topCinqs.count < 5 %>
+                <img class="add-js-toFavorite" data-info="<%= cadre.id %>" src="/image/Vector-22.png"
+                  alt="logo oiam non favorie" />
+                <% end %>
+                <% else %>
                 <img class="alreadyFavorite" src="/image/Vector-24.png" alt="logo oiam favorie" />
                 <% end %>
 
-                <img class="rmv-js-toFavorite" data-info="<%= cadre.id %>" src="/image/Vector-24.png" alt="logo oiam favorie" style="display: none" />
+                <img class="rmv-js-toFavorite" data-info="<%= cadre.id %>" src="/image/Vector-24.png"
+                  alt="logo oiam favorie" style="display: none" />
               </div>
             </div>
             <div class="cadre-box-info">
               <p class="name"><%= cadre.cadre_info.first_name %> <%= cadre.cadre_info.last_name[0].upcase %>.</p>
               <p class="compatibilite">Compatibilité : <span><%= cadre.cadre_info.compatibilite %>%</span></p>
               <p class="score">Score OIAM : <span><%= cadre.cadre_info.score_potential %></span></p>
-              <p class="poste">Type de poste : <% if cadre.cadre_info.metier.nil? %> Manager marketing <% else %> <%= cadre.cadre_info.metier.name %> <% end %></p>
+              <p class="poste">Type de poste : <% if cadre.cadre_info.metier.nil? %> Manager marketing <% else %>
+                <%= cadre.cadre_info.metier.name %> <% end %></p>
             </div>
           </div>
           <% end %>
         </div>
+        <div class="link-pagination">
+          <%if @nombre_candidat > 1%>
+
+          <%if @page == 0 %>
+          <a href="<%= search_candidate_path(@offre, page: @page + 1) %>">
+            <b>Suivant</b> <span> ></span>
+          </a>
+          <%elsif @page == @nombre_candidat - 1 %>
+          <a href="<%= search_candidate_path(@offre, page: @page - 1) %>">
+            <span>
+              <</span> <b>Précédant</b>
+          </a>
+          <%else %>
+          <a href="<%= search_candidate_path(@offre, page: @page - 1) %>"><span>
+              <</span> <b>Précédant</b>
+          </a> |
+          <a href="<%= search_candidate_path(@offre, page: @page + 1) %>">
+            <b>Suivant</b><span> ></span>
+          </a>
+          <%end %>
+          <%end %>
+        </div>
+        <!-- <% @nombre_candidat.times do |item|%>
+
+        <a href="<%= search_candidate_path(@offre, page: item) %>" class="<%if @page == item %>color<%end %>">
+          <%= item+=1 %></a>
+        <%end %> -->
       </div>
     </div>
   </div>
