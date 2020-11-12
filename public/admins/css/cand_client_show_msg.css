@@ -85,6 +85,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .hr-image {
@@ -205,4 +206,38 @@
   position: absolute;
   left: 70%;
   top: 65%;
+}
+
+
+@media only screen and (max-width: 540px) {
+  .fcp-box {
+    margin-top: 15px;
+  }
+  .hr-image {
+    display: none;
+  }
+  .name {
+    font-size: 18px;
+  }
+  .online small {
+    font-size: 12px;
+  }
+  .chat-body {
+    padding: 10px;
+  }
+  .desc {
+    margin-top: 10px;
+  }
+}
+@media only screen and (max-width: 576px) {
+
+}
+@media only screen and (max-width: 768px) {
+  
+}
+@media only screen and (max-width: 992px) {
+
+}
+@media only screen and (max-width: 1200px) {
+
 }

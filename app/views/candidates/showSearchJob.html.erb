@@ -8,7 +8,7 @@
       <div class="post-logo"><% unless @offre.image.nil? %> <%= image_tag(@offre.image, alt: 'photo de profil', class:'photo_ako')%> <% end %></div>
 
       <div class="post-info">
-        <p><%= @offre.intitule_pote %></p>
+        <p class="intitule_poste"><%= @offre.intitule_pote %></p>
 
         <p><img src="/image/map.png" alt="" class="map" /><%= @offre.department %></p>
 

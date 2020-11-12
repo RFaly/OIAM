@@ -47,7 +47,7 @@
   outline: 0;
   background: #d6b36a;
   width: 100%;
-  border: 0;
+  border: 1px solid #d6b36a;
   padding: 15px;
   color: #ffffff;
   font-size: 14px;
@@ -87,11 +87,11 @@
   transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
   transition-delay: 0s, 0s, 0s;
 }
-.custom-control-input:checked ~ .custom-control-label::before {
+/*.custom-control-input:checked ~ .custom-control-label::before {
   color: #fff;
   border-color: var(--main-bg-color) !important;
   background-color: var(--main-bg-color) !important;
-}
+}*/
 
 .show-cont {
   display: block;
@@ -112,16 +112,20 @@
   padding: 10px;
   height: 20px;
   width: 20px;
-  border: 1px solid var(--main-bg-color) !important;
+/*  border: 1px solid var(--main-bg-color) !important;*/
   margin-left: 10px;
-  background-color: white;
+/*  background-color: white;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none; 
+  appearance: none; */
+}
+
+span.checkmark:checked {
+  background: #d6b36a;
 }
 
 .show-cont input:checked {
-  background-color: var(--main-bg-color) !important;
+  background: var(--main-bg-color) !important;
   color: #fff !important;
   outline: none;
 }

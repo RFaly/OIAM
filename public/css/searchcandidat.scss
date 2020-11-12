@@ -188,9 +188,42 @@
           .name {
             text-transform: uppercase;
             font: $ffbtn;
+            font-size: 16px;
           }
         }
       }
     }
+
+    .link-pagination {
+      width: 90%;
+      margin: 20px auto;
+      text-align: right;
+      font: $ffbtn;
+      font-size: 16px;
+      color: $main_theme_color;
+      text-transform: uppercase;
+
+      a {
+        color: $main_theme_color;
+
+        &:hover,
+        &:active {
+          color: rgba($main_theme_color, 0.6);
+          text-decoration: none;
+        }
+
+        b {
+          text-decoration: underline;
+        }
+
+        span {
+          font-size: 24px;
+        }
+      }
+    }
+
+    // .color {
+    //   color: red;
+    // }
   }
 }

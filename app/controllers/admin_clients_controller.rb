@@ -1,6 +1,6 @@
 class AdminClientsController < ApplicationAdminController
 	before_action :authenticate_admin!
-	
+
   def be_processed
   # 1. Inscription/Complétion du profil/Création compte/{
   # Compte non créée
@@ -23,7 +23,7 @@ class AdminClientsController < ApplicationAdminController
       end
     end
 
-  # 7. Effectue l’ entretien et donne son feedback 
+  # 7. Effectue l’ entretien et donne son feedback
   # (Etape suivante, accepter, refuser, en attente)
   # Liste des recruteurs en mode entretien (entrain de faire des entretiens)
     @listAgendaClientsEntretiens = []
@@ -95,7 +95,11 @@ class AdminClientsController < ApplicationAdminController
   end
 
   def processed
-    @processedHistories = ProcessedHistory.where(is_client:true).order(created_at: :DESC)
+		@offre_par_page = 20
+		@nombre_pages = ((Client.all.joins(:processed_histories).distinct.count)/@offre_par_page).floor
+		@page = params.fetch(:page, 0).to_i
+    @clients = Client.order(first_name: :asc, last_name: :asc).joins(:processed_histories).distinct.offset(@page * @offre_par_page).limit(@offre_par_page)
+
 # 1. Inscription/Complétion du profil/Création compte/
 #   Compte créée (fait)
 
@@ -106,7 +110,7 @@ class AdminClientsController < ApplicationAdminController
 # 6. Planifie un/des entretiens en fonction du process de recrutement
 # Planification d'entretien acceptée par le candidat  (fait)
 
-# 7. Effectue l’ entretien et donne son feedback 
+# 7. Effectue l’ entretien et donne son feedback
 # (Etape suivante, accepter, refuser, en attente)
 # Feedback de l'entretien reçu et lu par le candidat  (fait)
 
@@ -143,7 +147,7 @@ class AdminClientsController < ApplicationAdminController
     @client = Client.find_by_id(params[:id])
     @contact = ContactAdminClient.find_by(client: @client, admin:current_admin)
     if @contact.nil?
-      @contact = ContactAdminClient.create(client: @client, admin:current_admin)    
+      @contact = ContactAdminClient.create(client: @client, admin:current_admin)
     else
       @contact.message_admin_clients.where(admin_see:false).update(admin_see:true)
     end
@@ -157,7 +161,7 @@ class AdminClientsController < ApplicationAdminController
     @content = params[:message_admin_client][:content]
     @newMessage = MessageAdminClient.new(content:@content, client_see: false, contact_admin_client: @contact, is_admin: true)
     @contact.message_admin_clients.where(admin_see:false).update(admin_see:true)
-    if @newMessage.save      
+    if @newMessage.save
       redirect_to clients_show_message_path(@client)
     else
         flash[:alert] = @newMessage.errors.details

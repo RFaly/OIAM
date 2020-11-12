@@ -1,44 +1,46 @@
-*, *::before, *::after{
+*,
+*::before,
+*::after {
 	box-sizing: border-box;
 }
 
-html{
+html {
 	font-size: 18px;
 }
 
-body{
+body {
 	font-family: 'Questrial', sans-serif;
 	margin: 0;
 
 }
 
 
-.cadre{
+.cadre {
 	padding: 20px;
 	text-align: justify;
 	background-color: #E3D7BF;
 }
 
-.potential-title{
+.potential-title {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 }
 
-#potential-title-show h1{
+#potential-title-show h1 {
 	font-family: 'Raleway', sans-serif;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 20px;
 	line-height: 24px;
-	color:  #D6B36A;
+	color: #D6B36A;
 	text-align: center;
 	margin-top: 30px;
 	margin-bottom: 50px;
 }
 
-.potential-title h1{
+.potential-title h1 {
 	font-family: 'Raleway', sans-serif;
 	font-style: normal;
 	font-weight: 600;
@@ -48,24 +50,24 @@ body{
 	text-align: center;
 }
 
-.potential-title img{
+.potential-title img {
 	position: relative;
 	top: -23px;
 	right: -10px;
 }
 
 
-.content{
+.content {
 	position: relative;
 	display: flex;
 	margin: 0 auto;
-	width: 100%;
+	/* width: 100%; */
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 100px;
 }
 
-.content::after{
+.content::after {
 	content: "";
 	position: absolute;
 	top: 15px;
@@ -79,55 +81,55 @@ body{
 
 
 
-.numero{
+.numero {
 	display: inline-block;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  background-color: #f0f2f4;
-  color: #fff;
-  border-radius: 30px;
-  padding: 5px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+	text-align: center;
+	width: 36px;
+	height: 36px;
+	background-color: #f0f2f4;
+	color: #fff;
+	border-radius: 30px;
+	padding: 5px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
 	font-style: normal;
 	font-weight: bold;
 	z-index: 2;
 }
 
-.un{
+.un {
 	position: absolute;
 	top: 0;
 	left: 0;
 	background-color: #D6B36A;
 }
 
-.deux{
-  background-color: #D6B36A;
+.deux {
+	background-color: #D6B36A;
 }
 
-.trois{
+.trois {
 	position: absolute;
 	top: 0;
 	right: 0;
 	background-color: #D6B36A;
 }
 
-.notice{
+.notice {
 	text-align: center;
 	font-size: 18px;
 	line-height: 24px;
 	margin-bottom: 38px;
 }
 
-ul{
+ul {
 	list-style: none;
 	text-align: center;
 	color: #D6B36A;
 }
 
-h2{
-	font-family: 'Raleway',sans-serif;
+h2 {
+	font-family: 'Raleway', sans-serif;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 20px;
@@ -139,62 +141,65 @@ h2{
 
 
 
-.potential{
+.potential {
 	position: absolute;
 	top: 42px;
 	left: -20px;
+	word-break: keep-all;
 }
 
 
-.skills{
+.skills {
 	position: absolute;
 	top: 42px;
 	left: 45%;
 }
 
-.fit{
+.fit {
 	position: absolute;
 	top: 42px;
-	right:10px;
+	right: 10px;
 }
 
-.numero span{
-	font-family: 'Raleway',sans-serif;
+.numero span {
+	font-family: 'Raleway', sans-serif;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 18px;
 	color: #000;
+	word-break: normal;
 }
 
 
-.pass-test{
+.pass-test {
 	display: block;
-  margin: auto;
-  max-width: 350px;
-  text-align: center;
-  margin-top: 82px;
-  margin-bottom: 100px;
-  border: 1px solid #fff;
-  padding: 15px;
-  font-size: 16px;
-  color: #fff;
-  cursor: pointer;
+	margin: auto;
+	max-width: 350px;
+	text-align: center;
+	margin-top: 82px;
+	margin-bottom: 100px;
+	border: 1px solid #fff;
+	padding: 15px;
+	font-size: 16px;
+	color: #fff;
+	cursor: pointer;
 }
 
 
-.pass-test:hover{
+.pass-test:hover {
 	background: #fff;
 	text-decoration: none;
 	color: #e3d7bf;
 }
 
 
-.selected-date{
+.selected-date {
 	background-color: #e3d7bf;
 	display: none;
 	width: 100%;
 }
-.js-hours{
+
+.js-hours {
 	color: #fff;
 	font-size: 18px;
 	background-color: #e3d7bf;
@@ -203,26 +208,31 @@ h2{
 	padding-top: 15px;
 	width: 138px;
 	height: 55px;
-	margin-left: 38px;
+
 	margin-bottom: 50px;
 	cursor: pointer;
 }
-.main-container{
+
+.main-container {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 	align-items: center;
 	width: 100%;
+	grid-column-gap: 2%;
 }
-h2{
+
+h2 {
 	color: #fff;
 }
-#validate-date-time{
+
+#validate-date-time {
 	display: none;
 	border: 1px solid #fff;
 	background-color: #e3d7bf;
 }
-.show-default-value-date{
+
+.show-default-value-date {
 	display: block;
 	margin: auto;
 	border: 1px solid #fff;
@@ -235,18 +245,18 @@ h2{
 
 
 
-.date-title{
+.date-title {
 	margin-bottom: 13px;
 	text-transform: capitalize;
 	font-size: 18px;
 	margin-left: 60px;
 }
 
-.validate{
+.validate {
 	overflow: hidden;
 }
 
-.btn-valider{
+.btn-valider {
 	float: right;
 	border: 1px solid #fff;
 	background: none;
@@ -258,40 +268,55 @@ h2{
 	margin-right: 25px;
 }
 
-.btn-valider:hover{
+.btn-valider:hover {
 	color: #E3D7BF;
 	background: #ffff;
 }
 
-.entretien-confirme{
+.entretien-confirme {
 	margin-bottom: 50px;
 }
 
-#dateSkype{
+#dateSkype {
 	margin-top: 50px;
 }
 
-.skype-time{
+.skype-time {
 	color: white;
 	width: 100%;
 	text-transform: capitalize;
 	text-align: center;
 }
 
-.past-test-menu{
+.past-test-menu {
 	width: 200px;
 	cursor: pointer;
 }
 
-@media only screen and (min-width: 500px){
-	.content{
-		width: 200px;
+@media only screen and (min-width: 320px) {
+	.content {
+		width: 300px;
+	}
+
+	.js-hours {
+		margin-right: 38px;
+	}
+}
+
+@media only screen and (min-width: 500px) {
+	.content {
+		width: 400px;
+	}
+
+	.js-hours {
+		margin-right: 0;
 	}
 }
 
 
-@media only screen and (min-width: 900px){
-	.cadre{
+
+@media only screen and (min-width: 900px) {
+	.cadre {
 		display: block;
 		margin: auto;
 		width: 870px;
@@ -299,25 +324,25 @@ h2{
 
 
 
-	.potential-title img{
+	.potential-title img {
 		right: -30px;
 	}
 
-	.potential-title{
+	.potential-title {
 		position: relative;
 		left: 30px;
 	}
 
-.date-container{
-	display: block;
-	margin: 0 auto;
-	width: 100%
-}
+	.date-container {
+		display: block;
+		margin: 0 auto;
+		width: 100%
+	}
 
 }
 
-@media only screen and (min-width: 1024px){
-	.cadre{
+@media only screen and (min-width: 1024px) {
+	.cadre {
 		margin-top: -70px;
 		padding-top: 50px;
 		padding-left: 57px;

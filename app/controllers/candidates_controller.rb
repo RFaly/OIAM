@@ -98,6 +98,7 @@ class CandidatesController < ApplicationController
         message: "ADMISSION",
         link: "<a href='#{cbp_promise_no_validate_path(@cadre.id)}'>VOIR</a>",#VOIR LE CANDIDAT
         is_client:false,
+        cadre_info: @cadre,
         genre: 1
       )
 
@@ -261,8 +262,9 @@ class CandidatesController < ApplicationController
       ProcessedHistory.create(
         image: "/image/work.png",
         message: "PLANIFICATION ENTRETIEN",
-        link: "<a href='#{clients_bp_show_client_path(@oFc.offre_job.client.id)}'>VOIR</a>",
+        link: "<a href='#{clients_bp_effectue_entretien_path(@oFc.agenda_clients.id)}'>VOIR</a>",
         is_client:true,
+        client:@offreJob.client,
         genre: 1
       )
 
@@ -410,6 +412,7 @@ class CandidatesController < ApplicationController
           message: "INSCRIPTION",
           link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR</a>",#VOIR LE CANDIDAT
           is_client:false,
+          cadre_info:@cadreInfo,
           genre: 1
         )
       end
@@ -421,6 +424,7 @@ class CandidatesController < ApplicationController
           message: "INSCRIPTION",
           link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR</a>",#VOIR LE CANDIDAT
           is_client:false,
+          cadre_info:@cadreInfo,
           genre: 1
         )
       end
@@ -682,6 +686,7 @@ class CandidatesController < ApplicationController
         message: "PROMESSE D'EMBAUCHE",
         link: "<a href='#{cp_show_promise_path(@promise.id)}'>VOIR</a>",#VOIR LE PROMESSE
         is_client:false,
+        cadre_info:current_cadre.cadre_info,
         genre: 1
       )
 
@@ -691,6 +696,7 @@ class CandidatesController < ApplicationController
         message: "PROMESSE D'EMBAUCHE",
         link: "<a href='#{cp_show_promise_path(@promise.id)}'>VOIR</a>",#VOIR LE PROMESSE
         is_client:true,
+        client:@offreJob.client,
         genre: 1
       )
 
@@ -736,6 +742,7 @@ class CandidatesController < ApplicationController
           message: "VALIDATION PERIODE D'ESSAI",
           link: "<a href='#{clients_bp_periode_rompre_path(@promise.id)}'>VOIR</a>",
           is_client:false,
+          cadre_info: current_cadre.cadre_info,
           genre: 1
         )
         somaiso = "VALIDATION PERIODE D'ESSAI"
@@ -746,6 +753,7 @@ class CandidatesController < ApplicationController
         message: somaiso,
         link: "<a href='#{clients_bp_periode_rompre_path(@promise.id)}'>VOIR</a>",
         is_client:true,
+        client:@offreJob.client,
         genre: 1
       )
     end

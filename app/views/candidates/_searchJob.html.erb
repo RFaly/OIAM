@@ -43,9 +43,9 @@
 <% end %>
 <div class="next-page">
 	<% nombre_offres = @nombre_offres  %>
-	<% if @page == 0 %>
+	<% if @page == 0 && @nombre_offres > @offre_par_page %>
 		<a href="<%= searchJob_path(page: @page + 1 )%>">SUIVANT<span class="crochet"> ></span></a>
-	<% elsif @page ==  nombre_offres %>
+	<% elsif @page ==  @nombre_offres %>
 		<a href="<%= searchJob_path(page: @page - 1 )%>"><span class="crochet"> < </span>PRECEDENT</a>
 	<% else %>
 		<a href="<%= searchJob_path(page: @page - 1 )%>"><span class="crochet">< </span>PRECEDENT |</a>
