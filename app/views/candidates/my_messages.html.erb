@@ -31,7 +31,7 @@
             <% unless contact.client.is_online? %>
               <span class="not-connected">Connecté(e) il y a <%= time_ago_in_words(contact.client.online_time) %></span>
             <% end %>
-          </div>
+        </div>
       </div>
       </a>
       <% end %>

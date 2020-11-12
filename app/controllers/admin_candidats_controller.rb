@@ -1,7 +1,7 @@
 class AdminCandidatsController < ApplicationAdminController
 	before_action :authenticate_admin!
 
-  def be_processed 
+  def be_processed
     allCadreInfos = CadreInfo.all
     # 1. Inscription {Inscription non terminée}
 
@@ -99,7 +99,10 @@ class AdminCandidatsController < ApplicationAdminController
   end
 
   def processed
-    @cadre_infos = CadreInfo.order(first_name: :asc, last_name: :asc).joins(:processed_histories).uniq
+		@offre_par_page = 3
+		@nombre_pages = ((CadreInfo.all.joins(:processed_histories)).distinct.count/@offre_par_page).floor
+		@page = params.fetch(:page, 0).to_i
+    @cadre_infos = CadreInfo.order(first_name: :asc, last_name: :asc).joins(:processed_histories).distinct.offset(@page * @offre_par_page).limit(@offre_par_page)
   end
 
   def messaging
@@ -120,7 +123,7 @@ class AdminCandidatsController < ApplicationAdminController
     @cadre = Cadre.find_by_id(params[:id])
     @contact = ContactAdminCadre.find_by(cadre: @cadre, admin:current_admin)
     if @contact.nil?
-      @contact = ContactAdminCadre.create(cadre: @cadre, admin:current_admin)    
+      @contact = ContactAdminCadre.create(cadre: @cadre, admin:current_admin)
 	else
     	@contact.message_admin_cadres.where(admin_see:false).update(admin_see:true)
 	end
@@ -134,7 +137,7 @@ class AdminCandidatsController < ApplicationAdminController
     @content = params[:message_admin_cadre][:content]
     @newMessage = MessageAdminCadre.new(content:@content, cadre_see: false, contact_admin_cadre: @contact, is_admin: true)
     @contact.message_admin_cadres.where(admin_see:false).update(admin_see:true)
-    if @newMessage.save      
+    if @newMessage.save
       	redirect_to candidats_show_message_path(@cadre)
     else
       	flash[:alert] = @newMessage.errors.details
