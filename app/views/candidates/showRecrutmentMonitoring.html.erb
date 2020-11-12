@@ -158,7 +158,7 @@
 						<% elsif @agendas.repons_cadre && @agendas.repons_client && !@agendas.alternative.nil? %>
 							<% date = DateTime.parse(@agendas.alternative) %>
 							<p class="new-proposition-date">
-								<span class="title-entretien">Changement de la date d'entretien envoyée pour le </span><span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>, en attente de réponse.
+								<span class="title-entretien">Changement de la date d'entretien envoyé(e) pour le </span><span data-times="<%= date.strftime("%Y-%m-%d %H:%M") %>" class="currentDateEntretien"></span>, en attente de réponse.
 							</p>
 						<!-- candidat a reffuser l'entretien -->
 						<% elsif @agendas.repons_cadre == false %>
@@ -175,7 +175,7 @@
 							<!-- mety hisy -->
 						<% else %>
 							<p class="donne-rep">
-								<%= link_to "DONNER UNE RÉPONSE", received_job_path, class:"give-answer" %>
+								<%= link_to "DONNER UNE RÉPONSE", received_job_path, class:"give-answer"  %>
 							</p>
 						<% end %>
 
@@ -197,7 +197,7 @@
 									</div>
 									<div class="entretien-days-left">
 										<span id="js-seconds" class="days-number">0</span>
-										<span class="days-letter">seconde</span>
+										<span class="days-letter">secondes</span>
 									</div>
 								</div>
 

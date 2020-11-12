@@ -73,7 +73,7 @@ class RecruteursController < ApplicationController
 
 ##validation
 	def createJob
-		
+
 		@offre = OffreJob.new(post_params)
 		@metier = Metier.find_by_name(params[:metier_name])
 
@@ -131,13 +131,13 @@ class RecruteursController < ApplicationController
 		end
 
 		@metier = Metier.find_by_name(params[:metier_name])
-	
+
 		@offre.update(metier:@metier)
 		@offre.update(post_params)
 		flash[:notice] = "Votre offre d'emploi a bien été mise à jour !"
 		redirect_to showNewJob_path(@offre)
 	end
-	
+
 	def showNewJob
 		@offre = OffreJob.find_by_id(params[:id])
 		if @offre.client != current_client || @offre.nil?
@@ -182,18 +182,18 @@ class RecruteursController < ApplicationController
 			redirect_back(fallback_location: root_path)
 		else
 			@cadre_infos = @offre.metier.cadre_infos.where(empty:false)
-	
+
 			region = Region.find_by_name(@offre.region)
 			ville = region.villes.find_by_name(@offre.department)
-		
+
 			minimum_salar = @offre.remuneration.to_i
-		
+
 			@cadre_infos = @cadre_infos.where("question4 <= #{minimum_salar}")
-		
+
 			@cadre_infos = @cadre_infos.where(mobilite: @offre.type_deplacement)
-		
+
 			my_cadres = []
-		
+
 			unless @cadre_infos.empty?
 				@cadre_infos.each do |cadre_info|
 					if cadre_info.region.name = "Toutes les régions"
@@ -259,7 +259,7 @@ class RecruteursController < ApplicationController
 		my_cadres = []
 
 			region = params[:region]
-	
+
 		unless region.empty? && @cadre_infos.empty?
 		region = Region.find_by_id(region)
 			@cadre_infos.each do |cadre_info|
@@ -273,7 +273,7 @@ class RecruteursController < ApplicationController
 			end
 			@cadre_infos = my_cadres
 		end
-			
+
 			if params[:remuneration].empty? && params[:disponility].empty? && params[:metier].empty? && params[:region].empty?
 				@cadre_infos = []
 			end
@@ -333,7 +333,7 @@ class RecruteursController < ApplicationController
 					genre: 1
 				)
 			end
-			
+
 		end
 
 
@@ -349,27 +349,27 @@ class RecruteursController < ApplicationController
 		else
 			@cadre = Cadre.find_by_id(params[:cadre_id].to_i)
 			@oFc = OffreForCandidate.find_by(offre_job_id: @offre.id, cadre_id: @cadre.id)
-			
+
 			name_entretien = params[:name] == "1" ? params[:client_name] : params[:name]
 			name_adresse = params[:adresse] == "on" ? params[:adresse_name] : params[:adresse]+", #{@offre.client.entreprise.city}"
-	
+
 			if @oFc.nil?
 				@oFc = OffreForCandidate.create(offre_job: @offre, cadre: @cadre, accepted_postule:true)
 			else
 				@oFc.update(accepted_postule:true)
 			end
-	
+
 			date = params[:date].split("-")
 			time = params[:time].split(":")
-		
+
 			year = date[0].to_i
 			month = date[1].to_i
 			day = date[2].to_i
 			hour = time[0].to_i
 			min = time[1].to_i
-		
+
 			@agenda = AgendaClient.new(entretien_date:DateTime.new(year,month,day,hour,min).utc, adresse: name_adresse, recruteur: name_entretien, offre_for_candidate: @oFc)
-		
+
 			unless @agenda.save
 				flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
 				redirect_to root_path
@@ -386,7 +386,7 @@ class RecruteursController < ApplicationController
 					@oFc.update(status:nil)
 					name_entreprise = current_client.entreprise.name
 					#notifaka
-					Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une demande d'entretien.",link: "#{received_job_path(notification:"entretien")}",genre: 1,medel_id: @offre.id,view: false)
+					Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyé(e) une demande d'entretien.",link: "#{received_job_path(notification:"entretien")}",genre: 1,medel_id: @offre.id,view: false)
 			end
 			respond_to do |format|
 				format.html { redirect_to show_search_candidate_path(@cadre.id) }
@@ -441,7 +441,7 @@ class RecruteursController < ApplicationController
 				format.js { }
 			end
 		end
-		
+
 	end
 
 #Mes candidats favoris
@@ -712,8 +712,8 @@ class RecruteursController < ApplicationController
 
 			oFc = @job.my_top_five_candidates.find_by(cadre:@cadre)
 			#notifaka
-			# Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une promesse d'embauche.",link: "#{cadre_show_promise_to_hire_path(@promise.id,notification:"entretien")}",genre: 2,medel_id: @job.id,view: false)
-			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une promesse d'embauche.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"entretien")}",genre: 2, medel_id: @job.id, view:false)
+			# Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyé(e) une promesse d'embauche.",link: "#{cadre_show_promise_to_hire_path(@promise.id,notification:"entretien")}",genre: 2,medel_id: @job.id,view: false)
+			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyé(e) une promesse d'embauche.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"entretien")}",genre: 2, medel_id: @job.id, view:false)
       #mettre à jour l'etap au dernière étape
 			oFc.update(etapes:@job.numberEntretien + 1,status:nil)
 			@job.update(etapes: 2 + @job.numberEntretien + 1)
@@ -787,7 +787,7 @@ class RecruteursController < ApplicationController
 				@promise.signature_entreprise = uploader.url
 			end
 		end
-		
+
 		if @promise.update(my_parameters) && is_cv && errorMessage.empty?
 			unless remuneration_info.nil? || remuneration_info.empty?
 				@promise.remuneration_var_info = remuneration_info
@@ -835,7 +835,7 @@ class RecruteursController < ApplicationController
 			unless @promise.cadre_time_trying==false && @promise.client_time_trying.nil?
 
 	      somaiso = "PERIODE D'ESSAI ROMPUE"
-	      
+
 	      if @promise.client_time_trying == true
 		      ProcessedHistory.create(
 		        image: @cadre.cadre_info.image,
@@ -868,7 +868,7 @@ class RecruteursController < ApplicationController
     @candidats = Cadre.all.order("created_at DESC")
     @contactListes = current_client.contact_client_cadres.order("updated_at DESC")
   end
-  
+
   def show_my_messages
 		@cadre = Cadre.find_by_id(params[:id])
 		# if @candidat.nil?
@@ -951,7 +951,7 @@ class RecruteursController < ApplicationController
   	@admin = Admin.first
 	@contact = ContactAdminClient.find_by(client:current_client, admin:@admin)
 	if @contact.nil?
-	    @contact = ContactAdminClient.create(client:current_client, admin:@admin)    
+	    @contact = ContactAdminClient.create(client:current_client, admin:@admin)
 	else
 	    @contact.message_admin_clients.where(client_see:false).update(client_see:true)
 	end
@@ -965,7 +965,7 @@ class RecruteursController < ApplicationController
 	@content = params[:message_admin_client][:content]
 	@newMessage = MessageAdminClient.new(content: @content, admin_see: false, contact_admin_client: @contact, is_admin: false)
 	@contact.message_admin_clients.where(client_see:false).update(client_see:true)
-	if @newMessage.save      
+	if @newMessage.save
 	    redirect_to show_message_client_admin_path(@admin)
 	else
 	    flash[:alert] = @newMessage.errors.details
