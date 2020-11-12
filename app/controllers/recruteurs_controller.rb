@@ -216,7 +216,7 @@ class RecruteursController < ApplicationController
 	end
 
 	def search_candidate
-		@offre_par_page = 3
+		@offre_par_page = 1
 		@offre = OffreJob.find_by_id(params[:id])
 		@topCinqs = @offre.my_top_five_candidates
 		@metiers = Metier.all

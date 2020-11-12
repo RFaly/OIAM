@@ -90,7 +90,9 @@
           <%end %>
         </div>
         <!-- <% @nombre_candidat.times do |item|%>
-        <a href="<%= search_candidate_path(@offre, page: item) %>"> <%= item+=1 %></a>
+
+        <a href="<%= search_candidate_path(@offre, page: item) %>" class="<%if @page == item %>color<%end %>">
+          <%= item+=1 %></a>
         <%end %> -->
       </div>
     </div>
