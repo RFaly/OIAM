@@ -701,7 +701,7 @@ class CandidatesController < ApplicationController
       )
 
       oFc = @offreJob.is_in_this_job(current_cadre)
-      flash[:notice] = "Promesse d'embauche validé."
+      flash[:notice] = "promesse d'embauche validée."
       redirect_to show_recrutment_monitoring_path(oFc.id)
     else
       flash[:alert] = errorMessage

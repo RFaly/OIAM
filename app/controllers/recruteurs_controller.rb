@@ -386,7 +386,7 @@ class RecruteursController < ApplicationController
 					@oFc.update(status:nil)
 					name_entreprise = current_client.entreprise.name
 					#notifaka
-					Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une demande d'entretien.",link: "#{received_job_path(notification:"entretien")}",genre: 1,medel_id: @offre.id,view: false)
+					Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyé(e) une demande d'entretien.",link: "#{received_job_path(notification:"entretien")}",genre: 1,medel_id: @offre.id,view: false)
 			end
 			respond_to do |format|
 				format.html { redirect_to show_search_candidate_path(@cadre.id) }
@@ -707,13 +707,13 @@ class RecruteursController < ApplicationController
     	@promise.remuneration_var_info = remuneration_info
       @promise.signature_entreprise = uploader.url
       @promise.save
-      flash[:notice] = "Promesse d'embauche envoyée."
+      flash[:notice] = "Promesse d'embauche envoyé(e)."
       name_entreprise = current_client.entreprise.name
 
 			oFc = @job.my_top_five_candidates.find_by(cadre:@cadre)
 			#notifaka
-			# Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une promesse d'embauche.",link: "#{cadre_show_promise_to_hire_path(@promise.id,notification:"entretien")}",genre: 2,medel_id: @job.id,view: false)
-			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyée une promesse d'embauche.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"entretien")}",genre: 2, medel_id: @job.id, view:false)
+			# Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyé(e) une promesse d'embauche.",link: "#{cadre_show_promise_to_hire_path(@promise.id,notification:"entretien")}",genre: 2,medel_id: @job.id,view: false)
+			Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyé(e) une promesse d'embauche.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"entretien")}",genre: 2, medel_id: @job.id, view:false)
       #mettre à jour l'etap au dernière étape
 			oFc.update(etapes:@job.numberEntretien + 1,status:nil)
 			@job.update(etapes: 2 + @job.numberEntretien + 1)

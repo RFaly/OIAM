@@ -115,7 +115,7 @@ class AdminClientsController < ApplicationAdminController
 # Feedback de l'entretien reçu et lu par le candidat  (fait)
 
 # 8. Remplir et envoyer une promesse d’embauche
-# Promesse d'embauche envoyée (fait)
+# Promesse d'embauche envoyé(e) (fait)
 
 # 9. Valider l’embauche
 # Promesse d'embauche acceptée/refusée par le candidat

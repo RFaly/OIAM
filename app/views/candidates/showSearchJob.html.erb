@@ -70,7 +70,7 @@
     <% if @ofc.nil? %>
     <div id="link-to-send-post"><%= link_to "POSTULER", apply_for_job_path(id:@offre.id), method: :post, remote: true, id:'send-candidature', class:'btn-suivi' %></div>
     <div id="modal-ajax-bull" style="display: none; background-color: #e3b465" class="modal">
-      Votre demande d'entretien a été envoyée <br />
+      Votre demande d'entretien a été envoyé(e) <br />
       <p><img src="/image/check.png" width="10px" alt="check" /></p>
     </div>
     <% else %> <% if @ofc.accepted_postule == true %> <% if @agendat_client.nil? %>
@@ -81,7 +81,7 @@
     </div>
     <% else %>
     <div>
-      <span class="btn btn-primare">DEMANDE D'ENTRETIEN ENVOYÉE</span>
+      <span class="btn btn-primare">DEMANDE D'ENTRETIEN envoyé(e)</span>
     </div>
     <% end %> <% end %>
   </div>
