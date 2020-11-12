@@ -1,9 +1,9 @@
 $('.admincp-box').on('click', $('.acp-nam'), function (e) {
     $height = $('#' + $(e.target).data().items).height()
-    $heighti = $('#' + $(e.target).data().items + 'i').height() + 20
     if ($height != 0) {
         $('.hide-box').height(0);
     } else {
+        $heighti = $('#' + $(e.target).data().items + 'i').height() + 20
         $('.hide-box').height(0);
         $('#' + $(e.target).data().items)
             .height(`${$heighti}`)
