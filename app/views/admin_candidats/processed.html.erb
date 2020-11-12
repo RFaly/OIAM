@@ -40,7 +40,7 @@
     </p>
     <% end %>
     <div class="next-page">
-    <% if @nombre_pages < @offre_par_page %>
+    <% if @nombre_pages > @offre_par_page %>
       <% if @page == 0 %>
         <a href="<%= candidats_processed_path(page: @page + 1 )%>">SUIVANT<span class="crochet"> ></span></a>
       <% elsif @page == @nombre_pages - 1 %>
