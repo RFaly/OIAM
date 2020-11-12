@@ -39,6 +39,7 @@ img {
   margin: 0 auto;
   justify-content: center;
   text-align: center;
+  flex-wrap: nowrap !important;
 }
 
 .mybtn {
@@ -50,6 +51,7 @@ img {
   cursor: pointer;
   font-family: Raleway, sans-serif;
   font-weight: bold;
+  font-size: 14px;
 }
 
 .mybtn:hover {
@@ -245,6 +247,17 @@ img {
   .fit-box-right {
     height: auto;
   }
+  .all-btn {
+    flex-wrap: wrap !important;
+  }
+  .mybtn {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .fit-box-right {
+    padding-top: 0px;
+    padding-bottom: 30px;
+  }
 }
 @media only screen and (max-width: 576px) {
   .cd-info {
@@ -288,6 +301,18 @@ img {
   .cd-info-be p {
     text-align: center;
   }
+  .mybtn {
+    font-size: 12px;
+    line-height: 1.5;
+  }
 }
 @media only screen and (max-width: 1200px) {
+  .mybtn {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  img {
+    width: 150px;
+    height: 150px;
+  }
 }
