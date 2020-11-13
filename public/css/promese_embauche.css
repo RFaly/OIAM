@@ -357,7 +357,6 @@ body {
   padding-bottom: 30px;
   border-bottom: 2px solid #f0f2f4;
   margin-bottom: 20px;
-  padding: 15px;
 }
 
 
@@ -421,7 +420,6 @@ body {
   margin: 0 auto;
   text-align: center;
   width: 100%;
-  padding: 15px;
 }
 
 .avantage-input {
@@ -644,6 +642,10 @@ input[type='radio']:checked {
     grid-column-gap: 2%;
   }
 
+  .left_link{
+    border-right: 1px solid #d6b36a;
+  }
+
   .import{
     width: 225px;
     height: 120px;
@@ -713,11 +715,6 @@ input[type='radio']:checked {
   .main{
     width: 60%;
   }
-
-  .left_link{
-    border-right: 1px solid #d6b36a;
-  }
-
 }
 
 .ui-datepicker-calendar {
