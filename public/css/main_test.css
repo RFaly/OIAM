@@ -63,127 +63,76 @@ body{
   line-height: 1.5;
 }
 
+.all-main{
+	margin: 15px;
+}
+
+.main{
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+}
 
 .resultat-title{
-	font-size: 20px;
+	color: #D6B36A;
 	text-align: center;
-	color: #d6b36a;
-	margin-bottom: 50px;
+	font-size: 18px;
+	margin-bottom: 30px;
 }
 
-.all-content{
-	margin: 15px;
-	height: 800px;
+.potential{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 40px;
 }
 
-.left-menu-r{
-	max-height: 500px;
-}
-
-.resultat p{
-	margin-bottom: 20px;
-}
-
-.certificat{
-	display: block;
-	margin: auto;
-	text-align: center;
-	width: 100%;
-	margin-bottom: 50px;
-}
-
-.paragraphe{
-	position: relative;
-	top: 20px;
-	left: 0;
-	right: 0;
-}
-
-
-
-.btn-download{
-	width: 150px;
-	height: 50px;
-	border: 1px solid #d6b36a;
-	color: #d6b36a;
-	padding: 10px;
-	text-align: center;
-	background: #fff;
-	font-size: 16px;
-}
-
-.btn-download:hover{
-	background: #d6b36a;
-	color: #fff;
-	text-decoration: none;
+.fit{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 40px;
 }
 
 .certificat{
 	display: flex;
-	width: 100%;
 	justify-content: space-between;
 }
 
-
-
-
-
-p span{
-	float: right;
+.btn-download{
+	width: auto;
+	height: auto;
+	color: #fff;
+	background-color: #D6B36A;
+	padding: 15px;
+	font-size: 16px;
 }
 
-
-
-@media only screen and (min-width: 500px){
-	.certificat p{
-		display: inline-block;
-	}
-
-
-	.resultat{
-		margin-bottom: 50px;
-	}
-
-	.imprimer{
-		margin-right: 10px;
-	}
-
-
+.btn-download:hover{
+	color: #D6B36A;
+	border: 1px solid #D6B36A;
+	background: none;
+	text-decoration: none;
 }
 
-@media only screen and (min-width: 900px){
+@media only screen and (min-width: 600px){
 	.all-content{
 		display: flex;
+		width: 100%;
 	}
-
-	.main{
-		display: block;
-		margin: 0 auto;
-		width: 500px;
-		margin-top: 50px;
-		margin-bottom: 200px;
-	}
-
-
-
 	.all-main{
-		border-left: 1px solid #d6b36a;
 		width: 100%;
 	}
 
-	.resultat p{
+	.resultat-title{
 		margin-bottom: 50px;
 	}
 
-	.resultat{
-		margin-bottom: 100px;
+	.left-link{
+		margin-top: 15px;
+		border-right: 1px solid #D6B36A;
 	}
 
-
-	.certificat p{
-		float: left;
+	.main{
+		margin-top: 15px;
+		width: 50vw;
 	}
-
-
-
 }

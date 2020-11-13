@@ -7,10 +7,23 @@
 <div class="all-main">
 	<div class="main">
 		<h2 class="resultat-title">RÉSULTATS DE MES TESTS</h2>
-		<div class="resultat">
-			<p>Potential <span><%= @cadre.score_potential %></span></p>
-		<!-- <p>Skills/Direction Marketing <span>60%</span></p> -->
-			<p>Fit <span><%= @cadre.score_fit * 10 %>%</span></p>
+		<div class="resultats">
+			<div class="potential">
+				<div class="pontential-content">
+					<p>Potential</p>
+				</div>
+				<div class="pontential-score">
+					<p><%= @cadre.score_potential %></p>
+				</div>
+			</div>
+			<div class="fit">
+				<div class="fit-content">
+					<p>Fit</p>
+				</div>
+				<div class="fit-scrore">
+					<p><%= @cadre.score_fit * 10 %></p>
+				</div>
+			</div>
 		</div>
 		<div class="certificat">
 			<div class="paragraphe" style="top: 1px;">
