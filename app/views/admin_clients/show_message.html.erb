@@ -7,7 +7,9 @@
 		<div class="fcp-box">
 			<div class="chat-info">
 				<div class="img">
-					<img src="<%= @contact.client.image %>" alt="avatar">
+					<a href="<%= clients_bp_show_client_path(@contact.client.id) %>">
+						<img src="<%= @contact.client.image %>" alt="avatar">
+					</a>
 					<% if @contact.client.is_online? %>
 					<span class="dot-online"></span>
 					<% end %>

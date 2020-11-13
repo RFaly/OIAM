@@ -30,7 +30,7 @@
           </div>
         <div class="message-content">
           <div class="recruteur-name">
-            Entreprise : <%= contact.client.first_name %> <%= contact.client.last_name %>
+            Entreprise : <%= contact.client.entreprise.name.upcase %> 
           </div>
           <div class="message-body">
             <% unless nbr == 0 %>
