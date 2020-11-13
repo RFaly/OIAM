@@ -322,8 +322,12 @@ body {
 }
 
 .job_info p {
-  font-size: 18px;
+  font-size: 14px;
   line-height: 2.5;
+}
+
+.dateShowGo{
+  font-size: 14px;
 }
 
 .indic {
@@ -597,7 +601,7 @@ body {
   position: absolute;
   top: 55px;
   right: 0;
-  width: 200px;
+  width: 100%;
   padding: 10px;
   display: block;
   color: #d6b36a;
@@ -614,7 +618,7 @@ body {
 }
 
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 600px) {
   .content {
     display: flex;
   }
@@ -629,6 +633,7 @@ body {
 
   .main {
     min-height: 800px;
+    margin-left: 15px;
   }
 
   .no-flex {
@@ -657,18 +662,18 @@ body {
 
   .action {
     display: flex;
-    grid-column-gap: 5%;
+    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
     width: 35%;
   }
 
   .accepter {
-    width: 50%;
+    width: 100%;
   }
 
   .alternative {
-    width: 50%;
+    width: 100%;
   }
 
   /* .action {
@@ -705,6 +710,13 @@ body {
     z-index: 99999999999;
   }
 
+
+}
+
+@media only screen and (min-width: 768px){
+  .left_link{
+    border-right: 1px solid #d6b36a;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -721,15 +733,35 @@ body {
     width: 25%;
   }
 
+
+  .action{
+      flex-wrap: nowrap;
+      grid-column-gap: 5%;
+  }
+
+  .accepter {
+    width: 50%;
+  }
+
+  .alternative {
+    width: 50%;
+  }
+
   .job_info {
     width: 40%;
   }
 
   .main {
-    padding-right: 60px;
     width: 100%;
     position: relative;
-    border-left: 1px solid #d6b36a;
     padding-left: 15px;
+  }
+
+  .job_info p {
+    font-size: 18px;
+  }
+
+  .dateShowGo{
+    font-size: 18px;
   }
 }
