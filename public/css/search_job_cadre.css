@@ -134,6 +134,16 @@ body{
   object-fit: contain;
 }
 
+.post_info{
+  position: relative;
+}
+
+.add-favorite{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
 .job_info p{
   font-size: 18px;
   line-height: 2.5;
@@ -219,6 +229,11 @@ body{
     padding-right: 30px;
   }
 
+.main{
+  margin: 0;
+  border-left: 1px solid #D6B36A;
+}
+
   .post_info_content{
     display: flex;
     height: auto;
@@ -266,10 +281,6 @@ body{
 
   .add-favorite img{
     background: #fff;
-  }
-
-  .main{
-    margin-top: 50px;
   }
 
 .action img{
@@ -327,9 +338,7 @@ body{
   }
 
   .main{
-    border-left: 1px solid #D6B36A;
     padding-left: 15px;
-    margin-top: 14px;
     width: 100%;
   }
 
