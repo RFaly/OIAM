@@ -92,10 +92,11 @@
 .fc-box .fc-body .cadre-items {
   border: 3px solid #d6b36a;
   margin: 10px;
+  width: 145px;
 }
 
 .fc-box .fc-body .cadre-items .c {
-  width: 135px;
+  width: 100%;
   height: 150px;
   background-repeat: no-repeat;
 }
@@ -103,6 +104,7 @@
 .fc-box .fc-body .name {
   margin: 5px 0;
   text-transform: capitalize;
+  word-break: normal;
 }
 
 .fc-box .fc-body .fc-body-empty {
