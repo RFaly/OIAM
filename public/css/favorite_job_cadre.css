@@ -246,6 +246,12 @@ body{
     float: right;
   }
 
+  .main{
+    margin: 0;
+    padding-left: 15px;
+    border-left: 1px solid #D6B36A;
+  }
+
 
 }
 
@@ -271,10 +277,8 @@ body{
   }
 
   .main{
-    padding-right: 60px;
     width: 100%;
     border-left: 1px solid #D6B36A;
-    padding-left: 15px;
   }
 
 

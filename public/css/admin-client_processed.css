@@ -95,16 +95,3 @@
   background: #d6b36a;
   color: white;
 }
-
-.next-page a{
-  color: #d6b36a;
-  display: flex;
-  justify-content: center;
-}
-
-.crochet{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 5px;
-}

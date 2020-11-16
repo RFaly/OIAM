@@ -11,7 +11,9 @@
 		<div class="fcp-box">
 			<div class="chat-info">
 				<div class="img">
-					<img src="<%= @contact.cadre.cadre_info.image %>" alt="avatar">
+					<a href="<%= cbp_promise_no_validate_path(@contact.cadre.cadre_info.id) %>">
+						<img src="<%= @contact.cadre.cadre_info.image %>" alt="avatar">
+					</a>
 					<% if @contact.cadre.is_online? %>
 					<span class="dot-online"></span>
 					<% end %>

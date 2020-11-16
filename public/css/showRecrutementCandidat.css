@@ -681,7 +681,7 @@ body {
 }
 
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 600px) {
   .content {
     display: flex;
   }
@@ -723,7 +723,7 @@ body {
 
   .main {
     display: block;
-    margin: 15px auto;
+    margin: 0 auto;
     width: 100%;
   }
 

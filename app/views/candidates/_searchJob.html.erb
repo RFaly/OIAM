@@ -26,7 +26,7 @@
 			</div>
 
 			<% else %>
-			<div id="image-<%=offre.id%>-logo-link">
+			<div id="image-<%=offre.id%>-logo-link" class="add-favorite">
 				<%= link_to removeToFavoriteJob_path(id:offre.id), method: :delete, remote: true do %>
 						<img src="/image/Vector-24.png" alt="logo oiam favorie" width="30px" height="30px">
 						<% end %>
@@ -43,13 +43,15 @@
 <% end %>
 <div class="next-page">
 	<% nombre_offres = @nombre_offres  %>
-	<% if @page == 0 && @nombre_offres > @offre_par_page %>
-		<a href="<%= searchJob_path(page: @page + 1 )%>">SUIVANT<span class="crochet"> ></span></a>
-	<% elsif @page ==  @nombre_offres %>
-		<a href="<%= searchJob_path(page: @page - 1 )%>"><span class="crochet"> < </span>PRECEDENT</a>
-	<% else %>
-		<a href="<%= searchJob_path(page: @page - 1 )%>"><span class="crochet">< </span>PRECEDENT |</a>
-		<a href="<%= searchJob_path(page: @page + 1 )%>">| SUIVANT <span class="crochet"> ></span> </a>
+	<% if @nombre_offres > @offre_par_page %>
+		<% if @page == 0%>
+			<a href="<%= searchJob_path(page: @page + 1 )%>">SUIVANT<span class="crochet"> ></span></a>
+		<% elsif @page ==  @nombre_offres %>
+			<a href="<%= searchJob_path(page: @page - 1 )%>"><span class="crochet"> < </span>PRECEDENT</a>
+		<% else %>
+			<a href="<%= searchJob_path(page: @page - 1 )%>"><span class="crochet">< </span>PRECEDENT |</a>
+			<a href="<%= searchJob_path(page: @page + 1 )%>">| SUIVANT <span class="crochet"> ></span> </a>
+		<% end %>
 	<% end %>
 </div>
 
