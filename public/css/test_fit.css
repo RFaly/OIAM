@@ -206,8 +206,9 @@ h2 {
 	border: 1px solid #fff;
 	text-align: center;
 	padding-top: 15px;
-	width: 138px;
-	height: 55px;
+	width: 100%;
+	height: auto;
+	padding: 15px;
 
 	margin-bottom: 50px;
 	cursor: pointer;
@@ -219,7 +220,6 @@ h2 {
 	flex-wrap: wrap;
 	align-items: center;
 	width: 100%;
-	grid-column-gap: 2%;
 }
 
 h2 {
@@ -249,7 +249,7 @@ h2 {
 	margin-bottom: 13px;
 	text-transform: capitalize;
 	font-size: 18px;
-	margin-left: 60px;
+	text-align: center;
 }
 
 .validate {
@@ -257,15 +257,17 @@ h2 {
 }
 
 .btn-valider {
-	float: right;
+	display: block;
+	margin: 0 auto;
 	border: 1px solid #fff;
 	background: none;
-	width: 150px;
-	height: 50px;
+	width: 100%;
+	max-width: 135px;
+	height: auto;
+	padding: 15px;
 	color: #ffff;
 	font-size: 18px;
 	margin-bottom: 50px;
-	margin-right: 25px;
 }
 
 .btn-valider:hover {
@@ -300,6 +302,7 @@ h2 {
 
 	.js-hours {
 		margin-right: 38px;
+		margin-left: 38px;
 	}
 }
 
@@ -315,14 +318,18 @@ h2 {
 
 
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 600px) {
 	.cadre {
 		display: block;
 		margin: auto;
-		width: 870px;
+		width: 100%;
+		max-width: 870px;
 	}
 
 
+.date-title{
+	text-align: left;
+}
 
 	.potential-title img {
 		right: -30px;
@@ -337,6 +344,15 @@ h2 {
 		display: block;
 		margin: 0 auto;
 		width: 100%
+	}
+
+	.js-hours{
+		width: 135px;
+	}
+
+	.btn-valider{
+		width: 135px;
+		float: right;
 	}
 
 }
