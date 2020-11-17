@@ -971,11 +971,14 @@
   .cp-table-box .line-white2 {
     display: block;
   }
+  .cp-table-box .left {
+    text-align: left;
+  }
   .cp-table-box .cp-icon-text img {
     left: -30px;
   }
   .cp-table-box .cpe-adress {
-    width: auto;
+    width: 30%;
   }
   .cp-table-box .cpe-description,
   .cp-table-box .cpe-naf {
@@ -1554,6 +1557,10 @@
   }
   .cp-table-box .cp-flex-t {
     flex-wrap: no-wrap;
+  }
+  .cp-table-box .cpe-adress {
+    width: auto;
+    max-width: 40%;
   }
   .cp-table-box .cp-icon-text img {
     left: -40px;

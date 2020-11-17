@@ -1410,14 +1410,19 @@
       display: block;
     }
 
+    .left {
+      text-align: left;
+    }
+
     .cp-icon-text {
+
       img {
         left: -30px;
       }
     }
 
     .cpe-adress {
-      width: auto;
+      width: 30%;
     }
 
     .cpe-description,
@@ -2282,6 +2287,11 @@
 
     .cp-flex-t {
       flex-wrap: no-wrap;
+    }
+
+    .cpe-adress {
+      width: auto;
+      max-width: 40%;
     }
 
     .cp-icon-text {

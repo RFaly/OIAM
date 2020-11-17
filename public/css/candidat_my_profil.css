@@ -171,6 +171,11 @@ p span{
 		grid-column-gap: 2%;
 	}
 
+
+	.left_link{
+		border-right: 1px solid #D6B36A;
+	}
+	
 	.block-right-content{
 		background-color: #f0f2f4;
 		padding: 15px;
@@ -200,9 +205,6 @@ p span{
 
 @media only screen and (min-width: 1024px){
 
-	.left_link{
-		border-right: 1px solid #D6B36A;
-	}
 
 	.block-button{
 		display: flex;

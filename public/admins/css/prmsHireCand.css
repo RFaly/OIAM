@@ -18,7 +18,6 @@
 }
 
 .block-image img {
-  background-position: center;
   object-fit: cover !important;
 }
 
