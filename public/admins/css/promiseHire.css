@@ -30,3 +30,7 @@
   color: #d6b36a;
   text-decoration: none;
 }
+
+img {
+  object-fit: cover !important;
+}
