@@ -181,9 +181,10 @@ class RecruteursController < ApplicationController
 			flash[:alert] = "Cette offre n'est plus disponible."
 			redirect_back(fallback_location: root_path)
 		else
-			@cadre_infos = @offre.metier.cadre_infos.where(empty:false)
+			@cadre_infos = @offre.metier.cadre_infos.where(empty:false,status:"DISPONIBLE")
 
 			region = Region.find_by_name(@offre.region)
+
 			ville = region.villes.find_by_name(@offre.department)
 
 			minimum_salar = @offre.remuneration.to_i
@@ -193,9 +194,12 @@ class RecruteursController < ApplicationController
 			@cadre_infos = @cadre_infos.where(mobilite: @offre.type_deplacement)
 
 			my_cadres = []
+			all_cadres = []
 
 			unless @cadre_infos.empty?
+				@cadre_infos = @cadre_infos.order('score_potential ASC')
 				@cadre_infos.each do |cadre_info|
+					next if !cadre_info.cadre.promise_to_hires.where(repons_cadre:true).empty?
 					if cadre_info.region.name = "Toutes les régions"
 						my_cadres.push(cadre_info)
 					else
@@ -209,9 +213,12 @@ class RecruteursController < ApplicationController
 								end
 							end
 					end
+					all_cadres.push(cadre_info)
 				end
 			end
-			@cadre_infos = my_cadres
+
+			@cadre_infos = ([my_cadres + all_cadres]).uniq
+
 		end
 	end
 
