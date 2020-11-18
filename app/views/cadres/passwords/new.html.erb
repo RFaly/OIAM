@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/confirmation.css">
 <!-- html body  -->
 <div class="confirmation">
-  <h5 class="title">Mot de passe oublier</h5>
+  <h5 class="title">Mot de passe oublié</h5>
   <%= render "clients/shared/error_messages", resource: resource %>
   <div class="confirmation-box">
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
