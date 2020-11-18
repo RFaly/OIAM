@@ -217,7 +217,7 @@ class RecruteursController < ApplicationController
 				end
 			end
 
-			@cadre_infos = ([my_cadres + all_cadres]).uniq
+			@cadre_infos = (my_cadres + all_cadres).uniq
 
 		end
 	end
