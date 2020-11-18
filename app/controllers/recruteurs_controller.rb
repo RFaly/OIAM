@@ -230,15 +230,14 @@ class RecruteursController < ApplicationController
 		@metiers = Metier.all
     	@regions = Region.all
 		#afficher tous les cadre dans la bdd
-		cadres = Cadre.joins(:cadre_info).where("cadre_infos.empty = ?",false)
-
+		# seul les candidat non recruté
+		# cadres = Cadre.joins(:cadre_info).where("cadre_infos.empty = ?",false)
+		cadres = Cadre.joins(:cadre_info).where(cadre_infos: {empty:false,status:"DISPONIBLE"})
 
 		@nombre_candidat = ((cadres.count.to_f)/@offre_par_page).ceil
 
 		@page = params.fetch(:page, 0).to_i
 		@cadres = cadres.offset(@page * @offre_par_page).limit(@offre_par_page)
-
-
 
 	end
 
