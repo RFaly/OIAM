@@ -533,7 +533,7 @@ class RecruteursController < ApplicationController
 				ProcessedHistory.create(
 					image: "/image/work.png",
 					message: "FEEDBACK ENTRETIEN",
-					link: "<a href= '#{clients_bp_effectue_entretien_path(@oFc.agenda_clients.id)}'>VOIR</a>",
+					link: "<a href= '#{clients_bp_effectue_entretien_path(@oFc.agenda_clients.last.id)}'>VOIR</a>",
 					is_client:true,
 					client:current_client,
 					genre: 1
