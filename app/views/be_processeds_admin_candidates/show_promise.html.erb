@@ -17,8 +17,8 @@
                 <div><strong><%= @job.contrat_cdi ? "CONTRAT À DURÉE INDÉTERMINÉE" : "CONTRAT À DURÉE DÉTERMINÉE" %></strong></div>
               </div>
               <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
-                <div><strong>Nom : </strong><a href="<%= cbp_promise_no_validate_path(@cadre.id) %>"><%= @cadre.last_name.capitalize %></a></div>
-                <div><strong>Prénom : </strong><a href="<%= cbp_promise_no_validate_path(@cadre.id) %>"><%= @cadre.first_name.capitalize %></a></div>
+                <div><strong>Nom : </strong><a class="rmv-txt" href="<%= cbp_promise_no_validate_path(@cadre.id) %>"><%= @cadre.last_name.capitalize %></a></div>
+                <div><strong>Prénom : </strong><a class="rmv-txt" href="<%= cbp_promise_no_validate_path(@cadre.id) %>"><%= @cadre.first_name.capitalize %></a></div>
                 <% unless @promise.birthday_cadre.nil? || @promise.birthplace_cadre.nil?  ||  @promise.ns_sociale_cadre.nil? %>
                   <div><strong>Date de naissance : </strong><%= @promise.birthday_cadre %></div>
                   <div><strong>Lieu de naissance : </strong><%= @promise.birthplace_cadre %></div>
