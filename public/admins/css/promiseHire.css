@@ -34,3 +34,13 @@
 img {
   object-fit: cover !important;
 }
+
+.rmv-txt {
+  color: #d6b36a;
+  text-decoration: none;
+}
+
+.rmv-txt:hover {
+  color: #d6b36a;
+  text-decoration: none;
+}
