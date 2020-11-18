@@ -12,7 +12,11 @@
       <% processedHistories = cadre_info.processed_histories.order(created_at: :DESC) %>
       <div class="acp-name" data-items="<%= cadre_info.id%>">
         <%= cadre_info.first_name %> <%= cadre_info.last_name %>
-        <img src="<%= cadre_info.image %>" alt="pdp">
+        <% unless cadre_info.image.nil? %>
+          <img src="<%= cadre_info.image %>" alt="pdp">
+        <% else %>
+          <img src='/image/profie.png' />
+        <% end %>
       </div>
       <div class="hide-box" id="<%= cadre_info.id%>">
         <div id="<%= cadre_info.id%>i">

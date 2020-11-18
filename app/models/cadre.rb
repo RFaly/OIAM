@@ -64,8 +64,8 @@ class Cadre < ApplicationRecord
     return number
   end
 
-  def cadrefrees
-    Cadre.joins(:promise_to_hires).where(promise_to_hires: { id: nil })
+  def self.cadrefrees
+    Cadre.includes(:promise_to_hires).where(promise_to_hires: { id: nil })
   end
 
 end
