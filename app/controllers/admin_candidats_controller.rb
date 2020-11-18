@@ -99,7 +99,7 @@ class AdminCandidatsController < ApplicationAdminController
   end
 
   def processed
-		@offre_par_page = 3
+		@offre_par_page = 20
 		@nombre_pages = ((CadreInfo.all.joins(:processed_histories)).distinct.count/@offre_par_page).floor
 		@page = params.fetch(:page, 0).to_i
     @cadre_infos = CadreInfo.order(first_name: :asc, last_name: :asc).joins(:processed_histories).distinct.offset(@page * @offre_par_page).limit(@offre_par_page)
