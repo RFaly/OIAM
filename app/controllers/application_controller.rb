@@ -15,3 +15,6 @@ class ApplicationController < ActionController::Base
   end
 
 end
+
+#Ce(tte) candidat(e) n'est plus disponible.
+# cadrefrees

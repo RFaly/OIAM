@@ -1,5 +1,11 @@
 <link rel="stylesheet" href="/css/be_processed.css" />
 <!-- call css  -->
+<style>
+    .gold-ttl {
+        font-weight: bold;
+        color: #d6b36a;
+    }
+</style>
 <!-- html body  -->
 <div class="client-column">
   <div class="client-menu-left">
@@ -71,7 +77,7 @@
         <div data-name=".INSCRIPTION" data-min="<%= enter_date %>" data-max="<%= date_lim %>"
           class="bp-box list-items-me">
           <div class="bp-inside-box">
-            <div class="bp-inscr">INSCRIPTION<br>
+            <div class="bp-inscr"><span class="gold-ttl">INSCRIPTION</span><br>
               Etat: Compte non créé
             </div>
             <div class="bp-name pt-4">
@@ -106,7 +112,7 @@
         <div data-name=".SELECTION_CANDIDATS" data-min="<%= enter_date %>" data-max="<%= date_lim %>"
           class="bp-box list-items-me">
           <div class="bp-inside-box">
-            <div class="bp-inscr">SELECTION CANDIDATS<br>
+            <div class="bp-inscr"><span class="gold-ttl">SELECTION CANDIDATS</span><br>
               Etat: Offre publiée/Candidat non sélectionné
             </div>
             <div class="bp-name pt-4">
@@ -144,7 +150,7 @@
         <div data-name=".PLANIFICATION_ENTRETIEN" data-min="<%= enter_date %>" data-max="~"
           class="bp-box list-items-me">
           <div class="bp-inside-box">
-            <div class="bp-inscr">PLANIFICATION ENTRETIEN<br>
+            <div class="bp-inscr"><span class="gold-ttl">PLANIFICATION ENTRETIEN</span><br>
               Etat: Planification envoyée
             </div>
             <div class="bp-name pt-4">
@@ -182,7 +188,7 @@
 
         <div data-name=".FEEDBACK_ENTRETIEN" data-min="<%= enter_date %>" data-max="~" class="bp-box list-items-me">
           <div class="bp-inside-box">
-            <div class="bp-inscr">FEEDBACK ENTRETIEN<br>
+            <div class="bp-inscr"><span class="gold-ttl">FEEDBACK ENTRETIEN</span><br>
               Etat: En mode entretien
             </div>
             <div class="bp-name pt-4">
@@ -220,7 +226,7 @@
         <div data-name=".PROMESSE_D_EMBAUCHE" data-min="<%= enter_date %>" data-max="<%= date_lim %>"
           class="bp-box list-items-me">
           <div class="bp-inside-box">
-            <div class="bp-inscr">PROMESSE D'EMBAUCHE<br>
+            <div class="bp-inscr"><span class="gold-ttl">PROMESSE D'EMBAUCHE</span><br>
               Etat: En mode remplissage
             </div>
             <div class="bp-name pt-4">
@@ -262,7 +268,7 @@
         <div data-name=".PERIODE_D_ESSAI_ROMPUE" data-min="<%= enter_date %>" data-max="<%= @pThWa1 %>"
           class="bp-box list-items-me">
           <div class="bp-inside-box">
-            <div class="bp-inscr">PERIODE D'ESSAI ROMPUE<br>
+            <div class="bp-inscr"><span class="gold-ttl">PERIODE D'ESSAI ROMPUE</span><br>
               Etat: A rompre
             </div>
             <div class="bp-name pt-4">
