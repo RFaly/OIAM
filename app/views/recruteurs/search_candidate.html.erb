@@ -66,28 +66,28 @@
             </div>
           </div>
           <% end %>
-        </div>
-        <div class="link-pagination">
-          <%if @nombre_candidat > 1%>
-
-          <%if @page == 0 %>
-          <a href="<%= search_candidate_path(@offre, page: @page + 1) %>">
-            <b>Suivant</b> <span> ></span>
-          </a>
-          <%elsif @page == @nombre_candidat - 1 %>
-          <a href="<%= search_candidate_path(@offre, page: @page - 1) %>">
-            <span>
-              <</span> <b>Précédant</b>
-          </a>
-          <%else %>
-          <a href="<%= search_candidate_path(@offre, page: @page - 1) %>"><span>
-              <</span> <b>Précédant</b>
-          </a> |
-          <a href="<%= search_candidate_path(@offre, page: @page + 1) %>">
-            <b>Suivant</b><span> ></span>
-          </a>
-          <%end %>
-          <%end %>
+          <div class="link-pagination">
+            <%if @nombre_candidat > 1%>
+  
+            <%if @page == 0 %>
+            <a href="<%= search_candidate_path(@offre, page: @page + 1) %>">
+              <b>Suivant</b> <span> ></span>
+            </a>
+            <%elsif @page == @nombre_candidat - 1 %>
+            <a href="<%= search_candidate_path(@offre, page: @page - 1) %>">
+              <span>
+                <</span> <b>Précédant</b>
+            </a>
+            <%else %>
+            <a href="<%= search_candidate_path(@offre, page: @page - 1) %>"><span>
+                <</span> <b>Précédant</b>
+            </a> |
+            <a href="<%= search_candidate_path(@offre, page: @page + 1) %>">
+              <b>Suivant</b><span> ></span>
+            </a>
+            <%end %>
+            <%end %>
+          </div>
         </div>
         <!-- <% @nombre_candidat.times do |item|%>
 
