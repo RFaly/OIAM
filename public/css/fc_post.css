@@ -29,6 +29,11 @@
   font-size: 20px;
 }
 
+.fcp-box .title.title-our {
+  font: 500 18px Raleway, sans-serif;
+  color: #d6b36a;
+}
+
 .fcp-box .title.t2 {
   text-transform: uppercase;
   font: 500 18px Raleway, sans-serif;
