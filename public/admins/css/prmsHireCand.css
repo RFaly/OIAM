@@ -44,7 +44,7 @@
   font-family: Questrial, sans-serif;
   text-transform: capitalize;
   color: #fff;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
 }
@@ -52,6 +52,7 @@
 .info-cadd {
   background: #d6b36a;
   position: relative;
+  height: 300px;
 }
 
 .block-image {
@@ -84,7 +85,7 @@ strong {
 }
 
 .info-secnd {
-  margin-top: 60px;
+  margin-top: 75px;
   margin-left: -25px;
 }
 
