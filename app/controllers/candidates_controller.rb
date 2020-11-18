@@ -95,7 +95,7 @@ class CandidatesController < ApplicationController
       ProcessedHistory.create(
         image: @cadre.image,
         # message: "#{@cadre.first_name} #{@cadre.last_name} a complété son profil.",
-        message: "ADMISSION",
+        message: "COMPLETION PROFIL",
         link: "<a href='#{cbp_promise_no_validate_path(@cadre.id)}'>VOIR</a>",#VOIR LE CANDIDAT
         is_client:false,
         cadre_info: @cadre,
@@ -702,6 +702,10 @@ class CandidatesController < ApplicationController
 
       oFc = @offreJob.is_in_this_job(current_cadre)
       flash[:notice] = "Promesse d'embauche validé."
+
+      
+      current_cadre.cadre_info.update(status:"EN PÉRIODE D'ESSAI")
+
       redirect_to show_recrutment_monitoring_path(oFc.id)
     else
       flash[:alert] = errorMessage

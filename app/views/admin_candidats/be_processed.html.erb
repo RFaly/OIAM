@@ -1,6 +1,12 @@
 <!-- call css  -->
 <link rel="stylesheet" href="/css/be_processed.css" />
 <!-- call css  -->
+<style>
+	.gold-ttl {
+		font-weight: bold;
+		color: #d6b36a;
+	}
+</style>
 <!-- html body  -->
 <div class="client-column">
 	<div class="client-menu-left">
@@ -63,7 +69,7 @@
 				<div data-name=".INSCRIPTION_TEST_POTENTIEL" class="bp-box list-items-me" data-min="<%= minDate %>" data-max="<%= maxDate %>">
 					<!-- <img src='/image/profie.png'/> <br> -->
 					<div class="bp-inside-box">
-						<div class="bp-inscr">INSCRIPTION TEST POTENTIAL<br>
+						<div class="bp-inscr"><span class="gold-ttl">INSCRIPTION TEST POTENTIAL</span><br>
 							Etat: non terminée
 						</div>
 						<div class="bp-name">
@@ -95,7 +101,7 @@
 
 				<div data-name=".PLANIFICATION_ENTRETIEN_FIT" class="bp-box list-items-me" data-min="<%= minDate %>" data-max="<%= maxDate %>">
 					<div class="bp-inside-box">
-						<div class="bp-inscr">PLANIFICATION ENTRETIEN FIT<br>
+						<div class="bp-inscr"><span class="gold-ttl">PLANIFICATION ENTRETIEN FIT</span><br>
 							Etat: à valider
 						</div>
 						<div class="bp-name pt-4">
@@ -126,7 +132,7 @@
 				<% maxDate = cadreInfoEnterScoreFit.agenda_admin.entretien_date.next_day(1).strftime("%d/%m/%Y") %>
 				<div data-name=".ENTRETIEN_FIT" class="bp-box list-items-me" data-min="<%= minDate %>" data-max="<%= maxDate %>">
 					<div class="bp-inside-box">
-						<div class="bp-inscr">ENTRETIEN FIT<br>
+						<div class="bp-inscr"><span class="gold-ttl">ENTRETIEN FIT</span><br>
 							Etat:  à effectuer
 						</div>
 						<div class="bp-name pt-4">
@@ -161,7 +167,7 @@
 				<div data-name=".COMPLETION_PROFIL" class="bp-box list-items-me" data-min="<%= minDate %>"
 					data-max="<%= maxDate %>">
 					<div class="bp-inside-box">
-						<div class="bp-inscr">COMPLETION PROFIL<br>
+						<div class="bp-inscr"><span class="gold-ttl">COMPLETION PROFIL</span><br>
 							Etat: Profil non complété
 						</div>
 						<div class="bp-name pt-4">
@@ -193,7 +199,7 @@
 				<div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me"
 					data-min="<%= cINPT.promise_not_reponded[1] %>" data-max="<%= cINPT.promise_not_reponded[0] %>">
 					<div class="bp-inside-box">
-						<div class="bp-inscr">PROMESSE D'EMBAUCHE<br>
+						<div class="bp-inscr"><span class="gold-ttl">PROMESSE D'EMBAUCHE</span><br>
 							Etat: Promesse d'embauche non validée
 						</div>
 						<div class="bp-name pt-4">
@@ -230,7 +236,7 @@
 				<div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me"
 					data-min="<%= pThWa.offre_job.date_poste %>" data-max="<%= @pThWa1 %>">
 					<div class="bp-inside-box">
-						<div class="bp-inscr">PERIODE D'ESSAI<br>
+						<div class="bp-inscr"><span class="gold-ttl">PERIODE D'ESSAI</span><br>
 							Etat: Période d'essai non validée
 						</div>
 						<div class="bp-name pt-4">
@@ -270,7 +276,7 @@
 				<div data-name=".PRIME" class="bp-box list-items-me" data-min="<%= pThWa.offre_job.date_poste %>"
 					data-max="<%= @pThWa1 %>">
 					<div class="bp-inside-box">
-						<div class="bp-inscr">PRIME<br>
+						<div class="bp-inscr"><span class="gold-ttl">PRIME</span><br>
 							Etat : Prime non reçue
 						</div>
 						<div class="bp-name pt-4">
