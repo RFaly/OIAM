@@ -155,6 +155,12 @@ strong {
   .info-secnd {
     margin-left: 0px;
   }
+  .info-cadd {
+    margin-top: 100px;
+  }
+  .quest {
+    margin-top: 100px;
+  }
 }
 @media only screen and (max-width: 576px) {
   .separator {
@@ -182,6 +188,12 @@ strong {
   }
   .info-secnd {
     margin-left: 0px;
+  }
+  .info-cadd {
+    margin-top: 100px;
+  }
+  .quest {
+    margin-top: 100px;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -225,8 +237,12 @@ strong {
   .col-md-4 {
     max-width: none;
   }
-
-
+  .info-cadd {
+    margin-top: 100px;
+  }
+  .quest {
+    margin-top: 100px;
+  }
 }
 @media only screen and (max-width: 992px) {
   body {
