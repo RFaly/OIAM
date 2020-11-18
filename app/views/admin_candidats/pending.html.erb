@@ -1,4 +1,10 @@
 <link rel="stylesheet" href="/css/be_processed.css" />
+<style>
+    .gold-ttl {
+        font-weight: bold;
+        color: #d6b36a;
+    }
+</style>
 <div class="client-column">
     <div class="client-menu-left">
         <%= render partial: "admin_candidats/left_menu" %>
@@ -11,7 +17,7 @@
                 <% @entretien_fit_a_venirs.each do |entretien_fit_a_venir| %>
                 <div data-name=".INSCRIPTION" class="bp-box list-items-me">
                     <div class="bp-inside-box">
-                        <div class="bp-inscr">INSCRIPTION <br>
+                        <div class="bp-inscr"><span class="gold-ttl">INSCRIPTION</span><br>
                             Etat: Rdv Fit à effectuer
                         </div>
                         <div class="bp-name">

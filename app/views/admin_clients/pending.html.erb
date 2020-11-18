@@ -1,6 +1,12 @@
 <!-- call css  -->
 <link rel="stylesheet" href="/css/be_processed.css" />
 <!-- call css  -->
+<style>
+    .gold-ttl {
+        font-weight: bold;
+        color: #d6b36a;
+    }
+</style>
 <!-- html body  -->
 <div class="client-column">
   <div class="client-menu-left">
@@ -67,7 +73,7 @@
         <div data-name=".PLANIFICATION_ENTRETIEN" class="bp-box list-items-me" data-min="<%= enter_date %>"
           data-max="~">
           <div class="bp-inside-box">
-            <div class="bp-inscr">PLANIFICATION ENTRETIEN</div>
+            <div class="bp-inscr"><span class="gold-ttl">PLANIFICATION ENTRETIEN</span></div>
             <div class="bp-name">
               <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
             </div>
@@ -109,7 +115,7 @@
         <div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me" data-min="<%= enter_date %>"
           data-max="<%= lim_date %>">
           <div class="bp-inside-box">
-            <div class="bp-inscr">PROMESSE D'EMBAUCHE</div>
+            <div class="bp-inscr"><span class="gold-ttl">PROMESSE D'EMBAUCHE</span></div>
             <div class="bp-name">
               <%= cINPT.first_name %> <%= cINPT.last_name %>
             </div>
@@ -149,7 +155,7 @@
         <div data-name=".VALIDATION_PERIODE_D_ESSAI" data-min="<%= enter_date %>" data-max="<%= @pThWa1 %>"
           class="bp-box list-items-me">
           <div class="bp-inside-box">
-            <div class="bp-inscr">VALIDATION PERIODE D'ESSAI</div>
+            <div class="bp-inscr"><span class="gold-ttl">VALIDATION PERIODE D'ESSAI</span></div>
             <div class="bp-name">
               <%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
             </div>
