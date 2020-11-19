@@ -13,7 +13,7 @@
             <div class="row">
               <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
                 <a href="<%= clients_bp_show_client_path(@promise.offre_job.client.id) %>"><img src="<%= @promise.offre_job.image %>"alt="photo profil candidats", width="150px", height="150px" ></a>
-                <div><strong><a href="<%= clients_bp_offre_job_no_cadre_path(@job.id) %>"><%= @job.intitule_pote.upcase %></a></strong></div>
+                <div><strong><a class="rmv-txt" href="<%= clients_bp_offre_job_no_cadre_path(@job.id) %>"><%= @job.intitule_pote.upcase %></a></strong></div>
                 <div><strong><%= @job.contrat_cdi ? "CONTRAT À DURÉE INDÉTERMINÉE" : "CONTRAT À DURÉE DÉTERMINÉE" %></strong></div>
               </div>
               <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
