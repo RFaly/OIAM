@@ -167,6 +167,7 @@
   max-height: 130px;
   height: 50px;
   padding: 10px;
+  padding-right: 40px;
   border-radius: 0;
   border: 1.5px solid #d6b36a;
 }
