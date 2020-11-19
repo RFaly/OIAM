@@ -30,7 +30,7 @@
       <div>
         <% if @cadre_info.status_state == "admis" %>
         <div class="row resp-row">
-          <div class="block-image col-lg-4 col-md-4 col-sm-12 col-sx-12">
+          <div class="block-image col-lg-3 col-md-3 col-sm-12 col-sx-12">
             <% unless @cadre_info.image.nil? %>
             <img src="<%= @cadre_info.image %>" alt="photo profil candidats" , width="300px" , height="300px" ,
               class="pdp" />
@@ -38,7 +38,7 @@
             <img src="/image/profie.png" alt="photo profil candidats" , width="300px" , height="300px" , class="pdp" />
             <% end %>
           </div>
-          <div class="info-cadd col-lg-8 col-md-8 row col-sm-12 col-xs-12">
+          <div class="info-cadd col-lg-9 col-md-9 row col-sm-12 col-xs-12">
             <div class="info-frst col-lg-6 col-md-12 col-sm-12 col-xs-12">
               <h4 class="user_name"><%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %>
                 <br></h4>
@@ -137,7 +137,7 @@
         </div>
         <% else %>
         <div class="row">
-          <div class="block-image col-lg-4 col-md-4 col-sm-12 col-sx-12">
+          <div class="block-image col-lg-3 col-md-3 col-sm-12 col-sx-12">
             <img src="/image/profie.png" alt="photo profil candidats" , width="300px" , height="300px" , class="pdp" />
           </div>
           <div class="info-cadd col-lg-12 col-md-8 row col-sm-12 col-xs-12">
