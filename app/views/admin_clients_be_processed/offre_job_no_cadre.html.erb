@@ -25,7 +25,7 @@
               </div>
               <div class="local col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <p ><strong class="entre-name">OFFRE D'EMPLOI DE <%= @offre_job.client.entreprise.name.upcase %></strong></p>
-                <p><strong><%= @offre_job.intitule_pote %></strong></p>
+                <p><strong><%= @offre_job.intitule_pote.upcase %></strong></p>
                 <p><strong>DEPARTEMENTS : </strong><%= @offre_job.department %></p>
                 <p><strong>PAYS : </strong><%= @offre_job.country %></p>
                 <p><strong>REGION : </strong><%= @offre_job.region%></p>
