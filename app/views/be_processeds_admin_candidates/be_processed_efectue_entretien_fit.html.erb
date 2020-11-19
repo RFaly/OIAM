@@ -15,7 +15,7 @@ if (document.URL.indexOf('#') == -1){url = document.URL + '#';location = '#';loc
 
 
     <div class="row pr-row">
-      <div class="fit-box-left col-lg-4 col-md-12 col-sm-12 col-xs-12">
+      <div class="fit-box-left col-lg-3 col-md-12 col-sm-12 col-xs-12">
         <div class="cd-info">
           <% unless @cadre_info.image.nil? %>
             <img src="<%= @cadre_info.image %>" alt="photo profil candidats">
@@ -32,7 +32,7 @@ if (document.URL.indexOf('#') == -1){url = document.URL + '#';location = '#';loc
         </div>
       </div>
 
-      <div class="fit-box-right col-lg-8 col-md-12 col-sm-12 col-xs-12">
+      <div class="fit-box-right col-lg-9 col-md-12 col-sm-12 col-xs-12">
           <% if @cadre_info.is_recrute.nil?%>
 
             <div class="all-info-cadd">

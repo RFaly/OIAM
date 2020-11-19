@@ -18,6 +18,14 @@
     color: #fff;
     text-decoration: none;
   }
+
+  .lnk-prms {
+    color: #fff !important;
+  }
+
+  .lnk-prms:hover {
+    color: #fff !important;
+  }
 </style>
 <div class="client-column">
   <div class="client-menu-left">
@@ -30,7 +38,7 @@
       <div>
         <% if @cadre_info.status_state == "admis" %>
         <div class="row resp-row">
-          <div class="block-image col-lg-4 col-md-4 col-sm-12 col-sx-12">
+          <div class="block-image col-lg-3 col-md-3 col-sm-12 col-sx-12">
             <% unless @cadre_info.image.nil? %>
             <img src="<%= @cadre_info.image %>" alt="photo profil candidats" , width="300px" , height="300px" ,
               class="pdp" />
@@ -38,15 +46,15 @@
             <img src="/image/profie.png" alt="photo profil candidats" , width="300px" , height="300px" , class="pdp" />
             <% end %>
           </div>
-          <div class="info-cadd col-lg-8 col-md-8 row col-sm-12 col-xs-12">
+          <div class="info-cadd col-lg-9 col-md-9 row col-sm-12 col-xs-12">
             <div class="info-frst col-lg-6 col-md-12 col-sm-12 col-xs-12">
               <h4 class="user_name"><%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %>
                 <br></h4>
               <p><strong>Adresse : </strong><%= @cadre_info.adresse %></p>
               <p><strong>Code postal : </strong><%= @cadre_info.postal_code %></p>
               <p><strong>Ville : </strong><%= @cadre_info.city %></p>
-              <p><strong>Téléphone : </strong><%= @cadre_info.telephone %></p>
-              <p><strong>Score du test : </strong><%= @cadre_info.score_potential %></p>
+              <p><strong>Mail :</strong><a class="lnk-prms" href="mailto:<%= @cadre_info.mail %>"><%= @cadre_info.mail %></a></p>
+              <p><strong>Téléphone : </strong><a class="lnk-prms" href="tel:+33<%= @cadre_info.telephone %>">+33 <%= @cadre_info.telephone %></a></p>
               <p><strong>Type de poste : </strong><%= @cadre_info.metier.name %></p>
             </div>
 <!--             <div class="separator">
@@ -55,21 +63,13 @@
               </svg>
             </div> -->
             <div class="info-secnd col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <p><strong>Score du test : </strong><%= @cadre_info.score_potential %></p>
               <p><strong>Profession : </strong><%= @cadre_info.job %></p>
               <p><strong>Statut : </strong><%= @cadre_info.status.capitalize %></p>
               <p><strong>Disponibilité : </strong><%= @cadre_info.disponibilite %></p>
               <p><strong>Mobilité : </strong>
                 <span>
-                  <% case @cadre_info.mobilite.to_i %>
-                  <% when 1 %>
-                  NATIONALE
-                  <% when 2 %>
-                  INTERNATIONALE
-                  <% when 3 %>
-                  LOCALE
-                  <% when 0 %>
-                  PAS DE DÉPLACEMENT
-                  <% end %>
+                  <%= @cadre_info.mobilite_name %>
                 </span>
               </p>
               <p><strong>Salaire (Brut annuel) : </strong><%= @cadre_info.question4.to_i %> k€</p>
@@ -108,7 +108,7 @@
                   </div>
                   <div class="depll col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <% if @cadre_info.deplacement %>
-                    <div class="depl-ttl">Fréquence de déplacement </div>
+                    <div class="depl-ttl">Fréquence de déplacement</div>
                     <div class="depl-ct"><%= @cadre_info.frequency %></div>
                     <% else %>
                     <div class="depl-ct">Pas de déplacement.</div>
@@ -137,7 +137,7 @@
         </div>
         <% else %>
         <div class="row">
-          <div class="block-image col-lg-4 col-md-4 col-sm-12 col-sx-12">
+          <div class="block-image col-lg-3 col-md-3 col-sm-12 col-sx-12">
             <img src="/image/profie.png" alt="photo profil candidats" , width="300px" , height="300px" , class="pdp" />
           </div>
           <div class="info-cadd col-lg-12 col-md-8 row col-sm-12 col-xs-12">
@@ -147,7 +147,7 @@
               <p><strong>Adresse : </strong><%= @cadre_info.adresse %></p>
               <p><strong>Code postal : </strong><%= @cadre_info.postal_code %></p>
               <p><strong>Ville : </strong><%= @cadre_info.city %></p>
-              <p><strong>Téléphone : </strong><%= @cadre_info.telephone %></p>
+              <p><strong>Téléphone : </strong><a class="lnk-prms" href="tel:+33<%= @cadre_info.telephone %>">+33 <%= @cadre_info.telephone %></a></p>
               <% if @cadre_info.status == "non admis" %>
               <p><strong>Statut :</strong><%= @cadre_info.status_state %></p>
               <% else %>
