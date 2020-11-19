@@ -44,7 +44,7 @@ class CadreInfo < ApplicationRecord
 		when "2"
 		  "INTERNATIONALE"
 		when "3"
-		  "LOCALE"
+		  "REGIONAL"
 		when "0"
 		  "PAS DE DÉPLACEMENT"
 		end

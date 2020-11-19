@@ -60,16 +60,7 @@
               <p><strong>Disponibilité : </strong><%= @cadre_info.disponibilite %></p>
               <p><strong>Mobilité : </strong>
                 <span>
-                  <% case @cadre_info.mobilite.to_i %>
-                  <% when 1 %>
-                  NATIONALE
-                  <% when 2 %>
-                  INTERNATIONALE
-                  <% when 3 %>
-                  LOCALE
-                  <% when 0 %>
-                  PAS DE DÉPLACEMENT
-                  <% end %>
+                  <%= @cadre_info.mobilite_name %>
                 </span>
               </p>
               <p><strong>Salaire (Brut annuel) : </strong><%= @cadre_info.question4.to_i %> k€</p>
@@ -108,7 +99,7 @@
                   </div>
                   <div class="depll col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <% if @cadre_info.deplacement %>
-                    <div class="depl-ttl">Fréquence de déplacement </div>
+                    <div class="depl-ttl">Fréquence de déplacement</div>
                     <div class="depl-ct"><%= @cadre_info.frequency %></div>
                     <% else %>
                     <div class="depl-ct">Pas de déplacement.</div>
