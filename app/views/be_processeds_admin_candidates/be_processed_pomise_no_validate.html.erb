@@ -45,7 +45,8 @@
               <p><strong>Adresse : </strong><%= @cadre_info.adresse %></p>
               <p><strong>Code postal : </strong><%= @cadre_info.postal_code %></p>
               <p><strong>Ville : </strong><%= @cadre_info.city %></p>
-              <p><strong>Téléphone : </strong><%= @cadre_info.telephone %></p>
+              <p><strong>Mail :</strong><a href="mailto:<%= @cadre_info.mail %>"><%= @cadre_info.mail %></a></p>
+              <p><strong>Téléphone : </strong><a href="tel:+33<%= @cadre_info.telephone %>">+33 <%= @cadre_info.telephone %></a></p>
               <p><strong>Score du test : </strong><%= @cadre_info.score_potential %></p>
               <p><strong>Type de poste : </strong><%= @cadre_info.metier.name %></p>
             </div>

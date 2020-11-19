@@ -45,11 +45,11 @@
               <p><%= @client.fonction %></p>
               <div class="cpr-r">
                 <img src="/image/mess.png" alt="logo mail" class="cp-icone cpr-i-mail" />
-                <p><%= @client.mail %></p>
+                <p><a href="mailto:<%= @client.mail %>"><%= @client.mail %></a></p>
               </div>
               <div class="cpr-r">
                 <img src="/image/call.png" alt="logo mail" class="cp-icone" />
-                <p>+33 <%= @client.telephone %></p>
+                <p><a href="tel:+33<%= @client.telephone %>">+33 <%= @client.telephone %></a></p>
               </div>
             </div>
           </td>
