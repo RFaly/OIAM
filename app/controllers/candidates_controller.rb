@@ -118,11 +118,11 @@ class CandidatesController < ApplicationController
 
 	def searchJob
     validate_info_cadre
-    @offre_par_page = 10
+    @offre_par_page = 20
     @metiers = Metier.all
     @regions = Region.all
     @nombre_offres = ((OffreJob.where(is_publish:true).all.count)/@offre_par_page).floor
-    @page = params.fetch(:page, 0).to_i
+    @page = params.fetch(:page, 1).to_i
     @offres = OffreJob.where(is_publish:true).offset(@page * @offre_par_page).limit(@offre_par_page)
 	end
 
@@ -707,7 +707,7 @@ class CandidatesController < ApplicationController
       oFc = @offreJob.is_in_this_job(current_cadre)
       flash[:notice] = "Promesse d'embauche validé."
 
-      
+
       current_cadre.cadre_info.update(status:"EN PÉRIODE D'ESSAI")
 
       redirect_to show_recrutment_monitoring_path(oFc.id)
@@ -743,7 +743,7 @@ class CandidatesController < ApplicationController
     unless @promise.cadre_time_trying==false && @promise.client_time_trying.nil?
 
       somaiso = "PERIODE D'ESSAI ROMPUE"
-      
+
       if @promise.client_time_trying == true
         ProcessedHistory.create(
           image: current_cadre.cadre_info.image,
