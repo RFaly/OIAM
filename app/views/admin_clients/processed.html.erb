@@ -29,6 +29,18 @@
           </div>
         </div>
         <% end %>
+        <div class="next-page">
+        <% if @nombre_pages > @offre_par_page %>
+          <% if @page == 0 %>
+            <a href="<%= clients_processed_path(page: @page + 1 )%>">SUIVANT<span class="crochet"> ></span></a>
+          <% elsif @page == @nombre_pages - 1 %>
+            <a href="<%= clients_processed_path(page: @page - 1 )%>"><span class="crochet"> < </span>PRECEDENT</a>
+          <% else %>
+            <a href="<%= clients_processed_path(page: @page - 1 )%>"><span class="crochet">< </span>PRECEDENT |</a>
+            <a href="<%= clients_processed_path(page: @page + 1 )%>">| SUIVANT <span class="crochet"> ></span> </a>
+          <% end %>
+        <% end %>
+        </div>
       </div>
     <% else %>
       <p style="font-family: Questrial, sans-serif"
@@ -36,18 +48,6 @@
         traitee
       </p>
     <% end %>
-    <div class="next-page">
-    <% if @nombre_pages > @offre_par_page %>
-      <% if @page == 0 %>
-        <a href="<%= clients_processed_path(page: @page + 1 )%>">SUIVANT<span class="crochet"> ></span></a>
-      <% elsif @page == @nombre_pages - 1 %>
-        <a href="<%= clients_processed_path(page: @page - 1 )%>"><span class="crochet"> < </span>PRECEDENT</a>
-      <% else %>
-        <a href="<%= clients_processed_path(page: @page - 1 )%>"><span class="crochet">< </span>PRECEDENT |</a>
-        <a href="<%= clients_processed_path(page: @page + 1 )%>">| SUIVANT <span class="crochet"> ></span> </a>
-      <% end %>
-    <% end %>
-    </div>
   </div>
 </div>
 

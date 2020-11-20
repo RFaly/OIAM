@@ -183,46 +183,40 @@ class RecruteursController < ApplicationController
 		if @offre.nil?
 			flash[:alert] = "Cette offre n'est plus disponible."
 			redirect_back(fallback_location: root_path)
+			return
 		else
-			@cadre_infos = @offre.metier.cadre_infos.where(empty:false,status:"DISPONIBLE")
+			@cadre_infos = @offre.metier.cadre_infos.where(empty:false)
 
 			region = Region.find_by_name(@offre.region)
 
 			ville = region.villes.find_by_name(@offre.department)
 
-			minimum_salar = @offre.remuneration.to_i
-
-			@cadre_infos = @cadre_infos.where("question4 <= #{minimum_salar}")
-
-			@cadre_infos = @cadre_infos.where(mobilite: @offre.type_deplacement)
+			@cadre_infos = @cadre_infos.where("question4 <= #{@offre.remuneration.to_i}",mobilite: @offre.type_deplacement)
 
 			my_cadres = []
-			all_cadres = []
 
 			unless @cadre_infos.empty?
 				@cadre_infos = @cadre_infos.order('score_potential ASC')
 				@cadre_infos.each do |cadre_info|
-					next if !cadre_info.cadre.promise_to_hires.where(repons_cadre:true).empty?
+					next if cadre_info.status_disponibility != "DISPONIBLE"
 					if cadre_info.region.name = "Toutes les régions"
 						my_cadres.push(cadre_info)
 					else
 						if ville.name == "Tous les départements"
-								if cadre_info.region == region
-									my_cadres.push(cadre_info)
-								end
-							else
-								if cadre_info.region == region && cadre_info.ville == ville
-									my_cadres.push(cadre_info)
-								end
+							if cadre_info.region == region
+								my_cadres.push(cadre_info)
 							end
+						else
+							if cadre_info.region == region && cadre_info.ville == ville
+								my_cadres.push(cadre_info)
+							end
+						end
 					end
-					all_cadres.push(cadre_info)
 				end
 			end
 
-			@cadre_infos = (my_cadres + all_cadres).uniq
+			@cadre_infos = my_cadres
 			@cadre_infos = @cadre_infos[0..5]
-			
 		end
 	end
 
@@ -230,17 +224,26 @@ class RecruteursController < ApplicationController
 		@offre_par_page = 6
 		@offre = OffreJob.find_by_id(params[:id])
 		@topCinqs = @offre.my_top_five_candidates
+		
 		@metiers = Metier.all
-    	@regions = Region.all
+    @regions = Region.all
 		#afficher tous les cadre dans la bdd
 		# seul les candidat non recruté
 		# cadres = Cadre.joins(:cadre_info).where("cadre_infos.empty = ?",false)
-		cadres = Cadre.joins(:cadre_info).where(cadre_infos: {empty:false,status:"DISPONIBLE"})
+		
+		cadre_listes = []
+		tmp_cadres = Cadre.joins(:cadre_info).where(cadre_infos: {empty:false})
+		
+		tmp_cadres.each do |cadre|
+			if cadre.cadre_info.status_disponibility == "DISPONIBLE"
+				cadre_listes.push(cadre)
+			end
+		end
 
-		@nombre_candidat = ((cadres.count.to_f)/@offre_par_page).ceil
+		@nombre_candidat = ((cadre_listes.count.to_f)/@offre_par_page).ceil
 
 		@page = params.fetch(:page, 0).to_i
-		@cadres = cadres.offset(@page * @offre_par_page).limit(@offre_par_page)
+		@cadres = cadre_listes.offset(@page * @offre_par_page).limit(@offre_par_page)
 
 	end
 
