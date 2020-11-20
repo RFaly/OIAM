@@ -30,7 +30,7 @@
 				</div>
 	</div>
 
-	<div class="chat-body">
+	<div class="chat-body" id="somaiso">
 		<% @messages.each do |message| %>
 		<% unless message.is_admin %>
 		<div class="hr-msg">
@@ -50,7 +50,7 @@
 		<% end %>
 	</div>
 
-	<%= form_tag(candidats_post_message_path) do %>
+	<%= form_tag(candidats_post_message_path, remote: :true, id: 'mandona') do %>
 	<div class="sd">
 			<input type="hidden" name="id_contact" value="<%= @contact.id%>">
 			<input type="hidden" name="id_cadre" value="<%= @cadre.id %>">
@@ -136,4 +136,18 @@
 <script type="text/javascript">
 	$(".chat-body").animate({ scrollTop: 20000000 }, "slow");
 	$("body").animate({ scrollTop: 20000000 }, "fast");
+
+	$('#mandona').bind('ajax:success', function() {   		
+	
+   		$("#somaiso").append(
+	   		"<div class=\"m-msg\">" +
+				"<p>"+ $("#message_admin_cadre_content").val() +"</p>" + 
+			"</div>" + 
+			"<div class=\"clear\"></div>"
+		)
+		$("#message_admin_cadre_content").val("");
+		$(".chat-body").animate({ scrollTop: 20000000 }, "slow");
+		$("body").animate({ scrollTop: 20000000 }, "fast");
+
+	});
 </script>

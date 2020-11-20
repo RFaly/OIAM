@@ -244,9 +244,8 @@ class RecruteursController < ApplicationController
 		@nombre_candidat = ((cadre_listes.count.to_f)/@offre_par_page).ceil
 
 		@page = params.fetch(:page, 0).to_i
-
+		
 		# @cadres = cadre_listes.offset(@page * @offre_par_page).limit(@offre_par_page)
-
 		@cadres = cadre_listes[@page * @offre_par_page .. @page * @offre_par_page  + @offre_par_page - 1 ]
 
 	end
