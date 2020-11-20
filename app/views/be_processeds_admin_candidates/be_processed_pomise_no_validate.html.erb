@@ -18,14 +18,6 @@
     color: #fff;
     text-decoration: none;
   }
-
-  .lnk-prms {
-    color: #fff !important;
-  }
-
-  .lnk-prms:hover {
-    color: #fff !important;
-  }
 </style>
 <div class="client-column">
   <div class="client-menu-left">
@@ -38,7 +30,7 @@
       <div>
         <% if @cadre_info.status_state == "admis" %>
         <div class="row resp-row">
-          <div class="block-image col-lg-3 col-md-3 col-sm-12 col-sx-12">
+          <div class="block-image col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <% unless @cadre_info.image.nil? %>
             <img src="<%= @cadre_info.image %>" alt="photo profil candidats" , width="300px" , height="300px" ,
               class="pdp" />
@@ -46,7 +38,7 @@
             <img src="/image/profie.png" alt="photo profil candidats" , width="300px" , height="300px" , class="pdp" />
             <% end %>
           </div>
-          <div class="info-cadd col-lg-9 col-md-9 row col-sm-12 col-xs-12">
+          <div class="info-cadd col-lg-9 col-md-12 row col-sm-12 col-xs-12">
             <div class="info-frst col-lg-6 col-md-12 col-sm-12 col-xs-12">
               <h4 class="user_name"><%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %>
                 <br></h4>
@@ -57,11 +49,6 @@
               <p><strong>Téléphone : </strong><a class="lnk-prms" href="tel:+33<%= @cadre_info.telephone %>">+33 <%= @cadre_info.telephone %></a></p>
               <p><strong>Type de poste : </strong><%= @cadre_info.metier.name %></p>
             </div>
-<!--             <div class="separator">
-              <svg height="210" width="500">
-                <line x1="200" y1="0" x2="200" y2="200" style="stroke:rgb(255,255,255);stroke-width:2" />
-              </svg>
-            </div> -->
             <div class="info-secnd col-lg-6 col-md-12 col-sm-12 col-xs-12">
               <p><strong>Score du test : </strong><%= @cadre_info.score_potential %></p>
               <p><strong>Profession : </strong><%= @cadre_info.job %></p>
