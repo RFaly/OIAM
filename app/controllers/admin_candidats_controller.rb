@@ -137,12 +137,11 @@ class AdminCandidatsController < ApplicationAdminController
     @content = params[:message_admin_cadre][:content]
     @newMessage = MessageAdminCadre.new(content:@content, cadre_see: false, contact_admin_cadre: @contact, is_admin: true)
     @contact.message_admin_cadres.where(admin_see:false).update(admin_see:true)
-    if @newMessage.save
-      	redirect_to candidats_show_message_path(@cadre)
-    else
-      	flash[:alert] = @newMessage.errors.details
-     	redirect_back(fallback_location: root_path)
-    end
+    @newMessage.save
+    respond_to do |format|
+      format.html { redirect_to candidats_show_message_path(@cadre) }
+      format.js   {  }
+   end
   end
 end
 
