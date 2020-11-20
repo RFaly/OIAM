@@ -93,8 +93,6 @@ body {
 
 .ville {
   display: inline-block;
-  margin-right: 8px;
-  margin-left: auto;
   width: 195px;
   position: relative;
   right: 0;
