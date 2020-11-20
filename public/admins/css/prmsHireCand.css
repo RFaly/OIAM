@@ -44,7 +44,7 @@
   font-family: Questrial, sans-serif;
   text-transform: capitalize;
   color: #fff;
-  padding-top: 10px;
+  padding-top: 15px;
   padding-right: 10px;
   padding-bottom: 10px;
 }
@@ -156,6 +156,7 @@ strong {
     margin-left: 0px;
   }
   .info-cadd {
+    height: auto;
     margin-top: 100px;
   }
   .quest {
@@ -190,6 +191,7 @@ strong {
     margin-left: 0px;
   }
   .info-cadd {
+    height: auto;
     margin-top: 100px;
   }
   .quest {
@@ -238,6 +240,7 @@ strong {
     max-width: none;
   }
   .info-cadd {
+    height: auto;
     margin-top: 100px;
   }
   .quest {
