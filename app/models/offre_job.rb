@@ -98,7 +98,7 @@ class OffreJob < ApplicationRecord
 		OffreJob.where(is_publish:true).all.each do |offre_job|
 			if offre_job.promise_to_hires.empty?
 				offre_disponibles.push(offre_job)
-			elsif !offre_job.cadre.promise_to_hires.where(repons_cadre: nil).empty?
+			elsif !offre_job.promise_to_hires.where(repons_cadre: nil).empty?
 				offre_disponibles.push(offre_job)
 			end
 		end

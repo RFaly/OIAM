@@ -118,7 +118,7 @@ class CandidatesController < ApplicationController
 
 	def searchJob
     validate_info_cadre
-    @offre_par_page = 20
+    @offre_par_page = 1
     @metiers = Metier.all
     @regions = Region.all
 
@@ -129,7 +129,7 @@ class CandidatesController < ApplicationController
     
     # @offres = OffreJob.where(is_publish:true).offset(@page * @offre_par_page).limit(@offre_par_page)
 
-    @offres = @offres[@page * @offre_par_page .. @page * @offre_par_page  + @offre_par_page]
+    @offres = @offres[@page * @offre_par_page .. @page * @offre_par_page  + @offre_par_page - 1]
 
 
   end
