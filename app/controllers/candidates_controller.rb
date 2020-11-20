@@ -52,6 +52,8 @@ class CandidatesController < ApplicationController
       end
     end
 
+    is_img_nil = @cadre.image.nil?
+
     uploader = ImageUploader.new
     if params[:cadre_info][:image].nil? && @cadre.image.nil?
       errorMessage += " [ Importer votre photo de profil ] "
@@ -92,16 +94,18 @@ class CandidatesController < ApplicationController
 
       @cadre.update(empty:false)
 
-      ProcessedHistory.create(
-        image: @cadre.image,
-        # message: "#{@cadre.first_name} #{@cadre.last_name} a complété son profil.",
-        message: "COMPLETION PROFIL",
-        link: "<a href='#{cbp_promise_no_validate_path(@cadre.id)}'>VOIR</a>",#VOIR LE CANDIDAT
-        is_client:false,
-        cadre_info: @cadre,
-        genre: 1
-      )
-
+      if is_img_nil
+        ProcessedHistory.create(
+          image: @cadre.image,
+          # message: "#{@cadre.first_name} #{@cadre.last_name} a complété son profil.",
+          message: "COMPLETION PROFIL",
+          link: "<a href='#{cbp_promise_no_validate_path(@cadre.id)}'>VOIR</a>",#VOIR LE CANDIDAT
+          is_client:false,
+          cadre_info: @cadre,
+          genre: 1
+        )
+      end
+      
       redirect_to my_profil_path
     else
       flash[:alert] = "#{errorMessage}"
