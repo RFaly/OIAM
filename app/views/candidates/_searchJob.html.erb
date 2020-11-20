@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/css/search_job_cadre.css">
 
 
+<% if @nombre_offres > @page %>
 <% unless @offres.empty? %>
 	<% @offres.each do |offre| %>
 	<div class="post_info_content">
@@ -54,6 +55,7 @@
 		<% end %>
 	<% end %>
 </div>
+<% end %>
 
 <script>
 $(function () {

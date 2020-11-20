@@ -118,7 +118,7 @@ class CandidatesController < ApplicationController
 
 	def searchJob
     validate_info_cadre
-    @offre_par_page = 1
+    @offre_par_page = 20
     @metiers = Metier.all
     @regions = Region.all
 
