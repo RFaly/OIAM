@@ -92,6 +92,20 @@ class OffreJob < ApplicationRecord
 		return self.offre_for_candidates.where(accepted_postule:true)
 	end
 
+	def self.offre_dispos
+		offre_disponibles = []
+		
+		OffreJob.where(is_publish:true).all.each do |offre_job|
+			if offre_job.promise_to_hires.empty?
+				offre_disponibles.push(offre_job)
+			elsif !offre_job.promise_to_hires.where(repons_cadre: nil).empty?
+				offre_disponibles.push(offre_job)
+			end
+		end
+
+		return offre_disponibles
+	end
+
 	# private
 	# before_create :set_default_id_secure
  #  def set_default_id_secure
