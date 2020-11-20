@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/css/search_job_cadre.css">
 
 
-<% if @nombre_offres > @page %>
+<% if @nombre_offres >= @page %>
 <% unless @offres.empty? %>
 	<% @offres.each do |offre| %>
 	<div class="post_info_content">
@@ -42,17 +42,18 @@
 <% else %>
 <p class="alert success" >Les nouvelles offres d'emploi seront disponibles très prochainement!</p>
 <% end %>
+<% end %>
+<% if @nombre_offres >= @page %>
 <div class="next-page">
-	<% nombre_offres = @nombre_offres  %>
-	<% if @nombre_offres > @offre_par_page %>
-		<% if @page == 0%>
-			<a href="<%= searchJob_path(page: @page + 1 )%>">SUIVANT<span class="crochet"> ></span></a>
-		<% elsif @page ==  @nombre_offres - 1 %>
-			<a href="<%= searchJob_path(page: @page - 1 )%>"><span class="crochet"> < </span>PRECEDENT</a>
-		<% else %>
-			<a href="<%= searchJob_path(page: @page - 1 )%>"><span class="crochet">< </span>PRECEDENT |</a>
-			<a href="<%= searchJob_path(page: @page + 1 )%>">| SUIVANT <span class="crochet"> ></span> </a>
-		<% end %>
+	<% unless  @nombre_offres  ==  0 && @nombre_offres >= @page  %>	
+	<% if @page == 0%>
+		<a href="<%= searchJob_path(page: @page + 1 )%>">SUIVANT<span class="crochet"> ></span></a>
+	<% elsif @page ==  @nombre_offres - 1 %>
+		<a href="<%= searchJob_path(page: @page - 1 )%>"><span class="crochet"> < </span>PRECEDENT</a>
+	<% else %>
+		<a href="<%= searchJob_path(page: @page - 1 )%>"><span class="crochet">< </span>PRECEDENT |</a>
+		<a href="<%= searchJob_path(page: @page + 1 )%>">| SUIVANT <span class="crochet"> ></span> </a>
+	<% end %>
 	<% end %>
 </div>
 <% end %>
