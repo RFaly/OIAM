@@ -160,6 +160,9 @@ strong {
   .info-secnd {
     margin-left: 0px;
   }
+  .info-cadd {
+    height: auto;
+  }
 }
 @media only screen and (max-width: 576px) {
   .separator {
@@ -187,6 +190,9 @@ strong {
   }
   .info-secnd {
     margin-left: 0px;
+  }
+  .info-cadd {
+    height: auto;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -230,8 +236,9 @@ strong {
   .col-md-4 {
     max-width: none;
   }
-
-
+  .info-cadd {
+    height: auto;
+  }
 }
 @media only screen and (max-width: 992px) {
   body {
@@ -295,6 +302,9 @@ strong {
     justify-content: center;
     text-align: center;
     position: relative;
+  }
+  .info-cadd {
+    height: auto;
   }
 }
 @media only screen and (max-width: 1200px) {
