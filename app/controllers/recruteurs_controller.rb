@@ -191,8 +191,9 @@ class RecruteursController < ApplicationController
 
 			ville = region.villes.find_by_name(@offre.department)
 
-			@cadre_infos = @cadre_infos.where("question4 <= #{@offre.remuneration.to_i}",mobilite: @offre.type_deplacement)
-
+			@cadre_infos = @cadre_infos.where("question4 <= #{@offre.remuneration.to_i}")
+			@cadre_infos = @cadre_infos.where(mobilite: @offre.type_deplacement)
+			
 			my_cadres = []
 
 			unless @cadre_infos.empty?
