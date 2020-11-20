@@ -29,6 +29,18 @@ class CadreInfo < ApplicationRecord
 		end
 	end
 
+	def status_disponibility
+		if self.cadre.promise_to_hires.empty?
+			"DISPONIBLE"
+		elsif self.cadre.promise_to_hires.where(repons_cadre: true,client_time_trying: true,cadre_time_trying: true)
+			"EN POSTE"
+		elsif self.cadre.promise_to_hires.where(repons_cadre: true,client_time_trying: false)
+			"DISPONIBLE"
+		else
+			"EN PÉRIODE D'ESSAI"
+		end
+	end
+
 	def not_admited_test
 		if self.score_fit.nil?
 			"potential_test"
