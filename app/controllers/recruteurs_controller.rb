@@ -227,7 +227,7 @@ class RecruteursController < ApplicationController
 		@topCinqs = @offre.my_top_five_candidates
 		
 		@metiers = Metier.all
-    @regions = Region.all
+    	@regions = Region.all
 		#afficher tous les cadre dans la bdd
 		# seul les candidat non recruté
 		# cadres = Cadre.joins(:cadre_info).where("cadre_infos.empty = ?",false)
@@ -247,7 +247,7 @@ class RecruteursController < ApplicationController
 
 		# @cadres = cadre_listes.offset(@page * @offre_par_page).limit(@offre_par_page)
 
-		@cadres = cadre_listes[@page * @offre_par_page .. @offre_par_page]
+		@cadres = cadre_listes[@page * @offre_par_page .. @page * @offre_par_page  + @offre_par_page - 1 ]
 
 	end
 
