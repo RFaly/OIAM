@@ -105,7 +105,7 @@ class CandidatesController < ApplicationController
           genre: 1
         )
       end
-      
+
       redirect_to my_profil_path
     else
       flash[:alert] = "#{errorMessage}"
@@ -122,7 +122,7 @@ class CandidatesController < ApplicationController
     @metiers = Metier.all
     @regions = Region.all
     @nombre_offres = ((OffreJob.where(is_publish:true).all.count)/@offre_par_page).floor
-    @page = params.fetch(:page, 1).to_i
+    @page = params.fetch(:page, 0).to_i
     @offres = OffreJob.where(is_publish:true).offset(@page * @offre_par_page).limit(@offre_par_page)
 	end
 
