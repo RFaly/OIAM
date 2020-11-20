@@ -34,16 +34,19 @@ class RecruteursController < ApplicationController
         errorMessage += " [ #{e.message} ] "
       end
       if is_cv
+      	is_nil = @client.image.nil?
         @client.image = uploader.url
     		@client.save
-    		ProcessedHistory.create(
-				  image: current_client.image,
-				  message: "INSCRIPTION",
-				  link: "<a href= '#{clients_bp_show_client_path(@client.id)}'>VOIR</a>",
-				  is_client:true,
-				  client:@client,
-				  genre: 1
-				)
+    		if is_nil
+	    		ProcessedHistory.create(
+					  image: current_client.image,
+					  message: "INSCRIPTION",
+					  link: "<a href= '#{clients_bp_show_client_path(@client.id)}'>VOIR</a>",
+					  is_client:true,
+					  client:@client,
+					  genre: 1
+					)
+				end
       end
     end
 
