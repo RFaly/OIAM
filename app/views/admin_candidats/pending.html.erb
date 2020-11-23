@@ -15,6 +15,7 @@
             <div class="flex">
                 <% unless @entretien_fit_a_venirs.empty? %>
                 <% @entretien_fit_a_venirs.each do |entretien_fit_a_venir| %>
+
                 <div data-name=".INSCRIPTION" class="bp-box list-items-me">
                     <div class="bp-inside-box">
                         <div class="bp-inscr"><span class="gold-ttl">INSCRIPTION</span><br>
@@ -31,7 +32,9 @@
                         </div>
                         <div class="bp-date">
                             Date limite :
-                            ~
+                            <span
+                                data-times="<%= entretien_fit_a_venir.agenda_admin.entretien_date.next_day(1).strftime("%Y-%m-%d %H:%M") %>"
+                                class="currentDatentretien"></span>
                         </div>
                     </div>
                     <div class="bp-btn">
