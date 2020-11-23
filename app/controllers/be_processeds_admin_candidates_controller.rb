@@ -57,7 +57,10 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
     errorMessage = ""
     fileCv = FileUploader.new
     @cadre_infos = CadreInfo.find_by_id(params[:cadre_id])
-    if params[:cadre_info][:compte_rendu].nil?
+
+    if params[:cadre_info].nil?
+      errorMessage += " [ Importer le compte rendu ] "
+    elsif params[:cadre_info][:compte_rendu].nil?
       errorMessage += " [ Importer le compte rendu ] "
     else
       is_cv = true
@@ -71,43 +74,52 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
         @cadre_infos.compte_rendu = fileCv.url
       end
     end
+
     @cadre_infos.avis = params[:avis]
     @cadre_infos.score_fit = params[:score_fit].to_i
-    if params[:is_recrute].nil?
-      flash[:notice] = "Candidature refusée."
-      TestOiamMailer.test_fit_refused(@cadre_infos).deliver_now
-      @cadre_infos.is_recrute = false
+
+    if errorMessage == ""
+      
+      unless @cadre_infos.nil?
+        ProcessedHistory.create(
+          image: "/image/profie.png",
+          # message: "#{@cadre_infos.first_name} #{@cadre_infos.last_name} a terminé l'inscription",
+          message: "INSCRIPTION",
+          link: "<a href='#{cbp_inscription_path(@cadre_infos.id)}'>VOIR</a>",
+          is_client:false,
+          cadre_info:@cadre_infos,
+          genre: 1
+        )
+        ProcessedHistory.create(
+          image: "/image/profie.png",
+          # message: "L'entretien fit avec #{@cadre_infos.first_name} #{@cadre_infos.last_name} est traité.",
+          message: "ENTRETIEN FIT",
+          link: "<a href='#{post_avis_candidats_fit_path(@cadre_infos.id)}'>VOIR</a>",
+          cadre_info:@cadre_infos,
+          is_client:false,
+          genre: 1
+        )
+      end
+
+      if params[:is_recrute].nil?
+        flash[:notice] = "Candidature refusée."
+        TestOiamMailer.test_fit_refused(@cadre_infos).deliver_now
+        @cadre_infos.is_recrute = false
+      else
+        flash[:notice] = "Candidature acceptée."
+        TestOiamMailer.test_fit_accepted(@cadre_infos).deliver_now
+        @cadre_infos.is_recrute = true
+      end
+      
+      @cadre_infos.save
+
+      redirect_to post_avis_candidats_fit_path(@cadre_infos.id)
+
     else
-      flash[:notice] = "Candidature acceptée."
-      TestOiamMailer.test_fit_accepted(@cadre_infos).deliver_now
-      @cadre_infos.is_recrute = true
+      flash[:alert] = "#{errorMessage}"
+      # redirect_back(fallback_location: root_path)
+      redirect_to post_avis_candidats_fit_path(@cadre_infos.id)
     end
-    @cadre_infos.save
-
-    unless @cadre_infos.nil?
-      ProcessedHistory.create(
-        image: "/image/profie.png",
-        # message: "#{@cadre_infos.first_name} #{@cadre_infos.last_name} a terminé l'inscription",
-        message: "INSCRIPTION",
-        link: "<a href='#{cbp_inscription_path(@cadre_infos.id)}'>VOIR</a>",
-        is_client:false,
-        cadre_info:@cadre_infos,
-        genre: 1
-      )
-
-      ProcessedHistory.create(
-        image: "/image/profie.png",
-        # message: "L'entretien fit avec #{@cadre_infos.first_name} #{@cadre_infos.last_name} est traité.",
-        message: "ENTRETIEN FIT",
-        link: "<a href='#{post_avis_candidats_fit_path(@cadre_infos.id)}'>VOIR</a>",
-        cadre_info:@cadre_infos,
-        is_client:false,
-        genre: 1
-      )
-    end
-
-    redirect_to post_avis_candidats_fit_path(@cadre_infos.id)
-
   end
 
   def be_processed_profil_no_complete
