@@ -90,11 +90,11 @@ if (document.URL.indexOf('#') == -1){url = document.URL + '#';location = '#';loc
 
                 <div class="cont-rgt col-lg-6 col-md-6">
                   <div class="cv-frm">
+                    <div id="show-file" class="sh-fl"></div>
                     <div class="cont-my-cv">
                       <%= f.label :compte_rendu, "Importer le compte rendu", class:"my-cv-label", id:"im-fl"%>
                       <%= f.file_field :compte_rendu, class:"d-none form-control-file form-my-cv", required:true, accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
                     </div>
-                    <div id="show-file" class="sh-fl"></div>
                     <div class="cont-btn">
                       <%= f.submit 'VALIDER', :class => 'apercu' %>
                     </div>

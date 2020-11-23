@@ -252,12 +252,10 @@ img {
   display: block;
   cursor: pointer;
   text-align: center;
-  text-transform: uppercase;
   color: #fff;
   font-family: Raleway, sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   margin-bottom: 10px;
-  border: 1px solid #fff;
   outline: none;
   overflow: hidden !important;
   white-space: nowrap;
