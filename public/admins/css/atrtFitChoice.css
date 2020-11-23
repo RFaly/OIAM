@@ -264,7 +264,7 @@ img {
   outline: none;
   overflow: hidden !important;
   white-space: nowrap;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
 }
 
 @media only screen and (max-width: 540px) {
