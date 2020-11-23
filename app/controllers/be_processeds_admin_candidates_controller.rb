@@ -74,11 +74,12 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
         @cadre_infos.compte_rendu = fileCv.url
       end
     end
+
     @cadre_infos.avis = params[:avis]
     @cadre_infos.score_fit = params[:score_fit].to_i
-    
+
     if errorMessage == ""
-      @cadre_infos.save
+      
       unless @cadre_infos.nil?
         ProcessedHistory.create(
           image: "/image/profie.png",
@@ -109,12 +110,15 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
         TestOiamMailer.test_fit_accepted(@cadre_infos).deliver_now
         @cadre_infos.is_recrute = true
       end
+      
+      @cadre_infos.save
 
       redirect_to post_avis_candidats_fit_path(@cadre_infos.id)
+
     else
-      flash[:alert] = errorMessage
-      redirect_back(fallback_location: root_path)
-      return
+      flash[:alert] = "#{errorMessage}"
+      # redirect_back(fallback_location: root_path)
+      redirect_to post_avis_candidats_fit_path(@cadre_infos.id)
     end
   end
 

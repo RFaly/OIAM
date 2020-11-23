@@ -92,7 +92,7 @@ if (document.URL.indexOf('#') == -1){url = document.URL + '#';location = '#';loc
                   <div class="cv-frm">
                     <div class="cont-my-cv">
                       <%= f.label :compte_rendu, "Importer le compte rendu", class:"my-cv-label", id:"im-fl"%>
-                      <%= f.file_field :compte_rendu, class:"d-none form-control-file form-my-cv", accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+                      <%= f.file_field :compte_rendu, class:"d-none form-control-file form-my-cv", required:true, accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
                     </div>
                     <div id="show-file" class="sh-fl"></div>
                     <div class="cont-btn">
