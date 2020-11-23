@@ -130,12 +130,23 @@ img {
 }
 
 .my-cv-label {
-  color: #fff;
-  text-align: center;
-  font-family: Questrial, sans-serif;
-  text-transform: uppercase;
-  font-size: 12px;
+  align-self: center;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 15px;
+  display: block;
   cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: Raleway, sans-serif;
+  font-size: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #fff;
+  outline: none;
+  overflow: hidden !important;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .form-my-cv {
@@ -253,7 +264,7 @@ img {
   outline: none;
   overflow: hidden !important;
   white-space: nowrap;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
 }
 
 @media only screen and (max-width: 540px) {

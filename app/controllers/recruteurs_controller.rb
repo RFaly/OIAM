@@ -186,33 +186,41 @@ class RecruteursController < ApplicationController
 			return
 		else
 			@cadre_infos = @offre.metier.cadre_infos.where(empty:false)
-
-			region = Region.find_by_name(@offre.region)
-
-			ville = region.villes.find_by_name(@offre.department)
-
-			@cadre_infos = @cadre_infos.where("question4 <= #{@offre.remuneration.to_i}")
-			@cadre_infos = @cadre_infos.where(mobilite: @offre.type_deplacement)
 			
+			# region = Region.find_by_name(@offre.region)
+			# ville = region.villes.find_by_name(@offre.department)
+			@cadre_infos = @cadre_infos.where("question4 <= #{@offre.remuneration.to_i}")
+			
+			# @cadre_infos = @cadre_infos.where(mobilite: @offre.type_deplacement)
 			my_cadres = []
-
+			
 			unless @cadre_infos.empty?
 				@cadre_infos = @cadre_infos.order('score_potential ASC')
 				@cadre_infos.each do |cadre_info|
-					next if cadre_info.status_disponibility != "DISPONIBLE"
-					if cadre_info.region.name = "Toutes les régions"
-						my_cadres.push(cadre_info)
+					next if (cadre_info.status_disponibility != "DISPONIBLE") || (@offre.type_deplacement.to_i > cadre_info.mobilite.to_i)
+
+					if @offre.region == "Toutes les régions"
+					  my_cadres.push(cadre_info)
 					else
-						if ville.name == "Tous les départements"
-							if cadre_info.region == region
-								my_cadres.push(cadre_info)
-							end
+						if cadre_info.region.name = "Toutes les régions"
+							my_cadres.push(cadre_info)
 						else
-							if cadre_info.region == region && cadre_info.ville == ville
-								my_cadres.push(cadre_info)
-							end
-						end
+					    if @offre.region == cadre_info.region.name
+					      if @offre.department == "Tous les départements"
+					        my_cadres.push(cadre_info)
+					      else
+					        if cadre_info.ville.name == "Tous les départements"
+					          my_cadres.push(cadre_info)
+					        else
+					          if @offre.department == cadre_info.ville.name
+					            my_cadres.push(cadre_info)
+					          end
+					        end
+					      end
+					    end
+					  end
 					end
+
 				end
 			end
 
