@@ -82,7 +82,7 @@ if (document.URL.indexOf('#') == -1){url = document.URL + '#';location = '#';loc
                 <div class="score-label">Score Fit</div>
                 <div class="score-radio row">
                   <% 10.times do |i| %>
-                    <input type="radio" id="score-fit-<%=i%>" name="score_fit" value="<%=i+1%>">
+                    <input type="radio" required id="score-fit-<%=i%>" name="score_fit" value="<%=i+1%>">
                     <label for="score-fit-<%=i%>"><%=i+1%></label>
                   <% end %>
                 </div>
