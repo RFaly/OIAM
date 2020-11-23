@@ -142,12 +142,13 @@ class CandidatesController < ApplicationController
     minimum_salar = cadre_info.question4.to_i
 
     region = cadre_info.region.name
-    
+
     ville = cadre_info.ville.name
 
     @offres = cadre_info.metier.offre_jobs
     @offres = @offres.where("remuneration >= #{minimum_salar}")
-    @offres = @offres.where(type_deplacement: cadre_info.mobilite)
+
+    # @offres = @offres.where(type_deplacement: cadre_info.mobilite)
 
     unless region == "Toutes les régions"
       if ville == "Tous les départements"
@@ -160,14 +161,12 @@ class CandidatesController < ApplicationController
     list_final = []
 
     @offres.each do |offre|
-      if offre.offre_disponible
+      if offre.offre_disponible && offre.type_deplacement <= cadre_info.mobilite
         list_final.push(offre)
       end
     end
 
     @offres = list_final
-
-    # sdf
 
   end
 
