@@ -1,12 +1,12 @@
 class CandidatesController < ApplicationController
   #def pas besoin de connexion
-  before_action :authenticate_cadre!, except: [:save_scores_potential_test,:getScoresPotential,:postMetierSkills,:main,:my_tests,:testpotential,:init_testpotential,:testskills,:testfit,:saveEntretientDate,:resultatsTest,:tmp_sign_up,:tmp_create_sign_up,:save_repons_test_potential]
+  before_action :authenticate_cadre!, except: [:save_scores_potential_test,:getScoresPotential,:postMetierSkills,:main,:my_tests,:testpotential,:init_testpotential,:testskills,:testfit,:saveEntretientDate,:resultatsTest,:tmp_sign_up,:tmp_create_sign_up,:save_repons_test_potential,:createScorePototial]
   # def valider si tmp signup ok
   before_action :validate_cadre, only: [:getScoresPotential,:init_testpotential, :my_tests, :testpotential, :testskills, :testfit, :resultatsTest, :postMetierSkills]
   # if empty info cadre, remplir profil
   before_action :current_info_cadre, only: [:my_profil, :edit_profil, :confirmedProfil]
 
-  protect_from_forgery except: :save_repons_test_potential
+  protect_from_forgery except: [:save_repons_test_potential,:createScorePototial]
 
   def main
   end
@@ -136,13 +136,19 @@ class CandidatesController < ApplicationController
 
   def jobsPersonalized
     validate_info_cadre
+
     cadre_info = current_cadre.cadre_info
+
     minimum_salar = cadre_info.question4.to_i
+
     region = cadre_info.region.name
+    
     ville = cadre_info.ville.name
+
     @offres = cadre_info.metier.offre_jobs
     @offres = @offres.where("remuneration >= #{minimum_salar}")
     @offres = @offres.where(type_deplacement: cadre_info.mobilite)
+
     unless region == "Toutes les régions"
       if ville == "Tous les départements"
         @offres = @offres.where(region:region)
@@ -150,6 +156,19 @@ class CandidatesController < ApplicationController
         @offres = @offres.where(region:region,department:ville)
       end
     end
+
+    list_final = []
+
+    @offres.each do |offre|
+      if offre.offre_disponible
+        list_final.push(offre)
+      end
+    end
+
+    @offres = list_final
+
+    # sdf
+
   end
 
   def showSearchJob
@@ -388,7 +407,6 @@ class CandidatesController < ApplicationController
   # api api
   def save_repons_test_potential #call in api
 
-
     @cadreInfo = CadreInfo.find_by_mail(params[:custom_fields][3]["value"])
 
     unless @cadreInfo.nil?
@@ -397,12 +415,9 @@ class CandidatesController < ApplicationController
 
     # @cadreInfo.update(score_potential:1005,potential_test:true)
 
-
     puts "@"*12
     puts params.inspect
     puts "@"*12
-
-
 
   end
 
