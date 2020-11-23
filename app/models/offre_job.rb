@@ -49,11 +49,11 @@ class OffreJob < ApplicationRecord
 	def type_deplacement_name
 		case self.type_deplacement
 		when "1"
-		  "Nationaux"
-		when "2"
-		  "Internationaux"
-		when "3"
 		  "Régionaux"
+		when "2"
+		  "Nationaux"
+		when "3"
+		  "Internationaux"
 		when "0"
 		  "Pas de déplacements"
 		end
@@ -94,16 +94,20 @@ class OffreJob < ApplicationRecord
 
 	def self.offre_dispos
 		offre_disponibles = []
-		
 		OffreJob.where(is_publish:true).all.each do |offre_job|
-			if offre_job.promise_to_hires.empty?
-				offre_disponibles.push(offre_job)
-			elsif !offre_job.promise_to_hires.where(repons_cadre: nil).empty?
+			if offre_job.promise_to_hires.where(repons_cadre: nil).empty? && offre_job.offre_for_candidates.count < 5
 				offre_disponibles.push(offre_job)
 			end
 		end
-
 		return offre_disponibles
+	end
+
+	def offre_disponible
+		if self.offre_for_candidates.count < 5 && self.promise_to_hires.where(repons_cadre: nil).empty?
+			true
+		else
+			false
+		end
 	end
 
 	# private
