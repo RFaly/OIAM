@@ -397,6 +397,16 @@ class CandidatesController < ApplicationController
       }
       redirect_to my_tests_path
     else
+      errors = @cadreInfo.errors.messages
+      unless errors[:mail].nil?
+        unless errors[:mail].empty?
+          flash[:alert] = "L'adresse email est déjà utilisé."
+        else
+          flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
+        end
+      else
+        flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
+      end
       render :tmp_sign_up
     end
   end
