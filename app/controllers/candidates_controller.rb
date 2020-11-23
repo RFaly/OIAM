@@ -131,7 +131,6 @@ class CandidatesController < ApplicationController
 
     @offres = @offres[@page * @offre_par_page .. @page * @offre_par_page  + @offre_par_page - 1]
 
-
   end
 
   def jobsPersonalized
@@ -150,19 +149,39 @@ class CandidatesController < ApplicationController
 
     # @offres = @offres.where(type_deplacement: cadre_info.mobilite)
 
-    unless region == "Toutes les régions"
-      if ville == "Tous les départements"
-        @offres = @offres.where(region:region)
-      else
-        @offres = @offres.where(region:region,department:ville)
-      end
-    end
+    # unless region == "Toutes les régions"
+    #   if ville == "Tous les départements"
+    #     @offres = @offres.where(region:region)
+    #   else
+    #     @offres = @offres.where(region:region,department:ville)
+    #   end
+    # end
 
     list_final = []
 
     @offres.each do |offre|
-      if offre.offre_disponible && offre.type_deplacement <= cadre_info.mobilite
-        list_final.push(offre)
+      if offre.offre_disponible && (offre.type_deplacement.to_i <= cadre_info.mobilite.to_i)
+        if offre.region == "Toutes les régions"
+          list_final.push(offre)
+        else
+          if region == "Toutes les régions"
+            list_final.push(offre)
+          else
+            if offre.region == region
+              if offre.department == "Tous les départements"
+                list_final.push(offre)
+              else
+                if ville == "Tous les départements"
+                  list_final.push(offre)
+                else
+                  if offre.department == ville
+                    list_final.push(offre)
+                  end 
+                end
+              end
+            end
+          end
+        end
       end
     end
 
