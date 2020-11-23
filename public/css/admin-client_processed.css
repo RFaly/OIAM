@@ -20,18 +20,6 @@
   font: 16px Questrial, sans-serif;
 }
 
-.next-page{
-  display: block;
-  margin: 15px auto;
-  width: 100%;
-  font-size: 18px;
-}
-
-.next-page a{
-  color: #d6b36a;
-  text-align: center;
-}
-
 .admincp-box .title {
   text-align: -webkit-center;
   text-align: -moz-center;

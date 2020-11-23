@@ -45,7 +45,6 @@
     </div>
   </div>
   <% end %>
-
   <div id="loading-indicator">
     <div id="spinner"></div>
   </div>
@@ -55,6 +54,18 @@
     $(document).ready(function () {
       //end check path menu recruteur
       stopSpinner();
+      if ($('.flash').html().length < 10) {
+        $('.flash').hide();
+      } else {
+        $('.flash').fadeIn(300);
+        $('.flash-notice').addClass('active');
+        $('.flash-alert').addClass('active');
+        setTimeout(function () {
+          $('.flash-notice').removeClass('active');
+          $('.flash-alert').removeClass('active');
+          $('.flash').fadeOut(2000);
+        }, 5000);
+      }
     })
   </script>
 </body>
