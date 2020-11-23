@@ -155,13 +155,11 @@ img {
   margin-top: 10px;
   padding: 15px;
   display: block;
-  cursor: pointer;
   text-align: center;
   color: #fff;
   font-family: Raleway, sans-serif;
   font-size: 12px;
   margin-bottom: 10px;
-  border: 1px solid #fff;
   outline: none;
   overflow: hidden !important;
   white-space: nowrap;
