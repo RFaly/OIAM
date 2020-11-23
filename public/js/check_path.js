@@ -37,7 +37,7 @@ $(document).ready(function () {
       $('.flash').fadeOut(2000);
     }, 5000);
   }
-  $('.flash').click(function () {});
+  // $('.flash').click(function () {});
   // check path
   var path = window.location.pathname.split('/').pop();
 
