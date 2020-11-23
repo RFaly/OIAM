@@ -198,7 +198,7 @@ class RecruteursController < ApplicationController
 				@cadre_infos = @cadre_infos.order('score_potential ASC')
 				@cadre_infos.each do |cadre_info|
 					next if (cadre_info.status_disponibility != "DISPONIBLE") || (@offre.type_deplacement.to_i > cadre_info.mobilite.to_i)
-					
+
 					if @offre.region == "Toutes les régions"
 					  my_cadres.push(cadre_info)
 					else
