@@ -11,17 +11,13 @@
 			<div class="boit-reception" id="js-add-new-message">
 				<% @messages.each do |message| %>
 				<div class="<% if message.is_admin %>her-message<% else %>my-message<% end %>">
-					<% if message.is_admin %>
-						<div id="image" class="pdp-c" style="background: url(<% if @img %> <%=@img%><% else %> /image/profie.png <% end %>) center no-repeat; background-size: cover">
-						</div>
-					<% end %>
 					<%= message.content %>
 				</div>
-				<div class="clear"></div>
+				<div class="clear list-messages"></div>
 				<% end %>
 			</div>
 			<div class="form">
-				<%= form_tag(post_message_admin_path, id:"form-promo-code",'data-path':getCadreLastMessage_path(client_id:@admin.id,contact_id:@contact.id), remote: true) do %>
+				<%= form_tag(post_message_admin_path, id:"form-promo-code",'data-path':getCadreLastMessage_path(client_id:@admin.id,contact_id:@contact.id), remote: true, 'data-path':get_all_messages_admin_path) do %>
 				<input type="hidden" name="id_contact" value="<%= @contact.id%>">
 				<input type="hidden" name="id_admin" value="<%= @admin.id %>">
 				<span class="form-group" id="textareas">
@@ -37,16 +33,42 @@
 </div>
 
 <script type="text/javascript">
+	window.path_url = $('#form-promo-code').data().path;
 	var container = $('#js-add-new-message');
 	container.animate({ scrollTop: 20000000 }, "slow");
+
+	function createElementNote(className,content){
+		element = "<div class=\""+className+"\">" + content + "</div><div class=\"list-messages clear\"></div>"
+		return element
+	}
+
 	$('#form-promo-code').bind('ajax:success', function() {   		
    		container.append(
-	   		"<div class=\"my-message\">" +
-				"<p>"+ $("#message_admin_cadre_content").val() +"</p>" + 
-			"</div>" + 
-			"<div class=\"clear\"></div>"
+   			createElementNote("my-message",$("#message_admin_cadre_content").val())
 		)
 		$("#message_admin_cadre_content").val("");
 		container.animate({ scrollTop: 20000000 }, "slow");
 	});
+
+	function getMyMessage() {
+		var number_message = $(".list-messages").length
+		$.getJSON(path_url, function (data) {
+			var my_data = data;
+			if (number_message == my_data.length) {
+			}else{
+				all_elements = ""
+				for (var i = 0; i < my_data.length; i++) {
+					if (my_data[i].is_admin){
+						all_elements += createElementNote("her-message",my_data[i].content)
+					}else{
+						all_elements += createElementNote("my-message",my_data[i].content)
+					}
+				}
+				container.html(all_elements)
+				container.animate({ scrollTop: 20000000 }, "slow");
+			}
+		});
+	}
+	setInterval(getMyMessage, 2000);
+
 </script>
