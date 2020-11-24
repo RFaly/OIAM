@@ -135,14 +135,29 @@ class AdminCandidatsController < ApplicationAdminController
   	@cadre = Cadre.find_by_id(params[:id_cadre])
   	@contact = ContactAdminCadre.find_by(id: params[:id_contact], admin: current_admin, cadre: @cadre)
     @content = params[:message_admin_cadre][:content]
-    @newMessage = MessageAdminCadre.new(content:@content, cadre_see: false, contact_admin_cadre: @contact, is_admin: true)
+    @newMessage = MessageAdminCadre.new(content:@content, admin_see:true, cadre_see: false, contact_admin_cadre: @contact, is_admin: true)
     @contact.message_admin_cadres.where(admin_see:false).update(admin_see:true)
-    @newMessage.save
+    unless @newMessage.save
+      flash[:alert] = @newMessage.errors.details
+      redirect_back(fallback_location: root_path)
+    end
     respond_to do |format|
       format.html { redirect_to candidats_show_message_path(@cadre) }
       format.js   {  }
-   end
+    end
   end
+
+  def get_all_messages_admin
+    contacts = current_admin.contact_admin_cadres.find_by(cadre_id: params[:id])
+    @messages = []
+    unless contacts.nil?
+      list_messages = contacts.message_admin_cadres.order('created_at ASC')
+      unless list_messages.empty?
+        @messages = list_messages
+      end
+    end
+  end
+
 end
 
 =begin

@@ -116,6 +116,7 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
       redirect_to post_avis_candidats_fit_path(@cadre_infos.id)
 
     else
+      flash[:alert] = "aaaa aaaa"
       flash[:alert] = "#{errorMessage}"
       # redirect_back(fallback_location: root_path)
       redirect_to post_avis_candidats_fit_path(@cadre_infos.id)

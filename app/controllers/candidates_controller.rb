@@ -492,7 +492,7 @@ class CandidatesController < ApplicationController
         link: "/",
         genre: 2)
 
-      flash[:notice] = "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a été notifié par email du résultat du test !"
+      flash[:notice] = "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a été notifié(e) par email du résultat du test !"
     end
     redirect_to nothing_path
   end
@@ -887,51 +887,65 @@ class CandidatesController < ApplicationController
 
 
 
-def messagerie_admin
-  @admin = Admin.first
-  @contactCadre = current_cadre.contact_admin_cadres
-  @contact = ContactAdminCadre.where(cadre: current_cadre, admin:@admin)
-  if @contact.count == 0
-    @contact = ContactAdminCadre.create(cadre: current_cadre, admin:@admin)
-  else
-    @contact = @contact.first
-  end
-  @contact.message_admin_cadres.where(cadre_see: false).update(cadre_see: true)
-  @messages = @contact.message_admin_cadres.order(created_at: :ASC)
-  @newMessage = MessageAdminCadre.new
-end
-
-def show_message_admin
-  @admin = Admin.first
-  @contact = ContactAdminCadre.find_by(cadre:current_cadre, admin:@admin)
-  if @contact.nil?
-    @contact = ContactAdminCadre.create(cadre:current_cadre, admin:@admin)
-  else
-    @contact.message_admin_cadres.where(cadre_see:false).update(cadre_see:true)
-  end
+  def messagerie_admin
+    @admin = Admin.first
+    @contactCadre = current_cadre.contact_admin_cadres
+    @contact = ContactAdminCadre.where(cadre: current_cadre, admin:@admin)
+    if @contact.count == 0
+      @contact = ContactAdminCadre.create(cadre: current_cadre, admin:@admin)
+    else
+      @contact = @contact.first
+    end
+    @contact.message_admin_cadres.where(cadre_see: false).update(cadre_see: true)
     @messages = @contact.message_admin_cadres.order(created_at: :ASC)
     @newMessage = MessageAdminCadre.new
+  end
+
+  def show_message_admin
+    @admin = Admin.first
+    @contact = ContactAdminCadre.find_by(cadre:current_cadre, admin:@admin)
+    if @contact.nil?
+      @contact = ContactAdminCadre.create(cadre:current_cadre, admin:@admin)
+    else
+      @contact.message_admin_cadres.where(cadre_see:false).update(cadre_see:true)
+    end
+      @messages = @contact.message_admin_cadres.order(created_at: :ASC)
+      @newMessage = MessageAdminCadre.new
+      respond_to do |format|
+        format.html { }
+        format.js { }
+      end
+  end
+
+  def post_message_admin
+    @admin = Admin.first
+    @contact = ContactAdminCadre.find_by(id: params[:id_contact], admin: @admin, cadre: current_cadre)
+    @content = params[:message_admin_cadre][:content]
+    @newMessage = MessageAdminCadre.new(content:@content, admin_see: false, contact_admin_cadre: @contact, is_admin: false)
+    @contact.message_admin_cadres.where(cadre_see:false).update(cadre_see:true)
+    
+    unless @newMessage.save
+      flash[:alert] = @newMessage.errors.details
+      redirect_back(fallback_location: root_path)
+    end
+
     respond_to do |format|
-      format.html { }
+      format.html { redirect_to show_message_admin_path(@admin) }
       format.js { }
     end
-end
 
-def post_message_admin
-  @admin = Admin.first
-  @contact = ContactAdminCadre.find_by(id: params[:id_contact], admin: @admin, cadre: current_cadre)
-  @content = params[:message_admin_cadre][:content]
-  @newMessage = MessageAdminCadre.new(content:@content, admin_see: false, contact_admin_cadre: @contact, is_admin: false)
-  @contact.message_admin_cadres.where(cadre_see:false).update(cadre_see:true)
-  if @newMessage.save
-      redirect_to show_message_admin_path(@admin)
-  else
-      flash[:alert] = @newMessage.errors.details
-    redirect_back(fallback_location: root_path)
   end
-end
 
-
+  def get_all_messages_admin
+    contacts = current_cadre.contact_admin_cadres.last
+    @messages = []
+    unless contacts.nil?
+      list_messages = contacts.message_admin_cadres.order('created_at ASC')
+      unless list_messages.empty?
+        @messages = list_messages
+      end
+    end
+  end
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

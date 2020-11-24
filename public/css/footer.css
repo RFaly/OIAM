@@ -6,6 +6,21 @@
 
 .footer-oiam a {
   text-decoration: none;
+  position: relative;
+}
+
+.footer-oiam a div {
+  background: #d6b36a;
+  color: white;
+  position: absolute;
+  right: -12px;
+  top: -16px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
 }
 
 .footer-oiam a:hover {
