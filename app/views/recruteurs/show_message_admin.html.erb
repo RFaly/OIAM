@@ -15,6 +15,7 @@
 						ADMINISTRATEUR
 					</div>
 				</div>
+				
 				<div class="chat-body" id="js-add-new-message">
 					<% @messages.each do |message| %>
 					<% if message.is_admin %>
@@ -30,12 +31,11 @@
 					<% end %>
 				</div>
 
-				<%= form_tag(post_message_client_admin_path, remote: :true, id: 'mandona') do %>
+				<%= form_tag(post_message_client_admin_path, remote: :true, id: 'form-promo-code') do %>
 					<div class="sd">
 						<input type="hidden" name="id_contact" value="<%= @contact.id%>">
 						<input type="hidden" name="id_admin" value="<%= @admin.id %>">
-						<textarea required placeholder="répondre..." class="ms-in" name="message_admin_client[content]"
-							id="message_admin_cadre_content" required></textarea>
+						<input type="text" required placeholder="répondre..." class="ms-in" name="message_admin_client[content]" id="message_admin_cadre_content" required>
 						<button type="submit">
 							<img src="/image/send.png" alt="send" class="ms-im" />
 						</button>
