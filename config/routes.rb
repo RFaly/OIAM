@@ -147,10 +147,11 @@ Rails.application.routes.draw do
   post 'cadre/formation/save', to: 'formation_candidate#save_rdv', as: 'formation_save_rdv'
 
 
-  #messagerie pour admin
+  #messagerie pour admin cadre
   get '/cadre/messagerie/admin', to:'candidates#messagerie_admin', as: 'messagerie_admin'
   get '/cadre/messagerie/admin/:id', to:'candidates#show_message_admin', as: 'show_message_admin'
   post '/cadre/send-message/admin', to:'candidates#post_message_admin', as: 'post_message_admin'
+  get '/cadre/get-messages/admin', to:'candidates#get_all_messages_admin', as:'get_all_messages_admin'
 
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -271,7 +272,7 @@ Rails.application.routes.draw do
   post 'secret-oiam-page/admin-candidats/send/messages', to: 'admin_candidats#post_message', as: 'candidats_post_message'
 
 
-# a traiter clients
+  # a traiter clients
   get 'secret-oiam-page/admin/voir-client/:id', to: 'admin_clients_be_processed#show_client', as: 'clients_bp_show_client'
   get 'secret-oiam-page/admin/voir/offre/:id', to: 'admin_clients_be_processed#offre_job_no_cadre', as: 'clients_bp_offre_job_no_cadre'
   get 'secret-oiam-page/admin-clients/a-traiter/efectue-entretien/:id', to: 'admin_clients_be_processed#effectue_entretien', as: 'clients_bp_effectue_entretien'
