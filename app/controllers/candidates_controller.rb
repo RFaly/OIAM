@@ -492,7 +492,7 @@ class CandidatesController < ApplicationController
         link: "/",
         genre: 2)
 
-      flash[:notice] = "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a été notifié par email du résultat du test !"
+      flash[:notice] = "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a été notifié(e) par email du résultat du test !"
     end
     redirect_to nothing_path
   end
