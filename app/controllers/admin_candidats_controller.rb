@@ -135,7 +135,7 @@ class AdminCandidatsController < ApplicationAdminController
   	@cadre = Cadre.find_by_id(params[:id_cadre])
   	@contact = ContactAdminCadre.find_by(id: params[:id_contact], admin: current_admin, cadre: @cadre)
     @content = params[:message_admin_cadre][:content]
-    @newMessage = MessageAdminCadre.new(content:@content, cadre_see: false, contact_admin_cadre: @contact, is_admin: true)
+    @newMessage = MessageAdminCadre.new(content:@content, admin_see:true, cadre_see: false, contact_admin_cadre: @contact, is_admin: true)
     @contact.message_admin_cadres.where(admin_see:false).update(admin_see:true)
     @newMessage.save
     respond_to do |format|

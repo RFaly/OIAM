@@ -58,4 +58,18 @@ class Client < ApplicationRecord
     return number
   end
 
+  def number_message_admin
+    contact_admins = self.contact_admin_clients
+    if contact_admins.empty?
+      0
+    else
+      message_admins = contact_admins.first.message_admin_clients
+      if message_admins.empty?
+        0
+      else
+        message_admins.where(client_see:false).count
+      end
+    end
+  end
+
 end
