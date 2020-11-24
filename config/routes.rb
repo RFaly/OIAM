@@ -99,12 +99,7 @@ Rails.application.routes.draw do
   # barre de recherche candidat
   post '/recruteur/recherche-cadre', to: 'recruteurs#search_bar_cadre', as: "search_bar_cadre"
 
-  #messagerie admin
-  get '/recruteur/messagerie/admin', to: 'recruteurs#messagerie_admin', as: 'messagerie_client_admin'
-  get '/recruteur/messagerie/admin/:id', to: 'recruteurs#show_message_admin', as: 'show_message_client_admin'
-  post '/recruteur/send-message/admin', to: 'recruteurs#post_message_admin', as: 'post_message_client_admin'
-  post '/recruteur/get-message/admin', to: 'recruteurs#get_all_messages_admin', as: 'client_get_all_messages_admin'
-  
+
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   get '/cadre', to: 'candidates#main', as: 'main_cadre'
@@ -148,11 +143,6 @@ Rails.application.routes.draw do
   post 'cadre/formation/save', to: 'formation_candidate#save_rdv', as: 'formation_save_rdv'
 
 
-  #messagerie pour admin cadre
-  get '/cadre/messagerie/admin', to:'candidates#messagerie_admin', as: 'messagerie_admin'
-  get '/cadre/messagerie/admin/:id', to:'candidates#show_message_admin', as: 'show_message_admin'
-  post '/cadre/send-message/admin', to:'candidates#post_message_admin', as: 'post_message_admin'
-  get '/cadre/get-messages/admin', to:'candidates#get_all_messages_admin', as:'get_all_messages_admin'
 
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -263,26 +253,36 @@ Rails.application.routes.draw do
 
   post 'secret-oiam-page/admin-candidats/entretien-fit', to: 'be_processeds_admin_candidates#bp_efectue_entretien_fit', as: 'bp_efectue_entretien_fit'
 
-
-
-  #voir promise
+  #voir promesse d'embauche
   get 'secret-oiam-page/admin-candidats/promise-d-embauche/:id', to: 'be_processeds_admin_candidates#show_promise', as: 'cp_show_promise'
-
-  #messagerie cadre
-  get 'secret-oiam-page/admin-candidats/messageries/:id', to: 'admin_candidats#show_message', as: 'candidats_show_message'
-  post 'secret-oiam-page/admin-candidats/send/messages', to: 'admin_candidats#post_message', as: 'candidats_post_message'
-  get 'secret-oiam-page/admin-candidats/get/:id/messages', to:'admin_candidats#get_all_messages_admin', as:'admin_cadre_get_all_messages_admin_in_admin'
 
   # a traiter clients
   get 'secret-oiam-page/admin/voir-client/:id', to: 'admin_clients_be_processed#show_client', as: 'clients_bp_show_client'
   get 'secret-oiam-page/admin/voir/offre/:id', to: 'admin_clients_be_processed#offre_job_no_cadre', as: 'clients_bp_offre_job_no_cadre'
   get 'secret-oiam-page/admin-clients/a-traiter/efectue-entretien/:id', to: 'admin_clients_be_processed#effectue_entretien', as: 'clients_bp_effectue_entretien'
   get 'secret-oiam-page/admin/periode-essai/:id', to: 'admin_clients_be_processed#periode_rompre', as: 'clients_bp_periode_rompre'
+  
+  #messagerie admin to cadre
+  get 'secret-oiam-page/admin-candidats/messageries/:id', to: 'admin_candidats#show_message', as: 'candidats_show_message'
+  post 'secret-oiam-page/admin-candidats/send/messages', to: 'admin_candidats#post_message', as: 'candidats_post_message'
+  get 'secret-oiam-page/admin-candidats/get/:id/messages', to:'admin_candidats#get_all_messages_admin', as:'admin_cadre_get_all_messages_admin_in_admin'
 
-  #messagerie clients
+  #messagerie admin to clients
   get 'secret-oiam-page/admin-clients/messageries/:id', to: 'admin_clients#show_message', as: 'clients_show_message'
   post 'secret-oiam-page/admin-clients/send/messagers', to: 'admin_clients#post_message', as: 'clients_post_message'
-  get 'secret-oiam-page/admin-clients/get/:id/messages', to:'admin_clients#get_all_messages_admin', as:'admin_get_all_messages_admin'
+  get 'secret-oiam-page/admin-clients/get/:id/messages', to:'admin_clients#get_all_messages_admin', as:'admin_to_client_get_all_messages_admin'
+
+  #messagerie clients to admin
+  get '/recruteur/messagerie/admin', to: 'recruteurs#messagerie_admin', as: 'messagerie_client_admin'
+  get '/recruteur/messagerie/admin/:id', to: 'recruteurs#show_message_admin', as: 'show_message_client_admin'
+  post '/recruteur/send-message/admin', to: 'recruteurs#post_message_admin', as: 'post_message_client_admin'
+  get '/recruteur/get-message/admin', to: 'recruteurs#get_all_messages_admin', as: 'client_get_all_messages_admin'
+  
+  #messagerie cadres to admin
+  get '/cadre/messagerie/admin', to:'candidates#messagerie_admin', as: 'messagerie_admin'
+  get '/cadre/messagerie/admin/:id', to:'candidates#show_message_admin', as: 'show_message_admin'
+  post '/cadre/send-message/admin', to:'candidates#post_message_admin', as: 'post_message_admin'
+  get '/cadre/get-messages/admin', to:'candidates#get_all_messages_admin', as:'get_all_messages_admin'
 
   #facturation
   get 'secret-oiam-page/tableau-de-bord/voir-facture/:id', to: 'admin_administrations#show_facture', as: 'dashbord_admin_show_facture'

@@ -172,13 +172,15 @@ class AdminClientsController < ApplicationAdminController
   end
 
   def get_all_messages_admin
-    # params[:id]
-    contacts = current_admin.contact_admin_clients.find_by(client_id:1)
+    contacts = current_admin.contact_admin_clients.find_by(client_id:params[:id])
     @messages = []
     unless contacts.nil?
-      list_messages = contacts.message_admin_clients.order('created_at ASC')
-      unless list_messages.empty?
-        @messages = list_messages
+      @messages = []
+      unless contacts.nil?
+        list_messages = contacts.message_admin_clients.order('created_at ASC')
+        unless list_messages.empty?
+          @messages = list_messages
+        end
       end
     end
   end

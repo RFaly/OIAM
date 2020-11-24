@@ -148,7 +148,7 @@ class AdminCandidatsController < ApplicationAdminController
   end
 
   def get_all_messages_admin
-    contacts = current_admin.contact_admin_cadres.last
+    contacts = current_admin.contact_admin_cadres.find_by(cadre_id: params[:id])
     @messages = []
     unless contacts.nil?
       list_messages = contacts.message_admin_cadres.order('created_at ASC')
