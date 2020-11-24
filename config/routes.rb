@@ -103,7 +103,8 @@ Rails.application.routes.draw do
   get '/recruteur/messagerie/admin', to: 'recruteurs#messagerie_admin', as: 'messagerie_client_admin'
   get '/recruteur/messagerie/admin/:id', to: 'recruteurs#show_message_admin', as: 'show_message_client_admin'
   post '/recruteur/send-message/admin', to: 'recruteurs#post_message_admin', as: 'post_message_client_admin'
-
+  post '/recruteur/get-message/admin', to: 'recruteurs#get_all_messages_admin', as: 'client_get_all_messages_admin'
+  
 	#~~~~~~~~~~~~~~~~~~~~~~~~ Candidate ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   get '/cadre', to: 'candidates#main', as: 'main_cadre'
@@ -270,7 +271,7 @@ Rails.application.routes.draw do
   #messagerie cadre
   get 'secret-oiam-page/admin-candidats/messageries/:id', to: 'admin_candidats#show_message', as: 'candidats_show_message'
   post 'secret-oiam-page/admin-candidats/send/messages', to: 'admin_candidats#post_message', as: 'candidats_post_message'
-
+  get 'secret-oiam-page/admin-candidats/get/:id/messages', to:'admin_candidats#get_all_messages_admin', as:'admin_cadre_get_all_messages_admin_in_admin'
 
   # a traiter clients
   get 'secret-oiam-page/admin/voir-client/:id', to: 'admin_clients_be_processed#show_client', as: 'clients_bp_show_client'
@@ -281,6 +282,7 @@ Rails.application.routes.draw do
   #messagerie clients
   get 'secret-oiam-page/admin-clients/messageries/:id', to: 'admin_clients#show_message', as: 'clients_show_message'
   post 'secret-oiam-page/admin-clients/send/messagers', to: 'admin_clients#post_message', as: 'clients_post_message'
+  get 'secret-oiam-page/admin-clients/get/:id/messages', to:'admin_clients#get_all_messages_admin', as:'admin_get_all_messages_admin'
 
   #facturation
   get 'secret-oiam-page/tableau-de-bord/voir-facture/:id', to: 'admin_administrations#show_facture', as: 'dashbord_admin_show_facture'

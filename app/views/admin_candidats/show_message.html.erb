@@ -30,27 +30,22 @@
 				</div>
 	</div>
 
-	<div class="chat-body" id="somaiso">
+	<div class="chat-body" id="js-add-new-message">
 		<% @messages.each do |message| %>
-		<% unless message.is_admin %>
-		<div class="hr-msg">
-			<div class="hr-image">
-				<img src="<%= @contact.cadre.cadre_info.image %>" alt="avatar">
-			</div>
-			<div class="hr-mg">
-				<p><%= message.content %></p>
-			</div>
-		</div>
-		<% else %>
-		<div class="m-msg">
-			<p><%= message.content %></p>
-		</div>
-		<% end %>
-		<div class="clear"></div>
+			<% unless message.is_admin %>
+				<div class="hr-msg">
+					<%= message.content %>
+				</div>
+			<% else %>
+				<div class="m-msg">
+					<%= message.content %>
+				</div>
+			<% end %>
+			<div class="list-messages clear"></div>
 		<% end %>
 	</div>
 
-	<%= form_tag(candidats_post_message_path, remote: :true, id: 'mandona') do %>
+	<%= form_tag(candidats_post_message_path, remote: :true, id: 'mandona', 'data-path':admin_cadre_get_all_messages_admin_in_admin_path(@contact.cadre.id)) do %>
 	<div class="sd">
 			<input type="hidden" name="id_contact" value="<%= @contact.id%>">
 			<input type="hidden" name="id_cadre" value="<%= @cadre.id %>">
@@ -124,21 +119,49 @@
 </div>
 
 <script src="/admins/js/add_emoji.js"></script>
+
 <script type="text/javascript">
-	$(".chat-body").animate({ scrollTop: 20000000 }, "slow");
+	
+	var container = $('#js-add-new-message');
+	container.animate({ scrollTop: 20000000 }, "slow");
+
 	$("body").animate({ scrollTop: 20000000 }, "fast");
 
-	$('#mandona').bind('ajax:success', function() {   		
-	
-   		$("#somaiso").append(
-	   		"<div class=\"m-msg\">" +
-				"<p>"+ $("#message_admin_cadre_content").val() +"</p>" + 
-			"</div>" + 
-			"<div class=\"clear\"></div>"
-		)
+	window.path_url = $('#mandona').data().path;
+
+	function createElementNote(className,content){
+		element = "<div class=\""+className+"\">" + content + "</div><div class=\"list-messages clear\"></div>"
+		return element
+	}
+
+	$('#mandona').bind('ajax:success', function() {
+   		container.append(
+   			createElementNote("m-msg",$("#message_admin_cadre_content").val())
+		);
 		$("#message_admin_cadre_content").val("");
 		$(".chat-body").animate({ scrollTop: 20000000 }, "slow");
 		$("body").animate({ scrollTop: 20000000 }, "fast");
-
 	});
+
+	function getMyMessage() {
+		var number_message = $(".list-messages").length
+		$.getJSON(path_url, function (data) {
+			var my_data = data;
+			if (number_message == my_data.length) {
+				console.log("mitovy e")
+			}else{
+				all_elements = ""
+				for (var i = 0; i < my_data.length; i++) {
+					if (my_data[i].is_admin){
+						all_elements += createElementNote("m-msg",my_data[i].content)
+					}else{
+						all_elements += createElementNote("hr-msg",my_data[i].content)
+					}
+				}
+				container.html(all_elements)
+				container.animate({ scrollTop: 20000000 }, "slow");
+			}
+		});
+	}
+	setInterval(getMyMessage, 2000);
 </script>

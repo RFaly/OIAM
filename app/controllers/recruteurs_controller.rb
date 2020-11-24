@@ -1004,6 +1004,17 @@ class RecruteursController < ApplicationController
 
   end
 
+  def get_all_messages_admin
+    contacts = current_client.contact_admin_clients.last
+    @messages = []
+    unless contacts.nil?
+      list_messages = contacts.message_admin_clients.order('created_at ASC')
+      unless list_messages.empty?
+        @messages = list_messages
+      end
+    end
+  end
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	private
