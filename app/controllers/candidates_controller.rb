@@ -940,7 +940,7 @@ class CandidatesController < ApplicationController
     contacts = current_cadre.contact_admin_cadres.last
     @messages = []
     unless contacts.nil?
-      list_messages = contacts.message_admin_cadres
+      list_messages = contacts.message_admin_cadres.order('created_at ASC')
       unless list_messages.empty?
         @messages = list_messages
       end

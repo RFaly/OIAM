@@ -13,7 +13,7 @@
 				<div class="<% if message.is_admin %>her-message<% else %>my-message<% end %>">
 					<%= message.content %>
 				</div>
-				<div class="clear"></div>
+				<div class="clear list-messages"></div>
 				<% end %>
 			</div>
 			<div class="form">
@@ -38,7 +38,7 @@
 	container.animate({ scrollTop: 20000000 }, "slow");
 
 	function createElementNote(className,content){
-		element = "<div class=\""+className+"\">" + content + "</div><div class=\"clear\"></div>"
+		element = "<div class=\""+className+"\">" + content + "</div><div class=\"list-messages clear\"></div>"
 		return element
 	}
 
@@ -51,18 +51,24 @@
 	});
 
 	function getMyMessage() {
-	    $.getJSON(path_url, function (data) {
-	      var my_data = data;
-	      all_elements = ""
-	      for (var i = 0; i < my_data.length; i++) {
-	        if (my_data[i].is_admin){
-	        	all_elements += createElementNote("her-message",my_data[i].content)
-	        }else{
-	        	all_elements += createElementNote("my-message",my_data[i].content)
-        	}
-	      }
-	      container.append(all_elements)
-	    });
+		var number_message = $(".list-messages").length
+		$.getJSON(path_url, function (data) {
+			var my_data = data;
+			if (number_message == my_data.length) {
+				console.log("mitovy e")
+			}else{
+				all_elements = ""
+				for (var i = 0; i < my_data.length; i++) {
+					if (my_data[i].is_admin){
+						all_elements += createElementNote("her-message",my_data[i].content)
+					}else{
+						all_elements += createElementNote("my-message",my_data[i].content)
+					}
+				}
+				container.html(all_elements)
+				container.animate({ scrollTop: 20000000 }, "slow");
+			}
+		});
 	}
 	setInterval(getMyMessage, 2000);
 
