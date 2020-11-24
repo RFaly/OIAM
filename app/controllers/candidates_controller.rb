@@ -923,12 +923,17 @@ def post_message_admin
   @content = params[:message_admin_cadre][:content]
   @newMessage = MessageAdminCadre.new(content:@content, admin_see: false, contact_admin_cadre: @contact, is_admin: false)
   @contact.message_admin_cadres.where(cadre_see:false).update(cadre_see:true)
-  if @newMessage.save
-      redirect_to show_message_admin_path(@admin)
-  else
-      flash[:alert] = @newMessage.errors.details
+  
+  unless @newMessage.save
+    flash[:alert] = @newMessage.errors.details
     redirect_back(fallback_location: root_path)
   end
+
+  respond_to do |format|
+    format.html { redirect_to show_message_admin_path(@admin) }
+    format.js { }
+  end
+
 end
 
 
