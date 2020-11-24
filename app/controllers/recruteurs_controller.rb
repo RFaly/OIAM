@@ -987,16 +987,21 @@ class RecruteursController < ApplicationController
 
   def post_message_admin
   	@admin = Admin.first
-	@contact = ContactAdminClient.find_by(id: params[:id_contact], admin: @admin, client: current_client)
-	@content = params[:message_admin_client][:content]
-	@newMessage = MessageAdminClient.new(content: @content, admin_see: false, contact_admin_client: @contact, is_admin: false)
-	@contact.message_admin_clients.where(client_see:false).update(client_see:true)
-	if @newMessage.save
-	    redirect_to show_message_client_admin_path(@admin)
-	else
+		@contact = ContactAdminClient.find_by(id: params[:id_contact], admin: @admin, client: current_client)
+		@content = params[:message_admin_client][:content]
+		@newMessage = MessageAdminClient.new(content: @content, admin_see: false, contact_admin_client: @contact, is_admin: false)
+		@contact.message_admin_clients.where(client_see:false).update(client_see:true)
+
+		unless @newMessage.save
 	    flash[:alert] = @newMessage.errors.details
 	    redirect_back(fallback_location: root_path)
-	end
+	  end
+
+	  respond_to do |format|
+	    format.html { redirect_to show_message_client_admin_path(@admin) }
+	    format.js { }
+	  end
+
   end
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

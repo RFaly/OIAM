@@ -10,7 +10,7 @@
 			<h2 class="sender-name">ADMINISTRATEUR</h2>
 			<div class="boit-reception" id="js-add-new-message">
 				<% @messages.each do |message| %>
-				<div class="<% if message.is_admin %>her-message<% else %>my-message<% end %>" data-store-id="<%= message.id %>">
+				<div class="<% if message.is_admin %>her-message<% else %>my-message<% end %>">
 					<% if message.is_admin %>
 						<div id="image" class="pdp-c" style="background: url(<% if @img %> <%=@img%><% else %> /image/profie.png <% end %>) center no-repeat; background-size: cover">
 						</div>
@@ -25,7 +25,7 @@
 				<input type="hidden" name="id_contact" value="<%= @contact.id%>">
 				<input type="hidden" name="id_admin" value="<%= @admin.id %>">
 				<span class="form-group" id="textareas">
-					<input placeholder="Répondre..." class="ms-in form-control" name="message_admin_cadre[content]" id="message_admin_cadre_content" autocomplete="off"></input>
+					<input required placeholder="Répondre..." class="ms-in form-control" name="message_admin_cadre[content]" id="message_admin_cadre_content" autocomplete="off"></input>
 				</span>
 				<span class="form-group">
 					<%= submit_tag("", :class=>"send") %>
@@ -36,17 +36,17 @@
 	</div>
 </div>
 
-<script>
-	if (document.URL.indexOf('#') == -1) {
-		// Set the URL to whatever it was plus "#".
-		url = document.URL + '#';
-		location = '#';
-		//Reload the page
-		location.reload(true);
-	  }
-	   //scroll bottom
-	var container = document.querySelector('#js-add-new-message');
-	container.scrollTop = container.scrollHeight;
+<script type="text/javascript">
+	var container = $('#js-add-new-message');
+	container.animate({ scrollTop: 20000000 }, "slow");
+	$('#form-promo-code').bind('ajax:success', function() {   		
+   		container.append(
+	   		"<div class=\"my-message\">" +
+				"<p>"+ $("#message_admin_cadre_content").val() +"</p>" + 
+			"</div>" + 
+			"<div class=\"clear\"></div>"
+		)
+		$("#message_admin_cadre_content").val("");
+		container.animate({ scrollTop: 20000000 }, "slow");
+	});
 </script>
-
-<script type="text/javascript" src="/js/synchrone_message.js"></script>

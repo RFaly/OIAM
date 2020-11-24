@@ -57,7 +57,8 @@
 			<!-- <div id="emojie">
 				<i class="far fa-smile"></i>
 			</div> -->
-			<input placeholder="Ecrire un message..." class="ms-in" name="message_admin_cadre[content]" id="message_admin_cadre_content" autocomplete="off"></input>
+			<input required placeholder="Ecrire un message..." class="ms-in" name="message_admin_cadre[content]" id="message_admin_cadre_content" autocomplete="off"></input>
+			
 			<button type="submit">
 				<img src="/image/send.png" alt="send" class="ms-im"/>
 			</button>
@@ -121,17 +122,7 @@
 	</div>
 </div>
 </div>
-<!-- <script>
-  tinymce.init({
-    selector: ".ms-in",
-    plugins: "emoticons autoresize",
-    toolbar: "emoticons",
-    toolbar_location: "bottom",
-		toolbar_mode: 'floating',
-    menubar: false,
-		statusbar: false
-  });
-</script> -->
+
 <script src="/admins/js/add_emoji.js"></script>
 <script type="text/javascript">
 	$(".chat-body").animate({ scrollTop: 20000000 }, "slow");

@@ -15,7 +15,8 @@
 						ADMINISTRATEUR
 					</div>
 				</div>
-				<div class="chat-body">
+				
+				<div class="chat-body" id="js-add-new-message">
 					<% @messages.each do |message| %>
 					<% if message.is_admin %>
 					<div class="hr-msg">
@@ -29,18 +30,34 @@
 					<div class="clear"></div>
 					<% end %>
 				</div>
-				<%= form_tag(post_message_client_admin_path) do %>
-				<div class="sd">
-					<input type="hidden" name="id_contact" value="<%= @contact.id%>">
-					<input type="hidden" name="id_admin" value="<%= @admin.id %>">
-					<textarea placeholder="répondre..." class="ms-in" name="message_admin_client[content]"
-						id="message_admin_cadre_content" required></textarea>
-					<button type="submit">
-						<img src="/image/send.png" alt="send" class="ms-im" />
-					</button>
-				</div>
+
+				<%= form_tag(post_message_client_admin_path, remote: :true, id: 'form-promo-code') do %>
+					<div class="sd">
+						<input type="hidden" name="id_contact" value="<%= @contact.id%>">
+						<input type="hidden" name="id_admin" value="<%= @admin.id %>">
+						<input type="text" required placeholder="répondre..." class="ms-in" name="message_admin_client[content]" id="message_admin_cadre_content" required>
+						<button type="submit">
+							<img src="/image/send.png" alt="send" class="ms-im" />
+						</button>
+					</div>
 				<% end %>
+
 			</div>
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	var container = $('#js-add-new-message');
+	container.animate({ scrollTop: 20000000 }, "slow");
+	$('#form-promo-code').bind('ajax:success', function() {   		
+   		container.append(
+	   		"<div class=\"m-msg\">" +
+				"<p>"+ $("#message_admin_cadre_content").val() +"</p>" + 
+			"</div>" + 
+			"<div class=\"clear\"></div>"
+		)
+		$("#message_admin_cadre_content").val("");
+		container.animate({ scrollTop: 20000000 }, "slow");
+	});
+</script>
