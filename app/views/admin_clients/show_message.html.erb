@@ -26,52 +26,91 @@
 				</div>
 	</div>
 
-	<div class="chat-body" id="somaiso">
+	<div class="chat-body" id="js-add-new-message">
 		<% @messages.each do |message| %>
 		<% unless message.is_admin %>
-		<div class="hr-msg">
-			<div class="hr-image">
-				<img src="<%= @contact.client.image %>" alt="avatar">
+			<div class="hr-msg">
+				<%= message.content %>
 			</div>
-			<div class="hr-mg">
-				<p><%= message.content %></p>
-			</div>
-		</div>
 		<% else %>
-		<div class="m-msg">
-			<p><%= message.content %></p>
-		</div>
+			<div class="m-msg">
+				<%= message.content %>
+			</div>
 		<% end %>
-		<div class="clear"></div>
+		<div class="list-messages clear"></div>
 		<% end %>
 	</div>
 
-	<%= form_tag(clients_post_message_path, remote: :true, id: 'mandona') do %>
-	<div class="sd">
+	<%= form_tag(clients_post_message_path, remote: :true, id: 'mandona', 'data-path':admin_to_client_get_all_messages_admin_path(@contact.client.id)) do %>
+		<div class="sd">
 			<input type="hidden" name="id_contact" value="<%= @contact.id%>">
 			<input type="hidden" name="id_client" value="<%= @client.id %>">
-			<input placeholder="Ecrire un message..." class="ms-in" name="message_admin_client[content]" id="message_admin_client_content" autocomplete="off"></input>
+			<input required placeholder="Ecrire un message..." class="ms-in" name="message_admin_client[content]" id="message_admin_client_content" autocomplete="off"></input>
 			<button type="submit">
 				<img src="/image/send.png" alt="send" class="ms-im"/>
 			</button>
-	</div>
+		</div>
 	<% end %>
 
 	</div>
 </div>
 </div>
-<script type="text/javascript">
-	$(".chat-body").animate({ scrollTop: 20000000 }, "slow");
 
-	$('#mandona').bind('ajax:success', function() {   		
+<script type="text/javascript">
+	// $(".chat-body").animate({ scrollTop: 20000000 }, "slow");
+
+	// $('#mandona').bind('ajax:success', function() {   		
+	// 	$("#somaiso").append(
+	//    		"<div class=\"m-msg\">" +
+	// 			 +
+	// 		"</div>" + 
+	// 		"<div class=\"clear\"></div>"
+	// 	)
+	// 	$("#message_admin_client_content").val("");
+	// 	$(".chat-body").animate({ scrollTop: 20000000 }, "slow");
+	// });
+
+</script>
+
+<script type="text/javascript">
 	
-   		$("#somaiso").append(
-	   		"<div class=\"m-msg\">" +
-				"<p>"+ $("#message_admin_client_content").val() +"</p>" + 
-			"</div>" + 
-			"<div class=\"clear\"></div>"
-		)
+	var container = $('#js-add-new-message');
+
+	container.animate({ scrollTop: 20000000 }, "slow");
+
+	window.path_url = $('#mandona').data().path;
+
+	function createElementNote(className,content){
+		element = "<div class=\""+className+"\">" + content + "</div><div class=\"list-messages clear\"></div>"
+		return element
+	}
+
+	$('#mandona').bind('ajax:success', function() {
+   		container.append(
+   			createElementNote("m-msg",$("#message_admin_client_content").val())
+		);
 		$("#message_admin_client_content").val("");
-		$(".chat-body").animate({ scrollTop: 20000000 }, "slow");
+		container.animate({ scrollTop: 20000000 }, "slow");
+	});
+
+	function getMyMessage() {
+		var number_message = $(".list-messages").length
+		$.getJSON(path_url, function (data) {
+			var my_data = data;
+			if (number_message == my_data.length) {
+			}else{
+				all_elements = ""
+				for (var i = 0; i < my_data.length; i++) {
+					if (my_data[i].is_admin){
+						all_elements += createElementNote("m-msg",my_data[i].content)
+					}else{
+						all_elements += createElementNote("hr-msg",my_data[i].content)
+					}
+				}
+				container.html(all_elements)
+				container.animate({ scrollTop: 20000000 }, "slow");
+			}
 		});
+	}
+	setInterval(getMyMessage, 2000);
 </script>

@@ -161,11 +161,28 @@ class AdminClientsController < ApplicationAdminController
     @content = params[:message_admin_client][:content]
     @newMessage = MessageAdminClient.new(content:@content, client_see: false, contact_admin_client: @contact, is_admin: true)
     @contact.message_admin_clients.where(admin_see:false).update(admin_see:true)
-    if @newMessage.save
-      redirect_to clients_show_message_path(@client)
-    else
-        flash[:alert] = @newMessage.errors.details
+    unless @newMessage.save
+      flash[:alert] = @newMessage.errors.details
       redirect_back(fallback_location: root_path)
     end
+    respond_to do |format|
+      format.html { redirect_to clients_show_message_path(@client) }
+      format.js   {  }
+    end
   end
+
+  def get_all_messages_admin
+    contacts = current_admin.contact_admin_clients.find_by(client_id:params[:id])
+    @messages = []
+    unless contacts.nil?
+      @messages = []
+      unless contacts.nil?
+        list_messages = contacts.message_admin_clients.order('created_at ASC')
+        unless list_messages.empty?
+          @messages = list_messages
+        end
+      end
+    end
+  end
+
 end

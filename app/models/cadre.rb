@@ -68,4 +68,18 @@ class Cadre < ApplicationRecord
     Cadre.includes(:promise_to_hires).where(promise_to_hires: { id: nil })
   end
 
+  def number_message_admin
+    contact_admins = self.contact_admin_cadres
+    if contact_admins.empty?
+      0
+    else
+      message_admins = contact_admins.first.message_admin_cadres
+      if message_admins.empty?
+        0
+      else
+        message_admins.where(cadre_see:false).count
+      end
+    end
+  end
+
 end

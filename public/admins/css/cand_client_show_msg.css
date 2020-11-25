@@ -99,7 +99,8 @@
   width: auto;
   margin-top: 10px;
   max-width: 50%;
-  border-radius: 50px;
+  border-radius: 10px;
+  align-self: center;
 }
 
 .hr-mg p {
@@ -123,6 +124,7 @@
   text-align: left;
   width: auto;
   max-width: 50%;
+  color: white;
 }
 
 .m-msg p {
@@ -208,7 +210,6 @@
   top: 65%;
 }
 
-
 @media only screen and (max-width: 540px) {
   .fcp-box {
     margin-top: 15px;
@@ -230,14 +231,10 @@
   }
 }
 @media only screen and (max-width: 576px) {
-
 }
 @media only screen and (max-width: 768px) {
-  
 }
 @media only screen and (max-width: 992px) {
-
 }
 @media only screen and (max-width: 1200px) {
-
 }

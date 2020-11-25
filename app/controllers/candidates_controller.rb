@@ -300,7 +300,7 @@ class CandidatesController < ApplicationController
       @agendaClient.update(alternative:params[:alternative],repons_cadre: false,notifed:false)
       #notifaka
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a refusé votre demande d'entretien.",link: "#{recruitment_show_cadre_path(@oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
-      flash[:notice] = "Votre réponse est envoyé avec succes."
+      flash[:notice] = "Votre réponse a été envoyée avec succès."
       redirect_to show_recrutment_monitoring_path(@oFc.id)
     when "1"
       @agendaClient.update(repons_cadre:true,notifed:false)
@@ -317,7 +317,7 @@ class CandidatesController < ApplicationController
         genre: 1
       )
 
-      flash[:notice] = "Votre réponse est envoyé avec succes."
+      flash[:notice] = "Votre réponse a été envoyée avec succès."
       redirect_to show_recrutment_monitoring_path(@oFc.id)
     when "2"
       date = params[:date].split("-")
@@ -329,7 +329,7 @@ class CandidatesController < ApplicationController
       min = time[1].to_i
       date_time = DateTime.new(year,month,day,hour,min).utc
       @agendaClient.update(alternative: date_time.to_s, repons_cadre:true,notifed:false)
-      flash[:notice] = "Votre réponse est envoyé avec succes."
+      flash[:notice] = "Votre réponse a été envoyée avec succès."
       #notifaka
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a proposé une autre date pour l'entretien.",link: "#{recruitment_show_cadre_path(@oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
       redirect_to show_recrutment_monitoring_path(@oFc.id)
@@ -464,7 +464,8 @@ class CandidatesController < ApplicationController
         ProcessedHistory.create(
           image: "/image/profie.png",
           # message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé le test potentiel",
-          message: "INSCRIPTION",
+          # message: "INSCRIPTION",
+          message: "INSCRIPTION TEST POTENTIAL",
           link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR</a>",#VOIR LE CANDIDAT
           is_client:false,
           cadre_info:@cadreInfo,
@@ -472,17 +473,18 @@ class CandidatesController < ApplicationController
         )
       end
 
-      unless @cadreInfo.is_recrute.nil?
-        ProcessedHistory.create(
-          image: "/image/profie.png",
-          # message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé l'inscription",
-          message: "INSCRIPTION",
-          link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR</a>",#VOIR LE CANDIDAT
-          is_client:false,
-          cadre_info:@cadreInfo,
-          genre: 1
-        )
-      end
+      # unless @cadreInfo.is_recrute.nil?
+      #   ProcessedHistory.create(
+      #     image: "/image/profie.png",
+      #     # message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé l'inscription",
+      #     # message: "INSCRIPTION",
+      #     message: "INSCRIPTION TEST POTENTIAL",
+      #     link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR</a>",#VOIR LE CANDIDAT
+      #     is_client:false,
+      #     cadre_info:@cadreInfo,
+      #     genre: 1
+      #   )
+      # end
 
       #notifaka
 
@@ -492,7 +494,7 @@ class CandidatesController < ApplicationController
         link: "/",
         genre: 2)
 
-      flash[:notice] = "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a été notifié par email du résultat du test !"
+      flash[:notice] = "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a été notifié(e) par email du résultat du test !"
     end
     redirect_to nothing_path
   end
@@ -887,51 +889,65 @@ class CandidatesController < ApplicationController
 
 
 
-def messagerie_admin
-  @admin = Admin.first
-  @contactCadre = current_cadre.contact_admin_cadres
-  @contact = ContactAdminCadre.where(cadre: current_cadre, admin:@admin)
-  if @contact.count == 0
-    @contact = ContactAdminCadre.create(cadre: current_cadre, admin:@admin)
-  else
-    @contact = @contact.first
-  end
-  @contact.message_admin_cadres.where(cadre_see: false).update(cadre_see: true)
-  @messages = @contact.message_admin_cadres.order(created_at: :ASC)
-  @newMessage = MessageAdminCadre.new
-end
-
-def show_message_admin
-  @admin = Admin.first
-  @contact = ContactAdminCadre.find_by(cadre:current_cadre, admin:@admin)
-  if @contact.nil?
-    @contact = ContactAdminCadre.create(cadre:current_cadre, admin:@admin)
-  else
-    @contact.message_admin_cadres.where(cadre_see:false).update(cadre_see:true)
-  end
+  def messagerie_admin
+    @admin = Admin.first
+    @contactCadre = current_cadre.contact_admin_cadres
+    @contact = ContactAdminCadre.where(cadre: current_cadre, admin:@admin)
+    if @contact.count == 0
+      @contact = ContactAdminCadre.create(cadre: current_cadre, admin:@admin)
+    else
+      @contact = @contact.first
+    end
+    @contact.message_admin_cadres.where(cadre_see: false).update(cadre_see: true)
     @messages = @contact.message_admin_cadres.order(created_at: :ASC)
     @newMessage = MessageAdminCadre.new
+  end
+
+  def show_message_admin
+    @admin = Admin.first
+    @contact = ContactAdminCadre.find_by(cadre:current_cadre, admin:@admin)
+    if @contact.nil?
+      @contact = ContactAdminCadre.create(cadre:current_cadre, admin:@admin)
+    else
+      @contact.message_admin_cadres.where(cadre_see:false).update(cadre_see:true)
+    end
+      @messages = @contact.message_admin_cadres.order(created_at: :ASC)
+      @newMessage = MessageAdminCadre.new
+      respond_to do |format|
+        format.html { }
+        format.js { }
+      end
+  end
+
+  def post_message_admin
+    @admin = Admin.first
+    @contact = ContactAdminCadre.find_by(id: params[:id_contact], admin: @admin, cadre: current_cadre)
+    @content = params[:message_admin_cadre][:content]
+    @newMessage = MessageAdminCadre.new(content:@content, admin_see: false, contact_admin_cadre: @contact, is_admin: false)
+    @contact.message_admin_cadres.where(cadre_see:false).update(cadre_see:true)
+    
+    unless @newMessage.save
+      flash[:alert] = @newMessage.errors.details
+      redirect_back(fallback_location: root_path)
+    end
+
     respond_to do |format|
-      format.html { }
+      format.html { redirect_to show_message_admin_path(@admin) }
       format.js { }
     end
-end
 
-def post_message_admin
-  @admin = Admin.first
-  @contact = ContactAdminCadre.find_by(id: params[:id_contact], admin: @admin, cadre: current_cadre)
-  @content = params[:message_admin_cadre][:content]
-  @newMessage = MessageAdminCadre.new(content:@content, admin_see: false, contact_admin_cadre: @contact, is_admin: false)
-  @contact.message_admin_cadres.where(cadre_see:false).update(cadre_see:true)
-  if @newMessage.save
-      redirect_to show_message_admin_path(@admin)
-  else
-      flash[:alert] = @newMessage.errors.details
-    redirect_back(fallback_location: root_path)
   end
-end
 
-
+  def get_all_messages_admin
+    contacts = current_cadre.contact_admin_cadres.last
+    @messages = []
+    unless contacts.nil?
+      list_messages = contacts.message_admin_cadres.order('created_at ASC')
+      unless list_messages.empty?
+        @messages = list_messages
+      end
+    end
+  end
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

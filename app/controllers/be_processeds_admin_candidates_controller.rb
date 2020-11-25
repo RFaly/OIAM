@@ -24,29 +24,28 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
         hour = time[0].to_i
         min = time[1].to_i
         @cadreInfo.agenda_admin.update(entretien_date:DateTime.new(year,month,day,hour,min).utc,accepted:true)
+        # message: "L'entretien fit avec #{@cadreInfo.first_name} #{@cadreInfo.last_name} est validé.",
       else
-        flash[:alert] = "Une erreur c'est produite"
-        redirect_to cbp_validate_entretien_fit_path(@cadreInfo.id)
+        flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
+        redirect_back(fallback_location: root_path)
         return 0
       end
-
-      TestOiamMailer.test_fit_validate(@cadreInfo).deliver_now
-
       ProcessedHistory.create(
         image: "/image/profie.png",
-        # message: "L'entretien fit avec #{@cadreInfo.first_name} #{@cadreInfo.last_name} est validé.",
-        message: "ENTRETIEN FIT",
+        message: "PLANIFICATION ENTRETIEN FIT",
         link: "<a href='#{cbp_validate_entretien_fit_path(@cadreInfo.id)}'>VOIR</a>",
         is_client:false,
         cadre_info:@cadreInfo,
         genre: 1
       )
-
+      TestOiamMailer.test_fit_validate(@cadreInfo).deliver_now
+      flash[:notice] = "Entretien fit validé!"
+      redirect_to cbp_validate_entretien_fit_path(@cadreInfo.id)
+    else
+      flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
+      redirect_back(fallback_location: root_path)
+      return 0
     end
-
-    flash[:notice] = "Entretien fit validé!"
-    redirect_to cbp_validate_entretien_fit_path(@cadreInfo.id)
-
   end
 
   def be_processed_efectue_entretien_fit
@@ -81,15 +80,15 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
     if errorMessage == ""
       
       unless @cadre_infos.nil?
-        ProcessedHistory.create(
-          image: "/image/profie.png",
-          # message: "#{@cadre_infos.first_name} #{@cadre_infos.last_name} a terminé l'inscription",
-          message: "INSCRIPTION",
-          link: "<a href='#{cbp_inscription_path(@cadre_infos.id)}'>VOIR</a>",
-          is_client:false,
-          cadre_info:@cadre_infos,
-          genre: 1
-        )
+        # ProcessedHistory.create(
+        #   image: "/image/profie.png",
+        #   # message: "#{@cadre_infos.first_name} #{@cadre_infos.last_name} a terminé l'inscription",
+        #   message: "INSCRIPTION",
+        #   link: "<a href='#{cbp_inscription_path(@cadre_infos.id)}'>VOIR</a>",
+        #   is_client:false,
+        #   cadre_info:@cadre_infos,
+        #   genre: 1
+        # )
         ProcessedHistory.create(
           image: "/image/profie.png",
           # message: "L'entretien fit avec #{@cadre_infos.first_name} #{@cadre_infos.last_name} est traité.",

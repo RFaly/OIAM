@@ -99,7 +99,7 @@
 					<option value="<%= @cadre.mobilite %>" selected hidden><%= @cadre.mobilite_name %></option>
 				<% end %>
 				<option value="0">PAS DE DÉPLACEMENT</option>
-				<option value="1">REGIONAL</option>
+				<option value="1">REGIONALE</option>
 				<option value="2">NATIONALE</option>
 				<option value="3">INTERNATIONALE</option>
 			</select>
@@ -108,7 +108,7 @@
 					<div class="importe-cv"><img src="/image/importer_CV.png" alt="cv logo" width="45px" height="30px" class="cv-image">CV</div>
 					<div class="cv">
 						<%= f.label :cv, "IMPORTER CV", class:"cv-label"%>
-						<%= f.file_field :cv, class:"cv-champs", accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+						<%= f.file_field :cv, class:"cv-champs", accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document",required:'required' %>
 					</div>
           <p class="nom_fichier">VOTRE FICHIER : <span id="cv-filename"></span></p>
 				</div>
@@ -119,7 +119,7 @@
 					<img id="addImage" src="/image/profie.png" class="add-image">
 				<% end %>
 				<%= f.label :image, "IMPORTER UNE PHOTO", class:"add-image-label" %>
-				<%= f.file_field :image, class:"image_add", accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+				<%= f.file_field :image, class:"image_add", accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document",required:'required' %>
 
 				</div>
 			</div>

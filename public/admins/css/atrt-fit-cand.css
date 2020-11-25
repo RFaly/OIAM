@@ -32,6 +32,7 @@
 .fit-desc p {
   font-size: 14px;
   font-family: Questrial, sans-serif;
+  line-height: 1.5;
 }
 
 .fit-box-right h2 {
@@ -215,7 +216,6 @@
   .val-btn {
     font-size: 16px;
   }
-
 }
 @media only screen and (max-width: 576px) {
   .form-in-all {
@@ -231,7 +231,6 @@
   .form-rgt {
     border-left: 0px;
   }
-
 }
 @media only screen and (max-width: 768px) {
   .form-in-all {
@@ -247,7 +246,6 @@
   .form-rgt {
     border-left: 0px;
   }
-
 }
 @media only screen and (max-width: 992px) {
   .fit-box-left {
@@ -284,7 +282,6 @@
   .acc-btn {
     padding: 20px 85px;
   }
-
 }
 @media only screen and (max-width: 1200px) {
   .mod-btn {
