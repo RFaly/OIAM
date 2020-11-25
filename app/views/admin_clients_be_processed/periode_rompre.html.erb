@@ -27,7 +27,7 @@
       <div class="flex-box">
         <div class="client">
           <a href="<%= clients_bp_show_client_path(@client.id) %>">
-            <div class="title">Recruteurs</div>
+            <div class="title">Recruteur</div>
             <div class="ef-image img-user">
               <% unless @client.image.nil? %>
                 <img src="<%= @client.image %>" alt="logo entreprise" width="100 px" />
@@ -44,7 +44,7 @@
         </div>
         <div class="cadre">
           <a href="<%= cbp_promise_no_validate_path(@cadre_info.id) %>">
-            <div class="title">Candidats</div>
+            <div class="title">Candidat</div>
             <div class="ef-image img-user">
               <% unless @cadre_info.image.nil? %>
               <img src="<%= @cadre_info.image %>" alt="logo entreprise" width="300 px" />
