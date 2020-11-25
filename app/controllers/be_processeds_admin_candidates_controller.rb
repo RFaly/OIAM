@@ -80,15 +80,15 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
     if errorMessage == ""
       
       unless @cadre_infos.nil?
-        ProcessedHistory.create(
-          image: "/image/profie.png",
-          # message: "#{@cadre_infos.first_name} #{@cadre_infos.last_name} a terminé l'inscription",
-          message: "INSCRIPTION",
-          link: "<a href='#{cbp_inscription_path(@cadre_infos.id)}'>VOIR</a>",
-          is_client:false,
-          cadre_info:@cadre_infos,
-          genre: 1
-        )
+        # ProcessedHistory.create(
+        #   image: "/image/profie.png",
+        #   # message: "#{@cadre_infos.first_name} #{@cadre_infos.last_name} a terminé l'inscription",
+        #   message: "INSCRIPTION",
+        #   link: "<a href='#{cbp_inscription_path(@cadre_infos.id)}'>VOIR</a>",
+        #   is_client:false,
+        #   cadre_info:@cadre_infos,
+        #   genre: 1
+        # )
         ProcessedHistory.create(
           image: "/image/profie.png",
           # message: "L'entretien fit avec #{@cadre_infos.first_name} #{@cadre_infos.last_name} est traité.",
