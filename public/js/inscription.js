@@ -281,7 +281,7 @@ function check_phone(testee, value) {
   } else {
     testee.css('outline', '.2px solid red');
     testee.css('outline-offset', '-0.2px');
-    value.html('(Numero téléphone invalide)');
+    value.html('(Numéro de téléphone invalide)');
     value.show();
   }
 }
