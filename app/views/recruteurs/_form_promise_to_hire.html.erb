@@ -48,7 +48,7 @@
   <% priseDate = @promise.date_poste ? @promise.date_poste : @job.date_poste %>
   <%= f.text_field :date_poste, value: priseDate, required:true,id:"datepicker" %></div>
 <hr />
-<div class="pc-form pc-form1 pc-flex"><%= f.label :time_trying, "Fin du période d'essai" %>
+<div class="pc-form pc-form1 pc-flex"><%= f.label :time_trying, "Fin de la période d'essai" %>
   <% periodessay = @promise.time_trying ? @promise.time_trying : (@job.date_poste.to_date + 120 ).strftime("%d/%m/%Y") %>
   <%= f.text_field :time_trying, value: periodessay, required:true,id:"datepicker1",class:"datepicker1" %></div>
 <hr />
