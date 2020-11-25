@@ -464,7 +464,8 @@ class CandidatesController < ApplicationController
         ProcessedHistory.create(
           image: "/image/profie.png",
           # message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé le test potentiel",
-          message: "INSCRIPTION",
+          # message: "INSCRIPTION",
+          message: "INSCRIPTION TEST POTENTIAL",
           link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR</a>",#VOIR LE CANDIDAT
           is_client:false,
           cadre_info:@cadreInfo,
@@ -476,7 +477,8 @@ class CandidatesController < ApplicationController
         ProcessedHistory.create(
           image: "/image/profie.png",
           # message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name} a terminé l'inscription",
-          message: "INSCRIPTION",
+          # message: "INSCRIPTION",
+          message: "INSCRIPTION TEST POTENTIAL",
           link: "<a href='#{cbp_inscription_path(@cadreInfo.id)}'>VOIR</a>",#VOIR LE CANDIDAT
           is_client:false,
           cadre_info:@cadreInfo,
