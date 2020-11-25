@@ -14,7 +14,7 @@ class NotificationsController < ApplicationController
         elsif agendaClient.repons_client == true && agendaClient.repons_cadre == true && !agendaClient.alternative.nil?
           message = "La date de l'entretien avec #{oFc.cadre.cadre_info.first_name} #{oFc.cadre.cadre_info.last_name} est passée, le candidat a proposé une autre date."
         elsif agendaClient.repons_cadre.nil?
-          message = "La date de l'entretien avec #{oFc.cadre.cadre_info.first_name} #{oFc.cadre.cadre_info.last_name} est passée mais ce candidat n’a pas donné suite à votre demande d’entretien."
+          message = "La date de l'entretien avec #{oFc.cadre.cadre_info.first_name} #{oFc.cadre.cadre_info.last_name} est passée mais ce candidat n'a pas donné de réponse à votre demande d’entretien."
           Notification.create(
             cadre: oFc.cadre,
             object: "Suivi recrutement",
