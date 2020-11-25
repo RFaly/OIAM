@@ -24,29 +24,28 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
         hour = time[0].to_i
         min = time[1].to_i
         @cadreInfo.agenda_admin.update(entretien_date:DateTime.new(year,month,day,hour,min).utc,accepted:true)
+        # message: "L'entretien fit avec #{@cadreInfo.first_name} #{@cadreInfo.last_name} est validé.",
       else
-        flash[:alert] = "Une erreur c'est produite"
-        redirect_to cbp_validate_entretien_fit_path(@cadreInfo.id)
+        flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
+        redirect_back(fallback_location: root_path)
         return 0
       end
-
-      TestOiamMailer.test_fit_validate(@cadreInfo).deliver_now
-
       ProcessedHistory.create(
         image: "/image/profie.png",
-        # message: "L'entretien fit avec #{@cadreInfo.first_name} #{@cadreInfo.last_name} est validé.",
-        message: "ENTRETIEN FIT",
+        message: "PLANIFICATION ENTRETIEN FIT",
         link: "<a href='#{cbp_validate_entretien_fit_path(@cadreInfo.id)}'>VOIR</a>",
         is_client:false,
         cadre_info:@cadreInfo,
         genre: 1
       )
-
+      TestOiamMailer.test_fit_validate(@cadreInfo).deliver_now
+      flash[:notice] = "Entretien fit validé!"
+      redirect_to cbp_validate_entretien_fit_path(@cadreInfo.id)
+    else
+      flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
+      redirect_back(fallback_location: root_path)
+      return 0
     end
-
-    flash[:notice] = "Entretien fit validé!"
-    redirect_to cbp_validate_entretien_fit_path(@cadreInfo.id)
-
   end
 
   def be_processed_efectue_entretien_fit
@@ -116,7 +115,6 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
       redirect_to post_avis_candidats_fit_path(@cadre_infos.id)
 
     else
-      flash[:alert] = "aaaa aaaa"
       flash[:alert] = "#{errorMessage}"
       # redirect_back(fallback_location: root_path)
       redirect_to post_avis_candidats_fit_path(@cadre_infos.id)

@@ -52,7 +52,7 @@ class CadreInfo < ApplicationRecord
 	def mobilite_name
 		case self.mobilite
 		when "1"
-		  "REGIONAL"
+		  "REGIONALE"
 		when "2"
 		  "NATIONALE"
 		when "3"
