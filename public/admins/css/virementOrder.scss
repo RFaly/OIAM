@@ -4,44 +4,39 @@
   margin: 0 auto;
   padding: 10px;
   padding-bottom: 30px;
+  .title {
+    text-align: center;
+    font: 500 18px Raleway, sans-serif;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+  .flex-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    .label {
+      label {
+        cursor: pointer;
+        border: 2px solid white;
+        padding: 10px;
+        &:hover,
+        &:active {
+          background: white;
+          color: #d6b36a;
+        }
+      }
+      padding: 0 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      font-family: Ralwey, sans-serif;
+      text-transform: uppercase;
+    }
+  }
 }
-
-.big-box-my-box .title {
-  text-align: center;
-  font: 500 18px Raleway, sans-serif;
-  color: white;
-  text-transform: uppercase;
-  margin-bottom: 50px;
-}
-
-.big-box-my-box .flex-form {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.big-box-my-box .flex-form .label {
-  padding: 0 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  font-family: Ralwey, sans-serif;
-  text-transform: uppercase;
-}
-
-.big-box-my-box .flex-form .label label {
-  cursor: pointer;
-  border: 2px solid white;
-  padding: 10px;
-}
-
-.big-box-my-box .flex-form .label label:hover, .big-box-my-box .flex-form .label label:active {
-  background: white;
-  color: #d6b36a;
-}
-
 .my-row {
   background: #d6b36a;
   padding: 40px;
@@ -153,42 +148,43 @@
   .blc-rgt {
     border-left: 0px solid #fff;
   }
+
   .import-left {
     border-right: 0px solid #fff;
   }
 }
-
 @media only screen and (max-width: 576px) {
   .blc-rgt {
     border-left: 0px solid #fff;
   }
+
   .import-left {
     border-right: 0px solid #fff;
   }
 }
-
 @media only screen and (max-width: 768px) {
   .blc-rgt {
     border-left: 0px solid #fff;
   }
+
   .import-left {
     border-right: 0px solid #fff;
   }
 }
-
 @media only screen and (max-width: 992px) {
   .blc-rgt {
     border-left: 0px solid #fff;
   }
+
   .import-left {
     border-right: 0px solid #fff;
   }
 }
-
 @media only screen and (max-width: 1200px) {
   .blc-rgt {
     border-left: 0px solid #fff;
   }
+
   .import-left {
     border-right: 0px solid #fff;
   }
