@@ -6,55 +6,44 @@
   </div>
 
   <div class="cp-box">
-    <div>
-      <div class="row my-row">
-        <div class="blc-lft col-lg-5 col-md-5 col-sm-12 col-xs-12">
-          <h2>Payer le prime de <%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %></h2>
-        </div>
-        <div class="blc-rgt col-lg-7 col-md-7 col-sm-12 col-xs-12">
-          <% if @promise.prime_received == false %>
+    <div class="big-box-my-box">
+      <h5 class="title">
+        Payer le prime de <%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %>
+      </h5>
+      <% if @promise.prime_received == false %>
           <%= form_for PromiseToHire.new , url: post_be_processed_prime_path do |f| %>
-            <div class="cont-my-cv">
-              <input type="hidden" name="promise_id" value="<%= @promise.id %>">
-              <div class="row">
-                <div class="import-left col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <img id="addImage" src="" class="add-image" width="120" style="display: none;">
+              <div class="flex-form">
+                <div class="imagediv">
+                  <img id="addImage" src="" class="add-image" width="220" style="display: none;">
                 </div>
-                <div class="import-rgt col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <%= f.label :ov_prime, "Importer l'Ordre de virement", class:"my-cv-label"%>
+                <div class="label">
+                  <%= f.label :ov_prime, "Importer l'Ordre de virement", class:"my-cv-label"%>
                 </div>
               </div>
-              <br>
-              <div class="import-file d-flex justify-content-lg-center justify-content-md-center">
-                <%= f.file_field :ov_prime, class:"form-control-file form-my-cv", accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+              <%= f.file_field :ov_prime,required: :true,  hidden:true, accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"%>
+              <div class="btn-row">
+                <%= f.submit 'Valider le paiement', :class => 'apercu' %>
               </div>
-            </div>
-            <br>
-            <div class="btn-row">
-              <%= f.submit 'Valider le paiement', :class => 'apercu' %>
-            </div>
           <% end %>
-        <% else %>
-        <div class="container">
-          <div class="row ct-text">
-            <div class="ct-txt col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">
-              <strong>Prime payer : </strong>
+          <% else %>
+          <div class="container">
+            <div class="row ct-text">
+              <div class="ct-txt col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">
+                <strong>Prime payée : </strong>
+              </div>
+            </div>
+            <div class="row ct-text">
+              <div class="ct-txt col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">
+                  <strong>Ordre de virement </strong>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">
+                <img class="" src="<%= @promise.ov_prime %>" alt="ordre de virement" width= "200px" height="200px">
+              </div>
             </div>
           </div>
-          <div class="row ct-text">
-            <div class="ct-txt col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">
-                <strong>Ordre de virement </strong>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-lg-center justify-content-md-center justify-content-sm-center">
-              <img class="" src="<%= @promise.ov_prime %>" alt="ordre de virement" width= "200px" height="200px">
-            </div>
-          </div>
-        </div>
         <% end %>
-        </div>
-      </div>
     </div>
   </div>
 </div>
@@ -67,6 +56,8 @@
       reader.onload = function(e) {
         $('#addImage').attr('src', e.target.result);
         $('#addImage').show()
+        $('.imagediv').css('border-right','2px solid white')
+        $('.imagediv').css('padding','0 50px')
       }
       reader.readAsDataURL(input.files[0]);
     }
