@@ -789,7 +789,7 @@ class CandidatesController < ApplicationController
 
     first_name = current_cadre.cadre_info.first_name
     last_name = current_cadre.cadre_info.last_name
-    flash[:notice] = "Période d'essai bien validé."
+    flash[:notice] = "Période d'essai bien validée."
     #notifaka
     Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a validé sa période d'essai.",link: "#{recruitment_show_cadre_path(oFc.id,notification:"validation")}",genre: 1,medel_id: current_cadre.id,view: false)
 

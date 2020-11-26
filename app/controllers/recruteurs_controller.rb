@@ -845,7 +845,7 @@ class RecruteursController < ApplicationController
 
 		if @promise.client_time_trying.nil?
 			if params[:date_rupture].nil?
-				flash[:notice] = "Période d'essai bien validé."
+				flash[:notice] = "Période d'essai bien validée."
 		    	@promise.update(client_time_trying:true)
 				Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a validé votre période d’essai.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"prime")}",genre: 2,medel_id: @offreJob.id,view: false)
 			 	@promise.cadre.cadre_info.update(status:"EN POSTE")
