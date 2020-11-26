@@ -30,7 +30,7 @@ class AdminClientsController < ApplicationAdminController
     OffreForCandidate.where(status:nil).each do |oFc|
       ac = oFc.agenda_clients.last
       unless ac.nil?
-        if ac.repons_client && ac.repons_cadre && ac.alternative.nil? && ac.entretien_date < DateTime.now.utc
+        if !ac.reponded && ac.repons_client && ac.repons_cadre && ac.alternative.nil? && ac.entretien_date < DateTime.now.utc
           @listAgendaClientsEntretiens.push([oFc,ac])
         end
       end
