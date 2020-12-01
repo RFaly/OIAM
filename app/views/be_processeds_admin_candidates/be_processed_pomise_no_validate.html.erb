@@ -45,7 +45,7 @@
               <p><strong>Adresse : </strong><%= @cadre_info.adresse %></p>
               <p><strong>Code postal : </strong><%= @cadre_info.postal_code %></p>
               <p><strong>Ville : </strong><%= @cadre_info.city %></p>
-              <p><strong>Mail :</strong><a class="lnk-prms" href="mailto:<%= @cadre_info.mail %>"><%= @cadre_info.mail %></a></p>
+              <p><strong>Mail : </strong><a class="lnk-prms" href="mailto:<%= @cadre_info.mail %>"><%= @cadre_info.mail %></a></p>
               <p><strong>Téléphone : </strong><a class="lnk-prms" href="tel:+33<%= @cadre_info.telephone %>">+33 <%= @cadre_info.telephone %></a></p>
               <p><strong>Type de poste : </strong><%= @cadre_info.metier.name %></p>
             </div>
@@ -83,7 +83,7 @@
                   </div>
                   <div class="depll col-lg-3 col-md-3 col-sm-12 col-xs-12 dep-border">
                     <% unless @cadre_info.region.nil? %>
-                    <div class="depl-ttl">Region</div>
+                    <div class="depl-ttl">Région</div>
                     <div class="depl-ct"><%= @cadre_info.region.name %> </div>
                     <% end %>
                   </div>
