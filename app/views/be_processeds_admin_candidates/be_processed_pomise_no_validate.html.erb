@@ -18,6 +18,9 @@
     color: #fff;
     text-decoration: none;
   }
+  .afa-mihitsy{
+    margin: 0 auto;
+  }
 </style>
 <div class="client-column">
   <div class="client-menu-left">
@@ -25,11 +28,9 @@
   </div>
 
   <div class="cp-box">
-   <div>
       <% if @cadre_info.status_state == "admis" %>
-      <div>
         <% if @cadre_info.status_state == "admis" %>
-        <div class="row resp-row">
+        <div class="row resp-row afa-mihitsy">
           <div class="block-image col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <% unless @cadre_info.image.nil? %>
             <img src="<%= @cadre_info.image %>" alt="photo profil candidats" , width="300px" , height="300px" ,
@@ -166,7 +167,6 @@
         </div>
         <% end %>
       <% end %>
-      </div>
 
       <!-- <h2>Liste des candidats qui sont arrivés au bout de leur période d'essai et qui n'ont pas encore été validés dans le système.</h2> -->
       <!-- <h2>Liste candidats qui ont eu une promesse d'embauche et qui n'ont pas répondu</h2> -->
