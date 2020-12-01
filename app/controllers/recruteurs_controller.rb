@@ -528,9 +528,11 @@ class RecruteursController < ApplicationController
 				flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
 				redirect_to root_path
 			else
+				
 				name_entreprise = current_client.entreprise.name
 				etapes = ""
 				message = ""
+
 				case @oFc.etapes
 					when 1
 						etapes = "première"
@@ -539,6 +541,7 @@ class RecruteursController < ApplicationController
 					when 3
 						etapes = "troisième"
 				end
+
 				case params[:repons]
 					when "accepted" #REFUSER
 						message = "#{name_entreprise} a validé votre candidature pour la #{etapes} étape."
@@ -549,9 +552,12 @@ class RecruteursController < ApplicationController
 							message = "#{name_entreprise} a envoyé la raison du refus de votre candidature."
 						end
 				end
+
 				Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: message,link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offre.id,view: false)
+				
 				@oFc.update(status:params[:repons])
 				@oFc.update(refused_info:params[:notifier])
+				@oFc.agenda_clients.last.update(reponded:true)
 
 				# 7. FEEDBACK ENTRETIEN
 				ProcessedHistory.create(
@@ -845,7 +851,7 @@ class RecruteursController < ApplicationController
 
 		if @promise.client_time_trying.nil?
 			if params[:date_rupture].nil?
-				flash[:notice] = "Période d'essai bien validé."
+				flash[:notice] = "Période d'essai bien validée."
 		    	@promise.update(client_time_trying:true)
 				Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a validé votre période d’essai.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"prime")}",genre: 2,medel_id: @offreJob.id,view: false)
 			 	@promise.cadre.cadre_info.update(status:"EN POSTE")

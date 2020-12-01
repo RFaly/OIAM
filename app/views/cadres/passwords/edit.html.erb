@@ -11,14 +11,14 @@
     <div class="field">
       <!-- <%= f.label :password, "New password" %><br /> -->
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+      <em>(<%= @minimum_password_length %> caractères minimum)</em><br />
       <% end %>
       <%= f.password_field :password, autofocus: true, autocomplete: "new-password",placeholder:'Nouveau mot de passe',required:'true' %>
     </div>
     <div id="mail-mail-error"></div>
     <div class="field">
       <!-- <%= f.label :password_confirmation, "Confirm new password" %><br /> -->
-      <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder:'Confirmé le mot de passe',id:'cpass-r',required:'true' %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder:'Confirmer le mot de passe',id:'cpass-r',required:'true' %>
     </div>
 
     <div class="actions">

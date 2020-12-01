@@ -20,7 +20,7 @@
               <%= @cadre.cadre_info.first_name %> <%= @cadre.cadre_info.last_name %>
             </div>
             <% unless @cadre.is_online? %>
-            <div class="notconnected">(Connecté(e) il y a <%= time_ago_in_words(@cadre.online_time) %>)</div>
+            <div class="notconnected">Connecté(e) il y a <%= time_ago_in_words(@cadre.online_time) %></div>
             <% end %>
           </div>
         </div>
@@ -44,10 +44,10 @@
             data-client="true" />
           <input type="hidden" name="message_client_cadre[contact_id]" value="<%=@contact.id%>" />
           <div class="input-items">
-            <input type="text" rows="3" name="message_client_cadre[content]" placeholder="Ecrire un message..."
+            <input type="text" rows="3" name="message_client_cadre[content]" placeholder="Répondre..."
               id="message_client_cadre_content">
             <!-- <textarea required="required" rows="3" class="form-control" name="message_client_cadre[content]"
-              placeholder="Ecrire un message..." id="message_client_cadre_content"></textarea> -->
+              placeholder="Répondre..." id="message_client_cadre_content"></textarea> -->
           </div>
           <button type="submit">
             <img src="/image/send.png" alt="send" id="sender" />

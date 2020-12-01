@@ -180,33 +180,31 @@
 
         <% unless @listAgendaClientsEntretiens.empty? %>
         <% @listAgendaClientsEntretiens.each do |listAgendaClientsEntretien| %>
-        <!-- ([oFc,ac]) -->
-        <% oFc = listAgendaClientsEntretien[0] %>
-        <% ac = listAgendaClientsEntretien[1] %>
-
-        <% enter_date = ac.entretien_date.strftime("%d/%m/%Y") %>
-
-        <div data-name=".FEEDBACK_ENTRETIEN" data-min="<%= enter_date %>" data-max="~" class="bp-box list-items-me">
-          <div class="bp-inside-box">
-            <div class="bp-inscr"><span class="gold-ttl">FEEDBACK ENTRETIEN</span><br>
-              Etat: En mode entretien
+          <!-- ([oFc,ac]) -->
+          <% oFc = listAgendaClientsEntretien[0] %>
+          <% ac = listAgendaClientsEntretien[1] %>
+          <% enter_date = ac.entretien_date.strftime("%d/%m/%Y") %>
+          <div data-name=".FEEDBACK_ENTRETIEN" data-min="<%= enter_date %>" data-max="~" class="bp-box list-items-me">
+            <div class="bp-inside-box">
+              <div class="bp-inscr"><span class="gold-ttl">FEEDBACK ENTRETIEN</span><br>
+                Etat: En mode entretien
+              </div>
+              <div class="bp-name pt-4">
+                <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
+              </div>
+              <div class="bp-date">
+                Date d'entrée :
+                <span data-times="<%= ac.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
+              </div>
+              <div class="bp-date">
+                Date limite : ~
+              </div>
             </div>
-            <div class="bp-name pt-4">
-              <%= oFc.offre_job.client.first_name %> <%= oFc.offre_job.client.last_name %>
-            </div>
-            <div class="bp-date">
-              Date d'entrée :
-              <span data-times="<%= ac.entretien_date.strftime("%Y-%m-%d %H:%M") %>" class="currentDatentretien"></span>
-            </div>
-            <div class="bp-date">
-              Date limite : ~
+            <div class="bp-btn">
+              <a href="<%= clients_bp_effectue_entretien_path(ac.id) %>">GERER</a>
             </div>
           </div>
-          <div class="bp-btn">
-            <a href="<%= clients_bp_effectue_entretien_path(ac.id) %>">GERER</a>
-          </div>
-        </div>
-        <% end %>
+          <% end %>
         <% end %>
 
         <!--

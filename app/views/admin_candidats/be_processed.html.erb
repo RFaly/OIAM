@@ -23,6 +23,7 @@
 						<option value=".ENTRETIEN_FIT">ENTRETIEN FIT</option>
 						<option value=".COMPLETION_PROFIL">COMPLETION PROFIL</option>
 						<option value=".PROMESSE-D-EMBAUCHE">PROMESSE D'EMBAUCHE</option>
+						<option value=".PERIODE-D-ESSAI">PERIODE D'ESSAI</option>
 						<option value=".PRIME">PRIME</option>
 					</select>
 					<div class="calendar flex">
@@ -72,6 +73,7 @@
 						<div class="bp-inscr"><span class="gold-ttl">INSCRIPTION TEST POTENTIAL</span><br>
 							Etat: non terminée
 						</div>
+						<br>
 						<div class="bp-name">
 							<%= cadreInfoPotentielNotEnd.first_name %> <%= cadreInfoPotentielNotEnd.last_name %>
 						</div>
@@ -104,6 +106,7 @@
 						<div class="bp-inscr"><span class="gold-ttl">PLANIFICATION ENTRETIEN FIT</span><br>
 							Etat: à valider
 						</div>
+						<br>
 						<div class="bp-name pt-4">
 							<%= cadreInfoFit.first_name %> <%= cadreInfoFit.last_name %>
 						</div>
@@ -135,6 +138,7 @@
 						<div class="bp-inscr"><span class="gold-ttl">ENTRETIEN FIT</span><br>
 							Etat:  à effectuer
 						</div>
+						<br>
 						<div class="bp-name pt-4">
 							<%= cadreInfoEnterScoreFit.first_name %> <%= cadreInfoEnterScoreFit.last_name %>
 						</div>
@@ -170,6 +174,7 @@
 						<div class="bp-inscr"><span class="gold-ttl">COMPLETION PROFIL</span><br>
 							Etat: Profil non complété
 						</div>
+						<br>
 						<div class="bp-name pt-4">
 							<%= cfo.first_name %> <%= cfo.last_name %>
 						</div>
@@ -202,6 +207,7 @@
 						<div class="bp-inscr"><span class="gold-ttl">PROMESSE D'EMBAUCHE</span><br>
 							Etat: Promesse d'embauche non validée
 						</div>
+						<br>
 						<div class="bp-name pt-4">
 							<%= cINPT.first_name %> <%= cINPT.last_name %>
 						</div>
@@ -233,12 +239,13 @@
 				<% @pThWa1 =  time_trying %>
 				<% end %>
 
-				<div data-name=".PROMESSE-D-EMBAUCHE" class="bp-box list-items-me"
+				<div data-name=".PERIODE-D-ESSAI" class="bp-box list-items-me"
 					data-min="<%= pThWa.offre_job.date_poste %>" data-max="<%= @pThWa1 %>">
 					<div class="bp-inside-box">
 						<div class="bp-inscr"><span class="gold-ttl">PERIODE D'ESSAI</span><br>
 							Etat: Période d'essai non validée
 						</div>
+						<br>
 						<div class="bp-name pt-4">
 							<%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
 						</div>

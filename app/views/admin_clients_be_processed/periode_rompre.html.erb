@@ -57,21 +57,32 @@
             </div>
             <div class="entretien">
               <div>
-                Date de début :
-                <b><%= @promise.offre_job.date_poste %></b>
+                Date de début : <b><%= @promise.offre_job.date_poste %></b>
               </div>
               <div>
-                <% @time_try = @promise.rupture_time_trying%>
-                <% unless @time_try.nil? %>
-                  <%if @time_try.include?('-') %>
-                    <% @time = @time_try.split('-')%>
-                    <% @pbt = "#{@time[2]}/#{@time[1]}/#{@time[0]}"%>
-                  <%else %>
-                    <%@pbt =  @time_try%>
-                  <%end %>
-                <%end %>
-                Date de fin :
-                <b><%= @pbt %></b>
+
+                <% date_fin = "" %>
+
+                <% rupture_time_trying = @promise.rupture_time_trying %>
+
+                <% time_trying = @promise.time_trying %>
+
+                <% if rupture_time_trying.nil? %>
+                  <% if time_trying.include?('-') %>
+                    <% time = time_trying.split('-')%>
+                    <% date_fin = "#{time[2]}/#{time[1]}/#{time[0]}"%>
+                  <% else %>
+                    <% date_fin = time_trying %>
+                  <% end %>
+                <% else %>
+                  <% if rupture_time_trying.include?('-') %>
+                    <% time = rupture_time_trying.split('-')%>
+                    <% date_fin = "#{time[2]}/#{time[1]}/#{time[0]}"%>
+                  <% else %>
+                    <% date_fin = rupture_time_trying %>
+                  <% end %>
+                <% end %>
+                Date de fin : <b><%= date_fin %></b>
               </div>
             </div>
           </a>

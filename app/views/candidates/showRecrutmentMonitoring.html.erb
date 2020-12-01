@@ -80,8 +80,7 @@
 			<!-- demande la validation du promesse d'embauche -->
 			<div class="felicitations">
 				<p>Félicitations, vous avez réussi la dernière étape du recrutement !</p>
-				<p><span class="mak-bold"><%= @offreJob.client.entreprise.name %></span> vous a envoyé une promesse
-					d'embauche.</p>
+				<p><span class="mak-bold"><%= @offreJob.client.entreprise.name %></span> vous a envoyé(e) une promesse d'embauche.</p>
 				<p><%= link_to "OUVRIR", cadre_show_promise_to_hire_path(@promise.id), class:"btn btn-open" %></p>
 			</div>
 			<% else %>
