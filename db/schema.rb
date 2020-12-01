@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_164346) do
+ActiveRecord::Schema.define(version: 2020_11_26_131316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_164346) do
     t.boolean "repons_cadre"
     t.boolean "is_update"
     t.boolean "notifed", default: false
+    t.boolean "reponded", default: false
     t.index ["offre_for_candidate_id"], name: "index_agenda_clients_on_offre_for_candidate_id"
   end
 
