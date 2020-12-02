@@ -30,12 +30,9 @@
           </div>
         <div class="message-content">
           <div class="recruteur-name">
-            Entreprise : <%= contact.client.entreprise.name.upcase %> 
+            Entreprise : <%= contact.client.entreprise.name.upcase %> <% unless nbr == 0 %>(<%= nbr %>)<% end %>
           </div>
-          <div class="message-body">
-            <% unless nbr == 0 %>
-              <span class="alert-info"><%= nbr %></span>
-            <% end %>
+          <div class="message-body"> 
             <% if contact.message_admin_clients.last.is_admin %>vous : <%end%> <%= contact.message_admin_clients.last.content %>
           </div>
         </div>
