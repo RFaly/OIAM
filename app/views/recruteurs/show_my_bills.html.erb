@@ -5,7 +5,7 @@
   <div class="client-menu-left"><%= render "recruteurs/left_link_bar" %></div>
   <div class="cp-box">
     <div class="pay-bill-box">
-      <h5 class="title">Factures à payer</h5>
+    <h5 class="title"><% if @facture.is_payed == true %>Factures à payer<% else %>Factures payées<% end %></h5>
       <div class="pb-content">
         <div class="pb-flex">
           <div class="left">RIB</div>
@@ -34,7 +34,8 @@
           </label>
           <%= submit_tag("VALIDER",id:"valide") %> <% end %>
         </div>
-        <% else %> <% if @facture.is_payed == true %>
+        <% else %> 
+        <% if @facture.is_payed == true %>
         <div class="pb-flex">
           <div class="left">OV</div>
           <div class="pb-btn">

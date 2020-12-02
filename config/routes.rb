@@ -132,7 +132,7 @@ Rails.application.routes.draw do
   post '/cadre/save-entretien-date', to:'candidates#saveEntretientDate',as:'saveEntretientDate'
 
   #maketo
-  post '/cadre/score-resultats-test-potentiel', to:"candidates#createScorePototial", as:'createScorePototial'
+  post '/cadre/score-resultats-test-potential', to:"candidates#createScorePototial", as:'createScorePototial'
 
 
 
