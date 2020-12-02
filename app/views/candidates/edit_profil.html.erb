@@ -105,28 +105,43 @@
 			</select>
 			<div class="image-cv">
 				<div id="import-cv">
-					<div class="importe-cv"><img src="/image/importer_CV.png" alt="cv logo" width="45px" height="30px" class="cv-image">CV</div>
+					<div class="importe-cv"> 
+						<a <% unless @cadre.cv.nil? %>href="<%= @cadre.cv %>"<% end %>>
+							<img src="/image/importer_CV.png" alt="cv logo" width="45px" height="30px" class="cv-image">
+						</a>
+						CV
+					</div>
 					<div class="cv">
 						<%= f.label :cv, "IMPORTER CV", class:"cv-label"%>
+						<% unless @cadre.cv.nil? %>
+						<%= f.file_field :cv, class:"cv-champs", accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
+						<% else %>
 						<%= f.file_field :cv, class:"cv-champs", accept:".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document",required:'required' %>
+						<% end %>
 					</div>
-          <p class="nom_fichier">VOTRE FICHIER : <span id="cv-filename"></span></p>
+         	 		<p class="nom_fichier">VOTRE FICHIER : <span id="cv-filename"></span></p>
 				</div>
 				<div class="pdp">
-					<% unless @cadre.image.nil? %>
+				<% unless @cadre.image.nil? %>
 					<%= image_tag(@cadre.image, alt: 'photo de profil', id:'addImage', class:"add-image" )%> <br>
+					<%= f.label :image, "IMPORTER UNE PHOTO", class:"add-image-label" %>
+					<%= f.file_field :image, class:"image_add", accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
 				<% else %>
 					<img id="addImage" src="/image/profie.png" class="add-image">
+					<%= f.label :image, "IMPORTER UNE PHOTO", class:"add-image-label" %>
+					<%= f.file_field :image, class:"image_add", accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document",required:'required' %>
 				<% end %>
-				<%= f.label :image, "IMPORTER UNE PHOTO", class:"add-image-label" %>
-				<%= f.file_field :image, class:"image_add", accept:".jpg,.jpeg,.gif,.png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document",required:'required' %>
 
 				</div>
 			</div>
 			<div class="mes" style="margin-top: 20px; color: rgb(220,20,60);text-align: center;">
 			</div>
       <div class="btn-apercu">
-        <%= f.submit 'APERÇU', :class => 'apercu' %>
+		<% unless @cadre.image.nil? && @cadre.cv.nil? %>
+			<%= f.submit 'APERÇU', :class => 'apercu' %>
+		<% else %>
+			<%= f.submit 'APERÇU', :class => 'apercu apercu-test' %>
+		<% end %>
       </div>
 
 	<% end %>
@@ -157,15 +172,15 @@
 		}
 	})
 
-	// $('.apercu').click(function(){
-	// 	if ($('.cv-champs').val().length() <= 0 || $('.image_add').val() <= 0 ) {
-	// 		$('.mes').html("*Verifier que vous ayez importer une photo ou votre cv");
-	// 		return false;
-	// 	}
-	// 	else{
-	// 		return true;
-	// 	}
-	// })
+	$('.apercu-test').click(function(){
+		if ($('#cadre_info_cv').val() == "" || $('#cadre_info_image').val() == "" ) {
+			$('.mes').html("*Verifier que vous ayez importer une photo ou votre cv");
+			return false;
+		}
+		else{
+			return true;
+		}
+	})
 </script>
 
 <script type="text/javascript" src="/js/edit_profil_cadre.js"></script>
