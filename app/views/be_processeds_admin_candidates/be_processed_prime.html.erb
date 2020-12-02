@@ -11,7 +11,7 @@
         Payer le prime de <%= @cadre_info.first_name.capitalize %> <%= @cadre_info.last_name.capitalize %>
       </h5>
       <% if @promise.prime_received == false %>
-          <%= form_for PromiseToHire.new , url: post_be_processed_prime_path do |f| %>
+          <%= form_for PromiseToHire.new , method: :post ,url: post_be_processed_prime_path do |f| %>
               <div class="flex-form">
                 <div class="imagediv">
                   <img id="addImage" src="" class="add-image" width="220" style="display: none;">
