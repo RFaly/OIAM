@@ -10,7 +10,13 @@
     <div class="message-box">
       <h5 class="title">Chats</h5>
       <div class="message-content">
-        <% unless @contactListes.empty? %> <% @contactListes.each do |contact| %> <% nbr = contact.mp_client_not_see %>
+        <% unless @contactListes.empty? %> 
+
+        <% @contactListes.each do |contact| %>
+
+        <% next if contact.message_client_cadres.empty? %>
+        
+        <% nbr = contact.mp_client_not_see %>
         <hr />
         <div class="message-contact-items">
           <div id="image"
