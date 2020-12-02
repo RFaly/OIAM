@@ -12,6 +12,7 @@
       </h5>
       <% if @promise.prime_received == false %>
           <%= form_for PromiseToHire.new , method: :post ,url: post_be_processed_prime_path do |f| %>
+              <input type="hidden" name="promise_to_hire[promise_id]" value="<%= @promise.id %>">
               <div class="flex-form">
                 <div class="imagediv">
                   <img id="addImage" src="" class="add-image" width="220" style="display: none;">
