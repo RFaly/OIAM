@@ -758,7 +758,7 @@ class CandidatesController < ApplicationController
       )
 
       oFc = @offreJob.is_in_this_job(current_cadre)
-      flash[:notice] = "Promesse d'embauche validé."
+      flash[:notice] = "Promesse d'embauche validée."
 
 
       current_cadre.cadre_info.update(status:"EN PÉRIODE D'ESSAI")
