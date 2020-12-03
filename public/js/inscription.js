@@ -261,12 +261,12 @@ function check_siret(testee, value) {
   } else if (siret < 14) {
     testee.css('outline', '.2px solid red');
     testee.css('outline-offset', '-0.2px');
-    value.html('(Le numero de SIRET doit avoir au moins 14 caractères.)');
+    value.html('(Le numéro de SIRET doit avoir au moins 14 caractères.)');
     value.show();
   } else {
     testee.css('outline', '.2px solid red');
     testee.css('outline-offset', '-0.2px');
-    value.html('(Le numero de SIRET ne doit pas dépasser 14 caractères.)');
+    value.html('(Le numéro de SIRET ne doit pas dépasser 14 caractères.)');
     value.show();
   }
 }
@@ -281,7 +281,7 @@ function check_phone(testee, value) {
   } else {
     testee.css('outline', '.2px solid red');
     testee.css('outline-offset', '-0.2px');
-    value.html('(Numero téléphone invalide)');
+    value.html('(Numéro de téléphone invalide)');
     value.show();
   }
 }
