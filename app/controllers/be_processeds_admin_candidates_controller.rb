@@ -137,7 +137,8 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
   def post_be_processed_prime
 
     errorMessage = ""
-    @promise = PromiseToHire.find_by_id(params[:promise_id])
+    @promise = PromiseToHire.find_by_id(params[:promise_to_hire][:promise_id])
+
     @cadre_info = @promise.cadre.cadre_info
 
     uploader = ImageUploader.new

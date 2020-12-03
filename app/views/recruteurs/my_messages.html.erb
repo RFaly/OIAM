@@ -9,7 +9,7 @@
   <div class="cp-box">
     <div class="message-box">
       <h5 class="title">Chats</h5>
-      <div class="message-content">
+      <div class="message-content" id="container-messages">
         <% unless @contactListes.empty? %> 
 
         <% @contactListes.each do |contact| %>
@@ -54,3 +54,13 @@
     <div id="chat-out"></div>
   </div>
 </div>
+
+<script>
+
+  if ($(".message-contact-items").length == 0) {
+    $("#container-messages").html(
+      '<center>Aucun nouveau message</center>'
+    )
+  }
+
+</script>
