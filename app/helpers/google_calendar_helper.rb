@@ -11,10 +11,7 @@ module GoogleCalendarHelper
 	  def events(reload=false)
 	    @events = nil if reload
 	    @events ||= service.list_events(calendar_id, max_results: 2500).items
-		@events.each do |event|
-		  start = event.start.date || event.start.date_time
-		  puts "- #{event.summary} (#{start})"
-		end
+	    return @events
 	  end
 
 	  def create_event(summary, location, description, start_date_time, end_date_time, time_zone, attendees_email = [])
@@ -90,7 +87,7 @@ module GoogleCalendarHelper
 
 	def self.list_event_in_google_calendar
 		calendar = GoogleCalendar.new
-		calendar.events
+		return calendar.events
 	end
 
 end
