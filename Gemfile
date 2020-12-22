@@ -62,6 +62,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ my gem ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gem 'google-api-client', '~> 0.34'
 gem 'devise'
 gem 'table_print'
 gem 'rails-i18n', '~> 5.1'
