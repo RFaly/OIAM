@@ -23,9 +23,9 @@
 					<div class="cadre-info-content disable bor-me"><%= @cadre.first_name %><span class="user-info">Prénoms</span></div>
 					<div class="cadre-info-content calen">
 						<% if @promise.birthday_cadre.nil? %>
-							<span class="input-cnt"><%= f.text_field :birthday_cadre, class:"calendar", id:"calendar", required:true %><div class="user-info inpt" id="dat-nai">Date de naissance</div></span><br><span class="calendar-err error"></span>
+							<span class="input-cnt"><%= f.text_field :birthday_cadre, id:"calendar", required:true %><div class="user-info inpt" id="dat-nai">Date de naissance</div></span><span class="calendar-err error"></span>
 						<% else %>
-							<span class="input-cnt"><%= f.text_field :birthday_cadre, class:"calendar", id:"calendar", disabled: true, required:true %><span class="user-info inpt">Date de naissance</span></span><br>
+							<span class="input-cnt"><%= f.text_field :birthday_cadre, class:"calendar", id:"calendar", disabled: true, required:true %><span class="user-info inpt">Date de naissance</span></span>
 						<% end %>
 					</div>
 					<div class="cadre-info-content">
