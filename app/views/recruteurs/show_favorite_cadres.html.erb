@@ -29,8 +29,8 @@
             </div>
             <div class="fci-infos">
               <p class="name"><%= ofc.cadre.cadre_info.first_name %> <%= ofc.cadre.cadre_info.last_name[0].upcase %>.</p>
-              <p class="compatibilite">Compatibilité : <span>60%</span></p>
-              <p class="score">Score OIAM : <span>1700</span></p>
+              <p class="compatibilite">Compatibilité : <span><%= ofc.cadre.cadre_info.compatibilite %>%</span></p>
+              <p class="score">Score OIAM : <span><%= ofc.cadre.cadre_info.score_potential %></span></p>
               <p class="poste">Type de poste : 
                 <% if ofc.cadre.cadre_info.metier.nil? %>
                   Manager marketing
