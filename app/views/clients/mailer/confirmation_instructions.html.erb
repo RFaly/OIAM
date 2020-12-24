@@ -1,4 +1,13 @@
-<div style="display: block;margin: 0 auto;width: 100%;max-width: 500px;font-size: 16px;text-align: justify;">
+<div style="
+display: block;
+margin: 0 auto;
+width: 100%;
+max-width: 500px;
+font-size: 16px;
+text-align: justify; 
+padding: 20px;
+">
+  <center><img style="width: 250px;margin: 20px;" src="http://c8b0600.online-server.cloud/image/OIAM_Logo.png"></center> 
   <h2 style="font-size: 18px;text-transform: capitalize;font-weight: bold;">Bonjour <%= @resource.first_name %> <%= @resource.last_name %>,</h2>
   <p>Veuillez confirmer la création de votre compte en cliquant sur ce bouton:</p>
   <p><a href="<%= confirmation_url(@resource, confirmation_token: @token) %>" style="display: block;	margin: 0 auto;	width: 100%;	max-width: 250px;	text-align: center;	color: #d6b36a;	border: 1px solid #d6b36a;	padding: 15px;	text-decoration: none;">CONFIRMER MON COMPTE</a></p>
