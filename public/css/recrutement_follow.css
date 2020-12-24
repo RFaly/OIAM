@@ -133,6 +133,8 @@
   font-size: 12px;
   position: absolute;
   left: -20px;
+  word-break: normal;
+  word-wrap: normal;
 }
 
 .r-follow-box .rf-box .rf-items-flex .timeline .content2 {
