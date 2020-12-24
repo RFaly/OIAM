@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $('#search').hide()
   let test_it = true;
-  $(".calendar").click(function () {
+  $(".calendar-b").click(function () {
     if (test_it) {
       $('#search').fadeIn(800)
       test_it = false
