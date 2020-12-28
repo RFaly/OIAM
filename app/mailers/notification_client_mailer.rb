@@ -20,7 +20,12 @@ class NotificationClientMailer < ApplicationMailer
     mail(to: @client.mail, subject: "Le candidat a reffusé l'entretien")
 	end
 
+	def validate_promise(cadre_info,client,promise)
+		@client = client
+    mail(to: @client.mail, subject: "Le candidat a Validé la promesse d'embauche")
+	end
+
 end
-# NotificationClientMailer.accepted_entretien_job(cadre_info,offre).deliver_now
+# 
 # NotificationClientMailer.edit_entretien_job(cadre_info,offre).deliver_now
 # NotificationClientMailer.refused_entretien_job(cadre_info,offre).deliver_now
