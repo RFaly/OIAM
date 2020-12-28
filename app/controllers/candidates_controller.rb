@@ -260,6 +260,7 @@ class CandidatesController < ApplicationController
         #notifaka
         Notification.create(client:offre.client,object: "#{first_name} #{last_name}", message: "#{first_name} #{last_name[0].upcase}. a postulé sur le poste : #{offre.intitule_pote}.", link: "#{show_search_candidate_path(current_cadre.id, offre_id: offre.id)}", genre: 3, medel_id: current_cadre.id, view: false)
       end
+      NotificationClientMailer.candidate_postule_offre(offre.client).deliver_now
     end
   end
 
@@ -301,6 +302,9 @@ class CandidatesController < ApplicationController
       #notifaka
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a refusé votre demande d'entretien.",link: "#{recruitment_show_cadre_path(@oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
       flash[:notice] = "Votre réponse a été envoyée avec succès."
+
+      NotificationClientMailer.refused_entretien_job(current_cadre.cadre_info,@offreJob,@agendaClient).deliver_now
+
       redirect_to show_recrutment_monitoring_path(@oFc.id)
     when "1"
       @agendaClient.update(repons_cadre:true,notifed:false)
@@ -318,6 +322,9 @@ class CandidatesController < ApplicationController
       )
 
       flash[:notice] = "Votre réponse a été envoyée avec succès."
+
+      NotificationClientMailer.accepted_entretien_job(current_cadre.cadre_info,@offreJob,@agendaClient).deliver_now
+
       redirect_to show_recrutment_monitoring_path(@oFc.id)
     when "2"
       date = params[:date].split("-")
@@ -332,6 +339,9 @@ class CandidatesController < ApplicationController
       flash[:notice] = "Votre réponse a été envoyée avec succès."
       #notifaka
       Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a proposé une autre date pour l'entretien.",link: "#{recruitment_show_cadre_path(@oFc.id,notification:"entretien")}",genre: 1,medel_id: current_cadre.id,view: false)
+      
+      NotificationClientMailer.edit_entretien_job(current_cadre.cadre_info,@offreJob,@agendaClient).deliver_now
+
       redirect_to show_recrutment_monitoring_path(@oFc.id)
     else
       flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
@@ -570,6 +580,7 @@ class CandidatesController < ApplicationController
 
     if @agenda.save
       @cadreInfo.update(fit_test:true)
+      NotificationAdminMailer.demande_entretien_fit.deliver_now
     else
       flash[:alert] = @agenda.errors.details
     end

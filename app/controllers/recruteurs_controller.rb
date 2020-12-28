@@ -397,21 +397,23 @@ class RecruteursController < ApplicationController
 			unless @agenda.save
 				flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
 				redirect_to root_path
-				else
-					max_step = 0
-					@offre.my_top_five_candidates.each do |oFc|
-						numberOfc = oFc.agenda_clients.count
-						if max_step < numberOfc
-							max_step = numberOfc
-						end
+			else
+				max_step = 0
+				@offre.my_top_five_candidates.each do |oFc|
+					numberOfc = oFc.agenda_clients.count
+					if max_step < numberOfc
+						max_step = numberOfc
 					end
-					@offre.update(etapes:2+max_step)
-					@oFc.update(etapes:@oFc.agenda_clients.count)
-					@oFc.update(status:nil)
-					name_entreprise = current_client.entreprise.name
-					#notifaka
-					Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyé(e) une demande d'entretien.",link: "#{received_job_path(notification:"entretien")}",genre: 1,medel_id: @offre.id,view: false)
+				end
+				@offre.update(etapes:2+max_step)
+				@oFc.update(etapes:@oFc.agenda_clients.count)
+				@oFc.update(status:nil)
+				name_entreprise = current_client.entreprise.name
+				NotificationCadreMailer.demande_entretien_job(@cadre.cadre_info,@offre).deliver_now
+				#notifaka
+				Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} vous a envoyé(e) une demande d'entretien.",link: "#{received_job_path(notification:"entretien")}",genre: 1,medel_id: @offre.id,view: false)
 			end
+
 			respond_to do |format|
 				format.html { redirect_to show_search_candidate_path(@cadre.id) }
 				format.js { }
@@ -438,11 +440,13 @@ class RecruteursController < ApplicationController
 				@oFc.update(status:"refused")
 			#notifaka
 				Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a refusé votre proposition pour la date de l'entretien.",link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offreJob.id,view: false)
+				NotificationCadreMailer.refused_entretien_job(@cadre.cadre_info,@offreJob,@agendaClient).deliver_now
 			when "1"	#ACCEPTER
-					date = DateTime.parse(@agendaClient.alternative)
+				date = DateTime.parse(@agendaClient.alternative)
 				@agendaClient.update(entretien_date:date.utc,alternative: nil, repons_cadre:true, is_update:true,repons_client: true,notifed:false)
 			#notifaka
 				Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a accepté votre proposition pour la date d'entretien.",link: "#{show_recrutment_monitoring_path(@oFc.id,notification:"entretien")}",genre: 2,medel_id: @offreJob.id,view: false)
+				NotificationCadreMailer.accepted_entretien_job(@cadre.cadre_info,@offreJob,@agendaClient).deliver_now
 			when "2"
 				date = params[:date].split("-")
 				time = params[:time].split(":")
@@ -455,6 +459,7 @@ class RecruteursController < ApplicationController
 				@agendaClient.update(entretien_date: date_time, alternative: nil, repons_cadre:nil, is_update:true, notifed:false)
 			#notifaka
 				Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a proposé une autre date pour l'entretien.",link: "#{received_job_path(notification:"entretien")}",genre: 1,medel_id: @offreJob.id,view: false)
+				NotificationCadreMailer.edit_entretien_job(@cadre.cadre_info,@offreJob,@agendaClient).deliver_now
 			else
 				flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
 				redirect_to root_path
