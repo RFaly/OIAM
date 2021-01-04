@@ -39,6 +39,9 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
         return 0
       end
 
+      #notifier un candidat
+      NotificationCadreMailer.demande_entretien_fit_valide(@cadreInfo).deliver_now
+
       ProcessedHistory.create(
         image: "/image/profie.png",
         message: "PLANIFICATION ENTRETIEN FIT",
