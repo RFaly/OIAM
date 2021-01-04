@@ -260,7 +260,7 @@ class CandidatesController < ApplicationController
         #notifaka
         Notification.create(client:offre.client,object: "#{first_name} #{last_name}", message: "#{first_name} #{last_name[0].upcase}. a postulé sur le poste : #{offre.intitule_pote}.", link: "#{show_search_candidate_path(current_cadre.id, offre_id: offre.id)}", genre: 3, medel_id: current_cadre.id, view: false)
       end
-      NotificationClientMailer.candidate_postule_offre(offre.client).deliver_now
+      NotificationClientMailer.candidate_postule_offre(current_cadre.cadre_info,offre).deliver_now
     end
   end
 

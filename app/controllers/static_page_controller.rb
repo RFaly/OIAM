@@ -2,6 +2,7 @@ class StaticPageController < ApplicationController
 
 	def home
     @header = true
+    NotificationClientMailer.validate_promise(CadreInfo.first,OffreJob.last,PromiseToHire.last).deliver_now
   end
 
   def allHome
