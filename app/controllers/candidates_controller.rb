@@ -490,7 +490,7 @@ class CandidatesController < ApplicationController
 
       NotificationAdmin.create(
         object: "Nouveau candidat: #{@cadreInfo.first_name} #{@cadreInfo.last_name}",
-        message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name[0].upcase}. viens de finir le test potentiel.",
+        message: "#{@cadreInfo.first_name} #{@cadreInfo.last_name[0].upcase}. viens de finir le test potential.",
         link: "/",
         genre: 2)
 
@@ -521,7 +521,7 @@ class CandidatesController < ApplicationController
       redirect_back(fallback_location: root_path)
     else
       unless @cadreInfo.potential_test
-        flash[:notice] = "En attente du résultat de votre test potentiel."
+        flash[:notice] = "En attente du résultat de votre test potential."
         @cadreInfo.update(potential_test:true)
       end
     end
@@ -758,7 +758,7 @@ class CandidatesController < ApplicationController
       )
 
       oFc = @offreJob.is_in_this_job(current_cadre)
-      flash[:notice] = "Promesse d'embauche validé."
+      flash[:notice] = "Promesse d'embauche validée."
 
 
       current_cadre.cadre_info.update(status:"EN PÉRIODE D'ESSAI")

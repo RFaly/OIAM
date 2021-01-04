@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $('#search').hide()
   let test_it = true;
-  $(".calendar").click(function () {
+  $(".calendar-b").click(function () {
     if (test_it) {
       $('#search').fadeIn(800)
       test_it = false
@@ -35,7 +35,11 @@ $(document).ready(function () {
     $elementDate.each(function () {
       let dateUTC = moment.utc($(this).data().times);
       let dateGet = new Date(dateUTC.local());
-      let dateString = dateGet.getDate() + "/" + (dateGet.getMonth() + 1) + "/" + dateGet.getFullYear();
+
+      nbrDate = dateGet.getDate() < 10 ? "0"+dateGet.getDate() : dateGet.getDate();
+
+      let dateString = nbrDate + "/" + (dateGet.getMonth() + 1) + "/" + dateGet.getFullYear();
+
       $(this).html(dateString);
     });
   });

@@ -9,7 +9,7 @@
 
     <h2 class="main-title">MESSAGERIE</h2>
     
-    <span style="display: none;" id="tsisy" class="text-center">Vous n'avez aucun message pour le moment</span>
+    <div style="display: none;" id="tsisy" class="text-center">Vous n'avez aucun message pour le moment</div>
 
     <% unless @contactClient.empty? %>
       <% @contactClient.each do |contact| %>
@@ -30,12 +30,9 @@
           </div>
         <div class="message-content">
           <div class="recruteur-name">
-            Entreprise : <%= contact.client.entreprise.name.upcase %> 
+            Entreprise : <%= contact.client.entreprise.name.upcase %> <% unless nbr == 0 %>(<%= nbr %>)<% end %>
           </div>
-          <div class="message-body">
-            <% unless nbr == 0 %>
-              <span class="alert-info"><%= nbr %></span>
-            <% end %>
+          <div class="message-body"> 
             <% if contact.message_admin_clients.last.is_admin %>vous : <%end%> <%= contact.message_admin_clients.last.content %>
           </div>
         </div>

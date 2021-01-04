@@ -195,7 +195,7 @@ class RecruteursController < ApplicationController
 			my_cadres = []
 			
 			unless @cadre_infos.empty?
-				@cadre_infos = @cadre_infos.order('score_potential ASC')
+				@cadre_infos = @cadre_infos.where.not(cadre_id:nil).order('score_potential ASC')
 				@cadre_infos.each do |cadre_info|
 					next if (cadre_info.status_disponibility != "DISPONIBLE") || (@offre.type_deplacement.to_i > cadre_info.mobilite.to_i)
 

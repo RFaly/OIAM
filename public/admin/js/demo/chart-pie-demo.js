@@ -8,7 +8,7 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Admis", "Fit refusé", "Potentiel refusé", "Abandon ou en cours"],
+    labels: ["Admis", "Fit refusé", "Potential refusé", "Abandon ou en cours"],
     datasets: [{
       data: $("#myPieChart").data().array,
       backgroundColor: ['#d6b36a', '#E73E01', '#ED7F10', "#e3d7bf"],

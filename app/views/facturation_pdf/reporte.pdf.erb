@@ -81,11 +81,11 @@
           Paiement par virement <br />
           bancaire du <%=  @promise.date_poste %>
         </td>
-        <td>8 722,00 €</td>
+        <td>8 722,0 €</td>
       </tr>
       <tr class="spec">
         <td class="bolder bor">Total à régler</td>
-        <td class="bolder bor">0,00 €</td>
+        <td class="bolder bor"><%= (@valueR +(@valueR * 20)/100) + 8722  %>,0 €</td>
       </tr>
     </table>
   </div>
@@ -99,8 +99,8 @@
       </tr>
       <tr>
         <td>20,00 %</td>
-        <td>1 860,00 €</td>
-        <td>1 860,00 €</td>
+        <td><%= (@valueR +(@valueR * 20)/100) + 8722  %>,0 €</td>
+        <td><%=((@valueR +(@valueR * 20)/100) + 8722)-(@valueR * 20)/100  %>,0 €</td>
       </tr>
       <tr>
         <td>0,00 %</td>

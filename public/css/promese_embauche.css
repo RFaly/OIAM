@@ -211,6 +211,8 @@ hgroup,
 menu,
 nav,
 section {
+  word-break: normal;
+  word-wrap: normal;
   display: block;
 }
 
@@ -267,7 +269,7 @@ body {
 }
 
 .photo_ako{
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .job-info {
@@ -609,7 +611,9 @@ input[type='radio']:checked {
   outline: 1px solid #d6b36a;
   opacity: 0.8;
 }
-
+#dat-nai{
+  width: 122px;
+}
 .user-info {
   position: absolute;
   top: -8px;
@@ -618,6 +622,8 @@ input[type='radio']:checked {
   color: #d6b36a;
   line-height: 1;
   opacity: 1;
+  word-break: normal;
+  word-wrap: normal;
   background-color: #fff;
 }
 

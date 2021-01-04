@@ -7,7 +7,7 @@
 
   <div class="main">
     
-    <span style="display: none;" id="tsisy" class="text-center">Vous n'avez aucun message pour le moment</span>
+    <div style="display: none;" id="tsisy" class="text-center">Vous n'avez aucun message pour le moment</div>
 
     <% unless @contactCadre.empty? %>
     <% @contactCadre.each do |contact| %> 
@@ -27,11 +27,8 @@
             <% end %>
             </div>
           <div class="message-content">
-            <div class="recruteur-name"><%= contact.cadre.cadre_info.first_name %> <%= contact.cadre.cadre_info.last_name %></div>
+            <div class="recruteur-name"><%= contact.cadre.cadre_info.first_name %> <%= contact.cadre.cadre_info.last_name %> <% unless nbr == 0 %>(<%= nbr %>)<% end %></div>
             <div class="message-body">
-              <% unless nbr == 0 %>
-                <span class="alert-info"><%= nbr %></span>
-              <% end %>
               <% if contact.message_admin_cadres.last.is_admin %>Vous : <%end%> <%= contact.message_admin_cadres.last.content %>
             </div>
           </div>
@@ -68,12 +65,9 @@
             </div>
           <div class="message-content">
             <div class="recruteur-name">
-              Entreprise : <%= contact.client.first_name %> <%= contact.client.last_name %>
+              Entreprise : <%= contact.client.first_name %> <%= contact.client.last_name %> <% unless nbr == 0 %>(<%= nbr %>)<% end %>
             </div>
-            <div class="message-body">
-              <% unless nbr == 0 %>
-                <span class="alert-info"><%= nbr %></span>
-              <% end %>
+            <div class="message-body">              
               <% if contact.message_admin_clients.last.is_admin %>vous : <%end%> <%= contact.message_admin_clients.last.content %>
             </div>
           </div>

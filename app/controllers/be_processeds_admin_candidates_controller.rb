@@ -1,5 +1,6 @@
 class BeProcessedsAdminCandidatesController < ApplicationAdminController
   before_action :authenticate_admin!
+  include GoogleCalendarHelper
   
 	def be_processed_inscription
     @cadre_info = CadreInfo.find_by_id(params[:id])
@@ -10,12 +11,18 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
   end
 
   def validate_post_entretien_fit
-    # "date"=>"2020-10-24", "time"=>"19:0"
+    require 'googleauth'
+    require 'google/apis/calendar_v3'
+
     @cadreInfo = CadreInfo.find_by_id(params[:cadre_info_id])
+
+    start_time = ""
+
     unless @cadreInfo.nil?
-      if choice = "accepted"
+      if params[:choice] == "accepted"
         @cadreInfo.agenda_admin.update(accepted:true)
-      elsif choice = "refused"
+        start_time = @cadreInfo.agenda_admin.entretien_date.strftime('%Y-%m-%dT%H:%M:%S')
+      elsif params[:choice] == "refused"
         date = params[:date].split("-")
         time = params[:time].split(":")
         day = date[2].to_i
@@ -24,12 +31,14 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
         hour = time[0].to_i
         min = time[1].to_i
         @cadreInfo.agenda_admin.update(entretien_date:DateTime.new(year,month,day,hour,min).utc,accepted:true)
+        start_time = @cadreInfo.agenda_admin.entretien_date.strftime('%Y-%m-%dT%H:%M:%S')
         # message: "L'entretien fit avec #{@cadreInfo.first_name} #{@cadreInfo.last_name} est validé.",
       else
         flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
         redirect_back(fallback_location: root_path)
         return 0
       end
+
       ProcessedHistory.create(
         image: "/image/profie.png",
         message: "PLANIFICATION ENTRETIEN FIT",
@@ -38,6 +47,25 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
         cadre_info:@cadreInfo,
         genre: 1
       )
+
+      summary = "ENTRETIEN FIT"
+      location = "Skype"
+      description = "Entretien fit validé avec #{@cadreInfo.first_name} #{@cadreInfo.last_name}",
+      start_date_time = start_time
+      end_date_time = start_time
+      time_zone = "UTC",
+      attendees_email = []
+
+      GoogleCalendarHelper.insert_event_to_google_calendar(
+        summary = summary,
+        location = location,
+        description = description,
+        start_date_time = start_date_time,
+        end_date_time = end_date_time,
+        time_zone = time_zone,
+        attendees_email = attendees_email
+      )
+
       TestOiamMailer.test_fit_validate(@cadreInfo).deliver_now
       flash[:notice] = "Entretien fit validé!"
       redirect_to cbp_validate_entretien_fit_path(@cadreInfo.id)
@@ -137,7 +165,8 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
   def post_be_processed_prime
 
     errorMessage = ""
-    @promise = PromiseToHire.find_by_id(params[:promise_id])
+    @promise = PromiseToHire.find_by_id(params[:promise_to_hire][:promise_id])
+
     @cadre_info = @promise.cadre.cadre_info
 
     uploader = ImageUploader.new

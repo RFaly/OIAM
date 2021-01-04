@@ -26,7 +26,7 @@
 						<option value=".PERIODE-D-ESSAI">PERIODE D'ESSAI</option>
 						<option value=".PRIME">PRIME</option>
 					</select>
-					<div class="calendar flex">
+					<div class="calendar-b flex">
 						<img src="/image/calendar.png" alt="">
 					</div>
 				</div>
@@ -75,7 +75,7 @@
 						</div>
 						<br>
 						<div class="bp-name">
-							<%= cadreInfoPotentielNotEnd.first_name %> <%= cadreInfoPotentielNotEnd.last_name %>
+							<%= cadreInfoPotentielNotEnd.first_name %> <span class="uperC"><%= cadreInfoPotentielNotEnd.last_name %></span> 
 						</div>
 						<div class="bp-date">
 							Date d'entrée : <%= minDate %>
@@ -108,7 +108,7 @@
 						</div>
 						<br>
 						<div class="bp-name pt-4">
-							<%= cadreInfoFit.first_name %> <%= cadreInfoFit.last_name %>
+							<%= cadreInfoFit.first_name %> <span class="uperC"><%= cadreInfoFit.last_name %></span>
 						</div>
 						<div class="bp-date">
 							Date d'entrée :
@@ -140,7 +140,7 @@
 						</div>
 						<br>
 						<div class="bp-name pt-4">
-							<%= cadreInfoEnterScoreFit.first_name %> <%= cadreInfoEnterScoreFit.last_name %>
+							<%= cadreInfoEnterScoreFit.first_name %> <span class="uperC"><%= cadreInfoEnterScoreFit.last_name %></span> 
 						</div>
 						<div class="bp-date">
 							Date d'entrée :
@@ -176,7 +176,7 @@
 						</div>
 						<br>
 						<div class="bp-name pt-4">
-							<%= cfo.first_name %> <%= cfo.last_name %>
+							<%= cfo.first_name %> <span class="uperC"><%= cfo.last_name %></span> 
 						</div>
 						<div class="bp-date">
 							Date d'entrée : <%= minDate %>
@@ -209,7 +209,7 @@
 						</div>
 						<br>
 						<div class="bp-name pt-4">
-							<%= cINPT.first_name %> <%= cINPT.last_name %>
+							<%= cINPT.first_name %> <span class="uperC"><%= cINPT.last_name %></span> 
 						</div>
 						<div class="bp-date">
 							Date d'entrée : <%= cINPT.promise_not_reponded[1] %>
@@ -245,9 +245,8 @@
 						<div class="bp-inscr"><span class="gold-ttl">PERIODE D'ESSAI</span><br>
 							Etat: Période d'essai non validée
 						</div>
-						<br>
 						<div class="bp-name pt-4">
-							<%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
+							<%= pThWa.cadre.cadre_info.first_name %> <span class="uperC"><%= pThWa.cadre.cadre_info.last_name %></span> 
 						</div>
 						<div class="bp-date">
 							Date  de prise de poste :
@@ -287,7 +286,7 @@
 							Etat : Prime non reçue
 						</div>
 						<div class="bp-name pt-4">
-							<%= pThWa.cadre.cadre_info.first_name %> <%= pThWa.cadre.cadre_info.last_name %>
+							<%= pThWa.cadre.cadre_info.first_name %> <span class="uperC"><%= pThWa.cadre.cadre_info.last_name %></span> 
 						</div>
 						<div class="bp-date">
 							Date d'entrée : <%= pThWa.offre_job.date_poste %>

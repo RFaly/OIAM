@@ -22,7 +22,7 @@ class TestOiamMailer < ApplicationMailer
 
   def test_fit_validate(cadre_info)
     @cadre_info = cadre_info
-    mail(to: @cadre_info.mail, subject: 'Entretient fit validé')
+    mail(to: @cadre_info.mail, subject: 'Entretien fit validé')
   end
   #TestOiamMailer.test_fit_accepted.deliver_now
 end
