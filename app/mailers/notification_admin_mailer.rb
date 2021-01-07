@@ -1,8 +1,9 @@
 class NotificationAdminMailer < ApplicationMailer
 	#un nouvelle candidat demande un entretien-fit à validé
 
-	def demande_entretien_fit
-	    @admin = Admin.first
+	def demande_entretien_fit(cadreInfo)
+		@admin = Admin.first
+		@cadreInfo = cadreInfo
 	    mail(to: @admin.email, subject: "Nouvelle candidat pour l'entretien-fit")
 	end
 end

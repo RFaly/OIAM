@@ -1,11 +1,9 @@
 <div style="width: 90%; border: 1px solid #d6b36a; margin: 0 auto; text-align:center;padding: 20px 50px;">
 	<center><img style="width: 250px;margin: 20px;" src="http://c8b0600.online-server.cloud/image/OIAM_Logo.png"></center> 
-	<p style="text-align: justify;">
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		<br> Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.	
+	<p >
+		Vous avez reçu une demande d'entretien de la part de <%= @cadreInfo.first_name%> <%= @cadreInfo.last_name.upcase %>.
+		<br>
+		Pour le consulter, veuillez <a href="http://localhost:3000/secret-oiam-page/admin-candidats/a-traiter-entretien-fit/<%= @cadreInfo.agenda_admin.id%>">cliquer ici.</a>
+		
 	</p>
 </div>

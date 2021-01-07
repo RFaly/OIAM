@@ -580,7 +580,7 @@ class CandidatesController < ApplicationController
 
     if @agenda.save
       @cadreInfo.update(fit_test:true)
-      NotificationAdminMailer.demande_entretien_fit.deliver_now
+      NotificationAdminMailer.demande_entretien_fit(@cadreInfo).deliver_now
     else
       flash[:alert] = @agenda.errors.details
     end

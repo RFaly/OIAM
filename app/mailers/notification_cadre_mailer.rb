@@ -17,6 +17,7 @@ class NotificationCadreMailer < ApplicationMailer
 	def accepted_entretien_job(cadre_info,offre,agendaClient)
 		@cadre_info = cadre_info
 		@offre = offre
+		@ofc = cadre_info.cadre.offre_for_candidates.find_by(offre_job_id: offre.id)
 		@agendaClient = agendaClient
     	mail(to: @cadre_info.mail, subject: "Le recruteur a accepter l'entretien")
 	end
