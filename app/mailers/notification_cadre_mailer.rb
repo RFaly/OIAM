@@ -9,6 +9,8 @@ class NotificationCadreMailer < ApplicationMailer
 	def demande_entretien_job(cadre_info,offre)
 		@cadre_info = cadre_info
 		@offre = offre
+		@ofc = cadre_info.cadre.offre_for_candidates.find_by(offre_job_id: offre.id)
+		@entreprise = offre.client.entreprise.name
 	    mail(to: @cadre_info.mail, subject: "Vous avez une nouvelle demande d'entretien avec jj")
 	end
 
@@ -25,6 +27,7 @@ class NotificationCadreMailer < ApplicationMailer
 	def edit_entretien_job(cadre_info,offre,agendaClient)
 		@cadre_info = cadre_info
 		@agendaClient = agendaClient
+		@ofc = cadre_info.cadre.offre_for_candidates.find_by(offre_job_id: offre.id)
 		@offre = offre
     	mail(to: @cadre_info.mail, subject: "Le recruteur a proposer une autre date pour l'entretien")
 	end
@@ -32,6 +35,7 @@ class NotificationCadreMailer < ApplicationMailer
 	def refused_entretien_job(cadre_info,offre,agendaClient)
 		@agendaClient = agendaClient
 		@offre = offre
+		@ofc = cadre_info.cadre.offre_for_candidates.find_by(offre_job_id: offre.id)
 		@cadre_info = cadre_info
     	mail(to: @cadre_info.mail, subject: "Le recruteur a reffusé l'entretien")
 	end
@@ -40,6 +44,7 @@ class NotificationCadreMailer < ApplicationMailer
 	# repons du recruteur après chaque entretien
 	def recrutement_accepted(cadre_info,offre,etapes)
 		@offre = offre
+		@ofc = cadre_info.cadre.offre_for_candidates.find_by(offre_job_id: offre.id)
 		@etapes = etapes
 		@cadre_info = cadre_info
     	mail(to: @cadre_info.mail, subject: "Le recruteur a validé votre candidature pour la #{etapes} étape.")
@@ -53,6 +58,7 @@ class NotificationCadreMailer < ApplicationMailer
 	def recrutement_refused(cadre_info,offre,raison)
 		@offre = offre
 		@raison = raison
+		@ofc = cadre_info.cadre.offre_for_candidates.find_by(offre_job_id: offre.id)
 		message = "Le recruteur a refusé votre candidature."
 		unless raison.nil?
 			message = "Le recruteur a envoyé la raison du refus de votre candidature."

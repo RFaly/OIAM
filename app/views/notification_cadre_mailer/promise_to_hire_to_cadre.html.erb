@@ -1,13 +1,9 @@
 <div style="width: 90%; border: 1px solid #d6b36a; margin: 0 auto; text-align:center;padding: 20px 50px;">
 	<center><img style="width: 250px;margin: 20px;" src="http://c8b0600.online-server.cloud/image/OIAM_Logo.png"></center>
-	<%= @promise.offre_job.intitule_pote %> <br>
-	<%= @promise.offre_job.client.entreprise.name %> 
-	<p style="text-align: justify;">
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		<br> Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	<p>
+		Vous avez reçu une promesse d'embauche de la part de <b><%= @promise.offre_job.client.entreprise.name %></b> pour le poste de <b><%= @promise.offre_job.intitule_pote %></b>.
+	</p>
+	<p>
+		Pour le consulter, veuillez <a href="http://localhost:3000/cadre/suivi-recrutement/<%= @promise.id %>/promesse-d-embauche">cliquer ici.</a>
 	</p>	
 </div>	

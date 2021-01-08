@@ -1,8 +1,9 @@
 <div style="width: 90%; border: 1px solid #d6b36a; margin: 0 auto; text-align:center;padding: 20px 50px;">
 	<center><img style="width: 250px;margin: 20px;" src="http://c8b0600.online-server.cloud/image/OIAM_Logo.png"></center> 
 	<p>
-		<%= @offre.client.entreprise.name %> a accepté la date d'entretien du <%= l @agendaClient.entretien_date, :format => :long %> UTC que vous avez proposé.
-		<br>
+	 <b><%= @offre.client.entreprise.name %></b> a accepté la date d'entretien du <b><%= l @agendaClient.entretien_date, :format => :long %> UTC</b> que vous avez proposé.
+	</p>
+	<p>
 		Pour le consulter, veuillez <a href="http://localhost:3000/cadre/suivi-recrutement/<%= @ofc.id %>/mon-progression">cliquer ici.</a>
 	</p>
 </div>

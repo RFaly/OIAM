@@ -2,7 +2,6 @@ class StaticPageController < ApplicationController
 
 	def home
     @header = true
-    NotificationCadreMailer.demande_entretien_fit_valide(CadreInfo.first).deliver_now
   end
 
   def allHome

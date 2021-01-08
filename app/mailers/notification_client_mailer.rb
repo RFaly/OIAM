@@ -10,6 +10,8 @@ class NotificationClientMailer < ApplicationMailer
 	def accepted_entretien_job(cadre_info,offre,agendaClient)
 		@client = offre.client
 		@offre = offre
+		@ofc = cadre_info.cadre.offre_for_candidates.find_by(offre_job_id: offre.id)
+		@cadre_info = cadre_info
 		@agendaClient = agendaClient
     mail(to: @client.mail, subject: "Le candidat a accepter l'entretien")
 	end
@@ -17,13 +19,17 @@ class NotificationClientMailer < ApplicationMailer
 	def edit_entretien_job(cadre_info,offre,agendaClient)
 		@client = offre.client
 		@offre = offre
+		@ofc = cadre_info.cadre.offre_for_candidates.find_by(offre_job_id: offre.id)
+		@cadre_info = cadre_info
 		@agendaClient = agendaClient
     mail(to: @client.mail, subject: "Le candidat a proposer une autre date pour l'entretien")
 	end
 
 	def refused_entretien_job(cadre_info,offre,agendaClient)
 		@client = offre.client
+		@cadre_info = cadre_info
 		@offre = offre
+		@ofc = cadre_info.cadre.offre_for_candidates.find_by(offre_job_id: offre.id)
 		@agendaClient = agendaClient
     mail(to: @client.mail, subject: "Le candidat a reffusé l'entretien")
 	end

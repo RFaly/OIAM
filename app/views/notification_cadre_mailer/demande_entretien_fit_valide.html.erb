@@ -1,8 +1,7 @@
 <div style="width: 90%; border: 1px solid #d6b36a; margin: 0 auto; text-align:center;padding: 20px 50px;">
 	<center><img style="width: 250px;margin: 20px;" src="http://c8b0600.online-server.cloud/image/OIAM_Logo.png"></center> 
-	<p style="text-align: justify;">
-		Vous avez reçu une validation du demande d'entretien du <%= l @cadre_info.agenda_admin.entretien_date, :format => :long %> UTC.
+	<p>
+		Votre demande d'entretien du <p> <%= l @cadre_info.agenda_admin.entretien_date, :format => :long %> UTC</p> a été validée.
 		<br>
-		Pour le consulter, veuillez <a href="http://localhost:3000/secret-oiam-page/admin-candidats/a-traiter-entretien-fit">cliquer ici.</a>
 	</p>	
 </div>	
