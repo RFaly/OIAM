@@ -771,7 +771,7 @@ class CandidatesController < ApplicationController
       oFc = @offreJob.is_in_this_job(current_cadre)
       flash[:notice] = "Promesse d'embauche validée."
 
-      NotificationClientMailer.validate_promise(current_cadre.cadre_info,@offreJob.client,@promise).deliver_now
+      NotificationClientMailer.validate_promise(current_cadre.cadre_info,@offreJob,@promise).deliver_now
 
       current_cadre.cadre_info.update(status:"EN PÉRIODE D'ESSAI")
 
@@ -803,7 +803,9 @@ class CandidatesController < ApplicationController
     last_name = current_cadre.cadre_info.last_name
     flash[:notice] = "Période d'essai bien validée."
     #notifaka
+
     Notification.create(client: @offreJob.client,object: "#{first_name} #{last_name}",message: "#{first_name} #{last_name[0].upcase}. a validé sa période d'essai.",link: "#{recruitment_show_cadre_path(oFc.id,notification:"validation")}",genre: 1,medel_id: current_cadre.id,view: false)
+    NotificationClientMailer.validation_trial_period(current_cadre,@offreJob).deliver_now
 
     unless @promise.cadre_time_trying==false && @promise.client_time_trying.nil?
 

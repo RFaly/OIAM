@@ -79,8 +79,21 @@ class NotificationCadreMailer < ApplicationMailer
 		@cadre_info = cadre_info
     	mail(to: @cadre_info.mail, subject: "Le recruteur a mis à jour la promesse d'embauche")
 	end
+
+	def validation_trial_period(cadre,offreJob,repons)
+		@cadre_info = cadre.cadre_info
+		@repons = repons
+
+		if @repons==true
+			message="L'entreprise a validé votre période d’essai."
+		else
+			message="L'entreprise n'a pas validé votre période d'essai."
+		end
+		
+		mail(to: @cadre_info.mail, subject: "#{message}")
+	end
 end
 
 # 
 # 
-# NotificationCadreMailer.recrutement_waiting(cadre_info,offre,raison).deliver_now
+# NotificationCadreMailer.validation_trial_period(cadre,offreJob,repons).deliver_now

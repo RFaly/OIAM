@@ -1,10 +1,10 @@
 class NotificationClientMailer < ApplicationMailer
 
 	def candidate_postule_offre(candidat,offre)
-    @client = offre.client
-    @candidat = candidat
-    @offre = offre
-    mail(to: @client.mail, subject: "A postuler a votre offre d'emploi")
+	    @client = offre.client
+	    @candidat = candidat
+	    @offre = offre
+	    mail(to: @client.mail, subject: "A postuler a votre offre d'emploi")
 	end
 
 	def accepted_entretien_job(cadre_info,offre,agendaClient)
@@ -13,7 +13,7 @@ class NotificationClientMailer < ApplicationMailer
 		@ofc = cadre_info.cadre.offre_for_candidates.find_by(offre_job_id: offre.id)
 		@cadre_info = cadre_info
 		@agendaClient = agendaClient
-    mail(to: @client.mail, subject: "Le candidat a accepter l'entretien")
+    	mail(to: @client.mail, subject: "Le candidat a accepter l'entretien")
 	end
 
 	def edit_entretien_job(cadre_info,offre,agendaClient)
@@ -22,7 +22,7 @@ class NotificationClientMailer < ApplicationMailer
 		@ofc = cadre_info.cadre.offre_for_candidates.find_by(offre_job_id: offre.id)
 		@cadre_info = cadre_info
 		@agendaClient = agendaClient
-    mail(to: @client.mail, subject: "Le candidat a proposer une autre date pour l'entretien")
+    	mail(to: @client.mail, subject: "Le candidat a proposer une autre date pour l'entretien")
 	end
 
 	def refused_entretien_job(cadre_info,offre,agendaClient)
@@ -31,7 +31,7 @@ class NotificationClientMailer < ApplicationMailer
 		@offre = offre
 		@ofc = cadre_info.cadre.offre_for_candidates.find_by(offre_job_id: offre.id)
 		@agendaClient = agendaClient
-    mail(to: @client.mail, subject: "Le candidat a reffusé l'entretien")
+    	mail(to: @client.mail, subject: "Le candidat a reffusé l'entretien")
 	end
 
 	def validate_promise(cadre_info,offre,promise)
@@ -39,10 +39,20 @@ class NotificationClientMailer < ApplicationMailer
 		@offre = offre
 		@cadre_info = cadre_info
 		@promise = promise
-    mail(to: @client.mail, subject: "Le candidat a Validé la promesse d'embauche")
+    	mail(to: @client.mail, subject: "Le candidat a Validé la promesse d'embauche")
+	end
+
+	def new_facture_oiam(offre,facture)
+		@client = offre.client
+		mail(to: @client.mail, subject: "Vous avez une facture a payer chez OIAM")
+	end
+
+	def validation_trial_period(cadre,offre)
+		@client = offre.client
+		mail(to: @client.mail, subject: "koto Cadre a validé sa periode d'essai")
 	end
 
 end
 # 
-# NotificationClientMailer.edit_entretien_job(cadre_info,offre).deliver_now
+# NotificationClientMailer.validation_trial_period(@cadre,@offreJob,true).deliver_now
 # NotificationClientMailer.refused_entretien_job(cadre_info,offre).deliver_now

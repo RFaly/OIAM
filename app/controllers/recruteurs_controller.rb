@@ -639,19 +639,21 @@ class RecruteursController < ApplicationController
 		end
 		@promise.update(payed:true)
 		flash[:notice] = "J'atteste régler cette facture par virement dans les 15 jours."
+
+		NotificationAdminMailer.confirm_pay_facture(current_client,@facture).deliver_now
+
 		redirect_to show_my_bills_path(@facture.id)
 	end
 
 	def ov_my_bills
-#eto a
 		errorMessage = ""
-
 		ov = AllUploader.new
-    begin
-      ov.store!(params[:facture][:ov])
-    rescue StandardError => e
-      errorMessage += "Votre ov: #{e.message}"
-    end
+
+	    begin
+	      ov.store!(params[:facture][:ov])
+	    rescue StandardError => e
+	      errorMessage += "Votre ov: #{e.message}"
+	    end
 
 		@facture = Facture.find_by_id(params[:facture_id])
 
@@ -669,6 +671,7 @@ class RecruteursController < ApplicationController
 				)
 
 			flash[:notice] = "ordre de virement bien sauvegardé."
+			NotificationAdminMailer.pay_facture(current_client,@facture).deliver_now
 		else
 			flash[:alert] = errorMessage
 		end
@@ -849,6 +852,7 @@ class RecruteursController < ApplicationController
 
 	end
 
+#mila email eto an!
 	def validate_time_trying_client
 		@promise = PromiseToHire.find_by_confirm_token(params[:confirm_token])
 		@offreJob = @promise.offre_job
@@ -866,6 +870,9 @@ class RecruteursController < ApplicationController
 				flash[:notice] = "Période d'essai bien validée."
 		    	@promise.update(client_time_trying:true)
 				Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} a validé votre période d’essai.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"prime")}",genre: 2,medel_id: @offreJob.id,view: false)
+			 	
+			 	NotificationCadreMailer.validation_trial_period(@cadre,@offreJob,true).deliver_now
+			 	
 			 	@promise.cadre.cadre_info.update(status:"EN POSTE")
 			else
 				if params[:date_rupture].empty?
@@ -873,6 +880,9 @@ class RecruteursController < ApplicationController
 					flash[:notice] = "Rupture de la période d’essai ok!"
 					@promise.update(client_time_trying:false,rupture_time_trying:params[:date_rupture])
 					Notification.create(cadre: @cadre,object: "#{name_entreprise}",message: "#{name_entreprise} n'a pas validé votre période d'essai.",link: "#{show_recrutment_monitoring_path(oFc.id,notification:"prime")}",genre: 2,medel_id: @offreJob.id,view: false)
+					
+					NotificationCadreMailer.validation_trial_period(@cadre,@offreJob,false).deliver_now
+					
 					@promise.cadre.cadre_info.update(status:"DISPONIBLE")
 				end
 			end
