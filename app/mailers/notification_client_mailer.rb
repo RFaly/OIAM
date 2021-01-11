@@ -43,11 +43,17 @@ class NotificationClientMailer < ApplicationMailer
 	end
 
 	def new_facture_oiam(offre,facture)
+
+		@offre = offre
+		@facture = facture
 		@client = offre.client
 		mail(to: @client.mail, subject: "Vous avez une facture a payer chez OIAM")
 	end
 
 	def validation_trial_period(cadre,offre)
+		@cadre_info = cadre.cadre_info
+		@offre= offre
+		@ofc = cadre.offre_for_candidates.find_by(offre_job_id: offre.id)
 		@client = offre.client
 		mail(to: @client.mail, subject: "koto Cadre a validé sa periode d'essai")
 	end

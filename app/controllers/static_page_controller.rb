@@ -2,6 +2,7 @@ class StaticPageController < ApplicationController
 
 	def home
     @header = true
+    NotificationClientMailer.new_facture_oiam(OffreJob.first,Facture.first).deliver_now
   end
 
   def allHome
