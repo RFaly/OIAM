@@ -26,6 +26,8 @@ class Facture < ApplicationRecord
 	      genre: 2,
 	      view: false
 	    )
+
+	    NotificationClientMailer.new_facture_oiam(offreJob,self).deliver_now
 	end
 
 	def status

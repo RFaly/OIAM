@@ -1,0 +1,9 @@
+<div style="width: 90%; border: 1px solid #d6b36a; margin: 0 auto; text-align:center;padding: 20px 50px;">
+	<center><img style="width: 250px;margin: 20px;" src="http://c8b0600.online-server.cloud/image/OIAM_Logo.png"></center> 
+	<p style="text-align:center;">
+		Vous avez reçu une attestation du payement de facture de la part de <b><%= @client.first_name %> <%= @client.last_name.upcase %></b>.
+		<br>
+		Pour le consulter, veuillez <a href="http://c8b0600.online-server.cloud/secret-oiam-page/tableau-de-bord/voir-facture/<%= @facture.id %>">cliquer ici.</a>
+		
+	</p>
+</div>

@@ -1,0 +1,15 @@
+
+
+
+
+<div style="width: 90%; border: 1px solid #d6b36a; margin: 0 auto; text-align:center;padding: 20px 50px;">
+	<center><img style="width: 250px;margin: 20px;" src="http://c8b0600.online-server.cloud/image/OIAM_Logo.png"></center>
+	<% if @repons==true %>
+		<p> <b><%= @entreprise %></b> a validé votre période d’essai.</p>	
+	<% else %>
+		<p><b><%= @entreprise %></b> n'a pas validé votre période d'essai.</p>	
+	<% end %>
+	<p>
+		Pour le consulter, veuillez <a href="http://c8b0600.online-server.cloud/cadre/suivi-recrutement/<%= @ofc.id %>/mon-progression">cliquer ici.</a>
+	</p>		
+</div>	
