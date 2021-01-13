@@ -156,11 +156,18 @@ class AdminClientsController < ApplicationAdminController
   end
 
   def post_message
-    @client = Cadre.find_by_id(params[:id_client])
+    @client = Client.find_by_id(params[:id_client])
     @contact = ContactAdminClient.find_by(id: params[:id_contact], admin: current_admin, client: @client)
+    
+    if @contact.nil?
+      @contact = ContactAdminClient.create(client: @client, admin:current_admin)
+    else
+      @contact.message_admin_clients.where(admin_see:false).update(admin_see:true)
+    end
+
     @content = params[:message_admin_client][:content]
     @newMessage = MessageAdminClient.new(content:@content, client_see: false, contact_admin_client: @contact, is_admin: true)
-    @contact.message_admin_clients.where(admin_see:false).update(admin_see:true)
+
     unless @newMessage.save
       flash[:alert] = @newMessage.errors.details
       redirect_back(fallback_location: root_path)
