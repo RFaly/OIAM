@@ -159,10 +159,16 @@ class BeProcessedsAdminCandidatesController < ApplicationAdminController
   def be_processed_pomise_no_validate
     @cadre_info = CadreInfo.find_by_id(params[:id])
   end
-
+	
   def be_processed_prime
     @promise = PromiseToHire.find_by_id(params[:id])
-    @cadre_info = @promise.cadre.cadre_info
+    if !@promise.nil?
+      @cadre_info = @promise.cadre.cadre_info
+    else
+      flash[:alert] = "Une erreur s'est produite lors de la vérification des données."
+      redirect_back(fallback_location: root_path)
+      return 0
+    end
   end
 
   def post_be_processed_prime
