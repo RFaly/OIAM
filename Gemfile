@@ -66,7 +66,7 @@ gem 'google-api-client', '~> 0.34'
 gem 'devise'
 gem 'table_print'
 gem 'rails-i18n', '~> 5.1'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem 'jquery-rails'
 gem 'simple_calendar', '~> 2.0'
 gem "letter_opener", :group => :development
